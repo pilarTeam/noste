@@ -1,0 +1,96 @@
+/* 
+ * Comes with inline printing helper css
+ * 
+ * @author Remal mahmud
+ */
+
+
+ 
+.print-page-header,
+.print-page-footer {
+    top: 0;
+    left: 0;
+    width: 100%;
+    float: right;
+    height: 100px;
+    display: flex;
+    padding: 10px 30px;
+    position: absolute;
+    align-items: center;
+    justify-content: end;
+}
+.print-page-header img {
+    width: auto;
+    height: 50px;
+}
+.print-page-footer {
+    bottom: 0;
+    top: unset;
+    height: 60px;
+    justify-content: center;
+}
+@media screen {
+    .print-page-header,
+    .print-page-footer {
+        display: none;
+    }
+}
+@page {
+    /* 210 x 297 */
+    size: A4;
+    margin: 11mm 17mm 17mm 17mm;
+}
+@media print {
+    body {
+      visibility: hidden;
+    }
+    .container.px-4 {
+        margin: 0;
+        padding: 0;
+    }
+    .max-w-\[750px\] {
+        width: 100%;
+        max-width: unset !important;
+    }
+    .section-to-print {
+      top: 0;
+      left: 0;
+      padding-top: 200px;
+      position: absolute;
+      visibility: visible;
+    }
+    .print-page-break {
+        height: 100px;
+        page-break-after: always;
+    }
+    .print-page-header,
+    .print-page-footer {
+        display: flex;
+        position: fixed;
+    }
+    h2 { 
+        page-break-before: always;
+    }
+    h3, h4, pre, blockquote, p {
+        page-break-inside: avoid;
+    }
+    html, body {
+        width: 210mm;
+        height: 297mm;
+    }
+}
+.dots3loader {
+    width: 100px;
+    height: 30px;
+    display: inline;
+    position: relative;
+}
+.dots3loader::before {
+    content: ".";
+    animation: 1s ease-in 1s infinite reverse both running threedotsloader;
+}
+@keyframes threedotsloader {
+    0%   {content: ".";}
+    33%  {content: "..";}
+    66%  {content: "...";}
+}

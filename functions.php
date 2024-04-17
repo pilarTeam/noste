@@ -74,11 +74,22 @@ function noste_scripts() {
 	}
 
 
+	/**
+	 * prints-script added by Remal Mahmud to add custom functionality related to printing after submittion.
+	 * 
+	 * @author Remal Mahmud
+	 */
+	wp_enqueue_style('prints-script', get_template_directory_uri() . '/assets/css/prints.css', [], filemtime(get_template_directory() . '/assets/css/prints.css'), 'all');
+	wp_enqueue_script('prints-script', get_template_directory_uri() . '/assets/js/prints.js', ['jquery'], filemtime(get_template_directory() . '/assets/js/prints.js'), true);
+	wp_enqueue_script('twig-script', 'https://cdnjs.cloudflare.com/ajax/libs/twig.js/1.15.0/twig.min.js', ['jquery'], '1.15.0', true);
+
+	
 	wp_enqueue_script('main-script', get_template_directory_uri() . '/assets/js/main.js', ['jquery', 'date-picker-script'], '1.0', true);
 	wp_localize_script( 'main-script', 'main_ajax_object',
-		array( 
-			'ajaxurl' => admin_url( 'admin-ajax.php' ),
-		)
+		[
+			'ajaxurl'		=> admin_url( 'admin-ajax.php' ),
+			'theme_uri'		=> get_template_directory_uri()
+		]
 	);
 
 	wp_enqueue_style( 'tailwind-style', get_template_directory_uri() . '/assets/css/style.css');
@@ -89,3 +100,19 @@ add_action( 'wp_enqueue_scripts', 'noste_scripts' );
 
 
 
+
+/**
+ * Function to handle submittion of noste single document.
+ * 
+ * @author Remal Mahmud
+ * @since 17 April, 2024
+ */
+add_action('wp_ajax_project_submit_document', 'noste_project_submit_document');
+function noste_project_submit_document() {
+	$json = [];
+	if (isset($_POST['nosti_tasks'])) {
+		$json = $_POST;
+		wp_send_json_success($json);
+	}
+	wp_send_json_error($json);
+}
