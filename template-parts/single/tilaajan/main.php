@@ -43,10 +43,10 @@
 
 
 <!-- Main Content -->
-<section class="py-10">
+<section class="pt-10">
     <div class="container px-4">
         <!-- grid View Item -->
-        <div class="grid grid-cols-1 gap-4">
+        <div class="grid grid-cols-1">
             <!-- card_item -->
             <div class="card_item relative h-fit">
                 <!-- Card Header -->
@@ -132,24 +132,6 @@
                     
                     </div>
                 </div><!-- Card Body -->
-                <!-- Card footer -->
-                <div class="card_footer p-2 border-t border-line">
-                    <div class="flex items-center justify-between">
-                        <a href="./project-details.html" class="btn gap-2 border border-line">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
-                                <defs>
-                                    <pattern id="pattern" width="1" height="1" patternTransform="matrix(-1, 0, 0, 1, 40, 0)" viewBox="0 0 20 20">
-                                        <image preserveAspectRatio="xMidYMid slice" width="20" height="20" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABkklEQVR4nO3dQYrVQBhF4ecKFVF6oHu5dZ12SuiK6xNUeiC6A4UnDxyI9jwHcz4IZPjDISGTP3W5SJIkSdJ/rnN/3bm+da7HbOvF0fOc2vV6fTa29b1zv/6+foxt3R0916l1rq9/BDHK0XK/Xt6eDKOA5P7h1d9RxrZ+vpvr7dGznZZRgIwCZBQgowAZBSh+ffHEKDwxCk+MwhOj8MQoPDEKT4zCE6PwxCg8MQpPjMITo/DEKDwxCk+MwhOj8MQoPDEKT4zCE6PwxCg8MQpPjMITo/DEKDwxCk+MwhOj8MQoPGNbd08torpHz4vy5ciZTm08EWTM9fnouU5p+Mqi/Xtl/2dnfmwPb46e7XRqDI4ag6PG4KgxOGoMjhqDo8bgqDE4agyOGoOjxuCoMThqDI4ag6PG4KgxOGoMjhqDo8bgqDE4agyOGoOjxuCoMThqDI4ag6PG4KgxOGoMDmOAGAPEGCDGADEGiDFA+v7Dcw8nBrmtGntSNEjnevQsddora9s/jbl/vN0fPY8kSZIkXU7uFxa7dmp7vSU5AAAAAElFTkSuQmCC" />
-                                    </pattern>
-                                </defs>
-                                <rect id="icons8-arrow-100" width="20" height="20" fill="url(#pattern)" />
-                            </svg>
-
-                            Takaisin
-                        </a>
-                    </div>
-                </div>
-                <!-- Card footer -->
             </div>
 
 

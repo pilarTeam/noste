@@ -75,7 +75,11 @@ jQuery(document).ready(function ($) {
                             grid_card.find('.projektipaallikko').html(value['projektipaallikko']);
                             grid_card.find('.valvoja').html(value['valvoja']);
                             grid_card.find('.projektin_valmistelu').html(value['projektin_valmistelu']);
-                            grid_card.addClass(value['projektin_tila'].toLowerCase());
+
+                            grid_card.find('.status').removeClass('aktiivinen keskeneräiset arkistoitu');
+
+                            // grid_card.addClass(value['projektin_tila'].toLowerCase());
+                            grid_card.find('.status').addClass(value['projektin_tila'].toLowerCase());
                             
                             // console.log(grid_card);
                             $('#dashboard_projectCard .grid').append(grid_card);
@@ -127,10 +131,93 @@ jQuery(document).ready(function ($) {
     });
 
 
+
     // dropdown open close 
-    $('.dropdown_click').on('click', function(){
-        $(this).find('.dropdown_wrap').toggle();
+    $('.dropdown_click').on('click', '.dropdown-label', function(){
+        $(this).parents('.dropdown_click').find('.dropdown_wrap').toggle();
     });
+
+    $('.dropdown_click').on('click', '.dropdown_wrap label', function(){
+        var selectedText = $(this).find('.name').text();
+        $(this).parents('.dropdown_click').find('.selected-label').text(selectedText);
+        $(this).parents('.dropdown_wrap').hide();
+    });
+
+
+
+// Create Project
+    $('#create-project').on('click', '.project-submit-btn', function(e){
+        e.preventDefault();
+
+        if ( confirm("Are you sure?") ) {
+            $(this).parents('form').trigger('submit');
+         }
+    });
+
+    $('#create-project').on('submit', 'form', function(e){
+        e.preventDefault();
+
+        if ( $('input[name="project_name"]').val() == '' ) {
+            alert('please fill out Projektin nimi field');
+            return;
+        }
+
+       if ( $('input[name="projektinumero"]').val() == '' ) {
+            alert('please fill out Projektinumero field');
+            return;
+        }
+
+        if ( $('input[name="luontipaivamaara"]').val() == '' ) {
+            alert('please fill out Luontipäivämäärä field');
+            return;
+        }
+
+        if ( !$('input[name="projektipaallikko"]').is(':checked') ) {
+            alert('please fill out Projektipäällikkö field');
+            return;
+        }
+
+        if ( !$('input[name="valvoja"]').is(':checked') ) {
+            alert('please fill out Valvoja field');
+            return;
+        }
+
+        var formData = new FormData($(this)[0]);
+        formData.append('action', 'create_a_project');
+
+        $.ajax({
+            url: main_ajax_object.ajaxurl,
+            type: 'POST',
+            data: formData,
+            async: true,
+            cache: false,
+            contentType: false,
+            enctype: 'multipart/form-data',
+            processData: false,
+            success: function(response) {
+                if ( response['success'] ) {
+                    var url = response['data']['permalink'];
+                    if ( url != '' ) {
+                        location.replace(url);
+                    }
+
+                } else {
+                    alert(response['data'][0]['message']);
+                }
+                
+            },
+            error: function(response) {
+                // console.log(response);
+                alert('failed!');
+            }
+        });
+    
+    });
+
+
+// Create Project
+
+
 
     // calendar init
     $('#calendar').daterangepicker({

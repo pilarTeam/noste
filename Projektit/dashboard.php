@@ -25,7 +25,7 @@ if ( !array_intersect( [ 'editor', 'administrator' , 'um_project-manager', 'subs
 if ( array_intersect( [ 'editor', 'administrator' ], $user->roles ) ) {
     $args = [
         'post_type' => 'projektitiedot',
-        'numberposts' => -5,
+        'numberposts' => -1,
         'fields' => 'ids'
     ];
 }
@@ -190,6 +190,8 @@ get_header( 'noste' );
                     $projektipaallikko = !empty(get_field('projektipaallikko', $id)) ? get_field('projektipaallikko', $id)['label'] : '';
                     $valvoja = !empty(get_field('valvoja', $id)) ? implode(', ', array_column(get_field('valvoja', $id), 'label')) : '';
                     $projektin_valmistelu = !empty(get_field('projektin_valmistelu', $id)) ? get_field('projektin_valmistelu', $id) : '';
+
+                    $edit_project = add_query_arg([ 'pid' => $id ], get_permalink( 60 ) );                    
                     ?>
 
                     <!-- card_item -->
@@ -270,7 +272,7 @@ get_header( 'noste' );
                             </div> <!-- footer_top -->
 
                             <div class="bg-[#F2F4F7] text-right px-3 py-4 project-edit-osoite">
-                                <a href="#" class="btn bg-white border border-black2">
+                                <a href="<?php echo esc_attr( $edit_project ); ?>" class="btn bg-white border border-black2">
                                     <i class="um-faicon-pencil-square-o"></i>
                                     <span>Muokkaa projektia</span>
                                 </a>

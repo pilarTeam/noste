@@ -1,6 +1,10 @@
 <?php 
 
 add_action( 'wp_ajax_project_status_change', 'noste_project_status_change');
+add_action( 'wp_ajax_create_a_project', 'noste_create_a_project');
+add_filter('acf/load_field/name=projektipaallikko', 'noste_project_projektipaallikko');
+add_filter('acf/load_field/name=valvoja', 'noste_project_valvoja');
+
 
 function noste_project_status_change(){
 	$status = !empty($_POST['status']) ? $_POST['status'] : '';
@@ -54,15 +58,11 @@ function noste_project_status_change(){
 '] = get_the_permalink( $id );
         	}
         }
-
-
-
 		echo json_encode( $output );
 	}
 
 	wp_die();
 }
-
 
 
 function noste_header_middle() {
@@ -154,9 +154,9 @@ function noste_header_middle() {
 function noste_header_notification(){
 	ob_start();
 
-	if ( is_page( 20 ) ) :
+	if ( is_page( [ 20, 66 ] ) ) :
 	?>
-		<a href="#!">
+		<a href="<?php echo esc_attr( get_permalink( 66 )  ); ?>">
 		    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-6" viewBox="0 0 32 32">
 		        <defs>
 		            <pattern id="pattern5" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 100 100">
@@ -167,17 +167,24 @@ function noste_header_notification(){
 		    </svg>
 		</a>
 
-	<?php elseif ( ( is_single() && 'projektitiedot' == get_post_type() ) || is_page( 62 ) ) : ?>
+	<?php elseif ( ( is_single() && 'projektitiedot' == get_post_type() ) || is_page( [ 62, 64 ] ) ) : ?>
 
 	<?php 
 
-	if ( is_page( 62 ) ) {
+	if ( is_page( [62, 64 ] ) ) {
 		global $wp;
 		$esitietolomake_url = home_url( add_query_arg(array($_GET), $wp->request ) );
+		$kustannusseuranta_url = home_url( add_query_arg(array($_GET), $wp->request ) );
 	} else {
 		$esitietolomake_url = add_query_arg([
 					'pid' => get_the_ID()
-				], get_permalink( 62 ) );		
+				], get_permalink( 62 ) );
+
+		$kustannusseuranta_url = add_query_arg([
+					'pid' => get_the_ID()
+				], get_permalink( 64 ) );
+
+
 	}
 
 	 ?>
@@ -193,7 +200,7 @@ function noste_header_notification(){
         
         </a>
         
-        <a href="#!" class="hidden sm:block hover:bg-[#FAFAFB] focus:bg-[#FAFAFB] rounded p-2">
+        <a href="<?php echo esc_attr( $kustannusseuranta_url ); ?>" class="hidden sm:block hover:bg-[#FAFAFB] focus:bg-[#FAFAFB] rounded p-2">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-4" viewBox="0 0 23 23">
                 <defs>
                     <pattern id="pattern" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 100 100">
@@ -220,4 +227,103 @@ function noste_header_notification(){
 	endif;
 
 	return ob_get_clean();	
+}
+
+
+function noste_create_a_project() {
+	check_ajax_referer( 'create_project_validation', 'create_project_nonce_field' );
+
+	if ( empty($_POST['project_name']) || empty($_POST['projektinumero']) || empty($_POST['luontipaivamaara']) ) {
+		$error = new WP_Error( '001', 'Please fill out blank fields' );
+		wp_send_json_error( $error );
+	}
+
+	$projektin_nimi = sanitize_text_field( $_POST['project_name'] );
+	$projektinumero = sanitize_text_field( $_POST['projektinumero'] );
+	$luontipaivamaara = sanitize_text_field( $_POST['luontipaivamaara'] );
+	$projektipaallikko = sanitize_text_field( $_POST['projektipaallikko'] );
+	$valvoja = sanitize_text_field( $_POST['valvoja'] );
+	$project_id = !empty($_POST['project_id']) ? sanitize_text_field( $_POST['project_id'] ) : 0;
+
+
+	$post_id = wp_insert_post([
+		'post_type' => 'projektitiedot',
+		'post_author' => get_current_user_id(),
+		'post_title' => wp_strip_all_tags( $projektin_nimi ),
+		'post_status'   => 'publish',
+	]);
+
+	if ( is_wp_error($post_id) ) {
+		$error = new WP_Error( '002', 'Failed For Server Busy' );
+		wp_send_json_error( $error );
+	} else {
+
+		update_field( 'projektinumero', $projektinumero, $post_id );
+		update_field( 'luontipaivamaara', $luontipaivamaara, $post_id );
+		update_field( 'projektipaallikko', $projektipaallikko, $post_id );
+		update_field( 'valvoja', $valvoja, $post_id );
+		update_field( 'projektin_tila', 'Aktiivinen', $post_id );
+
+		wp_send_json_success([
+			'permalink' => get_permalink( $post_id )
+		], 200);
+	}
+
+
+
+	wp_die();
+}
+
+
+function noste_project_projektipaallikko($field) {
+  
+    // reset choices
+    $field['choices'] = array();
+    
+    $choices = get_users([ 
+	    'role__in'  => [ 'um_project-manager'],
+	    'fields'    => [ 'id', 'display_name' ]
+	]);
+    
+    // loop through array and add to field 'choices'
+    if( is_array($choices) ) {
+        
+        foreach( $choices as $choice ) {
+            
+            $field['choices'][ $choice->id ] = $choice->display_name;
+            
+        }
+        
+    }
+    
+
+    // return the field
+    return $field;	
+}
+
+
+function noste_project_valvoja($field) {
+  
+    // reset choices
+    $field['choices'] = array();
+    
+    $choices = get_users([ 
+	    'role__in'  => [ 'subscriber'],
+	    'fields'    => [ 'id', 'display_name' ]
+	]);
+    
+    // loop through array and add to field 'choices'
+    if( is_array($choices) ) {
+        
+        foreach( $choices as $choice ) {
+            
+            $field['choices'][ $choice->id ] = $choice->display_name;
+            
+        }
+        
+    }
+    
+
+    // return the field
+    return $field;	
 }
