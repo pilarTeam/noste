@@ -1,0 +1,466 @@
+/*!
+Theme Name: noste
+Theme URI: #
+Version: 1.0.0
+Tested up to: 5.4
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+Text Domain: noste
+
+*/
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;	
+}
+
+body h1,
+body h2 {
+	font-size: 32px;
+	font-weight: 500;
+}
+div.um:not(.um-admin) {
+    opacity: 1;
+}
+
+.um-login h2 {
+    color: #08202C;
+    font-weight: 500;
+    text-align: center;
+}
+
+.um-login .um-field-block p {
+    color: #818D93;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.um-login .um-form {
+    border: 1px solid #E1E1EA;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.um-login .um-form .um-col-alt-b {
+    padding-top: 0;
+}
+
+.um-login .um-form .um-row._um_row_1 {
+    margin-bottom: 10px !important;
+}
+
+.um-login .um-form .um-col-alt-b a {
+    text-align: right;
+    color: #00B2A9 !important;
+    font-weight: 500;
+}
+
+.um-login .um-form input#um-submit-btn {
+    width: 100% !important;
+    background: #00B2A9;
+    font-size: 16px;
+}
+
+
+.um-login .um-field-area-password span.um-toggle-password i {
+	background-image: url('/wp-content/themes/noste/assets/images/eye-on.svg');
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
+
+.um-login .um-field-area-password span.um-toggle-password i:before {
+    opacity: 0;
+}
+
+.um-login .um-field-area-password span.um-toggle-password i.um-icon-eye-disabled {
+    background-image: url('/wp-content/themes/noste/assets/images/eye-off.svg');
+}
+
+.noste-reset {
+    width: 470px;
+    margin: auto;
+    max-width: 100%;
+}
+
+.login-back button,
+.login-back a {
+    box-shadow: 1px 1px 3px #818D9314;
+    border: 1px solid #E1E1EA;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px 9px 8px;
+    line-height: 1em;
+    color: #08202C;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.login-back button img,
+.login-back a img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    margin-right: 4px;
+}
+
+.noste-reset .noste-reset-wrap {
+    margin-top: 25px;
+    border: 1px solid #E1E1EA;
+    border-radius: 12px;
+    background: #fff;
+    padding: 24px;
+    text-align: center;
+}
+
+.noste-reset .noste-reset-wrap h2 {
+    padding-top: 20px;
+    font-weight: 500;
+    color: #08202C;
+    padding-bottom: 7px;
+}
+
+.noste-reset .noste-reset-wrap > p {
+    width: 335px;
+    margin: auto;
+    font-size: 16px;
+    color: #818D93;
+    font-weight: 400;
+    padding-bottom: 20px;
+}
+
+.noste-reset .noste-reset-wrap > p strong {
+    color: #283B44;
+    font-weight: 700;
+}
+
+.noste-reset .um-password input#um-submit-btn {
+    width: 100% !important;
+    background: #00B2A9;
+}
+
+.noste-reset .um-password  .um-col-alt {
+    padding-top: 0;
+}
+
+.noste-reset .um-password .um-field-text input {
+    background: #E8F0FE 0% 0% no-repeat padding-box;
+    box-shadow: 1px 1px 3px #818D9314 !important;
+    border: 1px solid #E1E1EA !important;
+    border-radius: 8px;
+}
+
+.noste-reset-label label {
+    color: #08202C;
+    font-size: 15px;
+    text-align: left !important;
+    font-weight: 500;
+}
+
+.noste-reset .um-password .um-field-text {
+    padding-top: 7px;
+}
+
+
+/** Register  */
+
+.register-tiedot .um.um-register {
+    max-width: 100%;
+}
+
+.register-tiedot .um.um-register label {
+    color: #08202C;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.register-tiedot .um.um-register input {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 1px 1px 3px #818D9314;
+    border: 1px solid #E1E1EA;
+    border-radius: 8px;
+}
+
+.register-tiedot .um.um-register .um-field[data-key="um_block_8_8"] {
+    padding-top: 40px;
+}
+
+.register-tiedot .um.um-register .um-field[data-key="um_block_8_8"] h3 {
+    font-size: 24px;
+    font-weight: 500;
+    color: #08202C;
+}
+
+.register-tiedot .um.um-register .um-field[data-key="um_block_8_8"] {
+    font-size: 16px;
+    color: #818D93;
+}
+.register-tiedot .um.um-register input#um-submit-btn {
+    background: #00B2A9;
+    width: auto;
+    min-width: auto !important;
+    padding: 13px 22px !important;
+    margin-left: auto;
+}
+.register-tiedot .um.um-register .um-col-alt {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.register-tiedot .um.um-register .um-left {
+    order: 2;
+}
+.register-tiedot .um.um-register .um-right a {
+    width: auto;
+    min-width: auto !important;
+    padding: 13px 22px !important;
+    margin-left: auto;
+    background: #fff;
+    display: inline-block;
+    color: #586B74;
+    font-weight: 500 !important;
+}	
+.um-register .um-field-area-password span.um-toggle-password i {
+    background-image: url('/wp-content/themes/noste/assets/images/eye-on.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.um-register .um-field-area-password span.um-toggle-password i:before {
+    opacity: 0;
+}
+
+.um-register .um-field-area-password span.um-toggle-password i.um-icon-eye-disabled {
+    background-image: url('/wp-content/themes/noste/assets/images/eye-off.svg');
+}	
+
+.noste-toogle-password {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 40px;
+    text-align: center;
+    box-sizing: border-box;
+    z-index: 2;  
+    background-image: url('/wp-content/themes/noste/assets/images/eye-on.svg');
+    background-repeat: no-repeat;
+    background-size: 21px auto;
+    background-position: center;
+}
+.noste-toogle-password.disabled {
+    background-image: url('/wp-content/themes/noste/assets/images/eye-off.svg');    
+}
+
+/** End Register */
+
+/** View All Accounts */
+section#view-all-accounts .profile-img img {
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid rgb(6 249 183 / var(--tw-border-opacity));
+    border-radius: 50%;
+}
+/** End View All Accounts */
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 4px solid #FFF;
+  border-right: 4px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border-bottom: 4px solid #00b2a9;
+  border-left: 4px solid transparent;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
+
+
+div#dashboard_projectCard .list-layout {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    gap: 0;
+}
+
+div#dashboard_projectCard .list-layout .project-head {
+    width: 22%;
+    padding: 0;
+    border: none;
+}
+
+
+div#dashboard_projectCard .list-layout .project-details {
+    width: 58%;
+    display: flex;
+    flex-wrap: wrap;
+}
+div#dashboard_projectCard .list-layout .project-title h2 {
+    padding: 0;
+    margin-bottom: 4px;
+}
+div#dashboard_projectCard .list-layout .project-kiinteisto h3 {
+    display: none;
+}
+div#dashboard_projectCard .list-layout .project-footer {
+    width: 20%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div#dashboard_projectCard .list-layout .card_item {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: none;
+    border-radius: 0;    
+}
+
+div#dashboard_projectCard .list-layout .project-head > div {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+}
+
+div#dashboard_projectCard .list-layout .project-head div.status-wrap {
+    order: 1;
+}
+
+div#dashboard_projectCard .list-layout .project-head div.project-comname {
+    order: 2;
+    width: 60%;
+    border-right: 1px solid #ddd;
+}
+
+div#dashboard_projectCard .list-layout a.single_permalink {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+div#dashboard_projectCard .list-layout .project-title {
+    width: 50%;
+    border-right: 1px solid #ddd;
+    padding: 19px;
+}
+
+div#dashboard_projectCard .list-layout .single_permalink > ul {
+    width: 50%;
+    padding: 19px;
+    border-right: 1px solid #ddd;
+}
+
+div#dashboard_projectCard .list-layout .project-details .project-details-wrap {
+    width: 66%;
+    padding: 0;
+    border-bottom: none;
+}
+
+div#dashboard_projectCard .list-layout .project-details .project-kiinteisto {
+    width: 33%;
+    padding: 19px;
+    border-right: 1px solid #ddd;
+    border-bottom: none;
+}
+div#dashboard_projectCard .list-layout .card_item:last-child {
+    border-bottom: 1px solid #ddd;
+}
+
+div#dashboard_projectCard .list-layout .project-head div.status-wrap {
+    width: 40%;
+    border-right: 1px solid #ddd;
+    border-radius: 0;
+    padding: 0;
+}
+
+div#dashboard_projectCard .list-layout .project-footer .footer_top {
+    width: 70%;
+}
+
+div#dashboard_projectCard .list-layout .project-footer .project-edit-osoite {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+div#dashboard_projectCard .list-layout .project-footer .project-edit-osoite a span {
+    display: none;
+}
+div#dashboard_projectCard .list-layout .project-footer .project-edit-osoite a {
+    font-size: 21px;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #5F6E75;
+}
+div#dashboard_projectCard .list-layout .projektinumero {
+    margin-bottom: 0;
+}
+
+div#dashboard_projectCard span.status {
+    border-radius: 18px;
+    padding: 3px 12px;
+    color: #000;
+}
+div#dashboard_projectCard span.status.aktiivinen {
+    background: #ECFDF3 0% 0% no-repeat padding-box;
+    box-shadow: 1px 1px 3px #818D9314;
+    border: 1px solid #AAEFC6;
+    color: #067647;
+
+}
+div#dashboard_projectCard span.status.arkistoitu {
+    color: #026AA2;
+    background: #F0F9FF 0% 0% no-repeat padding-box;
+    box-shadow: 1px 1px 3px #818D9314;
+    border: 1px solid #B9E6FE;
+
+}
+div#dashboard_projectCard span.status.keskeneräiset {
+    color: #344054;
+    background: #F9FAFB 0% 0% no-repeat padding-box;
+    box-shadow: 1px 1px 3px #818D9314;
+    border: 1px solid #ECEEF1;
+}
+
+
+header .noste-header-middle {
+    width: 50%;
+}
+
+header .noste-header-middle .projekti-status {
+    width: 390px;
+    max-width: 100%;
+}
+section#single-main-list .starting {
+    border-left: 8px solid #fff;
+}
