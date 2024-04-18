@@ -145,7 +145,7 @@ jQuery(document).ready(function ($) {
 
 
 
-// Create Project
+    // Create Project
     $('#create-project').on('click', '.project-submit-btn', function(e){
         e.preventDefault();
 
@@ -153,7 +153,7 @@ jQuery(document).ready(function ($) {
             $(this).parents('form').trigger('submit');
          }
     });
-
+    // 
     $('#create-project').on('submit', 'form', function(e){
         e.preventDefault();
 

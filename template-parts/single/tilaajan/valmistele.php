@@ -51,7 +51,7 @@
                         
                         <h4 class="mb-8 text-[#081F2C] mx-auto max-w-[750px]">Projektin lähtötietopalaveri</h4>
 
-                        <form action="#">
+                        <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post" enctype="multipart/form-data">
                             <div class="mb-8 mx-auto max-w-[750px]">
                                 <div class="flex flex-wrap mb-4">
                                     <label class="flex-[3] mr-4 text-sm font-medium text-black" for="version">Versio:</label>

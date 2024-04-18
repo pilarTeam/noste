@@ -7,7 +7,26 @@
  * @frontend https://github.com/pilarTeam/nosteHTML
  */
 
+// document.querySelectorAll('#update-project .project-submit-btn').forEach(button => {
+//   var form = button.parentElement.parentElement;
+//   button.addEventListener('click', (event) => handleUpdateProjects(event, button, form));
+//   form.addEventListener('submit', (event) => handleUpdateProjects(event, button, form));
+// });
+// function handleUpdateProjects(event, button, form) {
+//   event.preventDefault();var data = {};var submit = button;
+//   new FormData(form).forEach((value, key) => data[key] = value);
+//   if (data?.action) {delete data.action;}
 
+//   wp.ajax.post('update_a_project', data).done(json => {
+//     submit.disabled = false;console.log(json);
+//     if (json?.permalink != '') {
+//       location.replace(json.permalink);
+//     }
+//   }).fail(error => {
+//     console.error(error);
+//     submit.disabled = false;
+//   });
+// }
 /**
  * Submission events handling to send submission backend and getting response.
  */
@@ -29,9 +48,9 @@ document.querySelectorAll('.btn.gap-2.border.border-accent.bg-accent.text-white'
       wp.ajax.post('project_submit_document', data).done(json => {
         submit.disabled = false;
         console.log(json);
-        var template = Twig.twig({
-          data: 'Please wait for a while until the preview templates are loaded{{ threedotsloader }}'
-        });
+        // var template = Twig.twig({
+        //   data: 'Please wait for a while until the preview templates are loaded{{ threedotsloader }}'
+        // });
         var hiddenCard = document.querySelector('.card_item.relative.h-fit .card_header');
         if (hiddenCard && hiddenCard.nextElementSibling) {
           var printBtn = hiddenCard.lastElementChild;
@@ -41,15 +60,21 @@ document.querySelectorAll('.btn.gap-2.border.border-accent.bg-accent.text-white'
           // printPrevCard.classList.add('card_item', 'relative', 'h-fit');
           printPrevCard.className = hiddenCard.className;
           printPrevCard.classList.add('section-to-print');
-          printPrevCard.innerHTML = template.render({threedotsloader: '<span class="dots3loader"></span>'});
-          fetch(`${main_ajax_object.theme_uri}/assets/js/twigs/example.twig`)
-          .then(data => data.text())
-          .then(body => {
-            console.log(body)
-            var template = Twig.twig({data: body});
-            printPrevCard.innerHTML = template.render(json);
-            // print();
-          }).catch(error => console.error(error));
+          
+          printPrevCard.innerHTML = hiddenCard.innerHTML;
+          setTimeout(() => {
+            printPrevCard
+          }, 300);
+          
+          // printPrevCard.innerHTML = template.render({threedotsloader: '<span class="dots3loader"></span>'});
+          // fetch(`${main_ajax_object.theme_uri}/assets/js/twigs/example.twig`)
+          // .then(data => data.text())
+          // .then(body => {
+          //   console.log(body)
+          //   var template = Twig.twig({data: body});
+          //   printPrevCard.innerHTML = template.render(json);
+          //   // print();
+          // }).catch(error => console.error(error));
           // Twig.renderFile(`${main_ajax_object.theme_uri}/assets/js/twigs/example.twig`, json, (error, compiledHtml) => {
           //   if (error) {console.error(error);}
           //   printPrevCard.innerHTML = compiledHtml;

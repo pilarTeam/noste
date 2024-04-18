@@ -11,18 +11,34 @@ if ( !is_user_logged_in() ) {
 
 $user = wp_get_current_user();
 
-if ( isset($user->roles) && !empty($user->roles) && !array_intersect( [ 'editor', 'administrator' ], $user->roles ) ) {
+
+$project = isset($_GET['pid'])?get_post((int) $_GET['pid']):false;
+$is_update = isset($_GET['pid']);
+if (is_wp_error($project)) {$project = false;}
+// else {setup_postdata($project);}
+$project_id = ($project)?$project->ID:0;
+// print_r($project);
+
+
+
+if (
+    // Kamrul
+    (isset($user->roles) && !empty($user->roles) && !array_intersect(['editor', 'administrator'], $user->roles))
+            ||
+    // Remal
+    ($is_update && $project == false)
+) {
     wp_redirect( site_url() );
     exit;	
 }
 
 $pm_users = get_users([ 
-    'role__in'  => [ 'um_project-manager'],
+    'role__in'  => ['um_project-manager'],
     'fields'    => 'IDs'
 ]);
 
 $sub_users = get_users([ 
-    'role__in'  => [ 'subscriber'],
+    'role__in'  => ['subscriber'],
     'fields'    => 'IDs'
 ]);
 
@@ -47,7 +63,7 @@ get_header( 'noste' );
     </section>
 
     <!-- add new project start  -->
-    <section class="pt-10 pb-20" id="create-project">
+    <section class="pt-10 pb-20" id="<?php echo esc_attr(($project)?'create-project':'create-project'); ?>">
         <div class="container px-4">
             <div class="mx-auto max-w-[700px]">
                 <h2 class="text-2xl text-black font-medium">Projektitiedot</h2>
@@ -56,23 +72,28 @@ get_header( 'noste' );
                 <hr class="border-b border-solid border-[#E1E1EA] my-10">
 
                 <div>
-                    <form action="#" method="post">
-                        <?php wp_nonce_field( 'create_project_validation', 'create_project_nonce_field' ); ?>
+                    <form action="<?php echo esc_url('/create-new-project/'); ?>" method="post">
+                        <?php
+                            wp_nonce_field('create_project_validation', 'create_project_nonce_field');
+                        ?>
+                        <?php if ($project) : ?>
+                            <input type="hidden" name="to_update_id" value="<?php echo esc_attr($project_id); ?>">
+                        <?php endif; ?>
                         <div>
                             <label for="project_name" class="text-black font-medium block mb-2">Projektin nimi</label>
-                            <input type="text" class="w-full border border-solid border-[#E1E1EA] rounded-lg py-3 text-offwhite" name="project_name" id="project_name" placeholder="Projektin nimi" required>
+                            <input type="text" class="w-full border border-solid border-[#E1E1EA] rounded-lg py-3 text-offwhite" name="project_name" id="project_name" placeholder="Projektin nimi" value="<?php echo esc_attr(($project)?get_the_title($project):''); ?>" required>
                         </div>
 
                         <div class="flex justify-between gap-5 mt-5 flex-col lg:flex-row">
                             <div class="flex-1 w-full">
                                 <label for="projektinumero" class="text-black font-medium block mb-2">Projektinumero</label>
-                                <input type="text" class="w-full border border-solid border-[#E1E1EA] rounded-lg py-3 text-offwhite" name="projektinumero" id="projektinumero" placeholder="Projektinumero" required>
+                                <input type="text" class="w-full border border-solid border-[#E1E1EA] rounded-lg py-3 text-offwhite" name="projektinumero" id="projektinumero" placeholder="Projektinumero" value="<?php echo esc_attr(($project)?get_field('projektinumero', $project_id):''); ?>" required>
                             </div>
 
                             <div class="flex-1 w-full">
                                 <label for="calendar" class="text-black font-medium block mb-2">Luontipäivämäärä</label>
                                 <div class="relative w-full border border-solid border-[#E1E1EA] rounded-lg py-2 text-offwhite cursor-pointer">
-                                    <input type="text" class="bg-transparent w-full h-full" name="luontipaivamaara" id="calendar" placeholder="Luontipäivämäärä" required>
+                                    <input type="text" class="bg-transparent w-full h-full" name="luontipaivamaara" id="calendar" placeholder="Luontipäivämäärä" value="<?php echo esc_attr(($project)?get_field('luontipaivamaara', $project_id):''); ?>" required>
                                     
                                     <span class="absolute top-[10px] right-[10px]">
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 300 300">
@@ -90,7 +111,16 @@ get_header( 'noste' );
                                 <label for="Projektipäällikkö" class="text-black font-medium block mb-2">Projektipäällikkö</label>
                                 <div class="dropdown_click w-full border border-solid border-[#E1E1EA] rounded-lg text-offwhite cursor-pointer relative">
                                     <span class="dropdown-label flex items-center justify-between p-3">
-                                        <span class="selected-label">Projektipäällikkö</span>
+                                        <span class="selected-label"><?php
+                                            $label = 'Projektipäällikkö';
+                                            if ($project) {
+                                                $obj = get_field('projektipaallikko', $project_id);
+                                                if ($obj && isset($obj['label'])) {
+                                                    $label = $obj['label'];
+                                                }
+                                            }
+                                            echo esc_html($label);
+                                        ?></span>
 
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 300 300">
                                             <g id="expand_input_field" transform="translate(-622 -557)">
@@ -104,6 +134,10 @@ get_header( 'noste' );
 
                                     <?php 
                                         if ( !empty($pm_users) ):
+                                            $projektipaallikko = get_field('projektipaallikko', $project_id);
+                                            if ($projektipaallikko && isset($projektipaallikko['value'])) {
+                                                $projektipaallikko = $projektipaallikko['value'];
+                                            }
                                             foreach ($pm_users as $user_id): 
                                                 um_fetch_user($user_id);
                                     ?>
@@ -119,7 +153,7 @@ get_header( 'noste' );
 
                                                     <span class="border border-solid border-[#E1E1EA] rounded-full px-3 py-1">Valittu</span>
 
-                                                    <input type="radio" class="absolute hidden" name="projektipaallikko" value="<?php echo esc_attr( $user_id ); ?>" required>
+                                                    <input type="radio" class="absolute hidden" name="projektipaallikko" value="<?php echo esc_attr( $user_id ); ?>" <?php echo esc_attr($user_id == $projektipaallikko?'checked':''); ?> required>
                                                 </label>
 
                                             <?php endforeach; 
@@ -133,7 +167,17 @@ get_header( 'noste' );
                                 <label for="valvoja" class="text-black font-medium block mb-2">Valvoja</label>
                                 <div class="dropdown_click w-full border border-solid border-[#E1E1EA] rounded-lg text-offwhite cursor-pointer relative">
                                     <span class="dropdown-label flex items-center justify-between p-3">
-                                        <span class="selected-label">Valvoja</span>
+                                        <span class="selected-label"><?php
+                                            $label = 'Valvoja';
+                                            if ($is_update) {
+                                                $valvoja = get_field('valvoja', $project_id);
+                                                $valvoja = isset($valvoja[0])?$valvoja[0]:$valvoja;
+                                                if ($valvoja && isset($valvoja['label'])) {
+                                                    $label = $valvoja['label'];
+                                                }
+                                            }
+                                            echo esc_html($label);
+                                        ?></span>
 
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 300 300">
                                             <g id="expand_input_field" transform="translate(-622 -557)">
@@ -147,6 +191,13 @@ get_header( 'noste' );
 
                                     <?php 
                                         if ( !empty($sub_users) ):
+                                            if ($is_update) {
+                                                $valvoja = get_field('valvoja', $project_id);
+                                                $valvoja = isset($valvoja[0])?$valvoja[0]:$valvoja;
+                                                if ($valvoja && isset($valvoja['value'])) {
+                                                    $valvoja = $valvoja['value'];
+                                                }
+                                            }
                                             foreach ($sub_users as $user_id): 
                                                 um_fetch_user($user_id);
                                     ?>
@@ -162,7 +213,7 @@ get_header( 'noste' );
 
                                                     <span class="border border-solid border-[#E1E1EA] rounded-full px-3 py-1">Valittu</span>
 
-                                                    <input type="radio" class="absolute hidden" name="valvoja" value="<?php echo esc_attr( $user_id ); ?>" required>
+                                                    <input type="radio" class="absolute hidden" name="valvoja" value="<?php echo esc_attr( $user_id ); ?>" <?php echo esc_attr($user_id == $valvoja?'checked':''); ?> required>
                                                 </label>
 
                                             <?php endforeach; 
@@ -174,8 +225,10 @@ get_header( 'noste' );
                             </div>
                         </div>
 
+                        <?php if (!$project) : ?>
+                            
                         <hr class="border-b border-solid border-[#E1E1EA] my-10">
-                        
+
                         <div>
                             <label for="project_name" class="text-black font-medium block mb-2">Kopioi olemassa olevan projektin tiedot</label>
                             <div class="dropdown_click w-full border border-solid border-[#E1E1EA] rounded-lg text-offwhite cursor-pointer relative">
@@ -208,6 +261,7 @@ get_header( 'noste' );
                                 </div>
                             </div>
                         </div>
+                        <?php endif; ?>
 
                         <div class="flex items-center justify-between mt-10">
                             <a class="flex items-center gap-2 text-[#586B74] px-4 py-2 border border-solid border-[#E1E1EA] rounded-lg" href="<?php echo esc_attr( get_permalink( get_the_ID() ) ); ?>">
