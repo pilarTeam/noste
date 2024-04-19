@@ -63,7 +63,44 @@ document.querySelectorAll('.btn.gap-2.border.border-accent.bg-accent.text-white'
           
           printPrevCard.innerHTML = hiddenCard.innerHTML;
           setTimeout(() => {
-            printPrevCard
+            Object.keys(json).forEach(key => {
+              printPrevCard.querySelectorAll(`[name=${key}], [name="${key}[]"]`).forEach(input => {
+                // 
+                switch (input.type) {
+                  case 'radio':
+                  case 'checkbox':
+                    if (typeof json[key] !== 'object') {
+                      json[key] = [json[key]];
+                    }
+                    if (json[key].includes(input.value)) {
+                      input.checked = true;
+                    }
+                    ['readonly', 'disabled'].forEach(attr => input.setAttribute(attr, true));
+                    input.classList.add(...['border-b', 'border-line']);
+                    input.classList.remove(...['shadow-input', 'border-accent']);
+                    // if (true) {}
+                    console.log(key, input)
+                    break;
+                  default:
+                    var text = document.createElement('p');
+                    text.className = input.className;
+                    text.classList.add('text-sm', 'text-[#818D93]');
+                    text.innerHTML = json[key];
+                    ['shadow-input'].forEach(cls => text.classList.remove(cls));
+                    // 
+                    input.parentElement.insertBefore(text, input);
+                    input.remove();
+                    break;
+                }
+              });
+            });
+            setTimeout(() => {
+              printPrevCard.querySelectorAll(`${['radio', 'checkbox'].map(type => `input[type=${type}]`).join(', ')}, select, textarea`).forEach(input => {
+                ['readonly', 'disabled'].forEach(attr => input.setAttribute(attr, true));
+                  input.classList.add(...['border-b', 'border-line']);
+                  input.classList.remove(...['shadow-input', 'border-accent']);
+              });
+            }, 300);
           }, 300);
           
           // printPrevCard.innerHTML = template.render({threedotsloader: '<span class="dots3loader"></span>'});
