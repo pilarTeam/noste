@@ -6,6 +6,10 @@
  * @url https://github.com/mahmudremal/
  * @frontend https://github.com/pilarTeam/nosteHTML
  */
+// define global contants variables.
+PRINTS_ARGS = {
+  allowTwig: true
+};
 
 // document.querySelectorAll('#update-project .project-submit-btn').forEach(button => {
 //   var form = button.parentElement.parentElement;
@@ -47,10 +51,12 @@ document.querySelectorAll('.btn.gap-2.border.border-accent.bg-accent.text-white'
       new FormData(theForm).forEach((value, key) => data[key] = value);
       wp.ajax.post('project_submit_document', data).done(json => {
         submit.disabled = false;
-        console.log(json);
-        // var template = Twig.twig({
-        //   data: 'Please wait for a while until the preview templates are loaded{{ threedotsloader }}'
-        // });
+        // console.log(json);
+        if (PRINTS_ARGS?.allowTwig) {
+          var template = Twig.twig({
+            data: 'Please wait for a while until the preview templates are loaded{{ threedotsloader }}'
+          });
+        }
         var hiddenCard = document.querySelector('.card_item.relative.h-fit .card_header');
         if (hiddenCard && hiddenCard.nextElementSibling) {
           var printBtn = hiddenCard.lastElementChild;
@@ -61,61 +67,65 @@ document.querySelectorAll('.btn.gap-2.border.border-accent.bg-accent.text-white'
           printPrevCard.className = hiddenCard.className;
           printPrevCard.classList.add('section-to-print');
           
-          printPrevCard.innerHTML = hiddenCard.innerHTML;
-          setTimeout(() => {
-            Object.keys(json).forEach(key => {
-              printPrevCard.querySelectorAll(`[name=${key}], [name="${key}[]"]`).forEach(input => {
-                // 
-                switch (input.type) {
-                  case 'radio':
-                  case 'checkbox':
-                    if (typeof json[key] !== 'object') {
-                      json[key] = [json[key]];
-                    }
-                    if (json[key].includes(input.value)) {
-                      input.checked = true;
-                    }
-                    ['readonly', 'disabled'].forEach(attr => input.setAttribute(attr, true));
+          if (PRINTS_ARGS?.allowTwig) {
+            printPrevCard.innerHTML = template.render({threedotsloader: '<span class="dots3loader"></span>'});
+            fetch(`${main_ajax_object.theme_uri}/assets/js/twigs/example.twig`)
+            .then(data => data.text())
+            .then(body => {
+              // console.log(body);
+              var template = Twig.twig({data: body?.submission??{}});
+              printPrevCard.innerHTML = template.render(json);
+              // print();
+            }).catch(error => console.error(error));
+            Twig.renderFile(`${main_ajax_object.theme_uri}/assets/js/twigs/example.twig`, json, (error, compiledHtml) => {
+              if (error) {console.error(error);}
+              printPrevCard.innerHTML = compiledHtml;
+            });
+          } else {
+            printPrevCard.innerHTML = hiddenCard.innerHTML;
+            setTimeout(() => {
+              Object.keys(json).forEach(key => {
+                printPrevCard.querySelectorAll(`[name=${key}], [name="${key}[]"]`).forEach(input => {
+                  // 
+                  switch (input.type) {
+                    case 'radio':
+                    case 'checkbox':
+                      if (typeof json[key] !== 'object') {
+                        json[key] = [json[key]];
+                      }
+                      if (json[key].includes(input.value)) {
+                        input.checked = true;
+                      }
+                      ['readonly', 'disabled'].forEach(attr => input.setAttribute(attr, true));
+                      input.classList.add(...['border-b', 'border-line']);
+                      input.classList.remove(...['shadow-input', 'border-accent']);
+                      // if (true) {}
+                      console.log(key, input)
+                      break;
+                    default:
+                      var text = document.createElement('p');
+                      text.className = input.className;
+                      text.classList.add('text-sm', 'text-[#818D93]');
+                      text.innerHTML = json[key];
+                      ['shadow-input'].forEach(cls => text.classList.remove(cls));
+                      // 
+                      input.parentElement.insertBefore(text, input);
+                      input.remove();
+                      break;
+                  }
+                });
+              });
+              setTimeout(() => {
+                printPrevCard.querySelectorAll(`${['radio', 'checkbox'].map(type => `input[type=${type}]`).join(', ')}, select, textarea`).forEach(input => {
+                  ['readonly', 'disabled'].forEach(attr => input.setAttribute(attr, true));
                     input.classList.add(...['border-b', 'border-line']);
                     input.classList.remove(...['shadow-input', 'border-accent']);
-                    // if (true) {}
-                    console.log(key, input)
-                    break;
-                  default:
-                    var text = document.createElement('p');
-                    text.className = input.className;
-                    text.classList.add('text-sm', 'text-[#818D93]');
-                    text.innerHTML = json[key];
-                    ['shadow-input'].forEach(cls => text.classList.remove(cls));
-                    // 
-                    input.parentElement.insertBefore(text, input);
-                    input.remove();
-                    break;
-                }
-              });
-            });
-            setTimeout(() => {
-              printPrevCard.querySelectorAll(`${['radio', 'checkbox'].map(type => `input[type=${type}]`).join(', ')}, select, textarea`).forEach(input => {
-                ['readonly', 'disabled'].forEach(attr => input.setAttribute(attr, true));
-                  input.classList.add(...['border-b', 'border-line']);
-                  input.classList.remove(...['shadow-input', 'border-accent']);
-              });
+                });
+              }, 300);
             }, 300);
-          }, 300);
+          }
           
-          // printPrevCard.innerHTML = template.render({threedotsloader: '<span class="dots3loader"></span>'});
-          // fetch(`${main_ajax_object.theme_uri}/assets/js/twigs/example.twig`)
-          // .then(data => data.text())
-          // .then(body => {
-          //   console.log(body)
-          //   var template = Twig.twig({data: body});
-          //   printPrevCard.innerHTML = template.render(json);
-          //   // print();
-          // }).catch(error => console.error(error));
-          // Twig.renderFile(`${main_ajax_object.theme_uri}/assets/js/twigs/example.twig`, json, (error, compiledHtml) => {
-          //   if (error) {console.error(error);}
-          //   printPrevCard.innerHTML = compiledHtml;
-          // });
+          
           hiddenCard.parentElement.insertBefore(printPrevCard, hiddenCard);
           if (!(printBtn.dataset?.handledPrintEvent)) {
             printBtn.dataset.handledPrintEvent = true;
@@ -177,3 +187,10 @@ function printDiv(node) {
   a.document.close(); 
   a.print(); 
 }
+
+/**
+ * prevent hash acnhors on click events.
+ */
+document.querySelectorAll('a[href="#!"], a[href="#"]').forEach(anchor => {
+  anchor.addEventListener('click', (event) => event.preventDefault());
+});

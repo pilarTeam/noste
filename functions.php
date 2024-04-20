@@ -109,9 +109,9 @@ add_action( 'wp_enqueue_scripts', 'noste_scripts' );
  */
 add_action('wp_ajax_project_submit_document', 'noste_project_submit_document');
 function noste_project_submit_document() {
-	$json = [];
+	$json = (object) ['template' => false];
 	if (isset($_POST['nosti_tasks'])) {
-		$json = $_POST;
+		$json->submission = $_POST;
 		$toUpdate = $_POST;
 		$toAvoid = ['project_id', 'step_id', 'form_id'];
 		foreach ($toUpdate as $key => $value) {
@@ -128,6 +128,8 @@ function noste_project_submit_document() {
 		// 	implode('-', (array) [$step_id, $form_id]),
 		// 	$toUpdate
 		// );
+		// 
+		$json->template = implode('-', (array) [$step_id, $form_id]);
 		// 
 		wp_send_json_success($json);
 	}
