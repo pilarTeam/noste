@@ -112,6 +112,23 @@ function noste_project_submit_document() {
 	$json = [];
 	if (isset($_POST['nosti_tasks'])) {
 		$json = $_POST;
+		$toUpdate = $_POST;
+		$toAvoid = ['project_id', 'step_id', 'form_id'];
+		foreach ($toUpdate as $key => $value) {
+			if (in_array($key, (array) $toAvoid)) {
+				unset($toUpdate[$key]);
+			}
+		}
+		$project_id = (int) $_POST['project_id']??false;
+		$step_id = $_POST['step_id']??false;
+		$form_id = $_POST['form_id']??false;
+		// 
+		// update_post_meta(
+		// 	$project_id, 
+		// 	implode('-', (array) [$step_id, $form_id]),
+		// 	$toUpdate
+		// );
+		// 
 		wp_send_json_success($json);
 	}
 	wp_send_json_error($json);
