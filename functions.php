@@ -74,6 +74,7 @@ function noste_scripts() {
 	}
 
 
+<<<<<<< HEAD
 	/**
 	 * prints-script added by Remal Mahmud to add custom functionality related to printing after submittion.
 	 * 
@@ -90,6 +91,13 @@ function noste_scripts() {
 			'ajaxurl'		=> admin_url( 'admin-ajax.php' ),
 			'theme_uri'		=> get_template_directory_uri()
 		]
+=======
+	wp_enqueue_script('main-script', get_template_directory_uri() . '/assets/js/main.js', ['jquery', 'date-picker-script'], '1.0', true);
+	wp_localize_script( 'main-script', 'main_ajax_object',
+		array( 
+			'ajaxurl' => admin_url( 'admin-ajax.php' ),
+		)
+>>>>>>> cf54b237470fda10b2d9ccc9b0146eb28991fcf3
 	);
 
 	wp_enqueue_style( 'tailwind-style', get_template_directory_uri() . '/assets/css/style.css');
@@ -100,6 +108,7 @@ add_action( 'wp_enqueue_scripts', 'noste_scripts' );
 
 
 
+<<<<<<< HEAD
 
 /**
  * Function to handle submittion of noste single document.
@@ -133,3 +142,5 @@ function noste_project_submit_document() {
 	}
 	wp_send_json_error($json);
 }
+=======
+>>>>>>> cf54b237470fda10b2d9ccc9b0146eb28991fcf3
