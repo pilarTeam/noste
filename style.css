@@ -1,11 +1,7 @@
 /*!
 Theme Name: noste
 Theme URI: #
-<<<<<<< HEAD
 Version: 2.0.0
-=======
-Version: 1.0.0
->>>>>>> cf54b237470fda10b2d9ccc9b0146eb28991fcf3
 Tested up to: 5.4
 Requires PHP: 5.6
 License: GNU General Public License v2 or later
@@ -473,8 +469,4 @@ section#create-project .user_avatar img {
     width: 100%;
     border-radius: 50%;
     object-fit: cover;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> cf54b237470fda10b2d9ccc9b0146eb28991fcf3

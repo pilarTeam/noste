@@ -47,8 +47,12 @@ document.querySelectorAll('.btn.gap-2.border.border-accent.bg-accent.text-white'
     event.preventDefault();submit.disabled = true;
     var isConfirmed = await confirm('Are you confirming it?');
     if (theForm && isConfirmed) {
-      var data = {};
-      new FormData(theForm).forEach((value, key) => data[key] = value);
+      var data = {};var formData = new FormData(theForm);
+      if (typeof main_ajax_object?.query === 'object') {
+        formData.append('ref_queries', JSON.stringify(main_ajax_object.query));
+      }
+      formData.forEach((value, key) => data[key] = value);
+      
       wp.ajax.post('project_submit_document', data).done(json => {
         submit.disabled = false;
         // console.log(json);
@@ -69,18 +73,15 @@ document.querySelectorAll('.btn.gap-2.border.border-accent.bg-accent.text-white'
           
           if (PRINTS_ARGS?.allowTwig) {
             printPrevCard.innerHTML = template.render({threedotsloader: '<span class="dots3loader"></span>'});
-            fetch(`${main_ajax_object.theme_uri}/assets/js/twigs/example.twig`)
+            if (!(json?.template)) {json.template = 'blank'}
+            fetch(`${main_ajax_object.theme_uri}/assets/js/twigs/${json?.template}.twig`)
             .then(data => data.text())
             .then(body => {
               // console.log(body);
-              var template = Twig.twig({data: body?.submission??{}});
-              printPrevCard.innerHTML = template.render(json);
+              var template = Twig.twig({data: body});
+              printPrevCard.innerHTML = template.render(json?.submission??{});
               // print();
             }).catch(error => console.error(error));
-            Twig.renderFile(`${main_ajax_object.theme_uri}/assets/js/twigs/example.twig`, json, (error, compiledHtml) => {
-              if (error) {console.error(error);}
-              printPrevCard.innerHTML = compiledHtml;
-            });
           } else {
             printPrevCard.innerHTML = hiddenCard.innerHTML;
             setTimeout(() => {

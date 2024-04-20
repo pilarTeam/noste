@@ -74,7 +74,6 @@ function noste_scripts() {
 	}
 
 
-<<<<<<< HEAD
 	/**
 	 * prints-script added by Remal Mahmud to add custom functionality related to printing after submittion.
 	 * 
@@ -85,20 +84,13 @@ function noste_scripts() {
 	wp_enqueue_script('twig-script', 'https://cdnjs.cloudflare.com/ajax/libs/twig.js/1.15.0/twig.min.js', ['jquery'], '1.15.0', true);
 
 	
-	wp_enqueue_script('main-script', get_template_directory_uri() . '/assets/js/main.js', ['jquery', 'date-picker-script'], '1.0', true);
-	wp_localize_script( 'main-script', 'main_ajax_object',
-		[
-			'ajaxurl'		=> admin_url( 'admin-ajax.php' ),
-			'theme_uri'		=> get_template_directory_uri()
-		]
-=======
-	wp_enqueue_script('main-script', get_template_directory_uri() . '/assets/js/main.js', ['jquery', 'date-picker-script'], '1.0', true);
-	wp_localize_script( 'main-script', 'main_ajax_object',
-		array( 
-			'ajaxurl' => admin_url( 'admin-ajax.php' ),
-		)
->>>>>>> cf54b237470fda10b2d9ccc9b0146eb28991fcf3
-	);
+	wp_enqueue_script('main-script', get_template_directory_uri() . '/assets/js/main.js', ['jquery', 'date-picker-script'], filemtime(get_template_directory() . '/assets/js/main.js'), true);
+	$localize = [
+		'ajaxurl'		=> admin_url('admin-ajax.php'),
+		'theme_uri'		=> get_template_directory_uri(),
+		'query'			=> isset($_GET)?(array) $_GET:[]
+	];
+	wp_localize_script( 'main-script', 'main_ajax_object', $localize);
 
 	wp_enqueue_style( 'tailwind-style', get_template_directory_uri() . '/assets/css/style.css');
 	wp_enqueue_style( 'noste-style', get_stylesheet_uri(), ['tailwind-style'], rand(1, 100) );
@@ -106,9 +98,6 @@ function noste_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'noste_scripts' );
 
-
-
-<<<<<<< HEAD
 
 /**
  * Function to handle submittion of noste single document.
@@ -119,6 +108,7 @@ add_action( 'wp_enqueue_scripts', 'noste_scripts' );
 add_action('wp_ajax_project_submit_document', 'noste_project_submit_document');
 function noste_project_submit_document() {
 	$json = (object) ['template' => false];
+	$ref_queries = (array) json_decode(preg_replace('/[\x00-\x1F\x80-\xFF]/', '', stripslashes(html_entity_decode(isset($_POST['ref_queries'])?$_POST['ref_queries']:'{}'))), true);
 	if (isset($_POST['nosti_tasks'])) {
 		$json->submission = $_POST;
 		$toUpdate = $_POST;
@@ -129,8 +119,8 @@ function noste_project_submit_document() {
 			}
 		}
 		$project_id = (int) $_POST['project_id']??false;
-		$step_id = $_POST['step_id']??false;
-		$form_id = $_POST['form_id']??false;
+		$step_id = $ref_queries['tm']??false;
+		$form_id = $ref_queries['tmin']??false;
 		// 
 		// update_post_meta(
 		// 	$project_id, 
@@ -138,11 +128,13 @@ function noste_project_submit_document() {
 		// 	$toUpdate
 		// );
 		// 
-		$json->template = implode('-', (array) [$step_id, $form_id]);
+		$template = implode('-', (array) [$step_id, $form_id]);
+		$template_path = get_template_directory() . '/assets/js/twigs/' . $template . '.twig';
+		if (file_exists($template_path) && !is_dir($template_path)) {
+			$json->template = $template;
+		}
 		// 
 		wp_send_json_success($json);
 	}
 	wp_send_json_error($json);
 }
-=======
->>>>>>> cf54b237470fda10b2d9ccc9b0146eb28991fcf3
