@@ -65,7 +65,11 @@ $rakentamisen_kaynnistaminen = [
         'title' => 'Urakkasopimuksen allekirjoitus',
         'status' => 0,
     ],
+<<<<<<< HEAD
     'tyomaan' => [
+=======
+    'Tyomaan' => [
+>>>>>>> cf54b237470fda10b2d9ccc9b0146eb28991fcf3
         'title' => 'Työmaan käynnistymisen tehtävät',
         'status' => 0,
     ],
@@ -88,7 +92,11 @@ $rakentaminen = [
         'title' => 'Työmaakokoukset',
         'status' => 0,
     ],
+<<<<<<< HEAD
     'lisaja' => [
+=======
+    'Lisaja' => [
+>>>>>>> cf54b237470fda10b2d9ccc9b0146eb28991fcf3
         'title' => 'Lisä-ja muutostyökäsittely',
         'status' => 0,
     ],

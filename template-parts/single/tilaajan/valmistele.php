@@ -51,7 +51,11 @@
                         
                         <h4 class="mb-8 text-[#081F2C] mx-auto max-w-[750px]">Projektin lähtötietopalaveri</h4>
 
+<<<<<<< HEAD
                         <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post" enctype="multipart/form-data">
+=======
+                        <form action="#">
+>>>>>>> cf54b237470fda10b2d9ccc9b0146eb28991fcf3
                             <div class="mb-8 mx-auto max-w-[750px]">
                                 <div class="flex flex-wrap mb-4">
                                     <label class="flex-[3] mr-4 text-sm font-medium text-black" for="version">Versio:</label>
@@ -148,6 +152,7 @@
 
                                         <div class="md:pl-12 order-3">
                                             <label class="flex items-center text-sm md:text-sm mb-2" for="agreed_prepare_documents1">
+<<<<<<< HEAD
                                                 <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[]" id="agreed_prepare_documents1" value="Vuokrasopimuksen hankintarajaliite">
                                                 Vuokrasopimuksen hankintarajaliite
                                             </label>
@@ -161,6 +166,21 @@
                                             </label>
                                             <label class="flex items-center text-sm md:text-sm mb-2" for="agreed_prepare_documents4">
                                                 <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[]" id="agreed_prepare_documents4" value="muut">
+=======
+                                                <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[]" id="agreed_prepare_documents1">
+                                                Vuokrasopimuksen hankintarajaliite
+                                            </label>
+                                            <label class="flex items-center text-sm md:text-sm mb-2" for="agreed_prepare_documents2">
+                                                <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[]" id="agreed_prepare_documents2">
+                                                Vuokrasopimuksen rakennustapaselostus
+                                            </label>
+                                            <label class="flex items-center text-sm md:text-sm mb-2" for="agreed_prepare_documents3">
+                                                <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[]" id="agreed_prepare_documents3">
+                                                Vuokrasopimuksen lähtötietoaikataulu
+                                            </label>
+                                            <label class="flex items-center text-sm md:text-sm mb-2" for="agreed_prepare_documents4">
+                                                <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[]" id="agreed_prepare_documents4">
+>>>>>>> cf54b237470fda10b2d9ccc9b0146eb28991fcf3
                                                 <input class="shadow-input text-sm border-accent rounded-md text-[#586B74] w-1/2" type="text" id="agreed_prepare_documents_content" name="agreed_prepare_documents_content" value="Muu, mikä">
                                             </label>
                                         </div>

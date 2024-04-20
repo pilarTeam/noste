@@ -2,10 +2,48 @@
 
 add_action( 'wp_ajax_project_status_change', 'noste_project_status_change');
 add_action( 'wp_ajax_create_a_project', 'noste_create_a_project');
+<<<<<<< HEAD
 add_action( 'wp_ajax_update_a_project', 'noste_create_a_project');
 add_filter('acf/load_field/name=projektipaallikko', 'noste_project_projektipaallikko');
 add_filter('acf/load_field/name=valvoja', 'noste_project_valvoja');
 
+=======
+add_filter('acf/load_field/name=projektipaallikko', 'noste_project_projektipaallikko');
+add_filter('acf/load_field/name=valvoja', 'noste_project_valvoja');
+
+function noste_check_empty($value) {
+	if ( !isset($value) || empty($value) ) {
+		return;
+	}
+
+	return $value;
+}
+
+function noste_checked_with_json($checked = '', $current = '' ){
+
+	if ( !isset($checked) || empty($checked) || strlen($checked) < 3 ) {
+		return;
+	}
+
+	$decoded = json_decode( $checked, true );
+
+	if ( !$decoded && !is_array($decoded) ) {
+		return;
+	}
+
+	if ( in_array($current, $decoded) ) {
+		return 'checked';
+	}
+	
+	return;
+
+}
+
+
+function noste_custom_checkbox_checked( $checked = '', $current = '' ) {
+	return noste_checked_with_json($checked, $current) ? '' : 'hidden';
+}
+>>>>>>> cf54b237470fda10b2d9ccc9b0146eb28991fcf3
 
 function noste_project_status_change(){
 	$status = !empty($_POST['status']) ? $_POST['status'] : '';
@@ -15,6 +53,10 @@ function noste_project_status_change(){
 		$user = wp_get_current_user();
 
 		if ( $status == 'all' ) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> cf54b237470fda10b2d9ccc9b0146eb28991fcf3
 			if ( array_intersect( [ 'editor', 'administrator' ], $user->roles ) ) {
 			    $projects = get_posts([
 			        'post_type' => 'projektitiedot',
@@ -22,7 +64,13 @@ function noste_project_status_change(){
 			        'fields' => 'ids',
 			    ]);
 			}
+<<<<<<< HEAD
 		} else {
+=======
+
+		} else {
+
+>>>>>>> cf54b237470fda10b2d9ccc9b0146eb28991fcf3
 			if ( array_intersect( [ 'editor', 'administrator' ], $user->roles ) ) {
 			    $projects = get_posts([
 			        'post_type' => 'projektitiedot',
@@ -38,6 +86,10 @@ function noste_project_status_change(){
 				    ),			        
 			    ]);
 			}
+<<<<<<< HEAD
+=======
+
+>>>>>>> cf54b237470fda10b2d9ccc9b0146eb28991fcf3
 		}
 
 		$output = [];
@@ -51,7 +103,12 @@ function noste_project_status_change(){
                 $output[$id]['projektin_valmistelu'] = !empty(get_field('projektin_valmistelu', $id)) ? get_field('projektin_valmistelu', $id) : '';
                 $output[$id]['title'] = get_the_title( $id );
                 $output[$id]['permalink'] = get_the_permalink( $id );
+<<<<<<< HEAD
                 $output[$id]['projektin_tila'] = get_the_permalink( $id );
+=======
+                $output[$id]['projektin_tila
+'] = get_the_permalink( $id );
+>>>>>>> cf54b237470fda10b2d9ccc9b0146eb28991fcf3
         	}
         }
 		echo json_encode( $output );
@@ -228,8 +285,11 @@ function noste_header_notification(){
 
 function noste_create_a_project() {
 	check_ajax_referer( 'create_project_validation', 'create_project_nonce_field' );
+<<<<<<< HEAD
 	$is_update = (isset($_POST['to_update_id']) && !empty($_POST['to_update_id']));
 	
+=======
+>>>>>>> cf54b237470fda10b2d9ccc9b0146eb28991fcf3
 
 	if ( empty($_POST['project_name']) || empty($_POST['projektinumero']) || empty($_POST['luontipaivamaara']) ) {
 		$error = new WP_Error( '001', 'Please fill out blank fields' );
@@ -244,16 +304,30 @@ function noste_create_a_project() {
 	$project_id = !empty($_POST['project_id']) ? sanitize_text_field( $_POST['project_id'] ) : 0;
 
 
+<<<<<<< HEAD
 	$project_args = [
+=======
+	$args = [
+>>>>>>> cf54b237470fda10b2d9ccc9b0146eb28991fcf3
 		'post_type' => 'projektitiedot',
 		'post_author' => get_current_user_id(),
 		'post_title' => wp_strip_all_tags( $projektin_nimi ),
 		'post_status'   => 'publish',
 	];
+<<<<<<< HEAD
 	if ($is_update) {
 		$project_args['ID'] = (int) sanitize_text_field($_POST['to_update_id']);
 	}
 	$post_id = wp_insert_post($project_args);
+=======
+
+
+	if ( isset($_POST['to_update_id']) && !empty($_POST['to_update_id']) ) {
+		$args['ID'] = (int) $_POST['to_update_id'];
+	}
+
+	$post_id = wp_insert_post($args);
+>>>>>>> cf54b237470fda10b2d9ccc9b0146eb28991fcf3
 
 	if ( is_wp_error($post_id) ) {
 		$error = new WP_Error( '002', 'Failed For Server Busy' );
@@ -277,6 +351,10 @@ function noste_create_a_project() {
 }
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> cf54b237470fda10b2d9ccc9b0146eb28991fcf3
 function noste_project_projektipaallikko($field) {
   
     // reset choices

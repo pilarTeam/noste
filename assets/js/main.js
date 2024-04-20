@@ -1,3 +1,31 @@
+<<<<<<< HEAD
+=======
+document.querySelectorAll('#update-project .project-submit-btn').forEach(button => {
+  var form = button.parentElement.parentElement;
+  button.addEventListener('click', (event) => handleUpdateProjects(event, button, form));
+  form.addEventListener('submit', (event) => handleUpdateProjects(event, button, form));
+});
+
+function handleUpdateProjects(event, button, form) {
+  event.preventDefault();
+  var data = {};
+  var submit = button;
+  
+  new FormData(form).forEach((value, key) => data[key] = value);
+  if (data?.action) {delete data.action;}
+
+  wp.ajax.post('update_a_project', data).done(json => {
+    submit.disabled = false;console.log(json);
+    if (json?.permalink != '') {
+      location.replace(json.permalink);
+    }
+  }).fail(error => {
+    console.error(error);
+    submit.disabled = false;
+  });
+}
+
+>>>>>>> cf54b237470fda10b2d9ccc9b0146eb28991fcf3
 jQuery(document).ready(function ($) {
 	// DropDown
 
@@ -33,10 +61,14 @@ jQuery(document).ready(function ($) {
 		}
 	});
 
+<<<<<<< HEAD
 	
 
 
     $('.projekti-status').on('click', 'li', function(e){
+=======
+	$('.projekti-status').on('click', 'li', function(e){
+>>>>>>> cf54b237470fda10b2d9ccc9b0146eb28991fcf3
         e.preventDefault();
         var currentstatus = $(this).data('status');
 
@@ -145,7 +177,11 @@ jQuery(document).ready(function ($) {
 
 
 
+<<<<<<< HEAD
     // Create Project
+=======
+// Create Project
+>>>>>>> cf54b237470fda10b2d9ccc9b0146eb28991fcf3
     $('#create-project').on('click', '.project-submit-btn', function(e){
         e.preventDefault();
 
@@ -153,7 +189,11 @@ jQuery(document).ready(function ($) {
             $(this).parents('form').trigger('submit');
          }
     });
+<<<<<<< HEAD
     // 
+=======
+
+>>>>>>> cf54b237470fda10b2d9ccc9b0146eb28991fcf3
     $('#create-project').on('submit', 'form', function(e){
         e.preventDefault();
 
@@ -231,11 +271,51 @@ jQuery(document).ready(function ($) {
     $('.checkbox_change').on('change', function(){
         $(this).parent().find('.check_show').toggleClass('hidden');
     });
+<<<<<<< HEAD
+=======
+
+    // radio toogle click 
+    $('.radio_change').on('change', function(){
+        $name = $(this).attr('name');
+
+        $('*[name="'+ $name +'"]').parent().find('.check_show').addClass('hidden');
+
+        if ( $(this).prop("checked") && $(this).attr('name') == $name ) {
+            $(this).parent().find('.check_show').removeClass('hidden');
+        } 
+    });
+
+    // input yes/no
+    $('.input-yes-no').on('click', 'input', function(){
+
+        if ( $(this).attr('type') == 'text' ) {
+            jQuery.map($(this).parents('.input-yes-no').find('input'), function(item, index){
+                if ( $(item).attr('type') == 'radio' || $(item).attr('type') == 'checkbox' ) {
+                    $(item).parent().find('.check_show').addClass('hidden');
+                    $(item).prop('checked', false);
+                }
+            });            
+        }
+
+    });
+
+>>>>>>> cf54b237470fda10b2d9ccc9b0146eb28991fcf3
     // help toogle click 
     $('.help_click').on('click', function(){
         $(this).parent().find('.help_line').toggleClass('hidden');
         $(this).parents('.help_wrap').find('.help_show').toggleClass('hidden');
     });
     
+<<<<<<< HEAD
+=======
+   
+    $('.sample-btn').click(function(e){
+        e.preventDefault();
+
+        if ( confirm("Are you sure?") ) {
+            $(this).parent().find('.submit-btn').trigger('click');
+        }
+    });
+>>>>>>> cf54b237470fda10b2d9ccc9b0146eb28991fcf3
     
 });
