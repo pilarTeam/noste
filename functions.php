@@ -88,7 +88,8 @@ function noste_scripts() {
 	$localize = [
 		'ajaxurl'		=> admin_url('admin-ajax.php'),
 		'theme_uri'		=> get_template_directory_uri(),
-		'query'			=> isset($_GET)?(array) $_GET:[]
+		'query'			=> isset($_GET)?(array) $_GET:[],
+		'site_uri'		=> site_url('/')
 	];
 	wp_localize_script( 'main-script', 'main_ajax_object', $localize);
 

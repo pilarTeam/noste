@@ -47,11 +47,13 @@ document.querySelectorAll('.btn.gap-2.border.border-accent.bg-accent.text-white'
     event.preventDefault();submit.disabled = true;
     var isConfirmed = await confirm('Are you confirming it?');
     if (theForm && isConfirmed) {
-      var data = {};var formData = new FormData(theForm);
+      var formData = new FormData(theForm);
       if (typeof main_ajax_object?.query === 'object') {
         formData.append('ref_queries', JSON.stringify(main_ajax_object.query));
       }
-      formData.forEach((value, key) => data[key] = value);
+      var data = Object.fromEntries(formData);
+      // console.log(data);
+      // formData.forEach((value, key) => data[key] = value);
       
       wp.ajax.post('project_submit_document', data).done(json => {
         submit.disabled = false;
@@ -79,7 +81,9 @@ document.querySelectorAll('.btn.gap-2.border.border-accent.bg-accent.text-white'
             .then(body => {
               // console.log(body);
               var template = Twig.twig({data: body});
-              printPrevCard.innerHTML = template.render(json?.submission??{});
+              json.submission = json?.submission??{};
+              json.submission.locale_args = main_ajax_object;
+              printPrevCard.innerHTML = template.render(json.submission);
               // print();
             }).catch(error => console.error(error));
           } else {

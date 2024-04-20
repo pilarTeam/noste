@@ -1,1 +1,1 @@
-<?php echo 'laadi latotietopalaverin'; ?>
+nothing configured there
