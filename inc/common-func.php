@@ -205,8 +205,8 @@ function noste_header_notification(){
 
 	if ( is_page( [62, 64 ] ) ) {
 		global $wp;
-		$esitietolomake_url = home_url( add_query_arg(array($_GET), $wp->request ) );
-		$kustannusseuranta_url = home_url( add_query_arg(array($_GET), $wp->request ) );
+		$esitietolomake_url = add_query_arg(array($_GET), get_permalink( 62 ) );
+		$kustannusseuranta_url = add_query_arg(array($_GET), get_permalink( 64 ) );
 	} else {
 		$esitietolomake_url = add_query_arg([
 					'pid' => get_the_ID()
