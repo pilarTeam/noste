@@ -1,9 +1,6 @@
 <?php 
 
-/* Template Name: Esitietolomake */
-
-
-if ( !is_user_logged_in() || !isset($_GET['pid']) || empty($_GET['pid']) ) {
+/* Template Name: Esitietolomake */if ( !is_user_logged_in() || !isset($_GET['pid']) || empty($_GET['pid']) ) {
     wp_redirect( site_url() );
     exit;
 }
@@ -31,7 +28,9 @@ get_header( 'noste' );
 
 ?>
 
-<?php if ( ( isset($_POST['submit-form']) && $_POST['submit-form'] == 'submitted' ) && ( isset($_POST['pid']) && !empty($_POST['pid']) ) ): 
+<?php 
+
+/* if ( ( isset($_POST['submit-form']) && $_POST['submit-form'] == 'submitted' ) && ( isset($_POST['pid']) && !empty($_POST['pid']) ) ): 
     
     $project_id = (int) $_POST['pid'];
 
@@ -97,31 +96,31 @@ get_header( 'noste' );
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Projektinjohtokonsultti (yhtiö)</td>
-                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_P0']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Projektipäällikkö/vastuuhenkilö</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_P1']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Projektipäällikön/vastuuhenkilön puhelinnumero</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">+000 00 000 0000</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_P2']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Projektipäällikön/vastuuhenkilön sähköposti</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA] opacity-50">Lisättään myöhemmin</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA] opacity-50"><?php echo esc_html($_POST['pilar_P3']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Projektijohtamisen asiantuntija</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_P4']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Projektijohtamisen asiantuntijan puhelinnumero</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">+000 00 000 0000</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_P5']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Rakennuttajan turvallisuuskoordinaattori</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_TK1']??''); ?></td>
                         </tr>
                     </table>
 
@@ -133,143 +132,143 @@ get_header( 'noste' );
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Tilaaja (yhtiö)</td>
-                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_T1']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Tilaajan edustaja (yhtiö)</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_T2']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Tilaajan edustaja (henkilö)</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA] opacity-50">Lisättään myöhemmin</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA] opacity-50"><?php echo esc_html($_POST['pilar_T3']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Tilaajan edustaja (tehtävä)</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_T4']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Tilaajan edustajan puhelinnumero</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">+000 00 000 0000</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_T5']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Tilaajan edustajan sähköposti</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">lorem_ipsum@cras.com</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_T6']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Tilaajan Y-tunnus</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">00000000</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_T7']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Tilaajan osoite (yhtiö)</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_T8']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Tilasuunnittelija (yhtiö)</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_T9']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Tilasuunnittelija (henkilö)</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_T10']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Tilasuunnittelijan puhelinnumero</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">00000000</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_T11']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Tilasuunnittelijan sähköposti</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">lorem_ipsum@cras.com</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_T12']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Kiinteistön nimi</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_K1']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Kiinteistön katuosoite</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA] opacity-50">Lisättään myöhemmin</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA] opacity-50"><?php echo esc_html($_POST['pilar_K2']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Kiinteistön postinumero ja postitoimipaikka</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">000000 Cras Eudat</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_K3']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Projektin nimi</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_K4']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Rakennuksen valmistumisvuosi</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_K5']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Kiinteistöpäällikkö (Henkilö)</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_K6']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Meluavan työn aikarajoitukset (x-y)</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_K7']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Projektinumero</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">000000</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_K8']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Kiinteistöpäällikön sähköposti</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">lorem_ipsum@cras.com</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_K9']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Kiinteistöpäällikön puhelinnumero</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">+000 00 000 0000</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_K10']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Huoltohenkilö (Henkilö)</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_K11']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Huollon sähköposti</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">lorem_ipsum@cras.com</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_K12']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Huollon puhelinnumero</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA] opacity-50">Lisättään myöhemmin</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA] opacity-50"><?php echo esc_html($_POST['pilar_K13']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Aulan sähköposti</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA] opacity-50">Lisättään myöhemmin</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA] opacity-50"><?php echo esc_html($_POST['pilar_K14']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Aulan puhelinnumero</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA] opacity-50">Lisättään myöhemmin</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA] opacity-50"><?php echo esc_html($_POST['pilar_K15']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Aulan aukioloajat (x-y)</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_K16']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Muutostöiden alaisen tilan sammutus-/ilmoitusjärjestelmä</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Sprinkleri</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html(implode(', ', (array) $_POST['pilar_K17']??'')); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Onko automaatio suljettu järjestelmä</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Kyllä, kenen (---)</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html((($_POST['pilar_K18']??'yes') == 'no')?'Ei':'Kyllä, kenen (' . $_POST['pilar_K18'] . ')'); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Onko kulunvalvonta suljettu järjestelmä</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Ei</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html((($_POST['pilar_K19']??'yes') == 'no')?'Ei':'Kyllä, kenen (' . $_POST['pilar_K19'] . ')'); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vuokralaisten sähkön laskutus</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Oma sähkösopimus</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html(implode(', ', (array) $_POST['pilar_K20']??'')); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Kiinteistön erikoisuudet (johtokaivot ulkoseinillä, vanhat lasiseinät huonoja, väliseinät ohuita tms.)</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_K21']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Kiinteistömanageeraus (yhtiö)</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_K22']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Huoltoyhtiö</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_K23']??''); ?></td>
                         </tr>
                     </table>
 
@@ -281,39 +280,39 @@ get_header( 'noste' );
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Päätoteuttaja (Yhtiö)</td>
-                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA] opacity-50">Lisättään myöhemmin</td>
+                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA] opacity-50"><?php echo esc_html($_POST['pilar_U1']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Päätoteuttajan Y-tunnus</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">00000000</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_U2']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Päätoteuttajan osoite</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_U3']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Päätoteuttajan sopimusasioista vastaava henkilö</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_U4']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Päätoteuttajan sopimusasioista vastaavan henkilön sähköposti</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">lorem_ipsum@cras.com</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_U5']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Päätoteuttajan sopimusasioista vastaavan henkilön puhelinnumero</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">+000 00 000 0000</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_U6']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Päätoteuttajan vastaava työnjohtaja</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_U7']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Päätoteuttajan vastaavan työnjohtajan sähköposti</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">lorem_ipsum@cras.com</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_U8']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Päätoteuttajan vastaavan työnjohtajan puhelinnumero</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">+000 00 000 0000</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_U9']??''); ?></td>
                         </tr>
                     </table>
 
@@ -325,27 +324,27 @@ get_header( 'noste' );
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vuokralainen (yhtiö)</td>
-                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_V1']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vuokralaisen allekirjoitusoikeudellinen henkilö (nimi)</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_V2']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vuokralaisen yhteyshenkilö suunnitteluasioissa (nimi)</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA] opacity-50">Lisättään myöhemmin</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA] opacity-50"><?php echo esc_html($_POST['pilar_V3']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vuokralaisen yhteyshenkilön sähköposti</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">lorem_ipsum@cras.com</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_V4']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vuokralaisen yhteyshenkilön puhelinnumero</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">+000 00 000 0000</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_V5']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vuokralaisen Y-tunnus</td>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">00000000</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_V6']??''); ?></td>
                         </tr>
                     </table>
 
@@ -357,27 +356,27 @@ get_header( 'noste' );
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Muutostöissä huomioitavat PTS-asiat (esim. vaihdetaan valaistus LED vaikka suunnitelmissa ei lue)</td>
-                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_PTS']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Sähköisen laskutuksen ohje, tiedot kopioituina (ei kuvia)</td>
-                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_M1']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Pyydä avaimet ja kulkutunnisteet Nosteelle, mistä nouto</td>
-                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_M2']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Kokoustilojen varausohje, tiedot kopioituina (ei kuvia)</td>
-                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_M3']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Projektipankki ja ohjeet</td>
-                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_M4']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Tilamuutoksen ala</td>
-                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_K22_']??''); ?></td>
                         </tr>
                     </table>
 
@@ -389,27 +388,27 @@ get_header( 'noste' );
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Purkutyöt</td>
-                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_TY1']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Lattiatyöt</td>
-                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_TY2']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">WC-muutokset</td>
-                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_TY3']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Sähkötyöt</td>
-                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_TY4']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Turva- ja lukitustyöt</td>
-                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_TY10']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Käyttö- ja yhteiskustannukset</td>
-                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_TY12']??''); ?></td>
                         </tr>
                     </table>
 
@@ -421,35 +420,35 @@ get_header( 'noste' );
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Hyväksytty kokonaisbudjetti (€ alv. 0%)</td>
-                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">€ 000,000</td>
+                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">€ <?php echo esc_html($_POST['pilar_BU1']??'0.00'); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Hyväksytty budjetti rakennustöille (€, alv. 0%)</td>
-                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">€ 000,000</td>
+                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">€ <?php echo esc_html($_POST['pilar_BU2']??'0.00'); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Hyväksytty budjetti proj.joht + rakennuttamisen tehtävät (€, alv. 0%)</td>
-                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">€ 000,000</td>
+                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">€ <?php echo esc_html($_POST['pilar_BU3']??'0.00'); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Hyväksytty budjetti suunnittelulle (€, alv. 0%)</td>
-                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">€ 000,000</td>
+                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">€ <?php echo esc_html($_POST['pilar_BU4']??'0.00'); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Hyväksytty budjetin riskivaraus (€, alv. 0%)</td>
-                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">€ 000,000</td>
+                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">€ <?php echo esc_html($_POST['pilar_BU5']??'0.00'); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Kiinteä urakkahinta (€ alv. 0%)</td>
-                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">€ 000,000</td>
+                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">€ <?php echo esc_html($_POST['pilar_UH1']??'0.00'); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Urakkahinnan alv. osuus €</td>
-                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">€ 000,000</td>
+                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">€ <?php echo esc_html($_POST['pilar_UH2']??'0.00'); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Kiinteä urakkahinta (€ alv. 24%)</td>
-                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">€ 000,000</td>
+                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">€ <?php echo esc_html($_POST['pilar_UH3']??'0.00'); ?></td>
                         </tr>
                     </table>
 
@@ -461,26 +460,26 @@ get_header( 'noste' );
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Urakoitsijan itselle luovutuksen virhe- ja puutelista</td>
-                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Vestibulum Cras Eudat</td>
+                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html($_POST['pilar_VL1']??''); ?></td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] align-top text-[#586B74] border border-solid border-[#E1E1EA]">Urakoitsijan itselle luovutuksen virhe- ja puutelista</td>
                             <td class="py-[10px] pl-[35px] pr-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">
                                 <ul class="list-disc">
-                                    <li class="mb-3">Sähköasennusten tarkastus- ja käyttöönottopöytäkirjat</li>
-                                    <li class="mb-3">Sähköasennusten 3. osapuolen varmennustarkastuksen pöytäkirja</li>
-                                    <li class="mb-3">Ilmamäärämittaus- ja säätöpöytäkirja</li>
-                                    <li class="mb-3">Paloilmoitinasennusten 3. osapuolen varmennustarkastuksen pöytäkirja</li>
-                                    <li class="mb-3">Sprinkleriasennusten asennustodistus</li>
-                                    <li class="mb-3">Sprinkleriasennusten 3. osapuolen varmennustarkastuksen pöytäkirja</li>
-                                    <li class="mb-3">Automaation tarkastuspöytäkirja</li>
-                                    <li class="mb-3">Talotekniikka-asennusten punakynäpiirustukset</li>
+                                    <?php for ($i=2; $i <= 16; $i++) :
+                                        if (!isset($_POST['pilar_VL' . $i]) || empty($_POST['pilar_VL' . $i])) {continue;}
+                                        if ($i == 16 && !isset($_POST['VL16_check'])) {continue;}
+                                        ?>
+                                        <li class="mb-3"><?php echo esc_html($_POST['pilar_VL' . $i]??''); ?></li>
+                                    <?php endfor; ?>
                                 </ul>
                             </td>
                         </tr>
                         <tr>
                             <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Projektin valmistumisaika xx.xx.xxxx</td>
-                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">01.01.2024</td>
+                            <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html(implode(', ', [$_POST['pilar_VA1']??'',
+                            // $_POST['pilar_VA2']??''
+                            ])); ?></td>
                         </tr>
                     </table>
                 </div>
@@ -506,11 +505,33 @@ get_header( 'noste' );
         </div>
     </section>
 
-<?php else: ?>
+    <script>
+        window.onload = () => {
+            jQuery('.print-btn').on('click', (event) => {
+                event.preventDefault();print();
+            });
+        }
+    </script>
+    <style>
+        @media print {
+            body {visibility: hidden;}
+            .border.border-solid.border-\[\#E1E1EA\].rounded-\[12px\].p-\[20px\].bg-white .max-w-\[800px\].mx-auto {
+                top: 0;
+                left: 0;
+                width: calc(8.27in * 1.25);
+                max-width: unset;
+                position: absolute;
+                visibility: visible;
+            }
+        }
+    </style>
+    
+<?php else: */ ?>
 
     <section class="my-8">
         <div class="container px-4">
-            <form action="<?php echo esc_url( $action_url ); ?>" method="post">
+            <form id="esitietolomake_form" action="<?php echo esc_url( $action_url ); ?>" method="post">
+                 <?php wp_nonce_field( 'esitietolomake_validation', 'esitietolomake_nonce_field' ); ?>
                 <input type="hidden" name="pid" value="<?php echo esc_attr( $_GET['pid'] ); ?>">
                 
                 <div class="border border-solid border-[#E1E1EA] rounded-[12px] p-[20px] bg-white">
@@ -999,7 +1020,7 @@ get_header( 'noste' );
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Tilamuutoksen ala</label>
-                        <input type="text" name="pilar_K22" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_K22', true )) ); ?>">
+                        <input type="text" name="pilar_K22_" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_K22_', true )) ); ?>">
                     </div>
 
                     <div class="help_wrap mt-10 mb-5 relative">
@@ -1092,7 +1113,7 @@ get_header( 'noste' );
                                 </span>
                                 <input type="checkbox" class="checkbox_change absolute opacity-0" name="T6_check">
                             </label>
-                            <input type="text" name="pilar_T6" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_T6', true )) ); ?>">
+                            <input type="text" name="pilar_T6_" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_T6_', true )) ); ?>">
                         </div>
                     </div>
                     
@@ -1435,10 +1456,7 @@ get_header( 'noste' );
                         </div>
         
                         <div>
-                            <button class="sample-btn text-[14px] text-white font-medium bg-[#00B2A9] border border-solid border-[#818D930F] rounded-lg flex items-center gap-2 px-3 py-1">
-                                Hyväksy
-                            </button>
-                           <button class="hidden submit-btn text-[14px] text-white font-medium bg-[#00B2A9] border border-solid border-[#818D930F] rounded-lg flex items-center gap-2 px-3 py-1" type="submit" name="submit-form" value="submitted">
+                           <button class="ajax-submit text-[14px] text-white font-medium bg-[#00B2A9] border border-solid border-[#818D930F] rounded-lg flex items-center gap-2 px-3 py-1" type="submit" name="submit-form" value="submitted">
                                 Hyväksy
                             </button>                            
                         </div>
@@ -1448,5 +1466,5 @@ get_header( 'noste' );
         </div>
     </section>
 
-<?php endif ?>
+<?php /* endif */ ?>
  <?php get_footer(); ?>

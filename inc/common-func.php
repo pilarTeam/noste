@@ -2,6 +2,9 @@
 
 add_action( 'wp_ajax_project_status_change', 'noste_project_status_change');
 add_action( 'wp_ajax_create_a_project', 'noste_create_a_project');
+
+add_action( 'wp_ajax_esitietolomake_form', 'noste_esitietolomake_form');
+
 add_filter('acf/load_field/name=projektipaallikko', 'noste_project_projektipaallikko');
 add_filter('acf/load_field/name=valvoja', 'noste_project_valvoja');
 
@@ -349,7 +352,6 @@ function noste_project_projektipaallikko($field) {
     return $field;	
 }
 
-
 function noste_project_valvoja($field) {
   
     // reset choices
@@ -374,4 +376,50 @@ function noste_project_valvoja($field) {
 
     // return the field
     return $field;	
+}
+
+function noste_esitietolomake_form(){
+	check_ajax_referer( 'esitietolomake_validation', 'esitietolomake_nonce_field' );
+
+
+	if ( isset($_POST['pid']) && !empty($_POST['pid']) ) {
+    
+	    $project_id = (int) $_POST['pid'];
+
+	    if ( is_int($project_id) ) {
+	        foreach ($_POST as $key => $value) {
+	            if ( str_contains( $key, 'pilar' ) && !empty($value) ) {
+
+	                if ( is_array($value) ) {
+	                    
+	                    $satize_arr = array_map(function($arrval){
+	                        return trim( stripslashes( sanitize_text_field( $arrval ) ) );
+	                    }, $value);
+
+	                    update_post_meta( $project_id, $key, json_encode( $satize_arr ) );
+
+
+	                } else {
+	                    $santiza_val = trim( stripslashes( sanitize_text_field( $value ) ) );
+	                    update_post_meta( $project_id, $key, $santiza_val );                    
+	                }
+
+	            }
+	        }
+
+	        unset($_POST['action']);
+	        unset($_POST['esitietolomake_nonce_field']);
+
+			wp_send_json_success($_POST, 200);
+
+	    } else {
+			$error = new WP_Error( '001', 'Please fill out blank fields' );
+			wp_send_json_error( $error );
+	    }
+	
+
+	}
+
+	$error = new WP_Error( '002', 'Server Busy' );
+	wp_send_json_error( $error );
 }

@@ -286,12 +286,38 @@ jQuery(document).ready(function ($) {
     });
     
    
-    $('.sample-btn').click(function(e){
+    $('form').on('click', '.ajax-submit', function(e){
         e.preventDefault();
 
         if ( confirm("Are you sure?") ) {
-            $(this).parent().find('.submit-btn').trigger('click');
+            $(this).parents('form').trigger('submit');
         }
-    });
+    })
+
+    $('#esitietolomake_form').on('submit', function(e){
+        e.preventDefault();
+
+        var formData = new FormData($(this)[0]);
+        formData.append('action', 'esitietolomake_form');
+
+        $.ajax({
+            url: main_ajax_object.ajaxurl,
+            type: 'POST',
+            data: formData,
+            async: true,
+            cache: false,
+            contentType: false,
+            enctype: 'multipart/form-data',
+            processData: false,
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(response) {
+                // console.log(response);
+                alert('failed!');
+            }
+        });
     
+    });
+
 });
