@@ -81,7 +81,7 @@ function noste_scripts() {
 		)
 	);
 
-	wp_enqueue_style( 'tailwind-style', get_template_directory_uri() . '/assets/css/style.css');
+	wp_enqueue_style( 'tailwind-style', get_template_directory_uri() . '/assets/css/style.css', [], rand(1, 1000));
 	wp_enqueue_style( 'noste-style', get_stylesheet_uri(), ['tailwind-style'], rand(1, 100) );
 	wp_style_add_data( 'noste-style', 'rtl', 'replace' );
 }
