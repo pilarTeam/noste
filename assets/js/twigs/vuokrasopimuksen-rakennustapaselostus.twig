@@ -1,44 +1,14 @@
-<!-- grid View Item -->
-<div class="grid grid-cols-1 gap-4">
-    <!-- card_item -->
-    <div class="card_item relative h-fit">
-        <!-- Card Header -->
-        <div class="card_header flex flex-col md:flex-row md:items-center md:justify-between px-4 md:px-8 py-6 border-b border-line top-0 z-10">
-            <div>
-                <p class="text-sm font-normal text-[#586B74] mb-1">Project nimi</p>
-                <!-- Breadcrumb -->
-                <nav class="flex justify-between" aria-label="Breadcrumb">
-                    <ol class="inline-flex flex-wrap items-center mb-3 sm:mb-0">
-                        <li>
-                            <span class="text-xs md:text-sm font-medium text-black">Projektin valmistelu</span>
-                        </li>
-                        <span class="mx-1 md:mx-2 text-black">/</span>
-                        <li aria-current="page">
-                            <span class="text-xs md:text-sm font-medium text-black">Vuokrasopimuksen apudokumentit</span>
-                        </li>
-                        <span class="mx-1 md:mx-2 text-gray-400">/</span>
-                        <li aria-current="page">
-                            <span class="text-xs md:text-sm font-medium text-black">Rakennustapaselostus_valmis_ver1</span>
-                        </li>
-                    </ol>
-                </nav>
+<div class="noste_pages">
+    {#  #}
+    <div class="single-page">
+        <div class="page-wrap">
+            <div class="page-header">
+                <img src="{{ locale_args.site_uri }}wp-content/uploads/2024/03/logo-noste.png" alt="Logo" />
             </div>
-            <button class="btn gap-2 border border-line bg-[#E9E9F0]">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
-                    <defs>
-                        <pattern id="pattern2" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 100 100">
-                            <image width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAADO0lEQVR4nO2cz05UMRSHu9F3UHTNq4h7VyQtYTHBzLQy0LLleSAmJugr+CcqPsKQiEs1KuyHFMHoxXtvh7TTc879/ZKuSO/Md77pbcvMrVIIgiAIQizGhbnkprildsEMhEAI6dT+BBuMkG4hinkMdx72ANJ42ANI42EPII2HPYA0HvYA0njYA0jjYQ8gjYc9gDQe9gDSeNgDSONhDyCNhz2ANB72ANJ42ANI42EPII2HPYA0HvYA0njYA0jjYQ8gjYc9gDQe9gDUeJ7s79/Vbm9ibHhnbDhvviG0sFgNbDjXzr811o9jbReSsTkO940Ln1D0UOSDp60/Xt/evpc8MiAjLOMO8HE0Gt3pFXJ5m8Itab6MGmjrn/YKuZwz/u7kwlG8hSUNL6Q1ejpdMda/bMwrb1RfjPNn/wiZTld6OyFJWbd7Dxoj5Bf95Z3wLFxfCCkbCCEWCCEWCCmYjZ2dh9qG53FyvmovNp+F1a4+EFJWxreb+wv/Pf6trR+EFEocGe0bvnDY1g9CCiXeojp24T/b+kFIBSHa+R9t/SCkUOIE3jFCDtr6QUihxNVUnMD/M6l/jf8iaesHIeVXWodxzrhqB10yYiCEWCCEWCCEWCCEWCCEWCCEWCCEWCCEWKoJkf5TIpWpLvk7JF5HWlOZ6pK/Q+J1pDWVqS75OyReR1pTmeqSv0Ph61AJhBALhBALhBALhBALhBDLYIRsuPBYW39SexmrrT/Rk901KnWp9sLahs+1ZZjrZsMXKnWp9sIQQk3IZHfNuDCrPjpcmBnrH1GpS/0XJh4DIbRSTUjzN6u3fegTIyTXQ5+Nx6Ljo7y3kQIhN2VoF14t/li09eMSk2btfYju2Wf01qXM+9pKO3TG+uNlCYlr/9IyzJ/mT6kI0Ta8TzpaIyYejBLP4liKEOdPhyfEf0g+fOY60V48i0M7/7p5ukNOIUvch8y69hnlhfiz37UMW8kjI2dShXCJ4c7DHkAaD3sAaTzsAaTxpAIM7fuQakleZQ3s+5BqgRCuQgb2fUi1sAeQxsMeQBoPewBpPOwBpPGwB5DGwx5AGg+BZey8ZFPcUrtgBkIghHRqf4INRgiCIAiihpULmb7nGYjfxQAAAAAASUVORK5CYII=" />
-                        </pattern>
-                    </defs>
-                    <rect id="icons8-print-100" width="20" height="20" fill="url(#pattern2)" />
-                </svg>
+            <div class="page-body">
+                
 
-                Takaisin
-            </button>
-        </div><!-- Card Header -->
-        <!-- Card Body -->
-        <div class="px-4 md:px-8 pt-6 pb-10 lg:h-[645px] overflow-y-auto no-scrollbar scroll-smooth">
-            <div class="">
+
                 <div class="mx-auto max-w-[700px] mb-4">
                     <p class="text-sm text-accent italic">K1</p>
                     <p class="text-sm text-accent italic">K1</p>
@@ -140,6 +110,168 @@
                                     </p>
                                 </div>
                             </li>
+                        </ul>
+                    </div>
+            </div>
+            <div class="page-footer">
+                <span class="page-footer-pagination">1/3</span>
+            </div>
+        </div>
+    </div>
+    <div class="single-page">
+        <div class="page-wrap">
+            <div class="page-header">
+                <img src="{{ locale_args.site_uri }}wp-content/uploads/2024/03/logo-noste.png" alt="Logo" />
+            </div>
+            <div class="page-body">
+                    <div class="max-w-[700px] mx-auto flex items-center gap-2">
+                        <ul class="list-none w-full">
+                        </ul>
+                    </div>
+            </div>
+            <div class="page-footer">
+                <span class="page-footer-pagination">2/3</span>
+            </div>
+        </div>
+    </div>
+    <div class="single-page">
+        <div class="page-wrap">
+            <div class="page-header">
+                <img src="{{ locale_args.site_uri }}wp-content/uploads/2024/03/logo-noste.png" alt="Logo" />
+            </div>
+            <div class="page-body">
+                
+                <div class="mb-8 mx-auto max-w-[750px]">
+                    <h5 class="mr-4 mb-2 text-sm font-normal text-black">Sähkön laskutus</h5>
+                    <div class="flex md:flex-wrap flex-col md:flex-row md:items-center justify-between mb-4">
+                    
+                        {% for index, electricity_bill in electricity_billing %}
+                            <label class="flex items-center text-sm mb-2" for="electricity_billing-{{ index }}">
+                                <input class="mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="electricity_billing[{{ index }}]" id="electricity_billing-{{ index }}" checked readonly disabled>
+                                {{ electricity_bill }}
+                            </label>
+                        {% endfor %}
+                    </div>
+                    <p class="w-full text-sm border-accent rounded-md text-[#586B74]" id="electricity_billing_comment">{{ electricity_billing_comment }}</p>
+                </div>
+
+                <div class="mx-auto max-w-[750px]">
+                    <h5 class="mr-4 mb-4 text-sm font-medium text-black">Perustiedot</h5>
+                    <p class="mb-4 text-sm">Tämän läpikäynnin tavoitteena on projektin lähtötietojen tehokas selvittäminen ja koonti yhteen paikkaan. Lisäksi käydään yhteisesti läpi Nosteelle astetetut tehtävät sekä arvioitu aikataulu.</p>
+                </div>
+
+
+                <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
+                    <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="property_name">Kiinteistön nimi</label>
+                    <p class="flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="text" id="property_name">{{ property_name }}</p>
+                </div>
+
+                <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
+                    <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="sreet_address">Kiinteistön katuosoite</label>
+                    <p class="flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="text" id="sreet_address" name="sreet_address">{{ sreet_address }}</p>
+                </div>
+
+                <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
+                    <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="property_manager">Kiinteistöpäällikkö (Henkilö)</label>
+                    <p class="flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="text" id="property_manager">{{ property_manager }}</p>
+                </div>
+
+                <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
+                    <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="property_manager_email">Kiinteistöpäällikön sähköposti</label>
+                    <p class="flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="email" id="property_manager_email">{{ property_manager_email }}</p>
+                
+                </div>
+
+                <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
+                    <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="property_manager_phone">Kiinteistöpäällikön puhelinnumero</label>
+                    <p class="flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="tel" id="property_manager_phone">{{ property_manager_phone }}</p>
+                </div>
+
+                <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
+                    <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="maintenance_person">Huoltohenkilö (Henkilö)</label>
+                    <p class="flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="text" id="maintenance_person">{{ maintenance_person }}</p>
+                </div>
+
+                <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
+                    <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="service_email">Huollon sähköposti</label>
+                    <p class="flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="email" id="service_email">{{ service_email }}</p>
+                </div>
+
+                <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
+                    <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="service_phone_number">Huollon puhelinnumero</label>
+                    <p class="flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="tel" id="service_phone_number">{{ service_phone_number }}</p>
+                </div>
+
+                <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
+                    <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="aulas_email">Aulan sähköposti</label>
+                    <p class="flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="email" id="aulas_email">{{ aulas_email }}</p>
+                </div>
+
+                <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
+                    <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="lobby_phone_number">Aulan puhelinnumero</label>
+                    <p class="flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="tel" id="lobby_phone_number">{{ lobby_phone_number }}</p>
+                </div>
+
+                <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
+                    <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="lobby_opening_hours">Aulan aukioloajat</label>
+                    <p class="flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="text" id="lobby_opening_hours">{{ lobby_opening_hours }}</p>
+                </div>
+
+                <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
+                    <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="tenant_company">Vuokralainen (yhtiö)</label>
+                    <p class="flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="text" id="tenant_company">{{ tenant_company }}</p>
+                </div>
+            </div>
+            <div class="page-footer">
+                <span class="page-footer-pagination">3/3</span>
+            </div>
+        </div>
+    </div>
+    {#  #}
+</div>
+
+
+<!-- grid View Item -->
+<div class="grid grid-cols-1 gap-4">
+    <!-- card_item -->
+    <div class="card_item relative h-fit">
+        <!-- Card Header -->
+        <div class="card_header flex flex-col md:flex-row md:items-center md:justify-between px-4 md:px-8 py-6 border-b border-line top-0 z-10">
+            <div>
+                <p class="text-sm font-normal text-[#586B74] mb-1">Project nimi</p>
+                <!-- Breadcrumb -->
+                <nav class="flex justify-between" aria-label="Breadcrumb">
+                    <ol class="inline-flex flex-wrap items-center mb-3 sm:mb-0">
+                        <li>
+                            <span class="text-xs md:text-sm font-medium text-black">Projektin valmistelu</span>
+                        </li>
+                        <span class="mx-1 md:mx-2 text-black">/</span>
+                        <li aria-current="page">
+                            <span class="text-xs md:text-sm font-medium text-black">Vuokrasopimuksen apudokumentit</span>
+                        </li>
+                        <span class="mx-1 md:mx-2 text-gray-400">/</span>
+                        <li aria-current="page">
+                            <span class="text-xs md:text-sm font-medium text-black">Rakennustapaselostus_valmis_ver1</span>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+            <button class="btn gap-2 border border-line bg-[#E9E9F0]">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+                    <defs>
+                        <pattern id="pattern2" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 100 100">
+                            <image width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAADO0lEQVR4nO2cz05UMRSHu9F3UHTNq4h7VyQtYTHBzLQy0LLleSAmJugr+CcqPsKQiEs1KuyHFMHoxXtvh7TTc879/ZKuSO/Md77pbcvMrVIIgiAIQizGhbnkprildsEMhEAI6dT+BBuMkG4hinkMdx72ANJ42ANI42EPII2HPYA0HvYA0njYA0jjYQ8gjYc9gDQe9gDSeNgDSONhDyCNhz2ANB72ANJ42ANI42EPII2HPYA0HvYA0njYA0jjYQ8gjYc9gDQe9gDUeJ7s79/Vbm9ibHhnbDhvviG0sFgNbDjXzr811o9jbReSsTkO940Ln1D0UOSDp60/Xt/evpc8MiAjLOMO8HE0Gt3pFXJ5m8Itab6MGmjrn/YKuZwz/u7kwlG8hSUNL6Q1ejpdMda/bMwrb1RfjPNn/wiZTld6OyFJWbd7Dxoj5Bf95Z3wLFxfCCkbCCEWCCEWCCmYjZ2dh9qG53FyvmovNp+F1a4+EFJWxreb+wv/Pf6trR+EFEocGe0bvnDY1g9CCiXeojp24T/b+kFIBSHa+R9t/SCkUOIE3jFCDtr6QUihxNVUnMD/M6l/jf8iaesHIeVXWodxzrhqB10yYiCEWCCEWCCEWCCEWCCEWCCEWCCEWCCEWKoJkf5TIpWpLvk7JF5HWlOZ6pK/Q+J1pDWVqS75OyReR1pTmeqSv0Ph61AJhBALhBALhBALhBALhBDLYIRsuPBYW39SexmrrT/Rk901KnWp9sLahs+1ZZjrZsMXKnWp9sIQQk3IZHfNuDCrPjpcmBnrH1GpS/0XJh4DIbRSTUjzN6u3fegTIyTXQ5+Nx6Ljo7y3kQIhN2VoF14t/li09eMSk2btfYju2Wf01qXM+9pKO3TG+uNlCYlr/9IyzJ/mT6kI0Ta8TzpaIyYejBLP4liKEOdPhyfEf0g+fOY60V48i0M7/7p5ukNOIUvch8y69hnlhfiz37UMW8kjI2dShXCJ4c7DHkAaD3sAaTzsAaTxpAIM7fuQakleZQ3s+5BqgRCuQgb2fUi1sAeQxsMeQBoPewBpPOwBpPGwB5DGwx5AGg+BZey8ZFPcUrtgBkIghHRqf4INRgiCIAiihpULmb7nGYjfxQAAAAAASUVORK5CYII=" />
+                        </pattern>
+                    </defs>
+                    <rect id="icons8-print-100" width="20" height="20" fill="url(#pattern2)" />
+                </svg>
+
+                Takaisin
+            </button>
+        </div><!-- Card Header -->
+        <!-- Card Body -->
+        <div class="px-4 md:px-8 pt-6 pb-10 lg:h-[645px] overflow-y-auto no-scrollbar scroll-smooth">
+            <div class="">
                             
                             <li class="mb-10">
                                 <label class="flex items-center text-md md:text-lg mb-5" for="agreed_prepare_documents3">

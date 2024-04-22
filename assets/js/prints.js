@@ -75,7 +75,7 @@ document.querySelectorAll('.btn.gap-2.border.border-accent.bg-accent.text-white'
           
           if (PRINTS_ARGS?.allowTwig) {
             printPrevCard.innerHTML = template.render({threedotsloader: '<span class="dots3loader"></span>'});
-            if (!(json?.template)) {json.template = 'blank'}
+            if (typeof json?.template !== 'string') {json.template = 'blank'}
             fetch(`${main_ajax_object.theme_uri}/assets/js/twigs/${json?.template}.twig`)
             .then(data => data.text())
             .then(body => {
@@ -84,7 +84,7 @@ document.querySelectorAll('.btn.gap-2.border.border-accent.bg-accent.text-white'
               json.submission = json?.submission??{};
               json.submission.locale_args = main_ajax_object;
               printPrevCard.innerHTML = template.render(json.submission);
-              // print();
+              submit.disabled = true;
             }).catch(error => console.error(error));
           } else {
             printPrevCard.innerHTML = hiddenCard.innerHTML;
@@ -120,6 +120,7 @@ document.querySelectorAll('.btn.gap-2.border.border-accent.bg-accent.text-white'
                   }
                 });
               });
+              // 
               setTimeout(() => {
                 printPrevCard.querySelectorAll(`${['radio', 'checkbox'].map(type => `input[type=${type}]`).join(', ')}, select, textarea`).forEach(input => {
                   ['readonly', 'disabled'].forEach(attr => input.setAttribute(attr, true));
@@ -129,8 +130,7 @@ document.querySelectorAll('.btn.gap-2.border.border-accent.bg-accent.text-white'
               }, 300);
             }, 300);
           }
-          
-          
+          // 
           hiddenCard.parentElement.insertBefore(printPrevCard, hiddenCard);
           if (!(printBtn.dataset?.handledPrintEvent)) {
             printBtn.dataset.handledPrintEvent = true;

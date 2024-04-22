@@ -110,7 +110,7 @@ add_action('wp_ajax_project_submit_document', 'noste_project_submit_document');
 function noste_project_submit_document() {
 	$json = (object) ['template' => false];
 	$ref_queries = (array) json_decode(preg_replace('/[\x00-\x1F\x80-\xFF]/', '', stripslashes(html_entity_decode(isset($_POST['ref_queries'])?$_POST['ref_queries']:'{}'))), true);
-	if (isset($_POST['nosti_tasks'])) {
+	if (isset($_POST)) {
 		$json->submission = $_POST;
 		$toUpdate = $_POST;
 		$toAvoid = ['project_id', 'step_id', 'form_id'];

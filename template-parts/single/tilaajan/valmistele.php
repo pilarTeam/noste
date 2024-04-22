@@ -46,7 +46,7 @@
                     <div class="">
                         <div class="mx-auto max-w-[750px] mb-4">
                             <p class="text-sm text-accent italic">K1</p>
-                            <p class="text-sm text-accent italic">K1</p>
+                            <p class="text-sm text-accent italic">K4</p>
                         </div>
                         
                         <h4 class="mb-8 text-[#081F2C] mx-auto max-w-[750px]">Projektin lähtötietopalaveri</h4>
@@ -338,7 +338,7 @@
                 <!-- Card footer -->
                 <div class="card_footer p-4 border-t border-line">
                     <div class="flex items-center justify-between">
-                        <a href="<?php echo esc_attr( site_url( remove_query_arg( [ 'tmin' ] ) ) ); ?>" class="btn gap-2 border border-line">
+                        <a href="<?php echo esc_attr(site_url(remove_query_arg(['tmin']))); ?>" class="btn gap-2 border border-line">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
                                 <defs>
                                     <pattern id="pattern13" width="1" height="1" patternTransform="matrix(-1, 0, 0, 1, 40, 0)" viewBox="0 0 20 20">
