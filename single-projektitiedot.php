@@ -21,6 +21,17 @@ if ( !array_intersect( [ 'editor', 'administrator' , 'um_project-manager', 'subs
 get_header( 'noste' );
 
 
+
+// if (isset($_GET['tm']) && isset($_GET['tmin'])) {
+// 	$tm_url = sprintf(get_template_directory() . '/template-parts/single/%s/%s.php', $_GET['tm'], $_GET['tmin']);
+// 	if (!file_exists($tm_url)) {
+// 		$file = fopen($tm_url, "w+") or die("Unable to open file!" . $tm_url);
+// 		$text = "nothing configured here";
+// 		fwrite($file, $text);
+// 		fclose($file);
+// 	}
+// }
+
 if ( !isset($_GET['tm']) ) {
 
 	echo get_template_part( 'template-parts/single/single-main' );

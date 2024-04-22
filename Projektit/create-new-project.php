@@ -11,26 +11,10 @@ if ( !is_user_logged_in() ) {
 
 $user = wp_get_current_user();
 
-// $project = isset($_GET['pid']) ? get_post( (int) $_GET['pid'] ) : '';
-
-// if ( (isset($user->roles) && !empty($user->roles) && !array_intersect(['editor', 'administrator'], $user->roles)) || empty($project) ) {
-    
-$project = isset($_GET['pid'])?get_post((int) $_GET['pid']):false;
-$is_update = isset($_GET['pid']);
-if (is_wp_error($project)) {$project = false;}
-// else {setup_postdata($project);}
-$project_id = ($project)?$project->ID:0;
-// print_r($project);
+$project = isset($_GET['pid']) ? get_post( (int) $_GET['pid'] ) : '';
 
 
-
-if (
-    // Kamrul
-    (isset($user->roles) && !empty($user->roles) && !array_intersect(['editor', 'administrator'], $user->roles))
-            ||
-    // Remal
-    ($is_update && $project == false)
-) {
+if ( (isset($user->roles) && !empty($user->roles) && !array_intersect(['editor', 'administrator'], $user->roles)) ) {
     wp_redirect( site_url() );
     exit;   
 }
