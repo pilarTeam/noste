@@ -285,39 +285,48 @@ jQuery(document).ready(function ($) {
         $(this).parents('.help_wrap').find('.help_show').toggleClass('hidden');
     });
     
-   
-    $('form').on('click', '.ajax-submit', function(e){
+    $('.sample-btn').click(function(e){
         e.preventDefault();
 
         if ( confirm("Are you sure?") ) {
-            $(this).parents('form').trigger('submit');
+            $(this).parent().find('.submit-btn').trigger('click');
         }
-    })
+    });    
+   
+    // $('form').on('click', '.ajax-submit', function(e){
+    //     e.preventDefault();
 
-    $('#esitietolomake_form').on('submit', function(e){
-        e.preventDefault();
+    //     if ( confirm("Are you sure?") ) {
+    //         $(this).parents('form').trigger('submit');
+    //     }
+    // })
 
-        var formData = new FormData($(this)[0]);
-        formData.append('action', 'esitietolomake_form');
+    // $('#esitietolomake_form').on('submit', function(e){
+    //     e.preventDefault();
 
-        $.ajax({
-            url: main_ajax_object.ajaxurl,
-            type: 'POST',
-            data: formData,
-            async: true,
-            cache: false,
-            contentType: false,
-            enctype: 'multipart/form-data',
-            processData: false,
-            success: function(response) {
-                console.log(response);
-            },
-            error: function(response) {
-                // console.log(response);
-                alert('failed!');
-            }
-        });
+    //     var formData = new FormData($(this)[0]);
+    //     formData.append('action', 'esitietolomake_form');
+
+    //     $.ajax({
+    //         url: main_ajax_object.ajaxurl,
+    //         type: 'POST',
+    //         data: formData,
+    //         async: true,
+    //         cache: false,
+    //         contentType: false,
+    //         enctype: 'multipart/form-data',
+    //         processData: false,
+    //         success: function(response) {
+    //             if ( response['success'] ) {
+    //                 location.reload();
+    //             }
+    //         },
+    //         error: function(response) {
+    //             // console.log(response);
+    //             alert('failed!');
+    //         }
+    //     });
     
-    });
+    // });
 
 });

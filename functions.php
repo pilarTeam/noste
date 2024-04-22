@@ -74,7 +74,7 @@ function noste_scripts() {
 	}
 
 
-	wp_enqueue_script('main-script', get_template_directory_uri() . '/assets/js/main.js', ['jquery', 'date-picker-script'], '1.0', true);
+	wp_enqueue_script('main-script', get_template_directory_uri() . '/assets/js/main.js', ['jquery', 'date-picker-script'], rand(1, 100), true);
 	wp_localize_script( 'main-script', 'main_ajax_object',
 		array( 
 			'ajaxurl' => admin_url( 'admin-ajax.php' ),

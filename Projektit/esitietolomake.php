@@ -28,9 +28,7 @@ get_header( 'noste' );
 
 ?>
 
-<?php 
-
-/* if ( ( isset($_POST['submit-form']) && $_POST['submit-form'] == 'submitted' ) && ( isset($_POST['pid']) && !empty($_POST['pid']) ) ): 
+<?php if ( ( isset($_POST['submit-form']) && $_POST['submit-form'] == 'submitted' ) && ( isset($_POST['pid']) && !empty($_POST['pid']) ) ): 
     
     $project_id = (int) $_POST['pid'];
 
@@ -526,7 +524,7 @@ get_header( 'noste' );
         }
     </style>
     
-<?php else: */ ?>
+<?php else: ?>
 
     <section class="my-8">
         <div class="container px-4">
@@ -1456,9 +1454,12 @@ get_header( 'noste' );
                         </div>
         
                         <div>
-                           <button class="ajax-submit text-[14px] text-white font-medium bg-[#00B2A9] border border-solid border-[#818D930F] rounded-lg flex items-center gap-2 px-3 py-1" type="submit" name="submit-form" value="submitted">
+                            <button class="sample-btn text-[14px] text-white font-medium bg-[#00B2A9] border border-solid border-[#818D930F] rounded-lg flex items-center gap-2 px-3 py-1">
                                 Hyväksy
-                            </button>                            
+                            </button>
+                           <button class="hidden submit-btn text-[14px] text-white font-medium bg-[#00B2A9] border border-solid border-[#818D930F] rounded-lg flex items-center gap-2 px-3 py-1" type="submit" name="submit-form" value="submitted">
+                                Hyväksy
+                            </button>                          
                         </div>
                     </div>
                 </div>
@@ -1466,5 +1467,5 @@ get_header( 'noste' );
         </div>
     </section>
 
-<?php /* endif */ ?>
+<?php endif ?>
  <?php get_footer(); ?>
