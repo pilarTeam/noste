@@ -136,7 +136,7 @@ document.querySelectorAll('.btn.gap-2.border.border-accent.bg-accent.text-white'
             printBtn.dataset.handledPrintEvent = true;
             printBtn.addEventListener('click', (event) => {
               event.preventDefault();event.stopPropagation();
-              print();// printDiv(printPrevCard);
+              print();
             });
           }
         }
@@ -146,18 +146,6 @@ document.querySelectorAll('.btn.gap-2.border.border-accent.bg-accent.text-white'
       });
     } else {
       submit.disabled = false;
-    }
-  });
-
-
-  theForm.querySelectorAll(`${['text', 'email', 'tel'].map(type => `input[type=${type}]`).join(', ')}, textarea`).forEach(input => {
-    switch (input.nodeName) {
-      case 'TEXTAREA':
-        input.innerHTML = generateRandomString(300)
-        break;
-      default:
-        input.value = generateRandomString(30)
-        break;
     }
   });
   
@@ -173,6 +161,30 @@ function generateRandomString(length) {
   
   return result;
 }
+document.addEventListener("keypress", (event) => {
+  console.log(event)
+  switch (event.key) {
+    case 'F':
+      if (event.shiftKey) {
+        document.querySelectorAll('form').forEach(theForm => {
+          theForm.querySelectorAll(`${['text', 'email', 'tel'].map(type => `input[type=${type}]`).join(', ')}, textarea`).forEach(input => {
+            switch (input.nodeName) {
+              case 'TEXTAREA':
+                input.innerHTML = generateRandomString(300)
+                break;
+              default:
+                input.value = generateRandomString(30)
+                break;
+            }
+          });
+        });
+      }
+      break;
+    default:
+      break;
+  }
+}, false);
+
 
 /**
  * Function to hook printing css on <head>
@@ -182,20 +194,58 @@ function generateRandomString(length) {
 // style.innerHTML = ``;
 // document.head.appendChild(style);
 
-function printDiv(node) { 
-  var divContents = node.innerHTML; 
-  var a = window.open('', '', 'height=500, width=500'); 
-  a.document.write('<html>'); 
-  a.document.write('<body > <h1>Div contents are <br>'); 
-  a.document.write(divContents); 
-  a.document.write('</body></html>'); 
-  a.document.close(); 
-  a.print(); 
-}
-
 /**
  * prevent hash acnhors on click events.
  */
 document.querySelectorAll('a[href="#!"], a[href="#"]').forEach(anchor => {
   anchor.addEventListener('click', (event) => event.preventDefault());
+});
+/**
+ * Handle Submission on global form
+ */
+document.querySelectorAll('#global-form-submit').forEach(submit => {
+  submit.addEventListener('click', (event) => {
+    event.preventDefault();
+    document.querySelector('#global-form').dispatchEvent(new Event('submit'));
+  });
+});
+document.querySelectorAll('#global-form').forEach(form => {
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (confirm('Are you sure?')) {
+      var formData = new FormData(form);
+      /**
+       * Validation goes here.
+       */
+      wp.ajax.post('global_form_' + form.dataset.type, Object.fromEntries(formData)).done(json => {
+        if (json?.reload) {location.reload();}
+        // 
+        if (json?.template) {
+          // 
+          var hiddenCard = form;
+          var printPrevCard = document.createElement('div');
+          // printPrevCard.classList.add('card_item', 'relative', 'h-fit');
+          printPrevCard.className = hiddenCard.className;
+          printPrevCard.classList.add('section-to-print');
+          // 
+          fetch(`${main_ajax_object.theme_uri}/assets/js/twigs/${json?.template}.twig`)
+          .then(data => data.text())
+          .then(body => {
+            // console.log(body);
+            var template = Twig.twig({data: body});
+            json.submission = json?.submission??{};
+            json.submission.locale_args = main_ajax_object;
+            printPrevCard.innerHTML = template.render(json.submission);
+
+            // 
+            hiddenCard.style.display = 'none';
+            hiddenCard.parentElement.insertBefore(printPrevCard, hiddenCard);
+          }).catch(error => console.error(error));
+        }
+        // 
+      }).fail(error => {
+        console.error(error);
+      });
+    }
+  });
 });

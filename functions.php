@@ -139,3 +139,40 @@ function noste_project_submit_document() {
 	}
 	wp_send_json_error($json);
 }
+/**
+ * Function to handle submittion of noste single document.
+ * 
+ * @author Remal Mahmud
+ * @since 17 April, 2024
+ */
+add_action('wp_ajax_global_form_esitietolomake', 'noste_global_form_esitietolomake');
+function noste_global_form_esitietolomake() {
+	$json = (object) ['template' => false];
+	$ref_queries = (array) json_decode(preg_replace('/[\x00-\x1F\x80-\xFF]/', '', stripslashes(html_entity_decode(isset($_POST['ref_queries'])?$_POST['ref_queries']:'{}'))), true);
+	if (isset($_POST)) {
+		$json->submission = $_POST;
+		$toUpdate = $_POST;
+		$toAvoid = ['project_id', 'step_id', 'form_id'];
+		foreach ($toUpdate as $key => $value) {
+			if (in_array($key, (array) $toAvoid)) {
+				unset($toUpdate[$key]);
+			}
+		}
+		$project_id = (int) $_POST['project_id']??false;
+		// 
+		// update_post_meta(
+		// 	$project_id, 
+		// 	implode('-', (array) [$step_id, $form_id]),
+		// 	$toUpdate
+		// );
+		// 
+		$template = implode('-', (array) ['global_form_esitietolomake']);
+		$template_path = get_template_directory() . '/assets/js/twigs/' . $template . '.twig';
+		if (file_exists($template_path) && !is_dir($template_path)) {
+			$json->template = $template;
+		}
+		// 
+		wp_send_json_success($json);
+	}
+	wp_send_json_error($json);
+}
