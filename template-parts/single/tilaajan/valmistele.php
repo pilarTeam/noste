@@ -46,12 +46,12 @@
                     <div class="">
                         <div class="mx-auto max-w-[750px] mb-4">
                             <p class="text-sm text-accent italic">K1</p>
-                            <p class="text-sm text-accent italic">K1</p>
+                            <p class="text-sm text-accent italic">K4</p>
                         </div>
                         
                         <h4 class="mb-8 text-[#081F2C] mx-auto max-w-[750px]">Projektin lähtötietopalaveri</h4>
 
-                        <form action="#">
+                        <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post" enctype="multipart/form-data">
                             <div class="mb-8 mx-auto max-w-[750px]">
                                 <div class="flex flex-wrap mb-4">
                                     <label class="flex-[3] mr-4 text-sm font-medium text-black" for="version">Versio:</label>
@@ -148,19 +148,19 @@
 
                                         <div class="md:pl-12 order-3">
                                             <label class="flex items-center text-sm md:text-sm mb-2" for="agreed_prepare_documents1">
-                                                <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[]" id="agreed_prepare_documents1">
+                                                <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[1]" id="agreed_prepare_documents1" value="Vuokrasopimuksen hankintarajaliite">
                                                 Vuokrasopimuksen hankintarajaliite
                                             </label>
                                             <label class="flex items-center text-sm md:text-sm mb-2" for="agreed_prepare_documents2">
-                                                <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[]" id="agreed_prepare_documents2">
+                                                <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[2]" id="agreed_prepare_documents2" value="Vuokrasopimuksen rakennustapaselostus">
                                                 Vuokrasopimuksen rakennustapaselostus
                                             </label>
                                             <label class="flex items-center text-sm md:text-sm mb-2" for="agreed_prepare_documents3">
-                                                <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[]" id="agreed_prepare_documents3">
+                                                <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[3]" id="agreed_prepare_documents3" value="Vuokrasopimuksen lähtötietoaikataulu">
                                                 Vuokrasopimuksen lähtötietoaikataulu
                                             </label>
                                             <label class="flex items-center text-sm md:text-sm mb-2" for="agreed_prepare_documents4">
-                                                <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[]" id="agreed_prepare_documents4">
+                                                <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[4]" id="agreed_prepare_documents4" value="muut">
                                                 <input class="shadow-input text-sm border-accent rounded-md text-[#586B74] w-1/2" type="text" id="agreed_prepare_documents_content" name="agreed_prepare_documents_content" value="Muu, mikä">
                                             </label>
                                         </div>
@@ -251,15 +251,15 @@
                                     <h5 class="mr-4 mb-2 text-sm font-normal text-black">Sähkön laskutus</h5>
                                     <div class="flex md:flex-wrap flex-col md:flex-row md:items-center justify-between mb-4">
                                         <label class="flex items-center text-sm mb-2" for="electricity_billing1">
-                                            <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="electricity_billing[]" id="electricity_billing1">
+                                            <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="electricity_billing[1]" id="electricity_billing1" value="Sähkö laskutetaan neliöperusteisesti">
                                             Sähkö laskutetaan neliöperusteisesti
                                         </label>
                                         <label class="flex items-center text-sm mb-2" for="electricity_billing2">
-                                            <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="electricity_billing[]" id="electricity_billing2">
+                                            <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="electricity_billing[2]" id="electricity_billing2" value="kiinteistön alamittauksen avulla">
                                             kiinteistön alamittauksen avulla
                                         </label>
                                         <label class="flex items-center text-sm mb-2" for="electricity_billing3">
-                                            <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="electricity_billing[]" id="electricity_billing3">
+                                            <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="electricity_billing[3]" id="electricity_billing3" value="vuokralaisella oma sähkösopimus">
                                             vuokralaisella oma sähkösopimus
                                         </label>
                                     </div>
@@ -338,7 +338,7 @@
                 <!-- Card footer -->
                 <div class="card_footer p-4 border-t border-line">
                     <div class="flex items-center justify-between">
-                        <a href="<?php echo esc_attr( site_url( remove_query_arg( [ 'tmin' ] ) ) ); ?>" class="btn gap-2 border border-line">
+                        <a href="<?php echo esc_attr(site_url(remove_query_arg(['tmin']))); ?>" class="btn gap-2 border border-line">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
                                 <defs>
                                     <pattern id="pattern13" width="1" height="1" patternTransform="matrix(-1, 0, 0, 1, 40, 0)" viewBox="0 0 20 20">

@@ -14,7 +14,7 @@ $user = wp_get_current_user();
 $project = isset($_GET['pid']) ? get_post( (int) $_GET['pid'] ) : '';
 
 
-if ( (isset($user->roles) && !empty($user->roles) && !array_intersect(['editor', 'administrator'], $user->roles)) || empty($project) ) {
+if ( (isset($user->roles) && !empty($user->roles) && !array_intersect(['editor', 'administrator'], $user->roles)) ) {
     wp_redirect( site_url() );
     exit;   
 }
