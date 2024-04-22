@@ -5,9 +5,9 @@ add_action( 'wp_ajax_create_a_project', 'noste_create_a_project');
 add_filter('acf/load_field/name=projektipaallikko', 'noste_project_projektipaallikko');
 add_filter('acf/load_field/name=valvoja', 'noste_project_valvoja');
 
-function noste_check_empty($value) {
+function noste_check_empty($value, $default = '') {
 	if ( !isset($value) || empty($value) ) {
-		return;
+		return $default;
 	}
 
 	return $value;
@@ -33,6 +33,14 @@ function noste_checked_with_json($checked = '', $current = '' ){
 
 }
 
+
+function noste_checkbox_status($checked) {
+	if ( $checked ) {
+		return '';
+	} else {
+		return 'hidden';
+	}
+}
 
 function noste_custom_checkbox_checked( $checked = '', $current = '' ) {
 	return noste_checked_with_json($checked, $current) ? '' : 'hidden';

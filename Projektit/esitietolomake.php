@@ -525,8 +525,8 @@ get_header( 'noste' );
                     <hr class="border border-solid border-[#E1E1EA] ml-[-20px] mr-[-20px]">
 
                     <div class="max-w-[700px] mx-auto mt-10">
-                        <span class="font-medium italic text-[#00B2A9] block"><?php echo esc_html( noste_check_empty(get_post_meta( $pid, 'pilar_K1', true )) ); ?></span>
-                        <span class="font-medium italic text-[#00B2A9] block"><?php echo esc_html( noste_check_empty(get_post_meta( $pid, 'pilar_K4', true )) ); ?></span>
+                        <span class="font-medium italic text-[#00B2A9] block"><?php echo esc_html( noste_check_empty(get_post_meta( $pid, 'pilar_K1', true ), 'K1') ); ?></span>
+                        <span class="font-medium italic text-[#00B2A9] block"><?php echo esc_html( noste_check_empty(get_post_meta( $pid, 'pilar_K4', true ), 'K4') ); ?></span>
                     </div>
 
                     <div class="help_wrap my-10 relative">
@@ -752,7 +752,7 @@ get_header( 'noste' );
                         <div class="flex flex-col lg:flex-row gap-3 lg:items-center lg:gap-20">
                             <label class="inline-flex items-center gap-2 cursor-pointer">
                                 <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
-                                    <svg class="check_show <?php echo noste_checked_with_json( get_post_meta( $pid, 'pilar_K17', true ), 'Sprinkleri') ? '' : 'hidden'; ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                                    <svg class="check_show <?php echo noste_checkbox_status( noste_checked_with_json( get_post_meta( $pid, 'pilar_K17', true ), 'Sprinkleri') ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                 </span>
 
                                 <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K17[]" value="Sprinkleri" <?php echo esc_html( noste_checked_with_json( get_post_meta( $pid, 'pilar_K17', true ), 'Sprinkleri' ) ); ?>>
@@ -761,7 +761,7 @@ get_header( 'noste' );
 
                             <label class="inline-flex items-center gap-2 cursor-pointer">
                                 <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
-                                    <svg class="check_show <?php echo esc_attr( noste_checked_with_json( get_post_meta( $pid, 'pilar_K17', true ), 'Paloilmoittimet') ? '' : 'hidden' ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                                    <svg class="check_show <?php echo esc_attr( noste_checkbox_status( noste_checked_with_json( get_post_meta( $pid, 'pilar_K17', true ), 'Paloilmoittimet') ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                 </span>
                                 <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K17[]" value="Paloilmoittimet" <?php echo esc_html( noste_checked_with_json( get_post_meta( $pid, 'pilar_K17', true ), 'Paloilmoittimet' ) ); ?>>
                                 <span class="flex-1 text-[#586B74] text-[14px]">Paloilmoittimet</span>
@@ -797,7 +797,7 @@ get_header( 'noste' );
 
                             <label class="inline-flex items-center gap-2 cursor-pointer">
                                 <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
-                                    <svg class="check_show <?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_K18', true )) == 'no' ? '' : 'hidden' ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                                    <svg class="check_show <?php echo esc_attr( noste_checkbox_status( noste_check_empty(get_post_meta( $pid, 'pilar_K18', true )) == 'no' ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                 </span>
                                 <input type="radio" class="radio_change absolute opacity-0" name="pilar_K18" value="no" <?php echo esc_html( checked( noste_check_empty(get_post_meta( $pid, 'pilar_K18', true )), 'no' ) ); ?>>
                                 <span class="flex-1 text-[#586B74] text-[14px]">Ei</span>
@@ -832,7 +832,7 @@ get_header( 'noste' );
 
                             <label class="inline-flex items-center gap-2 cursor-pointer">
                                 <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
-                                    <svg class="check_show <?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_K19', true )) == 'no' ? '' : 'hidden' ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                                    <svg class="check_show <?php echo esc_attr( noste_checkbox_status( noste_check_empty(get_post_meta( $pid, 'pilar_K19', true )) == 'no' ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                 </span>
                                 <input type="radio" class="radio_change absolute opacity-0" name="pilar_K19" value="no" <?php echo esc_html( checked( noste_check_empty(get_post_meta( $pid, 'pilar_K19', true )), 'no' ) ); ?>>
                                 <span class="flex-1 text-[#586B74] text-[14px]">Ei</span>
@@ -846,7 +846,7 @@ get_header( 'noste' );
                         <div class="flex flex-col lg:flex-row gap-3 lg:items-center lg:gap-20">
                             <label class="inline-flex items-center gap-2 cursor-pointer">
                                 <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
-                                    <svg class="check_show <?php echo esc_attr( noste_checked_with_json( get_post_meta( $pid, 'pilar_K20', true ), 'Oma sahkosopimus') ? '' : 'hidden' ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                                    <svg class="check_show <?php echo esc_attr( noste_checkbox_status( noste_checked_with_json( get_post_meta( $pid, 'pilar_K20', true ), 'Oma sahkosopimus') ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                 </span>
                                 <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K20[]" value="Oma sahkosopimus" <?php echo esc_html( noste_checked_with_json( get_post_meta( $pid, 'pilar_K20', true ), 'Oma sahkosopimus' ) ); ?>>
                                 <span class="flex-1 text-[#586B74] text-[14px]">Oma sähkösopimus</span>
@@ -854,7 +854,7 @@ get_header( 'noste' );
 
                             <label class="inline-flex items-center gap-2 cursor-pointer">
                                 <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
-                                    <svg class="check_show <?php echo esc_attr( noste_checked_with_json( get_post_meta( $pid, 'pilar_K20', true ), 'Nelioperusteinen') ? '' : 'hidden' ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                                    <svg class="check_show <?php echo esc_attr( noste_checkbox_status( noste_checked_with_json( get_post_meta( $pid, 'pilar_K20', true ), 'Nelioperusteinen') ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                 </span>
                                 <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K20[]" value="Nelioperusteinen" <?php echo esc_html( noste_checked_with_json( get_post_meta( $pid, 'pilar_K20', true ), 'Nelioperusteinen' ) ); ?>>
                                 <span class="flex-1 text-[#586B74] text-[14px]">Neliöperusteinen</span>
@@ -862,7 +862,7 @@ get_header( 'noste' );
 
                             <label class="inline-flex items-center gap-2 cursor-pointer">
                                 <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
-                                    <svg class="check_show <?php echo esc_attr( noste_checked_with_json( get_post_meta( $pid, 'pilar_K20', true ), 'Kiinteiston alamittaus') ? '' : 'hidden' ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                                    <svg class="check_show <?php echo esc_attr( noste_checkbox_status(noste_checked_with_json( get_post_meta( $pid, 'pilar_K20', true ), 'Kiinteiston alamittaus')) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                 </span>
                                 <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K20[]" value="Kiinteiston alamittaus" <?php echo esc_html( noste_checked_with_json( get_post_meta( $pid, 'pilar_K20', true ), 'Kiinteiston alamittaus' ) ); ?>>
                                 <span class="flex-1 text-[#586B74] text-[14px]">Kiinteistön alamittaus</span>

@@ -9,6 +9,15 @@ if ( !is_user_logged_in() || !isset($_GET['pid']) ) {
 
 $takaisin = get_permalink( $_GET['pid'] );
 
+$pid = (int) $_GET['pid'];
+
+if ( !is_int($pid) ) {
+    wp_redirect( site_url() );
+    exit;
+}
+
+
+
 get_header( 'noste' );
 
 ?>
@@ -38,8 +47,8 @@ get_header( 'noste' );
             <hr class="border border-solid border-[#E1E1EA] ml-[-20px] mr-[-20px]" />
 
             <div class="mt-10">
-                <span class="font-medium italic text-[#00B2A9] block">T1</span>
-                <span class="font-medium italic text-[#00B2A9] block">K1</span>
+                <span class="font-medium italic text-[#00B2A9] block"><?php echo esc_html( noste_check_empty(get_post_meta( $pid, 'pilar_T1', true ), 'T1') ); ?></span>
+                <span class="font-medium italic text-[#00B2A9] block"><?php echo esc_html( noste_check_empty(get_post_meta( $pid, 'pilar_K1', true ), 'K1') ); ?></span>
             </div>
 
             <div class="flex items-center justify-between my-10">
@@ -48,7 +57,7 @@ get_header( 'noste' );
             </div>
 
             <div class="mb-10">
-                <h3 class="italic text-[#00B2A9] font-medium text-[24px]">K4</h3>
+                <h3 class="italic text-[#00B2A9] font-medium text-[24px]"><?php echo esc_html( noste_check_empty(get_post_meta( $pid, 'pilar_K4', true ), 'K4') ); ?></h3>
             </div>
 
             <div>
@@ -67,18 +76,18 @@ get_header( 'noste' );
                         <tr>
                             <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                             <td class="text-left text-[#283B44] font-medium p-3 border border-solid border-[#E1E1EA]">Rakennustyöt yhteensä</td>
-                            <td class="text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA]">BU2</td>
+                            <td class="text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA]"><?php echo esc_html( noste_check_empty(get_post_meta( $pid, 'pilar_BU2', true ), 'BU2') ); ?></td>
                             <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                             <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                            <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">E2=<span class="text-[#00B2A9] italic">UH1</span> + 6200€ + <span class="italic">Ennuste1 + jne.</span></td>
+                            <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">E2=<span class="text-[#00B2A9] italic"><?php echo esc_html( noste_check_empty(get_post_meta( $pid, 'pilar_UH1', true ), 'UH1') ); ?></span> + 6200€ + <span class="italic">Ennuste1 + jne.</span></td>
                             <td class=""></td>
                         </tr>
 
                         <tr>
                             <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                            <td class="text-left text-[#00B2A9] italic font-medium p-3 border border-solid border-[#E1E1EA]">U1, Urakkasopimuksen mukaiset työt</td>
+                            <td class="text-left text-[#00B2A9] italic font-medium p-3 border border-solid border-[#E1E1EA]"><?php echo esc_html( noste_check_empty(get_post_meta( $pid, 'pilar_U1', true ), 'U1') ); ?>, Urakkasopimuksen mukaiset työt</td>
                             <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                            <td class="text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA]">UH1</td>
+                            <td class="text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA]"><?php echo esc_html( noste_check_empty(get_post_meta( $pid, 'pilar_UH1', true ), 'UH1') ); ?></td>
                             <td class="text-left text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">60 000 €</td>
                             <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                             <td class=""></td>
@@ -143,7 +152,7 @@ get_header( 'noste' );
 
                         <tr>
                             <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                            <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]"><span class="text-[#00B2A9] italic">U1,</span> Lisä- ja muutostyöt</td>
+                            <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]"><span class="text-[#00B2A9] italic"><?php echo esc_html( noste_check_empty(get_post_meta( $pid, 'pilar_U1', true ), 'U1') ); ?>,</span> Lisä- ja muutostyöt</td>
                             <td class="text-center font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                             <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">5 000 €</td>
                             <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">5 000 €</td>
@@ -599,7 +608,7 @@ get_header( 'noste' );
                         <tr>
                             <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                             <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">Projektinjohto, rakennuttaminen ja valvonta</td>
-                            <td class="text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA]">BU3</td>
+                            <td class="text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA]"><?php echo esc_html( noste_check_empty(get_post_meta( $pid, 'pilar_BU3', true ), 'BU3') ); ?></td>
                             <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]"></td>
                             <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]"></td>
                             <td class="min-w-[350px] text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA] italic">E3=Ennuste2+ Ennuste3 + jne.</td>
@@ -740,7 +749,7 @@ get_header( 'noste' );
                         <tr>
                             <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                             <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">Suunnittelu</td>
-                            <td class="text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA]">BU4</td>
+                            <td class="text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA]"><?php echo esc_html( noste_check_empty(get_post_meta( $pid, 'pilar_BU4', true ), 'BU4') ); ?></td>
                             <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]"></td>
                             <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]"></td>
                             <td class="min-w-[350px] text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA] italic">E4=Ennuste4+ Ennuste5 + jne.</td>
@@ -757,13 +766,13 @@ get_header( 'noste' );
                                 </label>
                             </td>
                             <td class="min-w-[424px] text-left text-[#00B2A9] italic p-3 border border-solid border-[#E1E1EA]">
-                                T9
+                                <?php echo esc_html( noste_check_empty(get_post_meta( $pid, 'pilar_T9', true ), 'T9') ); ?>
                             </td>
                             <td class="min-w-[126px] text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                             <td class="min-w-[188px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">
                                 <input type="text" name="pilar_M4" value="Tarjous 4" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                             </td>
-                            <td class="min-w-[300px] text-right p-3 border border-solid border-[#E1E1EA]">1250 €	</td>
+                            <td class="min-w-[300px] text-right p-3 border border-solid border-[#E1E1EA]">1250 € </td>
                             <td class="min-w-[350px] text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">
                                 <input type="text" name="pilar_M4" value="Ennuste4" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                             </td>
@@ -880,7 +889,7 @@ get_header( 'noste' );
                         <tr>
                             <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                             <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">Muut rakennuttajan tehtävät</td>
-                            <td class="text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA]">BU6</td>
+                            <td class="text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA]"><?php echo esc_html( noste_check_empty(get_post_meta( $pid, 'pilar_BU6', true ), 'BU6') ); ?></td>
                             <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]"></td>
                             <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]"></td>
                             <td class="min-w-[350px] text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA] italic">E6=Ennuste6+ jne.</td>
@@ -970,10 +979,10 @@ get_header( 'noste' );
                         <tr>
                             <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                             <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">Kaikki yhteensä (alv. 0%)</td>
-                            <td class="text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA]">BU5</td>
+                            <td class="text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA]"><?php echo esc_html( noste_check_empty(get_post_meta( $pid, 'pilar_BU5', true ), 'BU5') ); ?></td>
                             <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">0€</td>
                             <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">0€</td>
-                            <td class="min-w-[350px] text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA] italic">E5-(<span class="text-[#00B2A9] italic">BU5</span>-((E2-<span class="text-[#00B2A9] italic">BU2</span>)+(E3-<span class="text-[#00B2A9] italic">BU3</span>)+(E4-<span class="text-[#00B2A9] italic">BU4</span>)+(E6-<span class="text-[#00B2A9] italic">BU6</span>))
+                            <td class="min-w-[350px] text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA] italic">E5-(<span class="text-[#00B2A9] italic"><?php echo esc_html( noste_check_empty(get_post_meta( $pid, 'pilar_BU5', true ), 'BU5') ); ?></span>-((E2-<span class="text-[#00B2A9] italic"><?php echo esc_html( noste_check_empty(get_post_meta( $pid, 'pilar_BU2', true ), 'BU2') ); ?></span>)+(E3-<span class="text-[#00B2A9] italic"><?php echo esc_html( noste_check_empty(get_post_meta( $pid, 'pilar_BU3', true ), 'BU3') ); ?></span>)+(E4-<span class="text-[#00B2A9] italic"><?php echo esc_html( noste_check_empty(get_post_meta( $pid, 'pilar_BU4', true ), 'BU4') ); ?></span>)+(E6-<span class="text-[#00B2A9] italic"><?php echo esc_html( noste_check_empty(get_post_meta( $pid, 'pilar_BU6', true ), 'BU6') ); ?></span>))
                                 jos negatiivinen niin E5=0</td>
                             <td class=""></td>
                         </tr>
@@ -991,9 +1000,9 @@ get_header( 'noste' );
                         <tr>
                             <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                             <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">Riskivaraus</td>
-                            <td class="text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA]">BU1</td>
+                            <td class="text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA]"><?php echo esc_html( noste_check_empty(get_post_meta( $pid, 'pilar_BU1', true ), 'BU1') ); ?></td>
                             <td class="text-left text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">
-                                =<span class="text-[#00B2A9] italic">UH1</span>+5000€ + Tarjous1 + Tarjous2 + Tarjous3 + Tarjous4 + Tarjous5+ Tarjous6
+                                =<span class="text-[#00B2A9] italic"><?php echo esc_html( noste_check_empty(get_post_meta( $pid, 'pilar_UH1', true ), 'UH1') ); ?></span>+5000€ + Tarjous1 + Tarjous2 + Tarjous3 + Tarjous4 + Tarjous5+ Tarjous6
                             </td>
                             <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">
                                 '=Summa <br>
@@ -1018,13 +1027,13 @@ get_header( 'noste' );
                             <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">Verrattuna budjettiin</td>
                             <td class="text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                             <td class="text-left text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">
-                                ="Kaikki yhteensä, sidottu"/<span class="text-[#00B2A9] italic">BU1</span>*100%
+                                ="Kaikki yhteensä, sidottu"/<span class="text-[#00B2A9] italic"><?php echo esc_html( noste_check_empty(get_post_meta( $pid, 'pilar_BU1', true ), 'BU1') ); ?></span>*100%
                             </td>
                             <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">
-                                ="Kaikki yhteensä, toteuma"/<span class="text-[#00B2A9] italic">BU1</span>*100%
+                                ="Kaikki yhteensä, toteuma"/<span class="text-[#00B2A9] italic"><?php echo esc_html( noste_check_empty(get_post_meta( $pid, 'pilar_BU1', true ), 'BU1') ); ?></span>*100%
                             </td>
                             <td class="min-w-[350px] text-left font-medium text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA] italic">
-                                ="Kaikki yhteensä, ennuste"/<span class="text-[#00B2A9] italic">BU1</span>*100%
+                                ="Kaikki yhteensä, ennuste"/<span class="text-[#00B2A9] italic"><?php echo esc_html( noste_check_empty(get_post_meta( $pid, 'pilar_BU1', true ), 'BU1') ); ?></span>*100%
                             </td>
                             <td class=""></td>
                         </tr>
@@ -1036,7 +1045,7 @@ get_header( 'noste' );
                             <td class="text-left text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]"></td>
                             <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]"></td>
                             <td class="min-w-[350px] text-left font-medium text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA] italic">
-                                ="Kaikki yhteensä, ennuste"-<span class="text-[#00B2A9] italic">BU1</span>
+                                ="Kaikki yhteensä, ennuste"-<span class="text-[#00B2A9] italic"><?php echo esc_html( noste_check_empty(get_post_meta( $pid, 'pilar_BU1', true ), 'BU1') ); ?></span>
                             </td>
                             <td class=""></td>
                         </tr>
