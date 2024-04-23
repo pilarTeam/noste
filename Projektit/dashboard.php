@@ -185,11 +185,22 @@ get_header( 'noste' );
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 
                 <?php foreach ($projects as $id): 
+
+                    $projektinumero_k8 = noste_check_empty( get_post_meta( $id, 'pilar_K8', true ) );
+                    $projektinimi_k4 = noste_check_empty( get_post_meta( $pid, 'pilar_K4', true ) );
+                    $tilaaja_t1 = noste_check_empty( get_post_meta( $id, 'pilar_T1', true ), 'Tilaaja (Yritys)');
+                    $kiinteistonimi_K1 = noste_check_empty( get_post_meta( $id, 'pilar_K1', true ), 'Kiinteistön nimi' );
+                    $kiinteiston_katusoite_k2 = noste_check_empty(get_post_meta( $id, 'pilar_K2', true ), 'Kiinteistön osoite');
+
+
                     $status = !empty(get_field('projektin_tila', $id)) ? get_field('projektin_tila', $id) : '';
-                    $projektinumero = !empty(get_field('projektinumero', $id)) ? get_field('projektinumero', $id) : '';
+                    $project_title = !empty($projektinimi_k4) ? $projektinimi_k4 : get_the_title( $id );
+
+                    $projektinumero = !empty( $projektinumero_k8 ) ? $projektinumero_k8 : get_field('projektinumero', $id);
                     $projektipaallikko = !empty(get_field('projektipaallikko', $id)) ? get_field('projektipaallikko', $id)['label'] : '';
                     $valvoja = !empty(get_field('valvoja', $id)) ? implode(', ', array_column(get_field('valvoja', $id), 'label')) : '';
                     $projektin_valmistelu = !empty(get_field('projektin_valmistelu', $id)) ? get_field('projektin_valmistelu', $id) : '';
+
 
                     $edit_project = add_query_arg([ 'pid' => $id ], get_permalink( 60 ) );                    
                     ?>
@@ -199,7 +210,7 @@ get_header( 'noste' );
 
                         <div class="border-b border-black2 p-3 flex items-center justify-between project-head">
                             <div class="project-comname">
-                                <span class="font-bold text-text-base">Tilaaja (Yritys)</span>
+                                <span class="font-bold text-text-base"><?php echo esc_html( $tilaaja_t1 ); ?></span>
                             </div>
                             <div class="status-wrap">
                                 <span class="status <?php echo esc_attr( strtolower($status) ); ?>"><?php echo esc_html( $status ); ?></span>                                
@@ -211,7 +222,7 @@ get_header( 'noste' );
                             <div class="border-b border-black2 pt-5 pb-2 px-3 project-details-wrap">
                                 <a href="<?php echo esc_attr( get_the_permalink( $id ) ); ?>" class="single_permalink">
                                     <div class="project-title">
-                                        <h2 class="text-lg font-bold py-3 title"><?php echo esc_html( get_the_title( $id ) ); ?></h2>
+                                        <h2 class="text-lg font-bold py-3 title"><?php echo esc_html( $project_title ); ?></h2>
                                         <p class="text-base font-medium text-[#475467] mb-2 projektinumero"><?php echo esc_html( $projektinumero ); ?></p>                                       
                                     </div>
 
@@ -245,7 +256,7 @@ get_header( 'noste' );
                                                 <rect id="icons8-real-estate-96_1_" data-name="icons8-real-estate-96 (1)" width="19" height="19" fill="url(#pattern4)" />
                                             </svg>
                                         </span>
-                                        <span>Kiinteistön nimi</span>
+                                        <span><?php echo esc_html( $kiinteistonimi_K1 ); ?></span>
                                     </li>
 
                                     <li class="text-[#344054] flex item-center gap-2">
@@ -259,7 +270,7 @@ get_header( 'noste' );
                                                 <rect id="icons8-location-96_1_" data-name="icons8-location-96 (1)" width="19" height="19" fill="url(#pattern8)" />
                                             </svg>
                                         </span>
-                                        <span>Kiinteistön osoite</span>
+                                        <span><?php echo esc_html( $kiinteiston_katusoite_k2 ); ?></span>
                                     </li>
                                 </ul>
                             </div> <!-- body_bottom -->

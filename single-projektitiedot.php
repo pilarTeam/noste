@@ -57,10 +57,6 @@ if ( !isset($_GET['tm']) ) {
 </section>
 <?php 
 
-
-
-
-
 	} else {
 		wp_redirect( site_url( remove_query_arg( 'tm' ) ) );
 		exit;

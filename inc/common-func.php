@@ -4,6 +4,7 @@ add_action( 'wp_ajax_project_status_change', 'noste_project_status_change');
 add_action( 'wp_ajax_create_a_project', 'noste_create_a_project');
 
 add_action( 'wp_ajax_esitietolomake_form', 'noste_esitietolomake_form');
+add_action( 'wp_ajax_noste_update_project_step', 'noste_update_project_step');
 
 add_filter('acf/load_field/name=projektipaallikko', 'noste_project_projektipaallikko');
 add_filter('acf/load_field/name=valvoja', 'noste_project_valvoja');
@@ -36,6 +37,20 @@ function noste_checked_with_json($checked = '', $current = '' ){
 
 }
 
+function noste_custom_logo_url () {
+	$custom_logo_id = get_theme_mod( 'custom_logo' );
+
+	if ( empty($custom_logo_id) ) {
+		return;
+	}
+
+	$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+
+	if ( empty($image) ) {
+		return;
+	}	
+	return $image[0];	
+}
 
 function noste_checkbox_status($checked) {
 	if ( $checked ) {
@@ -307,12 +322,14 @@ function noste_create_a_project() {
 		$error = new WP_Error( '002', 'Failed For Server Busy' );
 		wp_send_json_error( $error );
 	} else {
-
 		update_field( 'projektinumero', $projektinumero, $post_id );
 		update_field( 'luontipaivamaara', $luontipaivamaara, $post_id );
 		update_field( 'projektipaallikko', $projektipaallikko, $post_id );
 		update_field( 'valvoja', $valvoja, $post_id );
 		update_field( 'projektin_tila', 'Aktiivinen', $post_id );
+
+		update_post_meta( $post_id, 'pilar_K4', $projektin_nimi );
+		update_post_meta( $post_id, 'pilar_K8', $projektinumero );
 
 		wp_send_json_success([
 			'permalink' => get_permalink( $post_id )
@@ -323,7 +340,6 @@ function noste_create_a_project() {
 
 	wp_die();
 }
-
 
 
 function noste_project_projektipaallikko($field) {
@@ -422,4 +438,42 @@ function noste_esitietolomake_form(){
 
 	$error = new WP_Error( '002', 'Server Busy' );
 	wp_send_json_error( $error );
+}
+
+
+function noste_update_project_step() {
+	check_ajax_referer( 'project_step_form_validation', 'project_step_form__nonce_field' );
+
+	if ( empty($_POST['ptname']) ) {
+		$error = new WP_Error( '001', 'PT NAME ISSUE' );
+		wp_send_json_error( $error );
+	}
+
+	if ( empty($_POST['post_id']) ) {
+		$error = new WP_Error( '002', 'Invalid Project' );
+		wp_send_json_error( $error );
+	}
+
+	$field_key = $_POST['ptname'];
+	$post_id = $_POST['post_id'];
+
+	unset($_POST['ptname']);
+	unset($_POST['action']);
+	unset($_POST['project_step_form__nonce_field']);
+	unset($_POST['_wp_http_referer']);
+
+	$data = serialize($_POST);
+
+	if ( empty($data) ) {
+		$error = new WP_Error( '001', 'Conent Data issue' );
+		wp_send_json_error( $error );		
+	}
+
+	$updated = update_post_meta( $post_id, $field_key, $data );
+
+	if ( $updated ) {
+		wp_send_json_success($_POST, 200);
+	}
+
+	wp_die();	
 }

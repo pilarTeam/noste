@@ -44,14 +44,29 @@ get_header( 'noste' );
 
                     update_post_meta( $project_id, $key, json_encode( $satize_arr ) );
 
-
                 } else {
                     $santiza_val = trim( stripslashes( sanitize_text_field( $value ) ) );
-                    update_post_meta( $project_id, $key, $santiza_val );                    
+                    update_post_meta( $project_id, $key, $santiza_val );  
+
+                    if ( $key == 'pilar_K4' ) {
+                        wp_update_post([
+                         'ID'   => $project_id,
+                         'post_title'   => $value
+                        ]);                        
+                    }
+
+                    if ( $key == 'pilar_K8' ) {
+                        update_field( 'projektinumero', $value, $project_id );                      
+                    }              
+
                 }
 
             }
         }
+
+
+
+
     } else {
         wp_redirect( site_url() );
         exit;   

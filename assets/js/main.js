@@ -26,12 +26,12 @@ function handleUpdateProjects(event, button, form) {
 jQuery(document).ready(function ($) {
 	// DropDown
 
-	$("#dropdown-toggle").click(function () {
+	$("#dropdown-toggle").on('click', function () {
 		var dropdownMenuId = $(this).data("dropdown");
 		$("#" + dropdownMenuId).toggleClass("hidden");
 	});
 
-	$(document).click(function (e) {
+	$(document).on('click', function (e) {
 		var target = e.target;
 		if (
 			!$(target).is("#dropdown-toggle") &&
@@ -42,7 +42,7 @@ jQuery(document).ready(function ($) {
 	});
 
 	// Image Upload
-	$("#FileUpload1").change(function (event) {
+	$("#FileUpload1").on('change', function (event) {
 		var input = event.target;
 		var text = $("#text");
 		var avatarImage = $("#avatarImage");
@@ -119,7 +119,7 @@ jQuery(document).ready(function ($) {
 
 
 
-    $('.project-layout').click(function(e){
+    $('.project-layout').on('click', function(e){
         e.preventDefault();
 
         var layout = $(this).data('layout');
@@ -136,7 +136,7 @@ jQuery(document).ready(function ($) {
     });
 
 
-    $("#FileUpload1").change(function (event) {
+    $("#FileUpload1").on('change', function (event) {
         const input = event.target;
         const text = $("#text");
         const avatarImage = $("#avatarImage");
@@ -285,7 +285,7 @@ jQuery(document).ready(function ($) {
         $(this).parents('.help_wrap').find('.help_show').toggleClass('hidden');
     });
     
-    $('.sample-btn').click(function(e){
+    $('.sample-btn').on('click', function(e){
         e.preventDefault();
 
         if ( confirm("Are you sure?") ) {
@@ -293,40 +293,45 @@ jQuery(document).ready(function ($) {
         }
     });    
    
-    // $('form').on('click', '.ajax-submit', function(e){
-    //     e.preventDefault();
+    $('form.ajax-submit').on('click', '*[type="submit"]', function(e){
+        e.preventDefault();
 
-    //     if ( confirm("Are you sure?") ) {
-    //         $(this).parents('form').trigger('submit');
-    //     }
-    // })
+        if ( confirm("Are you sure?") ) {
+            $(this).parents('form').trigger('submit');
+        }
+    })
 
-    // $('#esitietolomake_form').on('submit', function(e){
-    //     e.preventDefault();
+    $('form.ajax-submit').on('submit', function(e){
+        e.preventDefault();
 
-    //     var formData = new FormData($(this)[0]);
-    //     formData.append('action', 'esitietolomake_form');
+        if ( $('input[name="ptname"]').val() == '' ) {
+            alert('Please reload again.');
+            location.reload();
+            return;
+        }
 
-    //     $.ajax({
-    //         url: main_ajax_object.ajaxurl,
-    //         type: 'POST',
-    //         data: formData,
-    //         async: true,
-    //         cache: false,
-    //         contentType: false,
-    //         enctype: 'multipart/form-data',
-    //         processData: false,
-    //         success: function(response) {
-    //             if ( response['success'] ) {
-    //                 location.reload();
-    //             }
-    //         },
-    //         error: function(response) {
-    //             // console.log(response);
-    //             alert('failed!');
-    //         }
-    //     });
+        var formData = new FormData($(this)[0]);
+
+        $.ajax({
+            url: main_ajax_object.ajaxurl,
+            type: 'POST',
+            data: formData,
+            async: true,
+            cache: false,
+            contentType: false,
+            enctype: 'multipart/form-data',
+            processData: false,
+            success: function(response) {
+                if ( response['success'] ) {
+                    console.log(response);
+                }
+            },
+            error: function(response) {
+                // console.log(response);
+                alert('failed!');
+            }
+        });
     
-    // });
+    });
 
 });
