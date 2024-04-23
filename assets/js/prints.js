@@ -42,112 +42,112 @@ document.querySelectorAll('.btn.gap-2.border.border-accent.bg-accent.text-white'
     submit.parentElement.insertBefore(btn, submit);
     submit.remove();submit = btn;
   }
-  var theForm = submit.parentElement.parentElement.previousElementSibling.querySelector('form');
-  submit.addEventListener('click', async (event) => {
-    event.preventDefault();submit.disabled = true;
-    var isConfirmed = await confirm('Are you confirming it?');
-    if (theForm && isConfirmed) {
-      var formData = new FormData(theForm);
-      if (typeof main_ajax_object?.query === 'object') {
-        formData.append('ref_queries', JSON.stringify(main_ajax_object.query));
-      }
-      var data = Object.fromEntries(formData);
-      // console.log(data);
-      // formData.forEach((value, key) => data[key] = value);
+  // var theForm = submit.parentElement.parentElement.previousElementSibling.querySelector('form');
+  // submit.addEventListener('click', async (event) => {
+  //   event.preventDefault();submit.disabled = true;
+  //   var isConfirmed = await confirm('Are you confirming it?');
+  //   if (theForm && isConfirmed) {
+  //     var formData = new FormData(theForm);
+  //     if (typeof main_ajax_object?.query === 'object') {
+  //       formData.append('ref_queries', JSON.stringify(main_ajax_object.query));
+  //     }
+  //     var data = Object.fromEntries(formData);
+  //     // console.log(data);
+  //     // formData.forEach((value, key) => data[key] = value);
       
-      wp.ajax.post('project_submit_document', data).done(json => {
-        submit.disabled = false;
-        // console.log(json);
-        if (PRINTS_ARGS?.allowTwig) {
-          var template = Twig.twig({
-            data: 'Please wait for a while until the preview templates are loaded{{ threedotsloader }}'
-          });
-        }
-        var hiddenCard = document.querySelector('.card_item.relative.h-fit .card_header');
-        if (hiddenCard && hiddenCard.nextElementSibling) {
-          var printBtn = hiddenCard.lastElementChild;
-          hiddenCard = hiddenCard.nextElementSibling;
-          hiddenCard.style.display = 'none';
-          var printPrevCard = document.createElement('div');
-          // printPrevCard.classList.add('card_item', 'relative', 'h-fit');
-          printPrevCard.className = hiddenCard.className;
-          printPrevCard.classList.add('section-to-print');
+  //     wp.ajax.post('project_submit_document', data).done(json => {
+  //       submit.disabled = false;
+  //       // console.log(json);
+  //       if (PRINTS_ARGS?.allowTwig) {
+  //         var template = Twig.twig({
+  //           data: 'Please wait for a while until the preview templates are loaded{{ threedotsloader }}'
+  //         });
+  //       }
+  //       var hiddenCard = document.querySelector('.card_item.relative.h-fit .card_header');
+  //       if (hiddenCard && hiddenCard.nextElementSibling) {
+  //         var printBtn = hiddenCard.lastElementChild;
+  //         hiddenCard = hiddenCard.nextElementSibling;
+  //         hiddenCard.style.display = 'none';
+  //         var printPrevCard = document.createElement('div');
+  //         // printPrevCard.classList.add('card_item', 'relative', 'h-fit');
+  //         printPrevCard.className = hiddenCard.className;
+  //         printPrevCard.classList.add('section-to-print');
           
-          if (PRINTS_ARGS?.allowTwig) {
-            printPrevCard.innerHTML = template.render({threedotsloader: '<span class="dots3loader"></span>'});
-            if (typeof json?.template !== 'string') {json.template = 'blank'}
-            fetch(`${json?.template}`)
-            .then(data => data.text())
-            .then(body => {
-              // console.log(body);
-              var template = Twig.twig({data: body});
-              json.submission = json?.submission??{};
-              json.submission.locale_args = main_ajax_object;
-              printPrevCard.innerHTML = template.render(json.submission);
-              submit.disabled = true;
-            }).catch(error => console.error(error));
-          } else {
-            printPrevCard.innerHTML = hiddenCard.innerHTML;
-            setTimeout(() => {
-              Object.keys(json).forEach(key => {
-                printPrevCard.querySelectorAll(`[name=${key}], [name="${key}[]"]`).forEach(input => {
-                  // 
-                  switch (input.type) {
-                    case 'radio':
-                    case 'checkbox':
-                      if (typeof json[key] !== 'object') {
-                        json[key] = [json[key]];
-                      }
-                      if (json[key].includes(input.value)) {
-                        input.checked = true;
-                      }
-                      ['readonly', 'disabled'].forEach(attr => input.setAttribute(attr, true));
-                      input.classList.add(...['border-b', 'border-line']);
-                      input.classList.remove(...['shadow-input', 'border-accent']);
-                      // if (true) {}
-                      console.log(key, input)
-                      break;
-                    default:
-                      var text = document.createElement('p');
-                      text.className = input.className;
-                      text.classList.add('text-sm', 'text-[#818D93]');
-                      text.innerHTML = json[key];
-                      ['shadow-input'].forEach(cls => text.classList.remove(cls));
-                      // 
-                      input.parentElement.insertBefore(text, input);
-                      input.remove();
-                      break;
-                  }
-                });
-              });
-              // 
-              setTimeout(() => {
-                printPrevCard.querySelectorAll(`${['radio', 'checkbox'].map(type => `input[type=${type}]`).join(', ')}, select, textarea`).forEach(input => {
-                  ['readonly', 'disabled'].forEach(attr => input.setAttribute(attr, true));
-                    input.classList.add(...['border-b', 'border-line']);
-                    input.classList.remove(...['shadow-input', 'border-accent']);
-                });
-              }, 300);
-            }, 300);
-          }
-          // 
-          hiddenCard.parentElement.insertBefore(printPrevCard, hiddenCard);
-          if (!(printBtn.dataset?.handledPrintEvent)) {
-            printBtn.dataset.handledPrintEvent = true;
-            printBtn.addEventListener('click', (event) => {
-              event.preventDefault();event.stopPropagation();
-              print();
-            });
-          }
-        }
-      }).fail(error => {
-        console.error(error);
-        submit.disabled = false;
-      });
-    } else {
-      submit.disabled = false;
-    }
-  });
+  //         if (PRINTS_ARGS?.allowTwig) {
+  //           printPrevCard.innerHTML = template.render({threedotsloader: '<span class="dots3loader"></span>'});
+  //           if (typeof json?.template !== 'string') {json.template = 'blank'}
+  //           fetch(`${json?.template}`)
+  //           .then(data => data.text())
+  //           .then(body => {
+  //             // console.log(body);
+  //             var template = Twig.twig({data: body});
+  //             json.submission = json?.submission??{};
+  //             json.submission.locale_args = main_ajax_object;
+  //             printPrevCard.innerHTML = template.render(json.submission);
+  //             submit.disabled = true;
+  //           }).catch(error => console.error(error));
+  //         } else {
+  //           printPrevCard.innerHTML = hiddenCard.innerHTML;
+  //           setTimeout(() => {
+  //             Object.keys(json).forEach(key => {
+  //               printPrevCard.querySelectorAll(`[name=${key}], [name="${key}[]"]`).forEach(input => {
+  //                 // 
+  //                 switch (input.type) {
+  //                   case 'radio':
+  //                   case 'checkbox':
+  //                     if (typeof json[key] !== 'object') {
+  //                       json[key] = [json[key]];
+  //                     }
+  //                     if (json[key].includes(input.value)) {
+  //                       input.checked = true;
+  //                     }
+  //                     ['readonly', 'disabled'].forEach(attr => input.setAttribute(attr, true));
+  //                     input.classList.add(...['border-b', 'border-line']);
+  //                     input.classList.remove(...['shadow-input', 'border-accent']);
+  //                     // if (true) {}
+  //                     console.log(key, input)
+  //                     break;
+  //                   default:
+  //                     var text = document.createElement('p');
+  //                     text.className = input.className;
+  //                     text.classList.add('text-sm', 'text-[#818D93]');
+  //                     text.innerHTML = json[key];
+  //                     ['shadow-input'].forEach(cls => text.classList.remove(cls));
+  //                     // 
+  //                     input.parentElement.insertBefore(text, input);
+  //                     input.remove();
+  //                     break;
+  //                 }
+  //               });
+  //             });
+  //             // 
+  //             setTimeout(() => {
+  //               printPrevCard.querySelectorAll(`${['radio', 'checkbox'].map(type => `input[type=${type}]`).join(', ')}, select, textarea`).forEach(input => {
+  //                 ['readonly', 'disabled'].forEach(attr => input.setAttribute(attr, true));
+  //                   input.classList.add(...['border-b', 'border-line']);
+  //                   input.classList.remove(...['shadow-input', 'border-accent']);
+  //               });
+  //             }, 300);
+  //           }, 300);
+  //         }
+  //         // 
+  //         hiddenCard.parentElement.insertBefore(printPrevCard, hiddenCard);
+  //         if (!(printBtn.dataset?.handledPrintEvent)) {
+  //           printBtn.dataset.handledPrintEvent = true;
+  //           printBtn.addEventListener('click', (event) => {
+  //             event.preventDefault();event.stopPropagation();
+  //             print();
+  //           });
+  //         }
+  //       }
+  //     }).fail(error => {
+  //       console.error(error);
+  //       submit.disabled = false;
+  //     });
+  //   } else {
+  //     submit.disabled = false;
+  //   }
+  // });
   
 });
 function generateRandomString(length) {

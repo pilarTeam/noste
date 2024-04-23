@@ -311,7 +311,10 @@ jQuery(document).ready(function ($) {
         }
 
         var formData = new FormData($(this)[0]);
-
+        if (typeof main_ajax_object?.query === 'object') {
+            formData.append('ref_queries', JSON.stringify(main_ajax_object.query));
+        }
+        // 
         $.ajax({
             url: main_ajax_object.ajaxurl,
             type: 'POST',
@@ -324,6 +327,25 @@ jQuery(document).ready(function ($) {
             success: function(response) {
                 if ( response['success'] ) {
                     console.log(response);
+                    var data = response?.data??{};
+                    fetch(data?.template)
+                    .then(data => data.text())
+                    .then(body => {
+                        var template = Twig.twig({data: body});
+                        data.submission = data?.submission??{};
+                        data.submission.locale_args = main_ajax_object;
+                        // 
+                        var printPrevCard = window.printPrevCard = document.createElement('div');
+                        printPrevCard.classList.add('section-to-print');
+                        printPrevCard.innerHTML = template.render(data.submission);
+                        // hiddenCard.parentElement.insertBefore(printPrevCard, hiddenCard);
+                        // 
+                        window.toPreview = $(this)[0]
+                        console.log(
+                            $(this)[0]
+                        )
+                        // 
+                    }).catch(error => console.error(error));
                 }
             },
             error: function(response) {
