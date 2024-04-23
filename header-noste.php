@@ -42,7 +42,7 @@
                             <div class="border-l border-line pl-4 flex items-center gap-3 relative">
                                 <div class="user_avatar">
                                     <span class="text-xl lg:text-2xl font-bold text-white">K</span>
-                                    <img class="h-full w-full rounded-full object-cover hidden" src="./assets/images/logo.png" alt="">
+                                    <img class="h-full w-full rounded-full object-cover hidden" src="<?php echo noste_custom_logo_url(); ?>" alt="">
                                 </div> <!-- user_avatar -->
                                 <div class="hidden md:block">
                                     <p class="text-base text-black font-medium">Klara Royment</p>
@@ -66,7 +66,7 @@
                                                 <div class="user_avatar mx-auto mb-2">
                                                     <div class="flex items-center justify-center mx-auto" id="avatarContainer">
                                                         <span class="text-2xl font-bold text-white" id="text">K</span>
-                                                        <img class="h-full w-full rounded-full object-cover hidden" src="./assets/images/logo.png" alt="User Avatar" id="avatarImage">
+                                                        <img class="h-full w-full rounded-full object-cover hidden" src="<?php echo noste_custom_logo_url(); ?>" alt="User Avatar" id="avatarImage">
                                                         <label class="absolute -bottom-1 -right-2 cursor-pointer">
                                                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18">
                                                                 <defs>
@@ -104,7 +104,7 @@
                                                     <div class="flex items-center gap-2">
                                                         <div class="user_avatar">
                                                             <span class="text-xl lg:text-2xl font-bold text-white">K</span>
-                                                            <img class="h-full w-full rounded-full object-cover hidden" src="./assets/images/logo.png" alt="">
+                                                            <img class="h-full w-full rounded-full object-cover hidden" src="<?php echo noste_custom_logo_url(); ?>" alt="">
                                                         </div> <!-- user_avatar -->
                                                         <div>
                                                             <p class="text-base text-white font-medium">Klara Royment</p>

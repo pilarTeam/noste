@@ -44,14 +44,29 @@ get_header( 'noste' );
 
                     update_post_meta( $project_id, $key, json_encode( $satize_arr ) );
 
-
                 } else {
                     $santiza_val = trim( stripslashes( sanitize_text_field( $value ) ) );
-                    update_post_meta( $project_id, $key, $santiza_val );                    
+                    update_post_meta( $project_id, $key, $santiza_val );  
+
+                    if ( $key == 'pilar_K4' ) {
+                        wp_update_post([
+                         'ID'   => $project_id,
+                         'post_title'   => $value
+                        ]);                        
+                    }
+
+                    if ( $key == 'pilar_K8' ) {
+                        update_field( 'projektinumero', $value, $project_id );                      
+                    }              
+
                 }
 
             }
         }
+
+
+
+
     } else {
         wp_redirect( site_url() );
         exit;   
@@ -80,8 +95,7 @@ get_header( 'noste' );
 
                 <hr class="border border-solid border-[#E1E1EA] ml-[-20px] mr-[-20px]">
 
-                <div class="max-w-[800px] mx-auto relative">
-                    <div class="absolute right-0 top-0 print-only" style="transform: translate(-30px, 30px);"><?php echo get_custom_logo(); ?></div>
+                <div class="max-w-[800px] mx-auto">
                     <p class="text-[#08202C] text-[14px] font-medium mt-10">Vestibulum</p>
                     <p class="text-[#08202C] text-[14px] font-medium mb-10">Cras Eudat Dolores</p>
 
@@ -512,9 +526,6 @@ get_header( 'noste' );
         }
     </script>
     <style>
-        @media screen {
-            .print-only {visibility: hidden;}
-        }
         @media print {
             body {visibility: hidden;}
             .border.border-solid.border-\[\#E1E1EA\].rounded-\[12px\].p-\[20px\].bg-white .max-w-\[800px\].mx-auto {
@@ -525,9 +536,6 @@ get_header( 'noste' );
                 position: absolute;
                 visibility: visible;
             }
-            .print-only {
-                visibility: visible;
-            }
         }
     </style>
     
@@ -535,7 +543,8 @@ get_header( 'noste' );
 
     <section class="my-8">
         <div class="container px-4">
-            <form action="<?php echo esc_url( $action_url ); ?>" method="post">
+            <form id="esitietolomake_form" action="<?php echo esc_url( $action_url ); ?>" method="post">
+                 <?php wp_nonce_field( 'esitietolomake_validation', 'esitietolomake_nonce_field' ); ?>
                 <input type="hidden" name="pid" value="<?php echo esc_attr( $_GET['pid'] ); ?>">
                 
                 <div class="border border-solid border-[#E1E1EA] rounded-[12px] p-[20px] bg-white">
@@ -1465,7 +1474,7 @@ get_header( 'noste' );
                             </button>
                            <button class="hidden submit-btn text-[14px] text-white font-medium bg-[#00B2A9] border border-solid border-[#818D930F] rounded-lg flex items-center gap-2 px-3 py-1" type="submit" name="submit-form" value="submitted">
                                 Hyväksy
-                            </button>                            
+                            </button>                          
                         </div>
                     </div>
                 </div>
