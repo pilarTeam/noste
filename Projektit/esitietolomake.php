@@ -80,7 +80,8 @@ get_header( 'noste' );
 
                 <hr class="border border-solid border-[#E1E1EA] ml-[-20px] mr-[-20px]">
 
-                <div class="max-w-[800px] mx-auto">
+                <div class="max-w-[800px] mx-auto relative">
+                    <div class="absolute right-0 top-0 print-only" style="transform: translate(-30px, 30px);"><?php echo get_custom_logo(); ?></div>
                     <p class="text-[#08202C] text-[14px] font-medium mt-10">Vestibulum</p>
                     <p class="text-[#08202C] text-[14px] font-medium mb-10">Cras Eudat Dolores</p>
 
@@ -511,6 +512,9 @@ get_header( 'noste' );
         }
     </script>
     <style>
+        @media screen {
+            .print-only {visibility: hidden;}
+        }
         @media print {
             body {visibility: hidden;}
             .border.border-solid.border-\[\#E1E1EA\].rounded-\[12px\].p-\[20px\].bg-white .max-w-\[800px\].mx-auto {
@@ -519,6 +523,9 @@ get_header( 'noste' );
                 width: calc(8.27in * 1.25);
                 max-width: unset;
                 position: absolute;
+                visibility: visible;
+            }
+            .print-only {
                 visibility: visible;
             }
         }

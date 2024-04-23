@@ -90,7 +90,8 @@ function noste_scripts() {
 		'ajaxurl'		=> admin_url('admin-ajax.php'),
 		'theme_uri'		=> get_template_directory_uri(),
 		'query'			=> isset($_GET)?(array) $_GET:[],
-		'site_uri'		=> site_url('/')
+		'site_uri'		=> site_url('/'),
+		'thumbnail'		=> wp_get_attachment_image_src(get_theme_mod('custom_logo'), 'thumbnail')[0]??false
 	];
 	wp_localize_script( 'main-script', 'main_ajax_object', $localize);
 
@@ -131,10 +132,12 @@ function noste_project_submit_document() {
 		// 	$toUpdate
 		// );
 		// 
-		$template = implode('-', (array) [$step_id, $form_id]);
-		$template_path = get_template_directory() . '/assets/js/twigs/' . $template . '.twig';
+		$template = implode('/', (array) [$step_id, $form_id]);
+		$template_path = get_template_directory() . '/template-parts/single/' . $template . '.twig';
 		if (file_exists($template_path) && !is_dir($template_path)) {
-			$json->template = $template;
+			$json->template = str_replace([ABSPATH], [site_url('/')], $template_path);
+		} else {
+			$json->template = get_template_directory_uri() . '/template-parts/single/blank.twig';
 		}
 		// 
 		wp_send_json_success($json);

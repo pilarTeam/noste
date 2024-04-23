@@ -76,7 +76,7 @@ document.querySelectorAll('.btn.gap-2.border.border-accent.bg-accent.text-white'
           if (PRINTS_ARGS?.allowTwig) {
             printPrevCard.innerHTML = template.render({threedotsloader: '<span class="dots3loader"></span>'});
             if (typeof json?.template !== 'string') {json.template = 'blank'}
-            fetch(`${main_ajax_object.theme_uri}/assets/js/twigs/${json?.template}.twig`)
+            fetch(`${json?.template}`)
             .then(data => data.text())
             .then(body => {
               // console.log(body);
@@ -162,7 +162,6 @@ function generateRandomString(length) {
   return result;
 }
 document.addEventListener("keypress", (event) => {
-  console.log(event)
   switch (event.key) {
     case 'F':
       if (event.shiftKey) {
@@ -228,7 +227,7 @@ document.querySelectorAll('#global-form').forEach(form => {
           printPrevCard.className = hiddenCard.className;
           printPrevCard.classList.add('section-to-print');
           // 
-          fetch(`${main_ajax_object.theme_uri}/assets/js/twigs/${json?.template}.twig`)
+          fetch(`${json?.template}`)
           .then(data => data.text())
           .then(body => {
             // console.log(body);
@@ -236,7 +235,6 @@ document.querySelectorAll('#global-form').forEach(form => {
             json.submission = json?.submission??{};
             json.submission.locale_args = main_ajax_object;
             printPrevCard.innerHTML = template.render(json.submission);
-
             // 
             hiddenCard.style.display = 'none';
             hiddenCard.parentElement.insertBefore(printPrevCard, hiddenCard);
