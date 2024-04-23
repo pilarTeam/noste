@@ -315,6 +315,8 @@ jQuery(document).ready(function ($) {
             formData.append('ref_queries', JSON.stringify(main_ajax_object.query));
         }
         // 
+        var formCard = window.formCard = $(this)[0];
+        // 
         $.ajax({
             url: main_ajax_object.ajaxurl,
             type: 'POST',
@@ -335,15 +337,14 @@ jQuery(document).ready(function ($) {
                         data.submission = data?.submission??{};
                         data.submission.locale_args = main_ajax_object;
                         // 
-                        var printPrevCard = window.printPrevCard = document.createElement('div');
+                        console.log(data)
+                        var printPrevCard = document.createElement('div');
+                        formCard.classList.add('print_preview');
                         printPrevCard.classList.add('section-to-print');
                         printPrevCard.innerHTML = template.render(data.submission);
-                        // hiddenCard.parentElement.insertBefore(printPrevCard, hiddenCard);
+                        formCard.insertBefore(printPrevCard, $(formCard).children('.card_footer')[0]);
                         // 
-                        window.toPreview = $(this)[0]
-                        console.log(
-                            $(this)[0]
-                        )
+                        // formCard
                         // 
                     }).catch(error => console.error(error));
                 }
@@ -354,6 +355,15 @@ jQuery(document).ready(function ($) {
             }
         });
     
+    });
+    /**
+     * Enableing print button functions.
+     */
+    $('.card_header button').on('click', function(e){
+        e.preventDefault();
+        if ($('.print_preview').length) {
+            print();
+        }
     });
 
 });

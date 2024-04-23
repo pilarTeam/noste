@@ -97,8 +97,8 @@
 
 .noste_pages {
     gap: 30px;
-    margin: auto;
     display: flex;
+    margin: 30px auto;
     flex-direction: column;
     --a4-paper-width: calc(8.27in * 1.2);
     --a4-paper-height: calc(11.69in * 1.24);
@@ -134,7 +134,12 @@
     align-items: center;
     justify-content: center;
 }
-
+.print_preview > .scroll-smooth {
+    display: none;
+}
+.print_preview .card_footer button {
+    pointer-events: none;
+}
 @media print {
     @page {
         size: A4;

@@ -465,7 +465,8 @@ function noste_update_project_step() {
 	$step_id = $ref_queries['tm']??false;
 	$form_id = $ref_queries['tmin']??false;
 
-	$data = $response->submission = serialize($_POST);
+	$data = serialize($_POST);
+	$response->submission = $_POST;
 
 	if ( empty($data) ) {
 		$error = new WP_Error( '001', 'Conent Data issue' );
@@ -475,7 +476,7 @@ function noste_update_project_step() {
 	$template = implode('/', (array) [$step_id, $form_id]);
 	$template_path = get_template_directory() . '/template-preview/' . $template . '.twig';
 	if (!file_exists($template_path)) {
-		$myfile = fopen("newfile.txt", "w+") or die("Unable to open file!");
+		$myfile = fopen($template_path, "w+") or die("Unable to open file!");
 		$text = `
 <div class="noste_pages">
 	<div class="single-page">
@@ -504,7 +505,7 @@ function noste_update_project_step() {
 	$updated = update_post_meta( $post_id, $field_key, $data );
 
 	if ( $updated ) {
-		wp_send_json_success($response, 200);
+		wp_send_json_success((array) $response, 200);
 	}
 
 	wp_die();	
