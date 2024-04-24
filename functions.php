@@ -74,12 +74,20 @@ function noste_scripts() {
 	}
 
 
+	wp_enqueue_style('prints-script', get_template_directory_uri() . '/assets/css/prints.css', [], filemtime(get_template_directory() . '/assets/css/prints.css'), 'all');
+	wp_enqueue_script('twig-script', 'https://cdnjs.cloudflare.com/ajax/libs/twig.js/1.15.0/twig.min.js', ['jquery'], '1.15.0', true);
+
 	wp_enqueue_script('main-script', get_template_directory_uri() . '/assets/js/main.js', ['jquery', 'date-picker-script'], rand(1, 100), true);
-	wp_localize_script( 'main-script', 'main_ajax_object',
-		array( 
-			'ajaxurl' => admin_url( 'admin-ajax.php' ),
-		)
-	);
+
+	$localize = [
+		'ajaxurl'		=> admin_url('admin-ajax.php'),
+		'theme_uri'		=> get_template_directory_uri(),
+		'query'			=> isset($_GET)?(array) $_GET:[],
+		'site_uri'		=> site_url('/'),
+		'thumbnail'		=> wp_get_attachment_image_src(get_theme_mod('custom_logo'), 'thumbnail')[0]??false
+	];
+
+	wp_localize_script( 'main-script', 'main_ajax_object', $localize );
 
 	wp_enqueue_style( 'tailwind-style', get_template_directory_uri() . '/assets/css/style.css', [], rand(1, 1000));
 	wp_enqueue_style( 'noste-style', get_stylesheet_uri(), ['tailwind-style'], rand(1, 100) );

@@ -441,8 +441,47 @@ function noste_esitietolomake_form(){
 }
 
 
+// function noste_update_project_step() {
+// 	check_ajax_referer( 'project_step_form_validation', 'project_step_form__nonce_field' );
+
+// 	if ( empty($_POST['ptname']) ) {
+// 		$error = new WP_Error( '001', 'PT NAME ISSUE' );
+// 		wp_send_json_error( $error );
+// 	}
+
+// 	if ( empty($_POST['post_id']) ) {
+// 		$error = new WP_Error( '002', 'Invalid Project' );
+// 		wp_send_json_error( $error );
+// 	}
+
+// 	$field_key = $_POST['ptname'];
+// 	$post_id = $_POST['post_id'];
+
+// 	unset($_POST['ptname']);
+// 	unset($_POST['action']);
+// 	unset($_POST['project_step_form__nonce_field']);
+// 	unset($_POST['_wp_http_referer']);
+
+// 	$data = serialize($_POST);
+
+// 	if ( empty($data) ) {
+// 		$error = new WP_Error( '001', 'Conent Data issue' );
+// 		wp_send_json_error( $error );		
+// 	}
+
+// 	$updated = update_post_meta( $post_id, $field_key, $data );
+
+// 	if ( $updated ) {
+// 		wp_send_json_success($_POST, 200);
+// 	}
+
+// 	wp_die();	
+// }
+
+
 function noste_update_project_step() {
 	check_ajax_referer( 'project_step_form_validation', 'project_step_form__nonce_field' );
+	$response = (object) ['template' => false, 'submission' => []];
 
 	if ( empty($_POST['ptname']) ) {
 		$error = new WP_Error( '001', 'PT NAME ISSUE' );
@@ -462,17 +501,51 @@ function noste_update_project_step() {
 	unset($_POST['project_step_form__nonce_field']);
 	unset($_POST['_wp_http_referer']);
 
+	$ref_queries = (array) json_decode( preg_replace( '/[\x00-\x1F\x80-\xFF]/', '', stripslashes(html_entity_decode(isset($_POST['ref_queries'] ) ? $_POST['ref_queries'] : '{}' ) ) ), true);
+
+	$step_id = $ref_queries['tm'] ?? false;
+	$form_id = $ref_queries['tmin'] ?? false;
+
 	$data = serialize($_POST);
+	$response->submission = $_POST;
 
 	if ( empty($data) ) {
 		$error = new WP_Error( '001', 'Conent Data issue' );
 		wp_send_json_error( $error );		
 	}
+	// 
+	$template = implode('/', (array) [$step_id, $form_id]);
+	$template_path = get_template_directory() . '/template-preview/' . $template . '.twig';
+	
+	if (!file_exists($template_path)) {
+		$myfile = fopen($template_path, "w+") or die("Unable to open file!");
+		$text = `<div class="noste_pages">
+					<div class="single-page">
+						<div class="page-wrap">
+							<div class="page-header">
+								<img src="{{ locale_args.site_uri }}wp-content/uploads/2024/03/logo-noste.png" alt="Logo" />
+							</div>
+							<div class="page-body">
+								Preview template not found!
+							</div>
+							<div class="page-footer">
+								<span class="page-footer-pagination">1/1</span>
+							</div>
+						</div>
+					</div>
+				</div>`;
+		fwrite($myfile, $text);fclose($myfile);
+	}
+	if (file_exists($template_path) && !is_dir($template_path)) {
+		$response->template = str_replace([ABSPATH], [site_url('/')], $template_path);
+	} else {
+		$response->template = get_template_directory_uri() . '/template-preview/blank.twig';
+	}
 
 	$updated = update_post_meta( $post_id, $field_key, $data );
 
 	if ( $updated ) {
-		wp_send_json_success($_POST, 200);
+		wp_send_json_success((array) $response, 200);
 	}
 
 	wp_die();	
