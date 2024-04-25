@@ -120,8 +120,7 @@ $rakennustoiden_vastaanotto = [
 ];
 
 
-$projektinimi_k4 = noste_check_empty( get_post_meta( get_the_ID(), 'pilar_K4', true ) );
-$project_title = !empty($projektinimi_k4) ? $projektinimi_k4 : get_the_title( get_the_ID() );
+
 
 
 
@@ -132,7 +131,8 @@ $project_title = !empty($projektinimi_k4) ? $projektinimi_k4 : get_the_title( ge
     <div class="bg-bodyBg lg:sticky top-[4.55rem] z-10\" >
         <div class="container px-4">
             <div class="flex items-center justify-between border-b border-line py-2 md:py-3 lg:py-5">
-                <h2 class="text-xl md:text-2xl text-black font-medium"><?php echo esc_html( $project_title ); ?></h2>
+                <h2 class="text-xl md:text-2xl text-black font-medium">Projektit</h2>
+                <i class="um-icon-android-alert"></i>
             </div>
         </div> <!-- container -->
 
@@ -171,20 +171,23 @@ $project_title = !empty($projektinimi_k4) ? $projektinimi_k4 : get_the_title( ge
 
                     ?>
                         <!-- Step Items -->
-                        <div class="inline-flex items-center justify-between bg-white shadow rounded-md w-full relative mb-4 text-sm <?php echo esc_attr( $status ); ?>">
+                        <div class="inline-flex items-start justify-between bg-white shadow rounded-md w-full relative mb-4 text-sm <?php echo esc_attr( $status ); ?>">
                             <a class="p-3 pr-2 w-full border-l border-l-[#E1E1EA] text-sm font-medium" href="<?php echo esc_attr( $tm_url ); ?>"><?php echo esc_html( $val['title'] ); ?></a>
-                            <div class="dropdown-step pr-3">
+                            <div class="dropdown pt-3 pr-3">
                                 <button class="dropdown-toggle rounded-sm border border-line p-[3px]" data-dropdown="dropdown-menu1">
                                     
-                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0.00 0.00 300.00 300.00">
-                                    <circle fill="#818d93" cx="66.01" cy="150.02" r="24.05"/>
-                                    <circle fill="#818d93" cx="150.01" cy="150.02" r="24.05"/>
-                                    <circle fill="#818d93" cx="234.01" cy="150.02" r="24.05"/>
-                                </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-3" viewBox="0 0 16 16">
+                                        <defs>
+                                            <pattern id="pattern" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 100 100">
+                                            <image width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABs0lEQVR4nO3cTW7CMBCGYTbtYQp39Dhb7DTYdMFZSk8BPUh/dm1FFZC6aVGVIPAn8z6SNxCkkUaexNEnJhMAAAAAAAAAAIpx827mY+ospK3F/L5fIW37z/rvaM2lGuHcrYX84GP+8jHv/loW0qeFnPtracyZm+FjfjrWiF+NiWlNU87IDjtjN2yldM6arpabd7N+FA1tSP+bpl1OS9dfHQt5MXx3/Ky2dP3V8TE/n9CQTen6q+NDehvbEIv5tXT91bGYX0fvkJBfStdfHc/I0mIh3Z+wQ0Lp+qvTtMvp2MdeN1/cla6/ShZyHnEw7ErXXfd7rJjWA0bV42q1uild9xW8z0rpn/H10e8MmnHhe4qPue0PffszyuGcsrGYIvcMAAAAAAAAAEeR7RXhyPbqcGR7tRjZXh2ObK8WI9urxROU0+LJ9moxsr1aPCNLi5Ht1dKQ7dVjZHu1OLK9ehzZXk0N2V4AAAAAAAAAYzj+t1eDI9urw5Ht1WJke3U4sr1ajGyvFk9QTosn26vFyPZq8YwsLUa2V0tDtlePke3V4sj26nFkezU1ZHsBAAAAAAAAABNV310JmT2x4ejYAAAAAElFTkSuQmCC"/>
+                                            </pattern>
+                                        </defs>
+                                        <rect id="icons8-menu-vertical-100" width="16" height="16" transform="translate(16) rotate(90)" fill="url(#pattern)"/>
+                                    </svg>
 
                                 </button>
 
-                                <ul class="px-4 py-2 w-[12rem] bg-white absolute right-0 top-full z-10 border border-[#E1E1EA] rounded hidden">
+                                <ul class="px-4 py-2 w-[12rem] bg-white absolute right-0 top-full z-10 border border-[#E1E1EA] rounded hidden" id="dropdown-menu1">
                                     <li class="text-sm mb-2">
                                         <label class="flex items-center gap-2"><input type="radio" class="accent-accent" value="value1" name="dropdown-menu-2"> Aloittamatta </label>
                                     </li>
@@ -232,16 +235,19 @@ $project_title = !empty($projektinimi_k4) ? $projektinimi_k4 : get_the_title( ge
                     ?>
                         <div class="inline-flex items-start justify-between bg-white shadow rounded-md w-full relative mb-4 text-sm <?php echo esc_attr( $status ); ?>">
                             <a class="p-3 pr-2 w-full border-l border-l-[#E1E1EA] text-sm font-medium" href="<?php echo esc_attr( $tm_url ); ?>"><?php echo esc_html( $val['title'] ); ?></a>
-                            <div class="dropdown-step pt-3 pr-3">
+                            <div class="dropdown pt-3 pr-3">
                                 <button class="dropdown-toggle rounded-sm border border-line p-[3px]" data-dropdown="dropdown-menu7">
-                                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0.00 0.00 300.00 300.00">
-                                        <circle fill="#818d93" cx="66.01" cy="150.02" r="24.05"/>
-                                        <circle fill="#818d93" cx="150.01" cy="150.02" r="24.05"/>
-                                        <circle fill="#818d93" cx="234.01" cy="150.02" r="24.05"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-3" viewBox="0 0 16 16">
+                                        <defs>
+                                            <pattern id="pattern" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 100 100">
+                                            <image width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABs0lEQVR4nO3cTW7CMBCGYTbtYQp39Dhb7DTYdMFZSk8BPUh/dm1FFZC6aVGVIPAn8z6SNxCkkUaexNEnJhMAAAAAAAAAAIpx827mY+ospK3F/L5fIW37z/rvaM2lGuHcrYX84GP+8jHv/loW0qeFnPtracyZm+FjfjrWiF+NiWlNU87IDjtjN2yldM6arpabd7N+FA1tSP+bpl1OS9dfHQt5MXx3/Ky2dP3V8TE/n9CQTen6q+NDehvbEIv5tXT91bGYX0fvkJBfStdfHc/I0mIh3Z+wQ0Lp+qvTtMvp2MdeN1/cla6/ShZyHnEw7ErXXfd7rJjWA0bV42q1uild9xW8z0rpn/H10e8MmnHhe4qPue0PffszyuGcsrGYIvcMAAAAAAAAAEeR7RXhyPbqcGR7tRjZXh2ObK8WI9urxROU0+LJ9moxsr1aPCNLi5Ht1dKQ7dVjZHu1OLK9ehzZXk0N2V4AAAAAAAAAYzj+t1eDI9urw5Ht1WJke3U4sr1ajGyvFk9QTosn26vFyPZq8YwsLUa2V0tDtlePke3V4sj26nFkezU1ZHsBAAAAAAAAABNV310JmT2x4ejYAAAAAElFTkSuQmCC"/>
+                                            </pattern>
+                                        </defs>
+                                        <rect id="icons8-menu-vertical-100" width="16" height="16" transform="translate(16) rotate(90)" fill="url(#pattern)"/>
                                     </svg>
                                 </button>
 
-                                <ul class="px-4 py-2 w-[12rem] bg-white absolute right-0 top-full z-10 border border-[#E1E1EA] rounded hidden">
+                                <ul class="px-4 py-2 w-[12rem] bg-white absolute right-0 top-full z-10 border border-[#E1E1EA] rounded hidden"  id="dropdown-menu7">
                                     <li class="text-sm mb-2">
                                         <label class="flex items-center gap-2"><input type="radio" class="accent-accent" value="value1" name="dropdown-menu-2"> Aloittamatta </label>
                                     </li>
@@ -289,13 +295,16 @@ $project_title = !empty($projektinimi_k4) ? $projektinimi_k4 : get_the_title( ge
                         <!-- Step Items -->
                         <div class="inline-flex items-start justify-between bg-white shadow rounded-md w-full relative mb-4 text-sm <?php echo esc_attr( $status ); ?>">
                             <a class="p-3 pr-2 w-full border-l border-l-[#E1E1EA] text-sm font-medium" href="<?php echo esc_attr( $tm_url ); ?>"><?php echo esc_html( $val['title'] ); ?></a>
-                            <div class="dropdown-step pt-3 pr-3">
+                            <div class="dropdown pt-3 pr-3">
                                 <button class="dropdown-toggle rounded-sm border border-line p-[3px]" data-dropdown="dropdown-menu13">
     								
-                                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0.00 0.00 300.00 300.00">
-                                        <circle fill="#818d93" cx="66.01" cy="150.02" r="24.05"/>
-                                        <circle fill="#818d93" cx="150.01" cy="150.02" r="24.05"/>
-                                        <circle fill="#818d93" cx="234.01" cy="150.02" r="24.05"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-3" viewBox="0 0 16 16">
+                                        <defs>
+                                            <pattern id="pattern" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 100 100">
+                                            <image width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABs0lEQVR4nO3cTW7CMBCGYTbtYQp39Dhb7DTYdMFZSk8BPUh/dm1FFZC6aVGVIPAn8z6SNxCkkUaexNEnJhMAAAAAAAAAAIpx827mY+ospK3F/L5fIW37z/rvaM2lGuHcrYX84GP+8jHv/loW0qeFnPtracyZm+FjfjrWiF+NiWlNU87IDjtjN2yldM6arpabd7N+FA1tSP+bpl1OS9dfHQt5MXx3/Ky2dP3V8TE/n9CQTen6q+NDehvbEIv5tXT91bGYX0fvkJBfStdfHc/I0mIh3Z+wQ0Lp+qvTtMvp2MdeN1/cla6/ShZyHnEw7ErXXfd7rJjWA0bV42q1uild9xW8z0rpn/H10e8MmnHhe4qPue0PffszyuGcsrGYIvcMAAAAAAAAAEeR7RXhyPbqcGR7tRjZXh2ObK8WI9urxROU0+LJ9moxsr1aPCNLi5Ht1dKQ7dVjZHu1OLK9ehzZXk0N2V4AAAAAAAAAYzj+t1eDI9urw5Ht1WJke3U4sr1ajGyvFk9QTosn26vFyPZq8YwsLUa2V0tDtlePke3V4sj26nFkezU1ZHsBAAAAAAAAABNV310JmT2x4ejYAAAAAElFTkSuQmCC"/>
+                                            </pattern>
+                                        </defs>
+                                        <rect id="icons8-menu-vertical-100" width="16" height="16" transform="translate(16) rotate(90)" fill="url(#pattern)"/>
                                     </svg>
 
                                 </button>
@@ -348,15 +357,17 @@ $project_title = !empty($projektinimi_k4) ? $projektinimi_k4 : get_the_title( ge
                         <!-- Step Items -->
                         <div class="inline-flex items-start justify-between bg-white shadow rounded-md w-full relative mb-4 text-sm <?php echo esc_attr( $status ); ?>">
                             <a class="p-3 pr-2 w-full border-l border-l-[#E1E1EA] text-sm font-medium" href="<?php echo esc_attr( $tm_url ); ?>"><?php echo esc_html( $val['title'] ); ?></a>
-                            <div class="dropdown-step pt-3 pr-3">
+                            <div class="dropdown pt-3 pr-3">
                                 <button class="dropdown-toggle rounded-sm border border-line p-[3px]" data-dropdown="dropdown-menu17">
                                     
-                                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0.00 0.00 300.00 300.00">
-                                        <circle fill="#818d93" cx="66.01" cy="150.02" r="24.05"/>
-                                        <circle fill="#818d93" cx="150.01" cy="150.02" r="24.05"/>
-                                        <circle fill="#818d93" cx="234.01" cy="150.02" r="24.05"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-3" viewBox="0 0 16 16">
+                                        <defs>
+                                            <pattern id="pattern" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 100 100">
+                                            <image width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABs0lEQVR4nO3cTW7CMBCGYTbtYQp39Dhb7DTYdMFZSk8BPUh/dm1FFZC6aVGVIPAn8z6SNxCkkUaexNEnJhMAAAAAAAAAAIpx827mY+ospK3F/L5fIW37z/rvaM2lGuHcrYX84GP+8jHv/loW0qeFnPtracyZm+FjfjrWiF+NiWlNU87IDjtjN2yldM6arpabd7N+FA1tSP+bpl1OS9dfHQt5MXx3/Ky2dP3V8TE/n9CQTen6q+NDehvbEIv5tXT91bGYX0fvkJBfStdfHc/I0mIh3Z+wQ0Lp+qvTtMvp2MdeN1/cla6/ShZyHnEw7ErXXfd7rJjWA0bV42q1uild9xW8z0rpn/H10e8MmnHhe4qPue0PffszyuGcsrGYIvcMAAAAAAAAAEeR7RXhyPbqcGR7tRjZXh2ObK8WI9urxROU0+LJ9moxsr1aPCNLi5Ht1dKQ7dVjZHu1OLK9ehzZXk0N2V4AAAAAAAAAYzj+t1eDI9urw5Ht1WJke3U4sr1ajGyvFk9QTosn26vFyPZq8YwsLUa2V0tDtlePke3V4sj26nFkezU1ZHsBAAAAAAAAABNV310JmT2x4ejYAAAAAElFTkSuQmCC"/>
+                                            </pattern>
+                                        </defs>
+                                        <rect id="icons8-menu-vertical-100" width="16" height="16" transform="translate(16) rotate(90)" fill="url(#pattern)"/>
                                     </svg>
-
                                 </button>
 
                                 <ul class="px-4 py-2 w-[12rem] bg-white absolute right-0 top-full z-10 border border-[#E1E1EA] rounded hidden" id="dropdown-menu17">
@@ -406,13 +417,16 @@ $project_title = !empty($projektinimi_k4) ? $projektinimi_k4 : get_the_title( ge
                         <!-- Step Items -->
                     <div class="inline-flex items-start justify-between bg-white shadow rounded-md w-full relative mb-4 text-sm <?php echo esc_attr( $status ); ?>">
                             <a class="p-3 pr-2 w-full border-l border-l-[#E1E1EA] text-sm font-medium" href="<?php echo esc_attr( $tm_url ); ?>"><?php echo esc_html( $val['title'] ); ?></a>
-                        <div class="dropdown-step pt-3 pr-3">
+                        <div class="dropdown pt-3 pr-3">
                             <button class="dropdown-toggle rounded-sm border border-line p-[3px]" data-dropdown="dropdown-menu21">
                                 
-                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0.00 0.00 300.00 300.00">
-                                    <circle fill="#818d93" cx="66.01" cy="150.02" r="24.05"/>
-                                    <circle fill="#818d93" cx="150.01" cy="150.02" r="24.05"/>
-                                    <circle fill="#818d93" cx="234.01" cy="150.02" r="24.05"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-3" viewBox="0 0 16 16">
+                                    <defs>
+                                        <pattern id="pattern" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 100 100">
+                                        <image width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABs0lEQVR4nO3cTW7CMBCGYTbtYQp39Dhb7DTYdMFZSk8BPUh/dm1FFZC6aVGVIPAn8z6SNxCkkUaexNEnJhMAAAAAAAAAAIpx827mY+ospK3F/L5fIW37z/rvaM2lGuHcrYX84GP+8jHv/loW0qeFnPtracyZm+FjfjrWiF+NiWlNU87IDjtjN2yldM6arpabd7N+FA1tSP+bpl1OS9dfHQt5MXx3/Ky2dP3V8TE/n9CQTen6q+NDehvbEIv5tXT91bGYX0fvkJBfStdfHc/I0mIh3Z+wQ0Lp+qvTtMvp2MdeN1/cla6/ShZyHnEw7ErXXfd7rJjWA0bV42q1uild9xW8z0rpn/H10e8MmnHhe4qPue0PffszyuGcsrGYIvcMAAAAAAAAAEeR7RXhyPbqcGR7tRjZXh2ObK8WI9urxROU0+LJ9moxsr1aPCNLi5Ht1dKQ7dVjZHu1OLK9ehzZXk0N2V4AAAAAAAAAYzj+t1eDI9urw5Ht1WJke3U4sr1ajGyvFk9QTosn26vFyPZq8YwsLUa2V0tDtlePke3V4sj26nFkezU1ZHsBAAAAAAAAABNV310JmT2x4ejYAAAAAElFTkSuQmCC"/>
+                                        </pattern>
+                                    </defs>
+                                    <rect id="icons8-menu-vertical-100" width="16" height="16" transform="translate(16) rotate(90)" fill="url(#pattern)"/>
                                 </svg>
 
                             </button>
