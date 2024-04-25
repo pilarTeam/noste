@@ -247,39 +247,15 @@ function noste_header_notification(){
 
 	 ?>
         <a href="<?php echo esc_attr( $esitietolomake_url ); ?>" class="hidden sm:block hover:bg-[#FAFAFB] focus:bg-[#FAFAFB] rounded p-2">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-4" viewBox="0 0 23 23">
-                <defs>
-                    <pattern id="pattern" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 100 100">
-                        <image width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACH0lEQVR4nO2aMU4DMRQFfVMEFceIqeNIsMdFIdRsEQlIMuPvN9IW6R4zdiRWaS2EEEJ4MH1sl0mfz8Npe2rVEIi9/PU5HD+++ml7bZWgpfZEqRWkV7sp+z+uyenVo1QJ0qtEKRDkvP/8dnx/abMye5DD2J73Uaa+KbMHaa21UlEqBCkVpUqQMlEqBSkRpVqQ6aNUDDJ1lKpBpo1SOciUUaoHmS7KCkGmirJKkGmirBRkiiirBdFHWTGIOsqqQbRRVg6ijDJ7kH6/54z87itBtmtRPhPEc0OYbwx8wC9JkMXo9AHFB8jAfeADZOA+8AEycB/4ABm4D3yADNwHPkAG7gMfIAP3gQ+QgfvAB8jAfeADZOA+8AEycB//HfDol339zm9rE2QkSG7IFXJDRm6I60TIwH3gA2TgPvABMnAf+AAZuA98gAzcBz5ABu4DHyAD94EPkIH7mP1dVpP5wAckyI1JkJ/khox8ZblOhAzcBz5ABu4DHyAD94EPkIH7wAfIwH3gA2TgPvABMnAf+AAZuI/Z/1PvN37XlSAjQXJDrpAbMnJDXCdCBu4DHyAD94EPkIH7wAfIwH3gA2TgPvABMnAf+AAZuA98gAzcBz5ABu4DHyAD94EPkIH7wAfIwH3gA2TgPvABMnAf+AAZuA98gAzcBz5ABu4DHyAD94EPkIH7wAfIwH3sB+TZEqSLD0JuyOAjJMjgxWuChBBCaKvzDQGUurXKthVmAAAAAElFTkSuQmCC" />
-                    </pattern>
-                </defs>
-                <rect id="icons8-file-100_2_" data-name="icons8-file-100 (2)" width="23" height="23" fill="url(#pattern)" />
-            </svg>
-        
+			<img src="/wp-content/uploads/2024/04/envelope.png" width="20"/>        
         </a>
         
         <a href="<?php echo esc_attr( $kustannusseuranta_url ); ?>" class="hidden sm:block hover:bg-[#FAFAFB] focus:bg-[#FAFAFB] rounded p-2">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-4" viewBox="0 0 23 23">
-                <defs>
-                    <pattern id="pattern" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 100 100">
-                        <image width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACH0lEQVR4nO2aMU4DMRQFfVMEFceIqeNIsMdFIdRsEQlIMuPvN9IW6R4zdiRWaS2EEEJ4MH1sl0mfz8Npe2rVEIi9/PU5HD+++ml7bZWgpfZEqRWkV7sp+z+uyenVo1QJ0qtEKRDkvP/8dnx/abMye5DD2J73Uaa+KbMHaa21UlEqBCkVpUqQMlEqBSkRpVqQ6aNUDDJ1lKpBpo1SOciUUaoHmS7KCkGmirJKkGmirBRkiiirBdFHWTGIOsqqQbRRVg6ijDJ7kH6/54z87itBtmtRPhPEc0OYbwx8wC9JkMXo9AHFB8jAfeADZOA+8AEycB/4ABm4D3yADNwHPkAG7gMfIAP3gQ+QgfvAB8jAfeADZOA+8AEycB//HfDol339zm9rE2QkSG7IFXJDRm6I60TIwH3gA2TgPvABMnAf+AAZuA98gAzcBz5ABu4DHyAD94EPkIH7mP1dVpP5wAckyI1JkJ/khox8ZblOhAzcBz5ABu4DHyAD94EPkIH7wAfIwH3gA2TgPvABMnAf+AAZuI/Z/1PvN37XlSAjQXJDrpAbMnJDXCdCBu4DHyAD94EPkIH7wAfIwH3gA2TgPvABMnAf+AAZuA98gAzcBz5ABu4DHyAD94EPkIH7wAfIwH3gA2TgPvABMnAf+AAZuA98gAzcBz5ABu4DHyAD94EPkIH7wAfIwH3sB+TZEqSLD0JuyOAjJMjgxWuChBBCaKvzDQGUurXKthVmAAAAAElFTkSuQmCC" />
-                    </pattern>
-                </defs>
-                <rect id="icons8-file-100_2_" data-name="icons8-file-100 (2)" width="23" height="23" fill="url(#pattern)" />
-            </svg>
-        
+			<img src="/wp-content/uploads/2024/04/list-paper.png" width="20"/>        
         </a>
         
         <a href="#!" class="hidden sm:block hover:bg-[#FAFAFB] focus:bg-[#FAFAFB] rounded p-2">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-4" viewBox="0 0 23 23">
-                <defs>
-                    <pattern id="pattern" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 100 100">
-                        <image width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACH0lEQVR4nO2aMU4DMRQFfVMEFceIqeNIsMdFIdRsEQlIMuPvN9IW6R4zdiRWaS2EEEJ4MH1sl0mfz8Npe2rVEIi9/PU5HD+++ml7bZWgpfZEqRWkV7sp+z+uyenVo1QJ0qtEKRDkvP/8dnx/abMye5DD2J73Uaa+KbMHaa21UlEqBCkVpUqQMlEqBSkRpVqQ6aNUDDJ1lKpBpo1SOciUUaoHmS7KCkGmirJKkGmirBRkiiirBdFHWTGIOsqqQbRRVg6ijDJ7kH6/54z87itBtmtRPhPEc0OYbwx8wC9JkMXo9AHFB8jAfeADZOA+8AEycB/4ABm4D3yADNwHPkAG7gMfIAP3gQ+QgfvAB8jAfeADZOA+8AEycB//HfDol339zm9rE2QkSG7IFXJDRm6I60TIwH3gA2TgPvABMnAf+AAZuA98gAzcBz5ABu4DHyAD94EPkIH7mP1dVpP5wAckyI1JkJ/khox8ZblOhAzcBz5ABu4DHyAD94EPkIH7wAfIwH3gA2TgPvABMnAf+AAZuI/Z/1PvN37XlSAjQXJDrpAbMnJDXCdCBu4DHyAD94EPkIH7wAfIwH3gA2TgPvABMnAf+AAZuA98gAzcBz5ABu4DHyAD94EPkIH7wAfIwH3gA2TgPvABMnAf+AAZuA98gAzcBz5ABu4DHyAD94EPkIH7wAfIwH3sB+TZEqSLD0JuyOAjJMjgxWuChBBCaKvzDQGUurXKthVmAAAAAElFTkSuQmCC" />
-                    </pattern>
-                </defs>
-                <rect id="icons8-file-100_2_" data-name="icons8-file-100 (2)" width="23" height="23" fill="url(#pattern)" />
-            </svg>
-        
+			<img src="/wp-content/uploads/2024/04/graph-icon.png" style="height: 23px;"/>          
         </a>	
 	<?php 
 	endif;
@@ -441,9 +417,48 @@ function noste_esitietolomake_form(){
 }
 
 
+// function noste_update_project_step() {
+// 	check_ajax_referer( 'project_step_form_validation', 'project_step_form__nonce_field' );
+
+// 	if ( empty($_POST['ptname']) ) {
+// 		$error = new WP_Error( '001', 'PT NAME ISSUE' );
+// 		wp_send_json_error( $error );
+// 	}
+
+// 	if ( empty($_POST['post_id']) ) {
+// 		$error = new WP_Error( '002', 'Invalid Project' );
+// 		wp_send_json_error( $error );
+// 	}
+
+// 	$field_key = $_POST['ptname'];
+// 	$post_id = $_POST['post_id'];
+
+// 	unset($_POST['ptname']);
+// 	unset($_POST['action']);
+// 	unset($_POST['project_step_form__nonce_field']);
+// 	unset($_POST['_wp_http_referer']);
+
+// 	$data = serialize($_POST);
+
+// 	if ( empty($data) ) {
+// 		$error = new WP_Error( '001', 'Conent Data issue' );
+// 		wp_send_json_error( $error );		
+// 	}
+
+// 	$updated = update_post_meta( $post_id, $field_key, $data );
+
+// 	if ( $updated ) {
+// 		wp_send_json_success($_POST, 200);
+// 	}
+
+// 	wp_die();	
+// }
+
+
 function noste_update_project_step() {
 	check_ajax_referer( 'project_step_form_validation', 'project_step_form__nonce_field' );
 	$response = (object) ['template' => false, 'submission' => []];
+
 	if ( empty($_POST['ptname']) ) {
 		$error = new WP_Error( '001', 'PT NAME ISSUE' );
 		wp_send_json_error( $error );
@@ -461,9 +476,11 @@ function noste_update_project_step() {
 	unset($_POST['action']);
 	unset($_POST['project_step_form__nonce_field']);
 	unset($_POST['_wp_http_referer']);
-	$ref_queries = (array) json_decode(preg_replace('/[\x00-\x1F\x80-\xFF]/', '', stripslashes(html_entity_decode(isset($_POST['ref_queries'])?$_POST['ref_queries']:'{}'))), true);
-	$step_id = $ref_queries['tm']??false;
-	$form_id = $ref_queries['tmin']??false;
+
+	$ref_queries = (array) json_decode( preg_replace( '/[\x00-\x1F\x80-\xFF]/', '', stripslashes(html_entity_decode(isset($_POST['ref_queries'] ) ? $_POST['ref_queries'] : '{}' ) ) ), true);
+
+	$step_id = $ref_queries['tm'] ?? false;
+	$form_id = $ref_queries['tmin'] ?? false;
 
 	$data = serialize($_POST);
 	$response->submission = $_POST;
@@ -475,14 +492,17 @@ function noste_update_project_step() {
 	// 
 	$template = implode('/', (array) [$step_id, $form_id]);
 	$template_path = get_template_directory() . '/template-preview/' . $template . '.twig';
+	
 	if (!file_exists($template_path)) {
+		$template_dir = get_template_directory() . '/template-preview/' . $step_id;
+		if (!is_dir($template_dir)) {wp_mkdir_p($template_dir);}
 		$myfile = fopen($template_path, "w+") or die("Unable to open file!");
-		$text = `
+		$text = '
 <div class="noste_pages">
 	<div class="single-page">
 		<div class="page-wrap">
 			<div class="page-header">
-				<img src="{{ locale_args.site_uri }}wp-content/uploads/2024/03/logo-noste.png" alt="Logo" />
+				<img src="{{ locale_args.thumbnail }}" alt="Logo" />
 			</div>
 			<div class="page-body">
 				Preview template not found!
@@ -492,8 +512,7 @@ function noste_update_project_step() {
 			</div>
 		</div>
 	</div>
-</div>
-	`;
+</div>';
 		fwrite($myfile, $text);fclose($myfile);
 	}
 	if (file_exists($template_path) && !is_dir($template_path)) {
@@ -504,9 +523,61 @@ function noste_update_project_step() {
 
 	$updated = update_post_meta( $post_id, $field_key, $data );
 
+	wp_send_json_success((array) $response, 200);
 	if ( $updated ) {
 		wp_send_json_success((array) $response, 200);
 	}
+	wp_send_json_error(new WP_Error('002', 'Something went wrong!'));
+}
 
-	wp_die();	
+function noste_form_header($type = 'form') {
+	include 'header_helpers.php';ob_start();
+	$columns = ['Projektin valmistelu', 'Rakentamisen valmistelu', 'Rakentamisen käynnistäminen', 'Rakentaminen', 'Rakennustöiden vastaanotto ja toimeksiannon lopetus'];
+	if (isset($forms_params) && is_array($forms_params) && isset($forms_params[$_GET['tm'] . '-' . $_GET['tmin']])) {
+		$breadcrumb = $forms_params[$_GET['tm'] . '-' . $_GET['tmin']];
+	}
+	$breadcrumb = (object) wp_parse_args($breadcrumb, [
+		'column'		=> 0,
+		'step'			=> $_GET['tm'],
+		'form'			=> $_GET['tmin'],
+		'form_title'	=> '',
+		'form_version'	=> '',
+	]);
+	?>
+				<div class="card_header flex flex-col md:flex-row items-center md:justify-between px-4 md:px-8 py-6 border-b border-line top-0 z-10">
+                    <div>
+                        <p class="text-sm font-normal text-[#586B74] mb-1">Project nimi</p>
+                        <!-- Breadcrumb -->
+                        <nav class="flex justify-between" aria-label="Breadcrumb">
+                            <ol class="inline-flex flex-wrap items-center mb-3 sm:mb-0">
+                                <li>
+                                    <span class="text-xs md:text-sm font-medium text-black"><?php echo esc_html(isset($columns[$breadcrumb->column])?$columns[$breadcrumb->column]:''); ?></span>
+                                </li>
+                                <span class="mx-1 md:mx-2 text-black">/</span>
+                                <li aria-current="page">
+                                    <span class="text-xs md:text-sm font-medium text-black"><?php echo esc_html(isset($steps_names[$breadcrumb->step])?$steps_names[$breadcrumb->step]:''); ?></span>
+                                </li>
+                                <span class="mx-1 md:mx-2 text-gray-400">/</span>
+                                <li aria-current="page">
+                                    <span class="text-xs md:text-sm font-medium text-black"><?php echo esc_html(!empty($breadcrumb->form_version)?$breadcrumb->form_version:$breadcrumb->form_title); ?></span>
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <button class="btn gap-2 border border-line bg-[#E9E9F0]">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+                            <defs>
+                                <pattern id="pattern2" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 100 100">
+                                    <image width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAADO0lEQVR4nO2cz05UMRSHu9F3UHTNq4h7VyQtYTHBzLQy0LLleSAmJugr+CcqPsKQiEs1KuyHFMHoxXtvh7TTc879/ZKuSO/Md77pbcvMrVIIgiAIQizGhbnkprildsEMhEAI6dT+BBuMkG4hinkMdx72ANJ42ANI42EPII2HPYA0HvYA0njYA0jjYQ8gjYc9gDQe9gDSeNgDSONhDyCNhz2ANB72ANJ42ANI42EPII2HPYA0HvYA0njYA0jjYQ8gjYc9gDQe9gDUeJ7s79/Vbm9ibHhnbDhvviG0sFgNbDjXzr811o9jbReSsTkO940Ln1D0UOSDp60/Xt/evpc8MiAjLOMO8HE0Gt3pFXJ5m8Itab6MGmjrn/YKuZwz/u7kwlG8hSUNL6Q1ejpdMda/bMwrb1RfjPNn/wiZTld6OyFJWbd7Dxoj5Bf95Z3wLFxfCCkbCCEWCCEWCCmYjZ2dh9qG53FyvmovNp+F1a4+EFJWxreb+wv/Pf6trR+EFEocGe0bvnDY1g9CCiXeojp24T/b+kFIBSHa+R9t/SCkUOIE3jFCDtr6QUihxNVUnMD/M6l/jf8iaesHIeVXWodxzrhqB10yYiCEWCCEWCCEWCCEWCCEWCCEWCCEWCCEWKoJkf5TIpWpLvk7JF5HWlOZ6pK/Q+J1pDWVqS75OyReR1pTmeqSv0Ph61AJhBALhBALhBALhBALhBDLYIRsuPBYW39SexmrrT/Rk901KnWp9sLahs+1ZZjrZsMXKnWp9sIQQk3IZHfNuDCrPjpcmBnrH1GpS/0XJh4DIbRSTUjzN6u3fegTIyTXQ5+Nx6Ljo7y3kQIhN2VoF14t/li09eMSk2btfYju2Wf01qXM+9pKO3TG+uNlCYlr/9IyzJ/mT6kI0Ta8TzpaIyYejBLP4liKEOdPhyfEf0g+fOY60V48i0M7/7p5ukNOIUvch8y69hnlhfiz37UMW8kjI2dShXCJ4c7DHkAaD3sAaTzsAaTxpAIM7fuQakleZQ3s+5BqgRCuQgb2fUi1sAeQxsMeQBoPewBpPOwBpPGwB5DGwx5AGg+BZey8ZFPcUrtgBkIghHRqf4INRgiCIAiihpULmb7nGYjfxQAAAAAASUVORK5CYII=" />
+                                </pattern>
+                            </defs>
+                            <rect id="icons8-print-100" width="20" height="20" fill="url(#pattern2)" />
+                        </svg>
+
+                    
+                        Takaisin
+                    </button>
+                </div>
+	<?php
+	return ob_get_clean();
 }

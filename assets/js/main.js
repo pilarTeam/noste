@@ -1,64 +1,77 @@
+const PRINTS_ARGS = {
+  allowTwig: true
+};
+
+
 document.querySelectorAll('#update-project .project-submit-btn').forEach(button => {
-var form = button.parentElement.parentElement;
-button.addEventListener('click', (event) => handleUpdateProjects(event, button, form));
-form.addEventListener('submit', (event) => handleUpdateProjects(event, button, form));
+  var form = button.parentElement.parentElement;
+  button.addEventListener('click', (event) => handleUpdateProjects(event, button, form));
+  form.addEventListener('submit', (event) => handleUpdateProjects(event, button, form));
 });
 
 function handleUpdateProjects(event, button, form) {
-event.preventDefault();
-var data = {};
-var submit = button;
+  event.preventDefault();
+  var data = {};
+  var submit = button;
+  
+  new FormData(form).forEach((value, key) => data[key] = value);
+  if (data?.action) {delete data.action;}
 
-new FormData(form).forEach((value, key) => data[key] = value);
-if (data?.action) {delete data.action;}
-
-wp.ajax.post('update_a_project', data).done(json => {
+  wp.ajax.post('update_a_project', data).done(json => {
     submit.disabled = false;console.log(json);
     if (json?.permalink != '') {
-    location.replace(json.permalink);
+      location.replace(json.permalink);
     }
-}).fail(error => {
+  }).fail(error => {
     console.error(error);
     submit.disabled = false;
-});
+  });
 }
 
+
+/**
+ * prevent hash acnhors on click events.
+ */
+document.querySelectorAll('a[href="#!"], a[href="#"]').forEach(anchor => {
+  anchor.addEventListener('click', (event) => event.preventDefault());
+});
+
 jQuery(document).ready(function ($) {
-    // DropDown
+	// DropDown
 
-    $("#dropdown-toggle").on('click', function () {
-        var dropdownMenuId = $(this).data("dropdown");
-        $("#" + dropdownMenuId).toggleClass("hidden");
-    });
+	$("#dropdown-toggle").on('click', function () {
+		var dropdownMenuId = $(this).data("dropdown");
+		$("#" + dropdownMenuId).toggleClass("hidden");
+	});
 
-    $(document).on('click', function (e) {
-        var target = e.target;
-        if (
-            !$(target).is("#dropdown-toggle") &&
-            !$(target).parents().is(".dropdown")
-        ) {
-            $(".dropdown-menu").addClass("hidden");
-        }
-    });
+	$(document).on('click', function (e) {
+		var target = e.target;
+		if (
+			!$(target).is("#dropdown-toggle") &&
+			!$(target).parents().is(".dropdown")
+		) {
+			$(".dropdown-menu").addClass("hidden");
+		}
+	});
 
-    // Image Upload
-    $("#FileUpload1").on('change', function (event) {
-        var input = event.target;
-        var text = $("#text");
-        var avatarImage = $("#avatarImage");
+	// Image Upload
+	$("#FileUpload1").on('change', function (event) {
+		var input = event.target;
+		var text = $("#text");
+		var avatarImage = $("#avatarImage");
 
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                avatarImage.attr("src", e.target.result);
-                text.addClass("hidden");
-                avatarImage.removeClass("hidden");
-            };
-            reader.readAsDataURL(input.files[0]);
-        }
-    });
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				avatarImage.attr("src", e.target.result);
+				text.addClass("hidden");
+				avatarImage.removeClass("hidden");
+			};
+			reader.readAsDataURL(input.files[0]);
+		}
+	});
 
-    $('.projekti-status').on('click', 'li', function(e){
+	$('.projekti-status').on('click', 'li', function(e){
         e.preventDefault();
         var currentstatus = $(this).data('status');
 
@@ -86,8 +99,8 @@ jQuery(document).ready(function ($) {
                     
                     if ( update.length > 10 ) {
                         var results = JSON.parse(update);
-                        
-                        $('#dashboard_projectCard .grid').empty();
+                         
+                         $('#dashboard_projectCard .grid').empty();
 
 
                         $.map(results, function(value, index){
@@ -105,7 +118,7 @@ jQuery(document).ready(function ($) {
                             
                             // console.log(grid_card);
                             $('#dashboard_projectCard .grid').append(grid_card);
-                            grid_card = $('#dashboard_projectCard .card_item').eq(0).clone();
+                             grid_card = $('#dashboard_projectCard .card_item').eq(0).clone();
                         });
 
                         jQuery('#dashboard_projectCard').removeClass('hidden');
@@ -173,7 +186,7 @@ jQuery(document).ready(function ($) {
 
         if ( confirm("Are you sure?") ) {
             $(this).parents('form').trigger('submit');
-        }
+         }
     });
 
     $('#create-project').on('submit', 'form', function(e){
@@ -184,7 +197,7 @@ jQuery(document).ready(function ($) {
             return;
         }
 
-        if ( $('input[name="projektinumero"]').val() == '' ) {
+       if ( $('input[name="projektinumero"]').val() == '' ) {
             alert('please fill out Projektinumero field');
             return;
         }
@@ -292,7 +305,7 @@ jQuery(document).ready(function ($) {
             $(this).parent().find('.submit-btn').trigger('click');
         }
     });    
-    
+   
     $('form.ajax-submit').on('click', '*[type="submit"]', function(e){
         e.preventDefault();
 
@@ -356,6 +369,7 @@ jQuery(document).ready(function ($) {
         });
     
     });
+    
     /**
      * Enableing print button functions.
      */
@@ -365,5 +379,6 @@ jQuery(document).ready(function ($) {
             print();
         }
     });
+
 
 });

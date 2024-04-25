@@ -16,46 +16,12 @@ $project_id = get_the_ID();
         <div class="grid grid-cols-1 gap-4">
             <!-- card_item -->
             <div class="card_item relative h-fit">
-                <!-- Card Header -->
-                <div class="card_header flex flex-col md:flex-row items-center md:justify-between px-4 md:px-8 py-6 border-b border-line top-0 z-10">
-                    <div>
-                        <p class="text-sm font-normal text-[#586B74] mb-1">Project nimi</p>
-                        <!-- Breadcrumb -->
-                        <nav class="flex justify-between" aria-label="Breadcrumb">
-                            <ol class="inline-flex flex-wrap items-center mb-3 sm:mb-0">
-                                <li>
-                                    <span class="text-xs md:text-sm font-medium text-black">Projektin valmistelu</span>
-                                </li>
-                                <span class="mx-1 md:mx-2 text-black">/</span>
-                                <li aria-current="page">
-                                    <span class="text-xs md:text-sm font-medium text-black">Tilaajan yhteydenotto</span>
-                                </li>
-                                <span class="mx-1 md:mx-2 text-gray-400">/</span>
-                                <li aria-current="page">
-                                    <span class="text-xs md:text-sm font-medium text-black">Lähtötietop_valmis_ver1</span>
-                                </li>
-                            </ol>
-                        </nav>
-                    </div>
-                    <button class="btn gap-2 border border-line bg-[#E9E9F0]">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
-                            <defs>
-                                <pattern id="pattern2" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 100 100">
-                                    <image width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAADO0lEQVR4nO2cz05UMRSHu9F3UHTNq4h7VyQtYTHBzLQy0LLleSAmJugr+CcqPsKQiEs1KuyHFMHoxXtvh7TTc879/ZKuSO/Md77pbcvMrVIIgiAIQizGhbnkprildsEMhEAI6dT+BBuMkG4hinkMdx72ANJ42ANI42EPII2HPYA0HvYA0njYA0jjYQ8gjYc9gDQe9gDSeNgDSONhDyCNhz2ANB72ANJ42ANI42EPII2HPYA0HvYA0njYA0jjYQ8gjYc9gDQe9gDUeJ7s79/Vbm9ibHhnbDhvviG0sFgNbDjXzr811o9jbReSsTkO940Ln1D0UOSDp60/Xt/evpc8MiAjLOMO8HE0Gt3pFXJ5m8Itab6MGmjrn/YKuZwz/u7kwlG8hSUNL6Q1ejpdMda/bMwrb1RfjPNn/wiZTld6OyFJWbd7Dxoj5Bf95Z3wLFxfCCkbCCEWCCEWCCmYjZ2dh9qG53FyvmovNp+F1a4+EFJWxreb+wv/Pf6trR+EFEocGe0bvnDY1g9CCiXeojp24T/b+kFIBSHa+R9t/SCkUOIE3jFCDtr6QUihxNVUnMD/M6l/jf8iaesHIeVXWodxzrhqB10yYiCEWCCEWCCEWCCEWCCEWCCEWCCEWCCEWKoJkf5TIpWpLvk7JF5HWlOZ6pK/Q+J1pDWVqS75OyReR1pTmeqSv0Ph61AJhBALhBALhBALhBALhBDLYIRsuPBYW39SexmrrT/Rk901KnWp9sLahs+1ZZjrZsMXKnWp9sIQQk3IZHfNuDCrPjpcmBnrH1GpS/0XJh4DIbRSTUjzN6u3fegTIyTXQ5+Nx6Ljo7y3kQIhN2VoF14t/li09eMSk2btfYju2Wf01qXM+9pKO3TG+uNlCYlr/9IyzJ/mT6kI0Ta8TzpaIyYejBLP4liKEOdPhyfEf0g+fOY60V48i0M7/7p5ukNOIUvch8y69hnlhfiz37UMW8kjI2dShXCJ4c7DHkAaD3sAaTzsAaTxpAIM7fuQakleZQ3s+5BqgRCuQgb2fUi1sAeQxsMeQBoPewBpPOwBpPGwB5DGwx5AGg+BZey8ZFPcUrtgBkIghHRqf4INRgiCIAiihpULmb7nGYjfxQAAAAAASUVORK5CYII=" />
-                                </pattern>
-                            </defs>
-                            <rect id="icons8-print-100" width="20" height="20" fill="url(#pattern2)" />
-                        </svg>
-
-                    
-                        Takaisin
-                    </button>
-                </div><!-- Card Header -->
+                <!-- Card Header --><?php echo wp_kses_post(noste_form_header('form')); ?><!-- Card Header -->
                 
                 <form action="<?php echo esc_url( get_permalink( get_the_ID() ) ); ?>" method="post" enctype="multipart/form-data" class="ajax-submit">
                     <!-- Card Body -->
                     <?php wp_nonce_field('project_step_form_validation', 'project_step_form__nonce_field'); ?>
-                    <input type="hidden" name="ptname" value="noste_tilaajan_valmistele">
+                    <input type="hidden" name="ptname" value="<?php echo esc_attr(implode('_', ['noste', $_GET['tm'], $_GET['tmin']])); ?>">
                     <input type="hidden" name="action" value="noste_update_project_step">
                     <input type="hidden" name="post_id" value="<?php echo esc_attr( $project_id ); ?>">
 
