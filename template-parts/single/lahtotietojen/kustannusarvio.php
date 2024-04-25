@@ -28,8 +28,8 @@ $project_id = get_the_ID();
                     <!-- Card Body -->
                     <div class="px-4 md:px-8 pt-6 pb-10 lg:h-[645px] overflow-y-auto no-scrollbar scroll-smooth"> 
                         <div class="max-w-[750px] mx-auto mt-10">
-                            <span class="font-medium italic text-[#00B2A9] block">K1</span>
-                            <span class="font-medium italic text-[#00B2A9] block">K4</span>
+                            <span class="font-medium italic text-[#00B2A9] block"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K1', true ), 'K1') ); ?></span>
+                            <span class="font-medium italic text-[#00B2A9] block"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K4', true ), 'K4') ); ?></span>
                             <div class="text-right">
                                 <span class="font-medium italic text-[#00B2A9] block">xx.xx.xxxx</span>
                             </div>
@@ -60,14 +60,14 @@ $project_id = get_the_ID();
                         </div>
             
                         <div class="max-w-[750px] mx-auto mb-5">
-                            <h3 class="text-accent text-[17px] italic font-medium">K4</h3>
+                            <h3 class="text-accent text-[17px] italic font-medium"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K4', true ), 'K4') ); ?></h3>
                         </div>
 
                         <div class="mb-3">
                             <div class="max-w-[750px] mx-auto">
                                 <div class="flex flex-wrap mb-4">
                                     <label class="flex-[3] mr-4 text-sm font-medium text-black">Tilan pinta-ala:</label>
-                                    <p class="flex-[3] text-sm text-black"> <span class="text-accent italic font-medium">M5</span> m<sup>2</sup></p>
+                                    <p class="flex-[3] text-sm text-black"> <span class="text-accent italic font-medium"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_M5', true ), 'M5') ); ?></span> m<sup>2</sup></p>
                                 </div>
                             </div>
                         </div>
@@ -91,7 +91,7 @@ $project_id = get_the_ID();
                                         <tr>
                                             <td></td>
                                             <td colspan="5" class="px-4 py-3 border border-line">
-                                                <h4 class="text-normal italic text-accent">TY1</h4>
+                                                <h4 class="text-normal italic text-accent"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_TY1', true ), 'TY1') ); ?></h4>
                                             </td>
                                         </tr>
                                         <tr>
@@ -274,7 +274,7 @@ $project_id = get_the_ID();
                                         <tr>
                                             <td></td>
                                             <td colspan="5" class="px-4 py-3 border border-line">
-                                                <h4 class="text-normal italic text-accent">TY2</h4>
+                                                <h4 class="text-normal italic text-accent"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_TY2', true ), 'TY2') ); ?></h4>
                                             </td>
                                         </tr>
                                         <tr>
@@ -1007,7 +1007,7 @@ $project_id = get_the_ID();
                                             </td>
                                             <td class="px-4 py-3 border border-white">
                                                 <div class="flex items-center justify-between">
-                                                    <span class="text-white">=I45/ <span class="text-accent">M5</span></span>
+                                                    <span class="text-white">=I45/ <span class="text-accent"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_M5', true ), 'M5') ); ?></span></span>
                                                     <span class="text-white">€/m2</span>
                                                 </div>
                                             </td>
@@ -1091,28 +1091,8 @@ $project_id = get_the_ID();
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Card footer -->
-                    <div class="card_footer p-4 border-t border-line">
-                        <div class="flex items-center justify-between">
-                            <a href="<?php echo esc_attr(site_url(remove_query_arg(['tmin']))); ?>" class="btn gap-2 border border-line">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
-                                    <defs>
-                                        <pattern id="pattern13" width="1" height="1" patternTransform="matrix(-1, 0, 0, 1, 40, 0)" viewBox="0 0 20 20">
-                                            <image preserveAspectRatio="xMidYMid slice" width="20" height="20" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABkklEQVR4nO3dQYrVQBhF4ecKFVF6oHu5dZ12SuiK6xNUeiC6A4UnDxyI9jwHcz4IZPjDISGTP3W5SJIkSdJ/rnN/3bm+da7HbOvF0fOc2vV6fTa29b1zv/6+foxt3R0916l1rq9/BDHK0XK/Xt6eDKOA5P7h1d9RxrZ+vpvr7dGznZZRgIwCZBQgowAZBSh+ffHEKDwxCk+MwhOj8MQoPDEKT4zCE6PwxCg8MQpPjMITo/DEKDwxCk+MwhOj8MQoPDEKT4zCE6PwxCg8MQpPjMITo/DEKDwxCk+MwhOj8MQoPGNbd08torpHz4vy5ciZTm08EWTM9fnouU5p+Mqi/Xtl/2dnfmwPb46e7XRqDI4ag6PG4KgxOGoMjhqDo8bgqDE4agyOGoOjxuCoMThqDI4ag6PG4KgxOGoMjhqDo8bgqDE4agyOGoOjxuCoMThqDI4ag6PG4KgxOGoMDmOAGAPEGCDGADEGiDFA+v7Dcw8nBrmtGntSNEjnevQsddora9s/jbl/vN0fPY8kSZIkXU7uFxa7dmp7vSU5AAAAAElFTkSuQmCC" />
-                                        </pattern>
-                                    </defs>
-                                    <rect id="icons8-arrow-100" width="20" height="20" fill="url(#pattern13)" />
-                                </svg>
-                                Takaisin
-                            </a>
-                            <button class="btn gap-2 border border-accent bg-accent text-white" type="submit">
-                                Hyväksy
-                            </button>
-                        </div>
-                    </div>
+                    <!-- Card footer --><?php echo wp_kses_post(noste_form_footer('form')); ?><!-- Card footer -->
                 </form>
-                <!-- Card footer -->
             </div>
 
 

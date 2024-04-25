@@ -29,8 +29,8 @@ $project_id = get_the_ID();
                         
                         <div class="max-w-[700px] mx-auto mt-20">
                             <div class="mb-[30px]">
-                                <span class="font-medium italic text-[#00B2A9] block">K1</span>
-                                <span class="font-medium italic text-[#00B2A9] block">K4</span>
+                                <span class="font-medium italic text-[#00B2A9] block"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K1', true ), 'K1') ); ?></span>
+                                <span class="font-medium italic text-[#00B2A9] block"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K4', true ), 'K4') ); ?></span>
                             </div>
 
                             <div class="mb-[30px]">
@@ -38,7 +38,7 @@ $project_id = get_the_ID();
                             </div>
 
                             <div class="my-[30px]">
-                                <span class="font-medium italic text-[#00B2A9] block">T1</span>
+                                <span class="font-medium italic text-[#00B2A9] block"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T1', true ), 'T1') ); ?></span>
                                 <span class="font-medium italic text-[#00B2A9] block">K1, K2, K3</span>
                             </div>
 
@@ -65,7 +65,7 @@ $project_id = get_the_ID();
                                 <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px] block col-span-2"></span>
                             </div>
 
-                            <p class="text-[#586B74] text-[15px] mt-5 mb-10">Allekirjoittanut urakoitsija sitoutuu <span class="italic text-[#00B2A9]">T1</span>:n toimeksiannosta suorittamaan urakkaan tarjouspyyntöasiakirjoissa kuuluvat rakennus- ja LVIAS-tekniset työt täysin valmiiksi sekä toimimaan työturvallisuudesta vastaavana päätoteuttajana ja pääurakoitsijana seuraavasti:</p>
+                            <p class="text-[#586B74] text-[15px] mt-5 mb-10">Allekirjoittanut urakoitsija sitoutuu <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T1', true ), 'T1') ); ?></span>:n toimeksiannosta suorittamaan urakkaan tarjouspyyntöasiakirjoissa kuuluvat rakennus- ja LVIAS-tekniset työt täysin valmiiksi sekä toimimaan työturvallisuudesta vastaavana päätoteuttajana ja pääurakoitsijana seuraavasti:</p>
 
                             <div class="grid grid-cols-3 items-center mb-8">
                                 <span class="text-[#283B44] font-medium block">Kiinteä kokonaishinta (alv.0 %)</span>
@@ -91,84 +91,84 @@ $project_id = get_the_ID();
 
                             <p class="text-[#283B44] font-medium block mt-20 mb-8">Tarjoushinta jakautuu seuraavasti:</p>
                             <div class="grid grid-cols-3 items-center mb-8">
-                                <span class="text-[#00B2A9] italic text-[15px] block">TY1</span>
+                                <span class="text-[#00B2A9] italic text-[15px] block"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_TY1', true ), 'TY1') ); ?></span>
                                 <span class="flex items-end gap-2 block col-span-2 text-[#283B44] ml-[-80px]">
                                     <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px]"></span>
                                     € (alv. 0%)
                                 </span>
                             </div>
                             <div class="grid grid-cols-3 items-center mb-8">
-                                <span class="text-[#00B2A9] italic text-[15px] block">TY2</span>
+                                <span class="text-[#00B2A9] italic text-[15px] block"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_TY2', true ), 'TY2') ); ?></span>
                                 <span class="flex items-end gap-2 block col-span-2 text-[#283B44] ml-[-80px]">
                                     <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px]"></span>
                                     € (alv. 0%)
                                 </span>
                             </div>
                             <div class="grid grid-cols-3 items-center mb-8">
-                                <span class="text-[#00B2A9] italic text-[15px] block">TY3</span>
+                                <span class="text-[#00B2A9] italic text-[15px] block"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_TY3', true ), 'TY3') ); ?></span>
                                 <span class="flex items-end gap-2 block col-span-2 text-[#283B44] ml-[-80px]">
                                     <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px]"></span>
                                     € (alv. 0%)
                                 </span>
                             </div>
                             <div class="grid grid-cols-3 items-center mb-8">
-                                <span class="text-[#00B2A9] italic text-[15px] block">TY4</span>
+                                <span class="text-[#00B2A9] italic text-[15px] block"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_TY4', true ), 'TY4') ); ?></span>
                                 <span class="flex items-end gap-2 block col-span-2 text-[#283B44] ml-[-80px]">
                                     <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px]"></span>
                                     € (alv. 0%)
                                 </span>
                             </div>
                             <div class="grid grid-cols-3 items-center mb-8">
-                                <span class="text-[#00B2A9] italic text-[15px] block">TY5</span>
+                                <span class="text-[#00B2A9] italic text-[15px] block"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_TY5', true ), 'TY5') ); ?></span>
                                 <span class="flex items-end gap-2 block col-span-2 text-[#283B44] ml-[-80px]">
                                     <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px]"></span>
                                     € (alv. 0%)
                                 </span>
                             </div>
                             <div class="grid grid-cols-3 items-center mb-8">
-                                <span class="text-[#00B2A9] italic text-[15px] block">TY6</span>
+                                <span class="text-[#00B2A9] italic text-[15px] block"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_TY6', true ), 'TY6') ); ?></span>
                                 <span class="flex items-end gap-2 block col-span-2 text-[#283B44] ml-[-80px]">
                                     <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px]"></span>
                                     € (alv. 0%)
                                 </span>
                             </div>
                             <div class="grid grid-cols-3 items-center mb-8">
-                                <span class="text-[#00B2A9] italic text-[15px] block">TY7</span>
+                                <span class="text-[#00B2A9] italic text-[15px] block"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_TY7', true ), 'TY7') ); ?></span>
                                 <span class="flex items-end gap-2 block col-span-2 text-[#283B44] ml-[-80px]">
                                     <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px]"></span>
                                     € (alv. 0%)
                                 </span>
                             </div>
                             <div class="grid grid-cols-3 items-center mb-8">
-                                <span class="text-[#00B2A9] italic text-[15px] block">TY8</span>
+                                <span class="text-[#00B2A9] italic text-[15px] block"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_TY8', true ), 'TY8') ); ?></span>
                                 <span class="flex items-end gap-2 block col-span-2 text-[#283B44] ml-[-80px]">
                                     <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px]"></span>
                                     € (alv. 0%)
                                 </span>
                             </div>
                             <div class="grid grid-cols-3 items-center mb-8">
-                                <span class="text-[#00B2A9] italic text-[15px] block">TY9</span>
+                                <span class="text-[#00B2A9] italic text-[15px] block"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_TY9', true ), 'TY9') ); ?></span>
                                 <span class="flex items-end gap-2 block col-span-2 text-[#283B44] ml-[-80px]">
                                     <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px]"></span>
                                     € (alv. 0%)
                                 </span>
                             </div>
                             <div class="grid grid-cols-3 items-center mb-8">
-                                <span class="text-[#00B2A9] italic text-[15px] block">TY10</span>
+                                <span class="text-[#00B2A9] italic text-[15px] block"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_TY10', true ), 'TY10') ); ?></span>
                                 <span class="flex items-end gap-2 block col-span-2 text-[#283B44] ml-[-80px]">
                                     <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px]"></span>
                                     € (alv. 0%)
                                 </span>
                             </div>
                             <div class="grid grid-cols-3 items-center mb-8">
-                                <span class="text-[#00B2A9] italic text-[15px] block">TY11</span>
+                                <span class="text-[#00B2A9] italic text-[15px] block"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_TY11', true ), 'TY11') ); ?></span>
                                 <span class="flex items-end gap-2 block col-span-2 text-[#283B44] ml-[-80px]">
                                     <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px]"></span>
                                     € (alv. 0%)
                                 </span>
                             </div>
                             <div class="grid grid-cols-3 items-center mb-8">
-                                <span class="text-[#00B2A9] italic text-[15px] block">TY12</span>
+                                <span class="text-[#00B2A9] italic text-[15px] block"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_TY12', true ), 'TY12') ); ?></span>
                                 <span class="flex items-end gap-2 block col-span-2 text-[#283B44] ml-[-80px]">
                                     <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px]"></span>
                                     € (alv. 0%)
@@ -331,28 +331,8 @@ $project_id = get_the_ID();
 
                     
                     </div><!-- Card Body -->
-                    
-                    <!-- Card footer -->
-                    <div class="card_footer p-4 border-t border-line">
-                        <div class="flex items-center justify-between">
-                            <a href="<?php echo esc_attr(site_url(remove_query_arg(['tmin']))); ?>" class="btn gap-2 border border-line">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
-                                    <defs>
-                                        <pattern id="pattern13" width="1" height="1" patternTransform="matrix(-1, 0, 0, 1, 40, 0)" viewBox="0 0 20 20">
-                                            <image preserveAspectRatio="xMidYMid slice" width="20" height="20" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABkklEQVR4nO3dQYrVQBhF4ecKFVF6oHu5dZ12SuiK6xNUeiC6A4UnDxyI9jwHcz4IZPjDISGTP3W5SJIkSdJ/rnN/3bm+da7HbOvF0fOc2vV6fTa29b1zv/6+foxt3R0916l1rq9/BDHK0XK/Xt6eDKOA5P7h1d9RxrZ+vpvr7dGznZZRgIwCZBQgowAZBSh+ffHEKDwxCk+MwhOj8MQoPDEKT4zCE6PwxCg8MQpPjMITo/DEKDwxCk+MwhOj8MQoPDEKT4zCE6PwxCg8MQpPjMITo/DEKDwxCk+MwhOj8MQoPGNbd08torpHz4vy5ciZTm08EWTM9fnouU5p+Mqi/Xtl/2dnfmwPb46e7XRqDI4ag6PG4KgxOGoMjhqDo8bgqDE4agyOGoOjxuCoMThqDI4ag6PG4KgxOGoMjhqDo8bgqDE4agyOGoOjxuCoMThqDI4ag6PG4KgxOGoMDmOAGAPEGCDGADEGiDFA+v7Dcw8nBrmtGntSNEjnevQsddora9s/jbl/vN0fPY8kSZIkXU7uFxa7dmp7vSU5AAAAAElFTkSuQmCC" />
-                                        </pattern>
-                                    </defs>
-                                    <rect id="icons8-arrow-100" width="20" height="20" fill="url(#pattern13)" />
-                                </svg>
-                                Takaisin
-                            </a>
-                            <button class="btn gap-2 border border-accent bg-accent text-white" type="submit">
-                                Hyväksy
-                            </button>
-                        </div>
-                    </div>
+                    <!-- Card footer --><?php echo wp_kses_post(noste_form_footer('form')); ?><!-- Card footer -->
                 </form>
-                <!-- Card footer -->
             </div>
 
 

@@ -40,8 +40,8 @@
         <div class="px-4 md:px-8 pt-6 pb-10 lg:h-[645px] overflow-y-auto no-scrollbar scroll-smooth">
             <div class="">
                 <div class="mx-auto max-w-[700px] mb-4">
-                    <p class="text-sm text-accent italic">K1</p>
-                    <p class="text-sm text-accent italic">K1</p>
+                    <p class="text-sm text-accent italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K1', true ), 'K1') ); ?></p>
+                    <p class="text-sm text-accent italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K1', true ), 'K1') ); ?></p>
                 </div>
                 
                 <h4 class="mb-8 text-[#081F2C] mx-auto max-w-[700px]">RAKENNUSTAPASELOSTUS</h4>
@@ -55,7 +55,7 @@
 
                         <div class="flex flex-wrap mb-2">
                             <label class="flex-[3] mr-4 text-sm font-medium text-black" for="subscriber">Tilaaja:</label>
-                            <p class="flex-[3] text-sm text-accent italic" id="subscriber">T1</p>
+                            <p class="flex-[3] text-sm text-accent italic" id="subscriber"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T1', true ), 'T1') ); ?></p>
                         </div>
                         
                         <div class="flex flex-wrap mb-4">
@@ -65,22 +65,22 @@
                         
                         <div class="flex flex-wrap mb-4">
                             <label class="flex-[3] mr-4 text-sm font-medium text-black" for="target">Kohde:</label>
-                            <p class="flex-[3] text-sm text-accent italic" id="target">K4</p>
+                            <p class="flex-[3] text-sm text-accent italic" id="target"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K4', true ), 'K4') ); ?></p>
                         </div>
 
                         <div class="flex flex-wrap mb-4">
                             <label class="flex-[3] mr-4 text-sm font-medium text-black" for="target"></label>
-                            <p class="flex-[3] text-sm text-accent italic">K1</p>
+                            <p class="flex-[3] text-sm text-accent italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K1', true ), 'K1') ); ?></p>
                         </div>
                         
                         <div class="flex flex-wrap mb-4">
                             <label class="flex-[3] mr-4 text-sm font-medium text-black" for="target"></label>
-                            <p class="flex-[3] text-sm text-accent italic">K2</p>
+                            <p class="flex-[3] text-sm text-accent italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K2', true ), 'K2') ); ?></p>
                         </div>
 
                         <div class="flex flex-wrap mb-4">
                             <label class="flex-[3] mr-4 text-sm font-medium text-black" for="target"></label>
-                            <p class="flex-[3] text-sm text-accent italic">K3</p>
+                            <p class="flex-[3] text-sm text-accent italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K3', true ), 'K3') ); ?></p>
                         </div>
                     </div>
 

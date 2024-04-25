@@ -29,8 +29,8 @@ $project_id = get_the_ID();
                     
                         <div class="max-w-[700px] mx-auto mt-20 mb-20">
                             <div class="mb-[30px]">
-                                <span class="font-medium italic text-[#00B2A9] block">K1</span>
-                                <span class="font-medium italic text-[#00B2A9] block">K4</span>
+                                <span class="font-medium italic text-[#00B2A9] block"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K1', true ), 'K1') ); ?></span>
+                                <span class="font-medium italic text-[#00B2A9] block"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K4', true ), 'K4') ); ?></span>
                             </div>
 
                             <div class="mb-[30px]">
@@ -67,11 +67,11 @@ $project_id = get_the_ID();
                                             </span>
                                             <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
                                         </label>
-                                        <span class="italic text-[#00B2A9]">U4</span>
+                                        <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U4', true ), 'U4') ); ?></span>
                                     </div>
                                 </span>
                                 
-                                <span class="italic text-[#00B2A9]">U1</span>
+                                <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U1', true ), 'U1') ); ?></span>
                             </div>
 
                             <div class="grid grid-cols-1 lg:grid-cols-3 gap-[20px] mb-5">
@@ -84,11 +84,11 @@ $project_id = get_the_ID();
                                             </span>
                                             <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
                                         </label>
-                                        <span class="italic text-[#00B2A9]">U7</span>
+                                        <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U7', true ), 'U7') ); ?></span>
                                     </div>
                                 </span>
                                 
-                                <span class="italic text-[#00B2A9]">U1</span>
+                                <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U1', true ), 'U1') ); ?></span>
                             </div>
 
                             <div class="grid grid-cols-1 lg:grid-cols-3 gap-[20px] mb-5">
@@ -120,7 +120,7 @@ $project_id = get_the_ID();
                                             </span>
                                             <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
                                         </label>
-                                        <span class="italic text-[#00B2A9]">P1</span>
+                                        <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P1', true ), 'P1') ); ?></span>
                                     </div>
                                 </span>
                                 
@@ -137,7 +137,7 @@ $project_id = get_the_ID();
                                             </span>
                                             <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
                                         </label>
-                                        <span class="italic text-[#00B2A9]">P4</span>
+                                        <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></span>
                                     </div>
                                 </span>
                                 
@@ -159,7 +159,7 @@ $project_id = get_the_ID();
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
                                         <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
-                                        <span class="flex-1 text-[14px] italic text-[#00B2A9]">P1</span>
+                                        <span class="flex-1 text-[14px] italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P1', true ), 'P1') ); ?></span>
                                     </label>
                                 </span>
                                 <span class="text-[#586B74] text-[15px] inline-flex gap-1">
@@ -168,7 +168,7 @@ $project_id = get_the_ID();
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
                                         <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
-                                        <span class="flex-1 text-[14px] italic text-[#00B2A9]">P4</span>
+                                        <span class="flex-1 text-[14px] italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></span>
                                     </label>
                                 </span>
                                 <span class="text-[#586B74] text-[14px]">toivotti läsnäolijat tervetulleiksi työmaan aloituskokoukseen.</span>
@@ -182,7 +182,7 @@ $project_id = get_the_ID();
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
                                         <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
-                                        <span class="flex-1 text-[14px] italic text-[#00B2A9]">P1</span>
+                                        <span class="flex-1 text-[14px] italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P1', true ), 'P1') ); ?></span>
                                     </label>
                                 </span>
                                 <span class="text-[#586B74] text-[14px] inline-flex gap-1">
@@ -191,7 +191,7 @@ $project_id = get_the_ID();
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
                                         <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
-                                        <span class="flex-1 text-[14px] italic text-[#00B2A9]">P4</span>
+                                        <span class="flex-1 text-[14px] italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></span>
                                     </label>
                                 </span>
                                 <span class="text-[#586B74] text-[14px]">/ Partners at Noste Oy ja sihteerinä</span>
@@ -201,7 +201,7 @@ $project_id = get_the_ID();
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
                                         <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
-                                        <span class="flex-1 text-[14px] italic text-[#00B2A9]">P1</span>
+                                        <span class="flex-1 text-[14px] italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P1', true ), 'P1') ); ?></span>
                                     </label>
                                 </span>
                                 <span class="text-[#586B74] text-[14px] inline-flex gap-1">
@@ -210,7 +210,7 @@ $project_id = get_the_ID();
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
                                         <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
-                                        <span class="flex-1 text-[14px] italic text-[#00B2A9]">P4</span>
+                                        <span class="flex-1 text-[14px] italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></span>
                                     </label>
                                 </span>
                                 <span class="text-[#586B74] text-[14px]">/ Partners at Noste Oy. Puheenjohtaja avasi kokouksen.</span>
@@ -237,7 +237,7 @@ $project_id = get_the_ID();
                         <div class="max-w-[700px] mx-auto">
                             <div class="flex flex-col flex-wrap lg:flex-row lg:items-center gap-2 mt-1">
                                 <span class="text-[#586B74] text-[14px]">
-                                    Tämä urakkaneuvottelu koskee osoitteessa <span class="italic text-[#00B2A9]">K2</span>, <span class="italic text-[#00B2A9]">K3</span> sijaitsevan
+                                    Tämä urakkaneuvottelu koskee osoitteessa <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K2', true ), 'K2') ); ?></span>, <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K3', true ), 'K3') ); ?></span> sijaitsevan
                                 </span>
                                 <span class="text-[#586B74] text-[14px]">
                                     <input type="text" name="pilar_filed8_6_4" value="toimistorakennuksen x. krs tilamuutostöistä " class="w-[290px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
@@ -606,7 +606,7 @@ $project_id = get_the_ID();
                             <div class="max-w-[700px] mx-auto flex items-center gap-2">
                                 <p class="flex gap-10 italic text-[#00B2A9] font-medium">
                                     <span>1. </span> 
-                                    <span>TY1</span>
+                                    <span><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_TY1', true ), 'TY1') ); ?></span>
                                 </p>
 
                                 <a href="#!" class="help_click"><svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="0.72"></circle> <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path> <circle cx="12" cy="16" r="1" fill="#000000"></circle> </g></svg> </a>                                      
@@ -735,9 +735,9 @@ $project_id = get_the_ID();
                                 <span>URAKOITSIJAN TOTEUTUSORGANISAATIO</span>
                             </h3>
 
-                            <p class="text-[#586B74] text-[15px]">Päätoteuttaja: <span class="italic text-[#00B2A9] inline-block ml-3">U1</span></p>
+                            <p class="text-[#586B74] text-[15px]">Päätoteuttaja: <span class="italic text-[#00B2A9] inline-block ml-3"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U1', true ), 'U1') ); ?></span></p>
                             <p class="text-[#586B74] text-[15px] m-3">Organisaatio:</p>
-                            <p class="text-[#586B74] text-[15px]"><span class="inline-block mr-10">-</span> Vastaava työnjohtaja <span class="italic text-[#00B2A9] inline-block ml-1">U7</span>,</p>
+                            <p class="text-[#586B74] text-[15px]"><span class="inline-block mr-10">-</span> Vastaava työnjohtaja <span class="italic text-[#00B2A9] inline-block ml-1"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U7', true ), 'U7') ); ?></span>,</p>
                             
                             <div class="text-[#586B74] text-[15px] flex items-center gap-10 mt-3">
                                 <span class="inline-block">-</span> 
@@ -863,7 +863,7 @@ $project_id = get_the_ID();
                                 </div>
                             </div>
 
-                            <p class="text-[#586B74] text-[15px]"><span class="inline-block mr-10">-</span> Meluavien töiden tekeminen kiinteistössä on kielletty klo <span class="italic text-[#00B2A9] inline-block ml-1">K7</span></p>
+                            <p class="text-[#586B74] text-[15px]"><span class="inline-block mr-10">-</span> Meluavien töiden tekeminen kiinteistössä on kielletty klo <span class="italic text-[#00B2A9] inline-block ml-1"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K7', true ), 'K7') ); ?></span></p>
                             <p class="text-[#586B74] text-[15px]"><span class="inline-block mr-10">-</span> Muulloin kuin arkisin klo 8-16 tehtävistä töistä on ilmoitettava etukäteen kiinteistöpäällikölle ja rakennuttajakonsultille, jotta vältytään turhilta hälytys- ja vartijakuluilta ja viikonloppukäyttäjien häiriöiltä. Mikäli urakoitsija aiheuttaa toiminnallaan kiinteistön omistajalle ylimääräisiä kuluja, vähennetään ne urakkahinnasta.</p>
                             <p class="text-[#586B74] text-[15px]"><span class="inline-block mr-10">-</span>  Urakoitsijan vastuulla on työmaa-alueen siivous sekä haalausreittien siistinä pitäminen ja suojaaminen.</p>
                             <p class="text-[#586B74] text-[15px]"><span class="inline-block mr-10">-</span>  Kiinteistön käyttäjiä on tiedotettava kulkujärjestelyiden muuttumisesta.</p>
@@ -1302,7 +1302,7 @@ $project_id = get_the_ID();
                                         <input type="text" name="pilar_VA1" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                 </div>
-                                <span class="text-[#586B74] text-[14px]">ja kiinteä kokonaishinta tässä asiakirjassa ja tarjouspyyntöaineistossa määritetyille töille on <span class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] text-[#06F9B7] border border-solid border-[#06F9B7] rounded-[5px] p-2">UH1</span> (alv. 0%)]</span>
+                                <span class="text-[#586B74] text-[14px]">ja kiinteä kokonaishinta tässä asiakirjassa ja tarjouspyyntöaineistossa määritetyille töille on <span class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] text-[#06F9B7] border border-solid border-[#06F9B7] rounded-[5px] p-2"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_UH1', true ), 'UH1') ); ?></span> (alv. 0%)]</span>
                                 
                             </div>  
                         </div>
@@ -1326,7 +1326,7 @@ $project_id = get_the_ID();
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
                                         <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
-                                        <span class="flex-1 text-[#586B74] text-[14px]">P1</span>
+                                        <span class="flex-1 text-[#586B74] text-[14px]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P1', true ), 'P1') ); ?></span>
                                     </label>
                                     ]
                                 </span>
@@ -1337,7 +1337,7 @@ $project_id = get_the_ID();
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
                                         <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
-                                        <span class="flex-1 text-[#586B74] text-[14px]">P4</span>
+                                        <span class="flex-1 text-[#586B74] text-[14px]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></span>
                                     </label>
                                     ]
                                 </span>
@@ -1346,28 +1346,8 @@ $project_id = get_the_ID();
                         </div>
                     
                     </div><!-- Card Body -->
-                    
-                    <!-- Card footer -->
-                    <div class="card_footer p-4 border-t border-line">
-                        <div class="flex items-center justify-between">
-                            <a href="<?php echo esc_attr(site_url(remove_query_arg(['tmin']))); ?>" class="btn gap-2 border border-line">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
-                                    <defs>
-                                        <pattern id="pattern13" width="1" height="1" patternTransform="matrix(-1, 0, 0, 1, 40, 0)" viewBox="0 0 20 20">
-                                            <image preserveAspectRatio="xMidYMid slice" width="20" height="20" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABkklEQVR4nO3dQYrVQBhF4ecKFVF6oHu5dZ12SuiK6xNUeiC6A4UnDxyI9jwHcz4IZPjDISGTP3W5SJIkSdJ/rnN/3bm+da7HbOvF0fOc2vV6fTa29b1zv/6+foxt3R0916l1rq9/BDHK0XK/Xt6eDKOA5P7h1d9RxrZ+vpvr7dGznZZRgIwCZBQgowAZBSh+ffHEKDwxCk+MwhOj8MQoPDEKT4zCE6PwxCg8MQpPjMITo/DEKDwxCk+MwhOj8MQoPDEKT4zCE6PwxCg8MQpPjMITo/DEKDwxCk+MwhOj8MQoPGNbd08torpHz4vy5ciZTm08EWTM9fnouU5p+Mqi/Xtl/2dnfmwPb46e7XRqDI4ag6PG4KgxOGoMjhqDo8bgqDE4agyOGoOjxuCoMThqDI4ag6PG4KgxOGoMjhqDo8bgqDE4agyOGoOjxuCoMThqDI4ag6PG4KgxOGoMDmOAGAPEGCDGADEGiDFA+v7Dcw8nBrmtGntSNEjnevQsddora9s/jbl/vN0fPY8kSZIkXU7uFxa7dmp7vSU5AAAAAElFTkSuQmCC" />
-                                        </pattern>
-                                    </defs>
-                                    <rect id="icons8-arrow-100" width="20" height="20" fill="url(#pattern13)" />
-                                </svg>
-                                Takaisin
-                            </a>
-                            <button class="btn gap-2 border border-accent bg-accent text-white" type="submit">
-                                Hyväksy
-                            </button>
-                        </div>
-                    </div>
+                    <!-- Card footer --><?php echo wp_kses_post(noste_form_footer('form')); ?><!-- Card footer -->
                 </form>
-                <!-- Card footer -->
             </div>
 
 
