@@ -14,6 +14,10 @@ get_header();
 		<div class="flex flex-wrap flex-wrap items-center justify-around">
 		  <div class="basis-1/2">
 		    <div class="main-login-wrap <?php echo ( isset( $_GET['tm'] ) && $_GET['tm'] == 'forget' ) ? 'hidden' : ''; ?>">
+		    	<div class="login-head mb-2">
+		    		<h2 class="text-xl md:text-2xl text-black font-medium hidden md:block text-center">Kirjaudu sisään</h2>
+		    		<p class="text-sm text-lightGray text-center pt-2">Täytä tiedot kirjautuaksesi.</p>
+		    	</div>
 		      <?php echo do_shortcode( '[ultimatemember form_id="9"]' ); ?>    
 		    </div>
 
@@ -21,7 +25,7 @@ get_header();
 		    	<div class="login-back">
 		    		<button class="<?php echo ( isset($_GET['updated']) && !empty( $_GET['updated'] ) ) ? 'reset-form-back' : 'main-login-back'; ?>">
 		    			<img src="<?php echo get_template_directory_uri() . '/assets/images/left-arrow.svg'; ?>">
-		    			Mene takaisin
+		    			Takaisin
 		    		</button>
 		    	</div>
 

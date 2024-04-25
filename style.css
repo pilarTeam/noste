@@ -24,6 +24,14 @@ div.um:not(.um-admin) {
     opacity: 1;
 }
 
+seciton.logins .main-login-wrap {
+    width: 450px;
+    margin: auto;
+    border: 1px solid #E1E1EA;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 12px;
+    padding: 24px;
+}
 .um-login h2 {
     color: #08202C;
     font-weight: 500;
@@ -35,13 +43,6 @@ div.um:not(.um-admin) {
     font-size: 16px;
     text-align: center;
     margin-bottom: 30px;
-}
-
-.um-login .um-form {
-    border: 1px solid #E1E1EA;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    border-radius: 12px;
-    padding: 24px;
 }
 
 .um-login .um-form .um-col-alt-b {
@@ -469,4 +470,30 @@ section#create-project .user_avatar img {
     width: 100%;
     border-radius: 50%;
     object-fit: cover;
+}
+.noste-reset-updated img {
+    margin: auto;
+}
+.um.um-password input[type="text"] {
+    background: #E8F0FE !important;
+}
+
+.logins .noste-reset-updated .pb-6 {
+    padding-bottom: 26px;
+}
+
+.logins .noste-reset-updated > p {
+    padding-bottom: 30px;
+}
+
+.logins .noste-reset-updated > a {
+    color: #00B2A9;
+    text-decoration: underline;
+}
+
+.rounded-3xl {
+    border-radius: 25px;
+}
+section#single-main-list .dropdown-step svg {
+    width: 15px;
 }
