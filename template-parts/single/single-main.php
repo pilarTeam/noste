@@ -132,7 +132,7 @@ $rakennustoiden_vastaanotto = [
         <div class="container px-4">
             <div class="flex items-center justify-between border-b border-line py-2 md:py-3 lg:py-5">
                 <h2 class="text-xl md:text-2xl text-black font-medium">Projektit</h2>
-                <i class="um-icon-android-alert"></i>
+                <!-- <i class="um-icon-android-alert"></i> -->
             </div>
         </div> <!-- container -->
 
