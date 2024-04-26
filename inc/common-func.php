@@ -37,6 +37,23 @@ function noste_checked_with_json($checked = '', $current = '' ){
 
 }
 
+function noste_checked_with_array($checked = [], $current = '' ){
+
+	if ( !isset($checked) || empty($checked) || !is_array($checked) ) {
+		return;
+	}
+
+	if ( in_array($current, $checked) ) {
+		return 'checked';
+	}
+
+	return;
+
+}
+
+
+
+
 function noste_custom_logo_url () {
 	$custom_logo_id = get_theme_mod( 'custom_logo' );
 
@@ -457,6 +474,22 @@ function noste_esitietolomake_form(){
 // }
 
 
+function recursive_sanitize_text_field( $array ) {
+
+    foreach ($array as $key => & $value ) {
+    
+        if ( is_array( $value ) ) {
+            $value = recursive_sanitize_text_field( $value );
+        } else {
+            $value = sanitize_text_field( wp_unslash($value) );
+        }
+    }
+
+    return $array;
+}
+
+
+
 function noste_update_project_step() {
 	check_ajax_referer( 'project_step_form_validation', 'project_step_form__nonce_field' );
 	$response = (object) ['template' => false, 'submission' => []];
@@ -471,6 +504,8 @@ function noste_update_project_step() {
 		wp_send_json_error( $error );
 	}
 
+	recursive_sanitize_text_field($_POST);
+
 	$field_key = $_POST['ptname'];
 	$post_id = $_POST['post_id'];
 
@@ -484,7 +519,7 @@ function noste_update_project_step() {
 	$step_id = $ref_queries['tm'] ?? false;
 	$form_id = $ref_queries['tmin'] ?? false;
 
-	$data = serialize($_POST);
+	$data = json_encode( $_POST );
 	$response->submission = $_POST;
 
 	if ( empty($data) ) {
@@ -512,7 +547,8 @@ function noste_update_project_step() {
 						</div>
 					</div>
 				</div>`;
-		fwrite($myfile, $text);fclose($myfile);
+		fwrite($myfile, $text);
+		fclose($myfile);
 	}
 	if (file_exists($template_path) && !is_dir($template_path)) {
 		$response->template = str_replace([ABSPATH], [site_url('/')], $template_path);
@@ -544,56 +580,56 @@ function noste_form_header($type = 'form') {
 		'form_version'	=> '',
 	]);
 	?>
-				<div class="card_header flex flex-col md:flex-row items-center md:justify-between px-4 md:px-8 py-6 border-b border-line top-0 z-10">
-                    <div>
-                        <p class="text-sm font-normal text-[#586B74] mb-1">Project nimi</p>
-                        <!-- Breadcrumb -->
-                        <nav class="flex justify-between" aria-label="Breadcrumb">
-                            <ol class="inline-flex flex-wrap items-center mb-3 sm:mb-0">
-                                <li>
-                                    <span class="text-xs md:text-sm font-medium text-black"><?php echo esc_html(isset($columns[$breadcrumb->column])?$columns[$breadcrumb->column]:''); ?></span>
-                                </li>
-                                <span class="mx-1 md:mx-2 text-black">/</span>
-                                <li aria-current="page">
-                                    <span class="text-xs md:text-sm font-medium text-black"><?php echo esc_html(isset($steps_names[$breadcrumb->step])?$steps_names[$breadcrumb->step]:''); ?></span>
-                                </li>
-                                <span class="mx-1 md:mx-2 text-gray-400">/</span>
-                                <li aria-current="page">
-                                    <span class="text-xs md:text-sm font-medium text-black"><?php echo esc_html( !empty($breadcrumb->form_version) ? $breadcrumb->form_version : $breadcrumb->form_title ); ?></span>
-                                </li>
-                            </ol>
-                        </nav>
-                    </div>
-                    <button class="btn gap-2 border border-line bg-[#E9E9F0]">
-						<i class="um-icon-ios-printer-outline"></i>
-						Luonnos
-                    </button>
-                </div>
+		<div class="card_header flex flex-col md:flex-row items-center md:justify-between px-4 md:px-8 py-6 border-b border-line top-0 z-10">
+	        <div>
+	            <p class="text-sm font-normal text-[#586B74] mb-1">Project nimi</p>
+	            <!-- Breadcrumb -->
+	            <nav class="flex justify-between" aria-label="Breadcrumb">
+	                <ol class="inline-flex flex-wrap items-center mb-3 sm:mb-0">
+	                    <li>
+	                        <span class="text-xs md:text-sm font-medium text-black"><?php echo esc_html(isset($columns[$breadcrumb->column])?$columns[$breadcrumb->column]:''); ?></span>
+	                    </li>
+	                    <span class="mx-1 md:mx-2 text-black">/</span>
+	                    <li aria-current="page">
+	                        <span class="text-xs md:text-sm font-medium text-black"><?php echo esc_html( isset( $steps_names[$breadcrumb->step] ) ? $steps_names[$breadcrumb->step] : '' ); ?></span>
+	                    </li>
+	                    <span class="mx-1 md:mx-2 text-gray-400">/</span>
+	                    <li aria-current="page">
+	                        <span class="text-xs md:text-sm font-medium text-black"><?php echo esc_html( !empty($breadcrumb->form_version) ? $breadcrumb->form_version : $breadcrumb->form_title ); ?></span>
+	                    </li>
+	                </ol>
+	            </nav>
+	        </div>
+	        <button class="btn gap-2 border border-line bg-[#E9E9F0]">
+				<i class="um-icon-ios-printer-outline"></i>
+				Luonnos
+	        </button>
+	    </div>
 	<?php
 	return ob_get_clean();
 }
 function noste_form_footer($type = 'form') {
 	ob_start();
 	?>
-					<!-- Card footer -->
-					<div class="card_footer p-4 border-t border-line">
-                        <div class="flex items-center justify-between">
-                            <a href="<?php echo esc_attr(site_url(remove_query_arg(['tmin']))); ?>" class="btn gap-2 border border-line">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
-                                    <defs>
-                                        <pattern id="pattern13" width="1" height="1" patternTransform="matrix(-1, 0, 0, 1, 40, 0)" viewBox="0 0 20 20">
-                                            <image preserveAspectRatio="xMidYMid slice" width="20" height="20" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABkklEQVR4nO3dQYrVQBhF4ecKFVF6oHu5dZ12SuiK6xNUeiC6A4UnDxyI9jwHcz4IZPjDISGTP3W5SJIkSdJ/rnN/3bm+da7HbOvF0fOc2vV6fTa29b1zv/6+foxt3R0916l1rq9/BDHK0XK/Xt6eDKOA5P7h1d9RxrZ+vpvr7dGznZZRgIwCZBQgowAZBSh+ffHEKDwxCk+MwhOj8MQoPDEKT4zCE6PwxCg8MQpPjMITo/DEKDwxCk+MwhOj8MQoPDEKT4zCE6PwxCg8MQpPjMITo/DEKDwxCk+MwhOj8MQoPGNbd08torpHz4vy5ciZTm08EWTM9fnouU5p+Mqi/Xtl/2dnfmwPb46e7XRqDI4ag6PG4KgxOGoMjhqDo8bgqDE4agyOGoOjxuCoMThqDI4ag6PG4KgxOGoMjhqDo8bgqDE4agyOGoOjxuCoMThqDI4ag6PG4KgxOGoMDmOAGAPEGCDGADEGiDFA+v7Dcw8nBrmtGntSNEjnevQsddora9s/jbl/vN0fPY8kSZIkXU7uFxa7dmp7vSU5AAAAAElFTkSuQmCC" />
-                                        </pattern>
-                                    </defs>
-                                    <rect id="icons8-arrow-100" width="20" height="20" fill="url(#pattern13)" />
-                                </svg>
-                                Takaisin
-                            </a>
-                            <button class="btn gap-2 border border-accent bg-accent text-white" type="submit">
-                                Hyväksy
-                            </button>
-                        </div>
-                    </div>
+		<!-- Card footer -->
+		<div class="card_footer p-4 border-t border-line">
+            <div class="flex items-center justify-between">
+                <a href="<?php echo esc_attr(site_url(remove_query_arg(['tmin']))); ?>" class="btn gap-2 border border-line">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+                        <defs>
+                            <pattern id="pattern13" width="1" height="1" patternTransform="matrix(-1, 0, 0, 1, 40, 0)" viewBox="0 0 20 20">
+                                <image preserveAspectRatio="xMidYMid slice" width="20" height="20" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABkklEQVR4nO3dQYrVQBhF4ecKFVF6oHu5dZ12SuiK6xNUeiC6A4UnDxyI9jwHcz4IZPjDISGTP3W5SJIkSdJ/rnN/3bm+da7HbOvF0fOc2vV6fTa29b1zv/6+foxt3R0916l1rq9/BDHK0XK/Xt6eDKOA5P7h1d9RxrZ+vpvr7dGznZZRgIwCZBQgowAZBSh+ffHEKDwxCk+MwhOj8MQoPDEKT4zCE6PwxCg8MQpPjMITo/DEKDwxCk+MwhOj8MQoPDEKT4zCE6PwxCg8MQpPjMITo/DEKDwxCk+MwhOj8MQoPGNbd08torpHz4vy5ciZTm08EWTM9fnouU5p+Mqi/Xtl/2dnfmwPb46e7XRqDI4ag6PG4KgxOGoMjhqDo8bgqDE4agyOGoOjxuCoMThqDI4ag6PG4KgxOGoMjhqDo8bgqDE4agyOGoOjxuCoMThqDI4ag6PG4KgxOGoMDmOAGAPEGCDGADEGiDFA+v7Dcw8nBrmtGntSNEjnevQsddora9s/jbl/vN0fPY8kSZIkXU7uFxa7dmp7vSU5AAAAAElFTkSuQmCC" />
+                            </pattern>
+                        </defs>
+                        <rect id="icons8-arrow-100" width="20" height="20" fill="url(#pattern13)" />
+                    </svg>
+                    Takaisin
+                </a>
+                <button class="btn gap-2 border border-accent bg-accent text-white" type="submit">
+                    Hyväksy
+                </button>
+            </div>
+        </div>
 	<?php
 	return ob_get_clean();
 }

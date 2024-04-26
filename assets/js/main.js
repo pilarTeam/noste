@@ -324,7 +324,7 @@ jQuery(document).ready(function ($) {
         }
 
         var formData = new FormData($(this)[0]);
-        if (typeof main_ajax_object?.query === 'object') {
+        if (typeof main_ajax_object ?. query === 'object') {
             formData.append('ref_queries', JSON.stringify(main_ajax_object.query));
         }
         // 
@@ -341,13 +341,16 @@ jQuery(document).ready(function ($) {
             processData: false,
             success: function(response) {
                 if ( response['success'] ) {
-                    console.log(response);
-                    var data = response?.data??{};
-                    fetch(data?.template)
-                    .then(data => data.text())
+
+                    var data = response ?. data ?? {};
+
+                    console.log(data);
+
+                    fetch(data ?. template)
+                    .then(data => data.text() )
                     .then(body => {
                         var template = Twig.twig({data: body});
-                        data.submission = data?.submission??{};
+                        data.submission = data ?. submission ?? {};
                         data.submission.locale_args = main_ajax_object;
                         // 
                         console.log(data)
