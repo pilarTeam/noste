@@ -349,6 +349,12 @@ jQuery(document).ready(function ($) {
                         var template = Twig.twig({data: body});
                         data.submission = data?.submission??{};
                         data.submission.locale_args = main_ajax_object;
+                        data.submission.get_single_post_metas = (key, def = '') => {
+                            if ( (data?.all_single_post_metas??false) && typeof data.all_single_post_metas[key] !== 'undefined' && data.all_single_post_metas[key] != '') {
+                                return data.all_single_post_metas[key];
+                            }
+                            return def;
+                        };
                         // 
                         console.log(data)
                         var printPrevCard = document.createElement('div');

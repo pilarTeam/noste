@@ -521,7 +521,13 @@ function noste_update_project_step() {
 		$response->template = get_template_directory_uri() . '/template-preview/blank.twig';
 	}
 
-	$updated = update_post_meta( $post_id, $field_key, $data );
+	$response->all_single_post_metas = [];
+	$updated = update_post_meta($post_id, $field_key, $data);
+	foreach( (array) get_post_meta($post_id) as $meta_key => $meta) {
+		if (substr($meta_key, 0, 6) != 'noste_' && substr($meta_key, 0, 1) != '_') {
+			$response->all_single_post_metas[$meta_key] = (is_array($meta) && isset($meta[0]))?$meta[0]:$meta;
+		}
+	}
 
 	wp_send_json_success((array) $response, 200);
 	if ( $updated ) {
