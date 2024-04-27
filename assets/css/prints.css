@@ -137,9 +137,9 @@
 .print_preview > .scroll-smooth {
     display: none;
 }
-.print_preview .card_footer button {
+/*.print_preview .card_footer button {
     pointer-events: none;
-}
+}*/
 @media print {
     @page {
         size: A4;

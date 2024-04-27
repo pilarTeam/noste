@@ -631,7 +631,8 @@ function noste_form_header($type = 'form') {
 	                </ol>
 	            </nav>
 	        </div>
-	        <button class="btn gap-2 border border-line bg-[#E9E9F0]">
+
+	        <button class="btn gap-2 border border-line bg-[#E9E9F0] print-btn hidden">
 				<i class="um-icon-ios-printer-outline"></i>
 				Luonnos
 	        </button>
@@ -640,12 +641,30 @@ function noste_form_header($type = 'form') {
 	return ob_get_clean();
 }
 function noste_form_footer($type = 'form') {
+	$edit_url = add_query_arg([
+	    'tm' => $_GET['tm'],
+	    'tmin' => $_GET['tmin'],
+	], get_permalink( get_the_ID() ) );
+
 	ob_start();
 	?>
+
+	    <div class="popup_wrap hidden fixed left-0 top-0 w-full h-full bg-[#00151F66] z-50">
+	        <div class="w-[95%] lg:w-auto rounded-[12px] bg-white border border-solid border-[#E1E1EA] max-w-[600px] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+	            <h3 class="text-[#08202C] text-[20px] font-medium px-3 lg:px-8 pt-8 pb-10">Oletko varma, että haluat palauttaa muokattavaksi?</h3>
+	            <hr class="border-b border-solid border-[#E1E1EA] mt-3">
+	            <div class="p-4 flex gap-4 justify-end">
+	                <button class="cancel_popup inline-block border border-solid border-[#E1E1EA] text-[#08202C] rounded-lg px-[10px] py-[5px] text-[14px]">Peruuta</button>
+
+	                <a href="<?php echo esc_attr( $edit_url ); ?>" class="submit_popup_form inline-block bg-[#00B2A9] rounded-lg px-3 lg:px-[10px] py-[5px] text-[14px] text-white">Kyllä, haluan muokata</a>
+	            </div>
+	        </div>
+	    </div>
+
 		<!-- Card footer -->
 		<div class="card_footer p-4 border-t border-line">
             <div class="flex items-center justify-between">
-                <a href="<?php echo esc_attr(site_url(remove_query_arg(['tmin']))); ?>" class="btn gap-2 border border-line">
+                <a href="<?php echo esc_attr( site_url( remove_query_arg(['tmin']) ) ); ?>" class="btn gap-2 border border-line">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
                         <defs>
                             <pattern id="pattern13" width="1" height="1" patternTransform="matrix(-1, 0, 0, 1, 40, 0)" viewBox="0 0 20 20">
@@ -656,9 +675,8 @@ function noste_form_footer($type = 'form') {
                     </svg>
                     Takaisin
                 </a>
-                <button class="btn gap-2 border border-accent bg-accent text-white" type="submit">
-                    Hyväksy
-                </button>
+
+                <button class="btn gap-2 border border-accent bg-accent text-white" type="submit">Hyväksy</button>
             </div>
         </div>
 	<?php
