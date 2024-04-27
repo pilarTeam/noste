@@ -9,6 +9,18 @@ add_action( 'wp_ajax_noste_update_project_step', 'noste_update_project_step');
 add_filter('acf/load_field/name=projektipaallikko', 'noste_project_projektipaallikko');
 add_filter('acf/load_field/name=valvoja', 'noste_project_valvoja');
 
+function noste_check_array_data ( $array = [], $value = '', $default = '' ) {
+	if ( is_null( $array ) || empty($array) ) {
+		return $default;
+	}
+
+	if ( !isset($array[$value]) || empty($array[$value]) ) {
+		return $default;
+	}
+
+	return $array[$value];
+}
+
 function noste_check_empty($value, $default = '') {
 	if ( !isset($value) || empty($value) ) {
 		return $default;
@@ -506,6 +518,8 @@ function noste_update_project_step() {
 
 	recursive_sanitize_text_field($_POST);
 
+	// error_log(print_r($_POST, true));
+
 	$field_key = $_POST['ptname'];
 	$post_id = $_POST['post_id'];
 
@@ -514,19 +528,24 @@ function noste_update_project_step() {
 	unset($_POST['project_step_form__nonce_field']);
 	unset($_POST['_wp_http_referer']);
 
+
+	$global_data = array_filter($_POST, function($k){
+		return str_contains( $k, 'pilar' );
+	}, ARRAY_FILTER_USE_KEY);
+
+
+	foreach ($global_data as $k => $v) {
+		$_POST[$k] = get_post_meta( $post_id, $k, true );			
+	}
+
+
 	$ref_queries = (array) json_decode( preg_replace( '/[\x00-\x1F\x80-\xFF]/', '', stripslashes(html_entity_decode(isset($_POST['ref_queries'] ) ? $_POST['ref_queries'] : '{}' ) ) ), true);
 
 	$step_id = $ref_queries['tm'] ?? false;
 	$form_id = $ref_queries['tmin'] ?? false;
 
-	$data = json_encode( $_POST );
 	$response->submission = $_POST;
 
-	if ( empty($data) ) {
-		$error = new WP_Error( '001', 'Conent Data issue' );
-		wp_send_json_error( $error );		
-	}
-	// 
 	$template = implode('/', (array) [$step_id, $form_id]);
 	$template_path = get_template_directory() . '/template-preview/' . $template . '.twig';
 	
@@ -556,6 +575,18 @@ function noste_update_project_step() {
 		$response->template = get_template_directory_uri() . '/template-preview/blank.twig';
 	}
 
+
+	foreach ($global_data as $k => $v) {
+		unset($_POST[$k]);			
+	}
+
+	$data = json_encode( $_POST );
+
+	if ( empty($data) ) {
+		$error = new WP_Error( '001', 'Content Data issue' );
+		wp_send_json_error( $error );		
+	}
+	
 	$updated = update_post_meta( $post_id, $field_key, $data );
 
 	if ( $updated ) {

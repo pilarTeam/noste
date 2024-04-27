@@ -3,10 +3,6 @@
 
 	$project_intdata = get_post_meta( get_the_ID(), sprintf('%s_status', $tm), true );
 
-
-
-
-
 	$tm_inner = [
 		'urakkasopimuksen_viimeistely' => [
 			'title' => 'Täydennä ja viimeistele urakkasopimus sekä kokoa se liitteineen täysin valmiiksi',

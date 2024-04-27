@@ -340,11 +340,10 @@ jQuery(document).ready(function ($) {
             enctype: 'multipart/form-data',
             processData: false,
             success: function(response) {
+
                 if ( response['success'] ) {
 
                     var data = response ?. data ?? {};
-
-                    console.log(data);
 
                     fetch(data ?. template)
                     .then(data => data.text() )
