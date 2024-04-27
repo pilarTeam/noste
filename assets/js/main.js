@@ -1,3 +1,8 @@
+const PRINTS_ARGS = {
+  allowTwig: true
+};
+
+
 document.querySelectorAll('#update-project .project-submit-btn').forEach(button => {
   var form = button.parentElement.parentElement;
   button.addEventListener('click', (event) => handleUpdateProjects(event, button, form));
@@ -22,6 +27,14 @@ function handleUpdateProjects(event, button, form) {
     submit.disabled = false;
   });
 }
+
+
+/**
+ * prevent hash acnhors on click events.
+ */
+document.querySelectorAll('a[href="#!"], a[href="#"]').forEach(anchor => {
+  anchor.addEventListener('click', (event) => event.preventDefault());
+});
 
 jQuery(document).ready(function ($) {
 	// DropDown
@@ -311,7 +324,12 @@ jQuery(document).ready(function ($) {
         }
 
         var formData = new FormData($(this)[0]);
-
+        if (typeof main_ajax_object?.query === 'object') {
+            formData.append('ref_queries', JSON.stringify(main_ajax_object.query));
+        }
+        // 
+        var formCard = window.formCard = $(this)[0];
+        // 
         $.ajax({
             url: main_ajax_object.ajaxurl,
             type: 'POST',
@@ -324,6 +342,30 @@ jQuery(document).ready(function ($) {
             success: function(response) {
                 if ( response['success'] ) {
                     console.log(response);
+                    var data = response?.data??{};
+                    fetch(data?.template)
+                    .then(data => data.text())
+                    .then(body => {
+                        var template = Twig.twig({data: body});
+                        data.submission = data?.submission??{};
+                        data.submission.locale_args = main_ajax_object;
+                        data.submission.get_single_post_metas = (key, def = '') => {
+                            if ( (data?.all_single_post_metas??false) && typeof data.all_single_post_metas[key] !== 'undefined' && data.all_single_post_metas[key] != '') {
+                                return data.all_single_post_metas[key];
+                            }
+                            return def;
+                        };
+                        // 
+                        console.log(data)
+                        var printPrevCard = document.createElement('div');
+                        formCard.classList.add('print_preview');
+                        printPrevCard.classList.add('section-to-print');
+                        printPrevCard.innerHTML = template.render(data.submission);
+                        formCard.insertBefore(printPrevCard, $(formCard).children('.card_footer')[0]);
+                        // 
+                        // formCard
+                        // 
+                    }).catch(error => console.error(error));
                 }
             },
             error: function(response) {
@@ -333,5 +375,14 @@ jQuery(document).ready(function ($) {
         });
     
     });
+    
+    /**
+     * Enableing print button functions.
+     */
+    $('.card_header button').on('click', function(e){
+        e.preventDefault();
+        if ($('.print_preview').length) {
+            print();
+        }
+    });
 
-});
