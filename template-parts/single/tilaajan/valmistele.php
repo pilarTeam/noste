@@ -5,6 +5,9 @@ if ( !is_singular( 'projektitiedot' ) ) {
 }
 
 $project_id = get_the_ID();
+$ptname = implode('_', ['noste', $_GET['tm'], $_GET['tmin']]);
+
+$data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get_post_meta( $project_id, $ptname, true ), true ) : '';
 
 ?>
 
@@ -16,46 +19,12 @@ $project_id = get_the_ID();
         <div class="grid grid-cols-1 gap-4">
             <!-- card_item -->
             <div class="card_item relative h-fit">
-                <!-- Card Header -->
-                <div class="card_header flex flex-col md:flex-row items-center md:justify-between px-4 md:px-8 py-6 border-b border-line top-0 z-10">
-                    <div>
-                        <p class="text-sm font-normal text-[#586B74] mb-1">Project nimi</p>
-                        <!-- Breadcrumb -->
-                        <nav class="flex justify-between" aria-label="Breadcrumb">
-                            <ol class="inline-flex flex-wrap items-center mb-3 sm:mb-0">
-                                <li>
-                                    <span class="text-xs md:text-sm font-medium text-black">Projektin valmistelu</span>
-                                </li>
-                                <span class="mx-1 md:mx-2 text-black">/</span>
-                                <li aria-current="page">
-                                    <span class="text-xs md:text-sm font-medium text-black">Tilaajan yhteydenotto</span>
-                                </li>
-                                <span class="mx-1 md:mx-2 text-gray-400">/</span>
-                                <li aria-current="page">
-                                    <span class="text-xs md:text-sm font-medium text-black">Lähtötietop_valmis_ver1</span>
-                                </li>
-                            </ol>
-                        </nav>
-                    </div>
-                    <button class="btn gap-2 border border-line bg-[#E9E9F0]">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
-                            <defs>
-                                <pattern id="pattern2" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 100 100">
-                                    <image width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAADO0lEQVR4nO2cz05UMRSHu9F3UHTNq4h7VyQtYTHBzLQy0LLleSAmJugr+CcqPsKQiEs1KuyHFMHoxXtvh7TTc879/ZKuSO/Md77pbcvMrVIIgiAIQizGhbnkprildsEMhEAI6dT+BBuMkG4hinkMdx72ANJ42ANI42EPII2HPYA0HvYA0njYA0jjYQ8gjYc9gDQe9gDSeNgDSONhDyCNhz2ANB72ANJ42ANI42EPII2HPYA0HvYA0njYA0jjYQ8gjYc9gDQe9gDUeJ7s79/Vbm9ibHhnbDhvviG0sFgNbDjXzr811o9jbReSsTkO940Ln1D0UOSDp60/Xt/evpc8MiAjLOMO8HE0Gt3pFXJ5m8Itab6MGmjrn/YKuZwz/u7kwlG8hSUNL6Q1ejpdMda/bMwrb1RfjPNn/wiZTld6OyFJWbd7Dxoj5Bf95Z3wLFxfCCkbCCEWCCEWCCmYjZ2dh9qG53FyvmovNp+F1a4+EFJWxreb+wv/Pf6trR+EFEocGe0bvnDY1g9CCiXeojp24T/b+kFIBSHa+R9t/SCkUOIE3jFCDtr6QUihxNVUnMD/M6l/jf8iaesHIeVXWodxzrhqB10yYiCEWCCEWCCEWCCEWCCEWCCEWCCEWCCEWKoJkf5TIpWpLvk7JF5HWlOZ6pK/Q+J1pDWVqS75OyReR1pTmeqSv0Ph61AJhBALhBALhBALhBALhBDLYIRsuPBYW39SexmrrT/Rk901KnWp9sLahs+1ZZjrZsMXKnWp9sIQQk3IZHfNuDCrPjpcmBnrH1GpS/0XJh4DIbRSTUjzN6u3fegTIyTXQ5+Nx6Ljo7y3kQIhN2VoF14t/li09eMSk2btfYju2Wf01qXM+9pKO3TG+uNlCYlr/9IyzJ/mT6kI0Ta8TzpaIyYejBLP4liKEOdPhyfEf0g+fOY60V48i0M7/7p5ukNOIUvch8y69hnlhfiz37UMW8kjI2dShXCJ4c7DHkAaD3sAaTzsAaTxpAIM7fuQakleZQ3s+5BqgRCuQgb2fUi1sAeQxsMeQBoPewBpPOwBpPGwB5DGwx5AGg+BZey8ZFPcUrtgBkIghHRqf4INRgiCIAiihpULmb7nGYjfxQAAAAAASUVORK5CYII=" />
-                                </pattern>
-                            </defs>
-                            <rect id="icons8-print-100" width="20" height="20" fill="url(#pattern2)" />
-                        </svg>
-
-                    
-                        Takaisin
-                    </button>
-                </div><!-- Card Header -->
+                <!-- Card Header --><?php echo wp_kses_post(noste_form_header('form')); ?><!-- Card Header -->
                 
                 <form action="<?php echo esc_url( get_permalink( get_the_ID() ) ); ?>" method="post" enctype="multipart/form-data" class="ajax-submit">
                     <!-- Card Body -->
                     <?php wp_nonce_field('project_step_form_validation', 'project_step_form__nonce_field'); ?>
-                    <input type="hidden" name="ptname" value="noste_tilaajan_valmistele">
+                    <input type="hidden" name="ptname" value="<?php echo esc_attr( $ptname ) ; ?>">
                     <input type="hidden" name="action" value="noste_update_project_step">
                     <input type="hidden" name="post_id" value="<?php echo esc_attr( $project_id ); ?>">
 
@@ -107,7 +76,7 @@ $project_id = get_the_ID();
 
                                     <div class="flex flex-wrap mb-4">
                                         <label class="flex-[3] mr-4 text-sm font-medium text-black" for="present">Läsnä:</label>
-                                        <input class="shadow-input flex-[3] md:ml-5 text-sm border-accent rounded-md text-[#686d70]" type="text" id="present" name="present">
+                                        <input class="shadow-input flex-[3] md:ml-5 text-sm border-accent rounded-md text-[#686d70]" type="text" id="present" name="present" value="<?php echo esc_attr( noste_check_empty( $data['present'] ) ); ?>">
                                     </div>
                                 </div>
 
@@ -130,7 +99,7 @@ $project_id = get_the_ID();
                                                     </svg>
                                                 </a>
                                             </label>
-                                            <textarea class="shadow-input text-sm border-accent rounded-md text-[#586B74] order-3" id="general_ituation" name="general_situation" rows="4" placeholder="Onko tila ollut pitkään tyhjänä (vuokrauksen haasteet vs tilan vapautuminen juuri) tai milloin tila vapautuu? Mikä uuden vuokralaisen kanssa solmittavan vuokrasopimuksen tilanne on?"></textarea>
+                                            <textarea class="shadow-input text-sm border-accent rounded-md text-[#586B74] order-3" id="general_ituation" name="general_situation" rows="4" placeholder="Onko tila ollut pitkään tyhjänä (vuokrauksen haasteet vs tilan vapautuminen juuri) tai milloin tila vapautuu? Mikä uuden vuokralaisen kanssa solmittavan vuokrasopimuksen tilanne on?"><?php echo esc_html( noste_check_empty( $data['general_situation'] ) ); ?></textarea>
 
                                             <div class="tooltip_content p-2 lg:w-52 lg:after:w-[210%] xl:after:w-[273%] 2xl:after:w-[337%] border border-[#E1E1EA] bg-[#F6F8FF] rounded-md relkative lg:absolute top-0 right-2 order-2 mb-2 hidden
                                             " id="other_questions_tooltip">
@@ -143,7 +112,7 @@ $project_id = get_the_ID();
                                         <label class="mr-4 mb-2 text-sm font-medium text-black" for="nosti_tasks">
                                             Nosteen tehtävät
                                         </label>
-                                        <textarea class="shadow-input text-sm border-accent rounded-md text-[#586B74]" id="nosti_tasks" name="nosti_tasks" rows="4" placeholder="Nosteelta toivotaan kustannusarvion ja alustavan aikataulun laadintaa? Millä aikataululla yllä olevat tarvitaan?"></textarea>
+                                        <textarea class="shadow-input text-sm border-accent rounded-md text-[#586B74]" id="nosti_tasks" name="nosti_tasks" rows="4" placeholder="Nosteelta toivotaan kustannusarvion ja alustavan aikataulun laadintaa? Millä aikataululla yllä olevat tarvitaan?"><?php echo esc_html( noste_check_empty( $data['nosti_tasks'] ) ); ?></textarea>
                                     </div>
 
                                     <div class="dropdown relative">
@@ -165,20 +134,20 @@ $project_id = get_the_ID();
 
                                             <div class="md:pl-12 order-3">
                                                 <label class="flex items-center text-sm md:text-sm mb-2" for="agreed_prepare_documents1">
-                                                    <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[]" id="agreed_prepare_documents1" value="Vuokrasopimuksen hankintarajaliite">
+                                                    <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[]" id="agreed_prepare_documents1" value="Vuokrasopimuksen hankintarajaliite" <?php echo esc_attr( noste_checked_with_array( $data['agreed_prepare_documents'], 'Vuokrasopimuksen hankintarajaliite' ) ); ?>>
                                                     Vuokrasopimuksen hankintarajaliite
                                                 </label>
                                                 <label class="flex items-center text-sm md:text-sm mb-2" for="agreed_prepare_documents2">
-                                                    <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[]" id="agreed_prepare_documents2" value="Vuokrasopimuksen rakennustapaselostus">
+                                                    <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[]" id="agreed_prepare_documents2" value="Vuokrasopimuksen rakennustapaselostus" <?php echo esc_attr( noste_checked_with_array( $data['agreed_prepare_documents'], 'Vuokrasopimuksen rakennustapaselostus' ) ); ?>>
                                                     Vuokrasopimuksen rakennustapaselostus
                                                 </label>
                                                 <label class="flex items-center text-sm md:text-sm mb-2" for="agreed_prepare_documents3">
-                                                    <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[]" id="agreed_prepare_documents3" value="Vuokrasopimuksen lähtötietoaikataulu">
+                                                    <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[]" id="agreed_prepare_documents3" value="Vuokrasopimuksen lähtötietoaikataulu" <?php echo esc_attr( noste_checked_with_array( $data['agreed_prepare_documents'], 'Vuokrasopimuksen lähtötietoaikataulu' ) ); ?>>
                                                     Vuokrasopimuksen lähtötietoaikataulu
                                                 </label>
                                                 <label class="flex items-center text-sm md:text-sm mb-2" for="agreed_prepare_documents4">
-                                                    <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents_others" id="agreed_prepare_documents4" value="muut">
-                                                    <input class="shadow-input text-sm border-accent rounded-md text-[#586B74] w-1/2" type="text" id="agreed_prepare_documents_content" name="agreed_prepare_documents[]" value="Muu, mikä">
+                                                    <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents" id="agreed_prepare_documents4" <?php echo esc_attr( !empty($data['agreed_prepare_documents']['others']) ? 'checked' : '' ); ?>>
+                                                    <input class="shadow-input text-sm border-accent rounded-md text-[#586B74] w-1/2" type="text" id="agreed_prepare_documents_content" name="agreed_prepare_documents['others']" value="<?php echo esc_attr( noste_check_empty( $data['agreed_prepare_documents']['others'], '' ) ); ?>">
                                                 </label>
                                             </div>
 
@@ -214,24 +183,24 @@ $project_id = get_the_ID();
                                             <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
                                                 <label class="flex-[.5] md:mr-4 text-sm font-medium text-[#999a9b]" for="field_of_change_of_status">Tilamuutoksen ala</label>
                                                 <div class="flex items-center">
-                                                    <input class="shadow-input text-sm border-accent rounded-md text-black w-36 md:ml-6" type="text" id="field_of_change_of_status" name="field_of_change_of_status">
+                                                    <input class="shadow-input text-sm border-accent rounded-md text-black w-36 md:ml-6" type="text" id="field_of_change_of_status" name="field_of_change_of_status" value="<?php echo esc_attr( noste_check_empty( $data['field_of_change_of_status'] ) ); ?>">
                                                     <span class="flex items-center ml-2">m<sup>2</sup></span>
                                                 </div>
                                             </div>
                                             <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
                                                 <label class="flex-[.5] md:mr-4 text-sm font-medium text-[#999a9b]" for="project_name">Projektin nimi</label>
-                                                <input class="shadow-input text-sm border-accent rounded-md w-36 text-black" type="text" id="project_name" name="project_name" placeholder="xxxxx">
+                                                <input class="shadow-input text-sm border-accent rounded-md w-36 text-black" type="text" id="project_name" name="project_name" placeholder="xxxxx" value="<?php echo esc_attr( noste_check_empty( $data['project_name'] ) ); ?>">
                                             </div>
                                             <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4">
                                                 <label class="flex-[.5] md:mr-4 text-sm font-medium text-[#999a9b]" for="the_building_ompleted_year">Rakennuksen valmistumisvuosi</label>
-                                                <input class="shadow-input text-sm border-accent rounded-md w-36 text-black " type="text" id="the_building_ompleted_year" name="the_building_completed_year">
+                                                <input class="shadow-input text-sm border-accent rounded-md w-36 text-black " type="text" id="the_building_ompleted_year" name="the_building_completed_year" value="<?php echo esc_attr( noste_check_empty( $data['the_building_completed_year'] ) ); ?>">
                                             </div>
                                         </div>
                                     </div>
                                     
                                     <div class="mb-8 dropdown relative">
                                         <div class="mx-auto max-w-[750px] relative">
-                                            <textarea class="shadow-input w-full text-sm border-accent rounded-md text-[#586B74]" id="who_pays_new_requests_and_budget" name="who_pays_new_requests_and_budget" rows="6" placeholder="Käytiin läpi lähtötilanne. Käytiin läpi tilasuunnitelma, tilasuunnitelman lähtötietopuutteet/kysymykset sekä vuokralaisen erikoistoiveet ja tekniset vaatimukset. Käytiin läpi kiinteistön tekniset valmiudet verrattuna vuokralaisen vaatimuksiin. Käytiin läpi tilamuutosten laajuus verrattuna olemassa olevaan tilaan. Käytiin läpi maksaako vuokralainen osan kustannuksista (ja mikä on mahdollinen kustannusjako). Mikä suunnitelmien taso on? Joko suunnitelmat on lukittu vai vieläkö muutoksia tulee.">
+                                            <textarea class="shadow-input w-full text-sm border-accent rounded-md text-[#586B74]" id="who_pays_new_requests_and_budget" name="who_pays_new_requests_and_budget" rows="6" placeholder="Käytiin läpi lähtötilanne. Käytiin läpi tilasuunnitelma, tilasuunnitelman lähtötietopuutteet/kysymykset sekä vuokralaisen erikoistoiveet ja tekniset vaatimukset. Käytiin läpi kiinteistön tekniset valmiudet verrattuna vuokralaisen vaatimuksiin. Käytiin läpi tilamuutosten laajuus verrattuna olemassa olevaan tilaan. Käytiin läpi maksaako vuokralainen osan kustannuksista (ja mikä on mahdollinen kustannusjako). Mikä suunnitelmien taso on? Joko suunnitelmat on lukittu vai vieläkö muutoksia tulee."><?php echo esc_html( noste_check_empty( $data['who_pays_new_requests_and_budget'] ) ); ?>
                                             </textarea>
                                         </div>
                                     </div>
@@ -255,7 +224,7 @@ $project_id = get_the_ID();
                                                 </a>
                                             </div>
                                             
-                                            <textarea class="shadow-input text-sm border-accent rounded-md text-[#586B74]" id="other_questions" name="other_questions" rows="4" placeholder="Tullaanko töiden aikana tekemään töitä, jotka eivät kuulu vuokralaismuutokseen (esim. PTS asiat)"></textarea>
+                                            <textarea class="shadow-input text-sm border-accent rounded-md text-[#586B74]" id="other_questions" name="other_questions" rows="4" placeholder="Tullaanko töiden aikana tekemään töitä, jotka eivät kuulu vuokralaismuutokseen (esim. PTS asiat)"><?php echo esc_html( noste_check_empty( $data['other_questions'] ) ); ?></textarea>
                                         </div>
 
                                         <div class="tooltip_content p-2 lg:w-52 lg:after:w-[142%] xl:after:w-[286%] 2xl:after:w-[351%] border border-[#E1E1EA] bg-[#F6F8FF] rounded-md relkative lg:absolute top-0 right-2 order-2 mb-2 hidden" id="other_questions_tooltip4">
@@ -268,19 +237,19 @@ $project_id = get_the_ID();
                                         <h5 class="mr-4 mb-2 text-sm font-normal text-black">Sähkön laskutus</h5>
                                         <div class="flex md:flex-wrap flex-col md:flex-row md:items-center justify-between mb-4">
                                             <label class="flex items-center text-sm mb-2" for="electricity_billing1">
-                                                <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="electricity_billing[]" id="electricity_billing1" value="Sähkö laskutetaan neliöperusteisesti">
+                                                <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="electricity_billing[]" id="electricity_billing1" value="Sahko laskutetaan nelioperusteisesti" <?php echo esc_attr( noste_checked_with_array( $data['electricity_billing'], 'Sahko laskutetaan nelioperusteisesti' ) ); ?>>
                                                 Sähkö laskutetaan neliöperusteisesti
                                             </label>
                                             <label class="flex items-center text-sm mb-2" for="electricity_billing2">
-                                                <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="electricity_billing[]" id="electricity_billing2" value="kiinteistön alamittauksen avulla">
+                                                <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="electricity_billing[]" id="electricity_billing2" value="kiinteiston alamittauksen avulla" <?php echo esc_attr( noste_checked_with_array( $data['electricity_billing'], 'kiinteiston alamittauksen avulla' ) ); ?>>
                                                 kiinteistön alamittauksen avulla
                                             </label>
                                             <label class="flex items-center text-sm mb-2" for="electricity_billing3">
-                                                <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="electricity_billing[]" id="electricity_billing3" value="vuokralaisella oma sähkösopimus">
+                                                <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="electricity_billing[]" id="electricity_billing3" value="vuokralaisella oma sahkosopimus" <?php echo esc_attr( noste_checked_with_array( $data['electricity_billing'], 'vuokralaisella oma sahkosopimus' ) ); ?>>
                                                 vuokralaisella oma sähkösopimus
                                             </label>
                                         </div>
-                                        <textarea class="shadow-input w-full text-sm border-accent rounded-md text-[#586B74]" id="electricity_billing_comment" name="electricity_billing_comment" rows="4" placeholder="Miten tilaan pääsee käymään/kulkutunnisteet? Onko käytössä projektipankkia vai jaetaanko suunnitelmia sähköpostilla? Sähköisen laskutuksen ohjeet?"></textarea>
+                                        <textarea class="shadow-input w-full text-sm border-accent rounded-md text-[#586B74]" id="electricity_billing_comment" name="electricity_billing_comment" rows="4" placeholder="Miten tilaan pääsee käymään/kulkutunnisteet? Onko käytössä projektipankkia vai jaetaanko suunnitelmia sähköpostilla? Sähköisen laskutuksen ohjeet?"><?php echo esc_html( noste_check_empty( $data['electricity_billing_comment'] ) ); ?></textarea>
                                     </div>
 
                                     <div class="mx-auto max-w-[750px]">
@@ -291,87 +260,71 @@ $project_id = get_the_ID();
 
                                     <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
                                         <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="property_name">Kiinteistön nimi</label>
-                                        <input class="shadow-input flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="text" id="property_name" name="property_name">
+                                        <input class="shadow-input flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="text" id="property_name" name="property_name" value="<?php echo esc_attr( noste_check_empty( $data['property_name'] ) ); ?>">
                                     </div>
 
                                     <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
                                         <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="sreet_address">Kiinteistön katuosoite</label>
-                                        <input class="shadow-input flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="text" id="sreet_address" name="sreet_address">
+                                        <input class="shadow-input flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="text" id="sreet_address" name="sreet_address" value="<?php echo esc_attr( noste_check_empty( $data['sreet_address'] ) ); ?>">
                                     </div>
 
                                     <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
                                         <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="property_manager">Kiinteistöpäällikkö (Henkilö)</label>
-                                        <input class="shadow-input flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="text" id="property_manager" name="property_manager">
+                                        <input class="shadow-input flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="text" id="property_manager" name="property_manager" value="<?php echo esc_attr( noste_check_empty( $data['property_manager'] ) ); ?>">
                                     </div>
 
                                     <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
                                         <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="property_manager_email">Kiinteistöpäällikön sähköposti</label>
-                                        <input class="shadow-input flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="email" id="property_manager_email" name="property_manager_email">
+                                        <input class="shadow-input flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="email" id="property_manager_email" name="property_manager_email" value="<?php echo esc_attr( noste_check_empty( $data['property_manager_email'] ) ); ?>">
                                     </div>
 
                                     <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
                                         <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="property_manager_phone">Kiinteistöpäällikön puhelinnumero</label>
-                                        <input class="shadow-input flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="tel" id="property_manager_phone" name="property_manager_phone">
+                                        <input class="shadow-input flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="tel" id="property_manager_phone" name="property_manager_phone" value="<?php echo esc_attr( noste_check_empty( $data['property_manager_phone'] ) ); ?>">
                                     </div>
 
                                     <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
                                         <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="maintenance_person">Huoltohenkilö (Henkilö)</label>
-                                        <input class="shadow-input flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="text" id="maintenance_person" name="maintenance_person">
+                                        <input class="shadow-input flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="text" id="maintenance_person" name="maintenance_person" value="<?php echo esc_attr( noste_check_empty( $data['maintenance_person'] ) ); ?>">
                                     </div>
 
                                     <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
                                         <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="service_email">Huollon sähköposti</label>
-                                        <input class="shadow-input flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="email" id="service_email" name="service_email">
+                                        <input class="shadow-input flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="email" id="service_email" name="service_email" value="<?php echo esc_attr( noste_check_empty( $data['service_email'] ) ); ?>">
                                     </div>
 
                                     <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
                                         <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="service_phone_number">Huollon puhelinnumero</label>
-                                        <input class="shadow-input flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="tel" id="service_phone_number" name="service_phone_number">
+                                        <input class="shadow-input flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="tel" id="service_phone_number" name="service_phone_number" value="<?php echo esc_attr( noste_check_empty( $data['service_phone_number'] ) ); ?>">
                                     </div>
 
                                     <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
                                         <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="aulas_email">Aulan sähköposti</label>
-                                        <input class="shadow-input flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="email" id="aulas_email" name="aulas_email">
+                                        <input class="shadow-input flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="email" id="aulas_email" name="aulas_email" value="<?php echo esc_attr( noste_check_empty( $data['aulas_email'] ) ); ?>">
                                     </div>
 
                                     <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
                                         <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="lobby_phone_number">Aulan puhelinnumero</label>
-                                        <input class="shadow-input flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="tel" id="lobby_phone_number" name="lobby_phone_number">
+                                        <input class="shadow-input flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="tel" id="lobby_phone_number" name="lobby_phone_number" value="<?php echo esc_attr( noste_check_empty( $data['lobby_phone_number'] ) ); ?>">
                                     </div>
 
                                     <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
                                         <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="lobby_opening_hours">Aulan aukioloajat</label>
-                                        <input class="shadow-input flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="text" id="lobby_opening_hours" name="lobby_opening_hours">
+                                        <input class="shadow-input flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="text" id="lobby_opening_hours" name="lobby_opening_hours" value="<?php echo esc_attr( noste_check_empty( $data['lobby_opening_hours'] ) ); ?>">
                                     </div>
 
                                     <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
                                         <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="tenant_company">Vuokralainen (yhtiö)</label>
-                                        <input class="shadow-input flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="text" id="tenant_company" name="tenant_company">
+                                        <input class="shadow-input flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="text" id="tenant_company" name="tenant_company" value="<?php echo esc_attr( noste_check_empty( $data['tenant_company'] ) ); ?>">
                                     </div>
                                 </div>
                         </div>
                     </div><!-- Card Body -->
+
                     <!-- Card footer -->
-                    <div class="card_footer p-4 border-t border-line">
-                        <div class="flex items-center justify-between">
-                            <a href="<?php echo esc_attr(site_url(remove_query_arg(['tmin']))); ?>" class="btn gap-2 border border-line">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
-                                    <defs>
-                                        <pattern id="pattern13" width="1" height="1" patternTransform="matrix(-1, 0, 0, 1, 40, 0)" viewBox="0 0 20 20">
-                                            <image preserveAspectRatio="xMidYMid slice" width="20" height="20" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABkklEQVR4nO3dQYrVQBhF4ecKFVF6oHu5dZ12SuiK6xNUeiC6A4UnDxyI9jwHcz4IZPjDISGTP3W5SJIkSdJ/rnN/3bm+da7HbOvF0fOc2vV6fTa29b1zv/6+foxt3R0916l1rq9/BDHK0XK/Xt6eDKOA5P7h1d9RxrZ+vpvr7dGznZZRgIwCZBQgowAZBSh+ffHEKDwxCk+MwhOj8MQoPDEKT4zCE6PwxCg8MQpPjMITo/DEKDwxCk+MwhOj8MQoPDEKT4zCE6PwxCg8MQpPjMITo/DEKDwxCk+MwhOj8MQoPGNbd08torpHz4vy5ciZTm08EWTM9fnouU5p+Mqi/Xtl/2dnfmwPb46e7XRqDI4ag6PG4KgxOGoMjhqDo8bgqDE4agyOGoOjxuCoMThqDI4ag6PG4KgxOGoMjhqDo8bgqDE4agyOGoOjxuCoMThqDI4ag6PG4KgxOGoMDmOAGAPEGCDGADEGiDFA+v7Dcw8nBrmtGntSNEjnevQsddora9s/jbl/vN0fPY8kSZIkXU7uFxa7dmp7vSU5AAAAAElFTkSuQmCC" />
-                                        </pattern>
-                                    </defs>
-                                    <rect id="icons8-arrow-100" width="20" height="20" fill="url(#pattern13)" />
-                                </svg>
-                                Takaisin
-                            </a>
-                            <button class="btn gap-2 border border-accent bg-accent text-white" type="submit">
-                                Hyväksy
-                            </button>
-                        </div>
-                    </div>
+                    <?php echo wp_kses_post(noste_form_footer('form')); ?>
+                    <!-- Card footer -->
                 </form>
-                <!-- Card footer -->
             </div>
 
 

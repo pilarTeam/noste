@@ -324,7 +324,11 @@ jQuery(document).ready(function ($) {
         }
 
         var formData = new FormData($(this)[0]);
+<<<<<<< HEAD
         if (typeof main_ajax_object?.query === 'object') {
+=======
+        if (typeof main_ajax_object ?. query === 'object') {
+>>>>>>> 7ab2bed3d54636f1b7cc8256f54f243d2bccbe0f
             formData.append('ref_queries', JSON.stringify(main_ajax_object.query));
         }
         // 
@@ -341,6 +345,7 @@ jQuery(document).ready(function ($) {
             processData: false,
             success: function(response) {
                 if ( response['success'] ) {
+<<<<<<< HEAD
                     console.log(response);
                     var data = response?.data??{};
                     fetch(data?.template)
@@ -355,6 +360,19 @@ jQuery(document).ready(function ($) {
                             }
                             return def;
                         };
+=======
+
+                    var data = response ?. data ?? {};
+
+                    console.log(data);
+
+                    fetch(data ?. template)
+                    .then(data => data.text() )
+                    .then(body => {
+                        var template = Twig.twig({data: body});
+                        data.submission = data ?. submission ?? {};
+                        data.submission.locale_args = main_ajax_object;
+>>>>>>> 7ab2bed3d54636f1b7cc8256f54f243d2bccbe0f
                         // 
                         console.log(data)
                         var printPrevCard = document.createElement('div');
@@ -385,4 +403,8 @@ jQuery(document).ready(function ($) {
             print();
         }
     });
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7ab2bed3d54636f1b7cc8256f54f243d2bccbe0f
 

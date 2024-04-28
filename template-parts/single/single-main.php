@@ -132,7 +132,7 @@ $rakennustoiden_vastaanotto = [
         <div class="container px-4">
             <div class="flex items-center justify-between border-b border-line py-2 md:py-3 lg:py-5">
                 <h2 class="text-xl md:text-2xl text-black font-medium">Projektit</h2>
-                <i class="um-icon-android-alert"></i>
+                <!-- <i class="um-icon-android-alert"></i> -->
             </div>
         </div> <!-- container -->
 
@@ -176,15 +176,7 @@ $rakennustoiden_vastaanotto = [
                             <div class="dropdown pt-3 pr-3">
                                 <button class="dropdown-toggle rounded-sm border border-line p-[3px]" data-dropdown="dropdown-menu1">
                                     
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-3" viewBox="0 0 16 16">
-                                        <defs>
-                                            <pattern id="pattern" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 100 100">
-                                            <image width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABs0lEQVR4nO3cTW7CMBCGYTbtYQp39Dhb7DTYdMFZSk8BPUh/dm1FFZC6aVGVIPAn8z6SNxCkkUaexNEnJhMAAAAAAAAAAIpx827mY+ospK3F/L5fIW37z/rvaM2lGuHcrYX84GP+8jHv/loW0qeFnPtracyZm+FjfjrWiF+NiWlNU87IDjtjN2yldM6arpabd7N+FA1tSP+bpl1OS9dfHQt5MXx3/Ky2dP3V8TE/n9CQTen6q+NDehvbEIv5tXT91bGYX0fvkJBfStdfHc/I0mIh3Z+wQ0Lp+qvTtMvp2MdeN1/cla6/ShZyHnEw7ErXXfd7rJjWA0bV42q1uild9xW8z0rpn/H10e8MmnHhe4qPue0PffszyuGcsrGYIvcMAAAAAAAAAEeR7RXhyPbqcGR7tRjZXh2ObK8WI9urxROU0+LJ9moxsr1aPCNLi5Ht1dKQ7dVjZHu1OLK9ehzZXk0N2V4AAAAAAAAAYzj+t1eDI9urw5Ht1WJke3U4sr1ajGyvFk9QTosn26vFyPZq8YwsLUa2V0tDtlePke3V4sj26nFkezU1ZHsBAAAAAAAAABNV310JmT2x4ejYAAAAAElFTkSuQmCC"/>
-                                            </pattern>
-                                        </defs>
-                                        <rect id="icons8-menu-vertical-100" width="16" height="16" transform="translate(16) rotate(90)" fill="url(#pattern)"/>
-                                    </svg>
-
+                                    <img src="https://noste.pilardev.fi/wp-content/uploads/2024/04/three-dot.png" class="w-4">
                                 </button>
 
                                 <ul class="px-4 py-2 w-[12rem] bg-white absolute right-0 top-full z-10 border border-[#E1E1EA] rounded hidden" id="dropdown-menu1">
@@ -237,14 +229,7 @@ $rakennustoiden_vastaanotto = [
                             <a class="p-3 pr-2 w-full border-l border-l-[#E1E1EA] text-sm font-medium" href="<?php echo esc_attr( $tm_url ); ?>"><?php echo esc_html( $val['title'] ); ?></a>
                             <div class="dropdown pt-3 pr-3">
                                 <button class="dropdown-toggle rounded-sm border border-line p-[3px]" data-dropdown="dropdown-menu7">
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-3" viewBox="0 0 16 16">
-                                        <defs>
-                                            <pattern id="pattern" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 100 100">
-                                            <image width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABs0lEQVR4nO3cTW7CMBCGYTbtYQp39Dhb7DTYdMFZSk8BPUh/dm1FFZC6aVGVIPAn8z6SNxCkkUaexNEnJhMAAAAAAAAAAIpx827mY+ospK3F/L5fIW37z/rvaM2lGuHcrYX84GP+8jHv/loW0qeFnPtracyZm+FjfjrWiF+NiWlNU87IDjtjN2yldM6arpabd7N+FA1tSP+bpl1OS9dfHQt5MXx3/Ky2dP3V8TE/n9CQTen6q+NDehvbEIv5tXT91bGYX0fvkJBfStdfHc/I0mIh3Z+wQ0Lp+qvTtMvp2MdeN1/cla6/ShZyHnEw7ErXXfd7rJjWA0bV42q1uild9xW8z0rpn/H10e8MmnHhe4qPue0PffszyuGcsrGYIvcMAAAAAAAAAEeR7RXhyPbqcGR7tRjZXh2ObK8WI9urxROU0+LJ9moxsr1aPCNLi5Ht1dKQ7dVjZHu1OLK9ehzZXk0N2V4AAAAAAAAAYzj+t1eDI9urw5Ht1WJke3U4sr1ajGyvFk9QTosn26vFyPZq8YwsLUa2V0tDtlePke3V4sj26nFkezU1ZHsBAAAAAAAAABNV310JmT2x4ejYAAAAAElFTkSuQmCC"/>
-                                            </pattern>
-                                        </defs>
-                                        <rect id="icons8-menu-vertical-100" width="16" height="16" transform="translate(16) rotate(90)" fill="url(#pattern)"/>
-                                    </svg>
+                                    <img src="https://noste.pilardev.fi/wp-content/uploads/2024/04/three-dot.png" class="w-4">
                                 </button>
 
                                 <ul class="px-4 py-2 w-[12rem] bg-white absolute right-0 top-full z-10 border border-[#E1E1EA] rounded hidden"  id="dropdown-menu7">
@@ -298,14 +283,7 @@ $rakennustoiden_vastaanotto = [
                             <div class="dropdown pt-3 pr-3">
                                 <button class="dropdown-toggle rounded-sm border border-line p-[3px]" data-dropdown="dropdown-menu13">
     								
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-3" viewBox="0 0 16 16">
-                                        <defs>
-                                            <pattern id="pattern" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 100 100">
-                                            <image width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABs0lEQVR4nO3cTW7CMBCGYTbtYQp39Dhb7DTYdMFZSk8BPUh/dm1FFZC6aVGVIPAn8z6SNxCkkUaexNEnJhMAAAAAAAAAAIpx827mY+ospK3F/L5fIW37z/rvaM2lGuHcrYX84GP+8jHv/loW0qeFnPtracyZm+FjfjrWiF+NiWlNU87IDjtjN2yldM6arpabd7N+FA1tSP+bpl1OS9dfHQt5MXx3/Ky2dP3V8TE/n9CQTen6q+NDehvbEIv5tXT91bGYX0fvkJBfStdfHc/I0mIh3Z+wQ0Lp+qvTtMvp2MdeN1/cla6/ShZyHnEw7ErXXfd7rJjWA0bV42q1uild9xW8z0rpn/H10e8MmnHhe4qPue0PffszyuGcsrGYIvcMAAAAAAAAAEeR7RXhyPbqcGR7tRjZXh2ObK8WI9urxROU0+LJ9moxsr1aPCNLi5Ht1dKQ7dVjZHu1OLK9ehzZXk0N2V4AAAAAAAAAYzj+t1eDI9urw5Ht1WJke3U4sr1ajGyvFk9QTosn26vFyPZq8YwsLUa2V0tDtlePke3V4sj26nFkezU1ZHsBAAAAAAAAABNV310JmT2x4ejYAAAAAElFTkSuQmCC"/>
-                                            </pattern>
-                                        </defs>
-                                        <rect id="icons8-menu-vertical-100" width="16" height="16" transform="translate(16) rotate(90)" fill="url(#pattern)"/>
-                                    </svg>
+                                    <img src="https://noste.pilardev.fi/wp-content/uploads/2024/04/three-dot.png" class="w-4">
 
                                 </button>
 
@@ -359,15 +337,7 @@ $rakennustoiden_vastaanotto = [
                             <a class="p-3 pr-2 w-full border-l border-l-[#E1E1EA] text-sm font-medium" href="<?php echo esc_attr( $tm_url ); ?>"><?php echo esc_html( $val['title'] ); ?></a>
                             <div class="dropdown pt-3 pr-3">
                                 <button class="dropdown-toggle rounded-sm border border-line p-[3px]" data-dropdown="dropdown-menu17">
-                                    
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-3" viewBox="0 0 16 16">
-                                        <defs>
-                                            <pattern id="pattern" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 100 100">
-                                            <image width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABs0lEQVR4nO3cTW7CMBCGYTbtYQp39Dhb7DTYdMFZSk8BPUh/dm1FFZC6aVGVIPAn8z6SNxCkkUaexNEnJhMAAAAAAAAAAIpx827mY+ospK3F/L5fIW37z/rvaM2lGuHcrYX84GP+8jHv/loW0qeFnPtracyZm+FjfjrWiF+NiWlNU87IDjtjN2yldM6arpabd7N+FA1tSP+bpl1OS9dfHQt5MXx3/Ky2dP3V8TE/n9CQTen6q+NDehvbEIv5tXT91bGYX0fvkJBfStdfHc/I0mIh3Z+wQ0Lp+qvTtMvp2MdeN1/cla6/ShZyHnEw7ErXXfd7rJjWA0bV42q1uild9xW8z0rpn/H10e8MmnHhe4qPue0PffszyuGcsrGYIvcMAAAAAAAAAEeR7RXhyPbqcGR7tRjZXh2ObK8WI9urxROU0+LJ9moxsr1aPCNLi5Ht1dKQ7dVjZHu1OLK9ehzZXk0N2V4AAAAAAAAAYzj+t1eDI9urw5Ht1WJke3U4sr1ajGyvFk9QTosn26vFyPZq8YwsLUa2V0tDtlePke3V4sj26nFkezU1ZHsBAAAAAAAAABNV310JmT2x4ejYAAAAAElFTkSuQmCC"/>
-                                            </pattern>
-                                        </defs>
-                                        <rect id="icons8-menu-vertical-100" width="16" height="16" transform="translate(16) rotate(90)" fill="url(#pattern)"/>
-                                    </svg>
+                                    <img src="https://noste.pilardev.fi/wp-content/uploads/2024/04/three-dot.png" class="w-4">
                                 </button>
 
                                 <ul class="px-4 py-2 w-[12rem] bg-white absolute right-0 top-full z-10 border border-[#E1E1EA] rounded hidden" id="dropdown-menu17">
@@ -420,14 +390,7 @@ $rakennustoiden_vastaanotto = [
                         <div class="dropdown pt-3 pr-3">
                             <button class="dropdown-toggle rounded-sm border border-line p-[3px]" data-dropdown="dropdown-menu21">
                                 
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-3" viewBox="0 0 16 16">
-                                    <defs>
-                                        <pattern id="pattern" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 100 100">
-                                        <image width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABs0lEQVR4nO3cTW7CMBCGYTbtYQp39Dhb7DTYdMFZSk8BPUh/dm1FFZC6aVGVIPAn8z6SNxCkkUaexNEnJhMAAAAAAAAAAIpx827mY+ospK3F/L5fIW37z/rvaM2lGuHcrYX84GP+8jHv/loW0qeFnPtracyZm+FjfjrWiF+NiWlNU87IDjtjN2yldM6arpabd7N+FA1tSP+bpl1OS9dfHQt5MXx3/Ky2dP3V8TE/n9CQTen6q+NDehvbEIv5tXT91bGYX0fvkJBfStdfHc/I0mIh3Z+wQ0Lp+qvTtMvp2MdeN1/cla6/ShZyHnEw7ErXXfd7rJjWA0bV42q1uild9xW8z0rpn/H10e8MmnHhe4qPue0PffszyuGcsrGYIvcMAAAAAAAAAEeR7RXhyPbqcGR7tRjZXh2ObK8WI9urxROU0+LJ9moxsr1aPCNLi5Ht1dKQ7dVjZHu1OLK9ehzZXk0N2V4AAAAAAAAAYzj+t1eDI9urw5Ht1WJke3U4sr1ajGyvFk9QTosn26vFyPZq8YwsLUa2V0tDtlePke3V4sj26nFkezU1ZHsBAAAAAAAAABNV310JmT2x4ejYAAAAAElFTkSuQmCC"/>
-                                        </pattern>
-                                    </defs>
-                                    <rect id="icons8-menu-vertical-100" width="16" height="16" transform="translate(16) rotate(90)" fill="url(#pattern)"/>
-                                </svg>
+                                <img src="https://noste.pilardev.fi/wp-content/uploads/2024/04/three-dot.png" class="w-4">
 
                             </button>
                             <ul class="px-4 py-2 w-[12rem] bg-white absolute right-0 top-full z-10 border border-[#E1E1EA] rounded hidden" id="dropdown-menu21">
