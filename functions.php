@@ -84,7 +84,11 @@ function noste_scripts() {
 		'theme_uri'		=> get_template_directory_uri(),
 		'query'			=> isset($_GET)?(array) $_GET:[],
 		'site_uri'		=> site_url('/'),
+<<<<<<< HEAD
 		'thumbnail'		=> wp_get_attachment_image_src(get_theme_mod('custom_logo'), 'full')[0]??false
+=======
+		'thumbnail'		=> wp_get_attachment_image_src(get_theme_mod('custom_logo'), 'thumbnail')[0]??false
+>>>>>>> main
 	];
 
 	wp_localize_script( 'main-script', 'main_ajax_object', $localize );

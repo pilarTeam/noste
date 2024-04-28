@@ -32,7 +32,11 @@
 			'title' => 'Tilaa asbesti- ja haitta-ainekartoitusraportti tarvittaessa',
 			'status' => !empty($project_intdata['status']['haitta-ainekartoitusraportti']) ? $project_intdata['status']['haitta-ainekartoitusraportti'] : 'aloittamatta',
 			'url' => [
+<<<<<<< HEAD
 				'link'	=> 'ainekartoituksen',
+=======
+				'link'	=> '',
+>>>>>>> main
 				'title'	=> 'OHJE Asbesti ja haitta-ainekartoituksen tekeminen'
 			],
 			'comment' => !empty($project_intdata['comment']['haitta-ainekartoitusraportti']) ? $project_intdata['comment']['haitta-ainekartoitusraportti'] : 'aloittamatta',

@@ -116,6 +116,7 @@
     height: var(--a4-paper-height);
 }
 .page-header {
+<<<<<<< HEAD
     padding: 0;
     height: 45px;
     display: flex;
@@ -128,6 +129,14 @@
     width: 160px;
     aspect-ratio: 760 / 148;
 }
+=======
+    height: 45px;
+    display: flex;
+    padding: 0 30px;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+>>>>>>> main
 .page-body {
     text-wrap: wrap;
     overflow: hidden;
@@ -143,9 +152,15 @@
 .print_preview > .scroll-smooth {
     display: none;
 }
+<<<<<<< HEAD
 .print_preview .card_footer button {
     pointer-events: none;
 }
+=======
+/*.print_preview .card_footer button {
+    pointer-events: none;
+}*/
+>>>>>>> main
 @media print {
     @page {
         size: A4;
