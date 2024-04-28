@@ -497,6 +497,19 @@ get_header( 'noste' );
                     </table>
                 </div>
 
+
+                <div class="popup_wrap hidden fixed left-0 top-0 w-full h-full bg-[#00151F66] z-50">
+                    <div class="w-[95%] lg:w-auto rounded-[12px] bg-white border border-solid border-[#E1E1EA] max-w-[600px] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+                        <h3 class="text-[#08202C] text-[20px] font-medium px-3 lg:px-8 pt-8 pb-10">Oletko varma, että haluat palauttaa muokattavaksi?</h3>
+                        <hr class="border-b border-solid border-[#E1E1EA] mt-3">
+                        <div class="p-4 flex gap-4 justify-end">
+                            <button class="cancel_popup inline-block border border-solid border-[#E1E1EA] text-[#08202C] rounded-lg px-[10px] py-[5px] text-[14px]">Peruuta</button>
+
+                            <a href="<?php echo esc_attr( $action_url ); ?>" class="submit_popup_form inline-block bg-[#00B2A9] rounded-lg px-3 lg:px-[10px] py-[5px] text-[14px] text-white">Kyllä, haluan muokata</a>
+                        </div>
+                    </div>
+                </div>
+
                 <hr class="border border-solid border-[#E1E1EA] ml-[-20px] mr-[-20px] mt-10">
 
                 <div class="flex items-center justify-between pt-[20px]">
@@ -508,7 +521,7 @@ get_header( 'noste' );
                     </div>
     
                     <div>
-                        <a href="<?php echo esc_attr( $action_url ); ?>" class="btn bg-white border border-black2">
+                        <a href="" class="edit_form bg-white border border-black2 p-2">
                             <i class="um-faicon-pencil-square-o"></i>
                             <span>Muokkaa projektia</span>
                         </a>
@@ -1469,10 +1482,7 @@ get_header( 'noste' );
                         </div>
         
                         <div>
-                            <button class="sample-btn text-[14px] text-white font-medium bg-[#00B2A9] border border-solid border-[#818D930F] rounded-lg flex items-center gap-2 px-3 py-1">
-                                Hyväksy
-                            </button>
-                           <button class="hidden submit-btn text-[14px] text-white font-medium bg-[#00B2A9] border border-solid border-[#818D930F] rounded-lg flex items-center gap-2 px-3 py-1" type="submit" name="submit-form" value="submitted">
+                           <button class="submit-btn text-[14px] text-white font-medium bg-[#00B2A9] border border-solid border-[#818D930F] rounded-lg flex items-center gap-2 px-3 py-1" type="submit" name="submit-form" value="submitted">
                                 Hyväksy
                             </button>                          
                         </div>

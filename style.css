@@ -1,7 +1,7 @@
 /*!
 Theme Name: noste
 Theme URI: #
-Version: 1.5.0
+Version: 1.8.0
 Tested up to: 5.4
 Requires PHP: 5.6
 License: GNU General Public License v2 or later
@@ -496,4 +496,9 @@ section#create-project .user_avatar img {
 }
 section#single-main-list .dropdown-step svg {
     width: 15px;
+}
+.readonly_global {
+    padding: 0;
+    border: none;
+    background: none;
 }

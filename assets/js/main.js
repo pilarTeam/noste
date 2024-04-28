@@ -298,24 +298,15 @@ jQuery(document).ready(function ($) {
         $(this).parents('.help_wrap').find('.help_show').toggleClass('hidden');
     });
     
-    $('.sample-btn').on('click', function(e){
-        e.preventDefault();
-
-        if ( confirm("Are you sure?") ) {
-            $(this).parent().find('.submit-btn').trigger('click');
-        }
-    });    
    
     $('form.ajax-submit').on('click', '*[type="submit"]', function(e){
         e.preventDefault();
-
-        if ( confirm("Are you sure?") ) {
-            $(this).parents('form').trigger('submit');
-        }
+        $(this).parents('form').trigger('submit');
     })
 
     $('form.ajax-submit').on('submit', function(e){
         e.preventDefault();
+        var $this = $(this);
 
         if ( $('input[name="ptname"]').val() == '' ) {
             alert('Please reload again.');
@@ -344,6 +335,7 @@ jQuery(document).ready(function ($) {
             enctype: 'multipart/form-data',
             processData: false,
             success: function(response) {
+
                 if ( response['success'] ) {
 <<<<<<< HEAD
                     console.log(response);
@@ -364,25 +356,29 @@ jQuery(document).ready(function ($) {
 
                     var data = response ?. data ?? {};
 
-                    console.log(data);
-
                     fetch(data ?. template)
                     .then(data => data.text() )
                     .then(body => {
                         var template = Twig.twig({data: body});
                         data.submission = data ?. submission ?? {};
                         data.submission.locale_args = main_ajax_object;
+<<<<<<< HEAD
 >>>>>>> 7ab2bed3d54636f1b7cc8256f54f243d2bccbe0f
                         // 
                         console.log(data)
+=======
+
+>>>>>>> bcf60a366c89d41919da43c8743aac790a51d6b7
                         var printPrevCard = document.createElement('div');
                         formCard.classList.add('print_preview');
                         printPrevCard.classList.add('section-to-print');
                         printPrevCard.innerHTML = template.render(data.submission);
+
                         formCard.insertBefore(printPrevCard, $(formCard).children('.card_footer')[0]);
-                        // 
-                        // formCard
-                        // 
+
+                        $this.find('*[type="submit"]').html('<i class="um-faicon-pencil-square-o"></i>Muokkaa').attr('class', 'btn bg-white border border-black2 edit_form' ).removeAttr('type');
+                        $this.parents('body').find('.print-btn').removeClass('hidden');
+                        
                     }).catch(error => console.error(error));
                 }
             },
@@ -397,8 +393,9 @@ jQuery(document).ready(function ($) {
     /**
      * Enableing print button functions.
      */
-    $('.card_header button').on('click', function(e){
+    $('.card_header .print-btn').on('click', function(e){
         e.preventDefault();
+
         if ($('.print_preview').length) {
             print();
         }
@@ -406,5 +403,19 @@ jQuery(document).ready(function ($) {
 <<<<<<< HEAD
 =======
 
+<<<<<<< HEAD
 >>>>>>> 7ab2bed3d54636f1b7cc8256f54f243d2bccbe0f
+=======
+    $('body').on('click', '.edit_form', function(e){
+        e.preventDefault();
+
+        $(this).parents('body').find('.popup_wrap').removeClass('hidden');
+    });
+
+    $('body').on('click', '.cancel_popup', function(e){
+        e.preventDefault();
+
+        $(this).parents('.popup_wrap').addClass('hidden');
+    });
+>>>>>>> bcf60a366c89d41919da43c8743aac790a51d6b7
 
