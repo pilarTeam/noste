@@ -6,7 +6,12 @@
                 <img src="{{ locale_args.thumbnail }}" alt="Logo" />
             </div>
             <div class="page-body">
-                <div class="mb-8 mx-auto max-w-[750px]">
+                <div class="mx-auto max-w-[750px] mb-4 mt-4">
+                    <input type="text" name="pilar_K1" class="mb-2 text-xl text-[#586B74] readonly_global" value="{{ get_global_keyword('pilar_K1', 'K1') }}" readonly>
+                    <input type="text" name="pilar_K4" class="mb-2 text-xl text-[#586B74] readonly_global" value="{{ get_global_keyword('pilar_K4', 'K4') }}" readonly>
+                </div>
+                <h4 class="mb-8 text-[#081F2C] mt-[60px] mx-auto max-w-[750px] text-4xl">Projektin lähtötietopalaveri</h4>
+                <div class="pt-8 mb-8 mx-auto max-w-[750px]">
                     <div class="flex flex-wrap mb-4">
                         <label class="flex-[3] mr-4 text-sm font-medium text-black" for="version">Versio:</label>
                         <p class="flex-[3] text-sm text-accent" id="version">xx.xx.xxxx</p>
@@ -44,18 +49,16 @@
         
                     <div class="flex flex-wrap mb-4">
                         <label class="flex-[3] mr-4 text-sm font-medium text-black" for="present">Läsnä:</label>
-                        <p class="flex-[3] md:ml-5 text-sm border-accent rounded-md text-[#686d70]" id="present">{{ present }}</p>
+                        <p class="flex-[3] text-sm border-accent rounded-md text-[#686d70]" id="present">{{ present }}</p>
                     </div>
         
                 </div>
-                <p class="mb-8 text-[#081F2C] text-sm font-medium mx-auto max-w-[750px]">Tämän läpikäynnin tavoitteena on projektin lähtötietojen tehokas selvittäminen ja koonti yhteen paikkaan. Lisäksi käydään yhteisesti läpi Nosteelle astetetut tehtävät sekä arvioitu aikataulu.</p>
+                <p class="mb-8 mt-[60px] text-[#081F2C] text-sm font-bold mx-auto max-w-[750px]">Tämän läpikäynnin tavoitteena on projektin lähtötietojen tehokas selvittäminen ja koonti yhteen paikkaan. Lisäksi käydään yhteisesti läpi Nosteelle astetetut tehtävät sekä arvioitu aikataulu.</p>
     
-                <div>
+                <div class="mb-8 mt-[60px] text-[#081F2C] text-sm font-bolder mx-auto max-w-[750px]">
                     <div class="dropdown relative">
                         <div class="flex flex-wrap flex-col mb-8 mx-auto max-w-[750px]">
-                            <label class="mr-4 mb-2 text-sm font-medium text-black flex items-center" for="general_situation">
-                                Vuokrauksen yleistilanne 
-                            </label>
+                            <label class="mr-4 mb-4 text-sm font-medium text-black flex items-center" for="general_situation">Vuokrauksen yleistilanne </label>
                             <p class="text-sm border-accent rounded-md text-[#586B74] order-3" id="general_ituation">{{ general_situation }}</p>
                         </div>
                     </div>
@@ -74,9 +77,7 @@
             <div class="page-body">
                 
                 <div class="flex flex-wrap flex-col mb-8 mx-auto max-w-[750px]">
-                    <label class="mr-4 mb-2 text-sm font-medium text-black" for="nosti_tasks">
-                        Nosteen tehtävät
-                    </label>
+                    <label class="mb-4 mb-2 text-sm font-medium text-black font-bolder" for="nosti_tasks">Nosteen tehtävät</label>
                     <p class="text-sm border-accent rounded-md text-[#586B74]" id="nosti_tasks">{{ nosti_tasks }}</p>
                 </div>
 
@@ -97,11 +98,11 @@
                             </a>
                         </div>
 
-                        <div class="md:pl-12 order-3">
+                        <div class="md:pl-12 order-3 gap-3 flex flex-column mt-4">
                             {% for index, agreed_prepare_document in agreed_prepare_documents %}
                                 <label class="flex items-center text-sm md:text-sm mb-2" for="agreed_prepare_documents-{{ index }}">
-                                    <input class="mr-2 relative appearance-none rounded cursor-pointer checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[]" id="agreed_prepare_documents-{{ index }}" checked readonly disabled>
-                                    <p class="mr-2 relative appearance-none rounded cursor-pointer">
+                                    {# <input class="mr-2 relative appearance-none rounded cursor-pointer checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[]" id="agreed_prepare_documents-{{ index }}" checked readonly disabled> #}
+                                    <p class="mr-2 relative appearance-none rounded cursor-pointer text-[#586B74] text-sm">
                                         {% if index == 4 %}
                                             {{ agreed_prepare_documents_content }}
                                         {% else %}
@@ -121,7 +122,7 @@
                 <div class="dropdown relative">
                     <div class="mb-2 mx-auto max-w-[750px]">
                         <div class="flex items-center mb-4">
-                            <h5 class="font-medium">Vuokralaismuutoksen sisällön ja laatutason läpikäynti</h5>
+                            <h5 class="font-medium text-xl">Vuokralaismuutoksen sisällön ja laatutason läpikäynti</h5>
                             <a href="#" class="dropdown-toggle z-1 ml-4" data-dropdown="field_of_change_of_status_tooltip">
                                 <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -161,7 +162,7 @@
                 
                 <div class="mb-8 dropdown relative">
                     <div class="mx-auto max-w-[750px] relative">
-                        <p class="w-full text-sm border-accent rounded-md text-[#586B74]" id="who_pays_new_requests_and_budget" name="who_pays_new_requests_and_budget" rows="6" >{{ who_pays_new_requests_and_budget }}</p>
+                        <p class="w-full font-medium text-sm border-accent rounded-md text-[#586B74]" id="who_pays_new_requests_and_budget" name="who_pays_new_requests_and_budget" rows="6" >{{ who_pays_new_requests_and_budget | nl2br }}</p>
                     </div>
                 </div>
                 
@@ -209,8 +210,8 @@
                     <div class="flex md:flex-wrap flex-col md:flex-row md:items-center justify-between mb-4">
                     
                         {% for index, electricity_bill in electricity_billing %}
-                            <label class="flex items-center text-sm mb-2" for="electricity_billing-{{ index }}">
-                                <input class="mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="electricity_billing[{{ index }}]" id="electricity_billing-{{ index }}" checked readonly disabled>
+                            <label class="flex items-center text-sm mb-2 text-[#586B74]" for="electricity_billing-{{ index }}">
+                                {# <input class="mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="electricity_billing[{{ index }}]" id="electricity_billing-{{ index }}" checked readonly disabled> #}
                                 {{ electricity_bill }}
                             </label>
                         {% endfor %}
@@ -219,8 +220,8 @@
                 </div>
 
                 <div class="mx-auto max-w-[750px]">
-                    <h5 class="mr-4 mb-4 text-sm font-medium text-black">Perustiedot</h5>
-                    <p class="mb-4 text-sm">Tämän läpikäynnin tavoitteena on projektin lähtötietojen tehokas selvittäminen ja koonti yhteen paikkaan. Lisäksi käydään yhteisesti läpi Nosteelle astetetut tehtävät sekä arvioitu aikataulu.</p>
+                    <h5 class="mr-4 mb-4 text-sm font-medium text-black font-bolder">Perustiedot</h5>
+                    <p class="mb-4 text-sm text-[#586B74]">Tämän läpikäynnin tavoitteena on projektin lähtötietojen tehokas selvittäminen ja koonti yhteen paikkaan. Lisäksi käydään yhteisesti läpi Nosteelle astetetut tehtävät sekä arvioitu aikataulu.</p>
                 </div>
 
 
@@ -293,3 +294,13 @@
     {#  #}
 </div>
 
+<style>
+.font-bolder {font-weight: 900;}
+.flex-column {flex-direction: column;}
+.page-body .italic {text-style: unset;}
+.page-body .mb-4 {margin-bottom: 1.3rem;}
+.page-body .text-accent {color: #586B74;}
+.page-body .max-w-\[750px\] {max-width: unset;}
+.text-4xl {font-size: 2rem;line-height: 2.5rem;}
+.page-body .text-sm {font-size: 1.2rem;line-height: 1.75rem;}
+</style>

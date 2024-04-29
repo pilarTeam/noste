@@ -94,7 +94,12 @@
     66%  {content: "...";}
 }
 
-
+:root {
+    /* --a4-header-height: 45px;
+    --a4-footer-height: 20px; */
+    --a4-header-height: 85px;
+    --a4-footer-height: 30px;
+}
 .noste_pages {
     gap: 30px;
     display: flex;
@@ -116,10 +121,10 @@
     height: var(--a4-paper-height);
 }
 .page-header {
-    height: 45px;
+    height: var(--a4-header-height);
     display: flex;
     padding: 0 30px;
-    align-items: center;
+    align-items: baseline;
     flex-direction: row-reverse;
 }
 .page-header img {
@@ -131,13 +136,13 @@
     text-wrap: wrap;
     overflow: hidden;
     word-wrap: break-word;
-    height: calc(var(--a4-paper-height) - 110px - 45px - 20px);
+    height: calc(var(--a4-paper-height) - 110px - var(--a4-header-height) - var(--a4-footer-height));
 }
 .page-footer {
-    height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
+    height: var(--a4-footer-height);
 }
 .print_preview > .scroll-smooth {
     display: none;
@@ -160,7 +165,7 @@
     }
     body {
         visibility: hidden;
-        background-color: #fff;
+        background: #fff;
     }
     .noste_pages {
         gap: 0;
