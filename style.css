@@ -502,3 +502,6 @@ section#single-main-list .dropdown-step svg {
     border: none;
     background: none;
 }
+.dropdown_wrap label {
+    cursor: pointer;
+}

@@ -21,7 +21,7 @@
 			'title' => 'Toimita käyttäjälle virhe- ja puutelistapohja',
 			'status' => !empty($project_intdata['status']['toimita-virhe-ja-puutelistapohja']) ? $project_intdata['status']['toimita-virhe-ja-puutelistapohja'] : 'aloittamatta',
 			'url' => [
-				'link'	=> 'virhe-ja-puutelista',
+				'link'	=> 'toimita-puutelista',
 				'title'	=> 'Käyttäjän virhe- ja puutelista'
 			],
 			'comment' => !empty($project_intdata['comment']['toimita-virhe-ja-puutelistapohja']) ? $project_intdata['comment']['toimita-virhe-ja-puutelistapohja'] : 'aloittamatta',
@@ -36,7 +36,7 @@
 			'title' => 'Täytä käyttäjän virhe- ja puutelista ja toimita se urakoitsijalle',
 			'status' => !empty($project_intdata['status']['virhe-ja-toimita-se']) ? $project_intdata['status']['virhe-ja-toimita-se'] : 'aloittamatta',
 			'url' => [
-				'link'	=> 'virhe-ja-puutelista-2',
+				'link'	=> 'tayta-puutelista',
 				'title'	=> 'Käyttäjän virhe- ja puutelista'
 			],
 			'comment' => !empty($project_intdata['comment']['virhe-ja-toimita-se']) ? $project_intdata['comment']['virhe-ja-toimita-se'] : 'aloittamatta',

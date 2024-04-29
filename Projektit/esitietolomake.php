@@ -80,7 +80,7 @@ get_header( 'noste' );
             <div class="border border-solid border-[#E1E1EA] rounded-[12px] p-[20px] bg-white">
                 <div class="flex items-center justify-between mb-4">
                     <div>
-                        <span class="text-[#818D93] text-[13px] font-medium">Project nimi</span>
+                        <span class="text-[#818D93] text-[13px] font-medium"><?php echo esc_html( noste_check_empty(get_post_meta( $pid, 'pilar_K4', true ), 'Project nimi') ); ?></span>
                         <h1 class="text-[#08202C] text-[18px] font-medium">Esitietolomake</h1>
                     </div>
     
@@ -563,7 +563,7 @@ get_header( 'noste' );
                 <div class="border border-solid border-[#E1E1EA] rounded-[12px] p-[20px] bg-white">
                     <div class="flex items-center justify-between mb-4">
                         <div>
-                            <span class="text-[#818D93] text-[13px] font-medium">Project nimi</span>
+                            <span class="text-[#818D93] text-[13px] font-medium"><?php echo esc_html( noste_check_empty(get_post_meta( $pid, 'pilar_K4', true ), 'Project nimi') ); ?></span>
                             <h1 class="text-[#08202C] text-[18px] font-medium">Esitietolomake</h1>
                         </div>
         

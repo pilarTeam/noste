@@ -343,6 +343,13 @@ jQuery(document).ready(function ($) {
                         data.submission = data ?. submission ?? {};
                         data.submission.locale_args = main_ajax_object;
 
+                        data.submission.get_global_keyword = (key, def = '') => {
+                            if ( typeof data.submission[key] !== 'undefined' && data.submission[key] != '') {
+                                return data.submission[key];
+                            }
+                            return def;
+                        };
+
                         var printPrevCard = document.createElement('div');
                         formCard.classList.add('print_preview');
                         printPrevCard.classList.add('section-to-print');
@@ -385,6 +392,10 @@ jQuery(document).ready(function ($) {
         e.preventDefault();
 
         $(this).parents('.popup_wrap').addClass('hidden');
+    });
+
+    $('.notification-filter').on('click', '.dropdown_wrap', function(){
+        $(this).parents('form').trigger('submit');
     });
 
 });

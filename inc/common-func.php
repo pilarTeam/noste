@@ -9,6 +9,34 @@ add_action( 'wp_ajax_noste_update_project_step', 'noste_update_project_step');
 add_filter('acf/load_field/name=projektipaallikko', 'noste_project_projektipaallikko');
 add_filter('acf/load_field/name=valvoja', 'noste_project_valvoja');
 
+function noste_send_form_notification( $employee_id, $content, $date, $project_id, $user_id, $status = 'active' ){
+	global $wpdb;
+
+	if ( empty($employee_id) || empty($project_id) || empty($user_id) || !is_user_logged_in() || empty($content) ) {
+		return;
+	}
+
+	$wpdb->insert(
+		'wp_noste_notifications',
+		[
+			'employer' => $employee_id,
+			'content' => $content,
+			'project_id' => $project_id,
+			'user_id' => $user_id,
+			'status' => $status,
+		],
+		[
+			'%d',
+			'%s',
+			'%d',
+			'%d',
+			'%s'
+		]
+	);
+
+	return $wpdb->insert_id;
+}
+
 function noste_check_array_data ( $array = [], $value = '', $default = '' ) {
 	if ( is_null( $array ) || empty($array) ) {
 		return $default;
@@ -539,6 +567,7 @@ function noste_update_project_step() {
 	}
 
 
+/* Preview Template */
 	$ref_queries = (array) json_decode( preg_replace( '/[\x00-\x1F\x80-\xFF]/', '', stripslashes(html_entity_decode(isset($_POST['ref_queries'] ) ? $_POST['ref_queries'] : '{}' ) ) ), true);
 
 	$step_id = $ref_queries['tm'] ?? false;
@@ -570,15 +599,16 @@ function noste_update_project_step() {
 		fclose($myfile);
 	}
 	if (file_exists($template_path) && !is_dir($template_path)) {
-		$response->template = str_replace([ABSPATH], [site_url('/')], $template_path);
+		$response->template = str_replace([ABSPATH], [site_url('/')], $template_path) . '?v=' . filemtime($template_path);
 	} else {
 		$response->template = get_template_directory_uri() . '/template-preview/blank.twig';
 	}
-
+/* Preview Template */
 
 	foreach ($global_data as $k => $v) {
 		unset($_POST[$k]);			
 	}
+
 
 	$data = json_encode( $_POST );
 
@@ -590,7 +620,25 @@ function noste_update_project_step() {
 	$updated = update_post_meta( $post_id, $field_key, $data );
 
 	if ( $updated ) {
+
+
+	$project_header_info = !empty(get_option( 'noste_project_header_info', true )) ? json_decode( get_option( 'noste_project_header_info', true ), true ) : [];
+
+	$tm = implode('-', [ $step_id, $form_id ]);
+
+	$project_header_info[$tm]['tm'] = $tm;
+
+	/* Notification */
+		$user_id = get_field('projektipaallikko', $post_id);
+		noste_send_form_notification( get_current_user_id(), json_encode( $project_header_info[$tm] ), $post_id, $user_id, 'active' );
+	/* Notification */
+
+		// preview_template_response
 		wp_send_json_success((array) $response, 200);
+		// preview_template_response
+	} else {
+		$error = new WP_Error( '000', 'Something went wrong!' );
+		wp_send_json_error($error);
 	}
 
 	wp_die();	
@@ -598,35 +646,38 @@ function noste_update_project_step() {
 
 
 function noste_form_header($type = 'form') {
-	include 'header_helpers.php';ob_start();
-	$columns = ['Projektin valmistelu', 'Rakentamisen valmistelu', 'Rakentamisen käynnistäminen', 'Rakentaminen', 'Rakennustöiden vastaanotto ja toimeksiannon lopetus'];
-	if (isset($forms_params) && is_array($forms_params) && isset($forms_params[$_GET['tm'] . '-' . $_GET['tmin']])) {
-		$breadcrumb = $forms_params[$_GET['tm'] . '-' . $_GET['tmin']];
+
+	$project_header_info = !empty(get_option( 'noste_project_header_info', true )) ? json_decode( get_option( 'noste_project_header_info', true ), true ) : [];
+
+	if ( empty($project_header_info) || empty($_GET['tm']) || empty($_GET['tmin']) ) {
+		return;
 	}
-	$breadcrumb = (object) wp_parse_args($breadcrumb, [
-		'column'		=> 0,
-		'step'			=> $_GET['tm'],
-		'form'			=> $_GET['tmin'],
-		'form_title'	=> '',
-		'form_version'	=> '',
-	]);
+
+	$tm = implode('-', [ $_GET['tm'], $_GET['tmin'] ]);
+
+	$step = $project_header_info[$tm]['step'] ?? '';
+	$instep = $project_header_info[$tm]['instep'] ?? '';
+	$form_name = $project_header_info[$tm]['form_name'] ?? '';
+
+	ob_start();
+
 	?>
 		<div class="card_header flex flex-col md:flex-row items-center md:justify-between px-4 md:px-8 py-6 border-b border-line top-0 z-10">
 	        <div>
-	            <p class="text-sm font-normal text-[#586B74] mb-1">Project nimi</p>
+	            <p class="text-sm font-normal text-[#586B74] mb-1"><?php echo esc_html( noste_check_empty(get_post_meta( get_the_ID(), 'pilar_K4', true ), 'Project nimi') ); ?></p>
 	            <!-- Breadcrumb -->
 	            <nav class="flex justify-between" aria-label="Breadcrumb">
 	                <ol class="inline-flex flex-wrap items-center mb-3 sm:mb-0">
 	                    <li>
-	                        <span class="text-xs md:text-sm font-medium text-black"><?php echo esc_html(isset($columns[$breadcrumb->column])?$columns[$breadcrumb->column]:''); ?></span>
+	                        <span class="text-xs md:text-sm font-medium text-black"><?php echo esc_html( $step ); ?></span>
 	                    </li>
 	                    <span class="mx-1 md:mx-2 text-black">/</span>
 	                    <li aria-current="page">
-	                        <span class="text-xs md:text-sm font-medium text-black"><?php echo esc_html( isset( $steps_names[$breadcrumb->step] ) ? $steps_names[$breadcrumb->step] : '' ); ?></span>
+	                        <span class="text-xs md:text-sm font-medium text-black"><?php echo esc_html( $instep ); ?></span>
 	                    </li>
 	                    <span class="mx-1 md:mx-2 text-gray-400">/</span>
 	                    <li aria-current="page">
-	                        <span class="text-xs md:text-sm font-medium text-black"><?php echo esc_html( !empty($breadcrumb->form_version) ? $breadcrumb->form_version : $breadcrumb->form_title ); ?></span>
+	                        <span class="text-xs md:text-sm font-medium text-black"><?php echo esc_html( $form_name ); ?></span>
 	                    </li>
 	                </ol>
 	            </nav>
@@ -639,7 +690,9 @@ function noste_form_header($type = 'form') {
 	    </div>
 	<?php
 	return ob_get_clean();
+
 }
+
 function noste_form_footer($type = 'form') {
 	$edit_url = add_query_arg([
 	    'tm' => $_GET['tm'],
