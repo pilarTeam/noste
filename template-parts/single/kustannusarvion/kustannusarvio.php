@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-nothing configured there
-=======
 <?php 
 
 if ( !is_singular( 'projektitiedot' ) ) {
@@ -1103,4 +1100,3 @@ $project_id = get_the_ID();
     </div>
 </section>
 <!-- Main Content -->
->>>>>>> main

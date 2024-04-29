@@ -99,14 +99,9 @@
 	                                                    <td class="px-4 py-3 border border-line">
 	                                                    	<?php
 															if ( !empty($value['url']) ): 
-<<<<<<< HEAD
-																$title = !empty($value['url']['title'])?$value['url']['title']:false;
-																$link = !empty($value['url']['link'])?$value['url']['link']:false;
-=======
 																$title = !empty($value['url']['title']) ? $value['url']['title'] :false;
 																$link = !empty($value['url']['link']) ? $value['url']['link'] : false;
 																
->>>>>>> main
 																if (!empty($link)) :
 																	$tmin_url = add_query_arg([
 																		'tm' => $tm,

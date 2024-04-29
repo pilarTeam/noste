@@ -9,8 +9,6 @@ add_action( 'wp_ajax_noste_update_project_step', 'noste_update_project_step');
 add_filter('acf/load_field/name=projektipaallikko', 'noste_project_projektipaallikko');
 add_filter('acf/load_field/name=valvoja', 'noste_project_valvoja');
 
-<<<<<<< HEAD
-=======
 function noste_check_array_data ( $array = [], $value = '', $default = '' ) {
 	if ( is_null( $array ) || empty($array) ) {
 		return $default;
@@ -23,7 +21,6 @@ function noste_check_array_data ( $array = [], $value = '', $default = '' ) {
 	return $array[$value];
 }
 
->>>>>>> main
 function noste_check_empty($value, $default = '') {
 	if ( !isset($value) || empty($value) ) {
 		return $default;
@@ -52,8 +49,6 @@ function noste_checked_with_json($checked = '', $current = '' ){
 
 }
 
-<<<<<<< HEAD
-=======
 function noste_checked_with_array($checked = [], $current = '' ){
 
 	if ( !isset($checked) || empty($checked) || !is_array($checked) ) {
@@ -71,7 +66,6 @@ function noste_checked_with_array($checked = [], $current = '' ){
 
 
 
->>>>>>> main
 function noste_custom_logo_url () {
 	$custom_logo_id = get_theme_mod( 'custom_logo' );
 
@@ -282,17 +276,6 @@ function noste_header_notification(){
 
 	 ?>
         <a href="<?php echo esc_attr( $esitietolomake_url ); ?>" class="hidden sm:block hover:bg-[#FAFAFB] focus:bg-[#FAFAFB] rounded p-2">
-<<<<<<< HEAD
-			<img src="/wp-content/uploads/2024/04/envelope.png" width="20"/>        
-        </a>
-        
-        <a href="<?php echo esc_attr( $kustannusseuranta_url ); ?>" class="hidden sm:block hover:bg-[#FAFAFB] focus:bg-[#FAFAFB] rounded p-2">
-			<img src="/wp-content/uploads/2024/04/list-paper.png" width="20"/>        
-        </a>
-        
-        <a href="#!" class="hidden sm:block hover:bg-[#FAFAFB] focus:bg-[#FAFAFB] rounded p-2">
-			<img src="/wp-content/uploads/2024/04/graph-icon.png" style="height: 23px;"/>          
-=======
 			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0.00 0.00 300.00 300.00" style=" width: auto; height: 20px;"> <path fill="#08202c" d="M 62.79 19.56 C 62.27 19.30 61.75 19.23 61.23 19.36 C 60.96 19.43 60.77 19.33 60.66 19.08 C 60.63 19.00 60.64 18.92 60.70 18.83 C 60.78 18.73 60.88 18.70 61.00 18.74 C 61.70 18.99 62.37 18.91 63.00 18.52 C 63.30 18.33 63.63 18.24 63.98 18.23 C 64.95 18.20 65.90 18.18 66.82 18.17 C 122.29 17.92 178.16 17.89 234.43 18.10 C 235.52 18.10 236.46 18.27 237.26 18.62 C 237.73 18.81 237.81 19.11 237.52 19.52 C 237.27 19.87 237.30 20.17 237.61 20.43 C 237.97 20.72 238.31 20.70 238.62 20.36 C 238.95 19.99 238.98 19.61 238.70 19.22 C 238.50 18.94 238.57 18.80 238.91 18.81 C 239.00 18.81 239.08 18.86 239.14 18.96 C 239.20 19.05 239.19 19.12 239.11 19.19 C 238.92 19.36 238.83 19.56 238.86 19.79 C 238.88 19.93 238.93 20.06 239.02 20.18 C 239.63 21.05 239.93 22.33 239.94 24.00 C 239.97 31.75 239.99 39.47 240.00 47.18 C 240.01 47.62 240.36 47.98 240.80 47.98 C 243.05 47.97 245.46 48.02 248.01 48.12 C 248.32 48.13 248.61 48.20 248.87 48.31 C 249.29 48.51 249.38 48.82 249.13 49.24 C 248.85 49.72 248.97 50.33 249.41 50.66 C 249.82 50.97 250.24 51.01 250.69 50.77 C 251.26 50.47 251.94 50.88 251.94 51.52 L 252.00 76.97 C 252.00 77.51 252.43 77.95 252.97 77.96 L 260.58 78.12 C 261.23 78.13 261.63 78.83 261.32 79.40 L 261.17 79.67 C 261.01 79.96 261.06 80.33 261.31 80.56 C 261.82 81.02 262.24 81.10 262.58 80.79 C 263.12 80.30 263.99 80.74 263.99 81.50 L 263.99 172.71 C 263.99 173.39 264.53 173.94 265.21 173.95 L 278.67 174.11 C 278.87 174.11 279.06 174.21 279.18 174.37 C 279.57 174.88 279.58 175.33 279.23 175.71 C 279.07 175.88 279.08 176.15 279.25 176.32 C 279.49 176.55 279.75 176.71 280.03 176.78 C 280.26 176.84 280.49 176.70 280.55 176.48 C 280.60 176.31 280.69 176.21 280.84 176.18 C 280.96 176.15 281.09 176.21 281.15 176.33 C 281.69 177.39 281.96 178.49 281.97 179.62 C 281.98 208.79 282.00 238.08 282.03 267.47 C 282.04 272.48 281.77 276.88 281.24 280.66 C 281.17 281.16 280.92 281.30 280.50 281.08 C 280.46 281.05 280.42 281.04 280.37 281.04 C 280.14 281.03 279.92 281.07 279.71 281.17 C 278.66 281.69 277.42 281.95 276.00 281.95 C 191.91 282.00 107.04 282.01 21.38 281.98 C 21.00 281.98 20.74 281.58 20.90 281.24 C 21.19 280.61 21.22 280.01 21.01 279.43 C 20.89 279.10 20.65 278.92 20.30 278.89 C 19.79 278.86 19.30 278.92 18.85 279.06 C 18.33 279.22 18.07 279.03 18.07 278.49 C 17.93 243.43 17.96 210.06 18.15 178.37 C 18.15 177.75 18.31 177.15 18.64 176.58 C 18.75 176.38 19.02 176.34 19.18 176.50 C 19.73 177.05 20.30 176.99 20.88 176.33 C 21.18 175.99 21.13 175.72 20.72 175.51 L 20.36 175.32 C 19.97 175.12 19.97 174.93 20.37 174.75 C 21.06 174.44 21.42 174.11 22.25 174.09 C 26.83 173.98 31.21 173.96 35.40 174.02 C 35.82 174.03 36.03 173.82 36.03 173.40 C 35.98 142.45 35.98 112.21 36.04 82.67 C 36.04 82.01 36.21 81.37 36.56 80.74 C 36.81 80.27 37.08 80.27 37.36 80.72 C 37.41 80.79 37.46 80.86 37.53 80.91 C 37.80 81.12 38.06 81.11 38.31 80.88 L 38.88 80.36 C 39.16 80.11 39.17 79.84 38.92 79.57 C 38.81 79.46 38.69 79.38 38.55 79.35 C 38.10 79.22 38.06 79.02 38.45 78.75 C 40.18 77.52 45.43 78.00 47.45 78.01 C 47.74 78.02 47.97 77.78 47.97 77.49 L 48.06 51.54 C 48.06 51.30 48.15 51.07 48.31 50.88 C 48.83 50.29 49.22 50.24 49.47 50.73 C 49.60 50.98 49.92 51.05 50.15 50.89 L 50.97 50.29 C 51.19 50.14 51.21 49.96 51.04 49.75 C 50.89 49.59 50.73 49.47 50.54 49.40 C 50.11 49.23 50.08 49.01 50.46 48.74 C 52.18 47.52 57.28 48.00 59.44 48.00 C 59.79 48.00 59.96 47.82 59.96 47.47 L 60.08 21.50 C 60.08 20.75 60.92 20.31 61.52 20.73 C 61.89 21.00 62.36 20.85 62.91 20.30 C 63.22 20.00 63.18 19.75 62.79 19.56 Z M 228.01 30.84 C 228.01 30.38 227.63 30.00 227.17 30.00 L 72.83 30.00 C 72.37 30.00 71.99 30.38 71.99 30.84 L 71.99 47.16 C 71.99 47.62 72.37 48.00 72.83 48.00 L 227.17 48.00 C 227.63 48.00 228.01 47.62 228.01 47.16 L 228.01 30.84 Z M 240.01 60.72 C 240.01 60.32 239.69 60.00 239.29 60.00 L 60.71 60.00 C 60.31 60.00 59.99 60.32 59.99 60.72 L 59.99 77.26 C 59.99 77.66 60.31 77.98 60.71 77.98 L 239.29 77.98 C 239.69 77.98 240.01 77.66 240.01 77.26 L 240.01 60.72 Z M 182.36 175.12 C 182.71 174.73 183.17 174.49 183.76 174.40 C 185.43 174.16 187.04 174.04 188.59 174.04 C 208.44 173.98 229.38 173.97 251.39 174.01 C 251.73 174.01 252.00 173.74 252.00 173.41 L 252.00 90.75 C 252.00 90.33 251.66 89.99 251.25 89.99 L 48.75 89.99 C 48.33 89.99 47.99 90.33 47.99 90.75 L 47.99 173.24 C 47.99 173.67 48.33 174.01 48.76 174.01 C 69.12 173.98 90.79 173.99 113.76 174.05 C 117.50 174.06 119.43 176.06 119.74 179.60 C 120.27 185.56 121.76 190.72 124.21 195.09 C 134.31 213.05 159.41 214.90 172.67 199.56 C 177.57 193.91 179.76 186.27 180.39 178.78 C 180.47 177.87 180.78 177.06 181.31 176.37 C 181.65 175.94 182.00 175.53 182.36 175.12 Z M 117.97 206.10 C 113.92 200.96 110.36 194.01 109.82 187.23 C 109.80 186.94 109.62 186.69 109.35 186.58 C 108.34 186.16 107.31 185.95 106.25 185.95 C 80.41 186.02 55.27 186.03 30.84 185.98 C 30.71 185.98 30.59 186.01 30.48 186.06 C 30.16 186.23 30.00 186.49 30.00 186.84 L 30.03 269.15 C 30.03 269.73 30.32 270.02 30.90 270.02 L 269.25 269.99 C 269.68 269.99 270.02 269.65 270.02 269.22 L 270.03 186.76 C 270.03 186.32 269.67 185.97 269.23 185.97 C 244.30 186.01 219.12 185.99 193.69 185.91 C 192.58 185.90 191.56 186.14 190.61 186.62 C 190.32 186.76 190.17 186.99 190.16 187.31 C 190.00 190.14 189.30 192.98 188.07 195.83 C 183.52 206.32 176.34 213.85 166.53 218.42 C 162.16 220.45 157.80 221.60 153.45 221.86 C 148.27 222.17 143.87 221.83 140.26 220.86 C 131.22 218.41 123.79 213.49 117.97 206.10 Z M 279.63 279.35 C 279.35 279.76 279.37 280.15 279.70 280.51 C 279.91 280.74 280.28 280.69 280.42 280.41 C 280.66 279.96 280.59 279.57 280.21 279.26 C 280.03 279.11 279.76 279.16 279.63 279.35 Z"/> </svg>
         
         </a>
@@ -304,7 +287,6 @@ function noste_header_notification(){
         <a href="#!" class="hidden sm:block hover:bg-[#FAFAFB] focus:bg-[#FAFAFB] rounded p-2">
 			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0.00 0.00 300.00 300.00" style=" width: auto; height: 20px;"> <path fill="#08202c" d="M 254.99 84.51 C 255.74 85.26 256.45 85.98 257.13 86.67 C 257.36 86.91 257.51 87.20 257.58 87.53 C 257.87 88.92 258.02 90.37 258.02 91.87 C 258.01 157.73 258.00 222.77 257.98 287.00 C 257.98 287.55 257.54 287.99 256.99 287.99 L 42.25 288.00 C 42.11 288.00 42.00 287.89 42.00 287.75 L 42.00 12.98 C 42.00 12.44 42.43 12.01 42.97 12.01 C 87.92 12.00 132.93 12.00 178.00 12.00 C 181.33 12.00 183.86 12.88 185.60 14.64 C 208.09 37.34 231.22 60.63 254.99 84.51 Z M 174.91 95.99 C 174.41 95.99 174.00 95.58 174.00 95.08 L 174.00 24.90 C 174.00 24.40 173.59 23.99 173.09 23.99 L 54.90 23.99 C 54.40 23.99 53.99 24.40 53.99 24.90 L 54.01 275.09 C 54.01 275.59 54.42 276.00 54.92 276.00 L 245.09 276.00 C 245.59 276.00 246.00 275.59 246.00 275.09 L 246.00 96.88 C 246.00 96.38 245.59 95.97 245.09 95.97 L 174.91 95.99 Z M 186.49 33.66 C 185.97 36.38 185.73 39.16 185.77 42.00 C 185.96 55.87 186.04 69.47 185.99 82.81 C 185.99 83.48 186.54 84.03 187.21 84.02 C 200.95 83.99 214.94 84.03 229.19 84.12 C 231.42 84.13 233.73 83.94 236.10 83.54 C 236.39 83.49 236.62 83.36 236.79 83.14 C 236.95 82.93 236.98 82.70 236.89 82.43 C 236.74 81.97 236.43 81.67 235.96 81.53 C 234.93 81.22 234.36 80.86 233.60 80.09 C 218.82 65.19 204.19 50.61 189.72 36.34 C 189.14 35.77 188.68 34.99 188.49 34.21 C 188.33 33.56 187.92 33.20 187.26 33.11 C 186.83 33.06 186.58 33.24 186.49 33.66 Z"/> <path fill="#08202c" d="M 203.77 153.16 C 204.14 151.59 204.44 150.06 204.66 148.58 C 205.02 146.15 205.94 143.95 207.41 141.98 C 211.29 136.80 219.20 136.82 223.83 140.92 C 225.84 142.69 227.53 145.51 227.97 148.19 C 229.06 154.87 224.84 159.35 218.76 161.26 C 216.41 162.00 214.84 162.47 212.96 164.34 C 211.22 166.07 209.56 167.88 207.99 169.76 C 199.68 179.71 191.97 189.39 184.84 198.80 C 183.89 200.05 182.92 201.37 181.94 202.77 C 180.85 204.32 180.21 205.81 180.02 207.25 C 179.71 209.68 179.62 212.04 178.75 214.38 C 176.58 220.21 172.14 222.67 165.43 221.74 C 162.19 221.30 159.81 219.45 158.30 216.20 C 157.06 213.53 156.26 211.01 155.91 208.64 C 155.60 206.53 154.46 204.31 152.49 201.99 C 140.80 188.14 131.13 177.23 123.48 169.28 C 121.27 166.99 118.67 166.93 115.66 169.09 C 113.79 170.44 111.76 172.95 109.75 174.75 C 105.90 178.19 102.28 181.93 98.89 185.97 C 97.50 187.62 96.48 189.39 96.02 191.47 C 94.17 199.82 90.56 205.46 80.83 203.59 C 75.45 202.55 71.99 197.28 72.01 192.01 C 72.02 187.82 74.41 183.27 78.62 181.88 C 80.09 181.40 81.25 180.66 82.81 180.48 C 85.16 180.20 87.27 179.35 89.13 177.92 C 94.91 173.47 100.49 167.77 105.86 160.82 C 106.88 159.50 107.58 158.01 107.96 156.36 C 109.27 150.72 111.67 144.96 118.23 144.12 C 127.60 142.91 131.20 150.18 132.36 157.97 C 132.55 159.24 133.29 161.05 134.06 162.08 C 135.93 164.55 137.80 166.88 139.68 169.06 C 146.35 176.79 153.27 184.53 160.44 192.28 C 162.18 194.16 164.80 197.68 167.33 198.16 C 168.62 198.41 169.97 197.67 171.39 195.95 C 179.09 186.62 187.06 176.80 195.31 166.48 C 197.62 163.58 199.62 160.25 201.80 157.21 C 202.81 155.79 203.47 154.44 203.77 153.16 Z"/> </svg>
         
->>>>>>> main
         </a>	
 	<?php 
 	endif;
@@ -504,8 +486,6 @@ function noste_esitietolomake_form(){
 // }
 
 
-<<<<<<< HEAD
-=======
 function recursive_sanitize_text_field( $array ) {
 
     foreach ($array as $key => & $value ) {
@@ -522,7 +502,6 @@ function recursive_sanitize_text_field( $array ) {
 
 
 
->>>>>>> main
 function noste_update_project_step() {
 	check_ajax_referer( 'project_step_form_validation', 'project_step_form__nonce_field' );
 	$response = (object) ['template' => false, 'submission' => []];
@@ -537,13 +516,10 @@ function noste_update_project_step() {
 		wp_send_json_error( $error );
 	}
 
-<<<<<<< HEAD
-=======
 	recursive_sanitize_text_field($_POST);
 
 	// error_log(print_r($_POST, true));
 
->>>>>>> main
 	$field_key = $_POST['ptname'];
 	$post_id = $_POST['post_id'];
 
@@ -552,8 +528,6 @@ function noste_update_project_step() {
 	unset($_POST['project_step_form__nonce_field']);
 	unset($_POST['_wp_http_referer']);
 
-<<<<<<< HEAD
-=======
 
 	$global_data = array_filter($_POST, function($k){
 		return str_contains( $k, 'pilar' );
@@ -565,57 +539,24 @@ function noste_update_project_step() {
 	}
 
 
->>>>>>> main
 	$ref_queries = (array) json_decode( preg_replace( '/[\x00-\x1F\x80-\xFF]/', '', stripslashes(html_entity_decode(isset($_POST['ref_queries'] ) ? $_POST['ref_queries'] : '{}' ) ) ), true);
 
 	$step_id = $ref_queries['tm'] ?? false;
 	$form_id = $ref_queries['tmin'] ?? false;
 
-<<<<<<< HEAD
-	$data = serialize($_POST);
 	$response->submission = $_POST;
 
-	if ( empty($data) ) {
-		$error = new WP_Error( '001', 'Conent Data issue' );
-		wp_send_json_error( $error );		
-	}
-	// 
-=======
-	$response->submission = $_POST;
-
->>>>>>> main
 	$template = implode('/', (array) [$step_id, $form_id]);
 	$template_path = get_template_directory() . '/template-preview/' . $template . '.twig';
+	// $template_path = str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, $template_path);
 	
 	if (!file_exists($template_path)) {
-<<<<<<< HEAD
-		$template_dir = get_template_directory() . '/template-preview/' . $step_id;
-		if (!is_dir($template_dir)) {wp_mkdir_p($template_dir);}
-		$myfile = fopen($template_path, "w+") or die("Unable to open file!");
-		$text = '
-<div class="noste_pages">
-	<div class="single-page">
-		<div class="page-wrap">
-			<div class="page-header">
-				<img src="{{ locale_args.thumbnail }}" alt="Logo" />
-			</div>
-			<div class="page-body">
-				Preview template not found!
-			</div>
-			<div class="page-footer">
-				<span class="page-footer-pagination">1/1</span>
-			</div>
-		</div>
-	</div>
-</div>';
-		fwrite($myfile, $text);fclose($myfile);
-=======
-		$myfile = fopen($template_path, "w+") or die("Unable to open file!");
-		$text = `<div class="noste_pages">
+		$myfile = fopen($template_path, "w+") or wp_send_json_error(new WP_Error('009', "Unable to open file! " . $template_path ));
+		$text = '<div class="noste_pages">
 					<div class="single-page">
 						<div class="page-wrap">
 							<div class="page-header">
-								<img src="{{ locale_args.site_uri }}wp-content/uploads/2024/03/logo-noste.png" alt="Logo" />
+								<img src="{{ locale_args.thumbnail }}" alt="Logo" />
 							</div>
 							<div class="page-body">
 								Preview template not found!
@@ -625,34 +566,22 @@ function noste_update_project_step() {
 							</div>
 						</div>
 					</div>
-				</div>`;
+				</div>';
 		fwrite($myfile, $text);
 		fclose($myfile);
->>>>>>> main
 	}
 	if (file_exists($template_path) && !is_dir($template_path)) {
-		$response->template = str_replace([ABSPATH], [site_url('/')], $template_path);
+		$response->template = str_replace([ABSPATH], [site_url('/')], $template_path) . '?v=' . filemtime($template_path);
 	} else {
 		$response->template = get_template_directory_uri() . '/template-preview/blank.twig';
 	}
 
-<<<<<<< HEAD
-	$response->all_single_post_metas = [];
-	$updated = update_post_meta($post_id, $field_key, $data);
-	foreach( (array) get_post_meta($post_id) as $meta_key => $meta) {
-		if (substr($meta_key, 0, 6) != 'noste_' && substr($meta_key, 0, 1) != '_') {
-			$response->all_single_post_metas[$meta_key] = (is_array($meta) && isset($meta[0]))?$meta[0]:$meta;
-		}
-	}
-
-	wp_send_json_success((array) $response, 200);
-	if ( $updated ) {
-		wp_send_json_success((array) $response, 200);
-	}
-	wp_send_json_error(new WP_Error('002', 'Something went wrong!'));
-}
-
-=======
+	/**
+	 * Added to pass global keywords according to form_ids
+	 * @author Remal mahmud
+	 * 
+	 * @date 28 April, 2024 12:40PM
+	 */
 
 	foreach ($global_data as $k => $v) {
 		unset($_POST[$k]);			
@@ -667,15 +596,18 @@ function noste_update_project_step() {
 	
 	$updated = update_post_meta( $post_id, $field_key, $data );
 
+	/** Remal Added this line due to a issue with his server. */
+	wp_send_json_success($response);
+	// 
 	if ( $updated ) {
-		wp_send_json_success((array) $response, 200);
+		wp_send_json_success($response);
+	} else {
+		$error = new WP_Error( '000', 'Something went wrong!' );
+		wp_send_json_error($error);
 	}
-
-	wp_die();	
 }
 
 
->>>>>>> main
 function noste_form_header($type = 'form') {
 	include 'header_helpers.php';ob_start();
 	$columns = ['Projektin valmistelu', 'Rakentamisen valmistelu', 'Rakentamisen käynnistäminen', 'Rakentaminen', 'Rakennustöiden vastaanotto ja toimeksiannon lopetus'];
@@ -690,42 +622,6 @@ function noste_form_header($type = 'form') {
 		'form_version'	=> '',
 	]);
 	?>
-<<<<<<< HEAD
-				<div class="card_header flex flex-col md:flex-row items-center md:justify-between px-4 md:px-8 py-6 border-b border-line top-0 z-10">
-                    <div>
-                        <p class="text-sm font-normal text-[#586B74] mb-1">Project nimi</p>
-                        <!-- Breadcrumb -->
-                        <nav class="flex justify-between" aria-label="Breadcrumb">
-                            <ol class="inline-flex flex-wrap items-center mb-3 sm:mb-0">
-                                <li>
-                                    <span class="text-xs md:text-sm font-medium text-black"><?php echo esc_html(isset($columns[$breadcrumb->column])?$columns[$breadcrumb->column]:''); ?></span>
-                                </li>
-                                <span class="mx-1 md:mx-2 text-black">/</span>
-                                <li aria-current="page">
-                                    <span class="text-xs md:text-sm font-medium text-black"><?php echo esc_html(isset($steps_names[$breadcrumb->step])?$steps_names[$breadcrumb->step]:''); ?></span>
-                                </li>
-                                <span class="mx-1 md:mx-2 text-gray-400">/</span>
-                                <li aria-current="page">
-                                    <span class="text-xs md:text-sm font-medium text-black"><?php echo esc_html(!empty($breadcrumb->form_version)?$breadcrumb->form_version:$breadcrumb->form_title); ?></span>
-                                </li>
-                            </ol>
-                        </nav>
-                    </div>
-                    <button class="btn gap-2 border border-line bg-[#E9E9F0]">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
-                            <defs>
-                                <pattern id="pattern2" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 100 100">
-                                    <image width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAADO0lEQVR4nO2cz05UMRSHu9F3UHTNq4h7VyQtYTHBzLQy0LLleSAmJugr+CcqPsKQiEs1KuyHFMHoxXtvh7TTc879/ZKuSO/Md77pbcvMrVIIgiAIQizGhbnkprildsEMhEAI6dT+BBuMkG4hinkMdx72ANJ42ANI42EPII2HPYA0HvYA0njYA0jjYQ8gjYc9gDQe9gDSeNgDSONhDyCNhz2ANB72ANJ42ANI42EPII2HPYA0HvYA0njYA0jjYQ8gjYc9gDQe9gDUeJ7s79/Vbm9ibHhnbDhvviG0sFgNbDjXzr811o9jbReSsTkO940Ln1D0UOSDp60/Xt/evpc8MiAjLOMO8HE0Gt3pFXJ5m8Itab6MGmjrn/YKuZwz/u7kwlG8hSUNL6Q1ejpdMda/bMwrb1RfjPNn/wiZTld6OyFJWbd7Dxoj5Bf95Z3wLFxfCCkbCCEWCCEWCCmYjZ2dh9qG53FyvmovNp+F1a4+EFJWxreb+wv/Pf6trR+EFEocGe0bvnDY1g9CCiXeojp24T/b+kFIBSHa+R9t/SCkUOIE3jFCDtr6QUihxNVUnMD/M6l/jf8iaesHIeVXWodxzrhqB10yYiCEWCCEWCCEWCCEWCCEWCCEWCCEWCCEWKoJkf5TIpWpLvk7JF5HWlOZ6pK/Q+J1pDWVqS75OyReR1pTmeqSv0Ph61AJhBALhBALhBALhBALhBDLYIRsuPBYW39SexmrrT/Rk901KnWp9sLahs+1ZZjrZsMXKnWp9sIQQk3IZHfNuDCrPjpcmBnrH1GpS/0XJh4DIbRSTUjzN6u3fegTIyTXQ5+Nx6Ljo7y3kQIhN2VoF14t/li09eMSk2btfYju2Wf01qXM+9pKO3TG+uNlCYlr/9IyzJ/mT6kI0Ta8TzpaIyYejBLP4liKEOdPhyfEf0g+fOY60V48i0M7/7p5ukNOIUvch8y69hnlhfiz37UMW8kjI2dShXCJ4c7DHkAaD3sAaTzsAaTxpAIM7fuQakleZQ3s+5BqgRCuQgb2fUi1sAeQxsMeQBoPewBpPOwBpPGwB5DGwx5AGg+BZey8ZFPcUrtgBkIghHRqf4INRgiCIAiihpULmb7nGYjfxQAAAAAASUVORK5CYII=" />
-                                </pattern>
-                            </defs>
-                            <rect id="icons8-print-100" width="20" height="20" fill="url(#pattern2)" />
-                        </svg>
-
-                    
-                        Takaisin
-                    </button>
-                </div>
-=======
 		<div class="card_header flex flex-col md:flex-row items-center md:justify-between px-4 md:px-8 py-6 border-b border-line top-0 z-10">
 	        <div>
 	            <p class="text-sm font-normal text-[#586B74] mb-1">Project nimi</p>
@@ -752,34 +648,10 @@ function noste_form_header($type = 'form') {
 				Luonnos
 	        </button>
 	    </div>
->>>>>>> main
 	<?php
 	return ob_get_clean();
 }
 function noste_form_footer($type = 'form') {
-<<<<<<< HEAD
-	ob_start();
-	?>
-					<!-- Card footer -->
-					<div class="card_footer p-4 border-t border-line">
-                        <div class="flex items-center justify-between">
-                            <a href="<?php echo esc_attr(site_url(remove_query_arg(['tmin']))); ?>" class="btn gap-2 border border-line">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
-                                    <defs>
-                                        <pattern id="pattern13" width="1" height="1" patternTransform="matrix(-1, 0, 0, 1, 40, 0)" viewBox="0 0 20 20">
-                                            <image preserveAspectRatio="xMidYMid slice" width="20" height="20" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABkklEQVR4nO3dQYrVQBhF4ecKFVF6oHu5dZ12SuiK6xNUeiC6A4UnDxyI9jwHcz4IZPjDISGTP3W5SJIkSdJ/rnN/3bm+da7HbOvF0fOc2vV6fTa29b1zv/6+foxt3R0916l1rq9/BDHK0XK/Xt6eDKOA5P7h1d9RxrZ+vpvr7dGznZZRgIwCZBQgowAZBSh+ffHEKDwxCk+MwhOj8MQoPDEKT4zCE6PwxCg8MQpPjMITo/DEKDwxCk+MwhOj8MQoPDEKT4zCE6PwxCg8MQpPjMITo/DEKDwxCk+MwhOj8MQoPGNbd08torpHz4vy5ciZTm08EWTM9fnouU5p+Mqi/Xtl/2dnfmwPb46e7XRqDI4ag6PG4KgxOGoMjhqDo8bgqDE4agyOGoOjxuCoMThqDI4ag6PG4KgxOGoMjhqDo8bgqDE4agyOGoOjxuCoMThqDI4ag6PG4KgxOGoMDmOAGAPEGCDGADEGiDFA+v7Dcw8nBrmtGntSNEjnevQsddora9s/jbl/vN0fPY8kSZIkXU7uFxa7dmp7vSU5AAAAAElFTkSuQmCC" />
-                                        </pattern>
-                                    </defs>
-                                    <rect id="icons8-arrow-100" width="20" height="20" fill="url(#pattern13)" />
-                                </svg>
-                                Takaisin
-                            </a>
-                            <button class="btn gap-2 border border-accent bg-accent text-white" type="submit">
-                                Hyväksy
-                            </button>
-                        </div>
-                    </div>
-=======
 	$edit_url = add_query_arg([
 	    'tm' => $_GET['tm'],
 	    'tmin' => $_GET['tmin'],
@@ -818,7 +690,6 @@ function noste_form_footer($type = 'form') {
                 <button class="btn gap-2 border border-accent bg-accent text-white" type="submit">Hyväksy</button>
             </div>
         </div>
->>>>>>> main
 	<?php
 	return ob_get_clean();
 }

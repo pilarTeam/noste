@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-nothing configured here
-=======
     <section class="my-8">
         <div class="container px-4">
             <div class="border border-solid border-[#E1E1EA] rounded-[12px] p-[20px] bg-white">
@@ -302,4 +299,3 @@ nothing configured here
             </div>
         </div>
     </section>
->>>>>>> main

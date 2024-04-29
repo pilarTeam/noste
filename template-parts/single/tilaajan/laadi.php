@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-nothing configured there
-=======
 <?php 
 
 if ( !is_singular( 'projektitiedot' ) ) {
@@ -341,4 +338,3 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
     </div>
 </section>
 <!-- Main Content -->
->>>>>>> main

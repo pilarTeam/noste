@@ -1,11 +1,7 @@
 /*!
 Theme Name: noste
 Theme URI: #
-<<<<<<< HEAD
-Version: 1.4.0
-=======
 Version: 1.8.0
->>>>>>> main
 Tested up to: 5.4
 Requires PHP: 5.6
 License: GNU General Public License v2 or later
@@ -475,10 +471,6 @@ section#create-project .user_avatar img {
     border-radius: 50%;
     object-fit: cover;
 }
-<<<<<<< HEAD
-.site_logo img {
-    max-width: 130px;
-=======
 .noste-reset-updated img {
     margin: auto;
 }
@@ -509,5 +501,4 @@ section#single-main-list .dropdown-step svg {
     padding: 0;
     border: none;
     background: none;
->>>>>>> main
 }

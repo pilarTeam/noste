@@ -1484,12 +1484,6 @@ get_header( 'noste' );
                         <div>
                            <button class="submit-btn text-[14px] text-white font-medium bg-[#00B2A9] border border-solid border-[#818D930F] rounded-lg flex items-center gap-2 px-3 py-1" type="submit" name="submit-form" value="submitted">
                                 Hyväksy
-<<<<<<< HEAD
-                            </button>
-                           <button class="hidden submit-btn text-[14px] text-white font-medium bg-[#00B2A9] border border-solid border-[#818D930F] rounded-lg flex items-center gap-2 px-3 py-1" type="submit" name="submit-form" value="submitted">
-                                Hyväksy
-=======
->>>>>>> main
                             </button>                          
                         </div>
                     </div>
