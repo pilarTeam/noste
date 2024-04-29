@@ -61,7 +61,8 @@ $projects = get_posts($args);
 
 
 global $wpdb;
-$sql = $wpdb->prepare( "SELECT * FROM wp_noste_notifications WHERE status = %s " . $filter, 'active' );
+$sql = $wpdb->prepare( "SELECT * FROM wp_noste_notifications WHERE status = %s " . $filter ." ORDER BY `id` DESC
+", 'active' );
 $notifications = $wpdb->get_results( $sql, ARRAY_A );
 
 ?>
