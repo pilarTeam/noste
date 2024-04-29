@@ -9,7 +9,7 @@ add_action( 'wp_ajax_noste_update_project_step', 'noste_update_project_step');
 add_filter('acf/load_field/name=projektipaallikko', 'noste_project_projektipaallikko');
 add_filter('acf/load_field/name=valvoja', 'noste_project_valvoja');
 
-function noste_send_form_notification( $employee_id, $content, $date, $project_id, $user_id, $status = 'active' ){
+function noste_send_form_notification( $employee_id, $content, $project_id, $user_id, $status = 'active' ){
 	global $wpdb;
 
 	if ( empty($employee_id) || empty($project_id) || empty($user_id) || !is_user_logged_in() || empty($content) ) {
@@ -629,8 +629,11 @@ function noste_update_project_step() {
 	$project_header_info[$tm]['tm'] = $tm;
 
 	/* Notification */
-		$user_id = get_field('projektipaallikko', $post_id);
-		noste_send_form_notification( get_current_user_id(), json_encode( $project_header_info[$tm] ), $post_id, $user_id, 'active' );
+		$user_id = !empty(get_field('projektipaallikko', $post_id)) ? get_field('projektipaallikko', $post_id)['value'] : 0;
+
+		if ( !empty($user_id) ) {
+			noste_send_form_notification( get_current_user_id(), json_encode( $project_header_info[$tm] ), $post_id, $user_id, 'active' );			
+		}
 	/* Notification */
 
 		// preview_template_response

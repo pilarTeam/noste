@@ -394,8 +394,23 @@ jQuery(document).ready(function ($) {
         $(this).parents('.popup_wrap').addClass('hidden');
     });
 
+
+/* Notification Template */
+
     $('.notification-filter').on('click', '.dropdown_wrap', function(){
         $(this).parents('form').trigger('submit');
     });
 
+    $('.close_notification').on('click', function(e){
+        e.preventDefault();
+
+        var key = $(this).attr('data-key');
+
+        $('*[name="'+ key +'"]').prop('checked', false);
+
+        $('.notification-filter').trigger('submit');
+
+    });
+    
+/* Notification Template */
 });

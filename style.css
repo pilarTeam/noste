@@ -505,3 +505,13 @@ section#single-main-list .dropdown-step svg {
 .dropdown_wrap label {
     cursor: pointer;
 }
+.notification-list .user_avatar img {
+    border-radius: 50%;
+    height: 48px;
+    width: 48px;
+    object-fit: cover;
+    display: block;
+    max-width: 48px;
+    box-sizing: border-box;
+    border: 2px solid rgb(0 178 169 / var(--tw-border-opacity));
+}

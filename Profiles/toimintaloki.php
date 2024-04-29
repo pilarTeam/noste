@@ -22,6 +22,11 @@ if ( !array_intersect( [ 'editor', 'administrator' , 'um_project-manager' ], $us
     exit;
 }
 
+$filter = '';
+
+if ( isset($_GET['pid']) && !empty($_GET['pid']) ) {
+    $filter .= ' AND project_id = ' . (int) $_GET['pid'];
+} 
 
 if ( array_intersect( [ 'editor', 'administrator' ], $user->roles ) ) {
     $args = [
@@ -29,6 +34,7 @@ if ( array_intersect( [ 'editor', 'administrator' ], $user->roles ) ) {
         'numberposts' => -1,
         'fields' => 'ids'
     ];
+
 }
 
 if ( array_intersect( [ 'um_project-manager' ], $user->roles ) ) {
@@ -39,7 +45,12 @@ if ( array_intersect( [ 'um_project-manager' ], $user->roles ) ) {
         'meta_key'      => 'projektipaallikko',
         'meta_value'    => get_current_user_id()
     ];
+
+    $filter .= ' AND user_id = ' . (int) get_the_ID();
 }
+
+
+
 
 if ( empty($args) ) {
     wp_redirect( site_url() );
@@ -48,6 +59,10 @@ if ( empty($args) ) {
 
 $projects = get_posts($args);
 
+
+global $wpdb;
+$sql = $wpdb->prepare( "SELECT * FROM wp_noste_notifications WHERE status = %s " . $filter, 'active' );
+$notifications = $wpdb->get_results( $sql, ARRAY_A );
 
 ?>
 
@@ -96,7 +111,7 @@ $projects = get_posts($args);
                                 <div class="dropdown_wrap z-10 hidden min-w-[238px] mt-2 px-5 py-3 right-0 bg-white absolute w-full dropdown_wrap rounded-lg border border-solid border-[#CCCCD6]">
                                     <?php foreach ($projects as $project_id): ?>
                                         <label class="text-[14px] block my-3 text-[#94969C] font-medium">
-                                         <input type="radio" name="pid" value="<?php echo esc_attr( $project_id ); ?>" class="absolute hidden" <?php echo checked( $_GET['pid'], $project_id ); ?>> <span class="name"><?php echo esc_html( get_the_title( $project_id ) ); ?></span></label>
+                                         <input type="radio" name="pid" value="<?php echo esc_attr( $project_id ); ?>" class="absolute hidden" <?php echo isset($_GET['pid']) ? checked( $_GET['pid'], $project_id ) : ''; ?>> <span class="name"><?php echo esc_html( get_the_title( $project_id ) ); ?></span></label>
                                     <?php endforeach ?>
                                 </div>
                             </div>
@@ -113,7 +128,7 @@ $projects = get_posts($args);
 
                                 <div class="dropdown_wrap z-10 hidden min-w-[238px] mt-2 px-5 py-3 right-0 bg-white absolute w-full dropdown_wrap rounded-lg border border-solid border-[#CCCCD6]">
                                     <label class="text-[14px] block my-3 text-[#94969C] font-medium">
-                                        <input type="radio" name="roles" value="subscriber" class="absolute hidden" <?php echo checked( $_GET['roles'], 'subscriber' ); ?>> <span class="name">Subscriber</span></label>
+                                        <input type="radio" name="roles" value="subscriber" class="absolute hidden" <?php echo isset($_GET['roles']) ? checked( $_GET['roles'], 'subscriber' ) : ''; ?>> <span class="name">Subscriber</span></label>
                                 </div>
                             </div>
                         </div>
@@ -125,7 +140,7 @@ $projects = get_posts($args);
     </section>
 
     <!-- add new project start  -->
-    <section class="pt-5 pb-20">
+    <section class="pt-5 pb-20 notification-list">
         <div class="container px-4">
             <div class="mx-auto max-w-[700px]">
 
@@ -150,107 +165,52 @@ $projects = get_posts($args);
                     <a href="<?php echo esc_attr( get_permalink( get_the_ID() ) ); ?>" class="inline-block text-offwhite ml-2 underline">Tyhjennä kaikki</a>
                 </div>
 
-                <div>
-                    <div class="flex items-center gap-5 my-10">
-                        <hr class="border-b border-solid border-[#E1E1EA] flex-1">
-                        <span class="text-offwhite font-medium text-[14px]">Tänään</span>
-                        <hr class="border-b border-solid border-[#E1E1EA] flex-1">
-                    </div>
 
-                    <div>
-                        <div class="my-3 p-4 gap-3 flex rounded-lg border border-solid border-[#E1E1EA]">
-                            <div class="user_avatar">
-                                <span class="text-xl lg:text-2xl font-bold text-white">K</span>
-                                <img class="h-full w-full rounded-full object-cover hidden" src="./assets/images/logo.png" alt="" />
-                            </div>                            
-                            <div class="flex-1">
-                                <span class="text-offwhite text-[14px]">Uusi toiminta • 6 min sitten</span>
-                                <p class="text-[#94969C] mt-1"><b class="text-black">Laura Vatanen</b> lorem ipsum dolor sit amet eudat vestibulum cras dolores <b class="text-black">Vestibulum_cras.docx</b></p>
-                            </div>
-                        </div>
-                        <div class="my-3 p-4 gap-3 flex rounded-lg border border-solid border-[#E1E1EA]">
-                            <div class="user_avatar">
-                                <span class="text-xl lg:text-2xl font-bold text-white">K</span>
-                                <img class="h-full w-full rounded-full object-cover hidden" src="./assets/images/logo.png" alt="" />
-                            </div>                            
-                            <div class="flex-1">
-                                <span class="text-offwhite text-[14px]">Uusi toiminta • 6 min sitten</span>
-                                <p class="text-[#94969C] mt-1"><b class="text-black">Laura Vatanen</b> lorem ipsum dolor sit amet eudat vestibulum cras dolores <b class="text-black">Vestibulum_cras.docx</b></p>
-                            </div>
-                        </div>
-                        <div class="my-3 p-4 gap-3 flex rounded-lg border border-solid border-[#E1E1EA]">
-                            <div class="user_avatar">
-                                <span class="text-xl lg:text-2xl font-bold text-white">K</span>
-                                <img class="h-full w-full rounded-full object-cover hidden" src="./assets/images/logo.png" alt="" />
-                            </div>                            
-                            <div class="flex-1">
-                                <span class="text-offwhite text-[14px]">Uusi toiminta • 6 min sitten</span>
-                                <p class="text-[#94969C] mt-1"><b class="text-black">Laura Vatanen</b> lorem ipsum dolor sit amet eudat vestibulum cras dolores <b class="text-black">Vestibulum_cras.docx</b></p>
-                            </div>
-                        </div>
-                        <div class="my-3 p-4 gap-3 flex rounded-lg border border-solid border-[#E1E1EA]">
-                            <div class="user_avatar">
-                                <span class="text-xl lg:text-2xl font-bold text-white">K</span>
-                                <img class="h-full w-full rounded-full object-cover hidden" src="./assets/images/logo.png" alt="" />
-                            </div>                            
-                            <div class="flex-1">
-                                <span class="text-offwhite text-[14px]">Uusi toiminta • 6 min sitten</span>
-                                <p class="text-[#94969C] mt-1"><b class="text-black">Laura Vatanen</b> lorem ipsum dolor sit amet eudat vestibulum cras dolores <b class="text-black">Vestibulum_cras.docx</b></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div>
-                    <div class="flex items-center gap-5 my-10">
-                        <hr class="border-b border-solid border-[#E1E1EA] flex-1">
-                        <span class="text-offwhite font-medium text-[14px]">Ellen</span>
-                        <hr class="border-b border-solid border-[#E1E1EA] flex-1">
-                    </div>
+                    <?php if ( !empty($notifications) ): ?>
+                        <div>
+                            <?php foreach ($notifications as $notification): 
+                                um_fetch_user($notification['employer']);
+                                $recent_time = strtotime('now') - strtotime($notification['date']);
+                                $how_log_ago = '';
+                                $content = !empty($notification['content']) ? json_decode( $notification['content'], true ) : [];
 
-                    <div>
-                        <div class="my-3 p-4 gap-3 flex rounded-lg border border-solid border-[#E1E1EA]">
-                            <div class="user_avatar">
-                                <span class="text-xl lg:text-2xl font-bold text-white">K</span>
-                                <img class="h-full w-full rounded-full object-cover hidden" src="./assets/images/logo.png" alt="" />
-                            </div>                            
-                            <div class="flex-1">
-                                <span class="text-offwhite text-[14px]">Uusi toiminta • 6 min sitten</span>
-                                <p class="text-[#94969C] mt-1"><b class="text-black">Laura Vatanen</b> lorem ipsum dolor sit amet eudat vestibulum cras dolores <b class="text-black">Vestibulum_cras.docx</b></p>
-                            </div>
-                        </div>
-                        <div class="my-3 p-4 gap-3 flex rounded-lg border border-solid border-[#E1E1EA]">
-                            <div class="user_avatar">
-                                <span class="text-xl lg:text-2xl font-bold text-white">K</span>
-                                <img class="h-full w-full rounded-full object-cover hidden" src="./assets/images/logo.png" alt="" />
-                            </div>                            
-                            <div class="flex-1">
-                                <span class="text-offwhite text-[14px]">Uusi toiminta • 6 min sitten</span>
-                                <p class="text-[#94969C] mt-1"><b class="text-black">Laura Vatanen</b> lorem ipsum dolor sit amet eudat vestibulum cras dolores <b class="text-black">Vestibulum_cras.docx</b></p>
-                            </div>
-                        </div>
-                        <div class="my-3 p-4 gap-3 flex rounded-lg border border-solid border-[#E1E1EA]">
-                            <div class="user_avatar">
-                                <span class="text-xl lg:text-2xl font-bold text-white">K</span>
-                                <img class="h-full w-full rounded-full object-cover hidden" src="./assets/images/logo.png" alt="" />
-                            </div>                            
-                            <div class="flex-1">
-                                <span class="text-offwhite text-[14px]">Uusi toiminta • 6 min sitten</span>
-                                <p class="text-[#94969C] mt-1"><b class="text-black">Laura Vatanen</b> lorem ipsum dolor sit amet eudat vestibulum cras dolores <b class="text-black">Vestibulum_cras.docx</b></p>
-                            </div>
-                        </div>
-                        <div class="my-3 p-4 gap-3 flex rounded-lg border border-solid border-[#E1E1EA]">
-                            <div class="user_avatar">
-                                <span class="text-xl lg:text-2xl font-bold text-white">K</span>
-                                <img class="h-full w-full rounded-full object-cover hidden" src="./assets/images/logo.png" alt="" />
-                            </div>                            
-                            <div class="flex-1">
-                                <span class="text-offwhite text-[14px]">Uusi toiminta • 6 min sitten</span>
-                                <p class="text-[#94969C] mt-1"><b class="text-black">Laura Vatanen</b> lorem ipsum dolor sit amet eudat vestibulum cras dolores <b class="text-black">Vestibulum_cras.docx</b></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                if ( !empty($content) ) {
+                                    $step = $content['step'] ?? '';
+                                    $instep = $content['instep'] ?? '';
+                                    $form_name = $content['form_name'] ?? '';
+
+                                    if ( $recent_time > 0 ) {
+
+                                        $minutes = (int)($recent_time / 60);
+                                        $hours = (int)($minutes / 60);
+                                        $days = (int)($hours / 24);
+                                        if ($days >= 1) {
+                                          $how_log_ago = $days . ' days sitten' . ( $days != 1 ? 's' : '');
+                                        } else if ($hours >= 1) {
+                                          $how_log_ago = $hours . ' hours sitten' . ( $hours != 1 ? 's' : '');
+                                        } else if ($minutes >= 1) {
+                                          $how_log_ago = $minutes . ' minutes sitten' . ( $minutes != 1 ? 's' : '');
+                                        } else {
+                                          $how_log_ago = $recent_time . ' seconds sitten' . ( $recent_time != 1 ? 's' : '');
+                                        }
+
+                                    }
+
+                                    ?>
+                                   <div class="my-3 p-4 gap-3 flex rounded-lg border border-solid border-[#E1E1EA]">
+                                        <div class="user_avatar">
+                                            <?php echo um_user( 'profile_photo' ); ?>
+                                        </div>                            
+                                        <div class="flex-1">
+                                            <span class="text-offwhite text-[14px]">Uusi toiminta • <?php echo esc_html( $how_log_ago ); ?></span>
+                                            <p class="text-[#94969C] mt-1"><b class="text-black"><?php echo um_user( 'display_name' ); ?></b> <?php echo implode(' - ', [ $step, $instep ]); ?> <b class="text-black"><?php echo esc_attr( $form_name ); ?></b></p>
+                                        </div>
+                                    </div>
+                                
+                            <?php } endforeach ?>
+                        </div>   
+                    <?php endif ?>
             </div>
         </div> <!-- container -->
     </section>
