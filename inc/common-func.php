@@ -6,6 +6,8 @@ add_action( 'wp_ajax_create_a_project', 'noste_create_a_project');
 add_action( 'wp_ajax_esitietolomake_form', 'noste_esitietolomake_form');
 add_action( 'wp_ajax_noste_update_project_step', 'noste_update_project_step');
 
+add_action( 'wp_ajax_update_manager_project_status', 'update_manager_project_status');
+
 add_filter('acf/load_field/name=projektipaallikko', 'noste_project_projektipaallikko');
 add_filter('acf/load_field/name=valvoja', 'noste_project_valvoja');
 
@@ -609,7 +611,6 @@ function noste_update_project_step() {
 		unset($_POST[$k]);			
 	}
 
-
 	$data = json_encode( $_POST );
 
 	if ( empty($data) ) {
@@ -635,6 +636,16 @@ function noste_update_project_step() {
 			noste_send_form_notification( get_current_user_id(), json_encode( $project_header_info[$tm] ), $post_id, $user_id, 'active' );			
 		}
 	/* Notification */
+
+
+	/* Step Status */
+
+	$project_tmin_status = !empty( get_post_meta( $post_id, sprintf('%s_status', $step_id), true ) ) ? json_decode( get_post_meta( $post_id, sprintf('%s_status', $step_id), true ), true ) : [];
+	$project_tmin_status[$form_id]['status'] = 2;
+
+	update_post_meta( $post_id, sprintf('%s_status', $step_id), json_encode( $project_tmin_status ) );
+	
+	/* Step Status */
 
 		// preview_template_response
 		wp_send_json_success((array) $response, 200);
@@ -698,9 +709,17 @@ function noste_form_header($type = 'form') {
 
 function noste_form_footer($type = 'form') {
 	$edit_url = add_query_arg([
-	    'tm' => $_GET['tm'],
-	    'tmin' => $_GET['tmin'],
+	    'tm' => $_GET['tm'] ?? '',
+	    'tmin' => $_GET['tmin'] ?? '',
 	], get_permalink( get_the_ID() ) );
+
+	$user = wp_get_current_user();
+
+	if ( isset($user->roles) || !empty($user->roles) || array_intersect( [ 'editor', 'administrator' , 'um_project-manager' ], $user->roles ) ) {
+		$preview_status = true;
+	} else {
+		$preview_status = false;
+	}
 
 	ob_start();
 	?>
@@ -717,24 +736,90 @@ function noste_form_footer($type = 'form') {
 	        </div>
 	    </div>
 
-		<!-- Card footer -->
-		<div class="card_footer p-4 border-t border-line">
-            <div class="flex items-center justify-between">
-                <a href="<?php echo esc_attr( site_url( remove_query_arg(['tmin']) ) ); ?>" class="btn gap-2 border border-line">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
-                        <defs>
-                            <pattern id="pattern13" width="1" height="1" patternTransform="matrix(-1, 0, 0, 1, 40, 0)" viewBox="0 0 20 20">
-                                <image preserveAspectRatio="xMidYMid slice" width="20" height="20" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABkklEQVR4nO3dQYrVQBhF4ecKFVF6oHu5dZ12SuiK6xNUeiC6A4UnDxyI9jwHcz4IZPjDISGTP3W5SJIkSdJ/rnN/3bm+da7HbOvF0fOc2vV6fTa29b1zv/6+foxt3R0916l1rq9/BDHK0XK/Xt6eDKOA5P7h1d9RxrZ+vpvr7dGznZZRgIwCZBQgowAZBSh+ffHEKDwxCk+MwhOj8MQoPDEKT4zCE6PwxCg8MQpPjMITo/DEKDwxCk+MwhOj8MQoPDEKT4zCE6PwxCg8MQpPjMITo/DEKDwxCk+MwhOj8MQoPGNbd08torpHz4vy5ciZTm08EWTM9fnouU5p+Mqi/Xtl/2dnfmwPb46e7XRqDI4ag6PG4KgxOGoMjhqDo8bgqDE4agyOGoOjxuCoMThqDI4ag6PG4KgxOGoMjhqDo8bgqDE4agyOGoOjxuCoMThqDI4ag6PG4KgxOGoMDmOAGAPEGCDGADEGiDFA+v7Dcw8nBrmtGntSNEjnevQsddora9s/jbl/vN0fPY8kSZIkXU7uFxa7dmp7vSU5AAAAAElFTkSuQmCC" />
-                            </pattern>
-                        </defs>
-                        <rect id="icons8-arrow-100" width="20" height="20" fill="url(#pattern13)" />
-                    </svg>
-                    Takaisin
-                </a>
+	    <?php if ( isset($_GET['preview']) && $_GET['preview'] > 0 && $preview_status ): ?>
 
-                <button class="btn gap-2 border border-accent bg-accent text-white" type="submit">Hyväksy</button>
-            </div>
-        </div>
+			<!-- Card footer -->
+			<div class="card_footer p-4 border-t border-line" id="project_notify_status" data-tm="<?php echo esc_attr( $_GET['tm'] ?? '' ); ?>" data-tmin="<?php echo esc_attr( $_GET['tmin'] ?? '' ); ?>" data-pid="<?php echo esc_attr( get_the_ID() ); ?>" data-preview="<?php echo esc_attr( $_GET['preview'] ); ?>">
+	            <div class="flex items-center justify-between">
+	                <span class="btn gap-2 border border-line cursor-pointer" data-status="denied">kieltää</span>
+	                <span class="btn gap-2 border border-accent bg-accent text-white cursor-pointer" data-status="admitted">hyväksytty</span>
+	            </div>
+	        </div>  	
+
+	    	<?php else: ?>
+
+			<!-- Card footer -->
+			<div class="card_footer p-4 border-t border-line">
+	            <div class="flex items-center justify-between">
+	                <a href="<?php echo esc_attr( site_url( remove_query_arg(['tmin']) ) ); ?>" class="btn gap-2 border border-line">
+	                	<i class="um-faicon-angle-left"></i>
+	                    Takaisin
+	                </a>
+
+	                <button class="btn gap-2 border border-accent bg-accent text-white" type="submit">Hyväksy</button>
+	            </div>
+	        </div>  	
+	    <?php endif ?>
 	<?php
 	return ob_get_clean();
+}
+
+function update_manager_project_status(){
+
+	if ( !is_user_logged_in() ) {
+		$error = new WP_Error( '001', 'Invalid User' );
+		wp_send_json_error( $error );		
+	}
+
+	$user = wp_get_current_user();
+
+	if ( !isset($user->roles) || empty($user->roles) || !array_intersect( [ 'editor', 'administrator' , 'um_project-manager' ], $user->roles ) ) {
+		$error = new WP_Error( '001', "you don't have permission to change it!!!" );
+		wp_send_json_error( $error );
+	} 
+
+    $status = $_POST['status'] ?? '';
+    $tm = $_POST['tm'] ?? '';
+    $tmin = $_POST['tmin'] ?? '';
+    $pid = $_POST['pid'] ?? '';
+    $notify_id = $_POST['preview'] ?? '';
+
+    if ( empty($status) || empty($tm) || empty($tmin) || empty($pid) || empty($notify_id) ) {
+		$error = new WP_Error( '001', "You don't have sufficient information for change it!!!" );
+		wp_send_json_error( $error );
+    }
+
+
+	$project_tmin_status = !empty( get_post_meta( $pid, sprintf('%s_status', $tm), true ) ) ? json_decode( get_post_meta( $pid, sprintf('%s_status', $tm), true ), true ) : [];
+
+	if ( $status == 'admitted' ) {
+		$project_tmin_status[$tmin]['status'] = 3;
+	} else {
+		$project_tmin_status[$tmin]['status'] = 0;		
+	}
+
+	$updated = update_post_meta( $pid, sprintf('%s_status', $tm), json_encode( $project_tmin_status ) );
+	
+	if ( $updated ) {
+
+		global $wpdb;
+		$updated_status = $wpdb->update(
+			'wp_noste_notifications',
+			array( 'status' => 'deactived' ),
+			array( 'id' => $notify_id ),
+			array( '%s' ),
+			array( '%d' )
+		);
+
+		if ( $updated_status ) {
+			wp_send_json_success([
+				'permalink' => get_the_permalink( 66 )
+			], 200);
+		}
+	} else {
+		$error = new WP_Error( '001', "Already Updated!!!" );
+		wp_send_json_error( $error );		
+	}
+
+	wp_die();
 }

@@ -17,8 +17,8 @@ if ( !array_intersect( [ 'editor', 'administrator' , 'um_project-manager', 'subs
     exit;
 }
 
-
 get_header( 'noste' );
+
 
 
 if ( !isset($_GET['tm']) ) {

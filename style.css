@@ -515,3 +515,46 @@ section#single-main-list .dropdown-step svg {
     box-sizing: border-box;
     border: 2px solid rgb(0 178 169 / var(--tw-border-opacity));
 }
+
+.card_item {
+    overflow: hidden;
+}
+#project_table_status span {
+    display: none;
+}
+
+td#project_table_status .instep-status:before {
+    content: '';
+    width: 8px;
+    height: 100%;
+    background: #ffffff;
+    position: absolute;
+    left: 0;
+    border-radius: 0.375rem 0 0 0.375rem;
+    border: 1px solid #ddd;
+}
+
+td#project_table_status .instep-status {
+    position: relative;
+    padding-top: 0.3rem;
+    padding-bottom: 0.4rem;
+    padding-left: 1rem;
+    padding-right: 0.7rem;
+}
+td#project_table_status .instep-status.status_1:before {
+    background: #E1E1EA;
+    border-color: #E1E1EA;
+}
+td#project_table_status .instep-status.status_2:before {
+    background: rgb(0 178 169 / var(--tw-border-opacity));
+    border-color: rgb(0 178 169 / var(--tw-border-opacity));
+}
+
+td#project_table_status .instep-status.status_3:before {
+    background: rgb(6 249 183 / var(--tw-border-opacity));
+    border-color: rgb(6 249 183 / var(--tw-border-opacity));
+}
+.notification-popup > div {
+    max-width: 100%;
+    width: 1220px;
+}

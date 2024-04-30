@@ -176,9 +176,8 @@ $notifications = $wpdb->get_results( $sql, ARRAY_A );
                                 $how_log_ago = '';
                                 $content = !empty($notification['content']) ? json_decode( $notification['content'], true ) : [];
 
-                                if ( !empty($content) ) {
-                                    $step = $content['step'] ?? '';
-                                    $instep = $content['instep'] ?? '';
+                                if ( !empty($content) && !empty($notification['project_id']) ) {
+                                    $tm = !empty($content['tm']) ? explode('-', $content['tm']) : [];
                                     $form_name = $content['form_name'] ?? '';
 
                                     if ( $recent_time > 0 ) {
@@ -198,16 +197,28 @@ $notifications = $wpdb->get_results( $sql, ARRAY_A );
 
                                     }
 
+                                    if ( !empty($tm) ) {
+                                        $tmin_url = add_query_arg([
+                                            'tm' => $tm[0],
+                                            'tmin' => $tm[1],
+                                            'preview' => $notification['id']
+                                        ], get_permalink( $notification['project_id'] ) );                                        
+                                    } else {
+                                        $tmin_url = '#';
+                                    }
+
                                     ?>
-                                   <div class="my-3 p-4 gap-3 flex rounded-lg border border-solid border-[#E1E1EA]">
+                                    <a href="<?php echo esc_attr( $tmin_url ); ?>">
+                                   <div class="my-3 p-4 gap-3 flex rounded-lg border border-solid border-[#E1E1EA] cursor-pointer">
                                         <div class="user_avatar">
                                             <?php echo um_user( 'profile_photo' ); ?>
                                         </div>                            
                                         <div class="flex-1">
                                             <span class="text-offwhite text-[14px]">Uusi toiminta • <?php echo esc_html( $how_log_ago ); ?></span>
-                                            <p class="text-[#94969C] mt-1"><b class="text-black"><?php echo um_user( 'display_name' ); ?></b> <?php echo implode(' - ', [ $step, $instep ]); ?> <b class="text-black"><?php echo esc_attr( $form_name ); ?></b></p>
+                                            <p class="text-[#94969C] mt-1"><b class="text-black"><?php echo um_user( 'display_name' ); ?></b> <?php echo implode(' - ', [ $tm[0], $tm[1] ]); ?> <b class="text-black"><?php echo esc_attr( $form_name ); ?></b></p>
                                         </div>
                                     </div>
+                                    </a>
                                 
                             <?php } endforeach ?>
                         </div>   
@@ -216,5 +227,21 @@ $notifications = $wpdb->get_results( $sql, ARRAY_A );
         </div> <!-- container -->
     </section>
     <!-- add new project end  -->
+<!-- 
+        <div class="notification-popup popup_wrap fixed left-0 top-0 w-full h-full bg-[#00151F66] z-50">
+            <div class="lg:w-auto rounded-[12px] bg-white border border-solid border-[#E1E1EA] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+
+<iframe src="http://noste.local/projektitiedot/project-by-tiimi/?tm=tilaajan" width="100%" height="550"></iframe>
+
+                <hr class="border-b border-solid border-[#E1E1EA] mt-3">
+                <div class="p-4 flex gap-4 justify-end">
+                    <button class="cancel_popup inline-block border border-solid border-[#E1E1EA] text-[#08202C] rounded-lg px-[10px] py-[5px] text-[14px]">Peruuta</button>
+
+                    <a href="" class="submit_popup_form inline-block bg-[#00B2A9] rounded-lg px-3 lg:px-[10px] py-[5px] text-[14px] text-white">Kyllä, haluan muokata</a>
+                </div>
+            </div>
+        </div> -->
+
+
 
 <?php get_footer(); ?>

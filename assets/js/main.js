@@ -412,5 +412,39 @@ jQuery(document).ready(function ($) {
 
     });
     
+    $('#project_notify_status').on('click', '.btn', function(e){
+        e.preventDefault();
+
+        var status = $(this).data('status');
+        var tm = $(this).parents('#project_notify_status').data('tm');
+        var tmin = $(this).parents('#project_notify_status').data('tmin');
+        var pid = $(this).parents('#project_notify_status').data('pid');
+        var preview = $(this).parents('#project_notify_status').data('preview');
+
+        if ( tm == '' || tmin == '' || pid == '' || status == '' || preview == '' ) {
+            alert('something is wrong!!!');
+            return;            
+        }
+
+        $.post(
+            main_ajax_object.ajaxurl, 
+            {
+                action: "update_manager_project_status",
+                status: status,
+                tm: tm,
+                tmin: tmin,
+                pid: pid,
+                preview: preview
+            }, function(response) {
+                if ( response['success'] ) {
+                    location.replace(response['data']['permalink']);
+                } else {
+                    alert(response['data'][0]['message'])
+                }
+            }
+        );        
+
+    });
+
 /* Notification Template */
 });

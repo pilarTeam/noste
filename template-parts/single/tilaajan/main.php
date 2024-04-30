@@ -1,42 +1,46 @@
 <?php 
 	$tm = $_GET['tm'];
 
-	$project_intdata = get_post_meta( get_the_ID(), sprintf('%s_status', $tm), true );
-
-
-
+	$project_intdata = !empty(get_post_meta( get_the_ID(), sprintf('%s_status', $tm), true )) ? json_decode( get_post_meta( get_the_ID(), sprintf('%s_status', $tm), true ), true ) : [];
 
 	$tm_inner = [
 		'valmistele' => [
 			'title' => 'Valmistele ja laadi lähtötietopalaverin asialista',
-			'status' => !empty($project_intdata['status']['valmistele']) ? $project_intdata['status']['valmistele'] : 'aloittamatta',
+			'status' => !empty($project_intdata['valmistele']['status']) ? $project_intdata['valmistele']['status'] : 0,
 			'url' => [
 				'link' => 'valmistele',
 				'title' => 'Lähtötietopalaverin asialista',
 			],
-			'comment' => !empty($project_intdata['comment']['valmistele']) ? $project_intdata['comment']['valmistele'] : 'aloittamatta',
+			'comment' => !empty($project_intdata['valmistele']['comment']) ? $project_intdata['valmistele']['comment'] : 0,
 		],
 		'pida' => [
 			'title' => 'Valmistele ja laadi lähtötietopalaverin asialista',
-			'status' => !empty($project_intdata['status']['pida']) ? $project_intdata['status']['pida'] : 'aloittamatta',
+			'status' => !empty($project_intdata['pida']['status']) ? $project_intdata['pida']['status'] : 0,
 			'url' => '',
-			'comment' => !empty($project_intdata['comment']['pida']) ? $project_intdata['comment']['pida'] : 'aloittamatta',
+			'comment' => !empty($project_intdata['pida']['comment']) ? $project_intdata['pida']['comment'] : 'aloittamatta',
 		],		
 		'laadi' => [
 			'title' => 'Valmistele ja laadi lähtötietopalaverin asialista',
-			'status' => !empty($project_intdata['status']['laadi']) ? $project_intdata['status']['laadi'] : 'aloittamatta',
+			'status' => !empty($project_intdata['laadi']['status']) ? $project_intdata['laadi']['status'] : 0,
 			'url' => [
 				'link' => 'laadi',
 				'title' => 'Lähtötietopalaverin asialista',
 			],
-			'comment' => !empty($project_intdata['comment']['laadi']) ? $project_intdata['comment']['laadi'] : 'aloittamatta',
+			'comment' => !empty($project_intdata['laadi']['comment']) ? $project_intdata['laadi']['comment'] : 'aloittamatta',
 		],
 		'sovi' => [
 			'title' => 'Valmistele ja laadi lähtötietopalaverin asialista',
-			'status' => !empty($project_intdata['status']['sovi']) ? $project_intdata['status']['sovi'] : 'aloittamatta',
+			'status' => !empty($project_intdata['sovi']['status']) ? $project_intdata['sovi']['status'] : 0,
 			'url' => '',
-			'comment' => !empty($project_intdata['comment']['sovi']) ? $project_intdata['comment']['sovi'] : 'aloittamatta',
+			'comment' => !empty($project_intdata['sovi']['comment']) ? $project_intdata['sovi']['comment'] : 'aloittamatta',
 		],		
+	];
+
+	$status = [
+		'Aloittamatta',
+		'Aloitettu',
+		'Odottaa hyväksyntää',
+		'Hyväksytty'
 	];
 
  ?>
@@ -99,9 +103,9 @@
 	                                                        <p class="text-sm text-[#818D93]"><?php echo esc_html( $value['title'] ); ?></p>
 	                                                    </td>
 	                                                    <td class="px-4 py-3 border border-line text-sm" id="project_table_status">
-	                                                        <div class="inline-flex items-center rounded-md border border-line px-2 py-1 <?php echo esc_attr( strtolower($value['status']) ); ?>">
-	                                                            <span></span>
-	                                                            <?php echo esc_html( $value['status'] ); ?>
+	                                                        <div class="instep-status relative inline-flex items-center rounded-md border border-line px-2 py-1 <?php echo esc_attr( 'status_' . strtolower( $value['status'] ) ); ?>">
+	                                                        	<span></span>
+	                                                            <?php echo esc_html( $status[$value['status']] ); ?>
 	                                                        </div>
 	                                                    </td>
 	                                                    <td class="px-4 py-3 border border-line">
