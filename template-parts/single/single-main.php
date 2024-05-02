@@ -173,13 +173,13 @@ $rakennustoiden_vastaanotto = [
                         <!-- Step Items -->
                         <div class="inline-flex items-start justify-between bg-white shadow rounded-md w-full relative mb-4 text-sm <?php echo esc_attr( $status ); ?>">
                             <a class="p-3 pr-2 w-full border-l border-l-[#E1E1EA] text-sm font-medium" href="<?php echo esc_attr( $tm_url ); ?>"><?php echo esc_html( $val['title'] ); ?></a>
-                            <div class="dropdown pt-3 pr-3">
-                                <button class="dropdown-toggle rounded-sm border border-line p-[3px]" data-dropdown="dropdown-menu1">
+                            <div class="dropdown_click pt-3 pr-3">
+                                <button class="dropdown-label rounded-sm border border-line p-[3px]">
                                     
                                     <img src="https://noste.pilardev.fi/wp-content/uploads/2024/04/three-dot.png" class="w-4">
                                 </button>
 
-                                <ul class="px-4 py-2 w-[12rem] bg-white absolute right-0 top-full z-10 border border-[#E1E1EA] rounded hidden" id="dropdown-menu1">
+                                <ul class="dropdown_wrap px-4 py-2 w-[12rem] bg-white absolute right-0 top-full z-10 border border-[#E1E1EA] rounded hidden">
                                     <li class="text-sm mb-2">
                                         <label class="flex items-center gap-2"><input type="radio" class="accent-accent" value="value1" name="dropdown-menu-2"> Aloittamatta </label>
                                     </li>
@@ -227,12 +227,13 @@ $rakennustoiden_vastaanotto = [
                     ?>
                         <div class="inline-flex items-start justify-between bg-white shadow rounded-md w-full relative mb-4 text-sm <?php echo esc_attr( $status ); ?>">
                             <a class="p-3 pr-2 w-full border-l border-l-[#E1E1EA] text-sm font-medium" href="<?php echo esc_attr( $tm_url ); ?>"><?php echo esc_html( $val['title'] ); ?></a>
-                            <div class="dropdown pt-3 pr-3">
-                                <button class="dropdown-toggle rounded-sm border border-line p-[3px]" data-dropdown="dropdown-menu7">
+                            <div class="dropdown_click pt-3 pr-3">
+                                <button class="dropdown-label rounded-sm border border-line p-[3px]">
+                                    
                                     <img src="https://noste.pilardev.fi/wp-content/uploads/2024/04/three-dot.png" class="w-4">
                                 </button>
 
-                                <ul class="px-4 py-2 w-[12rem] bg-white absolute right-0 top-full z-10 border border-[#E1E1EA] rounded hidden"  id="dropdown-menu7">
+                                <ul class="dropdown_wrap px-4 py-2 w-[12rem] bg-white absolute right-0 top-full z-10 border border-[#E1E1EA] rounded hidden">
                                     <li class="text-sm mb-2">
                                         <label class="flex items-center gap-2"><input type="radio" class="accent-accent" value="value1" name="dropdown-menu-2"> Aloittamatta </label>
                                     </li>
@@ -243,9 +244,10 @@ $rakennustoiden_vastaanotto = [
                                         <label class="flex items-center gap-2"><input type="radio" class="accent-accent" value="value3" name="dropdown-menu-2"> Odottaa hyväksyntää</label>
                                     </li>
                                     <li class="text-sm mb-2">
-                                        <label class="flex items-center gap-2"><input type="radio" value="value4" name="dropdown-menu-2"> Hyväksytty </label>
+                                        <label class="flex items-center gap-2"><input type="radio" class="accent-accent" value="value4" name="dropdown-menu-2"> Hyväksytty</label>
                                     </li>
                                 </ul>
+                                
                             </div>
                         </div><!-- Step Items -->
                     <?php endforeach; ?>
@@ -280,14 +282,13 @@ $rakennustoiden_vastaanotto = [
                         <!-- Step Items -->
                         <div class="inline-flex items-start justify-between bg-white shadow rounded-md w-full relative mb-4 text-sm <?php echo esc_attr( $status ); ?>">
                             <a class="p-3 pr-2 w-full border-l border-l-[#E1E1EA] text-sm font-medium" href="<?php echo esc_attr( $tm_url ); ?>"><?php echo esc_html( $val['title'] ); ?></a>
-                            <div class="dropdown pt-3 pr-3">
-                                <button class="dropdown-toggle rounded-sm border border-line p-[3px]" data-dropdown="dropdown-menu13">
-    								
+                            <div class="dropdown_click pt-3 pr-3">
+                                <button class="dropdown-label rounded-sm border border-line p-[3px]">
+                                    
                                     <img src="https://noste.pilardev.fi/wp-content/uploads/2024/04/three-dot.png" class="w-4">
-
                                 </button>
 
-                                <ul class="px-4 py-2 w-[12rem] bg-white absolute right-0 top-full z-10 border border-[#E1E1EA] rounded hidden" id="dropdown-menu13">
+                                <ul class="dropdown_wrap px-4 py-2 w-[12rem] bg-white absolute right-0 top-full z-10 border border-[#E1E1EA] rounded hidden">
                                     <li class="text-sm mb-2">
                                         <label class="flex items-center gap-2"><input type="radio" class="accent-accent" value="value1" name="dropdown-menu-2"> Aloittamatta </label>
                                     </li>
@@ -298,9 +299,10 @@ $rakennustoiden_vastaanotto = [
                                         <label class="flex items-center gap-2"><input type="radio" class="accent-accent" value="value3" name="dropdown-menu-2"> Odottaa hyväksyntää</label>
                                     </li>
                                     <li class="text-sm mb-2">
-                                        <label class="flex items-center gap-2"><input type="radio" value="value4" name="dropdown-menu-2"> Hyväksytty </label>
+                                        <label class="flex items-center gap-2"><input type="radio" class="accent-accent" value="value4" name="dropdown-menu-2"> Hyväksytty</label>
                                     </li>
                                 </ul>
+                                
                             </div>
                         </div><!-- Step Items -->
 
@@ -335,12 +337,13 @@ $rakennustoiden_vastaanotto = [
                         <!-- Step Items -->
                         <div class="inline-flex items-start justify-between bg-white shadow rounded-md w-full relative mb-4 text-sm <?php echo esc_attr( $status ); ?>">
                             <a class="p-3 pr-2 w-full border-l border-l-[#E1E1EA] text-sm font-medium" href="<?php echo esc_attr( $tm_url ); ?>"><?php echo esc_html( $val['title'] ); ?></a>
-                            <div class="dropdown pt-3 pr-3">
-                                <button class="dropdown-toggle rounded-sm border border-line p-[3px]" data-dropdown="dropdown-menu17">
+                            <div class="dropdown_click pt-3 pr-3">
+                                <button class="dropdown-label rounded-sm border border-line p-[3px]">
+                                    
                                     <img src="https://noste.pilardev.fi/wp-content/uploads/2024/04/three-dot.png" class="w-4">
                                 </button>
 
-                                <ul class="px-4 py-2 w-[12rem] bg-white absolute right-0 top-full z-10 border border-[#E1E1EA] rounded hidden" id="dropdown-menu17">
+                                <ul class="dropdown_wrap px-4 py-2 w-[12rem] bg-white absolute right-0 top-full z-10 border border-[#E1E1EA] rounded hidden">
                                     <li class="text-sm mb-2">
                                         <label class="flex items-center gap-2"><input type="radio" class="accent-accent" value="value1" name="dropdown-menu-2"> Aloittamatta </label>
                                     </li>
@@ -351,7 +354,7 @@ $rakennustoiden_vastaanotto = [
                                         <label class="flex items-center gap-2"><input type="radio" class="accent-accent" value="value3" name="dropdown-menu-2"> Odottaa hyväksyntää</label>
                                     </li>
                                     <li class="text-sm mb-2">
-                                        <label class="flex items-center gap-2"><input type="radio" value="value4" name="dropdown-menu-2"> Hyväksytty </label>
+                                        <label class="flex items-center gap-2"><input type="radio" class="accent-accent" value="value4" name="dropdown-menu-2"> Hyväksytty</label>
                                     </li>
                                 </ul>
                                 

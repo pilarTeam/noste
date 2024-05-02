@@ -39,20 +39,20 @@ document.querySelectorAll('a[href="#!"], a[href="#"]').forEach(anchor => {
 jQuery(document).ready(function ($) {
 	// DropDown
 
-	$("#dropdown-toggle").on('click', function () {
-		var dropdownMenuId = $(this).data("dropdown");
-		$("#" + dropdownMenuId).toggleClass("hidden");
-	});
+	// $("#dropdown-toggle").on('click', function () {
+	// 	var dropdownMenuId = $(this).data("dropdown");
+	// 	$("#" + dropdownMenuId).toggleClass("hidden");
+	// });
 
-	$(document).on('click', function (e) {
-		var target = e.target;
-		if (
-			!$(target).is("#dropdown-toggle") &&
-			!$(target).parents().is(".dropdown")
-		) {
-			$(".dropdown-menu").addClass("hidden");
-		}
-	});
+	// $(document).on('click', function (e) {
+	// 	var target = e.target;
+	// 	if (
+	// 		!$(target).is("#dropdown-toggle") &&
+	// 		!$(target).parents().is(".dropdown")
+	// 	) {
+	// 		$(".dropdown-menu").addClass("hidden");
+	// 	}
+	// });
 
 	// Image Upload
 	$("#FileUpload1").on('change', function (event) {
