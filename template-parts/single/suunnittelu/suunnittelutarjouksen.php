@@ -15,7 +15,7 @@ $project_id = get_the_ID();
         <!-- grid View Item -->
         <div class="grid grid-cols-1 gap-4">
             <!-- card_item -->
-            <div class="card_item relative h-fit">
+            <div class="card_item relative h-fit overflow-hidden relative">
                 <!-- Card Header --><?php echo wp_kses_post(noste_form_header('form')); ?><!-- Card Header -->
                 
                 <form action="<?php echo esc_url( get_permalink( get_the_ID() ) ); ?>" method="post" enctype="multipart/form-data" class="ajax-submit">

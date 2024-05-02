@@ -20,7 +20,6 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
             <!-- card_item -->
             <div class="card_item relative h-fit">
                 <!-- Card Header --><?php echo wp_kses_post(noste_form_header('form')); ?><!-- Card Header -->
-                
                 <form action="<?php echo esc_url( get_permalink( get_the_ID() ) ); ?>" method="post" enctype="multipart/form-data" class="ajax-submit">
                     <!-- Card Body -->
                     <?php wp_nonce_field('project_step_form_validation', 'project_step_form__nonce_field'); ?>

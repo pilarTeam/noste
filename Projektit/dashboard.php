@@ -187,7 +187,7 @@ get_header( 'noste' );
                 <?php foreach ($projects as $id): 
 
                     $projektinumero_k8 = noste_check_empty( get_post_meta( $id, 'pilar_K8', true ) );
-                    $projektinimi_k4 = noste_check_empty( get_post_meta( $pid, 'pilar_K4', true ) );
+                    $projektinimi_k4 = noste_check_empty( get_post_meta( $id, 'pilar_K4', true ) );
                     $tilaaja_t1 = noste_check_empty( get_post_meta( $id, 'pilar_T1', true ), 'Tilaaja (Yritys)');
                     $kiinteistonimi_K1 = noste_check_empty( get_post_meta( $id, 'pilar_K1', true ), 'Kiinteistön nimi' );
                     $kiinteiston_katusoite_k2 = noste_check_empty(get_post_meta( $id, 'pilar_K2', true ), 'Kiinteistön osoite');

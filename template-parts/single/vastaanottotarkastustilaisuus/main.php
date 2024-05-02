@@ -47,7 +47,10 @@
 		'vastaanottotarkastuspoytakirja' => [
 			'title' => 'Laadi vastaanottotarkastuspöytäkirja liitteineen ja toimita se kokouksen osallistujille',
 			'status' => !empty($project_intdata['status']['vastaanottotarkastuspoytakirja']) ? $project_intdata['status']['vastaanottotarkastuspoytakirja'] : 'aloittamatta',
-			'url' => '',
+			'url' => [
+				'link'	=> 'hallinnanluovutustilaisuus_poytakirja',
+				'title'	=> 'Hallinnanluovutustilaisuus poytakirja'
+			],
 			'comment' => !empty($project_intdata['comment']['vastaanottotarkastuspoytakirja']) ? $project_intdata['comment']['vastaanottotarkastuspoytakirja'] : 'aloittamatta',
 		],
 		'varmista' => [

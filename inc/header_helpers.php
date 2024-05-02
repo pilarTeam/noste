@@ -1,271 +1,177 @@
 <?php
-$steps_names = [
-    "tilaajan" => "Tilaajan yhteydenotto",
-    "lahtotietojen" => "Lähtötietojen läpikäynti, alustavan kustannusarvion ja aikataulun teko",
-    "kohdekaynti" => "Kohdekäynti",
-    "vuokrasopimuksen" => "Vuokrasopimuksen apudokumentit",
-    "kustannusarvion" => "Kustannusarvion ja aikataulun päivitys",
-    "vuokrasopimuksen_allekirjoitus" => "Vuokrasopimuksen allekirjoitus ja vuokralaismuutoksen aloituspäätös",
-    "noste_tarjouksen" => "Noste.ion tarjouksen toimitus",
-    "projektiraportointi" => "Projektiraportointi ja kustannusseuranta",
-    "suunnittelu" => "Suunnittelu ja selvitykset",
-    "kaupalliset" => "Kaupalliset asiakirjat ja kilpailutusmateriaalin teko",
-    "tarjouspyynnon" => "Tarjouspyynnön lähetys ja urakkakilpailutus",
-    "tarjouksen" => "Tarjouksen hyväksyttäminen",
-    "urakan" => "Urakan kirjallinen tilaus",
-    "urakkasopimuksen" => "Urakkasopimuksen allekirjoitus",
-    "tyomaan" => "Työmaan käynnistymisen tehtävät",
-    "tyomaan_aloituskokous" => "Työmaan aloituskokous",
-    "yleinen" => "Yleinen projektinjohto rakentamisen aikana",
-    "tyomaavalvonta" => "Työmaavalvonta",
-    "tyomaakokoukset" => "Työmaakokoukset",
-    "lisaja" => "Lisä-ja muutostyökäsittely",
-    "vastaanottotarkastustilaisuus" => "Vastaanottotarkastustilaisuus",
-    "hallinnanluovutustilaisuus" => "Hallinnanluovutustilaisuus",
-    "virheja" => "Virhe- ja puutekorjausten valvonta",
-    "taloudellinen" => "Taloudellinen loppuselvitys",
-    "loppudokumentaatio" => "Loppudokumentaatio ja projektin lopetus"
+
+$project_header_info = [
+    "tilaajan-valmistele" => [
+        "step" => "Projektin valmistelu",
+        "instep" => "Tilaajan yhteydenotto",
+        "form_name" => "Lähtötietop_valmis_ver1"
+    ],
+    "tilaajan-laadi" => [
+        "step" => "Projektin valmistelu",
+        "instep" => "Tilaajan yhteydenotto",
+        "form_name" => "Lähtötietop_valmis_ver1"
+    ],
+    "lahtotietojen-kustannusarvio" => [
+        "step" => "Projektin valmistelu",
+        "instep" => "Lähtötietojen läpikäynti, alustavan kustannusarvion ja aikataulun teko",
+        "form_name" => "Kustannusarvio"
+    ], 
+    "lahtotietojen-aikataulu" => [
+        "step" => "Projektin valmistelu",
+        "instep" => "Lähtötietojen läpikäynti, alustavan kustannusarvion ja aikataulun teko",
+        "form_name" => "Aikataulu_valmis_ver1"
+    ],
+    "vuokrasopimuksen-rakennustapaselostus" => [
+        "step" => "Projektin valmistelu",
+        "instep" => "Vuokrasopimuksen apudokumentit",
+        "form_name" => "Rakennustapaselostus_valmis_ver1"
+    ], 
+    "vuokrasopimuksen-hankintarajaliite" => [
+        "step" => "Projektin valmistelu",
+        "instep" => "Vuokrasopimuksen apudokumentit",
+        "form_name" => "Hankintarajaliite_valmis_ver1"
+    ], 
+    "vuokrasopimuksen-lahtotietoaikataulu" => [
+        "step" => "Projektin valmistelu",
+        "instep" => "Vuokrasopimuksen apudokumentit",
+        "form_name" => "Lähtötietoaikataulu_valmis_ver1"
+    ], 
+    "kustannusarvion-kustannusarvio" => [
+        "step" => "Projektin valmistelu",
+        "instep" => "Lähtötietojen läpikäynti, alustavan kustannusarvion ja aikataulun teko",
+        "form_name" => "Kustannusarvio"
+    ], 
+    "kustannusarvion-aikataulu" => [
+        "step" => "Projektin valmistelu",
+        "instep" => "Lähtötietojen läpikäynti, alustavan kustannusarvion ja aikataulun teko",
+        "form_name" => "Aikataulu_valmis_ver1"
+    ], 
+    "suunnittelu-suunnittelutarjouksen" => [
+        "step" => "Rakentamisen valmistelu",
+        "instep" => "Kaupalliset asiakirjat ja kilpailutusmateriaalin teko",
+        "form_name" => "Tarjouspyyntökirje_valmis_ver1"
+    ], 
+    "suunnittelu-urakkalaskentasuunnitelmien" => [
+        "step" => "Rakentamisen valmistelu",
+        "instep" => "Tarjouspyynnön lähetys ja urakkakilpailutus",
+        "form_name" => "Urakkaneuvottelu_valmis_ver1"
+    ],
+    "kaupalliset-turvallisuusasiakirja" => [
+        "step" => "Rakentamisen valmistelu",
+        "instep" => "Kaupalliset asiakirjat ja kilpailutusmateriaalin teko",
+        "form_name" => "Työturvallisuusasiakirja_valmis"        
+    ],
+    "kaupalliset-tarjouspyyntokirje" => [
+        "step" => "Rakentamisen valmistelu",
+        "instep" => "Kaupalliset asiakirjat ja kilpailutusmateriaalin teko",
+        "form_name" => "Tarjouspyyntökirje_valmis_ver1"          
+    ], 
+    "kaupalliset-tarjouslomake" => [
+        "step" => "Rakentamisen valmistelu",
+        "instep" => "Kaupalliset asiakirjat ja kilpailutusmateriaalin teko",
+        "form_name" => "Tarjouspyyntölomake_valmis_ver1"          
+    ],
+    "kaupalliset-urakkasopimusluonnos" => [
+        "step" => "Rakentamisen valmistelu",
+        "instep" => "Kaupalliset asiakirjat ja kilpailutusmateriaalin teko",
+        "form_name" => "Urakkasopimus_valmis_ver2"          
+    ],
+    "tarjouspyynnon-lisakirje" => [
+        "step" => "Rakentamisen valmistelu",
+        "instep" => "Tarjouspyynnön lähetys ja urakkakilpailutus",
+        "form_name" => "Lisäkirje_valmis_ver1"          
+    ], 
+    "tarjouspyynnon-alustava" => [
+        "step" => "Rakentamisen valmistelu",
+        "instep" => "Tarjouksen hyväksyttäminen",
+        "form_name" => "Tarjousvertailu_valmis_ver1"          
+    ], 
+    "tarjouspyynnon-asialista" => [
+        "step" => "Rakentamisen valmistelu",
+        "instep" => "Tarjouspyynnön lähetys ja urakkakilpailutus",
+        "form_name" => "Urakkaneuvottelu_valmis_ver1"          
+    ],
+    "tarjouspyynnon-poytakirja" => [
+        "step" => "Rakentamisen valmistelu",
+        "instep" => "Tarjouspyynnön lähetys ja urakkakilpailutus",
+        "form_name" => "Urakkaneuvottelu_valmis_ver1"          
+    ],
+    "tarjouksen-urakkatarjousvertailu" => [
+        "step" => "Rakentamisen valmistelu",
+        "instep" => "Tarjouksen hyväksyttäminen",
+        "form_name" => "Tarjousvertailu_valmis_ver1"          
+    ],
+    "urakan-kirjallinen-urakkatilaus" => [
+        "step" => "Rakentamisen käynnistäminen",
+        "instep" => "Urakan kirjallinen tilaus",
+        "form_name" => "Kirjallinen urakkatilaus_valmis_ver1.docx"          
+    ],
+    "urakkasopimuksen-urakkasopimus" => [
+        "step" => "Rakentamisen valmistelu",
+        "instep" => "Kaupalliset asiakirjat ja kilpailutusmateriaalin teko",
+        "form_name" => "Urakkasopimus_valmis_ver2"          
+    ],
+    "tyomaan_aloituskokous-aloituskokouksen-asialista" => [
+        "step" => "Rakentamisen käynnistäminen",
+        "instep" => "Työmaan aloituskokous",
+        "form_name" => "TMK1 Pöytäkirja_ver1"          
+    ],
+    "tyomaan_aloituskokous-aloituskokouksen_poytakirja" => [
+        "step" => "Rakentamisen käynnistäminen",
+        "instep" => "Työmaan aloituskokous",
+        "form_name" => "TMK1 Pöytäkirja_ver1"          
+    ],
+    "tyomaakokoukset-asialista" => [
+        "step" => "Rakentaminen",
+        "instep" => "Työmaakokoukset",
+        "form_name" => "TALS2 pöytäkirja_valmis_ver1"          
+    ],
+    "tyomaakokoukset-tyomaakokouksen-poytakirja" => [
+        "step" => "Rakentaminen",
+        "instep" => "Työmaakokoukset",
+        "form_name" => "TALS2 pöytäkirja_valmis_ver1"          
+    ], 
+    "vastaanottotarkastustilaisuus-huomioitavaa" => [
+        "step" => "Rakennustöiden vastaanotto ja toimeksiannon lopetus",
+        "instep" => "Vastaanottotarkastustilaisuus",
+        "form_name" => "VOT_valmis_ver1"          
+    ], 
+    "vastaanottotarkastustilaisuus-vastaanottotarkastuksen-asialista" => [
+        "step" => "Rakennustöiden vastaanotto ja toimeksiannon lopetus",
+        "instep" => "Hallinnanluovutustilaisuus",
+        "form_name" => "Käyttäjän VIPU-list_valmis_ver1"          
+    ], 
+    "vastaanottotarkastustilaisuus-hallinnanluovutustilaisuus_poytakirja" => [
+        "step" => "Rakennustöiden vastaanotto ja toimeksiannon lopetus",
+        "instep" => "Hallinnanluovutustilaisuus",
+        "form_name" => "Hallinnanluovutus_valmis_ver2"          
+    ], 
+    "hallinnanluovutustilaisuus-toimita-puutelista" => [
+        "step" => "Rakennustöiden vastaanotto ja toimeksiannon lopetus",
+        "instep" => "Hallinnanluovutustilaisuus",
+        "form_name" => "Käyttäjän VIPU-list_valmis_ver1"          
+    ], 
+    "hallinnanluovutustilaisuus-tayta-puutelista" => [
+        "step" => "Rakennustöiden vastaanotto ja toimeksiannon lopetus",
+        "instep" => "Hallinnanluovutustilaisuus",
+        "form_name" => "Käyttäjän VIPU-list_valmis_ver1"
+    ],
+    "hallinnanluovutustilaisuus-hallinnanluovutustilaisuuden-poytakirja" => [
+        "step" => "Rakennustöiden vastaanotto ja toimeksiannon lopetus",
+        "instep" => "Hallinnanluovutustilaisuus",
+        "form_name" => "Hallinnanluovutus_valmis_ver2"          
+    ], 
+    "taloudellinen-loppuselvityksen-asialista" => [
+        "step" => "Rakennustöiden vastaanotto ja toimeksiannon lopetus",
+        "instep" => "Taloudellinen loppuselvitys",
+        "form_name" => "TALS1 pöytäkirja_valmis_ver1"          
+    ], 
+    "taloudellinen-taloudellisen-loppuselvityksen" => [
+        "step" => "Rakennustöiden vastaanotto ja toimeksiannon lopetus",
+        "instep" => "Taloudellinen loppuselvitys",
+        "form_name" => "TALS1 pöytäkirja_valmis_ver1"          
+
+    ],
 ];
-$forms_params = [
-        "tilaajan-valmistele" => [
-            "column" => 0,
-            "step_id" => "tilaajan",
-            "step" => "tilaajan",
-            "form_id" => "valmistele",
-            "form_title" => "Lähtötietopalaverin asialista",
-            "form_version" => "Lähtötietop_valmis_ver1"
-        ],
-        "tilaajan-laadi" => [
-            "column" => 0,
-            "step_id" => "tilaajan",
-            "step" => "tilaajan",
-            "form_id" => "laadi",
-            "form_title" => "Lähtötietopalaverin asialista",
-            "form_version" => "Lähtötietop_valmis_ver1"
-        ],
-        "lahtotietojen-kustannusarvio" => [
-            "column" => 0,
-            "step_id" => "lahtotietojen",
-            "step" => "lahtotietojen",
-            "form_id" => "kustannusarvio",
-            "form_title" => "Kustannusarvio",
-            "form_version" => ""
-        ],
-        "lahtotietojen-aikataulu" => [
-            "column" => 0,
-            "step_id" => "lahtotietojen",
-            "step" => "lahtotietojen",
-            "form_id" => "aikataulu",
-            "form_title" => "Aikataulu",
-            "form_version" => ""
-        ],
-        "vuokrasopimuksen-rakennustapaselostus" => [
-            "column" => 0,
-            "step_id" => "vuokrasopimuksen",
-            "step" => "vuokrasopimuksen",
-            "form_id" => "rakennustapaselostus",
-            "form_title" => "Rakennustapaselostus",
-            "form_version" => ""
-        ],
-        "vuokrasopimuksen-hankintarajaliite" => [
-            "column" => 0,
-            "step_id" => "vuokrasopimuksen",
-            "step" => "vuokrasopimuksen",
-            "form_id" => "hankintarajaliite",
-            "form_title" => "Hankintarajaliite",
-            "form_version" => ""
-        ],
-        "vuokrasopimuksen-lahtotietoaikataulu" => [
-            "column" => 0,
-            "step_id" => "vuokrasopimuksen",
-            "step" => "vuokrasopimuksen",
-            "form_id" => "lahtotietoaikataulu",
-            "form_title" => "Lähtötietoaikataulu",
-            "form_version" => ""
-        ],
-        "kustannusarvion-kustannusarvio" => [
-            "column" => 0,
-            "step_id" => "kustannusarvion",
-            "step" => "kustannusarvion",
-            "form_id" => "kustannusarvio",
-            "form_title" => "Kustannusarvio",
-            "form_version" => ""
-        ],
-        "kustannusarvion-aikataulu" => [
-            "column" => 0,
-            "step_id" => "kustannusarvion",
-            "step" => "kustannusarvion",
-            "form_id" => "aikataulu",
-            "form_title" => "Aikataulu",
-            "form_version" => ""
-        ],
-        "suunnittelu-suunnittelutarjouksen" => [
-            "column" => 1,
-            "step_id" => "suunnittelu",
-            "step" => "suunnittelu",
-            "form_id" => "suunnittelutarjouksen",
-            "form_title" => "OHJE Suunnittelutarjouksen pyytäminen",
-            "form_version" => ""
-        ],
-        "suunnittelu-ainekartoituksen" => [
-            "column" => 1,
-            "step_id" => "suunnittelu",
-            "step" => "suunnittelu",
-            "form_id" => "ainekartoituksen",
-            "form_title" => "OHJE Asbesti ja haitta-ainekartoituksen tekeminen",
-            "form_version" => ""
-        ],
-        "suunnittelu-urakkalaskentasuunnitelmien" => [
-            "column" => 1,
-            "step_id" => "suunnittelu",
-            "step" => "suunnittelu",
-            "form_id" => "urakkalaskentasuunnitelmien",
-            "form_title" => "OHJE Urakkalaskentasuunnitelmien tarkastus",
-            "form_version" => ""
-        ],
-        "tarjouspyynnon-lisakirje" => [
-            "column" => 1,
-            "step_id" => "tarjouspyynnon",
-            "step" => "tarjouspyynnon",
-            "form_id" => "lisakirje",
-            "form_title" => "lisäkirje",
-            "form_version" => ""
-        ],
-        "tarjouspyynnon-alustava" => [
-            "column" => 1,
-            "step_id" => "tarjouspyynnon",
-            "step" => "tarjouspyynnon",
-            "form_id" => "alustava",
-            "form_title" => "Urakkatarjousvertailu",
-            "form_version" => ""
-        ],
-        "tarjouspyynnon-asialista" => [
-            "column" => 1,
-            "step_id" => "tarjouspyynnon",
-            "step" => "tarjouspyynnon",
-            "form_id" => "asialista",
-            "form_title" => "Urakkaneuvottelun asialista",
-            "form_version" => ""
-        ],
-        "tarjouspyynnon-poytakirja" => [
-            "column" => 1,
-            "step_id" => "tarjouspyynnon",
-            "step" => "tarjouspyynnon",
-            "form_id" => "poytakirja",
-            "form_title" => "Urakkaneuvottelun pöytäkirja",
-            "form_version" => ""
-        ],
-        "tarjouksen-urakkatarjousvertailu" => [
-            "column" => 1,
-            "step_id" => "tarjouksen",
-            "step" => "tarjouksen",
-            "form_id" => "urakkatarjousvertailu",
-            "form_title" => "Urakkatarjousvertailu",
-            "form_version" => "Tarjousvertailu_valmis_ver1"
-        ],
-        "urakan-kirjallinen-urakkatilaus" => [
-            "column" => 2,
-            "step_id" => "urakan",
-            "step" => "urakan",
-            "form_id" => "kirjallinen-urakkatilaus",
-            "form_title" => "Kirjallinen urakkatilaus",
-            "form_version" => ""
-        ],
-        "urakan-kirjallinen-urakkatilaus" => [
-            "column" => 2,
-            "step_id" => "urakan",
-            "step" => "urakan",
-            "form_id" => "kirjallinen-urakkatilaus",
-            "form_title" => "Kirjallinen urakkatilaus",
-            "form_version" => ""
-        ],
-        "tyomaan_aloituskokous-aloituskokouksen-asialista" => [
-            "column" => 2,
-            "step_id" => "tyomaan_aloituskokous",
-            "step" => "tyomaan_aloituskokous",
-            "form_id" => "aloituskokouksen-asialista",
-            "form_title" => "aloituskokouksen asialista",
-            "form_version" => ""
-        ],
-        "tyomaan_aloituskokous-aloituskokouksen%20poytakirja" => [
-            "column" => 2,
-            "step_id" => "tyomaan_aloituskokous",
-            "step" => "tyomaan_aloituskokous",
-            "form_id" => "aloituskokouksen%20poytakirja",
-            "form_title" => "aloituskokouksen pöytäkirja",
-            "form_version" => ""
-        ],
-        "tyomaakokoukset-asialista" => [
-            "column" => 3,
-            "step_id" => "tyomaakokoukset",
-            "step" => "tyomaakokoukset",
-            "form_id" => "asialista",
-            "form_title" => "Työmaakokouksen asialista",
-            "form_version" => ""
-        ],
-        "tyomaakokoukset-tyomaakokouksen-poytakirja" => [
-            "column" => 3,
-            "step_id" => "tyomaakokoukset",
-            "step" => "tyomaakokoukset",
-            "form_id" => "tyomaakokouksen-poytakirja",
-            "form_title" => "Työmaakokouksen pöytäkirja",
-            "form_version" => ""
-        ],
-        "vastaanottotarkastustilaisuus-huomioitavaa" => [
-            "column" => 4,
-            "step_id" => "vastaanottotarkastustilaisuus",
-            "step" => "vastaanottotarkastustilaisuus",
-            "form_id" => "huomioitavaa",
-            "form_title" => "OHJE Vastaanotossa huomioitavaa",
-            "form_version" => ""
-        ],
-        "vastaanottotarkastustilaisuus-vastaanottotarkastuksen-asialista" => [
-            "column" => 4,
-            "step_id" => "vastaanottotarkastustilaisuus",
-            "step" => "vastaanottotarkastustilaisuus",
-            "form_id" => "vastaanottotarkastuksen-asialista",
-            "form_title" => "Vastaanottotarkastuksen asialista",
-            "form_version" => ""
-        ],
-        "hallinnanluovutustilaisuus-virhe-ja-puutelista" => [
-            "column" => 4,
-            "step_id" => "hallinnanluovutustilaisuus",
-            "step" => "hallinnanluovutustilaisuus",
-            "form_id" => "virhe-ja-puutelista",
-            "form_title" => "Käyttäjän virhe- ja puutelista",
-            "form_version" => ""
-        ],
-        "hallinnanluovutustilaisuus-virhe-ja-puutelista-2" => [
-            "column" => 4,
-            "step_id" => "hallinnanluovutustilaisuus",
-            "step" => "hallinnanluovutustilaisuus",
-            "form_id" => "virhe-ja-puutelista-2",
-            "form_title" => "Käyttäjän virhe- ja puutelista",
-            "form_version" => ""
-        ],
-        "hallinnanluovutustilaisuus-hallinnanluovutustilaisuuden-poytakirja" => [
-            "column" => 4,
-            "step_id" => "hallinnanluovutustilaisuus",
-            "step" => "hallinnanluovutustilaisuus",
-            "form_id" => "hallinnanluovutustilaisuuden-poytakirja",
-            "form_title" => "Hallinnanluovutustilaisuuden pöytäkirja",
-            "form_version" => ""
-        ],
-        "taloudellinen-loppuselvityksen-asialista" => [
-            "column" => 4,
-            "step_id" => "taloudellinen",
-            "step" => "taloudellinen",
-            "form_id" => "loppuselvityksen-asialista",
-            "form_title" => "Taloudellisen loppuselvityksen asialista",
-            "form_version" => ""
-        ],
-        "taloudellinen-taloudellisen-loppuselvityksen" => [
-            "column" => 4,
-            "step_id" => "taloudellinen",
-            "step" => "taloudellinen",
-            "form_id" => "taloudellisen-loppuselvityksen",
-            "form_title" => "Taloudellisen loppuselvityksen pöytäkirja",
-            "form_version" => ""
-        ],
-];
-?>
+
+update_option( 'noste_project_header_info', json_encode( $project_header_info ) );

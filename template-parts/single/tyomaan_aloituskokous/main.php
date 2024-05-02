@@ -44,7 +44,7 @@
 					'title'	=> 'Työmaan'
 				],
 				[
-					'link'	=> 'aloituskokouksen poytakirja',
+					'link'	=> 'aloituskokouksen_poytakirja',
 					'title'	=> 'aloituskokouksen pöytäkirja'
 				],
 			],

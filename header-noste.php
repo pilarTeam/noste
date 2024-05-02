@@ -9,7 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
-<?php wp_head(); ?>
+<?php wp_head(); 
+date_default_timezone_set("Asia/Dhaka");
+?>
 
 </head>
 <body <?php body_class( 'font-roboto bg-bodyBg' ); ?>>
@@ -41,12 +43,12 @@
     
                             <div class="border-l border-line pl-4 flex items-center gap-3 relative">
                                 <div class="user_avatar">
-                                    <span class="text-xl lg:text-2xl font-bold text-white">K</span>
-                                    <img class="h-full w-full rounded-full object-cover hidden" src="<?php echo noste_custom_logo_url(); ?>" alt="">
+                                    <?php $profile_photo = um_get_user_avatar_data( um_user( 'ID' ) ); ?>
+                                    <img class="h-full w-full rounded-full object-cover" src="<?php echo $profile_photo['url'] ?? ''; ?>" alt="">
                                 </div> <!-- user_avatar -->
                                 <div class="hidden md:block">
-                                    <p class="text-base text-black font-medium">Klara Royment</p>
-                                    <p class="text-sm text-[#818D93] font-normal">Admin</p>
+                                    <p class="text-base text-black font-medium"><?php echo um_user('display_name'); ?></p>
+                                    <p class="text-sm text-[#818D93] font-normal"><?php echo UM()->user()->get_role(); ?></p>
                                 </div>
                                 <div class="dropdown relative">
                                     <button class="dropdown-toggle" data-dropdown="profile-dropdown">
@@ -107,7 +109,7 @@
                                                             <img class="h-full w-full rounded-full object-cover hidden" src="<?php echo noste_custom_logo_url(); ?>" alt="">
                                                         </div> <!-- user_avatar -->
                                                         <div>
-                                                            <p class="text-base text-white font-medium">Klara Royment</p>
+                                                            <p class="text-base text-white font-medium"><?php echo um_user('display_name'); ?></p>
                                                             <p class="text-sm text-[#818D93] font-normal">Admin</p>
                                                         </div>
                                                     </div>
