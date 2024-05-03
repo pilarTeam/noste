@@ -558,3 +558,9 @@ td#project_table_status .instep-status.status_3:before {
     max-width: 100%;
     width: 1220px;
 }
+*[readonly] {
+    background: #ddd;
+    box-shadow: none;
+    border-color: #ddd;
+    cursor: not-allowed;
+}

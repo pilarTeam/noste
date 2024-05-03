@@ -263,7 +263,9 @@ jQuery(document).ready(function ($) {
     }, function(start, end, label) {});
 
     // checkbox toogle click 
-    $('.checkbox_change').on('change', function(){
+    $('body').on('change', '.checkbox_change', function(e){
+        e.preventDefault();
+
         $(this).parent().find('.check_show').toggleClass('hidden');
     });
 
@@ -298,7 +300,20 @@ jQuery(document).ready(function ($) {
         $(this).parents('.help_wrap').find('.help_show').toggleClass('hidden');
     });
     
-   
+    // input field readonly switch by checkbox
+    $('.switch_readonly').on('change', '*[type="checkbox"]', function(e){
+        e.preventDefault();
+
+        if ( $(this).prop('checked') ) {
+            $(this).parents('.switch_readonly').find('*[type="text"]').prop('readonly', false);
+        } else {
+            $(this).parents('.switch_readonly').find('*[type="text"]').prop('readonly', true).val('');
+        }
+    });
+    // input field readonly switch by checkbox
+
+
+
     $('form.ajax-submit').on('click', '*[type="submit"]', function(e){
         e.preventDefault();
         $(this).parents('form').trigger('submit');

@@ -1,6 +1,8 @@
 <?php 
 
-/* Template Name: Esitietolomake */if ( !is_user_logged_in() || !isset($_GET['pid']) || empty($_GET['pid']) ) {
+/* Template Name: Old Esitietolomake */
+
+if ( !is_user_logged_in() || !isset($_GET['pid']) || empty($_GET['pid']) ) {
     wp_redirect( site_url() );
     exit;
 }
@@ -588,8 +590,7 @@ get_header( 'noste' );
                         </div>
 
                         <div class="help_show hidden text-[#586B74] text-[14px] lg:w-[384px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:right-[10px] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-50px]">
-                            Huom! Tarkasta kaikki tiedot ennen ensimmaisen
-                            asiakirjan tekoa.
+                            Huom! Tarkasta kaikki tiedot ennen ensimmaisen asiakirjan tekoa.
                         </div>
                     </div>
 

@@ -64,9 +64,6 @@ get_header( 'noste' );
             }
         }
 
-
-
-
     } else {
         wp_redirect( site_url() );
         exit;   
@@ -538,6 +535,7 @@ get_header( 'noste' );
             });
         }
     </script>
+    
     <style>
         @media print {
             body {visibility: hidden;}
@@ -553,8 +551,13 @@ get_header( 'noste' );
     </style>
     
 <?php else: ?>
-        <section class="my-8">
-            <div class="container px-4">
+    <section class="my-8">
+        <div class="container px-4">
+
+             <form id="esitietolomake_form" action="<?php echo esc_url( $action_url ); ?>" method="post">
+                 <?php wp_nonce_field( 'esitietolomake_validation', 'esitietolomake_nonce_field' ); ?>
+                <input type="hidden" name="pid" value="<?php echo esc_attr( $_GET['pid'] ); ?>">
+                               
                 <div class="border border-solid border-[#E1E1EA] rounded-[12px] p-[20px] bg-white">
                     <div class="flex items-center justify-between mb-4">
                         <div>
@@ -637,43 +640,43 @@ get_header( 'noste' );
                         </div>
 
                         <div class="max-w-[700px] mx-auto">
-                            <input type="text" name="pilar_P0" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Partners at Noste.oi" />
+                            <input type="text" name="pilar_P0" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Partners at Noste.oi" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_P0', true )) ); ?>" />
                         </div>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Projektipäällikkö</label>
-                        <input type="text" name="pilar_P1" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_P1" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_P1', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Projektipäällikön puhelinnumero</label>
-                        <input type="text" name="pilar_P2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_P2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_P2', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Projektipäällikön sähköposti</label>
-                        <input type="text" name="pilar_P3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_P3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_P3', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Projektijohtamisen asiantuntija</label>
-                        <input type="text" name="pilar_P4" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_P4" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_P4', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Projektijohtamisen asiantuntijan puhelinnumero</label>
-                        <input type="text" name="pilar_P5" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_P5" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_P5', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Projektijohtamisen asiantuntijan sähköposti</label>
-                        <input type="text" name="pilar_P6" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_P6" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_P6', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Rakennuttajan turvallisuuskoordinaattori</label>
-                        <input type="text" name="pilar_TK1" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_TK1" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_TK1', true )) ); ?>"/>
                     </div>
 
                     <div class="max-w-[700px] mx-auto mt-10 mb-6">
@@ -682,47 +685,47 @@ get_header( 'noste' );
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Tilaaja (yhtiö)</label>
-                        <input type="text" name="pilar_T1" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_T1" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_T1', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Tilaajan Y-tunnus (yhtiö)</label>
-                        <input type="text" name="pilar_T7" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_T7" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_T7', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Tilaajan osoite (yhtiö)</label>
-                        <input type="text" name="pilar_T8" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_T8" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_T8', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Tilaajan edustaja (yhtiö)</label>
-                        <input type="text" name="pilar_T2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_T2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_T2', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Tilaajan edustaja (henkilö)</label>
-                        <input type="text" name="pilar_T3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_T3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_T3', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Tilaajan edustaja (tehtävä)</label>
-                        <input type="text" name="pilar_T4" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_T4" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_T4', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Tilaajan edustajan puhelinnumero</label>
-                        <input type="text" name="pilar_T5" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_T5" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_T5', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Tilaajan edustajan sähköposti</label>
-                        <input type="text" name="pilar_T6" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_T6" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_T6', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Kiinteistön nimi</label>
-                        <input type="text" name="pilar_K1" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_K1" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_K1', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
@@ -732,22 +735,22 @@ get_header( 'noste' );
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Kiinteistön postinumero ja postitoimipaikka</label>
-                        <input type="text" name="pilar_K3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_K3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_K3', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Projektin nimi</label>
-                        <input type="text" name="pilar_K4" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_K4" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_K4', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Tilamuutoksen ala (m2)</label>
-                        <input type="text" name="pilar_M5" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_M5" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_M5', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Projektinumero (Tilaaja)</label>
-                        <input type="text" name="pilar_K8" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_K8" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_K8', true )) ); ?>"/>
                     </div>
 
                     <div class="help_wrap relative mb-2">
@@ -782,14 +785,14 @@ get_header( 'noste' );
                     </div>
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <div class="flex items-center gap-5">
-                            <input type="text" name="pilar_VA1" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[41%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
-                            <input type="text" name="pilar_VA2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[41%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                            <input type="text" name="pilar_VA1" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[41%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_VA1', true )) ); ?>" />
+                            <input type="text" name="pilar_VA2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[41%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_VA2', true )) ); ?>"/>
                         </div>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Rakennuksen valmistumisvuosi</label>
-                        <input type="text" name="pilar_K5" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_K5" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_K5', true )) ); ?>"/>
                     </div>
 
                     <div class="help_wrap relative mb-2">
@@ -823,72 +826,72 @@ get_header( 'noste' );
                         </div>
                     </div>
                     <div class="mb-3 max-w-[700px] mx-auto">
-                        <input type="text" name="pilar_K7" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_K7" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_K7', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Kiinteistömanageeraus (yhtiö)</label>
-                        <input type="text" name="pilar_K22" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_K22" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_K22', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Kiinteistöpäällikkö (Henkilö)</label>
-                        <input type="text" name="pilar_K6" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_K6" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_K6', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Kiinteistöpäällikön puhelinnumero</label>
-                        <input type="text" name="pilar_K10" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_K10" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_K10', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Kiinteistöpäällikön sähköposti</label>
-                        <input type="text" name="pilar_K9" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_K9" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_K9', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Huoltoyhtiö</label>
-                        <input type="text" name="pilar_K23" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_K23" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_K23', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Huoltohenkilö (Henkilö)</label>
-                        <input type="text" name="pilar_K11" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_K11" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_K11', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Huollon puhelinnumero</label>
-                        <input type="text" name="pilar_K13" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_K13" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_K13', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Huollon sähköposti</label>
-                        <input type="text" name="pilar_K12" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_K12" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_K12', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Aulan puhelinnumero</label>
-                        <input type="text" name="pilar_K15" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_K15" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_K15', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Aulan sähköposti</label>
-                        <input type="text" name="pilar_K14" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_K14" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_K14', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Aulan aukioloajat (x-y)</label>
-                        <input type="text" name="pilar_K16" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_K16" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_K16', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Tilasuunnittelija (yhtiö)</label>
-                        <input type="text" name="pilar_T9" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_T9" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_T9', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Tilasuunnittelija (henkilö)</label>
-                        <input type="text" name="pilar_T10" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_T10" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_T10', true )) ); ?>"/>
                     </div>
 
                     <div class="help_wrap relative mb-2">
@@ -922,7 +925,7 @@ get_header( 'noste' );
                         </div>
                     </div>
                     <div class="mb-3 max-w-[700px] mx-auto">
-                        <input type="text" name="pilar_T11" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_T11" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_T11', true )) ); ?>"/>
                     </div>
 
                     <div class="help_wrap relative mb-2">
@@ -956,7 +959,7 @@ get_header( 'noste' );
                         </div>
                     </div>
                     <div class="mb-3 max-w-[700px] mx-auto">
-                        <input type="text" name="pilar_K12" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_K12" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_K12', true )) ); ?>"/>
                     </div>
 
                     <div class="max-w-[700px] mx-auto mt-10 mb-6">
@@ -964,39 +967,39 @@ get_header( 'noste' );
                     </div>
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Pääurakoitsija (Yhtiö)</label>
-                        <input type="text" name="pilar_U1" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_U1" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_U1', true )) ); ?>"/>
                     </div>
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Pääurakoitsijan Y-tunnus</label>
-                        <input type="text" name="pilar_U2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_U2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_U2', true )) ); ?>"/>
                     </div>
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Pääurakoitsijan osoite</label>
-                        <input type="text" name="pilar_U3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_U3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_U3', true )) ); ?>"/>
                     </div>
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Pääurakoitsijan sopimusasioista vastaava henkilö</label>
-                        <input type="text" name="pilar_U4" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_U4" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_U4', true )) ); ?>"/>
                     </div>
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Pääurakoitsijan sopimusasioista vastaavan henkilön puhelinnumero</label>
-                        <input type="text" name="pilar_U6" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_U6" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_U6', true )) ); ?>"/>
                     </div>
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Pääurakoitsijan sopimusasioista vastaavan henkilön sähköposti</label>
-                        <input type="text" name="pilar_U5" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_U5" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_U5', true )) ); ?>"/>
                     </div>
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Pääurakoitsijan vastaava työnjohtaja</label>
-                        <input type="text" name="pilar_U7" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_U7" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_U7', true )) ); ?>"/>
                     </div>
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Pääurakoitsijan vastaavan työnjohtajan puhelinnumero</label>
-                        <input type="text" name="pilar_U9" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_U9" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_U9', true )) ); ?>"/>
                     </div>
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Pääurakoitsijan vastaavan työnjohtajan sähköposti</label>
-                        <input type="text" name="pilar_U8" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_U8" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_U8', true )) ); ?>"/>
                     </div>
 
                     <div class="max-w-[700px] mx-auto mt-10 mb-6">
@@ -1004,27 +1007,27 @@ get_header( 'noste' );
                     </div>
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Vuokralainen (yhtiö)</label>
-                        <input type="text" name="pilar_V1" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_V1" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_V1', true )) ); ?>"/>
                     </div>
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Vuokralaisen Y-tunnus</label>
-                        <input type="text" name="pilar_V6" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_V6" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_V6', true )) ); ?>"/>
                     </div>
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Vuokralaisen allekirjoitusoikeudellinen henkilö (nimi)</label>
-                        <input type="text" name="pilar_V2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_V2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_V2', true )) ); ?>"/>
                     </div>
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Vuokralaisen yhteyshenkilö suunnitteluasioissa (nimi)</label>
-                        <input type="text" name="pilar_V3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_V3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_V3', true )) ); ?>"/>
                     </div>
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Vuokralaisen yhteyshenkilön sähköposti</label>
-                        <input type="text" name="pilar_V4" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_V4" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_V4', true )) ); ?>"/>
                     </div>
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Vuokralaisen yhteyshenkilön puhelinnumero</label>
-                        <input type="text" name="pilar_V5" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_V5" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_V5', true )) ); ?>"/>
                     </div>
 
                     <div class="max-w-[700px] mx-auto mt-10 mb-6">
@@ -1032,12 +1035,12 @@ get_header( 'noste' );
                     </div>
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Muutostöissä huomioitavat PTS-asiat (esim. vaihdetaan valaistus LED vaikka suunnitelmissa ei lue)</label>
-                        <input type="text" name="pilar_PTS" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_PTS" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_PTS', true )) ); ?>"/>
                     </div>
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Kiinteistön erikoisuudet (johtokaivot ulkoseinillä,
                             vanhat lasiseinät huonoja, väliseinät ohuita tms.)</label>
-                        <input type="text" name="pilar_K21" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_K21" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_K21', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
@@ -1046,29 +1049,24 @@ get_header( 'noste' );
                         <div class="flex flex-col lg:flex-row gap-3 lg:items-center lg:gap-20">
                             <label class="inline-flex items-center gap-2 cursor-pointer">
                                 <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
-                                    <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                        <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
-                                    </svg>
+                                    <svg class="check_show <?php echo noste_checkbox_status( noste_checked_with_json( get_post_meta( $pid, 'pilar_K17', true ), 'Sprinkleri') ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                 </span>
-                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K17_1" />
+
+                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K17[]" value="Sprinkleri" <?php echo esc_html( noste_checked_with_json( get_post_meta( $pid, 'pilar_K17', true ), 'Sprinkleri' ) ); ?>>
                                 <span class="flex-1 text-[#586B74] text-[14px]">Sprinkleri</span>
                             </label>
 
                             <label class="inline-flex items-center gap-2 cursor-pointer">
                                 <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
-                                    <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                        <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
-                                    </svg>
+                                    <svg class="check_show <?php echo esc_attr( noste_checkbox_status( noste_checked_with_json( get_post_meta( $pid, 'pilar_K17', true ), 'Paloilmoittimet') ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                 </span>
-                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K17_2" />
+                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K17[]" value="Paloilmoittimet" <?php echo esc_html( noste_checked_with_json( get_post_meta( $pid, 'pilar_K17', true ), 'Paloilmoittimet' ) ); ?>>
                                 <span class="flex-1 text-[#586B74] text-[14px]">Paloilmoittimet</span>
                             </label>
                         </div>
                     </div>
+
+
                     <div class="mb-3">
                         <div class="mb-2 max-w-[700px] mx-auto flex items-center gap-2">
                             <label class="text-[#586B74] text-[14px] block min-w-[230px]">
@@ -1076,25 +1074,23 @@ get_header( 'noste' );
                             </label>
                         </div>
 
-                        <div class="flex flex-col lg:flex-row gap-3 lg:items-center lg:gap-20 max-w-[700px] mx-auto">
-                            <div class="inline-flex items-center gap-2 cursor-pointer">
-                                <span class="text-[#586B74] text-[14px]">Kyllä, kenen (---)</span>
-                                <input type="text" name="pilar_K18" class="flex-1 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
-                            </div>
+                        <div class="input-yes-no flex flex-col lg:flex-row gap-3 lg:items-center lg:gap-20 max-w-[700px] mx-auto">
+                            <label class="inline-flex items-center gap-2 cursor-pointer">
+                                <span class="flex-1 text-[#586B74] text-[14px]">Kyllä, kenen (---)</span>
+                                <input type="text" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] lg:w-[50%] border border-solid border-[#06F9B7] rounded-[5px] p-2" name="pilar_K18" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_K18', true ) ) != 'no' ? noste_check_empty(get_post_meta( $pid, 'pilar_K18', true ) ) : '' ); ?>">
+                                <!-- <input type="radio" class="radio_change absolute opacity-0" name="pilar_K18"> -->
+                            </label>
 
                             <label class="inline-flex items-center gap-2 cursor-pointer">
                                 <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
-                                    <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                        <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
-                                    </svg>
+                                    <svg class="check_show <?php echo esc_attr( noste_checkbox_status( noste_check_empty(get_post_meta( $pid, 'pilar_K18', true )) == 'no' ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                 </span>
-                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18_1" />
+                                <input type="radio" class="radio_change absolute opacity-0" name="pilar_K18" value="no" <?php echo esc_html( checked( noste_check_empty(get_post_meta( $pid, 'pilar_K18', true )), 'no' ) ); ?>>
                                 <span class="flex-1 text-[#586B74] text-[14px]">Ei</span>
                             </label>
                         </div>
                     </div>
+
                     <div class="mb-3">
                         <div class="mb-2 max-w-[700px] mx-auto flex items-center gap-2">
                             <label class="text-[#586B74] text-[14px] block min-w-[245px]">
@@ -1102,62 +1098,47 @@ get_header( 'noste' );
                             </label>
                         </div>
 
-                        <div class="flex flex-col lg:flex-row gap-3 lg:items-center lg:gap-20 max-w-[700px] mx-auto">
-                            <div class="inline-flex items-center gap-2 cursor-pointer">
-                                <span class="text-[#586B74] text-[14px]">Kyllä, kenen (---)</span>
-                                <input type="text" name="pilar_K19" class="flex-1 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
-                            </div>
+                        <div class="input-yes-no flex flex-col lg:flex-row gap-3 lg:items-center lg:gap-20 max-w-[700px] mx-auto">
+                            <label class="inline-flex items-center gap-2 cursor-pointer">
+                                <span class="flex-1 text-[#586B74] text-[14px]">Kyllä, kenen (---)</span>
+                                <input type="text" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] lg:w-[50%] border border-solid border-[#06F9B7] rounded-[5px] p-2" name="pilar_K19" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_K19', true ) ) != 'no' ? noste_check_empty(get_post_meta( $pid, 'pilar_K19', true ) ) : '' ); ?>">
+                            </label>
 
                             <label class="inline-flex items-center gap-2 cursor-pointer">
                                 <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
-                                    <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                        <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
-                                    </svg>
+                                    <svg class="check_show <?php echo esc_attr( noste_checkbox_status( noste_check_empty(get_post_meta( $pid, 'pilar_K19', true )) == 'no' ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                 </span>
-                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K19_1" />
+                                <input type="radio" class="radio_change absolute opacity-0" name="pilar_K19" value="no" <?php echo esc_html( checked( noste_check_empty(get_post_meta( $pid, 'pilar_K19', true )), 'no' ) ); ?>>
                                 <span class="flex-1 text-[#586B74] text-[14px]">Ei</span>
                             </label>
                         </div>
                     </div>
+
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-3 text-[#586B74] text-[14px] block">Vuokralaisten sähkön laskutus</label>
 
                         <div class="flex flex-col lg:flex-row gap-3 lg:items-center lg:gap-20">
                             <label class="inline-flex items-center gap-2 cursor-pointer">
                                 <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
-                                    <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                        <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
-                                    </svg>
+                                    <svg class="check_show <?php echo esc_attr( noste_checkbox_status( noste_checked_with_json( get_post_meta( $pid, 'pilar_K20', true ), 'Oma sahkosopimus') ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                 </span>
-                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K20_1" />
+                                <input type="radio" class="radio_change absolute opacity-0" name="pilar_K20[]" value="Oma sahkosopimus" <?php echo esc_html( noste_checked_with_json( get_post_meta( $pid, 'pilar_K20', true ), 'Oma sahkosopimus' ) ); ?>>
                                 <span class="flex-1 text-[#586B74] text-[14px]">Oma sähkösopimus</span>
                             </label>
 
                             <label class="inline-flex items-center gap-2 cursor-pointer">
                                 <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
-                                    <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                        <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
-                                    </svg>
+                                    <svg class="check_show <?php echo esc_attr( noste_checkbox_status( noste_checked_with_json( get_post_meta( $pid, 'pilar_K20', true ), 'Nelioperusteinen') ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                 </span>
-                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K20_2" />
+                                <input type="radio" class="radio_change absolute opacity-0" name="pilar_K20[]" value="Nelioperusteinen" <?php echo esc_html( noste_checked_with_json( get_post_meta( $pid, 'pilar_K20', true ), 'Nelioperusteinen' ) ); ?>>
                                 <span class="flex-1 text-[#586B74] text-[14px]">Neliöperusteinen</span>
                             </label>
 
                             <label class="inline-flex items-center gap-2 cursor-pointer">
                                 <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
-                                    <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                        <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
-                                    </svg>
+                                    <svg class="check_show <?php echo esc_attr( noste_checkbox_status(noste_checked_with_json( get_post_meta( $pid, 'pilar_K20', true ), 'Kiinteiston alamittaus')) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                 </span>
-                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K20_3" />
+                                <input type="radio" class="radio_change absolute opacity-0" name="pilar_K20[]" value="Kiinteiston alamittaus" <?php echo esc_html( noste_checked_with_json( get_post_meta( $pid, 'pilar_K20', true ), 'Kiinteiston alamittaus' ) ); ?>>
                                 <span class="flex-1 text-[#586B74] text-[14px]">Kiinteistön alamittaus</span>
                             </label>
                         </div>
@@ -1165,19 +1146,19 @@ get_header( 'noste' );
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Sähköisen laskutuksen ohje, tiedot kopioituina (ei kuvia)</label>
-                        <input type="text" name="pilar_M1" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_M1" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_M1', true )) ); ?>"/>
                     </div>
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Avaimet ja kulkutunnisteet Nosteelle</label>
-                        <input type="text" name="pilar_M2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_M2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_M2', true )) ); ?>"/>
                     </div>
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Projektipankki ja ohjeet</label>
-                        <input type="text" name="pilar_M4" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_M4" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_M4', true )) ); ?>"/>
                     </div>
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Kokoustilojen varausohje, tiedot kopioituina (ei kuvia)</label>
-                        <input type="text" name="pilar_M3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_M3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_M3', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto mt-10 mb-5">
@@ -1192,25 +1173,24 @@ get_header( 'noste' );
                     </div>
                     <div class="help_wrap relative">
                         <div class="max-w-[700px] mx-auto flex items-center gap-2">
-                            <div class="grid lg:grid-cols-2 lg:min-w-[675px] gap-3">
-                                <div class="flex items-center">
+                            <div class="grid grid-cols-1 lg:min-w-[675px] gap-3">
+                                <div class="flex items-center w-full">
                                     <label class="text-[#586B74] text-[14px] block min-w-[155px]">Purkutyöt</label>
-                                    <div class="flex items-center gap-3">
+                                    <div class="flex items-center gap-3 w-full switch_readonly">
                                         <label class="inline-flex items-center gap-2 cursor-pointer">
                                             <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                                <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_TY1', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                                     <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1_1" />
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_TY1" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_TY1', true ) ) ) , true, true ); ?> />
                                         </label>
-                                        <input type="text" name="pilar_TY1_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                        <input type="text" name="pilar_TY1" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_TY1', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_TY1', true ) )) ); ?>/>
                                     </div>
                                 </div>
 
-                                <input type="text" name="pilar_TY1_3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
                             </div>
 
                             <a href="#!" class="help_click">
@@ -1239,25 +1219,24 @@ get_header( 'noste' );
                     </div>
                     <div class="help_wrap relative mt-5">
                         <div class="max-w-[700px] mx-auto flex items-center gap-2">
-                            <div class="grid lg:grid-cols-2 lg:min-w-[675px] gap-3">
-                                <div class="flex items-center">
+                            <div class="grid grid-cols-1 lg:min-w-[675px] gap-3">
+                                <div class="flex items-center w-full">
                                     <label class="text-[#586B74] text-[14px] block min-w-[155px]">Lattiatyöt</label>
-                                    <div class="flex items-center gap-3">
+                                    <div class="flex items-center gap-3 w-full switch_readonly">
                                         <label class="inline-flex items-center gap-2 cursor-pointer">
                                             <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                                <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_TY2', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                                     <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY2_1" />
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_TY2" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_TY2', true ) ) ) , true, true ); ?> />
                                         </label>
-                                        <input type="text" name="pilar_TY2_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                        <input type="text" name="pilar_TY2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_TY2', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_TY2', true ) )) ); ?>/>
                                     </div>
                                 </div>
 
-                                <input type="text" name="pilar_TY2_3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
                             </div>
 
                             <a href="#!" class="help_click">
@@ -1286,25 +1265,24 @@ get_header( 'noste' );
                     </div>
                     <div class="help_wrap relative mt-5">
                         <div class="max-w-[700px] mx-auto flex items-center gap-2">
-                            <div class="grid lg:grid-cols-2 lg:min-w-[675px] gap-3">
-                                <div class="flex items-center">
+                            <div class="grid grid-cols-1 lg:min-w-[675px] gap-3">
+                                <div class="flex items-center w-full">
                                     <label class="text-[#586B74] text-[14px] block min-w-[155px]">Seinätyöt</label>
-                                    <div class="flex items-center gap-3">
+                                    <div class="flex items-center gap-3 w-full switch_readonly">
                                         <label class="inline-flex items-center gap-2 cursor-pointer">
                                             <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                                <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_TY3', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                                     <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY3_1" />
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_TY3" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_TY3', true ) ) ) , true, true ); ?>/>
                                         </label>
-                                        <input type="text" name="pilar_TY3_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                        <input type="text" name="pilar_TY3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_TY3', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_TY3', true ) )) ); ?>/>
                                     </div>
                                 </div>
 
-                                <input type="text" name="pilar_TY3_3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
                             </div>
 
                             <a href="#!" class="help_click">
@@ -1333,25 +1311,24 @@ get_header( 'noste' );
                     </div>
                     <div class="help_wrap relative mt-5">
                         <div class="max-w-[700px] mx-auto flex items-center gap-2">
-                            <div class="grid lg:grid-cols-2 lg:min-w-[675px] gap-3">
-                                <div class="flex items-center">
+                            <div class="grid grid-cols-1 lg:min-w-[675px] gap-3">
+                                <div class="flex items-center w-full">
                                     <label class="text-[#586B74] text-[14px] block min-w-[155px]">Alakatto- ja holvityöt</label>
-                                    <div class="flex items-center gap-3">
+                                    <div class="flex items-center gap-3 w-full switch_readonly">
                                         <label class="inline-flex items-center gap-2 cursor-pointer">
                                             <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                                <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_TY4', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                                     <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY4_1" />
+                                             <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_TY4" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_TY4', true ) ) ) , true, true ); ?>/>
                                         </label>
-                                        <input type="text" name="pilar_TY4_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                        <input type="text" name="pilar_TY4" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_TY4', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_TY4', true ) )) ); ?>/>
                                     </div>
                                 </div>
 
-                                <input type="text" name="pilar_TY4_3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
                             </div>
 
                             <a href="#!" class="help_click">
@@ -1380,25 +1357,24 @@ get_header( 'noste' );
                     </div>
                     <div class="help_wrap relative mt-5">
                         <div class="max-w-[700px] mx-auto flex items-center gap-2">
-                            <div class="grid lg:grid-cols-2 lg:min-w-[675px] gap-3">
-                                <div class="flex items-center">
+                            <div class="grid grid-cols-1 lg:min-w-[675px] gap-3">
+                                <div class="flex items-center w-full">
                                     <label class="text-[#586B74] text-[14px] block min-w-[155px]">WC-muutokset</label>
-                                    <div class="flex items-center gap-3">
+                                    <div class="flex items-center gap-3 w-full switch_readonly">
                                         <label class="inline-flex items-center gap-2 cursor-pointer">
                                             <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                                <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_TY5', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                                     <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY5_1" />
+                                             <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_TY5" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_TY5', true ) ) ) , true, true ); ?> />
                                         </label>
-                                        <input type="text" name="pilar_TY5_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                        <input type="text" name="pilar_TY5" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_TY5', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_TY5', true ) )) ); ?>/>
                                     </div>
                                 </div>
 
-                                <input type="text" name="pilar_TY5_3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
                             </div>
 
                             <a href="#!" class="help_click">
@@ -1427,25 +1403,24 @@ get_header( 'noste' );
                     </div>
                     <div class="help_wrap relative mt-5">
                         <div class="max-w-[700px] mx-auto flex items-center gap-2">
-                            <div class="grid lg:grid-cols-2 lg:min-w-[675px] gap-3">
-                                <div class="flex items-center">
+                            <div class="grid grid-cols-1 lg:min-w-[675px] gap-3">
+                                <div class="flex items-center w-full switch_readonly">
                                     <label class="text-[#586B74] text-[14px] block min-w-[155px]">Keittiömuutokset</label>
-                                    <div class="flex items-center gap-3">
+                                    <div class="flex items-center gap-3 w-full">
                                         <label class="inline-flex items-center gap-2 cursor-pointer">
                                             <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                                <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_TY6', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                                     <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY6_1" />
+                                             <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_TY6" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_TY6', true ) ) ) , true, true ); ?> />
                                         </label>
-                                        <input type="text" name="pilar_TY6_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                        <input type="text" name="pilar_TY6" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_TY6', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_TY6', true ) )) ); ?>/>
                                     </div>
                                 </div>
 
-                                <input type="text" name="pilar_TY6_3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
                             </div>
 
                             <a href="#!" class="help_click">
@@ -1474,25 +1449,24 @@ get_header( 'noste' );
                     </div>
                     <div class="help_wrap relative mt-5">
                         <div class="max-w-[700px] mx-auto flex items-center gap-2">
-                            <div class="grid lg:grid-cols-2 lg:min-w-[675px] gap-3">
-                                <div class="flex items-center">
+                            <div class="grid grid-cols-1 lg:min-w-[675px] gap-3">
+                                <div class="flex items-center w-full switch_readonly">
                                     <label class="text-[#586B74] text-[14px] block min-w-[155px]">Kalustustyöt</label>
-                                    <div class="flex items-center gap-3">
+                                    <div class="flex items-center gap-3 w-full">
                                         <label class="inline-flex items-center gap-2 cursor-pointer">
                                             <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                                <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_TY7', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                                     <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY7_1" />
+                                             <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_TY7" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_TY7', true ) ) ) , true, true ); ?> />
                                         </label>
-                                        <input type="text" name="pilar_TY7_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                        <input type="text" name="pilar_TY7" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_TY7', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_TY7', true ) )) ); ?>/>
                                     </div>
                                 </div>
 
-                                <input type="text" name="pilar_TY7_3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
                             </div>
 
                             <a href="#!" class="help_click">
@@ -1521,25 +1495,24 @@ get_header( 'noste' );
                     </div>
                     <div class="help_wrap relative mt-5">
                         <div class="max-w-[700px] mx-auto flex items-center gap-2">
-                            <div class="grid lg:grid-cols-2 lg:min-w-[675px] gap-3">
-                                <div class="flex items-center">
+                            <div class="grid grid-cols-1 lg:min-w-[675px] gap-3">
+                                <div class="flex items-center w-full switch_readonly">
                                     <label class="text-[#586B74] text-[14px] block min-w-[155px]">Sähkötyöt</label>
-                                    <div class="flex items-center gap-3">
+                                    <div class="flex items-center gap-3 w-full">
                                         <label class="inline-flex items-center gap-2 cursor-pointer">
                                             <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                                <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_TY8', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                                     <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY8_1" />
+                                             <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_TY8" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_TY8', true ) ) ) , true, true ); ?> />
                                         </label>
-                                        <input type="text" name="pilar_TY8_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                        <input type="text" name="pilar_TY8" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_TY8', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_TY8', true ) )) ); ?>/>
                                     </div>
                                 </div>
 
-                                <input type="text" name="pilar_TY8_3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
                             </div>
 
                             <a href="#!" class="help_click">
@@ -1568,25 +1541,24 @@ get_header( 'noste' );
                     </div>
                     <div class="help_wrap relative mt-5">
                         <div class="max-w-[700px] mx-auto flex items-center gap-2">
-                            <div class="grid lg:grid-cols-2 lg:min-w-[675px] gap-3">
-                                <div class="flex items-center">
+                            <div class="grid grid-cols-1 lg:min-w-[675px] gap-3">
+                                <div class="flex items-center w-full switch_readonly">
                                     <label class="text-[#586B74] text-[14px] block min-w-[155px]">LVIA-työt</label>
-                                    <div class="flex items-center gap-3">
+                                    <div class="flex items-center gap-3 w-full">
                                         <label class="inline-flex items-center gap-2 cursor-pointer">
                                             <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                                <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_TY9', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                                     <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY9_1" />
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_TY9" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_TY9', true ) ) ) , true, true ); ?> />
                                         </label>
-                                        <input type="text" name="pilar_TY9_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                        <input type="text" name="pilar_TY9" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_TY9', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_TY9', true ) )) ); ?>/>
                                     </div>
                                 </div>
 
-                                <input type="text" name="pilar_TY9_3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
                             </div>
 
                             <a href="#!" class="help_click">
@@ -1615,25 +1587,24 @@ get_header( 'noste' );
                     </div>
                     <div class="help_wrap relative mt-5">
                         <div class="max-w-[700px] mx-auto flex items-center gap-2">
-                            <div class="grid lg:grid-cols-2 lg:min-w-[675px] gap-3">
-                                <div class="flex items-center">
+                            <div class="grid grid-cols-1 lg:min-w-[675px] gap-3">
+                                <div class="flex items-center w-full switch_readonly">
                                     <label class="text-[#586B74] text-[14px] block min-w-[155px]">SPR-työt</label>
-                                    <div class="flex items-center gap-3">
+                                    <div class="flex items-center gap-3 w-full">
                                         <label class="inline-flex items-center gap-2 cursor-pointer">
                                             <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                                <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_TY10', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                                     <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY10_1" />
+                                             <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_TY10" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_TY10', true ) ) ) , true, true ); ?> />
                                         </label>
-                                        <input type="text" name="pilar_TY10_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                        <input type="text" name="pilar_TY10" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_TY10', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_TY10', true ) )) ); ?>/>
                                     </div>
                                 </div>
 
-                                <input type="text" name="pilar_TY10_3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
                             </div>
 
                             <a href="#!" class="help_click">
@@ -1662,25 +1633,24 @@ get_header( 'noste' );
                     </div>
                     <div class="help_wrap relative mt-5">
                         <div class="max-w-[700px] mx-auto flex items-center gap-2">
-                            <div class="grid lg:grid-cols-2 lg:min-w-[675px] gap-3">
-                                <div class="flex items-center">
+                            <div class="grid grid-cols-1 lg:min-w-[675px] gap-3">
+                                <div class="flex items-center w-full switch_readonly">
                                     <label class="text-[#586B74] text-[14px] block min-w-[155px]">Turva- ja lukitustyöt</label>
-                                    <div class="flex items-center gap-3">
+                                    <div class="flex items-center gap-3 w-full">
                                         <label class="inline-flex items-center gap-2 cursor-pointer">
                                             <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                                <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_TY10', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                                     <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY10_4" />
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_TY10" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_TY10', true ) ) ) , true, true ); ?> />
                                         </label>
-                                        <input type="text" name="pilar_TY10_5" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                        <input type="text" name="pilar_TY10" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_TY10', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_TY10', true ) )) ); ?>/>
                                     </div>
                                 </div>
 
-                                <input type="text" name="pilar_TY10_6" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
                             </div>
 
                             <a href="#!" class="help_click">
@@ -1709,25 +1679,24 @@ get_header( 'noste' );
                     </div>
                     <div class="help_wrap relative mt-5">
                         <div class="max-w-[700px] mx-auto flex items-center gap-2">
-                            <div class="grid lg:grid-cols-2 lg:min-w-[675px] gap-3">
-                                <div class="flex items-center">
+                            <div class="grid grid-cols-1 lg:min-w-[675px] gap-3">
+                                <div class="flex items-center w-full switch_readonly">
                                     <label class="text-[#586B74] text-[14px] block min-w-[155px]">Muut työt</label>
-                                    <div class="flex items-center gap-3">
+                                    <div class="flex items-center gap-3 w-full">
                                         <label class="inline-flex items-center gap-2 cursor-pointer">
                                             <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                                <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_TY11', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                                     <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY11_1" />
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_TY11" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_TY11', true ) ) ) , true, true ); ?> />
                                         </label>
-                                        <input type="text" name="pilar_TY11_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                        <input type="text" name="pilar_TY11" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_TY11', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_TY11', true ) )) ); ?>/>
                                     </div>
                                 </div>
 
-                                <input type="text" name="pilar_TY11_3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
                             </div>
 
                             <a href="#!" class="help_click">
@@ -1756,25 +1725,24 @@ get_header( 'noste' );
                     </div>
                     <div class="help_wrap relative mt-5">
                         <div class="max-w-[700px] mx-auto flex items-center gap-2">
-                            <div class="grid lg:grid-cols-2 lg:min-w-[675px] gap-3 items-center">
-                                <div class="flex items-center">
+                            <div class="grid grid-cols-1 lg:min-w-[675px] gap-3 items-center">
+                                <div class="flex items-center w-full switch_readonly">
                                     <label class="text-[#586B74] text-[14px] block min-w-[155px]">Käyttö- ja yhteiskustannukset</label>
-                                    <div class="flex items-center gap-3">
+                                    <div class="flex items-center gap-3 w-full">
                                         <label class="inline-flex items-center gap-2 cursor-pointer">
                                             <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                                <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_TY12', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                                     <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY12_1" />
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_TY12" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_TY12', true ) ) ) , true, true ); ?> />
                                         </label>
-                                        <input type="text" name="pilar_TY12_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                        <input type="text" name="pilar_TY12" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_TY12', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_TY12', true ) )) ); ?>/>
                                     </div>
                                 </div>
 
-                                <input type="text" name="pilar_TY12_3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
                             </div>
 
                             <a href="#!" class="help_click">
@@ -1803,22 +1771,20 @@ get_header( 'noste' );
                     </div>
                     <div class="help_wrap relative mt-5">
                         <div class="max-w-[700px] mx-auto flex items-center gap-2">
-                            <div class="grid lg:grid-cols-2 lg:min-w-[675px] gap-3 items-center">
-                                <div class="flex items-center gap-3">
+                            <div class="grid grid-cols-1 lg:min-w-[675px] gap-3 items-center switch_readonly">
+                                <div class="flex items-center gap-3 w-full">
                                     <label class="inline-flex items-center gap-2 cursor-pointer">
                                         <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                            <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_TYX', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                                 <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TYX_1" />
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_TYX" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_TYX', true ) ) ) , true, true ); ?>/>
                                     </label>
-                                    <input type="text" name="pilar_TYX_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[90%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Muuta" />
+                                    <input type="text" name="pilar_TYX" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Muuta" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_TYX', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_TYX', true ) )) ); ?>/>
                                 </div>
-
-                                <input type="text" name="pilar_TYX_3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
                             </div>
 
                             <a href="#!" class="help_click">
@@ -1879,7 +1845,7 @@ get_header( 'noste' );
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Hyväksytty kokonaisbudjetti (€ alv. 0%)</label>
-                        <input type="text" name="pilar_BU1" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_BU1" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_BU1', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
@@ -1888,7 +1854,7 @@ get_header( 'noste' );
                     <div class="help_wrap relative mb-2">
                         <div class="max-w-[700px] mx-auto flex items-center gap-2">
                             <div class="lg:min-w-[595px]">
-                                <input type="text" name="pilar_BU2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                <input type="text" name="pilar_BU2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_BU2', true )) ); ?>"/>
                             </div>
 
                             <a href="#!" class="help_click">
@@ -1918,7 +1884,7 @@ get_header( 'noste' );
                     <div class="help_wrap relative mb-2">
                         <div class="max-w-[700px] mx-auto flex items-center gap-2">
                             <div class="lg:min-w-[595px]">
-                                <input type="text" name="pilar_BU3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                <input type="text" name="pilar_BU3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_BU3', true )) ); ?>" />
                             </div>
 
                             <a href="#!" class="help_click">
@@ -1948,7 +1914,7 @@ get_header( 'noste' );
                     <div class="help_wrap relative mb-2">
                         <div class="max-w-[700px] mx-auto flex items-center gap-2">
                             <div class="lg:min-w-[595px]">
-                                <input type="text" name="pilar_BU4" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                <input type="text" name="pilar_BU4" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_BU4', true )) ); ?>" />
                             </div>
 
                             <a href="#!" class="help_click">
@@ -1978,7 +1944,7 @@ get_header( 'noste' );
                     <div class="help_wrap relative mb-2">
                         <div class="max-w-[700px] mx-auto flex items-center gap-2">
                             <div class="lg:min-w-[595px]">
-                                <input type="text" name="pilar_BU5" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                <input type="text" name="pilar_BU5" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_BU5', true )) ); ?>"/>
                             </div>
 
                             <a href="#!" class="help_click">
@@ -2008,7 +1974,7 @@ get_header( 'noste' );
                     <div class="help_wrap relative mb-2">
                         <div class="max-w-[700px] mx-auto flex items-center gap-2">
                             <div class="lg:min-w-[595px]">
-                                <input type="text" name="pilar_BU6" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                <input type="text" name="pilar_BU6" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_BU6', true )) ); ?>"/>
                             </div>
 
                             <a href="#!" class="help_click">
@@ -2034,17 +2000,17 @@ get_header( 'noste' );
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Kiinteä urakkahinta (€ alv. 0%)</label>
-                        <input type="text" name="pilar_UH1" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_UH1" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_UH1', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Urakkahinnan alv. osuus €</label>
-                        <input type="text" name="pilar_UH2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_UH2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_UH2', true )) ); ?>"/>
                     </div>
 
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <label class="mb-2 text-[#586B74] text-[14px] block">Kiinteä urakkahinta (€ alv. 24%)</label>
-                        <input type="text" name="pilar_UH3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                        <input type="text" name="pilar_UH3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_UH3', true )) ); ?>"/>
                     </div>
 
                     <div class="max-w-[700px] mx-auto mt-10 mb-6">
@@ -2054,372 +2020,372 @@ get_header( 'noste' );
                     <div class="mb-3 max-w-[700px] mx-auto">
                         <div class="grid grid-cols-2 gap-3 items-center mb-5">
                             <label class="text-[#586B74] text-[14px] block">Urakoitsijan itselle luovutuksen virhe- ja puutelista</label>
-                            <div class="flex items-center gap-3">
+                            <div class="flex items-center gap-3 switch_readonly">
                                 <label class="inline-flex items-center gap-2 cursor-pointer">
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                        <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_VL1', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                             <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL1_1" />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL1" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_VL1', true ) ) ) , true, true ); ?> />
                                 </label>
-                                <input type="text" name="pilar_VL1_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                <input type="text" name="pilar_VL1" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_VL1', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_VL1', true ) )) ); ?>/>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-3 items-center mb-5">
                             <label class="text-[#586B74] text-[14px] block">Sähköasennusten tarkastus- ja käyttöönottopöytäkirjat</label>
-                            <div class="flex items-center gap-3">
+                            <div class="flex items-center gap-3 switch_readonly">
                                 <label class="inline-flex items-center gap-2 cursor-pointer">
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                        <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_VL2', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                             <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL2_1" />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL2" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_VL2', true ) ) ) , true, true ); ?>/>
                                 </label>
-                                <input type="text" name="pilar_VL2_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                <input type="text" name="pilar_VL2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_VL2', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_VL2', true ) )) ); ?>/>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-3 items-center mb-5">
                             <label class="text-[#586B74] text-[14px] block">Sähköasennusten 3. osapuolen varmennustarkastuksen pöytäkirja</label>
-                            <div class="flex items-center gap-3">
+                            <div class="flex items-center gap-3 switch_readonly">
                                 <label class="inline-flex items-center gap-2 cursor-pointer">
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                        <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_VL3', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                             <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL3_1" />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL3" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_VL3', true ) ) ) , true, true ); ?>/>
                                 </label>
-                                <input type="text" name="pilar_VL3_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                <input type="text" name="pilar_VL3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_VL3', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_VL3', true ) )) ); ?>/>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-3 items-center mb-5">
                             <label class="text-[#586B74] text-[14px] block">Yleiskaapelointipisteiden mittauspöytäkirja</label>
-                            <div class="flex items-center gap-3">
+                            <div class="flex items-center gap-3 switch_readonly">
                                 <label class="inline-flex items-center gap-2 cursor-pointer">
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                        <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_VL4', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                             <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL4_1" />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL4" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_VL4', true ) ) ) , true, true ); ?>/>
                                 </label>
-                                <input type="text" name="pilar_VL4_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                <input type="text" name="pilar_VL4" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_VL4', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_VL4', true ) )) ); ?>/>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-3 items-center mb-5">
                             <label class="text-[#586B74] text-[14px] block">Nousukuidun mittauspöytäkirja</label>
-                            <div class="flex items-center gap-3">
+                            <div class="flex items-center gap-3 switch_readonly">
                                 <label class="inline-flex items-center gap-2 cursor-pointer">
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                        <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_VL5', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                             <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL5_1" />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL5" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_VL5', true ) ) ) , true, true ); ?>/>
                                 </label>
-                                <input type="text" name="pilar_VL5_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                <input type="text" name="pilar_VL5" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_VL5', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_VL5', true ) )) ); ?>/>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-3 items-center mb-5">
                             <label class="text-[#586B74] text-[14px] block">Ilmamäärämittaus- ja säätöpöytäkirja</label>
-                            <div class="flex items-center gap-3">
+                            <div class="flex items-center gap-3 switch_readonly">
                                 <label class="inline-flex items-center gap-2 cursor-pointer">
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                        <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_VL6', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                             <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL6_1" />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL6" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_VL6', true ) ) ) , true, true ); ?>/>
                                 </label>
-                                <input type="text" name="pilar_VL6_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                <input type="text" name="pilar_VL6" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_VL6', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_VL6', true ) )) ); ?>/>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-3 items-center mb-5">
                             <label class="text-[#586B74] text-[14px] block">Uusien jäähdytyspalkkien/konvektoreiden asennuspöytäkirja</label>
-                            <div class="flex items-center gap-3">
+                            <div class="flex items-center gap-3 switch_readonly">
                                 <label class="inline-flex items-center gap-2 cursor-pointer">
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                        <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_VL7', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                             <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL7_1" />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL7" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_VL7', true ) ) ) , true, true ); ?>/>
                                 </label>
-                                <input type="text" name="pilar_VL7_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                <input type="text" name="pilar_VL7" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_VL7', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_VL7', true ) )) ); ?>/>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-3 items-center mb-5">
                             <label class="text-[#586B74] text-[14px] block">Vesivirtojen mittaupöytäkirja (jäähdytys)</label>
-                            <div class="flex items-center gap-3">
+                            <div class="flex items-center gap-3 switch_readonly">
                                 <label class="inline-flex items-center gap-2 cursor-pointer">
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                        <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_VL8', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                             <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL8_1" />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL8" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_VL8', true ) ) ) , true, true ); ?>/>
                                 </label>
-                                <input type="text" name="pilar_VL8_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                <input type="text" name="pilar_VL8" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_VL8', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_VL8', true ) )) ); ?>/>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-3 items-center mb-5">
                             <label class="text-[#586B74] text-[14px] block">Jäähdytysverkoston koepainepöytäkirja</label>
-                            <div class="flex items-center gap-3">
+                            <div class="flex items-center gap-3 switch_readonly">
                                 <label class="inline-flex items-center gap-2 cursor-pointer">
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                        <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_VL9', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                             <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL9_1" />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL9" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_VL9', true ) ) ) , true, true ); ?>/>                                    
                                 </label>
-                                <input type="text" name="pilar_VL9_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                <input type="text" name="pilar_VL9" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_VL9', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_VL9', true ) )) ); ?>/>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-3 items-center mb-5">
                             <label class="text-[#586B74] text-[14px] block">Uusien vesijohtojen painekokeiden pöytäkirja</label>
-                            <div class="flex items-center gap-3">
+                            <div class="flex items-center gap-3 switch_readonly">
                                 <label class="inline-flex items-center gap-2 cursor-pointer">
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                        <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_VL10', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                             <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL10_1" />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL10" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_VL10', true ) ) ) , true, true ); ?>/>
                                 </label>
-                                <input type="text" name="pilar_VL10_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                <input type="text" name="pilar_VL10" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_VL10', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_VL10', true ) )) ); ?>/>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-3 items-center mb-5">
                             <label class="text-[#586B74] text-[14px] block">Paloilmoitinasennusten tarkastuspöytäkirja</label>
-                            <div class="flex items-center gap-3">
+                            <div class="flex items-center gap-3 switch_readonly">
                                 <label class="inline-flex items-center gap-2 cursor-pointer">
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                        <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_VL11', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                             <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL11_1" />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL11" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_VL11', true ) ) ) , true, true ); ?>/>
                                 </label>
-                                <input type="text" name="pilar_VL11_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                <input type="text" name="pilar_VL11" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_VL11', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_VL11', true ) )) ); ?>/>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-3 items-center mb-5">
                             <label class="text-[#586B74] text-[14px] block">Paloilmoitinasennusten 3. osapuolen varmennustarkastuksen pöytäkirja</label>
-                            <div class="flex items-center gap-3">
+                            <div class="flex items-center gap-3 switch_readonly">
                                 <label class="inline-flex items-center gap-2 cursor-pointer">
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                        <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_VL12', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                             <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL12_1" />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL12" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_VL12', true ) ) ) , true, true ); ?>/>
                                 </label>
-                                <input type="text" name="pilar_VL12_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                <input type="text" name="pilar_VL12" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_VL12', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_VL12', true ) )) ); ?>/>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-3 items-center mb-5">
                             <label class="text-[#586B74] text-[14px] block">Sprinkleriasennusten asennustodistus</label>
-                            <div class="flex items-center gap-3">
+                            <div class="flex items-center gap-3 switch_readonly">
                                 <label class="inline-flex items-center gap-2 cursor-pointer">
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                        <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_VL13', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                             <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL13_1" />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL13" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_VL13', true ) ) ) , true, true ); ?>/>
                                 </label>
-                                <input type="text" name="pilar_VL13_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                <input type="text" name="pilar_VL13" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_VL13', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_VL13', true ) )) ); ?>/>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-3 items-center mb-5">
                             <label class="text-[#586B74] text-[14px] block">Sprinkleriasennusten 3. osapuolen varmennustarkastuksen pöytäkirja</label>
-                            <div class="flex items-center gap-3">
+                            <div class="flex items-center gap-3 switch_readonly">
                                 <label class="inline-flex items-center gap-2 cursor-pointer">
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                        <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_VL14', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                             <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL14_1" />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL14" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_VL14', true ) ) ) , true, true ); ?>/>
                                 </label>
-                                <input type="text" name="pilar_VL14_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                <input type="text" name="pilar_VL14" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_VL14', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_VL14', true ) )) ); ?>/>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-3 items-center mb-5">
                             <label class="text-[#586B74] text-[14px] block">Automaation tarkastuspöytäkirja</label>
-                            <div class="flex items-center gap-3">
+                            <div class="flex items-center gap-3 switch_readonly">
                                 <label class="inline-flex items-center gap-2 cursor-pointer">
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                        <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_VL15', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                             <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL15_1" />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL15" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_VL15', true ) ) ) , true, true ); ?>/>
                                 </label>
-                                <input type="text" name="pilar_VL15_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                <input type="text" name="pilar_VL15" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_VL15', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_VL15', true ) )) ); ?>/>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-3 items-center mb-5">
                             <label class="text-[#586B74] text-[14px] block">Vedeneristetöiden toteutuspöytäkirja</label>
-                            <div class="flex items-center gap-3">
+                            <div class="flex items-center gap-3 switch_readonly">
                                 <label class="inline-flex items-center gap-2 cursor-pointer">
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                        <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_VL16', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                             <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL16_1" />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL16" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_VL16', true ) ) ) , true, true ); ?>/>
                                 </label>
-                                <input type="text" name="pilar_VL16_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                <input type="text" name="pilar_VL16" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_VL16', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_VL16', true ) )) ); ?>/>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-3 items-center mb-5">
                             <label class="text-[#586B74] text-[14px] block">Turva- ja merkkivalojärjestelmän käyttöönotto ja testaus pöytäkirja
                             </label>
-                            <div class="flex items-center gap-3">
+                            <div class="flex items-center gap-3 switch_readonly">
                                 <label class="inline-flex items-center gap-2 cursor-pointer">
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                        <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_VL17', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                             <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL17_1" />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL17" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_VL17', true ) ) ) , true, true ); ?>/>
                                 </label>
-                                <input type="text" name="pilar_VL17_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                <input type="text" name="pilar_VL17" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_VL17', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_VL17', true ) )) ); ?>/>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-3 items-center mb-5">
                             <label class="text-[#586B74] text-[14px] block">Antennimittaus pöytäkirja</label>
-                            <div class="flex items-center gap-3">
+                            <div class="flex items-center gap-3 switch_readonly">
                                 <label class="inline-flex items-center gap-2 cursor-pointer">
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                        <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_VL18', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                             <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL18_1" />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL18" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_VL18', true ) ) ) , true, true ); ?>/>
                                 </label>
-                                <input type="text" name="pilar_VL18_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                <input type="text" name="pilar_VL18" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_VL18', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_VL18', true ) )) ); ?>/>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-3 items-center mb-5">
                             <label class="text-[#586B74] text-[14px] block">Pikapalopostien tarkastuspöytäkirja</label>
-                            <div class="flex items-center gap-3">
+                            <div class="flex items-center gap-3 switch_readonly">
                                 <label class="inline-flex items-center gap-2 cursor-pointer">
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                        <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_VL19', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                             <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL19_1" />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL19" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_VL19', true ) ) ) , true, true ); ?>/>
                                 </label>
-                                <input type="text" name="pilar_VL19_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                <input type="text" name="pilar_VL19" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_VL19', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_VL19', true ) )) ); ?>/>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-3 items-center mb-5">
                             <label class="text-[#586B74] text-[14px] block">Talotekniikka-asennusten punakynäpiirustukset</label>
-                            <div class="flex items-center gap-3">
+                            <div class="flex items-center gap-3 switch_readonly">
                                 <label class="inline-flex items-center gap-2 cursor-pointer">
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                        <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_VL20', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                             <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL20_1" />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL20" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_VL20', true ) ) ) , true, true ); ?>/>
                                 </label>
-                                <input type="text" name="pilar_VL20_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                <input type="text" name="pilar_VL20" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_VL20', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_VL20', true ) )) ); ?>/>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-3 items-center mb-5">
                             <label class="text-[#586B74] text-[14px] block">Palokatkojen sijaintikaaviot ja detaljit</label>
-                            <div class="flex items-center gap-3">
+                            <div class="flex items-center gap-3 switch_readonly">
                                 <label class="inline-flex items-center gap-2 cursor-pointer">
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                        <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_VL21', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                             <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL21_1" />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL21" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_VL21', true ) ) ) , true, true ); ?>/>
                                 </label>
-                                <input type="text" name="pilar_VL21_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                <input type="text" name="pilar_VL21" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_VL21', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_VL21', true ) )) ); ?>/>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-3 items-center mb-5">
                             <label class="text-[#586B74] text-[14px] block">Palopeltien asennustodistus</label>
-                            <div class="flex items-center gap-3">
+                            <div class="flex items-center gap-3 switch_readonly">
                                 <label class="inline-flex items-center gap-2 cursor-pointer">
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                        <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_VL22', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                             <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL22_1" />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL22" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_VL22', true ) ) ) , true, true ); ?>/>
                                 </label>
-                                <input type="text" name="pilar_VL22_2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                                <input type="text" name="pilar_VL22" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_VL22', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_VL22', true ) )) ); ?>/>
                             </div>
                         </div>
                     </div>
                     
                     <div class="mb-3 max-w-[700px] mx-auto">
-                        <div class="flex items-center gap-3">
+                        <div class="flex items-center gap-3 switch_readonly">
                             <label class="inline-flex items-center gap-2 cursor-pointer">
                                 <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                    <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <svg class="check_show <?php echo noste_checkbox_status( noste_check_empty( get_post_meta( $pid, 'pilar_VLX', true ) ) ); ?>" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                         <g id="SVGRepo_iconCarrier"><path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
                                     </svg>
                                 </span>
-                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VLX_1" />
+                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VLX" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_VLX', true ) ) ) , true, true ); ?>/>
                             </label>
-                            <input type="text" name="pilar_VLX_2" placeholder="Muuta..." class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[91%] border border-solid border-[#06F9B7] rounded-[5px] p-2" />
+                            <input type="text" name="pilar_VLX" placeholder="Muuta..." class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[91%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_VLX', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_VLX', true ) )) ); ?>/>
                         </div>
                     </div>
 
@@ -2442,8 +2408,9 @@ get_header( 'noste' );
                     </div>
 
                 </div>
-            </div>
-        </section>
+            </form>
+        </div>
+    </section>
 
 <?php endif ?>
  <?php get_footer(); ?>

@@ -119,6 +119,16 @@ function noste_checkbox_status($checked) {
 	}
 }
 
+function noste_checkbox_status_readonly($value) {
+	if ( $value ) {
+		return '';
+	} else {
+		return 'readonly';
+	}
+}
+
+
+
 function noste_custom_checkbox_checked( $checked = '', $current = '' ) {
 	return noste_checked_with_json($checked, $current) ? '' : 'hidden';
 }
