@@ -462,4 +462,18 @@ jQuery(document).ready(function ($) {
     });
 
 /* Notification Template */
+
+    // table collapse 
+    $('.row_collapse').on('click', function(){
+        var get_id = $(this).attr('id');
+
+        $(this).find('.icon1').toggleClass('hidden');
+        $(this).find('.icon2').toggleClass('hidden');
+        
+        $(`.row_${get_id}`).toggleClass('hidden');
+        $(`.col_${get_id}`).toggleClass('invisible');
+
+    });
+
 });
+
