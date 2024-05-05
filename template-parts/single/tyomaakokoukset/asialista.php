@@ -4020,7 +4020,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                             </svg>
                                         </span>
                                         <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
-                                        <span class="flex-1 text-[#586B74] text-[14px]">P1</span>
+                                        <span class="flex-1 text-[#586B74] text-[14px]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P1', true ), 'P1') ); ?></span>
                                     </label>
                                     <label class="inline-flex items-center gap-2 cursor-pointer">
                                         <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
@@ -4033,7 +4033,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                             </svg>
                                         </span>
                                         <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
-                                        <span class="flex-1 text-[#586B74] text-[14px]">P4</span>
+                                        <span class="flex-1 text-[#586B74] text-[14px]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></span>
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">, Partners at Noste Oy.</p>
                                 </div>
@@ -4482,7 +4482,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                     <span>RAKENNUTTAJAN ASIAT</span>
                                 </h3>
                                 
-                                <p class="text-[#586B74] text-[14px] leading-7">Urakoitsijan on kiinnitettävä huomiota, ettei meluavia töitä suoriteta arkisin klo <span class="text-[#FE3B2D]">K7</span> välisenä aikana.</p>
+                                <p class="text-[#586B74] text-[14px] leading-7">Urakoitsijan on kiinnitettävä huomiota, ettei meluavia töitä suoriteta arkisin klo <span class="text-[#FE3B2D]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K7', true ), 'K7') ); ?></span> välisenä aikana.</p>
                                 <p class="text-[#586B74] text-[14px] leading-7">Aihe</p>
                                 
                                 <div class="flex items-center gap-3 mb-4">
@@ -4549,7 +4549,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                     <span>KÄYTTÄJIEN ASIAT</span>
                                 </h3>
 
-                                <p class="text-[#586B74] text-[14px] leading-7">Urakoitsijan on kiinnitettävä huomiota, ettei meluavia töitä suoriteta arkisin klo <span class="text-[#FE3B2D]">K7</span> välisenä aikana.</p>
+                                <p class="text-[#586B74] text-[14px] leading-7">Urakoitsijan on kiinnitettävä huomiota, ettei meluavia töitä suoriteta arkisin klo <span class="text-[#FE3B2D]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K7', true ), 'K7') ); ?></span> välisenä aikana.</p>
                             </div>
                             
                             <div class="help_wrap relative mb-4">
@@ -4642,7 +4642,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                     <span>14. </span>
                                     <span>TYÖMAAKIERROS</span>
                                 </h3>
-                                <p class="text-[#586B74] text-[14px] leading-7">Urakoitsijan on kiinnitettävä huomiota, ettei meluavia töitä suoriteta arkisin klo <span class="text-[#FE3B2D]">K7</span> välisenä aikana.</p>
+                                <p class="text-[#586B74] text-[14px] leading-7">Urakoitsijan on kiinnitettävä huomiota, ettei meluavia töitä suoriteta arkisin klo <span class="text-[#FE3B2D]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K7', true ), 'K7') ); ?></span> välisenä aikana.</p>
 
                                 <div class="text-[#586B74] text-[15px] flex items-start gap-[5px] mb-4">
                                     <span class="inline-block mr-8 text-white">-</span>
@@ -4930,7 +4930,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                     <span>MUUT ASIAT</span>
                                 </h3>
                                 
-                                <p class="text-[#586B74] text-[14px] leading-7">Urakoitsijan on kiinnitettävä huomiota, ettei meluavia töitä suoriteta arkisin klo <span class="text-[#FE3B2D]">K7</span> välisenä aikana.</p>
+                                <p class="text-[#586B74] text-[14px] leading-7">Urakoitsijan on kiinnitettävä huomiota, ettei meluavia töitä suoriteta arkisin klo <span class="text-[#FE3B2D]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K7', true ), 'K7') ); ?></span> välisenä aikana.</p>
                                 <p class="text-[#586B74] text-[14px] leading-7">Aihe</p>
                                 
                                 <div class="flex items-center gap-3 mb-4">
@@ -5042,7 +5042,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </svg>
                                             </span>
                                             <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
-                                            <span class="flex-1 text-[#586B74] text-[14px]">P1</span>
+                                            <span class="flex-1 text-[#586B74] text-[14px]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P1', true ), 'P1') ); ?></span>
                                         </label>
                                         ]
                                     </span>
@@ -5059,7 +5059,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </svg>
                                             </span>
                                             <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
-                                            <span class="flex-1 text-[#586B74] text-[14px]">P4</span>
+                                            <span class="flex-1 text-[#586B74] text-[14px]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></span>
                                         </label>
                                         ]
                                     </span>
@@ -5116,7 +5116,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </svg>
                                                     </span>
                                                     <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
-                                                    <span class="flex-1 text-[#586B74] text-[14px]">P1</span>
+                                                    <span class="flex-1 text-[#586B74] text-[14px]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P1', true ), 'P1') ); ?></span>
                                                 </label>
                                                 ]
                                             </span>
@@ -5133,7 +5133,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </svg>
                                                     </span>
                                                     <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
-                                                    <span class="flex-1 text-[#586B74] text-[14px]">P4</span>
+                                                    <span class="flex-1 text-[#586B74] text-[14px]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></span>
                                                 </label>
                                                 ]
                                             </span>
@@ -5159,7 +5159,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </svg>
                                                     </span>
                                                     <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
-                                                    <span class="flex-1 text-[#586B74] text-[14px]">P1</span>
+                                                    <span class="flex-1 text-[#586B74] text-[14px]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P1', true ), 'P1') ); ?></span>
                                                 </label>
                                                 ]
                                             </span>
@@ -5176,12 +5176,12 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </svg>
                                                     </span>
                                                     <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
-                                                    <span class="flex-1 text-[#586B74] text-[14px]">P4</span>
+                                                    <span class="flex-1 text-[#586B74] text-[14px]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></span>
                                                 </label>
                                                 ]
                                             </span>
                                         </div>
-                                        <p class="text-accent italic text-[15px] mb-5">U1</p>
+                                        <p class="text-accent italic text-[15px] mb-5"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U1', true ), 'U1') ); ?></p>
                                     </div>
                                 </div>
 

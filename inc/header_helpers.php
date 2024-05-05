@@ -170,7 +170,6 @@ $project_header_info = [
         "step" => "Rakennustöiden vastaanotto ja toimeksiannon lopetus",
         "instep" => "Taloudellinen loppuselvitys",
         "form_name" => "TALS1 pöytäkirja_valmis_ver1"          
-
     ],
 ];
 
