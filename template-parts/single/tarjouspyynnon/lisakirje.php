@@ -20,8 +20,8 @@
 
                 <div class="max-w-[700px] mx-auto mt-20">
                     <div class="mb-[30px]">
-                        <span class="font-medium italic text-[#00B2A9] block">K1</span>
-                        <span class="font-medium italic text-[#00B2A9] block">K4</span>
+                        <span class="font-medium italic text-[#00B2A9] block"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K1', true ), 'K1') ); ?></span>
+                        <span class="font-medium italic text-[#00B2A9] block"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K4', true ), 'K4') ); ?></span>
                     </div>
 
                     <div class="mb-[30px] flex items-center gap-[80px]">
@@ -39,7 +39,7 @@
 
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-[20px] mb-5">
                         <span class="text-[#586B74]">RAKENNUTTAJA:</span>
-                        <span class="text-[#00B2A9] italic">T1</span>
+                        <span class="text-[#00B2A9] italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T1', true ), 'T1') ); ?></span>
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-[20px] mb-5">
@@ -58,19 +58,19 @@
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-[20px] mb-5">
                         <span class="text-[#586B74]">YHTEYSHENKILÖ</span>
                         <span class="text-[#586B74]">Kansakoulukatu 10</span>
-                        <span class="text-[#00B2A9] italic">P1</span>
+                        <span class="text-[#00B2A9] italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P1', true ), 'P1') ); ?></span>
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-[20px] mb-5">
                         <span class="text-[#586B74]">(rakennuttajakonsultti):</span>
                         <span class="text-[#586B74]">00100 Helsinki</span>
-                        <span class="text-[#00B2A9] italic">P2</span>
+                        <span class="text-[#00B2A9] italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P2', true ), 'P2') ); ?></span>
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-[20px] mb-5">
                         <span class="hidden lg:inline-block"></span>
                         <span class="hidden lg:inline-block"></span>
-                        <span class="text-[#00B2A9] italic">P3</span>
+                        <span class="text-[#00B2A9] italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P3', true ), 'P3') ); ?></span>
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-[20px] mb-5">
@@ -88,19 +88,19 @@
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-[20px] mb-5">
                         <span class="hidden lg:inline-block"></span>
                         <span class="hidden lg:inline-block"></span>
-                        <span class="text-[#00B2A9] italic">P4</span>
+                        <span class="text-[#00B2A9] italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></span>
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-[20px] mb-5">
                         <span class="hidden lg:inline-block"></span>
                         <span class="hidden lg:inline-block"></span>
-                        <span class="text-[#00B2A9] italic">P5</span>
+                        <span class="text-[#00B2A9] italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P5', true ), 'P5') ); ?></span>
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-[20px] mb-5">
                         <span class="hidden lg:inline-block"></span>
                         <span class="hidden lg:inline-block"></span>
-                        <span class="text-[#00B2A9] italic">P6</span>
+                        <span class="text-[#00B2A9] italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P6', true ), 'P6') ); ?></span>
                     </div>
                 </div>
 
