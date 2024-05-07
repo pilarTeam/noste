@@ -1,6 +1,8 @@
 <?php 
 
-/* Template Name: Esitietolomake */if ( !is_user_logged_in() || !isset($_GET['pid']) || empty($_GET['pid']) ) {
+/* Template Name: Esitietolomake */
+
+if ( !is_user_logged_in() || !isset($_GET['pid']) || empty($_GET['pid']) ) {
     wp_redirect( site_url() );
     exit;
 }
@@ -11,7 +13,6 @@ if ( !is_int($pid) ) {
     wp_redirect( site_url() );
     exit;
 }
-
 
 // echo "<pre>";
 // var_dump($_POST);

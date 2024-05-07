@@ -17,6 +17,34 @@ if ( !array_intersect( [ 'editor', 'administrator' , 'um_project-manager', 'subs
     exit;
 }
 
+if ( array_intersect( [ 'editor' ], $user->roles ) ) {
+    wp_redirect( site_url() );
+    exit;
+}
+
+if ( array_intersect( [ 'subscriber' ], $user->roles ) ) {
+	$valvoja_col = !empty(get_field('valvoja', get_the_ID())) ? array_column(get_field('valvoja', get_the_ID()), 'value'): [];
+
+	if ( empty($valvoja_col) || !is_array($valvoja_col) || !in_array(get_current_user_id(), $valvoja_col) ) {
+	    wp_redirect( site_url() );
+	    exit;
+	}
+}
+
+
+if ( array_intersect( [ 'um_project-manager' ], $user->roles ) ) {
+	$projektipaallikko = !empty(get_field('projektipaallikko', get_the_ID())) ? get_field('projektipaallikko', get_the_ID())['value'] : 0;
+
+	if ( empty($projektipaallikko) || $projektipaallikko != get_current_user_id() ) {
+	    wp_redirect( site_url() );
+	    exit;
+	}
+}
+
+
+
+
+
 get_header( 'noste' );
 
 

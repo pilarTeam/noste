@@ -178,6 +178,16 @@ jQuery(document).ready(function ($) {
         $(this).parents('.dropdown_wrap').hide();
     });
 
+    $('body').on('click', '.switch-toggle', function(e){
+        e.preventDefault();
+
+        var toggleData = $(this).attr('data-toggle');
+
+        if ( toggleData ) {
+            $('#' + toggleData).toggle();
+        }
+    })
+
 
 
 // Create Project
