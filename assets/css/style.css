@@ -672,7 +672,7 @@ input:focus,
 }
 
 #buttonList li,
-	#buttonList_2 li {
+  #buttonList_2 li {
   height: 100%;
   border-radius: 0.125rem;
   padding-top: 0.25rem;
@@ -683,7 +683,7 @@ input:focus,
 
 @media (min-width: 768px) {
   #buttonList li,
-	#buttonList_2 li {
+  #buttonList_2 li {
     border-radius: 9999px;
     padding: 0.5rem;
   }
@@ -738,13 +738,13 @@ input:focus,
 }
 
 #grid-view-btn,
-	#list-view-btn {
+  #list-view-btn {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
 
 #grid-view-btn.active,
-	#list-view-btn.active {
+  #list-view-btn.active {
   border-width: 1px;
   border-color: #00000000;
   --tw-shadow: 1px 1px 3px #818D9314;
@@ -1666,10 +1666,6 @@ input:focus,
 
 .w-\[270px\] {
   width: 270px;
-}
-
-.w-\[280px\] {
-  width: 280px;
 }
 
 .w-\[290px\] {

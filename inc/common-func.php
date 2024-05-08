@@ -119,6 +119,16 @@ function noste_checkbox_status($checked) {
 	}
 }
 
+function noste_checkbox_status_readonly($value) {
+	if ( $value ) {
+		return '';
+	} else {
+		return 'readonly';
+	}
+}
+
+
+
 function noste_custom_checkbox_checked( $checked = '', $current = '' ) {
 	return noste_checked_with_json($checked, $current) ? '' : 'hidden';
 }
@@ -579,15 +589,14 @@ function noste_update_project_step() {
 
 	$template = implode('/', (array) [$step_id, $form_id]);
 	$template_path = get_template_directory() . '/template-preview/' . $template . '.twig';
-	// $template_path = str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, $template_path);
 	
 	if (!file_exists($template_path)) {
-		$myfile = fopen($template_path, "w+") or wp_send_json_error(new WP_Error('009', "Unable to open file! " . $template_path ));
-		$text = '<div class="noste_pages">
+		$myfile = fopen($template_path, "w+") or die("Unable to open file!");
+		$text = `<div class="noste_pages">
 					<div class="single-page">
 						<div class="page-wrap">
 							<div class="page-header">
-								<img src="{{ locale_args.thumbnail }}" alt="Logo" />
+								<img src="{{ locale_args.site_uri }}wp-content/uploads/2024/03/logo-noste.png" alt="Logo" />
 							</div>
 							<div class="page-body">
 								Preview template not found!
@@ -597,7 +606,7 @@ function noste_update_project_step() {
 							</div>
 						</div>
 					</div>
-				</div>';
+				</div>`;
 		fwrite($myfile, $text);
 		fclose($myfile);
 	}
@@ -606,7 +615,7 @@ function noste_update_project_step() {
 	} else {
 		$response->template = get_template_directory_uri() . '/template-preview/blank.twig';
 	}
-	/* Preview Template */
+/* Preview Template */
 
 	foreach ($global_data as $k => $v) {
 		unset($_POST[$k]);			
@@ -621,10 +630,9 @@ function noste_update_project_step() {
 	
 	$updated = update_post_meta( $post_id, $field_key, $data );
 
-	/** Remal Added this line due to a issue with his server. */
-	wp_send_json_success($response);
-	// 
 	if ( $updated ) {
+
+
 	$project_header_info = !empty(get_option( 'noste_project_header_info', true )) ? json_decode( get_option( 'noste_project_header_info', true ), true ) : [];
 
 	$tm = implode('-', [ $step_id, $form_id ]);
@@ -656,6 +664,8 @@ function noste_update_project_step() {
 		$error = new WP_Error( '000', 'Something went wrong!' );
 		wp_send_json_error($error);
 	}
+
+	wp_die();	
 }
 
 
