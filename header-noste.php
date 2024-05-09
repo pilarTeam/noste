@@ -1,3 +1,21 @@
+<?php 
+
+if ( !is_user_logged_in() ) {
+    wp_redirect( site_url() );
+    exit;
+}
+
+
+$user = wp_get_current_user();
+
+if ( !isset($user->roles) && empty($user->roles) ) {
+    wp_redirect( site_url() );
+    exit;   
+}
+
+?>
+
+
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -38,7 +56,11 @@ date_default_timezone_set("Asia/Dhaka");
                     <div class="flex justify-end order-2 lg:order-3">
                         <div class="flex items-center gap-5">
                             <div class="notification-wrapper flex items-center gap-5">
-                                <?php echo noste_header_notification(); ?>  
+                                <?php 
+                                if ( array_intersect(['um_valvoja', 'administrator'], $user->roles) ) {
+                                    echo noste_header_notification(); 
+                                }
+                                ?>  
                             </div>
     
                             <div class="border-l border-line pl-4 relative cursor-pointer">
@@ -49,7 +71,7 @@ date_default_timezone_set("Asia/Dhaka");
                                     </div> <!-- user_avatar -->
                                     <div class="hidden md:block">
                                         <p class="text-base text-black font-medium"><?php echo um_user('display_name'); ?></p>
-                                        <p class="text-sm text-[#818D93] font-normal"><?php echo UM()->user()->get_role(); ?></p>
+                                        <p class="text-sm text-[#818D93] font-normal"><?php echo noste_get_roles( UM()->user()->get_role() ); ?></p>
                                     </div>
                                     <button>
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12" viewBox="0 0 12 12">

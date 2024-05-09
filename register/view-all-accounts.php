@@ -2,9 +2,16 @@
 
 /* Template Name: View All Accounts */
 
-if ( !is_user_logged_in() && !current_user_can('administrator') ) {
+if ( !is_user_logged_in() ) {
 	wp_redirect( site_url() );
 	exit;
+}
+
+$user = wp_get_current_user();
+
+if ( isset($user->roles) && !empty($user->roles) && !array_intersect(['editor', 'administrator'], $user->roles) ) {
+    wp_redirect( site_url() );
+    exit;   
 }
 
 get_header( 'noste' );

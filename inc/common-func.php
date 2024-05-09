@@ -11,10 +11,10 @@ add_action( 'wp_ajax_update_manager_project_status', 'update_manager_project_sta
 add_filter('acf/load_field/name=projektipaallikko', 'noste_project_projektipaallikko');
 add_filter('acf/load_field/name=valvoja', 'noste_project_valvoja');
 
-function noste_send_form_notification( $employee_id, $content, $project_id, $user_id, $status = 'active' ){
+function noste_send_form_notification( $employee_id, $content, $project_id, $user_id, $tm, $status = 'active' ){
 	global $wpdb;
 
-	if ( empty($employee_id) || empty($project_id) || empty($user_id) || !is_user_logged_in() || empty($content) ) {
+	if ( empty($employee_id) || empty($project_id) || empty($user_id) || !is_user_logged_in() || empty($content) || empty($tm) ) {
 		return;
 	}
 
@@ -26,17 +26,30 @@ function noste_send_form_notification( $employee_id, $content, $project_id, $use
 			'project_id' => $project_id,
 			'user_id' => $user_id,
 			'status' => $status,
+			'tm' => $tm
 		],
 		[
 			'%d',
 			'%s',
 			'%d',
 			'%d',
+			'%s',
 			'%s'
 		]
 	);
 
 	return $wpdb->insert_id;
+}
+
+function noste_get_roles ( $role_key = '' ) {
+
+	if ( !isset( wp_roles()->roles ) && !is_array(wp_roles()->roles) ) {
+		return [];
+	}
+	$roles = array_filter(array_combine(array_keys(wp_roles()->roles), array_column(wp_roles()->roles, 'name')));
+
+	return empty($role_key) ? $roles : $roles[$role_key];
+
 }
 
 function noste_check_array_data ( $array = [], $value = '', $default = '' ) {
@@ -136,57 +149,104 @@ function noste_custom_checkbox_checked( $checked = '', $current = '' ) {
 function noste_project_status_change(){
 	$status = !empty($_POST['status']) ? $_POST['status'] : '';
 
-	if ( !empty($status) ) {
-
-		$user = wp_get_current_user();
-
-		if ( $status == 'all' ) {
-
-			if ( array_intersect( [ 'editor', 'administrator' ], $user->roles ) ) {
-			    $projects = get_posts([
-			        'post_type' => 'projektitiedot',
-			        'numberposts' => -1,
-			        'fields' => 'ids',
-			    ]);
-			}
-
-		} else {
-
-			if ( array_intersect( [ 'editor', 'administrator' ], $user->roles ) ) {
-			    $projects = get_posts([
-			        'post_type' => 'projektitiedot',
-			        'numberposts' => -5,
-			        'fields' => 'ids',
-				    'meta_query'    => array(
-				        'relation'      => 'AND',
-				        array(
-				            'key'       => 'projektin_tila',
-				            'value'     => $status,
-				            'compare'   => '=',
-				        ),
-				    ),			        
-			    ]);
-			}
-
-		}
-
-		$output = [];
-
-        if ( !empty($projects) && is_array($projects) ) {
-        	foreach ($projects as $id) {
-        		$output[$id]['projektin_tila'] = !empty(get_field('projektin_tila', $id)) ? get_field('projektin_tila', $id) : '';
-                $output[$id]['projektinumero'] = !empty(get_field('projektinumero', $id)) ? get_field('projektinumero', $id) : '';
-                $output[$id]['projektipaallikko'] = !empty(get_field('projektipaallikko', $id)) ? get_field('projektipaallikko', $id)['label'] : '';
-                $output[$id]['valvoja'] = !empty(get_field('valvoja', $id)) ? implode(', ', array_column(get_field('valvoja', $id), 'label')) : '';
-                $output[$id]['projektin_valmistelu'] = !empty(get_field('projektin_valmistelu', $id)) ? get_field('projektin_valmistelu', $id) : '';
-                $output[$id]['title'] = get_the_title( $id );
-                $output[$id]['permalink'] = get_the_permalink( $id );
-                $output[$id]['projektin_tila
-'] = get_the_permalink( $id );
-        	}
-        }
-		echo json_encode( $output );
+	if ( empty($status) ) {
+		$error = new WP_Error( '001', 'Invalid Select Filter' );
+		wp_send_json_error( $error );		
 	}
+
+	$user = wp_get_current_user();
+
+	if ( !isset($user->roles) || empty($user->roles) ) {
+		$error = new WP_Error( '001', 'Invalid Users' );
+		wp_send_json_error( $error );			
+	}
+
+
+	if ( array_intersect( [ 'editor', 'administrator' ], $user->roles ) ) {
+	    $args = [
+	        'post_type' => 'projektitiedot',
+	        'numberposts' => -1,
+	        'fields' => 'ids'
+	    ];
+	}
+
+	if ( array_intersect( [ 'um_valvoja' ], $user->roles ) ) {
+	    $args = [
+	        'post_type' => 'projektitiedot',
+	        'numberposts' => -1,
+	        'fields' => 'ids',
+	    ];
+
+		$args['meta_query'][] = [
+			'key' => 'valvoja',
+			'value' => get_current_user_id(),
+			'compare' => 'LIKE'
+		];
+
+	}
+
+	if ( array_intersect( [ 'um_project-manager' ], $user->roles ) ) {
+	    $args = [
+	        'post_type' 	=> 'projektitiedot',
+	        'numberposts' 	=> -1,
+	        'fields' 		=> 'ids',
+	        'meta_key'      => 'projektipaallikko',
+	        'meta_value'    => get_current_user_id()
+	    ];
+	}
+
+
+	if ( isset($_POST['psearch']) && !empty($_POST['psearch']) ) {
+	    $args['s'] = $_POST['psearch'];
+	 	error_log(print_r($_POST, true));
+	}
+
+
+	if ( $status != 'all' ) {
+		$args['meta_query'][] = [
+			'key' => 'projektin_tila',
+			'value' => $status,
+			'compare' => '='
+		];
+	}
+
+	 $args['meta_query'][]['relation'] = 'AND';
+
+	 if ( empty($args) ) {
+		$error = new WP_Error( '001', 'Invalid Query' );
+		wp_send_json_error( $error );		 	
+	 }
+
+	 $projects = get_posts( $args );
+
+	 if ( empty($projects) ) {
+		$error = new WP_Error( '001', 'Not Found!!!' );
+		wp_send_json_error( $error );		 	
+	 }
+
+	$output = [];
+
+    if ( !empty($projects) && is_array($projects) ) {
+    	foreach ($projects as $id) {
+
+            $output[$id]['title'] = get_the_title( $id );
+
+            $output[$id]['permalink'] = !in_array('editor', $user->roles) ? get_the_permalink( $id ) : '';
+            $output[$id]['edit_permalink'] = add_query_arg([ 'pid' => $id ], get_permalink( 60 ) );
+
+            $output[$id]['projektinumero'] = !empty(get_field('projektinumero', $id)) ? get_field('projektinumero', $id) : '';
+    		$output[$id]['projektin_tila_status'] = !empty(get_field('projektin_tila', $id)) ? get_field('projektin_tila', $id) : '';
+            $output[$id]['projektipaallikko'] = !empty(get_field('projektipaallikko', $id)) ? get_field('projektipaallikko', $id)['label'] : '';
+            $output[$id]['valvoja'] = !empty(get_field('valvoja', $id)) ? implode(', ', array_column(get_field('valvoja', $id), 'label')) : '';
+            $output[$id]['projektin_valmistelu'] = !empty(get_field('projektin_valmistelu', $id)) ? get_field('projektin_valmistelu', $id) : '';
+
+            $output[$id]['pilar_T1'] = noste_check_empty( get_post_meta( $id, 'pilar_T1', true ), 'Tilaaja (Yritys)');
+            $output[$id]['pilar_K1'] = noste_check_empty( get_post_meta( $id, 'pilar_K1', true ), 'Kiinteistön nimi');
+            $output[$id]['pilar_K2'] = noste_check_empty( get_post_meta( $id, 'pilar_K2', true ), 'Kiinteistön osoite');
+    	}
+    }
+	
+	wp_send_json_success((array) $output, 200);
 
 	wp_die();
 }
@@ -279,6 +339,7 @@ function noste_header_middle() {
 
 
 function noste_header_notification(){
+	
 	ob_start();
 
 	if ( is_page( [ 20, 66 ] ) ) :
@@ -421,7 +482,7 @@ function noste_project_valvoja($field) {
     $field['choices'] = array();
     
     $choices = get_users([ 
-	    'role__in'  => [ 'subscriber'],
+	    'role__in'  => [ 'um_valvoja'],
 	    'fields'    => [ 'id', 'display_name' ]
 	]);
     
@@ -640,10 +701,16 @@ function noste_update_project_step() {
 	$project_header_info[$tm]['tm'] = $tm;
 
 	/* Notification */
-		$user_id = !empty(get_field('projektipaallikko', $post_id)) ? get_field('projektipaallikko', $post_id)['value'] : 0;
+		$user_id = !empty(get_field('valvoja', $post_id)) ? get_field('valvoja', $post_id)['value'] : 0;
 
 		if ( !empty($user_id) ) {
-			noste_send_form_notification( get_current_user_id(), json_encode( $project_header_info[$tm] ), $post_id, $user_id, 'active' );			
+			noste_send_form_notification( 
+				get_current_user_id(), 
+				json_encode( $project_header_info[$tm] ), 
+				$post_id, 
+				$user_id,
+				$tm,
+				'active' );			
 		}
 	/* Notification */
 
@@ -725,7 +792,7 @@ function noste_form_footer($type = 'form') {
 
 	$user = wp_get_current_user();
 
-	if ( isset($user->roles) || !empty($user->roles) || array_intersect( [ 'editor', 'administrator' , 'um_project-manager' ], $user->roles ) ) {
+	if ( isset($user->roles) && !empty($user->roles) && array_intersect( [ 'um_valvoja' ], $user->roles ) ) {
 		$preview_status = true;
 	} else {
 		$preview_status = false;
@@ -746,10 +813,10 @@ function noste_form_footer($type = 'form') {
 	        </div>
 	    </div>
 
-	    <?php if ( isset($_GET['preview']) && $_GET['preview'] > 0 && $preview_status ): ?>
+	    <?php if ( $preview_status ): ?>
 
 			<!-- Card footer -->
-			<div class="card_footer p-4 border-t border-line" id="project_notify_status" data-tm="<?php echo esc_attr( $_GET['tm'] ?? '' ); ?>" data-tmin="<?php echo esc_attr( $_GET['tmin'] ?? '' ); ?>" data-pid="<?php echo esc_attr( get_the_ID() ); ?>" data-preview="<?php echo esc_attr( $_GET['preview'] ); ?>">
+			<div class="card_footer p-4 border-t border-line" id="project_notify_status" data-tm="<?php echo esc_attr( $_GET['tm'] ?? '' ); ?>" data-tmin="<?php echo esc_attr( $_GET['tmin'] ?? '' ); ?>" data-pid="<?php echo esc_attr( get_the_ID() ); ?>">
 	            <div class="flex items-center justify-between">
 	                <span class="btn gap-2 border border-line cursor-pointer" data-status="denied">kieltää</span>
 	                <span class="btn gap-2 border border-accent bg-accent text-white cursor-pointer" data-status="admitted">hyväksytty</span>
@@ -783,7 +850,7 @@ function update_manager_project_status(){
 
 	$user = wp_get_current_user();
 
-	if ( !isset($user->roles) || empty($user->roles) || !array_intersect( [ 'editor', 'administrator' , 'um_project-manager' ], $user->roles ) ) {
+	if ( !isset($user->roles) || empty($user->roles) || !array_intersect( [ 'administrator' , 'um_valvoja' ], $user->roles ) ) {
 		$error = new WP_Error( '001', "you don't have permission to change it!!!" );
 		wp_send_json_error( $error );
 	} 
@@ -792,9 +859,8 @@ function update_manager_project_status(){
     $tm = $_POST['tm'] ?? '';
     $tmin = $_POST['tmin'] ?? '';
     $pid = $_POST['pid'] ?? '';
-    $notify_id = $_POST['preview'] ?? '';
 
-    if ( empty($status) || empty($tm) || empty($tmin) || empty($pid) || empty($notify_id) ) {
+    if ( empty($status) || empty($tm) || empty($tmin) || empty($pid) ) {
 		$error = new WP_Error( '001', "You don't have sufficient information for change it!!!" );
 		wp_send_json_error( $error );
     }
@@ -810,13 +876,17 @@ function update_manager_project_status(){
 
 	$updated = update_post_meta( $pid, sprintf('%s_status', $tm), json_encode( $project_tmin_status ) );
 	
-	if ( $updated ) {
+	$tmStep = implode('-', [ $tm, $tmin ]);
+	
+	global $wpdb;
+	$existing = $wpdb->get_row( $wpdb->prepare( "SELECT id FROM `wp_noste_notifications` WHERE `tm` LIKE %s LIMIT 1", $tmStep ) );
 
-		global $wpdb;
+	if ( $updated && !empty($existing) ) {
+
 		$updated_status = $wpdb->update(
 			'wp_noste_notifications',
 			array( 'status' => 'deactived' ),
-			array( 'id' => $notify_id ),
+			array( 'id' => $existing->id ),
 			array( '%s' ),
 			array( '%d' )
 		);

@@ -68,8 +68,8 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                         </div>
 
                         <div class="flex flex-wrap mb-2">
-                            <label class="flex-[3] mr-4 text-sm font-medium text-black" for="subscriber">Tilaaja:</label>
-                            <p class="flex-[3] text-sm text-accent italic" id="subscriber"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T1', true ), 'T1') ); ?></p>
+                            <label class="flex-[3] mr-4 text-sm font-medium text-black" for="um_project-manager">Tilaaja:</label>
+                            <p class="flex-[3] text-sm text-accent italic" id="um_project-manager"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T1', true ), 'T1') ); ?></p>
                         </div>
                         
                         <div class="flex flex-wrap mb-4">

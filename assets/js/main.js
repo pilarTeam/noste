@@ -37,43 +37,44 @@ document.querySelectorAll('a[href="#!"], a[href="#"]').forEach(anchor => {
 });
 
 jQuery(document).ready(function ($) {
-	// DropDown
+    // DropDown
 
-	// $("#dropdown-toggle").on('click', function () {
-	// 	var dropdownMenuId = $(this).data("dropdown");
-	// 	$("#" + dropdownMenuId).toggleClass("hidden");
-	// });
+    // $("#dropdown-toggle").on('click', function () {
+    //  var dropdownMenuId = $(this).data("dropdown");
+    //  $("#" + dropdownMenuId).toggleClass("hidden");
+    // });
 
-	// $(document).on('click', function (e) {
-	// 	var target = e.target;
-	// 	if (
-	// 		!$(target).is("#dropdown-toggle") &&
-	// 		!$(target).parents().is(".dropdown")
-	// 	) {
-	// 		$(".dropdown-menu").addClass("hidden");
-	// 	}
-	// });
+    // $(document).on('click', function (e) {
+    //  var target = e.target;
+    //  if (
+    //      !$(target).is("#dropdown-toggle") &&
+    //      !$(target).parents().is(".dropdown")
+    //  ) {
+    //      $(".dropdown-menu").addClass("hidden");
+    //  }
+    // });
 
-	// Image Upload
-	$("#FileUpload1").on('change', function (event) {
-		var input = event.target;
-		var text = $("#text");
-		var avatarImage = $("#avatarImage");
+    // Image Upload
+    $("#FileUpload1").on('change', function (event) {
+        var input = event.target;
+        var text = $("#text");
+        var avatarImage = $("#avatarImage");
 
-		if (input.files && input.files[0]) {
-			var reader = new FileReader();
-			reader.onload = function (e) {
-				avatarImage.attr("src", e.target.result);
-				text.addClass("hidden");
-				avatarImage.removeClass("hidden");
-			};
-			reader.readAsDataURL(input.files[0]);
-		}
-	});
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                avatarImage.attr("src", e.target.result);
+                text.addClass("hidden");
+                avatarImage.removeClass("hidden");
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    });
 
-	$('.projekti-status').on('click', 'li', function(e){
+    $('.projekti-status').on('click', 'li', function(e){
         e.preventDefault();
         var currentstatus = $(this).data('status');
+        var search_query = $('input[name="psearch"]').val() ?? '';
 
 
         if ( currentstatus != '' ) {
@@ -81,7 +82,7 @@ jQuery(document).ready(function ($) {
             $('.projekti-status .tab_list_btn').removeClass('bg-white');
             $(this).find('.tab_list_btn').addClass('bg-white');
 
-            var grid_card = $('#dashboard_projectCard .card_item').eq(0).clone();
+            var grid_card = $('#dashboard_projectCard .card_item.sample').eq(0).clone();
 
             jQuery('#dashboard_projectCard').addClass('hidden');
             jQuery('.change_status').removeClass('hidden');
@@ -93,43 +94,60 @@ jQuery(document).ready(function ($) {
                 method: 'POST',
                 data: {
                     'action' : 'project_status_change',
-                    'status' : currentstatus
+                    'status' : currentstatus,
+                    'psearch' : search_query
                 },
-                success: function(update) {
+                success: function(response) {
+
                     
-                    if ( update.length > 10 ) {
-                        var results = JSON.parse(update);
+                    if ( response['success'] ) {
+                        var results = response['data'];
                          
                          $('#dashboard_projectCard .grid').empty();
 
-
+                         
                         $.map(results, function(value, index){
 
                             grid_card.find('.title').html(value['title']);
+                            grid_card.find('.project-details-wrap a').attr('href', value['permalink']);
+                            grid_card.find('.project-edit-osoite a').attr('href', value['edit_permalink']);
+
                             grid_card.find('.projektinumero').html(value['projektinumero']);
                             grid_card.find('.projektipaallikko').html(value['projektipaallikko']);
                             grid_card.find('.valvoja').html(value['valvoja']);
                             grid_card.find('.projektin_valmistelu').html(value['projektin_valmistelu']);
 
                             grid_card.find('.status').removeClass('aktiivinen keskeneräiset arkistoitu');
+                            grid_card.find('.status').addClass(value['projektin_tila_status'].toLowerCase());
+                            grid_card.find('.status').html(value['projektin_tila_status']);
 
-                            // grid_card.addClass(value['projektin_tila'].toLowerCase());
-                            grid_card.find('.status').addClass(value['projektin_tila'].toLowerCase());
+                            grid_card.find('.pilar_T1 span').html(value['pilar_T1']);
+                            grid_card.find('.pilar_K1').html(value['pilar_K1']);
+                            grid_card.find('.pilar_K2').html(value['pilar_K2']);
                             
                             // console.log(grid_card);
+                            grid_card.removeClass('sample hidden');
                             $('#dashboard_projectCard .grid').append(grid_card);
                              grid_card = $('#dashboard_projectCard .card_item').eq(0).clone();
                         });
 
-                        jQuery('#dashboard_projectCard').removeClass('hidden');
-                        jQuery('.change_status').addClass('hidden');
-                        
+
+                    } else {
+                        $('#dashboard_projectCard .grid').empty();
+                        $('#dashboard_projectCard .grid').html(response['data'][0]['message']);
                     }
+                    
+                    jQuery('#dashboard_projectCard').removeClass('hidden');
+                    jQuery('.change_status').addClass('hidden');
                 }
             });
         }
     });
 
+    $('body').on('click', '.step_main_status-switch button', function(e){
+        e.preventDefault();
+        $(this).parents('.step_main_status-switch').find('ul').toggleClass('hidden');
+    });
 
 
     $('.project-layout').on('click', function(e){
@@ -444,9 +462,9 @@ jQuery(document).ready(function ($) {
         var tm = $(this).parents('#project_notify_status').data('tm');
         var tmin = $(this).parents('#project_notify_status').data('tmin');
         var pid = $(this).parents('#project_notify_status').data('pid');
-        var preview = $(this).parents('#project_notify_status').data('preview');
+        // var preview = $(this).parents('#project_notify_status').data('preview');
 
-        if ( tm == '' || tmin == '' || pid == '' || status == '' || preview == '' ) {
+        if ( tm == '' || tmin == '' || pid == '' || status == '' ) {
             alert('something is wrong!!!');
             return;            
         }
@@ -458,8 +476,7 @@ jQuery(document).ready(function ($) {
                 status: status,
                 tm: tm,
                 tmin: tmin,
-                pid: pid,
-                preview: preview
+                pid: pid
             }, function(response) {
                 if ( response['success'] ) {
                     location.replace(response['data']['permalink']);
