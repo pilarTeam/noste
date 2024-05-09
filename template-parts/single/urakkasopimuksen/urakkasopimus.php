@@ -56,8 +56,8 @@
                         <div class="lg:h-[645px] overflow-y-auto no-scrollbar scroll-smooth px-5 lg:px-0">
                             <h2 class="text-2xl text-end font-medium text-accent mx-auto lg:max-w-[900px] my-[32px]">noste.io</h2>
                             <div class="mb-14 mx-auto lg:max-w-[900px]">
-                                <p class="text-accent italic">K1</p>
-                                <p class="text-accent italic">K4</p>
+                                <p class="text-accent italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K1', true ), 'K1') ); ?></p>
+                                <p class="text-accent italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K4', true ), 'K4') ); ?></p>
                             </div>
 
                             <!-- 1st step start -->
@@ -99,19 +99,19 @@
                                 <div class="mx-auto lg:max-w-[900px]">
                                     <div class="flex gap-[10px] mt-[58px]">
                                         <p class="w-[150px]">Hanke:</p>
-                                        <p class="text-accent italic">K4</p>
+                                        <p class="text-accent italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K4', true ), 'K4') ); ?></p>
                                     </div>
                                     <div class="flex gap-[10px] mt-6">
                                         <p class="w-[150px]">Projektinumero:</p>
-                                        <p class="text-accent italic">K8</p>
+                                        <p class="text-accent italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K8', true ), 'K8') ); ?></p>
                                     </div>
                                     <div class="flex gap-[10px] mt-6">
                                         <p class="w-[150px]">Rakennuskohde:</p>
                                         <div>
-                                            <p class="text-accent italic">K1</p>
-                                            <p class="text-accent italic">T1</p>
-                                            <p class="text-accent italic">K2</p>
-                                            <p class="text-accent italic">K3</p>
+                                            <p class="text-accent italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K1', true ), 'K1') ); ?></p>
+                                            <p class="text-accent italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T1', true ), 'T1') ); ?></p>
+                                            <p class="text-accent italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K2', true ), 'K2') ); ?></p>
+                                            <p class="text-accent italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K3', true ), 'K3') ); ?></p>
                                         </div>
                                     </div>
 
@@ -130,9 +130,9 @@
                                 <div class="flex lg:gap-[140px] mt-6 text-[#586B74]">
                                     <p class="w-[160px]">Tilaaja:</p>
                                     <div>
-                                        <p class="text-accent italic mb-6">T1</p>
-                                        <p class="mb-6">Y-tunnus <span class="text-accent italic">T7</span></p>
-                                        <p class="text-accent italic mb-[40px]">T8</p>
+                                        <p class="text-accent italic mb-6"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T1', true ), 'T1') ); ?></p>
+                                        <p class="mb-6">Y-tunnus <span class="text-accent italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T7', true ), 'T7') ); ?></span></p>
+                                        <p class="text-accent italic mb-[40px]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T8', true ), 'T8') ); ?></p>
                                     </div>
                                 </div>
 
@@ -140,19 +140,19 @@
                                     <p class="w-[160px]">Tilaajan edustajat:</p>
                                     <div>
                                         <p class="mb-6">Sopimusasioissa</p>
-                                        <p class="text-accent italic mb-6">T4</p>
-                                        <p class="text-accent italic mb-6">T3</p>
-                                        <p class="text-accent italic mb-6">T6</p>
-                                        <p class="text-accent italic mb-6">T5</p>
-                                        <p class="text-accent italic mb-6">T2</p>
+                                        <p class="text-accent italic mb-6"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T4', true ), 'T4') ); ?></p>
+                                        <p class="text-accent italic mb-6"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T3', true ), 'T3') ); ?></p>
+                                        <p class="text-accent italic mb-6"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T6', true ), 'T6') ); ?></p>
+                                        <p class="text-accent italic mb-6"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T5', true ), 'T5') ); ?></p>
+                                        <p class="text-accent italic mb-6"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T2', true ), 'T2') ); ?></p>
                                     </div>
 
                                     <div>
                                         <p class="mb-6">Työsuoritukseen liittyvissä asioissa</p>
                                         <p class="mb-6">Projektipäällikkö</p>
-                                        <p class="text-accent italic mb-6">P1</p>
-                                        <p class="text-accent italic mb-6">P3</p>
-                                        <p class="text-accent italic mb-6">P2</p>
+                                        <p class="text-accent italic mb-6"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P1', true ), 'P1') ); ?></p>
+                                        <p class="text-accent italic mb-6"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P3', true ), 'P3') ); ?></p>
+                                        <p class="text-accent italic mb-6"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P2', true ), 'P2') ); ?></p>
                                         <p class="mb-6">Partners at Noste Oy</p>
                                     </div>
                                 </div>
@@ -160,9 +160,9 @@
                                 <div class="flex lg:gap-[140px] gap-10 mt-6 text-[#586B74]">
                                     <p class="w-[160px]">Urakoitsija:</p>
                                     <div>
-                                        <p class="text-accent italic mb-6">U1</p>
-                                        <p class="mb-6">Y-tunnus <span class="text-accent italic">U2</span></p>
-                                        <p class="text-accent italic mb-[40px]">U3</p>
+                                        <p class="text-accent italic mb-6"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U1', true ), 'U1') ); ?></p>
+                                        <p class="mb-6">Y-tunnus <span class="text-accent italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U2', true ), 'U2') ); ?></span></p>
+                                        <p class="text-accent italic mb-[40px]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U3', true ), 'U3') ); ?></p>
                                     </div>
                                 </div>
 
@@ -170,16 +170,16 @@
                                     <p class="w-[160px]">Urakoitsijan edustajat:</p>
                                     <div>
                                         <p class="mb-6">Sopimusasioissa</p>
-                                        <p class="text-accent italic mb-6">U4</p>
-                                        <p class="text-accent italic mb-6">U5</p>
-                                        <p class="text-accent italic">U6</p>
+                                        <p class="text-accent italic mb-6"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U4', true ), 'U4') ); ?></p>
+                                        <p class="text-accent italic mb-6"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U5', true ), 'U5') ); ?></p>
+                                        <p class="text-accent italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U6', true ), 'U6') ); ?></p>
                                     </div>
 
                                     <div>
                                         <p class="mb-6">Työsuoritukseen liittyvissä asioissa</p>
-                                        <p class="text-accent italic mb-6">U7</p>
-                                        <p class="text-accent italic mb-6">U8</p>
-                                        <p class="text-accent italic">U9</p>
+                                        <p class="text-accent italic mb-6"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U7', true ), 'U7') ); ?></p>
+                                        <p class="text-accent italic mb-6"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U8', true ), 'U8') ); ?></p>
+                                        <p class="text-accent italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U9', true ), 'U9') ); ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -191,7 +191,7 @@
                                     <h2 class="md:text-2xl text-[20px] text-black font-medium mt-14">2. MUUT OSAPUOLET</h2>
                                     <div class="flex md:gap-[140px] mt-6 text-[#586B74]">
                                         <p class="w-[160px]">Rakennuttaja:</p>
-                                        <p class="text-accent italic">T1</p>
+                                        <p class="text-accent italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T1', true ), 'T1') ); ?></p>
                                     </div>
 
                                     <div class="flex flex-wrap md:gap-[140px] mt-6 text-[#586B74]">
@@ -201,17 +201,17 @@
 
                                     <div class="flex md:gap-[140px] mt-6 text-[#586B74]">
                                         <p class="w-[160px]">Pääurakoitsija:</p>
-                                        <p class="text-accent italic">U1</p>
+                                        <p class="text-accent italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U1', true ), 'U1') ); ?></p>
                                     </div>
 
                                     <div class="flex gap-[44px] mt-6 text-[#586B74]">
                                         <p class="w-[256px]">Työmaan johtovelvollisuuksista vastaava päätoteuttaja:</p>
-                                        <p class="text-accent italic">U1</p>
+                                        <p class="text-accent italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U1', true ), 'U1') ); ?></p>
                                     </div>
 
                                     <div class="flex gap-[95px] mt-6 text-[#586B74]">
                                         <p class="w-[205px]">Työmaapalveluista vastaava:</p>
-                                        <p class="text-accent italic">U1</p>
+                                        <p class="text-accent italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U1', true ), 'U1') ); ?></p>
                                     </div>
 
                                     <div class="flex md:gap-[121px] mt-6 text-[#586B74]">
@@ -984,7 +984,7 @@
                                         <div class="flex md:flex-row md:flex-nowrap flex-wrap-reverse lg:gap-[75px] mt-6 text-[#586B74] max-w-[900px] mx-auto">
                                             <p class="md:min-w-[200px] min-w-[157px]">Kiinteä urakkahinta:</p>
                                             <div class="flex items-center md:flex-row md:flex-nowrap flex-wrap-reverse w-full">
-                                                <p class="lg:min-w-[108px]"><span class="text-accent italic">UH1</span> € (alv. 0%)</p>
+                                                <p class="lg:min-w-[108px]"><span class="text-accent italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_UH1', true ), 'UH1') ); ?></span> € (alv. 0%)</p>
                                                 <a href="#!" class="help_click ml-4">
                                                     <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -1014,12 +1014,12 @@
                                         <div class="max-w-[900px] mx-auto">
                                             <div class="flex lg:gap-[75px] text-[#586B74]">
                                                 <p class="md:min-w-[200px] min-w-[157px]">Arvonlisävero:</p>
-                                                <p><span class="text-accent italic">UH2</span> €</p>
+                                                <p><span class="text-accent italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_UH2', true ), 'UH2') ); ?></span> €</p>
                                             </div>
 
                                             <div class="flex lg:gap-[75px] text-[#586B74]">
                                                 <p class="md:min-w-[200px] min-w-[157px]">Verollinen hinta:</p>
-                                                <p><span class="text-accent italic">UH3</span> € (alv. 24%)</p>
+                                                <p><span class="text-accent italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_UH3', true ), 'UH3') ); ?></span> € (alv. 24%)</p>
                                             </div>
                                         </div>
                                     </div>
@@ -1178,8 +1178,8 @@
                                 <div class="mt-6 text-[#586B74] max-w-[900px] mx-auto">
                                     <span class="italic">(Viite YSE 4 §, 46 § ja 59 §)</span> <br />
                                     Lisä- ja muutostöissä noudatetaan YSE mukaista menettelyä kohdassa todetuin poikkeuksin ja huomioin. <br />
-                                    Muutos- ja lisätöitä on oikeutettu tilaamaan <span class="italic text-[#00B2A9]">T3</span>. YSE 43§:n momentin 3 sekä 59§:n momentin 4 tarkoittamia pieniä ja <br />
-                                    kiireellisiä muutoksia on oikeutettu tilaamaan projektipäällikkö <span class="italic text-[#00B2A9]">P1</span> <br />
+                                    Muutos- ja lisätöitä on oikeutettu tilaamaan <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T3', true ), 'T3') ); ?></span>. YSE 43§:n momentin 3 sekä 59§:n momentin 4 tarkoittamia pieniä ja <br />
+                                    kiireellisiä muutoksia on oikeutettu tilaamaan projektipäällikkö <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P1', true ), 'P1') ); ?></span> <br />
                                     <div class="help_wrap relative">
                                         <span class="flex md:flex-row items-center">
                                             [
@@ -1195,7 +1195,7 @@
                                             </span>
 
                                             <p class="md:min-w-[257px]">sekä projektijohtamisen asiantuntija</p>
-                                            <span class="italic text-[#00B2A9] ml-1">P4</span>].
+                                            <span class="italic text-[#00B2A9] ml-1"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></span>].
                                             <!--  -->
                                             <a href="#!" class="help_click md:ml-3">
                                                 <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1251,7 +1251,7 @@
                                 <h2 class="md:text-2xl text-[20px] text-black font-medium">20. TYÖNJOHTO</h2>
                                 <p class="mt-6 text-[#586B74]">
                                     <span class="italic">(Viite YSE 1 §, 2 §, ja 56 §)</span> <br />
-                                    Pääurakoitsijan vastaavana työnjohtajana urakkakohteessa toimii <span class="italic text-[#00B2A9]">U7</span>.
+                                    Pääurakoitsijan vastaavana työnjohtajana urakkakohteessa toimii <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U7', true ), 'U7') ); ?></span>.
                                 </p>
                             </div>
                             <!-- step number 22 end -->
@@ -1265,7 +1265,7 @@
                                     liittyvät uusimpien <br />
                                     valtioneuvoston asetusten ja päätösten mukaiset määräykset tulevat hoidetuiksi (VNa 205/2009). <br />
                                     Pääurakoitsija laatii työmaasuunnitelman. <br />
-                                    Työmaan turvallisuudesta vastaavana henkilönä toimii <span class="italic text-[#00B2A9]">U7</span>. <br />
+                                    Työmaan turvallisuudesta vastaavana henkilönä toimii <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U7', true ), 'U7') ); ?></span>. <br />
                                     Rakennuttajan turvallisuuskoordinaattorina toimii <span class="italic text-[#00B2A9]">TK1</span>.
                                 </p>
                             </div>
@@ -1480,14 +1480,14 @@
                                                     </svg>
                                                 </span>
                                                 <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="pilar_K17" />
-                                                <p class="italic text-[#00B2A9]">T1</p>
+                                                <p class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T1', true ), 'T1') ); ?></p>
                                             </div>
                                             <div>
                                                 <input class="border w-[132px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#00B2A9] italic" value="c/o T2" type="text" name="" id="" />
                                             </div>
                                         </div>
                                         <div>
-                                            <p class="italic text-[#00B2A9] mt-[18px]">T3</p>
+                                            <p class="italic text-[#00B2A9] mt-[18px]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T3', true ), 'T3') ); ?></p>
                                             <div class="border-b-2 md:block hidden lg:w-[365px] text-[#E1E1EA] w-[200px] ml-[365px]"></div>
                                         </div>
                                     </div>
@@ -1534,7 +1534,7 @@
                                     <!-- nested input field 2.4 -->
                                     <div class="max-w-[785px] mx-auto">
                                         <div class="flex items-center gap-14 mt-[18px]">
-                                            <p class="italic text-[#00B2A9]">T3</p>
+                                            <p class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T3', true ), 'T3') ); ?></p>
                                             <div>
                                                 <input class="border lg:w-[264px] w-full h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] italic" value="Vapaa teksti" type="text" name="" id="" />
                                             </div>
@@ -1558,10 +1558,10 @@
                                                 </svg>
                                             </span>
                                             <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="pilar_K17" />
-                                            <p class="italic text-[#00B2A9]">U1</p>
+                                            <p class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U1', true ), 'U1') ); ?></p>
                                         </div>
                                         <div>
-                                            <p class="italic text-[#00B2A9] mt-[18px]">U4</p>
+                                            <p class="italic text-[#00B2A9] mt-[18px]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U4', true ), 'U4') ); ?></p>
                                             <div class="border-b-2 lg:w-[365px] w-[200px] text-[#E1E1EA] ml-[365px] md:block hidden"></div>
                                         </div>
                                     </div>
@@ -1577,7 +1577,7 @@
                                             </svg>
                                         </span>
                                         <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="pilar_K17" />
-                                        <p class="italic text-[#00B2A9] mr-4 mx-2">U1</p>
+                                        <p class="italic text-[#00B2A9] mr-4 mx-2"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U1', true ), 'U1') ); ?></p>
                                         <a href="#!" class="help_click">
                                             <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>

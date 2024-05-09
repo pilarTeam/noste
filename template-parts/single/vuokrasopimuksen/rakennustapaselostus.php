@@ -1,3 +1,17 @@
+<?php 
+
+if ( !is_singular( 'projektitiedot' ) ) {
+   return;
+}
+
+$project_id = get_the_ID();
+$ptname = implode('_', ['noste', $_GET['tm'], $_GET['tmin']]);
+
+$data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get_post_meta( $project_id, $ptname, true ), true ) : '';
+
+
+?>
+
 <!-- grid View Item -->
 <div class="grid grid-cols-1 gap-4">
     <!-- card_item -->
@@ -60,7 +74,7 @@
                         
                         <div class="flex flex-wrap mb-4">
                             <label class="flex-[3] mr-4 text-sm font-medium text-black" for="author">Laatija:</label>
-                            <p class="flex-[3] text-sm text-accent italic" id="author">P1, <span class="text-[#586B74]">Partners at Noste Oy</span></p>
+                            <p class="flex-[3] text-sm text-accent italic" id="author"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P1', true ), 'P1') ); ?>, <span class="text-[#586B74]">Partners at Noste Oy</span></p>
                         </div>
                         
                         <div class="flex flex-wrap mb-4">
