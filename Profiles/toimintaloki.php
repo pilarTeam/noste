@@ -142,9 +142,10 @@ $notifications = $wpdb->get_results( $sql, ARRAY_A );
             <div class="mx-auto max-w-[700px]">
 
                 <div>
+                    <?php if ( $_GET ): ?>
+                        
                     <span class="font-medium text-offwhite inline-block mr-2">Käytetyt suodattimet:</span>
 
-                    <?php if ( $_GET ): ?>
                         <?php foreach ($_GET as $key => $value): if ( !empty($value) ) : 
                             $htmlval = ( $key == 'pid' ) ? get_the_title( $value ) : $value;
                         ?>
@@ -156,10 +157,11 @@ $notifications = $wpdb->get_results( $sql, ARRAY_A );
 
                         <?php endif; endforeach; ?>
                         
-                    <?php endif ?>
 
 
                     <a href="<?php echo esc_attr( get_permalink( get_the_ID() ) ); ?>" class="inline-block text-offwhite ml-2 underline">Tyhjennä kaikki</a>
+                    
+                    <?php endif ?>
                 </div>
 
 
@@ -168,12 +170,13 @@ $notifications = $wpdb->get_results( $sql, ARRAY_A );
                         <div>
                             <?php foreach ($notifications as $notification): 
                                 um_fetch_user($notification['employer']);
+
                                 $recent_time = strtotime('now') - strtotime($notification['date']);
                                 $how_log_ago = '';
                                 $content = !empty($notification['content']) ? json_decode( $notification['content'], true ) : [];
 
                                 if ( !empty($content) && !empty($notification['project_id']) ) {
-                                    $tm = !empty($content['tm']) ? explode('-', $content['tm']) : [];
+                                    $tm = !empty($notification['tm']) ? explode('-', $notification['tm']) : [];
                                     $form_name = $content['form_name'] ?? '';
 
                                     if ( $recent_time > 0 ) {
@@ -204,13 +207,16 @@ $notifications = $wpdb->get_results( $sql, ARRAY_A );
 
                                     ?>
                                     <a href="<?php echo esc_attr( $tmin_url ); ?>">
-                                   <div class="my-3 p-4 gap-3 flex rounded-lg border border-solid border-[#E1E1EA] cursor-pointer">
-                                        <div class="user_avatar">
-                                            <?php echo um_user( 'profile_photo' ); ?>
-                                        </div>                            
+                                   <div class="my-3 p-4 gap-3 flex rounded-lg border border-solid border-[#E1E1EA] cursor-pointer <?php echo $notification['mark'] ? 'not_mark' : ''; ?>"> 
+                                        
+                                        <?php 
+                                            echo $notification['mark'] ? noste_check_empty ( GetIconsMarkup( 'alert-triangle.svg', '30px' ) ) : '<div class="user_avatar">' . um_user( 'profile_photo' ) . '</div> ';
+                                        ?>
+
+                                                                   
                                         <div class="flex-1">
                                             <span class="text-offwhite text-[14px]">Uusi toiminta • <?php echo esc_html( $how_log_ago ); ?></span>
-                                            <p class="text-[#94969C] mt-1"><b class="text-black"><?php echo um_user( 'display_name' ); ?></b> <?php echo implode(' - ', [ $tm[0], $tm[1] ]); ?> <b class="text-black"><?php echo esc_attr( $form_name ); ?></b></p>
+                                            <p class="text-[#94969C] mt-1"><b class="text-black"><?php echo um_user( 'display_name' ); ?> <?php echo implode(' - ', [ $tm[0], $tm[1] ]); ?> - <?php echo esc_attr( $form_name ); ?></b></p>
                                         </div>
                                     </div>
                                     </a>

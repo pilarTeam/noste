@@ -1,7 +1,7 @@
 /*!
 Theme Name: noste
 Theme URI: #
-Version: 1.17.0
+Version: 1.18.0
 Tested up to: 5.4
 Requires PHP: 5.6
 License: GNU General Public License v2 or later
@@ -590,4 +590,7 @@ td#project_table_status .instep-status.status_3:before {
     box-shadow: none;
     border-color: #ddd;
     cursor: not-allowed;
+}
+.notification-list .not_mark {
+    border: 1px solid #FE3B2D66;
 }

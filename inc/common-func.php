@@ -600,6 +600,19 @@ function noste_update_project_step() {
 		wp_send_json_error( $error );
 	}
 
+	$user = wp_get_current_user();
+
+	if ( !isset($user->roles) || empty($user->roles) ) {
+		$error = new WP_Error( '003', "You Don't have Permission!!!" );
+		wp_send_json_error( $error );
+	}
+
+
+	if ( !array_intersect( [ 'administrator' , 'um_project-manager'], $user->roles ) ) {
+		$error = new WP_Error( '004', "You Don't have Permission!!!" );
+		wp_send_json_error( $error );
+	}
+
 	recursive_sanitize_text_field($_POST);
 
 	// error_log(print_r($_POST, true));
@@ -668,14 +681,14 @@ function noste_update_project_step() {
 	$data = json_encode( $_POST );
 
 	if ( empty($data) ) {
-		$error = new WP_Error( '001', 'Content Data issue' );
+		$error = new WP_Error( '005', 'Content Data issue' );
 		wp_send_json_error( $error );		
 	}
 	
 	$updated = update_post_meta( $post_id, $field_key, $data );
 
-	if ( $updated ) {
 
+	if ( $updated ) {
 
 	$project_header_info = !empty(get_option( 'noste_project_header_info', true )) ? json_decode( get_option( 'noste_project_header_info', true ), true ) : [];
 
@@ -684,16 +697,19 @@ function noste_update_project_step() {
 	$project_header_info[$tm]['tm'] = $tm;
 
 	/* Notification */
-		$user_id = !empty(get_field('valvoja', $post_id)) ? get_field('valvoja', $post_id)['value'] : 0;
-
+		$user_id = !empty(get_field('valvoja', $post_id)) ? get_field('valvoja', $post_id)[0]['value'] : 0;
+		
 		if ( !empty($user_id) ) {
-			noste_send_form_notification( 
+			
+			$notify = noste_send_form_notification( 
 				get_current_user_id(), 
 				json_encode( $project_header_info[$tm] ), 
 				$post_id, 
 				$user_id,
 				$tm,
-				'active' );			
+				'active'
+			);
+
 		}
 	/* Notification */
 
@@ -711,7 +727,7 @@ function noste_update_project_step() {
 		wp_send_json_success((array) $response, 200);
 		// preview_template_response
 	} else {
-		$error = new WP_Error( '000', 'Something went wrong!' );
+		$error = new WP_Error( '006', 'Something went wrong!' );
 		wp_send_json_error($error);
 	}
 
@@ -874,6 +890,8 @@ function update_manager_project_status(){
 	
 	global $wpdb;
 	$existing = $wpdb->get_row( $wpdb->prepare( "SELECT id FROM `wp_noste_notifications` WHERE `tm` LIKE %s LIMIT 1", $tmStep ) );
+
+	error_log(print_r($existing, true));
 
 	if ( $updated && !empty($existing) ) {
 
