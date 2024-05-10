@@ -1,7 +1,7 @@
 /*!
 Theme Name: noste
 Theme URI: #
-Version: 1.16.0
+Version: 1.17.0
 Tested up to: 5.4
 Requires PHP: 5.6
 License: GNU General Public License v2 or later
@@ -24,7 +24,13 @@ body h2 {
 div.um:not(.um-admin) {
     opacity: 1;
 }
-
+span.iconsmarkup {
+    display: inline-block;
+    width: 20px;
+}
+span.iconsmarkup > svg {
+    width: inherit;
+}
 seciton.logins .main-login-wrap {
     width: 450px;
     margin: auto;

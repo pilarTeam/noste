@@ -171,8 +171,8 @@ $rakennustoiden_vastaanotto = [
                             <a class="p-3 pr-2 w-full border-l border-l-[#E1E1EA] text-sm font-medium" href="<?php echo esc_attr( $tm_url ); ?>"><?php echo esc_html( $val['title'] ); ?></a>
 
                             <div class="step_main_status-switch pt-3 pr-3">
-                                 <button class="rounded-sm border border-line p-[3px]">                                   
-                                    <img src="https://noste.pilardev.fi/wp-content/uploads/2024/04/three-dot.png" class="w-4">
+                                 <button class="rounded-sm border border-line p-[3px]"> 
+                                    <?php echo noste_check_empty ( GetIconsMarkup( 'three-dot.svg', '13px' ) ); ?>
                                 </button>
 
                                 <ul class="px-4 py-2 w-[12rem] bg-white absolute right-0 top-full z-10 border border-[#E1E1EA] rounded hidden">
@@ -226,7 +226,7 @@ $rakennustoiden_vastaanotto = [
                             <a class="p-3 pr-2 w-full border-l border-l-[#E1E1EA] text-sm font-medium" href="<?php echo esc_attr( $tm_url ); ?>"><?php echo esc_html( $val['title'] ); ?></a>
                             <div class="pt-3 pr-3">
                                 <button class="rounded-sm border border-line p-[3px]">
-                                    <img src="https://noste.pilardev.fi/wp-content/uploads/2024/04/three-dot.png" class="w-4">
+                                    <?php echo noste_check_empty ( GetIconsMarkup( 'three-dot.svg', '13px' ) ); ?>
                                 </button>
 
                                 <ul class="px-4 py-2 w-[12rem] bg-white absolute right-0 top-full z-10 border border-[#E1E1EA] rounded hidden">
@@ -279,9 +279,7 @@ $rakennustoiden_vastaanotto = [
                             <a class="p-3 pr-2 w-full border-l border-l-[#E1E1EA] text-sm font-medium" href="<?php echo esc_attr( $tm_url ); ?>"><?php echo esc_html( $val['title'] ); ?></a>
                             <div class="pt-3 pr-3">
                                 <button class="rounded-sm border border-line p-[3px]">
-    								
-                                    <img src="https://noste.pilardev.fi/wp-content/uploads/2024/04/three-dot.png" class="w-4">
-
+                                    <?php echo noste_check_empty ( GetIconsMarkup( 'three-dot.svg', '13px' ) ); ?>
                                 </button>
 
                                 <ul class="px-4 py-2 w-[12rem] bg-white absolute right-0 top-full z-10 border border-[#E1E1EA] rounded hidden" id="dropdown-menu13">
@@ -334,7 +332,7 @@ $rakennustoiden_vastaanotto = [
                             <a class="p-3 pr-2 w-full border-l border-l-[#E1E1EA] text-sm font-medium" href="<?php echo esc_attr( $tm_url ); ?>"><?php echo esc_html( $val['title'] ); ?></a>
                             <div class="pt-3 pr-3">
                                 <button class="rounded-sm border border-line p-[3px]">
-                                    <img src="https://noste.pilardev.fi/wp-content/uploads/2024/04/three-dot.png" class="w-4">
+                                    <?php echo noste_check_empty ( GetIconsMarkup( 'three-dot.svg', '13px' ) ); ?>
                                 </button>
 
                                 <ul class="px-4 py-2 w-[12rem] bg-white absolute right-0 top-full z-10 border border-[#E1E1EA] rounded hidden">
@@ -386,9 +384,7 @@ $rakennustoiden_vastaanotto = [
                             <a class="p-3 pr-2 w-full border-l border-l-[#E1E1EA] text-sm font-medium" href="<?php echo esc_attr( $tm_url ); ?>"><?php echo esc_html( $val['title'] ); ?></a>
                         <div class="pt-3 pr-3">
                             <button class="rounded-sm border border-line p-[3px]">
-                                
-                                <img src="https://noste.pilardev.fi/wp-content/uploads/2024/04/three-dot.png" class="w-4">
-
+                                <?php echo noste_check_empty ( GetIconsMarkup( 'three-dot.svg', '13px' ) ); ?>
                             </button>
                             <ul class="px-4 py-2 w-[12rem] bg-white absolute right-0 top-full z-10 border border-[#E1E1EA] rounded hidden">
                                 <li class="text-sm mb-2">
