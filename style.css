@@ -1,7 +1,7 @@
 /*!
 Theme Name: noste
 Theme URI: #
-Version: 1.18.0
+Version: 1.19.0
 Tested up to: 5.4
 Requires PHP: 5.6
 License: GNU General Public License v2 or later
@@ -593,4 +593,17 @@ td#project_table_status .instep-status.status_3:before {
 }
 .notification-list .not_mark {
     border: 1px solid #FE3B2D66;
+}
+
+section#single-main-list .started {
+    border-left: 8px solid #E1E1EA;
+}
+
+
+section#single-main-list .admitted {
+    border-left: 8px solid rgb(0 178 169);
+}
+
+section#single-main-list .approval {
+    border-left: 8px solid rgb(6 249 183);
 }

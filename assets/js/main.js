@@ -502,5 +502,13 @@ jQuery(document).ready(function ($) {
 
     });
 
+
+
+/*
+* Step Comments on Submit
+*/
+
+$('')
+
 });
 

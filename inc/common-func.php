@@ -294,34 +294,26 @@ function noste_header_middle() {
 	    </ul> <!-- tab_box -->
 	</div> <!-- Tab Fuild -->
 
-	<?php elseif ( ( is_single() && 'projektitiedot' == get_post_type() ) || is_page( 62 ) ) : ?>
+	<?php elseif ( ( is_single() && 'projektitiedot' == get_post_type() ) || is_page( 62 ) ) : 
+	$single_main_step = json_decode( get_option( 'single_main_steps'), true ) ?? [];
+
+	if ( empty($single_main_step) ) {
+		return;
+	}
+
+	?>
         <!-- Tab Fuild -->
         <ul class="flex flex-col sm:flex-row flex-auto items-center justify-between rounded-sm md:rounded-md bg-white border border-line" id="buttonList_2">
-            <li class="flex item-center md:justify-center w-full md:w-auto md:border-r border-line">
-                <button class="text-sm text-left">
-                    Projektin valmistelu
-                </button>
-            </li>
-            <li class="flex item-center md:justify-center w-full md:w-auto md:border-r border-line">
-                <button class="text-sm text-left">
-                    Rakentamisen valmistelu
-                </button>
-            </li>
-            <li class="flex item-center md:justify-center w-full md:w-auto md:border-r border-line">
-                <button class="text-sm text-left">
-                    Rakentamisen käynnistäminen
-                </button>
-            </li>
-            <li class="flex item-center md:justify-center w-full md:w-auto md:border-r border-line">
-                <button class="text-sm text-left">
-                    Rakentaminen
-                </button>
-            </li>
-            <li class="flex item-center md:justify-center w-full md:w-auto">
-                <button class="text-sm text-left">
-                    Rakennustöiden vastaanotto ja toimeksiannon lopetus
-                </button>
-            </li>
+        	<?php foreach ($single_main_step as $step_top => $value): 
+        		$active_step = '';
+        		if ( isset($_GET['tm']) && !empty($_GET['tm']) ) {
+        			$active_step = array_key_exists($_GET['tm'], $value) ? 'active' : '';
+        		}
+        		?>
+	            <li class="flex item-center md:justify-center w-full md:w-auto md:border-r border-line text-sm text-left <?php echo esc_attr( $active_step ); ?>">
+	                  <?php echo esc_html( $step_top ); ?>
+	            </li>
+        	<?php endforeach ?>
         </ul> <!-- tab_box -->
 	<?php 
 	endif;
