@@ -25,7 +25,7 @@ div.um:not(.um-admin) {
     opacity: 1;
 }
 span.iconsmarkup {
-    display: inline-block;
+    display: inline-block !important;
     width: 20px;
 }
 span.iconsmarkup > svg {
