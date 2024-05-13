@@ -17,7 +17,7 @@ if ( !isset($user->roles) || empty($user->roles) ) {
     exit;
 }
 
-if ( !array_intersect( [ 'editor', 'administrator' , 'um_project-manager' ], $user->roles ) ) {
+if ( !array_intersect( [ 'administrator' , 'um_valvoja' ], $user->roles ) ) {
     wp_redirect( site_url() );
     exit;
 }
@@ -28,29 +28,26 @@ if ( isset($_GET['pid']) && !empty($_GET['pid']) ) {
     $filter .= ' AND project_id = ' . (int) $_GET['pid'];
 } 
 
-if ( array_intersect( [ 'editor', 'administrator' ], $user->roles ) ) {
+if ( array_intersect( [ 'administrator' ], $user->roles ) ) {
     $args = [
         'post_type' => 'projektitiedot',
-        'numberposts' => -1,
+        'numberposts' => 99999,
         'fields' => 'ids'
     ];
 
 }
 
-if ( array_intersect( [ 'um_project-manager' ], $user->roles ) ) {
+if ( array_intersect( [ 'um_valvoja' ], $user->roles ) ) {
     $args = [
         'post_type' => 'projektitiedot',
-        'numberposts' => -5,
+        'numberposts' => 99999,
         'fields' => 'ids',
-        'meta_key'      => 'projektipaallikko',
+        'meta_key'      => 'valvoja',
         'meta_value'    => get_current_user_id()
     ];
 
-    $filter .= ' AND user_id = ' . (int) get_the_ID();
+    $filter .= ' AND user_id = ' . (int) get_current_user_id();
 }
-
-
-
 
 if ( empty($args) ) {
     wp_redirect( site_url() );
@@ -58,7 +55,6 @@ if ( empty($args) ) {
 }
 
 $projects = get_posts($args);
-
 
 global $wpdb;
 $sql = $wpdb->prepare( "SELECT * FROM wp_noste_notifications WHERE status = %s " . $filter ." ORDER BY `id` DESC
@@ -123,13 +119,13 @@ $notifications = $wpdb->get_results( $sql, ARRAY_A );
                             <span class="text-offwhite font-medium inline-block w-24 lg:w-auto">Rooli:</span>
                             <div class="dropdown_click cursor-pointer w-full flex-1 relative">
                                 <div class="dropdown-label flex items-center justify-between gap-1 font-medium rounded-lg border border-solid border-[#CCCCD6] px-3 py-2 text-black">
-                                    <span class="selected-label"><?php echo isset( $_GET['roles'] ) ? $_GET['roles'] : 'Valvoja' ?></span>                                
+                                    <span class="selected-label"><?php echo isset( $_GET['roles'] ) ? noste_get_roles($_GET['roles']) : 'Valitse' ?></span>                                
                                     <i class="um-faicon-angle-down"></i>
                                 </div>
 
                                 <div class="dropdown_wrap z-10 hidden min-w-[238px] mt-2 px-5 py-3 right-0 bg-white absolute w-full dropdown_wrap rounded-lg border border-solid border-[#CCCCD6]">
                                     <label class="text-[14px] block my-3 text-[#94969C] font-medium">
-                                        <input type="radio" name="roles" value="subscriber" class="absolute hidden" <?php echo isset($_GET['roles']) ? checked( $_GET['roles'], 'subscriber' ) : ''; ?>> <span class="name">Subscriber</span></label>
+                                        <input type="radio" name="roles" value="um_project-manager" class="absolute hidden" <?php echo isset($_GET['roles']) ? checked( $_GET['roles'], 'um_project-manager' ) : ''; ?>> <span class="name">Project Manager</span></label>
                                 </div>
                             </div>
                         </div>
@@ -146,9 +142,10 @@ $notifications = $wpdb->get_results( $sql, ARRAY_A );
             <div class="mx-auto max-w-[700px]">
 
                 <div>
+                    <?php if ( $_GET ): ?>
+                        
                     <span class="font-medium text-offwhite inline-block mr-2">Käytetyt suodattimet:</span>
 
-                    <?php if ( $_GET ): ?>
                         <?php foreach ($_GET as $key => $value): if ( !empty($value) ) : 
                             $htmlval = ( $key == 'pid' ) ? get_the_title( $value ) : $value;
                         ?>
@@ -160,10 +157,11 @@ $notifications = $wpdb->get_results( $sql, ARRAY_A );
 
                         <?php endif; endforeach; ?>
                         
-                    <?php endif ?>
 
 
                     <a href="<?php echo esc_attr( get_permalink( get_the_ID() ) ); ?>" class="inline-block text-offwhite ml-2 underline">Tyhjennä kaikki</a>
+                    
+                    <?php endif ?>
                 </div>
 
 
@@ -172,12 +170,13 @@ $notifications = $wpdb->get_results( $sql, ARRAY_A );
                         <div>
                             <?php foreach ($notifications as $notification): 
                                 um_fetch_user($notification['employer']);
+
                                 $recent_time = strtotime('now') - strtotime($notification['date']);
                                 $how_log_ago = '';
                                 $content = !empty($notification['content']) ? json_decode( $notification['content'], true ) : [];
 
                                 if ( !empty($content) && !empty($notification['project_id']) ) {
-                                    $tm = !empty($content['tm']) ? explode('-', $content['tm']) : [];
+                                    $tm = !empty($notification['tm']) ? explode('-', $notification['tm']) : [];
                                     $form_name = $content['form_name'] ?? '';
 
                                     if ( $recent_time > 0 ) {
@@ -201,7 +200,6 @@ $notifications = $wpdb->get_results( $sql, ARRAY_A );
                                         $tmin_url = add_query_arg([
                                             'tm' => $tm[0],
                                             'tmin' => $tm[1],
-                                            'preview' => $notification['id']
                                         ], get_permalink( $notification['project_id'] ) );                                        
                                     } else {
                                         $tmin_url = '#';
@@ -209,13 +207,16 @@ $notifications = $wpdb->get_results( $sql, ARRAY_A );
 
                                     ?>
                                     <a href="<?php echo esc_attr( $tmin_url ); ?>">
-                                   <div class="my-3 p-4 gap-3 flex rounded-lg border border-solid border-[#E1E1EA] cursor-pointer">
-                                        <div class="user_avatar">
-                                            <?php echo um_user( 'profile_photo' ); ?>
-                                        </div>                            
+                                   <div class="my-3 p-4 gap-3 flex rounded-lg border border-solid border-[#E1E1EA] cursor-pointer <?php echo $notification['mark'] ? 'not_mark' : ''; ?>"> 
+                                        
+                                        <?php 
+                                            echo $notification['mark'] ? noste_check_empty ( GetIconsMarkup( 'alert-triangle.svg', '30px' ) ) : '<div class="user_avatar">' . um_user( 'profile_photo' ) . '</div> ';
+                                        ?>
+
+                                                                   
                                         <div class="flex-1">
                                             <span class="text-offwhite text-[14px]">Uusi toiminta • <?php echo esc_html( $how_log_ago ); ?></span>
-                                            <p class="text-[#94969C] mt-1"><b class="text-black"><?php echo um_user( 'display_name' ); ?></b> <?php echo implode(' - ', [ $tm[0], $tm[1] ]); ?> <b class="text-black"><?php echo esc_attr( $form_name ); ?></b></p>
+                                            <p class="text-[#94969C] mt-1"><b class="text-black"><?php echo um_user( 'display_name' ); ?> <?php echo implode(' - ', [ $tm[0], $tm[1] ]); ?> - <?php echo esc_attr( $form_name ); ?></b></p>
                                         </div>
                                     </div>
                                     </a>

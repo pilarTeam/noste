@@ -120,7 +120,7 @@
 	                                                    	<?php endif ?>
 	                                                    </td>
 	                                                    <td class="px-4 py-3 border border-line">
-	                                                        <form action="#" method="post">
+	                                                        <form action="#" method="post" id="step_comments">
 	                                                        	<input type="hidden" name="tm" value="<?php echo esc_attr( $tm ); ?>">
 	                                                        	<input type="hidden" name="tmin" value="<?php echo esc_attr( $key ); ?>">
 	                                                            <input class="border border-accent w-full rounded-md" type="text" name="comments">

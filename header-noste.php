@@ -1,3 +1,20 @@
+<?php 
+
+if ( !is_user_logged_in() ) {
+    wp_redirect( site_url() );
+    exit;
+}
+
+
+$user = wp_get_current_user();
+
+if ( !isset($user->roles) && empty($user->roles) ) {
+    wp_redirect( site_url() );
+    exit;   
+}
+
+?>
+
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -38,20 +55,24 @@ date_default_timezone_set("Asia/Dhaka");
                     <div class="flex justify-end order-2 lg:order-3">
                         <div class="flex items-center gap-5">
                             <div class="notification-wrapper flex items-center gap-5">
-                                <?php echo noste_header_notification(); ?>  
+                                <?php 
+                                if ( array_intersect(['um_valvoja', 'administrator'], $user->roles) ) {
+                                    echo noste_header_notification(); 
+                                }
+                                ?>  
                             </div>
     
-                            <div class="border-l border-line pl-4 flex items-center gap-3 relative">
-                                <div class="user_avatar">
-                                    <?php $profile_photo = um_get_user_avatar_data( um_user( 'ID' ) ); ?>
-                                    <img class="h-full w-full rounded-full object-cover" src="<?php echo $profile_photo['url'] ?? ''; ?>" alt="">
-                                </div> <!-- user_avatar -->
-                                <div class="hidden md:block">
-                                    <p class="text-base text-black font-medium"><?php echo um_user('display_name'); ?></p>
-                                    <p class="text-sm text-[#818D93] font-normal"><?php echo UM()->user()->get_role(); ?></p>
-                                </div>
-                                <div class="dropdown relative">
-                                    <button class="dropdown-toggle" data-dropdown="profile-dropdown">
+                            <div class="border-l border-line pl-4 relative cursor-pointer">
+                                <div class="switch-toggle flex items-center gap-3" data-toggle="mini-profile">
+                                    <div class="user_avatar">
+                                        <?php $profile_photo = um_get_user_avatar_data( um_user( 'ID' ) ); ?>
+                                        <img class="h-full w-full rounded-full object-cover" src="<?php echo $profile_photo['url'] ?? ''; ?>" alt="">
+                                    </div> <!-- user_avatar -->
+                                    <div class="hidden md:block">
+                                        <p class="text-base text-black font-medium"><?php echo um_user('display_name'); ?></p>
+                                        <p class="text-sm text-[#818D93] font-normal"><?php echo noste_get_roles( UM()->user()->get_role() ); ?></p>
+                                    </div>
+                                    <button>
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12" viewBox="0 0 12 12">
                                             <defs>
                                                 <pattern id="pattern6" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 96 96">
@@ -60,16 +81,17 @@ date_default_timezone_set("Asia/Dhaka");
                                             </defs>
                                             <rect id="icons8-expand-arrow-96" width="12" height="12" fill="url(#pattern6)" />
                                         </svg>
-                                    </button>
-    
-                                    <div class="w-[15rem] border-t bg-[#08202C] absolute right-0 top-12 z-[10] dropdown-menu hidden" id="profile-dropdown">
+                                    </button>                                                                        
+                                </div>
+
+                                    <div class="w-[15rem] border-t bg-[#08202C] absolute right-0 top-full z-[10] hidden" id="mini-profile">
                                         <ul class="bg-transparent p-0">
                                             <li class="text-center border-b border-[#283B44] py-4 px-2">
                                                 <div class="user_avatar mx-auto mb-2">
                                                     <div class="flex items-center justify-center mx-auto" id="avatarContainer">
-                                                        <span class="text-2xl font-bold text-white" id="text">K</span>
-                                                        <img class="h-full w-full rounded-full object-cover hidden" src="<?php echo noste_custom_logo_url(); ?>" alt="User Avatar" id="avatarImage">
-                                                        <label class="absolute -bottom-1 -right-2 cursor-pointer">
+                                                        <?php $profile_photo = um_get_user_avatar_data( um_user( 'ID' ) ); ?>
+                                                        <img class="h-full w-full rounded-full object-cover" src="<?php echo $profile_photo['url'] ?? ''; ?>" alt="">
+                                                        <!-- <label class="absolute -bottom-1 -right-2 cursor-pointer">
                                                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18">
                                                                 <defs>
                                                                     <pattern id="pattern" width="1" height="1" viewBox="-4.444 -4.444 26.887 26.887">
@@ -80,14 +102,14 @@ date_default_timezone_set("Asia/Dhaka");
                                                             </svg>
     
                                                             <input type="file" id="FileUpload1" class="hidden" />
-                                                        </label>
+                                                        </label> -->
                                                     </div>
                                                 </div> <!-- user_avatar -->
     
-                                                <p class="text-white">Klara Royment</p>
-                                                <p class="text-offwhite text-sm">nimi_sukunimi@noste.io</p>
+                                                <p class="text-white"><?php echo um_user('display_name'); ?></p>
+                                                <p class="text-offwhite text-sm"><?php echo um_user('user_email'); ?></p>
                                             </li>
-                                            <li class="border-b border-[#283B44] inline-block w-full p-2">
+<!--                                             <li class="border-b border-[#283B44] inline-block w-full p-2">
                                                 <a href="#!" class="flex items-center gap-5 text-offwhite">
                                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
                                                         <defs>
@@ -100,17 +122,17 @@ date_default_timezone_set("Asia/Dhaka");
     
                                                     Aktiivinien
                                                 </a>
-                                            </li>
-                                            <li class="inline-block w-full p-2">
+                                            </li> -->
+                                            <li class="inline-block w-full px-5 py-3 border-b border-[#283B44]">
                                                 <a href="#!" class="user_box flex items-center justify-between gap-3 relative">
                                                     <div class="flex items-center gap-2">
                                                         <div class="user_avatar">
-                                                            <span class="text-xl lg:text-2xl font-bold text-white">K</span>
-                                                            <img class="h-full w-full rounded-full object-cover hidden" src="<?php echo noste_custom_logo_url(); ?>" alt="">
+                                                            <?php $profile_photo = um_get_user_avatar_data( um_user( 'ID' ) ); ?>
+                                                            <img class="h-full w-full rounded-full object-cover" src="<?php echo $profile_photo['url'] ?? ''; ?>" alt="">
                                                         </div> <!-- user_avatar -->
                                                         <div>
                                                             <p class="text-base text-white font-medium"><?php echo um_user('display_name'); ?></p>
-                                                            <p class="text-sm text-[#818D93] font-normal">Admin</p>
+                                                            <p class="text-sm text-[#818D93] font-normal"><?php echo noste_get_roles( UM()->user()->get_role() ); ?></p>
                                                         </div>
                                                     </div>
                                                     <div class="">
@@ -127,7 +149,7 @@ date_default_timezone_set("Asia/Dhaka");
                                                     </div>
                                                 </a>
                                             </li>
-                                            <li class="border-b border-[#283B44] inline-block w-full p-2">
+<!--                                             <li class="border-b border-[#283B44] inline-block w-full p-2">
                                                 <a href="#!" class="flex items-center gap-5 text-offwhite">
                                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
                                                         <defs>
@@ -140,25 +162,19 @@ date_default_timezone_set("Asia/Dhaka");
                                                 
                                                     Lisää tili
                                                 </a>
-                                            </li>
-                                            <li class="border-b border-[#283B44] inline-block w-full p-2">
-                                                <a href="#!" class="flex items-center gap-5 text-offwhite">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
-                                                        <defs>
-                                                            <pattern id="pattern" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 100 100">
-                                                                <image width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAADd0lEQVR4nO3dzW7TQBQFYAuJ8gylfQU27FiAxJ+Q+HkBxBaJChbs2PJMFDbsKRWksIkyY3emaknuTVWJTUsLbAiMhUTjAHLMTHxIz5G8i+dK83XGSXzjZtnPdLvdhZ6XR8bJunXyyXod8dBfcxDmxMlr64cPw1xlKWN2ds4ar+8IoHX/CDd623uLSTCCNjG0yW7Q6XRGp6ODhG2KK0Obbs8r0UHKa8bYXqnPwhYWvdB/njz/sGSdrFZA1qIXsl4OjhcJhaMXmZMURX95HET2oxepLsPoBeYsNvV8EWS6EAQsBAELQcBCELAQBCwEAQtBwEIQsBAELAQBC0HAYp084XdZwCjxB+e3vf+EEn9ggjSO8fI0ix2CgIUgYCEIWAgCFoLUi/G756zTl8bLi96mnM9ShSD1Mt5MKAe5l4tZihCkXozXfqUFKA0KQeol35L7k52LcpBv6aUsZghSP9bJY+PkW6XT89BsDi/HK8JP6lFQrBteiVOAIFgoBAFDIQgYCkFSoQyuNhuQ1xAsFIKAoRAkPUruB9fqD8ItKzmKcXpUG4UgYCgEAUMhyIxRvH7J/fDWn0/iNQQLhSBgKARpF6Xnh7fHX8gtCwuFIAAfHr1+NX5wB2KFWK/3jJe9ydujeqIO4/Sz2ZIbrYKExxuF9+ZtT4ZFOZwetgpSFMWZ8gu4tifCgxxtg4QYL3etk93WJ8O3e0BsWSf1om6rGMffaREECKN8EVdIqxgTn9YJAoRRvpgrZPYYTo96Xq7//gSCzBzjr/dECAKEUZ7IFYKDUZ5MkOQYU3WeECQ9xlS9WQQBwigH4paVEKNB0zVBgDDKAblCcDDKQQmCg1EOTBAcjHJwgkTBiPZLXIIAYZRFuEJqJfx3tslbr3xwQCsJ3TGTzRh8tEZrGY1Gp6zTj8kxQrhl1Uvu9KZ1ao3T973NwYUsVQgCFoKAhSBgIQhYCNI8fJAyGEaS1luukOYYBAHDIAhAku8o3LKmC0HAQhCwEAQsBAELQcBCELAQBCwEAQtBwEKQkwci+8cLFEV/OXqROUlR9JcrrUD70YsYJ+vjnXiymucflqIXmgMM4+V5ZYWszagjj4et98CYB9FBut3ugvW6QQSd8uk98iZ0NGYp0tveW7ReO0TRmiDyNsxZlrx/1euK9foqtEoSRycaq8PchG0q2cr4AfEdWLK0nQuBWq4AAAAASUVORK5CYII=" />
-                                                            </pattern>
-                                                        </defs>
-                                                        <rect id="icons8-log-out-100" width="24" height="24" fill="url(#pattern)" />
-                                                    </svg>
-    
-                                                    Kirjaudu ulos
+                                            </li> -->
+                                            <li class="border-b border-[#283B44] inline-block w-full px-5 py-3">
+                                                <a href="<?php echo esc_attr( get_permalink( 16 ) ); ?>" class="flex items-center gap-5 text-offwhite">
+                                                    <?php echo noste_check_empty ( GetIconsMarkup( 'logout.svg' ) ); ?>
+                                                   Kirjaudu ulos
                                                 </a>
                                             </li>
                                         </ul>
     
                                     </div>
-                                </div>
+
+
+
                             </div> <!-- user_box -->
     
                         </div>

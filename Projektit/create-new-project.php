@@ -27,7 +27,7 @@ $pm_users = get_users([
 ]);
 
 $sub_users = get_users([ 
-    'role__in'  => ['subscriber'],
+    'role__in'  => ['um_valvoja'],
     'fields'    => 'IDs'
 ]);
 

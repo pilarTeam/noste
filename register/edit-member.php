@@ -2,9 +2,16 @@
 
 /* Template Name: Edit Member */
 
-if ( !is_user_logged_in() && !current_user_can('administrator') ) {
+if ( !is_user_logged_in() ) {
 	wp_redirect( site_url() );
 	exit;
+}
+
+$user = wp_get_current_user();
+
+if ( isset($user->roles) && !empty($user->roles) && !array_intersect(['editor', 'administrator'], $user->roles) ) {
+    wp_redirect( site_url() );
+    exit;   
 }
 
 
@@ -96,7 +103,7 @@ echo $messages;
 if ( !empty($_GET['user']) ):
 
 	$all_roles = [
-		'subscriber' => 'Subscriber',
+		'um_project-manager' => 'um_project-manager',
 		'um_paakayttaja' => 'Paakayttaja'
 	];
 

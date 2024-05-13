@@ -10,9 +10,9 @@ get_header();
 ?>
 
 <seciton class="logins">
-	<div class="container md:container md:mx-auto px-4">
+	<div class="px-4">
 		<div class="flex flex-wrap flex-wrap items-center justify-around">
-		  <div class="basis-1/2">
+		  <div class="login-col">
 		    <div class="main-login-wrap <?php echo ( isset( $_GET['tm'] ) && $_GET['tm'] == 'forget' ) ? 'hidden' : ''; ?>">
 		    	<div class="login-head mb-2">
 		    		<h2 class="text-xl md:text-2xl text-black font-medium hidden md:block text-center">Kirjaudu sisään</h2>
@@ -38,8 +38,8 @@ get_header();
 		    	</div>
 		    </div>
 		  </div>
-		  <div class="basis-1/2 flex justify-end p-8">
-		    <img src="<?php echo get_template_directory_uri() . '/assets/images/login-right.jpg'; ?>">
+		  <div class="login-col flex justify-end login-right-banner">
+		    <img src="<?php echo get_template_directory_uri() . '/assets/images/login-right.png'; ?>">
 		  </div>
 		</div>		
 	</div>

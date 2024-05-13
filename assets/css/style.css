@@ -637,8 +637,8 @@ h5 {
 /* Form Input Fuild */
 
 input,
-  textarea,
-  select {
+	textarea,
+	select {
   display: flex;
   height: auto;
   align-items: center;
@@ -654,8 +654,8 @@ input,
 }
 
 input:focus,
-  textarea:focus,
-  select:focus {
+	textarea:focus,
+	select:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
@@ -672,7 +672,7 @@ input:focus,
 }
 
 #buttonList li,
-  #buttonList_2 li {
+	#buttonList_2 li {
   height: 100%;
   border-radius: 0.125rem;
   padding-top: 0.25rem;
@@ -683,7 +683,7 @@ input:focus,
 
 @media (min-width: 768px) {
   #buttonList li,
-  #buttonList_2 li {
+	#buttonList_2 li {
     border-radius: 9999px;
     padding: 0.5rem;
   }
@@ -738,13 +738,13 @@ input:focus,
 }
 
 #grid-view-btn,
-  #list-view-btn {
+	#list-view-btn {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
 
 #grid-view-btn.active,
-  #list-view-btn.active {
+	#list-view-btn.active {
   border-width: 1px;
   border-color: #00000000;
   --tw-shadow: 1px 1px 3px #818D9314;
@@ -1139,6 +1139,10 @@ input:focus,
   margin-bottom: 40px;
 }
 
+.mb-\[50px\] {
+  margin-bottom: 50px;
+}
+
 .ml-1 {
   margin-left: 0.25rem;
 }
@@ -1223,6 +1227,10 @@ input:focus,
   margin-left: 50px;
 }
 
+.ml-\[55px\] {
+  margin-left: 55px;
+}
+
 .ml-\[57px\] {
   margin-left: 57px;
 }
@@ -1233,6 +1241,10 @@ input:focus,
 
 .ml-\[60px\] {
   margin-left: 60px;
+}
+
+.ml-\[65px\] {
+  margin-left: 65px;
 }
 
 .ml-auto {
@@ -1628,6 +1640,10 @@ input:focus,
   width: 190px;
 }
 
+.w-\[195px\] {
+  width: 195px;
+}
+
 .w-\[19px\] {
   width: 19px;
 }
@@ -1852,6 +1868,10 @@ input:focus,
   min-width: 190px;
 }
 
+.min-w-\[195px\] {
+  min-width: 195px;
+}
+
 .min-w-\[203px\] {
   min-width: 203px;
 }
@@ -1944,8 +1964,16 @@ input:focus,
   min-width: 400px;
 }
 
+.min-w-\[40px\] {
+  min-width: 40px;
+}
+
 .min-w-\[424px\] {
   min-width: 424px;
+}
+
+.min-w-\[435px\] {
+  min-width: 435px;
 }
 
 .min-w-\[450px\] {
@@ -1998,6 +2026,10 @@ input:focus,
 
 .max-w-\[245px\] {
   max-width: 245px;
+}
+
+.max-w-\[250px\] {
+  max-width: 250px;
 }
 
 .max-w-\[310px\] {
@@ -2738,6 +2770,11 @@ input:focus,
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
 }
 
 .py-6 {
@@ -3871,6 +3908,10 @@ input:focus,
     margin-left: 65px;
   }
 
+  .lg\:ml-\[70px\] {
+    margin-left: 70px;
+  }
+
   .lg\:mr-16 {
     margin-right: 4rem;
   }
@@ -4027,6 +4068,10 @@ input:focus,
     width: 157px;
   }
 
+  .lg\:w-\[160px\] {
+    width: 160px;
+  }
+
   .lg\:w-\[170px\] {
     width: 170px;
   }
@@ -4037,6 +4082,10 @@ input:focus,
 
   .lg\:w-\[192px\] {
     width: 192px;
+  }
+
+  .lg\:w-\[200px\] {
+    width: 200px;
   }
 
   .lg\:w-\[206px\] {
@@ -4099,8 +4148,20 @@ input:focus,
     width: 285px;
   }
 
+  .lg\:w-\[290px\] {
+    width: 290px;
+  }
+
   .lg\:w-\[298px\] {
     width: 298px;
+  }
+
+  .lg\:w-\[300px\] {
+    width: 300px;
+  }
+
+  .lg\:w-\[310px\] {
+    width: 310px;
   }
 
   .lg\:w-\[320px\] {
@@ -4193,6 +4254,10 @@ input:focus,
 
   .lg\:w-\[70px\] {
     width: 70px;
+  }
+
+  .lg\:w-\[80px\] {
+    width: 80px;
   }
 
   .lg\:w-\[81\%\] {
@@ -4365,6 +4430,10 @@ input:focus,
 
   .lg\:items-center {
     align-items: center;
+  }
+
+  .lg\:justify-between {
+    justify-content: space-between;
   }
 
   .lg\:gap-0 {
