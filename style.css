@@ -1,7 +1,7 @@
 /*!
 Theme Name: noste
 Theme URI: #
-Version: 1.15.0
+Version: 1.19.0
 Tested up to: 5.4
 Requires PHP: 5.6
 License: GNU General Public License v2 or later
@@ -12,7 +12,8 @@ Text Domain: noste
 body {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
-  font-style: normal;	
+  font-style: normal;
+  background: #FCFCFD;	
 }
 
 body h1,
@@ -23,7 +24,13 @@ body h2 {
 div.um:not(.um-admin) {
     opacity: 1;
 }
-
+span.iconsmarkup {
+    display: inline-block;
+    width: 20px;
+}
+span.iconsmarkup > svg {
+    width: inherit;
+}
 seciton.logins .main-login-wrap {
     width: 450px;
     margin: auto;
@@ -31,6 +38,7 @@ seciton.logins .main-login-wrap {
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border-radius: 12px;
     padding: 24px;
+    max-width: 100%;
 }
 .um-login h2 {
     color: #08202C;
@@ -85,6 +93,7 @@ seciton.logins .main-login-wrap {
     width: 470px;
     margin: auto;
     max-width: 100%;
+    max-width: 100%;
 }
 
 .login-back button,
@@ -109,7 +118,16 @@ seciton.logins .main-login-wrap {
     object-fit: contain;
     margin-right: 4px;
 }
+.login-right-banner {
+    padding: 30px;
+}
+seciton.logins .login-col {
+    width: 55%;
+}
 
+seciton.logins .login-col.login-right-banner {
+    width: 45%;
+}
 .noste-reset .noste-reset-wrap {
     margin-top: 25px;
     border: 1px solid #E1E1EA;
@@ -165,6 +183,15 @@ seciton.logins .main-login-wrap {
 
 .noste-reset .um-password .um-field-text {
     padding-top: 7px;
+}
+
+@media(max-width: 767px) {
+    seciton.logins .login-col {
+        width: 100% !important;
+    }  
+    seciton.logins > div {
+        margin-top: 100px;
+    }
 }
 
 
@@ -563,4 +590,20 @@ td#project_table_status .instep-status.status_3:before {
     box-shadow: none;
     border-color: #ddd;
     cursor: not-allowed;
+}
+.notification-list .not_mark {
+    border: 1px solid #FE3B2D66;
+}
+
+section#single-main-list .started {
+    border-left: 8px solid #E1E1EA;
+}
+
+
+section#single-main-list .admitted {
+    border-left: 8px solid rgb(0 178 169);
+}
+
+section#single-main-list .approval {
+    border-left: 8px solid rgb(6 249 183);
 }

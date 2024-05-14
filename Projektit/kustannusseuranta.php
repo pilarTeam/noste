@@ -46,17 +46,17 @@ get_header( 'noste' );
 
                 <hr class="border border-solid border-[#E1E1EA] ml-[-20px] mr-[-20px]">
 
-                <div class="mt-10">
+                <div class="mt-10 lg:ml-[70px]">
                     <span class="font-medium italic text-[#00B2A9] block">T1</span>
                     <span class="font-medium italic text-[#00B2A9] block">K1</span>
                 </div>
 
-                <div class="flex items-center justify-between my-10">
-                    <h2 class="text-black font-medium text-[28px]">Kustannusseuranta (alv. 0%)</h2>
+                <div class="flex items-center justify-between my-10 lg:ml-[70px]">
+                    <input type="text" name="pilar_M4" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[300px] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Kustannusseuranta (alv. 0%)">
                     <span class="italic text-[#00B2A9]">xx.xx.xxxx</span>
                 </div>
 
-                <div class="mb-10">
+                <div class="mb-10 lg:ml-[70px]">
                     <h3 class="italic text-[#00B2A9] font-medium text-[24px]">K4</h3>
                 </div>
 
@@ -76,20 +76,20 @@ get_header( 'noste' );
                             <tr>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-left text-[#283B44] font-medium p-3 border border-solid border-[#E1E1EA]">Rakennustyöt yhteensä</td>
-                                <td class="text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA]">BU2</td>
+                                <td class="text-[#00B2A9] italic text-left p-3 border border-solid border-[#E1E1EA]">BU2</td>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">E2=<span class="text-[#00B2A9] italic">UH1</span> + 6200€ + <span class="italic">Ennuste1 + jne.</span></td>
+                                <td class="text-[#586B74] text-[14px] text-left p-3 border border-solid border-[#E1E1EA]">E2=<span class="text-[#00B2A9] italic">UH1</span> + 6200€ + <span class="italic">Ennuste1 + jne.</span></td>
                                 <td class=""></td>
                             </tr>
     
                             <tr>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-left text-[#00B2A9] italic font-medium p-3 border border-solid border-[#E1E1EA]">U1, Urakkasopimuksen mukaiset työt</td>
-                                <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA]">UH1</td>
-                                <td class="text-left text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">60 000 €</td>
-                                <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
+                                <td class="text-left text-[#00B2A9] italic p-3 border border-solid border-[#E1E1EA]">U1, Urakkasopimuksen mukaiset työt</td>
+                                <td class="text-left p-3 border border-solid border-[#E1E1EA]"></td>
+                                <td class="text-[#00B2A9] italic text-left p-3 border border-solid border-[#E1E1EA]">UH1</td>
+                                <td class="text-left text-[#586B74 text-[14px] p-3 border border-solid border-[#E1E1EA]">60 000 €</td>
+                                <td class="text-[#00B2A9] italic text-[14px] text-left p-3 border border-solid border-[#E1E1EA]">0 €</td>
                                 <td class=""></td>
                             </tr>
     
@@ -103,8 +103,22 @@ get_header( 'noste' );
                                 </td>
                                 <td class="text-left text-[#00B2A9] italic font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="col_collapse_2 bg-[#00B2A9] text-left text-black font-medium p-3 text-[17px] border border-solid border-[#E1E1EA]">Laskunumero</td>
-                                <td class="col_collapse_2 bg-[#00B2A9] text-right text-black font-medium p-3 text-[17px] border border-solid border-[#E1E1EA]">Laskun summa (alv 0%)</td>
+                                <td class="col_collapse_2 bg-[#00B2A9] text-left text-black p-3 text-[17px] border border-solid border-[#E1E1EA]">Laskunumero</td>
+                                <td class="col_collapse_2 bg-[#00B2A9] text-right text-black p-3 text-[17px] border border-solid border-[#E1E1EA]">Laskun summa (alv 0%)</td>
+                                <td class="text-[#586B74] text-[14px] text-left p-3 border border-solid border-[#E1E1EA]"></td>
+                                <td class=""></td>
+                            </tr>
+    
+                            <tr class="row_collapse_2">
+                                <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
+                                <td class="text-left text-[#00B2A9] italic font-medium p-3 border border-solid border-[#E1E1EA]"></td>
+                                <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="1" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="20 000 €" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
                                 <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class=""></td>
                             </tr>
@@ -113,18 +127,12 @@ get_header( 'noste' );
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-left text-[#00B2A9] italic font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">1</td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">20 000 €</td>
-                                <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class=""></td>
-                            </tr>
-    
-                            <tr class="row_collapse_2">
-                                <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-left text-[#00B2A9] italic font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">2</td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">40 000 €</td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="2" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="40 000 €" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
                                 <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class=""></td>
                             </tr>
@@ -140,8 +148,12 @@ get_header( 'noste' );
                                         <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
                                     </label>
                                 </td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">x</td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">0 €</td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="x" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="0 €" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
                                 <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class=""></td>
                             </tr>
@@ -158,11 +170,11 @@ get_header( 'noste' );
     
                             <tr>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]"><span class="text-[#00B2A9] italic">U1,</span> Lisä- ja muutostyöt</td>
+                                <td class="text-[#586B74] text-[14px] text-left p-3 border border-solid border-[#E1E1EA]"><span class="text-[#00B2A9] italic">U1,</span> Lisä- ja muutostyöt</td>
                                 <td class="text-center font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">5 000 €</td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">5 000 €</td>
-                                <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">5 000 €</td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">5 000 €</td>
+                                <td class="text-[#586B74] text-[14px] text-left p-3 border border-solid border-[#E1E1EA]">
                                     <input type="text" name="pilar_M4" value="6 200 €" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </td>
                                 <td class=""></td>
@@ -173,7 +185,7 @@ get_header( 'noste' );
                     <div class="overflow-x-scroll scroller">
                         <table class="w-full">
                             <tr>
-                                <td class="text-center font-medium p-3 border border-solid border-[#E1E1EA]">
+                                <td class="text-center p-3 border border-solid border-[#E1E1EA]">
                                     <a href="#!" class="row_collapse" id="collapse_3">
                                         <svg width="24px" height="24px" class="icon1 mx-auto" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="12" r="10" stroke="#586B74" stroke-width="0.384"></circle> <path d="M15 12H9" stroke="#586B74" stroke-width="0.384" stroke-linecap="round"></path> </g></svg>
 
@@ -182,32 +194,42 @@ get_header( 'noste' );
                                 </td>
                                 <td class="min-w-[424px] text-left text-white font-medium p-3 text-[18px] border border-solid border-[#E1E1EA]"></td>
                                 <td class="min-w-[126px] text-left text-white font-medium p-3 text-[18px] border border-solid border-[#E1E1EA]"></td>
-                                <td class="col_collapse_3 min-w-[188px] bg-[#00B2A9] text-left text-white font-medium p-3 text-[18px] border border-solid border-[#E1E1EA]">Juokseva nro</td>
-                                <td class="col_collapse_3 min-w-[300px] bg-[#00B2A9] text-left text-white font-medium p-3 text-[18px] border border-solid border-[#E1E1EA]">Tarjous nro</td>
-                                <td class="col_collapse_3 min-w-[350px] bg-[#00B2A9] text-left text-white font-medium p-3 text-[18px] border border-solid border-[#E1E1EA]">Sisältö</td>
-                                <td class="col_collapse_3 bg-[#00B2A9] text-left text-white font-medium p-3 text-[18px] border border-solid border-[#E1E1EA] min-w-[230px]">Tarjous € (alv 0%)</td>
+                                <td class="col_collapse_3 min-w-[188px] bg-[#00B2A9] text-left text-black p-3 border border-solid border-[#E1E1EA]">Juokseva nro</td>
+                                <td class="col_collapse_3 min-w-[300px] bg-[#00B2A9] text-left text-black p-3 border border-solid border-[#E1E1EA]">Tarjous nro</td>
+                                <td class="col_collapse_3 min-w-[350px] bg-[#00B2A9] text-left text-black p-3 border border-solid border-[#E1E1EA]">Sisältö</td>
+                                <td class="col_collapse_3 bg-[#00B2A9] text-left text-black p-3 border border-solid border-[#E1E1EA] min-w-[230px]">Tarjous € (alv 0%)</td>
                                 <td class="col_collapse_3 bg-[#00B2A9] text-left text-white font-medium p-3 text-[18px] border border-solid border-[#E1E1EA] min-w-[230px]">Tarjous pvm.</td>
-                                <td class="col_collapse_3 bg-[#00B2A9] text-left text-white font-medium p-3 text-[18px] border border-solid border-[#E1E1EA] min-w-[230px]">Käyttäjämuutos</td>
-                                <td class="col_collapse_3 bg-[#00B2A9] text-left text-white font-medium p-3 text-[18px] border border-solid border-[#E1E1EA] min-w-[230px]">Hinnoitteluperuste</td>
-                                <td class="col_collapse_3 bg-[#00B2A9] text-left text-white font-medium p-3 text-[18px] border border-solid border-[#E1E1EA] min-w-[230px]">Maksaja</td>
-                                <td class="col_collapse_3 bg-[#00B2A9] text-left text-white font-medium p-3 text-[18px] border border-solid border-[#E1E1EA] min-w-[230px]">Lisätyö / muutostyö</td>
-                                <td class="col_collapse_3 bg-[#00B2A9] text-left text-white font-medium p-3 text-[18px] border border-solid border-[#E1E1EA] min-w-[230px]">Hyväks. Käyttäjä (pvm.)</td>
-                                <td class="col_collapse_3 bg-[#00B2A9] text-left text-white font-medium p-3 text-[18px] border border-solid border-[#E1E1EA] min-w-[230px]">Hyväks. Tilaaja (pvm.)</td>
-                                <td class="col_collapse_3 bg-[#00B2A9] text-left text-white font-medium p-3 text-[18px] border border-solid border-[#E1E1EA] min-w-[230px]">Lisäaikavaikutus (tv)</td>
-                                <td class="col_collapse_3 bg-[#00B2A9] text-left text-white font-medium p-3 text-[18px] border border-solid border-[#E1E1EA] min-w-[230px]">Laskutettu</td>
-                                <td class="col_collapse_3 bg-[#00B2A9] text-left text-white font-medium p-3 text-[18px] border border-solid border-[#E1E1EA] min-w-[230px]">Lasku numero</td>
-                                <td class="col_collapse_3 bg-[#00B2A9] text-left text-white font-medium p-3 text-[18px] border border-solid border-[#E1E1EA] min-w-[450px]">Huom.</td>
+                                <td class="col_collapse_3 bg-[#00B2A9] text-left text-black p-3 border border-solid border-[#E1E1EA] min-w-[230px]">Käyttäjämuutos</td>
+                                <td class="col_collapse_3 bg-[#00B2A9] text-left text-black p-3 border border-solid border-[#E1E1EA] min-w-[230px]">Hinnoitteluperuste</td>
+                                <td class="col_collapse_3 bg-[#00B2A9] text-left text-black p-3 border border-solid border-[#E1E1EA] min-w-[230px]">Maksaja</td>
+                                <td class="col_collapse_3 bg-[#00B2A9] text-left text-black p-3 border border-solid border-[#E1E1EA] min-w-[230px]">Lisätyö / muutostyö</td>
+                                <td class="col_collapse_3 bg-[#00B2A9] text-left text-black p-3 border border-solid border-[#E1E1EA] min-w-[230px]">Hyväks. Käyttäjä (pvm.)</td>
+                                <td class="col_collapse_3 bg-[#00B2A9] text-left text-black p-3 border border-solid border-[#E1E1EA] min-w-[230px]">Hyväks. Tilaaja (pvm.)</td>
+                                <td class="col_collapse_3 bg-[#00B2A9] text-left text-black p-3 border border-solid border-[#E1E1EA] min-w-[230px]">Lisäaikavaikutus (tv)</td>
+                                <td class="col_collapse_3 bg-[#00B2A9] text-left text-black p-3 border border-solid border-[#E1E1EA] min-w-[230px]">Laskutettu</td>
+                                <td class="col_collapse_3 bg-[#00B2A9] text-left text-black p-3 border border-solid border-[#E1E1EA] min-w-[230px]">Lasku numero</td>
+                                <td class="col_collapse_3 bg-[#00B2A9] text-left text-black p-3 border border-solid border-[#E1E1EA] min-w-[450px]">Huom.</td>
                             </tr>
 
-                            <tr class="row_collapse_3">
+                            <tr class="row_collapse_3"> 
                                 <td class="min-w-[70px] text-center font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="min-w-[424px] text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]"></td>
                                 <td class="min-w-[126px] text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]"></td>
-                                <td class="min-w-[188px] text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">1</td>
-                                <td class="min-w-[300px] text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">2a</td>
-                                <td class="min-w-[350px] text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">Sisäänkäyntiovi</td>
-                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">5 000 €</td>
-                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">12/24/2023</td>
+                                <td class="min-w-[188px] text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="1" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="min-w-[300px] text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="2a" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="min-w-[350px] text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="Sisäänkäyntiovi" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="5 000 €" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="12/24/2023" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
                                 <td class="text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
                                     <div class="dropdown_click shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2 cursor-pointer relative">
                                         <span class="flex items-center justify-between">
@@ -300,31 +322,14 @@ get_header( 'noste' );
                                         </div>
                                     </div>
                                 </td>
-                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">-</td>
-                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">Matti Meikäläinen 25.12.2023</td>
-                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">3</td>
-                                <td class="text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
-                                    <div class="dropdown_click shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2 cursor-pointer relative">
-                                        <span class="flex items-center justify-between">
-                                            Kyllä
-        
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 300 300">
-                                                <g id="expand_input_field" transform="translate(-622 -557)">
-                                                <rect id="Rectangle_1128" data-name="Rectangle 1128" width="20px" height="20px" transform="translate(622 557)" fill="#fff" opacity="0"></rect>
-                                                <path id="Path_117" data-name="Path 117" d="M46.2,5.365a14.91,14.91,0,0,1,22.908,0l42.716,51.259A14.91,14.91,0,0,1,100.37,81.079H14.938A14.91,14.91,0,0,1,3.484,56.624Z" transform="translate(828.752 742.447) rotate(180)" fill="#818d93"></path>
-                                                </g>
-                                            </svg>
-                                        </span>
-        
-                                        <div class="hidden dropdown_wrap overflow-y-auto absolute w-full border border-solid border-[#E1E1EA] rounded-lg p-3 text-offwhite mt-3 left-0 top-full z-50 bg-white" style="display: none;">
-                                            <label class="flex items-center gap-3 my-4 cursor-pointer block">                       
-                                                <span class="text-black text-[14px]">Ei</span>
-                                            </label>
-                                            <label class="flex items-center gap-3 my-4 cursor-pointer block">                       
-                                                <span class="text-black text-[14px]">Kyllä</span>
-                                            </label>
-                                        </div>
-                                    </div>
+                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="-" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="Matti Meikäläinen 25.12.2023" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="3" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </td>
                                 <td class="text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
                                     <div class="dropdown_click shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2 cursor-pointer relative">
@@ -349,18 +354,53 @@ get_header( 'noste' );
                                         </div>
                                     </div>
                                 </td>
-                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">Teräslasiovi vasikalla, heloitukset ja lukitukset kuuluvat tarjoukseen</td>
+                                <td class="text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <div class="dropdown_click shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2 cursor-pointer relative">
+                                        <span class="flex items-center justify-between">
+                                            Kyllä
+        
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 300 300">
+                                                <g id="expand_input_field" transform="translate(-622 -557)">
+                                                <rect id="Rectangle_1128" data-name="Rectangle 1128" width="20px" height="20px" transform="translate(622 557)" fill="#fff" opacity="0"></rect>
+                                                <path id="Path_117" data-name="Path 117" d="M46.2,5.365a14.91,14.91,0,0,1,22.908,0l42.716,51.259A14.91,14.91,0,0,1,100.37,81.079H14.938A14.91,14.91,0,0,1,3.484,56.624Z" transform="translate(828.752 742.447) rotate(180)" fill="#818d93"></path>
+                                                </g>
+                                            </svg>
+                                        </span>
+        
+                                        <div class="hidden dropdown_wrap overflow-y-auto absolute w-full border border-solid border-[#E1E1EA] rounded-lg p-3 text-offwhite mt-3 left-0 top-full z-50 bg-white" style="display: none;">
+                                            <label class="flex items-center gap-3 my-4 cursor-pointer block">                       
+                                                <span class="text-black text-[14px]">Ei</span>
+                                            </label>
+                                            <label class="flex items-center gap-3 my-4 cursor-pointer block">                       
+                                                <span class="text-black text-[14px]">Kyllä</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="Teräslasiovi vasikalla, heloitukset ja lukitukset kuuluvat tarjoukseen" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
                             </tr>
 
                             <tr class="row_collapse_3">
                                 <td class="min-w-[70px] text-center font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="min-w-[424px] text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]"></td>
                                 <td class="min-w-[126px] text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]"></td>
-                                <td class="min-w-[188px] text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">2</td>
-                                <td class="min-w-[300px] text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">3</td>
-                                <td class="min-w-[350px] text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">Lattialistat</td>
-                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">1 200 €</td>
-                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">12/24/2023</td>
+                                <td class="min-w-[188px] text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="2" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="min-w-[300px] text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="3" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="min-w-[350px] text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="Lattialistat" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="1 200 €" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="12/24/2023" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
                                 <td class="text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
                                     <div class="dropdown_click shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2 cursor-pointer relative">
                                         <span class="flex items-center justify-between">
@@ -453,31 +493,14 @@ get_header( 'noste' );
                                         </div>
                                     </div>
                                 </td>
-                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">-</td>
-                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">1</td>
-                                <td class="text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
-                                    <div class="dropdown_click shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2 cursor-pointer relative">
-                                        <span class="flex items-center justify-between">
-                                            Kyllä
-        
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 300 300">
-                                                <g id="expand_input_field" transform="translate(-622 -557)">
-                                                <rect id="Rectangle_1128" data-name="Rectangle 1128" width="20px" height="20px" transform="translate(622 557)" fill="#fff" opacity="0"></rect>
-                                                <path id="Path_117" data-name="Path 117" d="M46.2,5.365a14.91,14.91,0,0,1,22.908,0l42.716,51.259A14.91,14.91,0,0,1,100.37,81.079H14.938A14.91,14.91,0,0,1,3.484,56.624Z" transform="translate(828.752 742.447) rotate(180)" fill="#818d93"></path>
-                                                </g>
-                                            </svg>
-                                        </span>
-        
-                                        <div class="hidden dropdown_wrap overflow-y-auto absolute w-full border border-solid border-[#E1E1EA] rounded-lg p-3 text-offwhite mt-3 left-0 top-full z-50 bg-white" style="display: none;">
-                                            <label class="flex items-center gap-3 my-4 cursor-pointer block">                       
-                                                <span class="text-black text-[14px]">Ei</span>
-                                            </label>
-                                            <label class="flex items-center gap-3 my-4 cursor-pointer block">                       
-                                                <span class="text-black text-[14px]">Kyllä</span>
-                                            </label>
-                                        </div>
-                                    </div>
+                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="-" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="-" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="1" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </td>
                                 <td class="text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
                                     <div class="dropdown_click shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2 cursor-pointer relative">
@@ -502,7 +525,32 @@ get_header( 'noste' );
                                         </div>
                                     </div>
                                 </td>
-                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">Vaihdetaan kaikki jalkalistat uusiin.</td>
+                                <td class="text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <div class="dropdown_click shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2 cursor-pointer relative">
+                                        <span class="flex items-center justify-between">
+                                            Kyllä
+        
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 300 300">
+                                                <g id="expand_input_field" transform="translate(-622 -557)">
+                                                <rect id="Rectangle_1128" data-name="Rectangle 1128" width="20px" height="20px" transform="translate(622 557)" fill="#fff" opacity="0"></rect>
+                                                <path id="Path_117" data-name="Path 117" d="M46.2,5.365a14.91,14.91,0,0,1,22.908,0l42.716,51.259A14.91,14.91,0,0,1,100.37,81.079H14.938A14.91,14.91,0,0,1,3.484,56.624Z" transform="translate(828.752 742.447) rotate(180)" fill="#818d93"></path>
+                                                </g>
+                                            </svg>
+                                        </span>
+        
+                                        <div class="hidden dropdown_wrap overflow-y-auto absolute w-full border border-solid border-[#E1E1EA] rounded-lg p-3 text-offwhite mt-3 left-0 top-full z-50 bg-white" style="display: none;">
+                                            <label class="flex items-center gap-3 my-4 cursor-pointer block">                       
+                                                <span class="text-black text-[14px]">Ei</span>
+                                            </label>
+                                            <label class="flex items-center gap-3 my-4 cursor-pointer block">                       
+                                                <span class="text-black text-[14px]">Kyllä</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="Vaihdetaan kaikki jalkalistat uusiin." class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
                             </tr>
 
                             <tr class="row_collapse_3">
@@ -516,21 +564,171 @@ get_header( 'noste' );
                                         <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
                                     </label>
                                 </td>
-                                <td class="min-w-[188px] text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]"></td>
-                                <td class="min-w-[300px] text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]"></td>
-                                <td class="min-w-[350px] text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]"></td>
+                                <td class="min-w-[188px] text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="min-w-[300px] text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="min-w-[350px] text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <div class="dropdown_click shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2 cursor-pointer relative">
+                                        <span class="flex items-center justify-between">
+                                            <span></span>
+        
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 300 300">
+                                                <g id="expand_input_field" transform="translate(-622 -557)">
+                                                <rect id="Rectangle_1128" data-name="Rectangle 1128" width="20px" height="20px" transform="translate(622 557)" fill="#fff" opacity="0"></rect>
+                                                <path id="Path_117" data-name="Path 117" d="M46.2,5.365a14.91,14.91,0,0,1,22.908,0l42.716,51.259A14.91,14.91,0,0,1,100.37,81.079H14.938A14.91,14.91,0,0,1,3.484,56.624Z" transform="translate(828.752 742.447) rotate(180)" fill="#818d93"></path>
+                                                </g>
+                                            </svg>
+                                        </span>
+        
+                                        <div class="hidden dropdown_wrap overflow-y-auto absolute w-full border border-solid border-[#E1E1EA] rounded-lg p-3 text-offwhite mt-3 left-0 top-full z-50 bg-white" style="display: none;">
+                                            <label class="flex items-center gap-3 my-4 cursor-pointer block">                       
+                                                <span class="text-black text-[14px]">Ei</span>
+                                            </label>
+                                            <label class="flex items-center gap-3 my-4 cursor-pointer block">                       
+                                                <span class="text-black text-[14px]">Kyllä</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <div class="dropdown_click shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2 cursor-pointer relative">
+                                        <span class="flex items-center justify-between">
+                                            <span></span>
+        
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 300 300">
+                                                <g id="expand_input_field" transform="translate(-622 -557)">
+                                                <rect id="Rectangle_1128" data-name="Rectangle 1128" width="20px" height="20px" transform="translate(622 557)" fill="#fff" opacity="0"></rect>
+                                                <path id="Path_117" data-name="Path 117" d="M46.2,5.365a14.91,14.91,0,0,1,22.908,0l42.716,51.259A14.91,14.91,0,0,1,100.37,81.079H14.938A14.91,14.91,0,0,1,3.484,56.624Z" transform="translate(828.752 742.447) rotate(180)" fill="#818d93"></path>
+                                                </g>
+                                            </svg>
+                                        </span>
+        
+                                        <div class="hidden dropdown_wrap overflow-y-auto absolute w-full border border-solid border-[#E1E1EA] rounded-lg p-3 text-offwhite mt-3 left-0 top-full z-50 bg-white" style="display: none;">
+                                            <label class="flex items-center gap-3 my-4 cursor-pointer block">                       
+                                                <span class="text-black text-[14px]">Laskutyö</span>
+                                            </label>
+                                            <label class="flex items-center gap-3 my-4 cursor-pointer block">                       
+                                                <span class="text-black text-[14px]">Kiinteähintainen</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <div class="dropdown_click shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2 cursor-pointer relative">
+                                        <span class="flex items-center justify-between">
+                                            <span></span>
+        
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 300 300">
+                                                <g id="expand_input_field" transform="translate(-622 -557)">
+                                                <rect id="Rectangle_1128" data-name="Rectangle 1128" width="20px" height="20px" transform="translate(622 557)" fill="#fff" opacity="0"></rect>
+                                                <path id="Path_117" data-name="Path 117" d="M46.2,5.365a14.91,14.91,0,0,1,22.908,0l42.716,51.259A14.91,14.91,0,0,1,100.37,81.079H14.938A14.91,14.91,0,0,1,3.484,56.624Z" transform="translate(828.752 742.447) rotate(180)" fill="#818d93"></path>
+                                                </g>
+                                            </svg>
+                                        </span>
+        
+                                        <div class="hidden dropdown_wrap overflow-y-auto absolute w-full border border-solid border-[#E1E1EA] rounded-lg p-3 text-offwhite mt-3 left-0 top-full z-50 bg-white" style="display: none;">
+                                            <label class="flex items-center gap-3 my-4 cursor-pointer block">                       
+                                                <span class="text-black text-[14px]">Vuokralainen</span>
+                                            </label>
+                                            <label class="flex items-center gap-3 my-4 cursor-pointer block">                       
+                                                <span class="text-black text-[14px]">Vuokranantaja</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <div class="dropdown_click shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2 cursor-pointer relative">
+                                        <span class="flex items-center justify-between">
+                                            <span></span>
+        
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 300 300">
+                                                <g id="expand_input_field" transform="translate(-622 -557)">
+                                                <rect id="Rectangle_1128" data-name="Rectangle 1128" width="20px" height="20px" transform="translate(622 557)" fill="#fff" opacity="0"></rect>
+                                                <path id="Path_117" data-name="Path 117" d="M46.2,5.365a14.91,14.91,0,0,1,22.908,0l42.716,51.259A14.91,14.91,0,0,1,100.37,81.079H14.938A14.91,14.91,0,0,1,3.484,56.624Z" transform="translate(828.752 742.447) rotate(180)" fill="#818d93"></path>
+                                                </g>
+                                            </svg>
+                                        </span>
+        
+                                        <div class="hidden dropdown_wrap overflow-y-auto absolute w-full border border-solid border-[#E1E1EA] rounded-lg p-3 text-offwhite mt-3 left-0 top-full z-50 bg-white" style="display: none;">
+                                            <label class="flex items-center gap-3 my-4 cursor-pointer block">                       
+                                                <span class="text-black text-[14px]">Muutostyö</span>
+                                            </label>
+                                            <label class="flex items-center gap-3 my-4 cursor-pointer block">                       
+                                                <span class="text-black text-[14px]">Lisätyö</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <div class="dropdown_click shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2 cursor-pointer relative">
+                                        <span class="flex items-center justify-between">
+                                            <span></span>
+        
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 300 300">
+                                                <g id="expand_input_field" transform="translate(-622 -557)">
+                                                <rect id="Rectangle_1128" data-name="Rectangle 1128" width="20px" height="20px" transform="translate(622 557)" fill="#fff" opacity="0"></rect>
+                                                <path id="Path_117" data-name="Path 117" d="M46.2,5.365a14.91,14.91,0,0,1,22.908,0l42.716,51.259A14.91,14.91,0,0,1,100.37,81.079H14.938A14.91,14.91,0,0,1,3.484,56.624Z" transform="translate(828.752 742.447) rotate(180)" fill="#818d93"></path>
+                                                </g>
+                                            </svg>
+                                        </span>
+        
+                                        <div class="hidden dropdown_wrap overflow-y-auto absolute w-full border border-solid border-[#E1E1EA] rounded-lg p-3 text-offwhite mt-3 left-0 top-full z-50 bg-white" style="display: none;">
+                                            <label class="flex items-center gap-3 my-4 cursor-pointer block">                       
+                                                <span class="text-black text-[14px]">Ei</span>
+                                            </label>
+                                            <label class="flex items-center gap-3 my-4 cursor-pointer block">                       
+                                                <span class="text-black text-[14px]">Kyllä</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <div class="dropdown_click shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2 cursor-pointer relative">
+                                        <span class="flex items-center justify-between">
+                                            <span></span>
+        
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 300 300">
+                                                <g id="expand_input_field" transform="translate(-622 -557)">
+                                                <rect id="Rectangle_1128" data-name="Rectangle 1128" width="20px" height="20px" transform="translate(622 557)" fill="#fff" opacity="0"></rect>
+                                                <path id="Path_117" data-name="Path 117" d="M46.2,5.365a14.91,14.91,0,0,1,22.908,0l42.716,51.259A14.91,14.91,0,0,1,100.37,81.079H14.938A14.91,14.91,0,0,1,3.484,56.624Z" transform="translate(828.752 742.447) rotate(180)" fill="#818d93"></path>
+                                                </g>
+                                            </svg>
+                                        </span>
+        
+                                        <div class="hidden dropdown_wrap overflow-y-auto absolute w-full border border-solid border-[#E1E1EA] rounded-lg p-3 text-offwhite mt-3 left-0 top-full z-50 bg-white" style="display: none;">
+                                            <label class="flex items-center gap-3 my-4 cursor-pointer block">                       
+                                                <span class="text-black text-[14px]">Ei</span>
+                                            </label>
+                                            <label class="flex items-center gap-3 my-4 cursor-pointer block">                       
+                                                <span class="text-black text-[14px]">Kyllä</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
                             </tr>
                         </table>
                     </div>
@@ -546,16 +744,16 @@ get_header( 'noste' );
                                         <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
                                     </label>
                                 </td>
-                                <td class="min-w-[424px] text-left text-[#283B44] font-medium p-3 border border-solid border-[#E1E1EA]">
+                                <td class="min-w-[424px] text-left text-[#283B44] p-3 border border-solid border-[#E1E1EA]">
                                     <input type="text" name="pilar_M4" value="Muut toimittajat, Asbestipurku Oy" class="itlaic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </td>
-                                <td class="min-w-[126px] text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="min-w-[188px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">
-                                    <input type="text" name="pilar_M4" value="Tarjous 1" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <td class="min-w-[126px] text-[#00B2A9] italic text-left p-3 border border-solid border-[#E1E1EA]"></td>
+                                <td class="min-w-[188px] text-left p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="Tarjous 1" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </td>
-                                <td class="min-w-[300px] text-left p-3 border border-solid border-[#E1E1EA]">6000 € </td>
-                                <td class="min-w-[350px] text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">
-                                    <input type="text" name="pilar_M4" value="Ennuste1" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <td class="min-w-[300px] text-left text-[#586B74] p-3 border border-solid border-[#E1E1EA]">6000 €  </td>
+                                <td class="min-w-[350px] text-[#586B74] text-[14px] text-left p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="Ennuste1" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </td>
                                 <td class=""></td>
                             </tr>
@@ -570,8 +768,22 @@ get_header( 'noste' );
                                 </td>
                                 <td class="text-left text-[#00B2A9] italic font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="col_collapse_4 bg-[#00B2A9] text-left text-black font-medium p-3 text-[17px] border border-solid border-[#E1E1EA]">Laskunumero</td>
-                                <td class="col_collapse_4 bg-[#00B2A9] text-right text-black font-medium p-3 text-[17px] border border-solid border-[#E1E1EA]">Laskun summa (alv 0%)</td>
+                                <td class="col_collapse_4 bg-[#00B2A9] text-left text-black p-3 text-[17px] border border-solid border-[#E1E1EA]">Laskunumero</td>
+                                <td class="col_collapse_4 bg-[#00B2A9] text-right text-black p-3 text-[17px] border border-solid border-[#E1E1EA]">Laskun summa (alv 0%)</td>
+                                <td class="text-[#586B74] text-[14px] text-left p-3 border border-solid border-[#E1E1EA]"></td>
+                                <td class=""></td>
+                            </tr>
+    
+                            <tr class="row_collapse_4">
+                                <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
+                                <td class="text-left text-[#00B2A9] italic font-medium p-3 border border-solid border-[#E1E1EA]"></td>
+                                <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="1" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="1000 €" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
                                 <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class=""></td>
                             </tr>
@@ -580,18 +792,12 @@ get_header( 'noste' );
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-left text-[#00B2A9] italic font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">1</td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">1000 €</td>
-                                <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class=""></td>
-                            </tr>
-    
-                            <tr class="row_collapse_4">
-                                <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-left text-[#00B2A9] italic font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">2</td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">5000 €</td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="2" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="5000 €" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
                                 <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class=""></td>
                             </tr>
@@ -607,8 +813,12 @@ get_header( 'noste' );
                                         <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
                                     </label>
                                 </td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">x</td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">0 €</td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="x" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="0 €" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
                                 <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class=""></td>
                             </tr>
@@ -625,8 +835,8 @@ get_header( 'noste' );
     
                             <tr>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">Projektinjohto, rakennuttaminen ja valvonta</td>
-                                <td class="text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA]">BU3</td>
+                                <td class="text-black text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">Projektinjohto, rakennuttaminen ja valvonta</td>
+                                <td class="text-[#00B2A9] italic text-left p-3 border border-solid border-[#E1E1EA]">BU3</td>
                                 <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="min-w-[350px] text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA] italic">E3=Ennuste2+ Ennuste3 + jne.</td>
@@ -637,12 +847,12 @@ get_header( 'noste' );
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="min-w-[350px] text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA]">Partners at Noste Oy</td>
                                 <td class="text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">
-                                    <input type="text" name="pilar_M4" value="Tarjous 2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="Tarjous 2" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">4500 €</td>
-                                <td class="min-w-[350px] font-medium text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA] italic">
-                                    <input type="text" name="pilar_M4" value="Ennuste2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">4500 €</td>
+                                <td class="min-w-[350px] text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA] italic">
+                                    <input type="text" name="pilar_M4" value="Ennuste2" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </td>
                                 <td class=""></td>
                             </tr>
@@ -657,9 +867,9 @@ get_header( 'noste' );
                                 </td>
                                 <td class="text-left text-[#00B2A9] italic font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="col_collapse_5 bg-[#00B2A9] text-left text-black font-medium p-3 text-[17px] border border-solid border-[#E1E1EA]">Laskunumero</td>
-                                <td class="col_collapse_5 bg-[#00B2A9] text-right text-black font-medium p-3 text-[17px] border border-solid border-[#E1E1EA]">Laskun summa (alv 0%)</td>
-                                <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
+                                <td class="col_collapse_5 bg-[#00B2A9] text-left text-black p-3 text-[17px] border border-solid border-[#E1E1EA]">Laskunumero</td>
+                                <td class="col_collapse_5 bg-[#00B2A9] text-right text-black p-3 text-[17px] border border-solid border-[#E1E1EA]">Laskun summa (alv 0%)</td>
+                                <td class="text-[#586B74] text-[14px] text-left p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class=""></td>
                             </tr>
 
@@ -667,8 +877,12 @@ get_header( 'noste' );
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-left text-[#00B2A9] italic font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">1</td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">3500 €</td>
+                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="1" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="3500 €" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
                                 <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class=""></td>
                             </tr>
@@ -677,8 +891,12 @@ get_header( 'noste' );
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-left text-[#00B2A9] italic font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">2</td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">1000 €</td>
+                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="2" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="1000 €" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
                                 <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class=""></td>
                             </tr>
@@ -694,8 +912,12 @@ get_header( 'noste' );
                                         <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
                                     </label>
                                 </td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">x</td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">0 €</td>
+                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="x" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="0 €" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
                                 <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class=""></td>
                             </tr>
@@ -709,16 +931,16 @@ get_header( 'noste' );
                                         <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
                                     </label>
                                 </td>
-                                <td class="min-w-[424px] text-left text-[#283B44] font-medium p-3 border border-solid border-[#E1E1EA]">
-                                    <input type="text" name="pilar_M4" value="Muut toimittajat, LVIAS-valvonta Oy" class="itlaic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <td class="min-w-[424px] text-left text-[#283B44] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="Muut toimittajat, LVIAS-valvonta Oy" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </td>
                                 <td class="min-w-[126px] text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="min-w-[188px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">
-                                    <input type="text" name="pilar_M4" value="Tarjous 3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <td class="min-w-[188px] text-left p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="Tarjous 3" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </td>
                                 <td class="min-w-[300px] text-right p-3 border border-solid border-[#E1E1EA]">500 € </td>
-                                <td class="min-w-[350px] text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">
-                                    <input type="text" name="pilar_M4" value="Ennuste3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <td class="min-w-[350px] text-[#586B74] text-[14px] text-left p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="Ennuste3" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </td>
                                 <td class=""></td>
                             </tr>
@@ -733,9 +955,9 @@ get_header( 'noste' );
                                 </td>
                                 <td class="text-left text-[#00B2A9] italic font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="col_collapse_6 bg-[#00B2A9] text-left text-black font-medium p-3 text-[17px] border border-solid border-[#E1E1EA]">Laskunumero</td>
-                                <td class="col_collapse_6 bg-[#00B2A9] text-right text-black font-medium p-3 text-[17px] border border-solid border-[#E1E1EA]">Laskun summa (alv 0%)</td>
-                                <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
+                                <td class="col_collapse_6 bg-[#00B2A9] text-left text-black p-3 text-[17px] border border-solid border-[#E1E1EA]">Laskunumero</td>
+                                <td class="col_collapse_6 bg-[#00B2A9] text-right text-black p-3 text-[17px] border border-solid border-[#E1E1EA]">Laskun summa (alv 0%)</td>
+                                <td class="text-[#586B74] text-[14px] text-left p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class=""></td>
                             </tr>
 
@@ -743,8 +965,12 @@ get_header( 'noste' );
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-left text-[#00B2A9] italic font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">1</td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">500 €</td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="1" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="500 €" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
                                 <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class=""></td>
                             </tr>
@@ -760,8 +986,12 @@ get_header( 'noste' );
                                         <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
                                     </label>
                                 </td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">x</td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">0 €</td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="x" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="0 €" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
                                 <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class=""></td>
                             </tr>
@@ -778,8 +1008,8 @@ get_header( 'noste' );
 
                             <tr>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">Suunnittelu</td>
-                                <td class="text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA]">BU4</td>
+                                <td class="text-black text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">Suunnittelu</td>
+                                <td class="text-[#00B2A9] italic text-left p-3 border border-solid border-[#E1E1EA]">BU4</td>
                                 <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="min-w-[350px] text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA] italic">E4=Ennuste4+ Ennuste5 + jne.</td>
@@ -798,13 +1028,13 @@ get_header( 'noste' );
                                 <td class="min-w-[424px] text-left text-[#00B2A9] italic p-3 border border-solid border-[#E1E1EA]">
                                     T9
                                 </td>
-                                <td class="min-w-[126px] text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="min-w-[188px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">
-                                    <input type="text" name="pilar_M4" value="Tarjous 4" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <td class="min-w-[126px] text-[#00B2A9] text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
+                                <td class="min-w-[188px] text-left p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="Tarjous 4" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </td>
                                 <td class="min-w-[300px] text-right p-3 border border-solid border-[#E1E1EA]">1250 €    </td>
-                                <td class="min-w-[350px] text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">
-                                    <input type="text" name="pilar_M4" value="Ennuste4" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <td class="min-w-[350px] text-[#586B74] text-[14px] text-left p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="Ennuste4" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </td>
                                 <td class=""></td>
                             </tr>
@@ -819,8 +1049,8 @@ get_header( 'noste' );
                                 </td>
                                 <td class="text-left text-[#00B2A9] italic font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="col_collapse_7 bg-[#00B2A9] text-left text-black font-medium p-3 text-[17px] border border-solid border-[#E1E1EA]">Laskunumero</td>
-                                <td class="col_collapse_7 bg-[#00B2A9] text-right text-black font-medium p-3 text-[17px] border border-solid border-[#E1E1EA]">Laskun summa (alv 0%)</td>
+                                <td class="col_collapse_7 bg-[#00B2A9] text-left text-black p-3 text-[17px] border border-solid border-[#E1E1EA]">Laskunumero</td>
+                                <td class="col_collapse_7 bg-[#00B2A9] text-right text-black p-3 text-[17px] border border-solid border-[#E1E1EA]">Laskun summa (alv 0%)</td>
                                 <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class=""></td>
                             </tr>
@@ -829,8 +1059,12 @@ get_header( 'noste' );
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-left text-[#00B2A9] italic font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">1</td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">500 €</td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="1" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="500 €" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
                                 <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class=""></td>
                             </tr>
@@ -839,8 +1073,12 @@ get_header( 'noste' );
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-left text-[#00B2A9] italic font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">2</td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">700 €</td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="2" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="700 €" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
                                 <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class=""></td>
                             </tr>
@@ -856,8 +1094,12 @@ get_header( 'noste' );
                                         <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
                                     </label>
                                 </td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">x</td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">0 €</td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="x" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="0 €" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
                                 <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class=""></td>
                             </tr>
@@ -871,16 +1113,16 @@ get_header( 'noste' );
                                         <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
                                     </label>
                                 </td>
-                                <td class="min-w-[424px] text-left text-[#283B44] font-medium p-3 border border-solid border-[#E1E1EA]">
-                                    <input type="text" name="pilar_M4" value="Muut toimittajat, Palokonsultti Oy/LVI-suun Oy" class="itlaic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <td class="min-w-[424px] text-left text-[#283B44] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="Muut toimittajat, Palokonsultti Oy/LVI-suun Oy" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </td>
                                 <td class="min-w-[126px] text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="min-w-[188px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">
-                                    <input type="text" name="pilar_M4" value="Tarjous 5" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <td class="min-w-[188px] text-left p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="Tarjous 5" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </td>
-                                <td class="min-w-[300px] text-right p-3 border border-solid border-[#E1E1EA]">500 € </td>
-                                <td class="min-w-[350px] text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">
-                                    <input type="text" name="pilar_M4" value="Ennuste5" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <td class="min-w-[300px] text-right p-3 border border-solid border-[#E1E1EA]">100 € </td>
+                                <td class="min-w-[350px] text-[#586B74] text-[14px] text-left p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="Ennuste5" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </td>
                                 <td class=""></td>
                             </tr>
@@ -895,8 +1137,8 @@ get_header( 'noste' );
                                 </td>
                                 <td class="text-left text-[#00B2A9] italic font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="col_collapse_8 bg-[#00B2A9] text-left text-black font-medium p-3 text-[17px] border border-solid border-[#E1E1EA]">Laskunumero</td>
-                                <td class="col_collapse_8 bg-[#00B2A9] text-right text-black font-medium p-3 text-[17px] border border-solid border-[#E1E1EA]">Laskun summa (alv 0%)</td>
+                                <td class="col_collapse_8 bg-[#00B2A9] text-left text-black p-3 text-[17px] border border-solid border-[#E1E1EA]">Laskunumero</td>
+                                <td class="col_collapse_8 bg-[#00B2A9] text-right text-black p-3 text-[17px] border border-solid border-[#E1E1EA]">Laskun summa (alv 0%)</td>
                                 <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class=""></td>
                             </tr>
@@ -905,8 +1147,12 @@ get_header( 'noste' );
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-left text-[#00B2A9] italic font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">1</td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">120 €</td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="1" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="120 €" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
                                 <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class=""></td>
                             </tr>
@@ -922,16 +1168,20 @@ get_header( 'noste' );
                                         <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
                                     </label>
                                 </td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">x</td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">0 €</td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="x" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="0 €" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
                                 <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class=""></td>
                             </tr>
 
                             <tr>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">Muut rakennuttajan tehtävät</td>
-                                <td class="text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA]">BU6</td>
+                                <td class="text-black text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">Muut rakennuttajan tehtävät</td>
+                                <td class="text-[#00B2A9] italic text-left p-3 border border-solid border-[#E1E1EA]">BU6</td>
                                 <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="min-w-[350px] text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA] italic">E6=Ennuste6+ jne.</td>
@@ -947,16 +1197,16 @@ get_header( 'noste' );
                                         <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
                                     </label>
                                 </td>
-                                <td class="min-w-[424px] text-left text-[#283B44] font-medium p-3 border border-solid border-[#E1E1EA]">
-                                    <input type="text" name="pilar_M4" value="Muut toimittajat, Projektipankki Oy/Asbestikartoitus Oy" class="itlaic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <td class="min-w-[424px] text-left text-[#283B44] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="Muut toimittajat, Projektipankki Oy/Asbestikartoitus Oy" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </td>
                                 <td class="min-w-[126px] text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="min-w-[188px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">
-                                    <input type="text" name="pilar_M4" value="Tarjous 6" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <td class="min-w-[188px] text-left p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="Tarjous 6" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </td>
                                 <td class="min-w-[300px] text-right p-3 border border-solid border-[#E1E1EA]">100 €</td>
-                                <td class="min-w-[350px] text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">
-                                    <input type="text" name="pilar_M4" value="Ennuste6" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <td class="min-w-[350px] text-[#586B74] text-[14px] text-left p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="Ennuste6" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </td>
                                 <td class=""></td>
                             </tr>
@@ -971,8 +1221,8 @@ get_header( 'noste' );
                                 </td>
                                 <td class="text-left text-[#00B2A9] italic font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="col_collapse_1 bg-[#00B2A9] text-left text-black font-medium p-3 text-[17px] border border-solid border-[#E1E1EA]">Laskunumero</td>
-                                <td class="col_collapse_1 bg-[#00B2A9] text-right text-black font-medium p-3 text-[17px] border border-solid border-[#E1E1EA]">Laskun summa (alv 0%)</td>
+                                <td class="col_collapse_1 bg-[#00B2A9] text-left text-black p-3 text-[17px] border border-solid border-[#E1E1EA]">Laskunumero</td>
+                                <td class="col_collapse_1 bg-[#00B2A9] text-right text-black p-3 text-[17px] border border-solid border-[#E1E1EA]">Laskun summa (alv 0%)</td>
                                 <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class=""></td>
                             </tr>
@@ -981,8 +1231,12 @@ get_header( 'noste' );
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-left text-[#00B2A9] italic font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">1</td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">50 €</td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="1" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="50 €" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
                                 <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class=""></td>
                             </tr>
@@ -991,8 +1245,12 @@ get_header( 'noste' );
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-left text-[#00B2A9] italic font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">2</td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">50 €</td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="2" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="50 €" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
                                 <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class=""></td>
                             </tr>
@@ -1008,8 +1266,12 @@ get_header( 'noste' );
                                         <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
                                     </label>
                                 </td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">x</td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">0 €</td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="x" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
+                                <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA]">
+                                    <input type="text" name="pilar_M4" value="0 €" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                </td>
                                 <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class=""></td>
                             </tr>
@@ -1028,8 +1290,8 @@ get_header( 'noste' );
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">Kaikki yhteensä (alv. 0%)</td>
                                 <td class="text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA]">BU5</td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">0€</td>
-                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">0€</td>
+                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]"></td>
+                                <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="min-w-[350px] text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA] italic">E5-(<span class="text-[#00B2A9] italic">BU5</span>-((E2-<span class="text-[#00B2A9] italic">BU2</span>)+(E3-<span class="text-[#00B2A9] italic">BU3</span>)+(E4-<span class="text-[#00B2A9] italic">BU4</span>)+(E6-<span class="text-[#00B2A9] italic">BU6</span>))
                                     jos negatiivinen niin E5=0</td>
                                 <td class=""></td>
@@ -1102,15 +1364,15 @@ get_header( 'noste' );
                 </div>
 
                 <hr class="border border-solid border-[#E1E1EA] ml-[-20px] mr-[-20px] mt-10">
-                
+
                 <div class="flex items-center justify-between pt-[20px]">
                     <div>
-                        <a href="<?php echo esc_attr( $takaisin ); ?>" class="text-[14px] text-black font-medium border border-solid border-[#E1E1EA] rounded-lg flex items-center pr-3 py-1">
+                        <a href="./index.html" class="text-[14px] text-black font-medium border border-solid border-[#E1E1EA] rounded-lg flex items-center pr-3 py-1">
                             <svg width="24px" height="24px" class="mx-auto" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" stroke="#000000" stroke-width="0.00032"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="icomoon-ignore"> </g> <path d="M12.792 15.233l-0.754 0.754 6.035 6.035 0.754-0.754-5.281-5.281 5.256-5.256-0.754-0.754-3.013 3.013z" fill="#7a7a7a"> </path> </g></svg>
                             Takaisin
                         </a>
                     </div>
-
+    
                     <div>
                         <button class="text-[14px] text-white font-medium bg-[#00B2A9] border border-solid border-[#818D930F] rounded-lg flex items-center gap-2 px-3 py-1">
                             Hyväksy

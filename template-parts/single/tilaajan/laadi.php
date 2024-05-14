@@ -46,9 +46,9 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                     </div>
 
                                     <div class="flex flex-wrap mb-2">
-                                        <label class="flex-[3] mr-4 text-sm font-medium text-black" for="subscriber">Tilaaja:</label>
+                                        <label class="flex-[3] mr-4 text-sm font-medium text-black" for="um_project-manager">Tilaaja:</label>
 
-                                        <input type="text" id="subscriber" name="pilar_T1" class="flex-[3] text-sm text-accent italic readonly_global" value="<?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T1', true ), 'T1') ); ?>" readonly>
+                                        <input type="text" id="um_project-manager" name="pilar_T1" class="flex-[3] text-sm text-accent italic readonly_global" value="<?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T1', true ), 'T1') ); ?>" readonly>
                                     </div>
                                     
                                     <div class="flex flex-wrap mb-4">

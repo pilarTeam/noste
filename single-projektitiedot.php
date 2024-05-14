@@ -12,42 +12,33 @@ if ( !isset($user->roles) || empty($user->roles) ) {
     exit;
 }
 
-if ( !array_intersect( [ 'editor', 'administrator' , 'um_project-manager', 'subscriber'], $user->roles ) ) {
+if ( !array_intersect( [ 'administrator' , 'um_valvoja', 'um_project-manager'], $user->roles ) ) {
     wp_redirect( site_url() );
     exit;
-}
-
-if ( array_intersect( [ 'editor' ], $user->roles ) ) {
-    wp_redirect( site_url() );
-    exit;
-}
-
-if ( array_intersect( [ 'subscriber' ], $user->roles ) ) {
-	$valvoja_col = !empty(get_field('valvoja', get_the_ID())) ? array_column(get_field('valvoja', get_the_ID()), 'value'): [];
-
-	if ( empty($valvoja_col) || !is_array($valvoja_col) || !in_array(get_current_user_id(), $valvoja_col) ) {
-	    wp_redirect( site_url() );
-	    exit;
-	}
 }
 
 
 if ( array_intersect( [ 'um_project-manager' ], $user->roles ) ) {
-	$projektipaallikko = !empty(get_field('projektipaallikko', get_the_ID())) ? get_field('projektipaallikko', get_the_ID())['value'] : 0;
+	$projektipaallikko = !empty(get_field('projektipaallikko', get_the_ID())) ? array_column(get_field('valvoja', get_the_ID()), 'value'): [];
 
-	if ( empty($projektipaallikko) || $projektipaallikko != get_current_user_id() ) {
+	if ( empty($projektipaallikko) || !is_array($projektipaallikko) || !in_array(get_current_user_id(), $projektipaallikko) ) {
 	    wp_redirect( site_url() );
 	    exit;
 	}
 }
 
 
+if ( array_intersect( [ 'um_valvoja' ], $user->roles ) ) {
+	$valvoja = !empty(get_field('valvoja', get_the_ID())) ? get_field('valvoja', get_the_ID())[0]['value'] : 0;
 
+	if ( empty($valvoja) || $valvoja != get_current_user_id() ) {
+	    wp_redirect( site_url() );
+	    exit;
+	}
+}
 
 
 get_header( 'noste' );
-
-
 
 if ( !isset($_GET['tm']) ) {
 
