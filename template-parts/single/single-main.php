@@ -37,16 +37,13 @@ if ( empty($single_main_step) ) {
     exit;
 }
 
-$projektinimi_k4 = noste_check_empty( get_post_meta( get_the_ID(), 'pilar_K4', true ) );
-$project_title = !empty($projektinimi_k4) ? $projektinimi_k4 : get_the_title( get_the_ID() );
-
 ?>
 
     <!-- Sub Header -->
     <div class="bg-bodyBg lg:sticky top-[4.55rem] z-10\" >
         <div class="container px-4">
             <div class="flex items-center justify-between border-b border-line py-2 md:py-3 lg:py-5">
-                <h2 class="text-xl md:text-2xl text-black font-medium"><?php echo esc_html( $project_title ); ?></h2>
+                <h2 class="text-xl md:text-2xl text-black font-medium"><?php echo esc_html( noste_check_empty( $args['page_title'] ) ); ?></h2>
                 <!-- <i class="um-icon-android-alert"></i> -->
             </div>
         </div> <!-- container -->

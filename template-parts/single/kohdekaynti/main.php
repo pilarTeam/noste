@@ -49,7 +49,7 @@
                 <!-- Card Header -->
                 <div class="card_header px-4 md:px-8 py-6 border-b border-line top-0 z-10">
                     <div>
-                        <p class="text-sm font-normal text-[#818D93] mb-1">Project nimi</p>
+                        <p class="text-sm font-normal text-[#818D93] mb-1"><?php echo esc_html( noste_check_empty( $args['page_title'] ) ); ?></p>
                         <h2 class="text-xl font-medium text-[#08202C] mb-4">Projektin valmistelu</h2>
 
 

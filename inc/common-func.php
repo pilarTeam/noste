@@ -294,7 +294,7 @@ function noste_header_middle() {
 	    </ul> <!-- tab_box -->
 	</div> <!-- Tab Fuild -->
 
-	<?php elseif ( ( is_single() && 'projektitiedot' == get_post_type() ) || is_page( 62 ) ) : 
+	<?php elseif ( ( is_single() && 'projektitiedot' == get_post_type() ) && isset($_GET['tm']) ) : 
 	$single_main_step = json_decode( get_option( 'single_main_steps'), true ) ?? [];
 
 	if ( empty($single_main_step) ) {
@@ -326,45 +326,44 @@ function noste_header_notification(){
 	
 	ob_start();
 
-	if ( is_page( [ 20, 66 ] ) ) :
-	?>
+	$user = wp_get_current_user();
+
+	if ( is_page( [ 20, 66 ] ) && isset($user->roles) && !empty($user->roles) && array_intersect(['um_valvoja', 'administrator'], $user->roles) ) : ?>
 		<a href="<?php echo esc_attr( get_permalink( 66 )  ); ?>">
 	        <?php echo noste_check_empty ( GetIconsMarkup( 'notification.svg', '24px' ) ); ?> 
 		</a>
 
-	<?php elseif ( ( is_single() && 'projektitiedot' == get_post_type() ) || is_page( [ 62, 64 ] ) ) : ?>
+	<?php elseif ( ( is_single() && 'projektitiedot' == get_post_type() ) || is_page( [ 62, 64 ] ) ) :
 
-	<?php 
+		if ( is_page( [62, 64 ] ) ) {
+			global $wp;
+			$esitietolomake_url = add_query_arg(array($_GET), get_permalink( 62 ) );
+			$kustannusseuranta_url = add_query_arg(array($_GET), get_permalink( 64 ) );
+		} else {
+			$esitietolomake_url = add_query_arg([
+						'pid' => get_the_ID()
+					], get_permalink( 62 ) );
 
-	if ( is_page( [62, 64 ] ) ) {
-		global $wp;
-		$esitietolomake_url = add_query_arg(array($_GET), get_permalink( 62 ) );
-		$kustannusseuranta_url = add_query_arg(array($_GET), get_permalink( 64 ) );
-	} else {
-		$esitietolomake_url = add_query_arg([
-					'pid' => get_the_ID()
-				], get_permalink( 62 ) );
-
-		$kustannusseuranta_url = add_query_arg([
-					'pid' => get_the_ID()
-				], get_permalink( 64 ) );
+			$kustannusseuranta_url = add_query_arg([
+						'pid' => get_the_ID()
+					], get_permalink( 64 ) );
 
 
-	}
+		}
 
-	 ?>
-        <a href="<?php echo esc_attr( $esitietolomake_url ); ?>" class="hidden sm:block hover:bg-[#FAFAFB] focus:bg-[#FAFAFB] rounded p-2">
-			<?php echo noste_check_empty ( GetIconsMarkup( 'global-1.svg' ) ); ?>         
-        </a>
-        
-        <a href="<?php echo esc_attr( $kustannusseuranta_url ); ?>" class="hidden sm:block hover:bg-[#FAFAFB] focus:bg-[#FAFAFB] rounded p-2">
-			<?php echo noste_check_empty ( GetIconsMarkup( 'global-2.svg' ) ); ?>
-        </a>
-        
-        <a href="#!" class="hidden sm:block hover:bg-[#FAFAFB] focus:bg-[#FAFAFB] rounded p-2">
-			<?php echo noste_check_empty ( GetIconsMarkup( 'global-3.svg' ) ); ?>
-        </a>	
-	<?php 
+		 ?>
+	        <a href="<?php echo esc_attr( $esitietolomake_url ); ?>" class="hidden sm:block hover:bg-[#FAFAFB] focus:bg-[#FAFAFB] rounded p-2">
+				<?php echo noste_check_empty ( GetIconsMarkup( 'global-1.svg' ) ); ?>         
+	        </a>
+	        
+	        <a href="<?php echo esc_attr( $kustannusseuranta_url ); ?>" class="hidden sm:block hover:bg-[#FAFAFB] focus:bg-[#FAFAFB] rounded p-2">
+				<?php echo noste_check_empty ( GetIconsMarkup( 'global-2.svg' ) ); ?>
+	        </a>
+	        
+	        <a href="#!" class="hidden sm:block hover:bg-[#FAFAFB] focus:bg-[#FAFAFB] rounded p-2">
+				<?php echo noste_check_empty ( GetIconsMarkup( 'global-3.svg' ) ); ?>
+	        </a>	
+		<?php 
 	endif;
 
 	return ob_get_clean();	
