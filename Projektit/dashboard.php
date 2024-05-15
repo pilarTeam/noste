@@ -253,8 +253,8 @@ get_header( 'noste' );
                     $project_title = !empty($projektinimi_k4) ? $projektinimi_k4 : get_the_title( $id );
 
                     $projektinumero = !empty( $projektinumero_k8 ) ? $projektinumero_k8 : get_field('projektinumero', $id);
-                    $projektipaallikko = !empty(get_field('projektipaallikko', $id)) ? get_field('projektipaallikko', $id)['label'] : '';
-                    $valvoja = !empty(get_field('valvoja', $id)) ? implode(', ', array_column(get_field('valvoja', $id), 'label')) : '';
+                    $projektipaallikko = !empty(get_field('projektipaallikko', $id)) ? array_column(get_field('projektipaallikko', $id), 'label')[0]: [];
+                    $valvoja = !empty(get_field('valvoja', $id)) ? get_field('valvoja', $id)['label'] : 0;
                     $projektin_valmistelu = !empty(get_field('projektin_valmistelu', $id)) ? get_field('projektin_valmistelu', $id) : '';
 
 

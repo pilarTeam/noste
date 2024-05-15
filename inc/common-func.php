@@ -250,8 +250,9 @@ function noste_project_status_change(){
 
             $output[$id]['projektinumero'] = !empty(get_field('projektinumero', $id)) ? get_field('projektinumero', $id) : '';
     		$output[$id]['projektin_tila_status'] = !empty(get_field('projektin_tila', $id)) ? get_field('projektin_tila', $id) : '';
-            $output[$id]['projektipaallikko'] = !empty(get_field('projektipaallikko', $id)) ? get_field('projektipaallikko', $id)['label'] : '';
-            $output[$id]['valvoja'] = !empty(get_field('valvoja', $id)) ? implode(', ', array_column(get_field('valvoja', $id), 'label')) : '';
+            $output[$id]['projektipaallikko'] = !empty(get_field('projektipaallikko', $id)) ? implode(', ', array_column( get_field('projektipaallikko', $id), 'label')) : '';
+
+            $output[$id]['valvoja'] = !empty(get_field('valvoja', $id)) ? get_field('valvoja', $id)['label'] : '';
             $output[$id]['projektin_valmistelu'] = !empty(get_field('projektin_valmistelu', $id)) ? get_field('projektin_valmistelu', $id) : '';
 
             $output[$id]['pilar_T1'] = noste_check_empty( get_post_meta( $id, 'pilar_T1', true ), 'Tilaaja (Yritys)');
@@ -259,7 +260,7 @@ function noste_project_status_change(){
             $output[$id]['pilar_K2'] = noste_check_empty( get_post_meta( $id, 'pilar_K2', true ), 'Kiinteistön osoite');
     	}
     }
-	
+
 	wp_send_json_success((array) $output, 200);
 
 	wp_die();
@@ -688,8 +689,8 @@ function noste_update_project_step() {
 	$project_header_info[$tm]['tm'] = $tm;
 
 	/* Notification */
-		$user_id = !empty(get_field('valvoja', $post_id)) ? get_field('valvoja', $post_id)[0]['value'] : 0;
-		
+		$user_id = !empty(get_field('valvoja', $post_id)) ? get_field('valvoja', $post_id)['value'] : 0;
+
 		if ( !empty($user_id) ) {
 			
 			$notify = noste_send_form_notification( 
@@ -702,6 +703,9 @@ function noste_update_project_step() {
 			);
 
 		}
+
+		error_log(print_r($notify, true));
+		error_log(print_r($user_id, true));
 	/* Notification */
 
 
@@ -882,7 +886,6 @@ function update_manager_project_status(){
 	global $wpdb;
 	$existing = $wpdb->get_row( $wpdb->prepare( "SELECT id FROM `wp_noste_notifications` WHERE `tm` LIKE %s LIMIT 1", $tmStep ) );
 
-	error_log(print_r($existing, true));
 
 	if ( $updated && !empty($existing) ) {
 

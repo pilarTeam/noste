@@ -61,6 +61,7 @@ $sql = $wpdb->prepare( "SELECT * FROM wp_noste_notifications WHERE status = %s "
 ", 'active' );
 $notifications = $wpdb->get_results( $sql, ARRAY_A );
 
+
 ?>
 
 <section class="pt-5">

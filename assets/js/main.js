@@ -113,8 +113,10 @@ jQuery(document).ready(function ($) {
                             grid_card.find('.project-edit-osoite a').attr('href', value['edit_permalink']);
 
                             grid_card.find('.projektinumero').html(value['projektinumero']);
+                            
                             grid_card.find('.projektipaallikko').html(value['projektipaallikko']);
                             grid_card.find('.valvoja').html(value['valvoja']);
+
                             grid_card.find('.projektin_valmistelu').html(value['projektin_valmistelu']);
 
                             grid_card.find('.status').removeClass('aktiivinen keskeneräiset arkistoitu');
