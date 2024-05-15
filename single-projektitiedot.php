@@ -18,8 +18,9 @@ if ( !array_intersect( [ 'administrator' , 'um_valvoja', 'um_project-manager'], 
 }
 
 
+
 if ( array_intersect( [ 'um_project-manager' ], $user->roles ) ) {
-	$projektipaallikko = !empty(get_field('projektipaallikko', get_the_ID())) ? array_column(get_field('valvoja', get_the_ID()), 'value'): [];
+	$projektipaallikko = !empty(get_field('projektipaallikko', get_the_ID())) ? array_column(get_field('projektipaallikko', get_the_ID()), 'value'): [];
 
 	if ( empty($projektipaallikko) || !is_array($projektipaallikko) || !in_array(get_current_user_id(), $projektipaallikko) ) {
 	    wp_redirect( site_url() );
