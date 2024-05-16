@@ -628,7 +628,7 @@ function noste_update_project_step() {
 	}
 
 
-/* Preview Template */
+	/* Preview Template */
 	$ref_queries = (array) json_decode( preg_replace( '/[\x00-\x1F\x80-\xFF]/', '', stripslashes(html_entity_decode(isset($_POST['ref_queries'] ) ? $_POST['ref_queries'] : '{}' ) ) ), true);
 
 	$step_id = $ref_queries['tm'] ?? false;
@@ -680,7 +680,7 @@ function noste_update_project_step() {
 	$updated = update_post_meta( $post_id, $field_key, $data );
 
 
-	if ( $updated ) {
+	if (true ||  $updated ) {
 
 	$project_header_info = !empty(get_option( 'noste_project_header_info', true )) ? json_decode( get_option( 'noste_project_header_info', true ), true ) : [];
 
