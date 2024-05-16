@@ -342,6 +342,7 @@ div#dashboard_projectCard .list-layout .project-head {
     width: 22%;
     padding: 0;
     border: none;
+    text-align: center;
 }
 
 
@@ -375,6 +376,11 @@ div#dashboard_projectCard .list-layout .project-head > div {
     align-items: center;
     height: 100%;
     justify-content: center;
+}
+div#dashboard_projectCard .list-layout .project-head  .pilar_T1 {
+    order: 2;
+    border-right: 1px solid #ddd;
+    width: 60%;
 }
 
 div#dashboard_projectCard .list-layout .project-head div.status-wrap {
@@ -606,4 +612,47 @@ section#single-main-list .admitted {
 
 section#single-main-list .approval {
     border-left: 8px solid rgb(6 249 183);
+}
+.popup_wrap p {
+    color: #818D93;
+    font-size: 16px;
+}
+
+.daterangepicker select {
+    display: inline-block;
+}
+.list-tile-bar {
+    align-items: center;
+    color: #00B2A9;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.list-tile-bar .project-title, .list-tile-bar ul, .list-tile-bar .project-kiinteisto, .list-tile-bar .project-head {
+    border: none !important;
+    padding: 7px !important;
+}
+
+.notification-wrapper a.has_active path {
+    fill: #FE3B2D;
+}
+
+.notification-wrapper a.has_active {
+    color: #FE3B2D;
+    position: relative;
+}
+
+.notification-wrapper a.has_active span.count {
+    position: absolute;
+    top: -9px;
+    right: -10px;
+    background: #FE3B2D;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
 }

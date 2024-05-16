@@ -3,11 +3,11 @@ const PRINTS_ARGS = {
 };
 
 
-document.querySelectorAll('#update-project .project-submit-btn').forEach(button => {
-  var form = button.parentElement.parentElement;
-  button.addEventListener('click', (event) => handleUpdateProjects(event, button, form));
-  form.addEventListener('submit', (event) => handleUpdateProjects(event, button, form));
-});
+// document.querySelectorAll('#update-project .project-submit-btn').forEach(button => {
+//   var form = button.parentElement.parentElement;
+//   button.addEventListener('click', (event) => handleUpdateProjects(event, button, form));
+//   form.addEventListener('submit', (event) => handleUpdateProjects(event, button, form));
+// });
 
 function handleUpdateProjects(event, button, form) {
   event.preventDefault();
@@ -214,9 +214,7 @@ jQuery(document).ready(function ($) {
     $('#create-project').on('click', '.project-submit-btn', function(e){
         e.preventDefault();
 
-        if ( confirm("Are you sure?") ) {
-            $(this).parents('form').trigger('submit');
-         }
+        $('.popup_wrap').removeClass('hidden');
     });
 
     $('#create-project').on('submit', 'form', function(e){
@@ -286,11 +284,14 @@ jQuery(document).ready(function ($) {
 
     // calendar init
     $('#calendar').daterangepicker({
-        singleDatePicker: true,
-        showDropdowns: true,
-        minYear: 1901,
-        maxYear: parseInt(moment().format('YYYY'),10)
+        "singleDatePicker": true,
+        "showDropdowns": true,
+        "autoApply": true,
+        "minYear": 1901,
+        "maxYear": parseInt(moment().format('YYYY'),10)
     }, function(start, end, label) {});
+
+
 
     // checkbox toogle click 
     $('body').on('change', '.checkbox_change', function(e){
@@ -483,7 +484,8 @@ jQuery(document).ready(function ($) {
                 if ( response['success'] ) {
                     location.replace(response['data']['permalink']);
                 } else {
-                    alert(response['data'][0]['message'])
+                    console.log(response);
+                    // alert(response['data'][0]['message'])
                 }
             }
         );        

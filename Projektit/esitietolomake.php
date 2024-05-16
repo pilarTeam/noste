@@ -487,7 +487,7 @@ get_header( 'noste' );
                             </td>
                         </tr>
                         <tr>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Projektin valmistumisaika xx.xx.xxxx</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Projektin valmistumisaika <?php echo esc_html( gmdate('d.m.Y') ); ?></td>
                             <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html(implode(', ', [$_POST['pilar_VA1']??'',
                             // $_POST['pilar_VA2']??''
                             ])); ?></td>
@@ -757,7 +757,7 @@ get_header( 'noste' );
                     <div class="help_wrap relative mb-2">
                         <div class="max-w-[700px] mx-auto flex items-center gap-2">
                             <label class="text-[#586B74] text-[14px] block min-w-[230px]">
-                                Projektin valmistumisaika xx.xx.xxxx
+                                Projektin valmistumisaika <?php echo esc_html( gmdate('d.m.Y') ); ?>
                             </label>
 
                             <a href="#!" class="help_click">

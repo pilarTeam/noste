@@ -330,8 +330,16 @@ function noste_header_notification(){
 	$user = wp_get_current_user();
 
 	if ( is_page( [ 20, 66 ] ) && isset($user->roles) && !empty($user->roles) && array_intersect(['um_valvoja', 'administrator'], $user->roles) ) : ?>
-		<a href="<?php echo esc_attr( get_permalink( 66 )  ); ?>">
+
+		<?php 
+			global $wpdb;
+			$existing = $wpdb->get_results( $wpdb->prepare( "SELECT id FROM wp_noste_notifications WHERE user_id = %d AND status = 'active'", get_current_user_id() ), ARRAY_A );
+
+		 ?>
+
+		<a href="<?php echo esc_attr( get_permalink( 66 )  ); ?>" class="<?php echo esc_html ( !empty($existing) ? 'has_active' : ''); ?>">
 	        <?php echo noste_check_empty ( GetIconsMarkup( 'notification.svg', '24px' ) ); ?> 
+	        <span class="count"><?php echo esc_html( !empty(count($existing)) ? count($existing) : '' ); ?></span>
 		</a>
 
 	<?php elseif ( ( is_single() && 'projektitiedot' == get_post_type() ) || is_page( [ 62, 64 ] ) ) :
@@ -703,9 +711,6 @@ function noste_update_project_step() {
 			);
 
 		}
-
-		error_log(print_r($notify, true));
-		error_log(print_r($user_id, true));
 	/* Notification */
 
 
@@ -787,7 +792,13 @@ function noste_form_footer($type = 'form') {
 	$user = wp_get_current_user();
 
 	$project_tmin_status = !empty( get_post_meta( get_the_ID(), sprintf('%s_status', $_GET['tm']), true ) ) ? json_decode( get_post_meta( get_the_ID(), sprintf('%s_status', $_GET['tm']), true ), true ) : [];
+	// $project_tmin_status = get_post_meta( get_the_ID(), sprintf('%s_status', $_GET['tm']), true );
 	
+	// $project_tmin_status[$_GET['tmin']]['status'] = 2;
+	// update_post_meta( get_the_ID(), sprintf('%s_status', $_GET['tm']), json_encode( $project_tmin_status ) );
+
+	// var_dump($project_tmin_status);
+
 	$preview_status = false;
 
 	if ( isset($project_tmin_status[$_GET['tmin']]) && !empty($project_tmin_status[$_GET['tmin']]) && $project_tmin_status[$_GET['tmin']]['status'] == 2 && isset($user->roles) && !empty($user->roles) && array_intersect( [ 'administrator' ], $user->roles ) ) {
@@ -873,6 +884,7 @@ function update_manager_project_status(){
 
 	$project_tmin_status = !empty( get_post_meta( $pid, sprintf('%s_status', $tm), true ) ) ? json_decode( get_post_meta( $pid, sprintf('%s_status', $tm), true ), true ) : [];
 
+
 	if ( $status == 'admitted' ) {
 		$project_tmin_status[$tmin]['status'] = 3;
 	} else {
@@ -883,11 +895,10 @@ function update_manager_project_status(){
 	
 	$tmStep = implode('-', [ $tm, $tmin ]);
 	
-	global $wpdb;
 	$existing = $wpdb->get_row( $wpdb->prepare( "SELECT id FROM `wp_noste_notifications` WHERE `tm` LIKE %s LIMIT 1", $tmStep ) );
 
 
-	if ( $updated && !empty($existing) ) {
+	if ( !empty($updated) && !empty($existing) ) {
 
 		$updated_status = $wpdb->update(
 			'wp_noste_notifications',
@@ -896,6 +907,7 @@ function update_manager_project_status(){
 			array( '%s' ),
 			array( '%d' )
 		);
+
 
 		if ( $updated_status ) {
 			wp_send_json_success([

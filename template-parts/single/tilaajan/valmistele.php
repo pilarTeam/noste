@@ -40,7 +40,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                 <div class="mb-8 mx-auto max-w-[750px]">
                                     <div class="flex flex-wrap mb-4">
                                         <label class="flex-[3] mr-4 text-sm font-medium text-black" for="version">Versio:</label>
-                                        <p class="flex-[3] text-sm text-accent" id="version">xx.xx.xxxx</p>
+                                        <p class="flex-[3] text-sm text-accent" id="version"><?php echo esc_html( gmdate('d.m.Y') ); ?></p>
                                     </div>
 
                                     <div class="flex flex-wrap mb-2">

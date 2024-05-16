@@ -225,20 +225,24 @@ get_header( 'noste' );
                 </div> <!-- card_item -->    
 
 
-
-            <div class="tile-layout-bar">
-                <div></div>
-                <div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-                <div></div>
-            </div>
-
-
-            <!-- grid View Item -->
+           <!-- grid View Item -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+                <div class="card_item hidden list-tile-bar">
+                    <div class="project-head">TILAAJA</div>
+                    <div class="project-details">
+                        <div class="project-details-wrap">
+                            <a href="" class="single_permalink">
+                                <div class="project-title">PROJEKTI</div>
+                                <ul><li>TARKASTAJA</li></ul>
+                            </a>
+                        </div>
+                        <div class="project-kiinteisto">KIINTEISTÖ</div>
+                    </div>
+                    <div class="project-footer">
+                        VAIHE
+                    </div>
+                </div>
 
                 <?php foreach ($projects as $id): 
 
@@ -284,7 +288,7 @@ get_header( 'noste' );
                                 <?php endif; ?>
                                     <div class="project-title">
                                         <h2 class="text-lg font-bold py-3 title"><?php echo esc_html( $project_title ); ?></h2>
-                                        <p class="text-base font-medium text-[#475467] mb-2 projektinumero"><?php echo esc_html( $projektinumero ); ?></p>                                       
+                                        <p class="text-base font-medium text-[#475467] mb-2 projektinumero"># <?php echo esc_html( $projektinumero ); ?></p>                                       
                                     </div>
 
                                     <ul>

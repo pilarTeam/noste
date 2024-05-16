@@ -88,7 +88,7 @@ get_header( 'noste' );
                             <div class="flex-1 w-full">
                                 <label for="calendar" class="text-black font-medium block mb-2">Luontipäivämäärä</label>
                                 <div class="relative w-full border border-solid border-[#E1E1EA] rounded-lg py-2 text-offwhite cursor-pointer">
-                                    <input type="text" class="bg-transparent w-full h-full" name="luontipaivamaara" id="calendar" placeholder="Luontipäivämäärä" value="<?php echo esc_attr( $luontipaivamaara ); ?>" required>
+                                    <input type="text" class="bg-transparent w-full h-full cursor-pointer z-10 relative" name="luontipaivamaara" id="calendar" placeholder="Luontipäivämäärä" value="<?php echo esc_attr( $luontipaivamaara ); ?>" required>
                                     
                                     <span class="absolute top-[10px] right-[10px]">
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 300 300">
@@ -263,11 +263,27 @@ get_header( 'noste' );
                                 <svg width="19px" height="19px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Reload</title> <g id="Page-1" stroke-width="0.4800000000000001" fill="none" fill-rule="evenodd"> <g id="Reload"> <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"> </rect> <path d="M4,13 C4,17.4183 7.58172,21 12,21 C16.4183,21 20,17.4183 20,13 C20,8.58172 16.4183,5 12,5 C10.4407,5 8.98566,5.44609 7.75543,6.21762" id="Path" stroke="#586B74" stroke-width="0.4800000000000001" stroke-linecap="round"> </path> <path d="M9.2384,1.89795 L7.49856,5.83917 C7.27552,6.34441 7.50429,6.9348 8.00954,7.15784 L11.9508,8.89768" id="Path" stroke="#586B74" stroke-width="0.4800000000000001" stroke-linecap="round"> </path> </g> </g> </g></svg>
                                 Nollaa
                             </a>
-                            <button class="bg-accent text-white px-4 py-2 border border-solid border-[#E1E1EA] rounded-lg project-submit-btn">Tallenna Muutokset</button> 
+                            <a href="#" class="bg-accent text-white px-4 py-2 border border-solid border-[#E1E1EA] rounded-lg project-submit-btn" type="submit">Tallenna Muutokset</a> 
+                        </div>
+                        <div class="popup_wrap hidden fixed left-0 top-0 w-full h-full bg-[#00151F66] z-50">
+                            <div class="w-full rounded-[12px] bg-white border border-solid border-[#E1E1EA] max-w-[600px] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+                                <div class="px-3 lg:px-8 pt-8 pb-10">
+                                    <h3 class="text-[#08202C] text-[20px] font-medium pb-3">Uusi projekti luotiin onnistuneesti.</h3>
+                                    <p>Näytä uusi projekti tai siirry etusivulle.</p>                        
+                                </div>
+                                <hr class="border-b border-solid border-[#E1E1EA] mt-3">
+                                <div class="p-4 flex gap-4 justify-end">
+                                    <button class="cancel_popup inline-block border border-solid border-[#E1E1EA] text-[#08202C] rounded-lg px-[10px] py-[5px] text-[14px]">Mene etusivulle</button>
+
+                                    <button type="submit" class="submit_popup_form inline-block bg-[#00B2A9] rounded-lg px-3 lg:px-[10px] py-[5px] text-[14px] text-white">Katso Projekti</button>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div> <!-- add form  -->
             </div>
+
+
         </div> <!-- container -->
     </section>
 
