@@ -407,6 +407,10 @@ jQuery(document).ready(function ($) {
                         $this.parents('body').find('.print-btn').removeClass('hidden');
                         
                     }).catch(error => console.error(error));
+                } else {
+                    if ( response['data'][0] ) {
+                        alert(response['data'][0]['message']);
+                    }
                 }
             },
             error: function(response) {

@@ -590,6 +590,8 @@ function noste_update_project_step() {
 	check_ajax_referer( 'project_step_form_validation', 'project_step_form__nonce_field' );
 	$response = (object) ['template' => false, 'submission' => []];
 
+	error_log('before sanitize : ' . print_r($_POST, true));
+
 	if ( empty($_POST['ptname']) ) {
 		$error = new WP_Error( '001', 'PT NAME ISSUE' );
 		wp_send_json_error( $error );
@@ -684,8 +686,15 @@ function noste_update_project_step() {
 		$error = new WP_Error( '005', 'Content Data issue' );
 		wp_send_json_error( $error );		
 	}
+
+	error_log('after sanitize : ' . print_r($_POST, true));
 	
 	$updated = update_post_meta( $post_id, $field_key, $data );
+
+	if ( !$updated ) {
+		$error = new WP_Error( '006', 'You have to change any fields value.' );
+		wp_send_json_error( $error );			
+	}
 
 
 	if ( $updated ) {
@@ -726,10 +735,7 @@ function noste_update_project_step() {
 		// preview_template_response
 		wp_send_json_success((array) $response, 200);
 		// preview_template_response
-	} else {
-		$error = new WP_Error( '006', 'Something went wrong!' );
-		wp_send_json_error($error);
-	}
+	} 
 
 	wp_die();	
 }
@@ -794,7 +800,7 @@ function noste_form_footer($type = 'form') {
 	$project_tmin_status = !empty( get_post_meta( get_the_ID(), sprintf('%s_status', $_GET['tm']), true ) ) ? json_decode( get_post_meta( get_the_ID(), sprintf('%s_status', $_GET['tm']), true ), true ) : [];
 	// $project_tmin_status = get_post_meta( get_the_ID(), sprintf('%s_status', $_GET['tm']), true );
 	
-	// $project_tmin_status[$_GET['tmin']]['status'] = 2;
+	// $project_tmin_status[$_GET['tmin']]['status'] = 0;
 	// update_post_meta( get_the_ID(), sprintf('%s_status', $_GET['tm']), json_encode( $project_tmin_status ) );
 
 	// var_dump($project_tmin_status);
@@ -809,10 +815,13 @@ function noste_form_footer($type = 'form') {
 	if ( isset($user->roles) && !empty($user->roles) && array_intersect( [ 'um_valvoja' ], $user->roles ) && $project_tmin_status[$_GET['tmin']]['status'] != 2 ) {
 		return;
 	} elseif ( isset($user->roles) && !empty($user->roles) && array_intersect( [ 'um_valvoja' ], $user->roles ) && $project_tmin_status[$_GET['tmin']]['status'] == 2 ) {
-
 		$preview_status = true;
-
 	}
+
+	if ( isset($user->roles) && !empty($user->roles) && array_intersect( [ 'um_project-manager' ], $user->roles ) && $project_tmin_status[$_GET['tmin']]['status'] == 2 ) {
+		return;
+	}
+
 
 	ob_start();
 	?>
@@ -881,6 +890,7 @@ function update_manager_project_status(){
 		wp_send_json_error( $error );
     }
 
+	global $wpdb;
 
 	$project_tmin_status = !empty( get_post_meta( $pid, sprintf('%s_status', $tm), true ) ) ? json_decode( get_post_meta( $pid, sprintf('%s_status', $tm), true ), true ) : [];
 
@@ -895,8 +905,7 @@ function update_manager_project_status(){
 	
 	$tmStep = implode('-', [ $tm, $tmin ]);
 	
-	$existing = $wpdb->get_row( $wpdb->prepare( "SELECT id FROM `wp_noste_notifications` WHERE `tm` LIKE %s LIMIT 1", $tmStep ) );
-
+	$existing = $wpdb->get_row( $wpdb->prepare( "SELECT id FROM `wp_noste_notifications` WHERE `tm` LIKE %s AND `status` = 'active' ORDER BY `id` DESC", $tmStep ) );
 
 	if ( !empty($updated) && !empty($existing) ) {
 
@@ -907,7 +916,6 @@ function update_manager_project_status(){
 			array( '%s' ),
 			array( '%d' )
 		);
-
 
 		if ( $updated_status ) {
 			wp_send_json_success([

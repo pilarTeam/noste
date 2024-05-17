@@ -201,7 +201,7 @@ $notifications = $wpdb->get_results( $sql, ARRAY_A );
 
                                     }
 
-                                    if ( !empty($tm) ) {
+                                    if ( !empty($tm) && $notification['status'] == 'active' ) {
                                         $tmin_url = add_query_arg([
                                             'tm' => $tm[0],
                                             'tmin' => $tm[1],
