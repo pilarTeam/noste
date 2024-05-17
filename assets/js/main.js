@@ -54,6 +54,18 @@ jQuery(document).ready(function ($) {
     //  }
     // });
 
+    // Step Content Expand Close
+    $("#showMore").click(function(){
+        $("#excerpt_content").hide();
+        $("#full_content").removeClass("hidden");
+    });
+
+    $("#hideMore").click(function(){
+        $("#full_content").addClass("hidden");
+        $("#excerpt_content").show();
+    });
+
+
     // Image Upload
     $("#FileUpload1").on('change', function (event) {
         var input = event.target;
