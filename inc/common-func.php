@@ -755,6 +755,9 @@ function noste_form_header($type = 'form') {
 	$instep = $project_header_info[$tm]['instep'] ?? '';
 	$form_name = $project_header_info[$tm]['form_name'] ?? '';
 
+	$project_tmin_status = !empty( get_post_meta( get_the_ID(), sprintf('%s_status', $_GET['tm']), true ) ) ? json_decode( get_post_meta( get_the_ID(), sprintf('%s_status', $_GET['tm']), true ), true ) : [];
+
+
 	ob_start();
 
 	?>
@@ -779,7 +782,7 @@ function noste_form_header($type = 'form') {
 	            </nav>
 	        </div>
 
-	        <button class="btn gap-2 border border-line bg-[#E9E9F0] print-btn hidden">
+	        <button class="btn gap-2 border border-line bg-[#E9E9F0] print-btn">
 				<i class="um-icon-ios-printer-outline"></i>
 				Luonnos
 	        </button>

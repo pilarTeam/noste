@@ -111,8 +111,8 @@ get_header( 'noste' );
                                             if ( !empty($project_id) ) {
                                                 $obj = get_field('projektipaallikko', $project_id);
 
-                                                if ($obj && isset($obj['label'])) {
-                                                    $label = $obj['label'];
+                                                if ($obj && isset($obj[0]['label'])) {
+                                                    $label = $obj[0]['label'];
                                                 }
                                             }
                                             echo esc_html($label);
@@ -131,9 +131,13 @@ get_header( 'noste' );
                                     <?php 
                                         if ( !empty($pm_users) ):
                                             $projektipaallikko = get_field('projektipaallikko', $project_id);
-                                            if ($projektipaallikko && isset($projektipaallikko['value'])) {
-                                                $projektipaallikko = $projektipaallikko['value'];
+
+                                            if ( !empty($projektipaallikko[0]) ) {
+                                                $projektipaallikko = $projektipaallikko[0]['value'];
+                                            } else {
+                                                $projektipaallikko = 0;
                                             }
+
                                             foreach ($pm_users as $user_id): 
                                                 um_fetch_user($user_id);
                                     ?>
@@ -188,9 +192,12 @@ get_header( 'noste' );
                                     <?php 
                                         if ( !empty($sub_users) ):
                                             $valvoja = get_field('valvoja', $project_id);
-                                            $valvoja = isset($valvoja[0])?$valvoja[0]:$valvoja;
+                                            $valvoja = isset($valvoja[0]) ? $valvoja[0] : $valvoja;
+
                                             if ($valvoja && isset($valvoja['value'])) {
                                                 $valvoja = $valvoja['value'];
+                                            } else {
+                                                $valvoja = 0;
                                             }
 
                                             foreach ($sub_users as $user_id): 
