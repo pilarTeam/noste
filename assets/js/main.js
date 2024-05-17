@@ -68,22 +68,25 @@ jQuery(document).ready(function ($) {
     // Excerpt Expand Content
     var $showMoreButton = $('.excerpt-expand .showMore');
     var $content = $('.excerpt-expand .content');
-    var wordsToShow = 30;
-    var words = $content.html().trim().split(/\s+/);
-    var isVisible = false;
 
-    $content.html(words.slice(0, wordsToShow).join(' ') + ' ...');
+    if ($showMoreButton.length > 0 && $content.length > 0) {
+        var wordsToShow = 30;
+        var words = $content.html().trim().split(/\s+/);
+        var isVisible = false;
 
-    $showMoreButton.click(function () {
-        if (isVisible) {
-            $content.html(words.slice(0, wordsToShow).join(' ') + ' ...');
-            $showMoreButton.text('Lue lisää');
-        } else {
-            $content.html(words.join(' '));
-            $showMoreButton.text('Vähemmän lukemista');
-        }
-        isVisible = !isVisible;
-    });
+        $content.html(words.slice(0, wordsToShow).join(' ') + ' ...');
+
+        $showMoreButton.click(function () {
+            if (isVisible) {
+                $content.html(words.slice(0, wordsToShow).join(' ') + ' ...');
+                $showMoreButton.text('Lue lisää');
+            } else {
+                $content.html(words.join(' '));
+                $showMoreButton.text('Vähemmän lukemista');
+            }
+            isVisible = !isVisible;
+        });
+    }
 
 
 
@@ -552,4 +555,3 @@ jQuery(document).ready(function ($) {
 $('')
 
 });
-
