@@ -91,13 +91,19 @@
 
                     <p class="text-base text-[#475467] mb-4">
                         <b>Sisältö:</b><br>
-                        Huolehditaan projektin asianmukaisesta loppudokumentaatiosta ja lopetuksesta. <br><br>
-                        <b>Kuvaus:</b><br>
-                        On tärkeää, että jokainen projekti lopetetaan tyylillä. Näin projektista ja noste.iosta jää tilaajalle hyvä kokemus. Lisäksi jokaiseen projektiin palataan viimeistään takuuajan päättymisen yhteydessä pidettävässä 2. vuotistakuutarkastuksessa. <br><br>
-						On tärkeää, että projektin lopetuksen yhteydessä varmistetaan, että kaikki tehdyt suunnitelmat, sopimukset (allekirjoituksin varustettuna), pöytäkirjat (allekirjoituksin varustettuna), raportit, urakoitsijan luovutusaineisto, vakuudet ja muut tärkeät dokumentit on tallennettu tai erikseen toimitettu tilaajan määrittämään paikaan. <br><br>
-						Selkeiden pöytäkirjakirjausten ja ajantasaisten loppupiirustusten tärkeys korostuu projektin jälkeen mahdollisesti syntyvissä selvitystilanteissa. Dokumenttien avulla tiedetään mitä töitä on tehty (suunnitelmat) ja / tai mitä asioita on sovittu (kirjaukset TMK-, VOT- ja TALS-pöytäkirjoissa). Viimeistään tässä vaiheessa on syytä ilmoittaa urakoitsijan lisäksi myös kaikille muille osapuolille, että projekti loppuu ja laskutus on lopetettava koska projekti sulkeutuu. Näin tilaaja saa projektin päätettyä omassa järjestelmässään ja investoinnit löytävät oikean paikkansa. Projektin valmistumisen tiedot viedään noste.ion omaan takuuajan listaukseen, jotta takuuaikoja ja niihin liittyviä tehtäviä voidaan seurata. Projektista tehdään viimeinen projektiraportti, joka toimii loppuraporttina. <br><br>
-						Voit taputtaa nyt itseäsi olalle, olet johtanut vuokralaismuutoksen alusta loppuun! <br>
+                        Käydään läpi tilaajan kanssa sähköpostitse / Teamsilla / puhelimitse vuokralaismuutoksen lähtötiedot ja lähtötietotarpeet sekä sovitaan projektipäällikön tehtävät. Lisäksi dokumentoidaan läpikäydyt asiat.
                     </p>
+
+                    <div class="mb-6 excerpt-expand">
+                        <p class="text-base text-[#475467]"><b>Kuvaus:</b></p>
+                        <p class="text-base text-[#475467] mb-4 content">
+                            Eri tilaajilla on erilaisia tarpeita vuokralaismuutosten osalta. On tärkeää käydä heti alussa läpi yhdessä tilaajan kanssa projektin lähtötiedot ja tehtävät, jotta tarpeista ja tavoitteista ollaan samaa mieltä. Tilaaja- tai tapauskohtaisesti vuokralaismuutoksia tehdään joko kevyesti suunnittelun-rakentamisen-projektinjohdon osalta tai sitten raskaammin. Se kuinka paljon vuokralaismuutokseen panostetaan, vaikuttaa paljon projektissa käytettävään aikaan ja kustannuksiin. Noste.ion toimeksiannon osalta on tärkeää ymmärtää, toivooko tilaaja kevyempää projektinjohtoa pienellä kustannuksella, vai onko tilaajan tarvitsemat prosessit raskaammat, mikä johtaa suurempaan ajankäyttöön ja kustannuksiin. <br><br>
+                            Lähtötietopalaverin asialista antaa hyvän raamin asioiden läpikäynnille tilaajan kanssa sekä antaa ammattimaisen ja valmiin kuvan asioiden hoitamisesta. Tämä vaihe on tärkeä erityisesti, jos asiakas on sinulle uusi. Pääset asialistan avulla helpommin tutuksi kohteen kanssa. Jos kohde on sinulle entuudestaan tuttu, voit karsia selvitettäviä asioita jotka jo tiedät, kuten esimerkiksi yhteystiedot. <br><br>
+                            Huom. vaikka projektin valmisteluvaiheessa on vasta tarkoituksena auttaa tilaajaa pääsemään vuokrasopimukseen vuokralaisen kanssa, on projektipäällikölle tärkeää pyrkiä ymmärtämään koko projektin luonne mahdollisimman hyvin, jotta vuokrasopimukseen liittyvät lähtötiedot saadaan mahdollisimman paikkansapitäviksi. Tavanomaiset lähtötiedot tässä vaiheessa ovat esimerkiksi tilasuunnittelijan tekemä alustava pohjapiirustus, karkea näkemys aikataulusta, yksittäisiä tietoja siitä millaisia muutoksia halutaan olemassa olevaan tilaan. Tässä vaiheessa pitää pyrkiä kaivamaan mahdollisimman paljon lisää tietoa sellaisista asioista, joilla on merkittävä vaikutus vuokralaismuutokselle.
+                        </p>
+
+                        <button class="text-accent underline decoration-accent text-base showMore">Lue lisää</button>
+                    </div>
 
                     <div>
                     

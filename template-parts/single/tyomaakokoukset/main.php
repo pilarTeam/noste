@@ -98,12 +98,19 @@
 
                     <p class="text-base text-[#475467] mb-4">
                         <b>Sisältö:</b><br>
-                        Pidetään työmaakokoukset tasaisin väliajoin ja dokumentoidaan siellä työmaatilanne sekä työmaan eteneminen. <br><br>
-                        <b>Kuvaus:</b><br>
-                        Jotta työmaan etenemisen seuraaminen ja urakan aikana syntyvien asioiden käsittely olisi johdonmukaista, tilaajan edustajan ja urakoitsijan välillä pidetään työmaakokouksia. Työmaakokouksia pidetään usein noin neljän viikon välein. Sopijapuolten yhteisesti pitämistä työmaakokouksista pidetään pöytäkirjaa, jonka tilaaja ja urakoitsija tai heidän edustajansa allekirjoittavat. Työmaakokouksissa puheenjohtajana ja pöytäkirjan pitäjänä toimii projektipäällikkö. <br><br>
-						Urakoitsija tekee työvaiheilmoituksen työmaakokoukseen käsiteltäväksi. Työmaakokouksissa käydään läpi osapuolten väliset asiat: työmaan aikataulu- ja yleinen työmaatilanne, lisä- ja muutostyöasiat, mahdolliset huomiot tai muutokset suunnitelmiin sekä muut työmaahan liittyvät tärkeät asiat. Huomiona että työmaakokouksessa tehty pöytäkirjaan otettu huomautus tai ilmoitus, joka muutoin olisi tehtävä kirjallisesti, katsotaan mainitunlaista kirjallista ilmoitusta vastaavaksi. Työmaan aloituskokouksen ja normaalin työmaakokouksen juridinen merkitys on sama, mutta aloituskokouksessa tavanomaisesti käsitellään hieman eri asioita kuin normaalissa työmaakokouksessa. <br><br>
-						Työmaakokouksen pöytäkirjan kirjauksiin on kiinnitettävä erityistä huomiota, jotta kirjaukset ovat selkeitä ja tilaajan edun mukaisia. Jos riitatilanne syntyy urakan aikana tilaajan ja urakoitsijan välillä, asian käsittelyn kulku tarkastetaan ensisijaisesti työmaakokouspöytäkirjan perusteella, jonka molemmat osapuolet ovat allekirjoituksillaan hyväksyneet oikeelliseksi. <br>
+                        Käydään läpi tilaajan kanssa sähköpostitse / Teamsilla / puhelimitse vuokralaismuutoksen lähtötiedot ja lähtötietotarpeet sekä sovitaan projektipäällikön tehtävät. Lisäksi dokumentoidaan läpikäydyt asiat.
                     </p>
+
+                    <div class="mb-6 excerpt-expand">
+                        <p class="text-base text-[#475467]"><b>Kuvaus:</b></p>
+                        <p class="text-base text-[#475467] mb-4 content">
+                            Eri tilaajilla on erilaisia tarpeita vuokralaismuutosten osalta. On tärkeää käydä heti alussa läpi yhdessä tilaajan kanssa projektin lähtötiedot ja tehtävät, jotta tarpeista ja tavoitteista ollaan samaa mieltä. Tilaaja- tai tapauskohtaisesti vuokralaismuutoksia tehdään joko kevyesti suunnittelun-rakentamisen-projektinjohdon osalta tai sitten raskaammin. Se kuinka paljon vuokralaismuutokseen panostetaan, vaikuttaa paljon projektissa käytettävään aikaan ja kustannuksiin. Noste.ion toimeksiannon osalta on tärkeää ymmärtää, toivooko tilaaja kevyempää projektinjohtoa pienellä kustannuksella, vai onko tilaajan tarvitsemat prosessit raskaammat, mikä johtaa suurempaan ajankäyttöön ja kustannuksiin. <br><br>
+                            Lähtötietopalaverin asialista antaa hyvän raamin asioiden läpikäynnille tilaajan kanssa sekä antaa ammattimaisen ja valmiin kuvan asioiden hoitamisesta. Tämä vaihe on tärkeä erityisesti, jos asiakas on sinulle uusi. Pääset asialistan avulla helpommin tutuksi kohteen kanssa. Jos kohde on sinulle entuudestaan tuttu, voit karsia selvitettäviä asioita jotka jo tiedät, kuten esimerkiksi yhteystiedot. <br><br>
+                            Huom. vaikka projektin valmisteluvaiheessa on vasta tarkoituksena auttaa tilaajaa pääsemään vuokrasopimukseen vuokralaisen kanssa, on projektipäällikölle tärkeää pyrkiä ymmärtämään koko projektin luonne mahdollisimman hyvin, jotta vuokrasopimukseen liittyvät lähtötiedot saadaan mahdollisimman paikkansapitäviksi. Tavanomaiset lähtötiedot tässä vaiheessa ovat esimerkiksi tilasuunnittelijan tekemä alustava pohjapiirustus, karkea näkemys aikataulusta, yksittäisiä tietoja siitä millaisia muutoksia halutaan olemassa olevaan tilaan. Tässä vaiheessa pitää pyrkiä kaivamaan mahdollisimman paljon lisää tietoa sellaisista asioista, joilla on merkittävä vaikutus vuokralaismuutokselle.
+                        </p>
+
+                        <button class="text-accent underline decoration-accent text-base showMore">Lue lisää</button>
+                    </div>
 
                     <div>
                     

@@ -87,10 +87,19 @@
 
                     <p class="text-base text-[#475467] mb-4">
                         <b>Sisältö:</b><br>
-                        Varmistetaan, että projektille on laadittu oikean suuruinen ajankäyttöarvio omaa toimeksiantoa varten. Hyväksytetään ajankäyttöarvioon perustuva projektinjohdon tarjous tilaajalla. Huom. toimeksiantoon liittyvän tarjouksen saa toimittaa asiakkaalle vain liiketoimintajohtaja tai toimitusjohtaja. <br><br>
-                        <b>Kuvaus:</b><br>
-                        Hyvän projektijohdon mukaisesti varmistetaan, että projektinjohtoon varattu ajankäyttö ja kustannukset ovat tilaajan kanssa sovittujen raamien puitteissa. Projektinjohdon ajankäyttöarviossa on hyvä huomioida mm. projektin laajuus, suunnittelun taso, kilpailutuksen laajuus ja kohdekohtaiset erityisyydet. Kustannusarvion laadintavaiheessa, muiden rakennuttajan kustannusten lisäksi, myös projektijohdon kustannukset on arvioitu alustavalla tasolla. Mikäli muutoksia ei ole tullut sen hetkisen tehtävänannon laajuuteen, olisi syytä pysyä annetun arvion puitteissa. Pitää muistaa, että myös projektinjohdon kustannukset vaikuttavat projektin kokonaiskustannuksiin ja sitä myöden vuokrauksen kannattavuuteen. Tarjouksen lähettämisessä on hyvä huomioida, että vain erikseen nimetyillä henkilöillä on oikeus lähettää tarjouksia noste.ion nimissä. Projektipäällikkö auttaa tarjouksen teossa omaa ajankäyttöään arvioimalla.
+                        Käydään läpi tilaajan kanssa sähköpostitse / Teamsilla / puhelimitse vuokralaismuutoksen lähtötiedot ja lähtötietotarpeet sekä sovitaan projektipäällikön tehtävät. Lisäksi dokumentoidaan läpikäydyt asiat.
                     </p>
+
+                    <div class="mb-6 excerpt-expand">
+                        <p class="text-base text-[#475467]"><b>Kuvaus:</b></p>
+                        <p class="text-base text-[#475467] mb-4 content">
+                            Eri tilaajilla on erilaisia tarpeita vuokralaismuutosten osalta. On tärkeää käydä heti alussa läpi yhdessä tilaajan kanssa projektin lähtötiedot ja tehtävät, jotta tarpeista ja tavoitteista ollaan samaa mieltä. Tilaaja- tai tapauskohtaisesti vuokralaismuutoksia tehdään joko kevyesti suunnittelun-rakentamisen-projektinjohdon osalta tai sitten raskaammin. Se kuinka paljon vuokralaismuutokseen panostetaan, vaikuttaa paljon projektissa käytettävään aikaan ja kustannuksiin. Noste.ion toimeksiannon osalta on tärkeää ymmärtää, toivooko tilaaja kevyempää projektinjohtoa pienellä kustannuksella, vai onko tilaajan tarvitsemat prosessit raskaammat, mikä johtaa suurempaan ajankäyttöön ja kustannuksiin. <br><br>
+                            Lähtötietopalaverin asialista antaa hyvän raamin asioiden läpikäynnille tilaajan kanssa sekä antaa ammattimaisen ja valmiin kuvan asioiden hoitamisesta. Tämä vaihe on tärkeä erityisesti, jos asiakas on sinulle uusi. Pääset asialistan avulla helpommin tutuksi kohteen kanssa. Jos kohde on sinulle entuudestaan tuttu, voit karsia selvitettäviä asioita jotka jo tiedät, kuten esimerkiksi yhteystiedot. <br><br>
+                            Huom. vaikka projektin valmisteluvaiheessa on vasta tarkoituksena auttaa tilaajaa pääsemään vuokrasopimukseen vuokralaisen kanssa, on projektipäällikölle tärkeää pyrkiä ymmärtämään koko projektin luonne mahdollisimman hyvin, jotta vuokrasopimukseen liittyvät lähtötiedot saadaan mahdollisimman paikkansapitäviksi. Tavanomaiset lähtötiedot tässä vaiheessa ovat esimerkiksi tilasuunnittelijan tekemä alustava pohjapiirustus, karkea näkemys aikataulusta, yksittäisiä tietoja siitä millaisia muutoksia halutaan olemassa olevaan tilaan. Tässä vaiheessa pitää pyrkiä kaivamaan mahdollisimman paljon lisää tietoa sellaisista asioista, joilla on merkittävä vaikutus vuokralaismuutokselle.
+                        </p>
+
+                        <button class="text-accent underline decoration-accent text-base showMore">Lue lisää</button>
+                    </div>
 
                     <div>
                     

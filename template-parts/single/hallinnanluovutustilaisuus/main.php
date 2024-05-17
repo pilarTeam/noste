@@ -110,11 +110,19 @@
 
                     <p class="text-base text-[#475467] mb-4">
                         <b>Sisältö:</b><br>
-                        Pidetään hallinnaluovutustilaisuus, jos näin sovitaan tilaajan kanssa. Tarkastetaan vuokratila ja käydään hallinnanluovuksen pöytäkirjan sisältö läpi tilaajan ja vuokralaisen kanssa. <br><br>
-                        <b>Kuvaus:</b><br>
-                        Hallinnanluovutustilaisuudessa urakoitsijalta hieman aiemmin tilaajalle luovutettu vuokra-alue luovutetaan vuokralaisen hallintaan ja vastuulle. Usein vastaanottotarkastustilaisuus ja hallinnanluovutustilaisuus pidetään samana päivänä tai muutaman päivän sisään toisistaan. Vuokranmaksu alkaa usein hallinnanluovutuksesta. <br><br>
-						Hallinnanluovutustilaisuuden pitäminen on yleisesti kiinteistön vastuulla, koska tilaisuus liittyy vuokrasopimuksen mukaisten ehtojen täyttymiseen. Ehtoja ovat esimerkiksi se, että tila täyttää vuokrasopimuksen ehdot laadultaan, ja että luovutusajankohta on vuokrasopimuksen mukainen. Tässä tilaisuudessa vuokralainen voi vielä kommentoida esimerkiksi rakennustyön jälkeä ja huomiot kirjataan ylös. Projektipäällikkö osallistuessaan tekee käyttäjän virhe- ja puutelistauksen. Monesti tilaisuuden pitäminen siirtyy kokonaan luontevasti tilaajalta tai kiinteistöpäälliköltä projektipäällikölle. <br>
+                        Käydään läpi tilaajan kanssa sähköpostitse / Teamsilla / puhelimitse vuokralaismuutoksen lähtötiedot ja lähtötietotarpeet sekä sovitaan projektipäällikön tehtävät. Lisäksi dokumentoidaan läpikäydyt asiat.
                     </p>
+
+                    <div class="mb-6 excerpt-expand">
+                        <p class="text-base text-[#475467]"><b>Kuvaus:</b></p>
+                        <p class="text-base text-[#475467] mb-4 content">
+                            Eri tilaajilla on erilaisia tarpeita vuokralaismuutosten osalta. On tärkeää käydä heti alussa läpi yhdessä tilaajan kanssa projektin lähtötiedot ja tehtävät, jotta tarpeista ja tavoitteista ollaan samaa mieltä. Tilaaja- tai tapauskohtaisesti vuokralaismuutoksia tehdään joko kevyesti suunnittelun-rakentamisen-projektinjohdon osalta tai sitten raskaammin. Se kuinka paljon vuokralaismuutokseen panostetaan, vaikuttaa paljon projektissa käytettävään aikaan ja kustannuksiin. Noste.ion toimeksiannon osalta on tärkeää ymmärtää, toivooko tilaaja kevyempää projektinjohtoa pienellä kustannuksella, vai onko tilaajan tarvitsemat prosessit raskaammat, mikä johtaa suurempaan ajankäyttöön ja kustannuksiin. <br><br>
+                            Lähtötietopalaverin asialista antaa hyvän raamin asioiden läpikäynnille tilaajan kanssa sekä antaa ammattimaisen ja valmiin kuvan asioiden hoitamisesta. Tämä vaihe on tärkeä erityisesti, jos asiakas on sinulle uusi. Pääset asialistan avulla helpommin tutuksi kohteen kanssa. Jos kohde on sinulle entuudestaan tuttu, voit karsia selvitettäviä asioita jotka jo tiedät, kuten esimerkiksi yhteystiedot. <br><br>
+                            Huom. vaikka projektin valmisteluvaiheessa on vasta tarkoituksena auttaa tilaajaa pääsemään vuokrasopimukseen vuokralaisen kanssa, on projektipäällikölle tärkeää pyrkiä ymmärtämään koko projektin luonne mahdollisimman hyvin, jotta vuokrasopimukseen liittyvät lähtötiedot saadaan mahdollisimman paikkansapitäviksi. Tavanomaiset lähtötiedot tässä vaiheessa ovat esimerkiksi tilasuunnittelijan tekemä alustava pohjapiirustus, karkea näkemys aikataulusta, yksittäisiä tietoja siitä millaisia muutoksia halutaan olemassa olevaan tilaan. Tässä vaiheessa pitää pyrkiä kaivamaan mahdollisimman paljon lisää tietoa sellaisista asioista, joilla on merkittävä vaikutus vuokralaismuutokselle.
+                        </p>
+
+                        <button class="text-accent underline decoration-accent text-base showMore">Lue lisää</button>
+                    </div>
 
                     <div>
                     

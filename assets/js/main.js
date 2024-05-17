@@ -65,6 +65,27 @@ jQuery(document).ready(function ($) {
         $("#excerpt_content").show();
     });
 
+    // Excerpt Expand Content
+    var $showMoreButton = $('.excerpt-expand .showMore');
+    var $content = $('.excerpt-expand .content');
+    var wordsToShow = 30;
+    var words = $content.html().trim().split(/\s+/);
+    var isVisible = false;
+
+    $content.html(words.slice(0, wordsToShow).join(' ') + ' ...');
+
+    $showMoreButton.click(function () {
+        if (isVisible) {
+            $content.html(words.slice(0, wordsToShow).join(' ') + ' ...');
+            $showMoreButton.text('Lue lisää');
+        } else {
+            $content.html(words.join(' '));
+            $showMoreButton.text('Vähemmän lukemista');
+        }
+        isVisible = !isVisible;
+    });
+
+
 
     // Image Upload
     $("#FileUpload1").on('change', function (event) {

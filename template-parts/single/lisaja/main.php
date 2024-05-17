@@ -89,12 +89,19 @@
 
                     <p class="text-base text-[#475467] mb-4">
                         <b>Sisältö:</b><br>
-                        Rakentamisen aikana syntyvien lisä- ja muutostöiden käsittely. <br><br>
-                        <b>Kuvaus:</b><br>
-                        Lähes jokaisessa urakassa syntyy lisä- ja / tai muutostöitä (lyhenne LMT). Esimerkiksi vuokralainen saattaa haluta jonkin asian lisättäväksi urakkaan, vaikka kahviautomaatin sähkö- ja vesipisteen. Rakennustöiden aikana voidaan myös huomata, että suunnitelman mukainen toteutus ei onnistu ja toteutusmuutos aiheuttaa lisäkuluja. Joskus urakoitsija voi esittää myös perusteettoman LMT:n, mutta sekin pitää käsitellä ja hylätä antaen samalla riittävät perustelut hylkäämiselle. Muutosten LMT-käsittely on syytä tehdä ilman turhaa viivyttelyä vuokralaismuutoksissa, joissa urakka-ajat ovat usein lyhyitä. Näin LMT ei aiheuta urakka-ajan pitenemistä ja mahdollista vastaanottotarkastuksen ja hallinnanluovutustilaisuuden siirtymistä. <br><br>
-						On tärkeää ymmärtää, että tilaajan vastuulla olevat LMT:t pitää pystyä erottamaan vuokralaisen toivomista lisäyksistä. Tilaajan kanssa on sovittava miten käyttäjän LMT-asiat käsitellään. Maksaako vuokralainen itse LMT:n vai maksaako tilaaja ko. työn, jolloin vuokralaisen maksettavaa vuokraa kasvatetaan LMT:n summan verran. <br><br>
-						Urakoitsijan tulee tehdä helposti ymmärrettävät ja kattavat LMT-esitykset, jotta käsittely eri osapuolien kanssa olisi mahdollisimman vaivatonta. Projektipäällikön pitää varmistaa LMT:n oikeellisuus, oikea hintataso sekä käsittelyn tapahtuminen. Projektipäällikön pitää varmistaa että lisä- ja muutostyöesitykset tehdään urakkasopimuksessa sovitun mukaisesti. Projektipäällikkö hyväksyttää tilaajalla kaikki LMT:t ellei muusta ole erikseen sovittu. Urakoitsija pitää yllä lisä- ja muutostöistä yhteenvetotaulukkoa ja LMT-tilanne käsitellään työmaakokouksissa. <br>
+                        Käydään läpi tilaajan kanssa sähköpostitse / Teamsilla / puhelimitse vuokralaismuutoksen lähtötiedot ja lähtötietotarpeet sekä sovitaan projektipäällikön tehtävät. Lisäksi dokumentoidaan läpikäydyt asiat.
                     </p>
+
+                    <div class="mb-6 excerpt-expand">
+                        <p class="text-base text-[#475467]"><b>Kuvaus:</b></p>
+                        <p class="text-base text-[#475467] mb-4 content">
+                            Eri tilaajilla on erilaisia tarpeita vuokralaismuutosten osalta. On tärkeää käydä heti alussa läpi yhdessä tilaajan kanssa projektin lähtötiedot ja tehtävät, jotta tarpeista ja tavoitteista ollaan samaa mieltä. Tilaaja- tai tapauskohtaisesti vuokralaismuutoksia tehdään joko kevyesti suunnittelun-rakentamisen-projektinjohdon osalta tai sitten raskaammin. Se kuinka paljon vuokralaismuutokseen panostetaan, vaikuttaa paljon projektissa käytettävään aikaan ja kustannuksiin. Noste.ion toimeksiannon osalta on tärkeää ymmärtää, toivooko tilaaja kevyempää projektinjohtoa pienellä kustannuksella, vai onko tilaajan tarvitsemat prosessit raskaammat, mikä johtaa suurempaan ajankäyttöön ja kustannuksiin. <br><br>
+                            Lähtötietopalaverin asialista antaa hyvän raamin asioiden läpikäynnille tilaajan kanssa sekä antaa ammattimaisen ja valmiin kuvan asioiden hoitamisesta. Tämä vaihe on tärkeä erityisesti, jos asiakas on sinulle uusi. Pääset asialistan avulla helpommin tutuksi kohteen kanssa. Jos kohde on sinulle entuudestaan tuttu, voit karsia selvitettäviä asioita jotka jo tiedät, kuten esimerkiksi yhteystiedot. <br><br>
+                            Huom. vaikka projektin valmisteluvaiheessa on vasta tarkoituksena auttaa tilaajaa pääsemään vuokrasopimukseen vuokralaisen kanssa, on projektipäällikölle tärkeää pyrkiä ymmärtämään koko projektin luonne mahdollisimman hyvin, jotta vuokrasopimukseen liittyvät lähtötiedot saadaan mahdollisimman paikkansapitäviksi. Tavanomaiset lähtötiedot tässä vaiheessa ovat esimerkiksi tilasuunnittelijan tekemä alustava pohjapiirustus, karkea näkemys aikataulusta, yksittäisiä tietoja siitä millaisia muutoksia halutaan olemassa olevaan tilaan. Tässä vaiheessa pitää pyrkiä kaivamaan mahdollisimman paljon lisää tietoa sellaisista asioista, joilla on merkittävä vaikutus vuokralaismuutokselle.
+                        </p>
+
+                        <button class="text-accent underline decoration-accent text-base showMore">Lue lisää</button>
+                    </div>
 
                     <div>
                     

@@ -93,11 +93,19 @@
 
                     <p class="text-base text-[#475467] mb-4">
                         <b>Sisältö:</b><br>
-                        Laaditaan vuokrasopimuksen apudokumentit, jos näin on tilaajan kanssa sovittu. <br><br>
-                        <b>Kuvaus:</b><br>
-                        Vuokrasopimuksen sisältö on tärkeää määritellä huolellisesti ennen vuokrasopimuksen allekirjoitusta. Mikäli vastuurajoja ei ole tarkasti määritelty on vaarana, että vuokralainen alkaa projektin aikana vaatimaan asioita, joihin tilaaja ei ole taloudellisesti varautunut. Tällaisia asioita voi olla esimerkiksi työaikakirjauslaitteen hankinta vuokralaisen työntekijöille, tehostetapetoinnin asennus tai erikoisemmat lasiseinäteippaukset. <br><br>
-						Vuokranantajalla ei välttämättä ole valmiita vuokrasopimuksen apudokumentteja liittyen vuokralaismuutostyön vastuurajauksiin tai laatutason kuvaukseen. Tämä on oiva tilaisuus päästä paitsi vaikuttamaan muutostöiden sisältöön, myös osoittamaan omaa osaamistaan tilaajalle apudokumenttien laatimisella. Vuokrasopimuksen laadintavaiheessa vuokranantajalla ei välttämättä ole myöskään käytettävissä sisäistä teknistä asiantuntijaa, jolloin noste.iolla on mahdollisuus ottaa suuri rooli ja vastuu vuokralaismuutokseen liittyvien määritysten tekemisessä. Mitä suuremman lisäarvon noste.io saa aikaan, sitä tyytyväisempi tilaaja on. Vuokrasopimuksen apudokumenttien tekemisestä sovitaan aina tapauskohtaisesti.
+                        Käydään läpi tilaajan kanssa sähköpostitse / Teamsilla / puhelimitse vuokralaismuutoksen lähtötiedot ja lähtötietotarpeet sekä sovitaan projektipäällikön tehtävät. Lisäksi dokumentoidaan läpikäydyt asiat.
                     </p>
+
+                    <div class="mb-6 excerpt-expand">
+                        <p class="text-base text-[#475467]"><b>Kuvaus:</b></p>
+                        <p class="text-base text-[#475467] mb-4 content">
+                            Eri tilaajilla on erilaisia tarpeita vuokralaismuutosten osalta. On tärkeää käydä heti alussa läpi yhdessä tilaajan kanssa projektin lähtötiedot ja tehtävät, jotta tarpeista ja tavoitteista ollaan samaa mieltä. Tilaaja- tai tapauskohtaisesti vuokralaismuutoksia tehdään joko kevyesti suunnittelun-rakentamisen-projektinjohdon osalta tai sitten raskaammin. Se kuinka paljon vuokralaismuutokseen panostetaan, vaikuttaa paljon projektissa käytettävään aikaan ja kustannuksiin. Noste.ion toimeksiannon osalta on tärkeää ymmärtää, toivooko tilaaja kevyempää projektinjohtoa pienellä kustannuksella, vai onko tilaajan tarvitsemat prosessit raskaammat, mikä johtaa suurempaan ajankäyttöön ja kustannuksiin. <br><br>
+                            Lähtötietopalaverin asialista antaa hyvän raamin asioiden läpikäynnille tilaajan kanssa sekä antaa ammattimaisen ja valmiin kuvan asioiden hoitamisesta. Tämä vaihe on tärkeä erityisesti, jos asiakas on sinulle uusi. Pääset asialistan avulla helpommin tutuksi kohteen kanssa. Jos kohde on sinulle entuudestaan tuttu, voit karsia selvitettäviä asioita jotka jo tiedät, kuten esimerkiksi yhteystiedot. <br><br>
+                            Huom. vaikka projektin valmisteluvaiheessa on vasta tarkoituksena auttaa tilaajaa pääsemään vuokrasopimukseen vuokralaisen kanssa, on projektipäällikölle tärkeää pyrkiä ymmärtämään koko projektin luonne mahdollisimman hyvin, jotta vuokrasopimukseen liittyvät lähtötiedot saadaan mahdollisimman paikkansapitäviksi. Tavanomaiset lähtötiedot tässä vaiheessa ovat esimerkiksi tilasuunnittelijan tekemä alustava pohjapiirustus, karkea näkemys aikataulusta, yksittäisiä tietoja siitä millaisia muutoksia halutaan olemassa olevaan tilaan. Tässä vaiheessa pitää pyrkiä kaivamaan mahdollisimman paljon lisää tietoa sellaisista asioista, joilla on merkittävä vaikutus vuokralaismuutokselle.
+                        </p>
+
+                        <button class="text-accent underline decoration-accent text-base showMore">Lue lisää</button>
+                    </div>
 
                     <div>
                     

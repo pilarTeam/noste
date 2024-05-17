@@ -93,7 +93,7 @@
                                 </div>
                             </div >
                         </div>
-                        
+
                     </div>
                 </div><!-- Card Header -->
                 <!-- Card Body -->
@@ -102,12 +102,19 @@
 
                     <p class="text-base text-[#475467] mb-4">
                         <b>Sisältö:</b><br>
-                        Yleinen projektinjohto rakentamisen aikana. Pidetään yhteyttä osapuolten välillä, tarkastetaan laskuja, raportoidaan, pidetään kirjaa lisä- ja muutostöistä (lyhenne LMT) ja käsitellään työmaalla esiin nousseita asioita. <br><br>
-                        <b>Kuvaus:</b><br>
-                        Rakentamisen aikana tehdään paljon muitakin asioita, kuin edellä mainitut työmaakokousten pitämiset, työmaavalvonta ja lisä- ja muutostyökäsittelyt. Tärkeää on pysyä koko ajan kartalla projektin tilanteesta. Tärkeää on pitää myös muut osapuolet (tilaaja, urakoitsija, käyttäjä, kiinteistö, suunnittelija) kartalla projektin tilanteesta. Etenevätkö asiat suunnitellusti vai onko vastassa jotakin haasteita mihin pitää reagoida? Riittävällä ennakoimisella projektin aikana vältetään urakan äkillisiä ongelmatilanteita tai viivästyksiä projektin loppuvaiheessa. Esiin nousevia asioita selvitetään usein sähköposteilla ja puheluilla. <br><br>
-						Projektipäällikön pitää muistaa pysyä roolissaan. Ei saa lähteä hätiköiden selvittelemään lukemattomia asioita aina kun työmaalta soitetaan kysymyksen kanssa. Jokaista yksittäistä asiaa ei lähdetä selvittämään työmaalla käymällä, vaan asiat käsitellään kootusti työmaakierrosten yhteydessä ja kokouksissa. Työnjohtajan, työmaainsinöörin tai suunnittelijan tehtäviä ei saa alkaa itse tekemään, heitä tulee johtaa. <br><br>
-						Urakoitsijan ja konsulttien laskujen tarkastus on tärkeä kuukausittainen tehtävä, jotta tilaajan maksuvelvollisuus täyttyy. Laskujen tarkastuksen yhteydessä päivitetään kustannusseurantaa, seurataan loppukustannusennustetta sekä laskutuskertymää ja sitä raportoidaan projektiraportin yhteydessä. Urakoitsijan LMT-koontilistaa verrataan myös budjetin ja kustannusseuranna varauksiin ja ennakoidaan, onko riskinä esim. budjettiylitys. Myös muista tilaajan vastuista ja myötävaikutusvelvollisuuksista pitää projektipäällikön huolehtia. Noste.io tekee tilaajan vastuulla olevat käytännön tehtävät ja edustaa tilaaja muihin osapuoliin nähden.
+                        Käydään läpi tilaajan kanssa sähköpostitse / Teamsilla / puhelimitse vuokralaismuutoksen lähtötiedot ja lähtötietotarpeet sekä sovitaan projektipäällikön tehtävät. Lisäksi dokumentoidaan läpikäydyt asiat.
                     </p>
+
+                    <div class="mb-6 excerpt-expand">
+                        <p class="text-base text-[#475467]"><b>Kuvaus:</b></p>
+                        <p class="text-base text-[#475467] mb-4 content">
+                            Eri tilaajilla on erilaisia tarpeita vuokralaismuutosten osalta. On tärkeää käydä heti alussa läpi yhdessä tilaajan kanssa projektin lähtötiedot ja tehtävät, jotta tarpeista ja tavoitteista ollaan samaa mieltä. Tilaaja- tai tapauskohtaisesti vuokralaismuutoksia tehdään joko kevyesti suunnittelun-rakentamisen-projektinjohdon osalta tai sitten raskaammin. Se kuinka paljon vuokralaismuutokseen panostetaan, vaikuttaa paljon projektissa käytettävään aikaan ja kustannuksiin. Noste.ion toimeksiannon osalta on tärkeää ymmärtää, toivooko tilaaja kevyempää projektinjohtoa pienellä kustannuksella, vai onko tilaajan tarvitsemat prosessit raskaammat, mikä johtaa suurempaan ajankäyttöön ja kustannuksiin. <br><br>
+                            Lähtötietopalaverin asialista antaa hyvän raamin asioiden läpikäynnille tilaajan kanssa sekä antaa ammattimaisen ja valmiin kuvan asioiden hoitamisesta. Tämä vaihe on tärkeä erityisesti, jos asiakas on sinulle uusi. Pääset asialistan avulla helpommin tutuksi kohteen kanssa. Jos kohde on sinulle entuudestaan tuttu, voit karsia selvitettäviä asioita jotka jo tiedät, kuten esimerkiksi yhteystiedot. <br><br>
+                            Huom. vaikka projektin valmisteluvaiheessa on vasta tarkoituksena auttaa tilaajaa pääsemään vuokrasopimukseen vuokralaisen kanssa, on projektipäällikölle tärkeää pyrkiä ymmärtämään koko projektin luonne mahdollisimman hyvin, jotta vuokrasopimukseen liittyvät lähtötiedot saadaan mahdollisimman paikkansapitäviksi. Tavanomaiset lähtötiedot tässä vaiheessa ovat esimerkiksi tilasuunnittelijan tekemä alustava pohjapiirustus, karkea näkemys aikataulusta, yksittäisiä tietoja siitä millaisia muutoksia halutaan olemassa olevaan tilaan. Tässä vaiheessa pitää pyrkiä kaivamaan mahdollisimman paljon lisää tietoa sellaisista asioista, joilla on merkittävä vaikutus vuokralaismuutokselle.
+                        </p>
+
+                        <button class="text-accent underline decoration-accent text-base showMore">Lue lisää</button>
+                    </div>
 
                     <div>
                     

@@ -74,11 +74,19 @@
 
                     <p class="text-base text-[#475467] mb-4">
                         <b>Sisältö:</b><br>
-                        Tarkistetaan urakoitsijan työmaasuunnitelmat ja varmistetaan, että työmaatoiminta alkaa. <br><br>
-                        <b>Kuvaus:</b><br>
-                        Urakan tilauksen yhteydessä alkavat urakoitsijan pääsuoritusvelvollisuudet ja työmaan johtovelvollisuudet. Urakoitsija on lainsäädännön tarkoittamat päätoteuttaja ja vastaa työmaan työsuojeluvelvoitteiden hoitamisesta. Velvollisuuksien alkaessa ja työmaata perustettaessa urakoitsija laatii ja toimittaa projektipäällikölle hyväksyttäväksi erilaisia laadunvarmistusdokumentteja, selvityksiä, työmaasuunnitelman, aikataulun ja rakennustyövakuutuksen sekä pääsääntöisesti myös -vakuuden. <br><br>
-						Erityisesti pitää muistaa, että projektipäällikön (turvallisuuskoordinaattorin) tehtävänä on varmistua siitä, että tarvittavat turvallisuusdokumentit on laadittu asianmukaisesti urakoitsijan toimesta. Dokumenttien lisäksi varmistetaan myös se, että työmaatoiminnan aloitukselle on käytännön mahdollisuudet kiinteistössä, ja että kiinteistöä on tiedotettu sovitusti urakan alkamisesta. Urakoitsijan ja kiinteistön sujuva yhteydenpito on syytä varmistaa. <br>
+                        Käydään läpi tilaajan kanssa sähköpostitse / Teamsilla / puhelimitse vuokralaismuutoksen lähtötiedot ja lähtötietotarpeet sekä sovitaan projektipäällikön tehtävät. Lisäksi dokumentoidaan läpikäydyt asiat.
                     </p>
+
+                    <div class="mb-6 excerpt-expand">
+                        <p class="text-base text-[#475467]"><b>Kuvaus:</b></p>
+                        <p class="text-base text-[#475467] mb-4 content">
+                            Eri tilaajilla on erilaisia tarpeita vuokralaismuutosten osalta. On tärkeää käydä heti alussa läpi yhdessä tilaajan kanssa projektin lähtötiedot ja tehtävät, jotta tarpeista ja tavoitteista ollaan samaa mieltä. Tilaaja- tai tapauskohtaisesti vuokralaismuutoksia tehdään joko kevyesti suunnittelun-rakentamisen-projektinjohdon osalta tai sitten raskaammin. Se kuinka paljon vuokralaismuutokseen panostetaan, vaikuttaa paljon projektissa käytettävään aikaan ja kustannuksiin. Noste.ion toimeksiannon osalta on tärkeää ymmärtää, toivooko tilaaja kevyempää projektinjohtoa pienellä kustannuksella, vai onko tilaajan tarvitsemat prosessit raskaammat, mikä johtaa suurempaan ajankäyttöön ja kustannuksiin. <br><br>
+                            Lähtötietopalaverin asialista antaa hyvän raamin asioiden läpikäynnille tilaajan kanssa sekä antaa ammattimaisen ja valmiin kuvan asioiden hoitamisesta. Tämä vaihe on tärkeä erityisesti, jos asiakas on sinulle uusi. Pääset asialistan avulla helpommin tutuksi kohteen kanssa. Jos kohde on sinulle entuudestaan tuttu, voit karsia selvitettäviä asioita jotka jo tiedät, kuten esimerkiksi yhteystiedot. <br><br>
+                            Huom. vaikka projektin valmisteluvaiheessa on vasta tarkoituksena auttaa tilaajaa pääsemään vuokrasopimukseen vuokralaisen kanssa, on projektipäällikölle tärkeää pyrkiä ymmärtämään koko projektin luonne mahdollisimman hyvin, jotta vuokrasopimukseen liittyvät lähtötiedot saadaan mahdollisimman paikkansapitäviksi. Tavanomaiset lähtötiedot tässä vaiheessa ovat esimerkiksi tilasuunnittelijan tekemä alustava pohjapiirustus, karkea näkemys aikataulusta, yksittäisiä tietoja siitä millaisia muutoksia halutaan olemassa olevaan tilaan. Tässä vaiheessa pitää pyrkiä kaivamaan mahdollisimman paljon lisää tietoa sellaisista asioista, joilla on merkittävä vaikutus vuokralaismuutokselle.
+                        </p>
+
+                        <button class="text-accent underline decoration-accent text-base showMore">Lue lisää</button>
+                    </div>
 
                     <div>
                     
