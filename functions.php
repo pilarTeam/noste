@@ -79,6 +79,12 @@ function noste_scripts() {
 
 	wp_enqueue_script('main-script', get_template_directory_uri() . '/assets/js/main.js', ['jquery', 'date-picker-script'], rand(1, 100), true);
 
+
+	if ( is_page( 64 ) ) {
+		wp_enqueue_script('kustannusseuranta-script', get_template_directory_uri() . '/assets/js/kustannusseuranta.js', ['jquery'], rand(1, 100), true);		
+	}
+
+
 	$localize = [
 		'ajaxurl'		=> admin_url('admin-ajax.php'),
 		'theme_uri'		=> get_template_directory_uri(),
