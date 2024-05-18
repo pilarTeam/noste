@@ -362,10 +362,25 @@ jQuery(document).ready(function ($) {
     });
 
     // help toogle click 
-    $('.help_click').on('click', function(){
-        $(this).parent().find('.help_line').toggleClass('hidden');
-        $(this).parents('.help_wrap').find('.help_show').toggleClass('hidden');
+    $('.help_click').on('click', function(e){
+        e.preventDefault();
+
+        if ( $(this).hasClass('active') ) {
+            console.log('with');
+            $('.help_line, .help_show').addClass('hidden');
+            $('.help_click').removeClass('active');
+        } else {
+            $('.help_line, .help_show').addClass('hidden');
+
+            $(this).parent().find('.help_line').removeClass('hidden')
+            $(this).parents('.help_wrap').find('.help_show').removeClass('hidden');
+
+            $(this).addClass('active');
+        }
     });
+
+
+
     
     // input field readonly switch by checkbox
     $('.switch_readonly').on('change', '*[type="checkbox"]', function(e){

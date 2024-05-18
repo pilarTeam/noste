@@ -72,7 +72,7 @@ $project_id = get_the_ID();
                             </div>
                         </div>
 
-                        <div class="help_wrap mt-10 mb-4 relative">
+                        <div class="mt-10 mb-4 relative">
                             <div class="max-w-[880px] mx-auto flex items-center gap-2">
                                 <table class="w-full whitespace-nowrap border-collapse">
                                     <thead class="text-left rounded-t-lg bg-accent text-white">
