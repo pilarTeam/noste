@@ -135,6 +135,7 @@
 .page-body {
     text-wrap: wrap;
     overflow: hidden;
+    position: relative;
     word-wrap: break-word;
     height: calc(var(--a4-paper-height) - 110px - var(--a4-header-height) - var(--a4-footer-height));
 }
@@ -182,4 +183,20 @@
     .card_item.relative {
         position: unset;
     }
+}
+.section-to-print:not(.is_approved) .noste_pages .single-page .page-body > * {
+    position: relative;z-index: 2;
+}
+.section-to-print:not(.is_approved) .noste_pages .single-page .page-body::before {
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    opacity: 0.45;
+    color: #acacac;
+    font-weight: 900;
+    content: "Draft";
+    font-size: 180px;
+    position: absolute;
+    text-transform: uppercase;
+    transform: translate(-50%, -50%) rotate(45deg);
 }

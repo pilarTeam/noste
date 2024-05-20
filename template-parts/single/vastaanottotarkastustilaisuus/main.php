@@ -75,16 +75,36 @@
                 <!-- Card Header -->
                 <div class="card_header px-4 md:px-8 py-6 border-b border-line top-0 z-10">
                     <div>
-                        <p class="text-sm font-normal text-[#818D93] mb-1">Project nimi</p>
-                        <h2 class="text-xl font-medium text-[#08202C] mb-4">Projektin valmistelu</h2>
+                        <p class="text-sm font-normal text-[#818D93] mb-1"><?php echo esc_html( noste_check_empty( $args['page_title'] ) ); ?></p>
+                        <h2 class="text-xl font-medium text-[#08202C] mb-4">Rakennustöiden vastaanotto ja toimeksiannon lopetus</h2>
 
 
-                        <p class="text-base text-[#475467] mb-2" id="content">
-                            Projektin valmisteluvaiheessa tärkeintä on tukea kiinteistönomistajan vuokraamisesta vastaavaa tahoa niin, että tilasta tehtävä vuokrasopimustarjous kiinteistönomistajan (eli vuokranantajan / tilaajan) asiakkaalle, eli vuokralaisehdokkaalle olisi mahdollisimman houkutteleva. Samalla vuokrasopimustarjous pyritään laatimaan mahdollisimman kannattavaksi kiinteistönomistajalle. Vaiheelle kuvaavaa on aika-ajoin kiireelliset selvitystyöt, teknisten reunaehtojen selvitys vähillä lähtötiedoilla, sekä vuokrasopimustarjoukseen tarvittavien avustavien lähtötietojen nopea toimitus vuokrauksesta vastaavalle taholle. Tässä vaiheessa vuokralaisehdokas usein kilpailuttaa useita kiinteistönomistajia lyhyen ajanjakson sisällä ja kiinteistöomistajan, jota noste.io auttaa, on pyrittävä antamaan vuokralaisehdokkaalle paras mahdollinen tarjous vuokralaisen tarvitsemista tiloista, niin tilatarpeiden kuin kustannusten osalta. <br> <br>
-                            Noste.ion toimittamat vuokrasopimustarjouksen lähtötiedot pyritään antamaan mahdollisimman paikkaansa pitävänä, ilman virheitä ja mahdollisimman nopeasti kiinteistönomistajalle vuokrasopimustarjouksen lähtötiedoiksi. Tässä vaiheessa tehtävät alustavat selvitykset pyritään usein myös tekemään hyvin kustannustehokkaasti, koska vuokralaisehdokas voi päätyä valitsemaan jonkin toisen kiinteistönomistajan tilat, jäämään vanhoihin tiloihin tai tekemään jonkin muun ratkaisuun. Vuokrauksesta vastaavan tahon mieltymysten mukaan, henkilö joko toivoo paljon yhteystyötä noste.iolta tai sitten henkilö tekee hyvin omatoimisesti ja omin päin tämän vaiheen.
-                        </p>
-                        
-                        <button class="text-accent underline decoration-accent text-base" id="showMore">Lue lisää</button>
+                        <div class="content-wrap">
+                            <div class="excerpt" id="excerpt_content">
+                                <p class="text-base text-[#475467] mb-2">
+                                    Projektin valmisteluvaiheessa tärkeintä on tukea kiinteistönomistajan vuokraamisesta vastaavaa tahoa niin, että tilasta tehtävä vuokrasopimustarjous kiinteistönomistajan (eli vuokranantajan / tilaajan) asiakkaalle, eli vuokralaisehdokkaalle olisi mahdollisimman houkutteleva. Samalla vuokrasopimustarjous pyritään laatimaan mahdollisimman...
+                                </p>
+
+                                <button class="text-accent underline decoration-accent text-base" id="showMore">Lue lisää</button>
+                            </div>
+
+                            <div class="hidden" id="full_content">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                                    <p class="text-base text-[#475467] mb-2">
+                                        Projektin valmisteluvaiheessa tärkeintä on tukea kiinteistönomistajan vuokraamisesta vastaavaa tahoa niin, että tilasta tehtävä vuokrasopimustarjous kiinteistönomistajan (eli vuokranantajan / tilaajan) asiakkaalle, eli vuokralaisehdokkaalle olisi mahdollisimman houkutteleva. Samalla vuokrasopimustarjous pyritään laatimaan mahdollisimman kannattavaksi kiinteistönomistajalle. Vaiheelle kuvaavaa on aika-ajoin kiireelliset selvitystyöt, teknisten reunaehtojen selvitys vähillä lähtötiedoilla, sekä vuokrasopimustarjoukseen tarvittavien avustavien lähtötietojen nopea toimitus vuokrauksesta vastaavalle taholle. <br><br>Tässä vaiheessa vuokralaisehdokas usein kilpailuttaa useita kiinteistönomistajia lyhyen ajanjakson sisällä ja kiinteistöomistajan, jota noste.io auttaa, on pyrittävä antamaan vuokralaisehdokkaalle paras mahdollinen tarjous vuokralaisen tarvitsemista tiloista, niin tilatarpeiden kuin kustannusten osalta.
+                                    </p>
+
+                                    <p class="text-base text-[#475467] mb-2">
+                                        Noste.ion toimittamat vuokrasopimustarjouksen lähtötiedot pyritään antamaan mahdollisimman paikkaansa pitävänä, ilman virheitä ja mahdollisimman nopeasti kiinteistönomistajalle vuokrasopimustarjouksen lähtötiedoiksi.<br><br> Tässä vaiheessa tehtävät alustavat selvitykset pyritään usein myös tekemään hyvin kustannustehokkaasti, koska vuokralaisehdokas voi päätyä valitsemaan jonkin toisen kiinteistönomistajan tilat, jäämään vanhoihin tiloihin tai tekemään jonkin muun ratkaisuun. Vuokrauksesta vastaavan tahon mieltymysten mukaan, henkilö joko toivoo paljon yhteystyötä noste.iolta tai sitten henkilö tekee hyvin omatoimisesti ja omin päin tämän vaiheen.
+                                    </p>
+                                </div>
+
+                                <div class="text-right">
+                                    <button class="text-accent underline decoration-accent text-base" id="hideMore">Vähemmän lukemista</button>
+                                </div>
+                            </div >
+                        </div>
+
                     </div>
                 </div><!-- Card Header -->
                 <!-- Card Body -->
@@ -93,12 +113,19 @@
 
                     <p class="text-base text-[#475467] mb-4">
                         <b>Sisältö:</b><br>
-                        Pidetään vastaanottotarkastustilaisuus. Tarkastetaan tehdyt rakennustyöt ja varmistetaan, että urakoitsija on täyttänyt urakkasopimuksen mukaisen suoritusvelvoitteen, ja että tilat voidaan ottaa vastaan sekä luovuttaa edelleen vuokralaisen käyttöön. <br><br>
-                        <b>Kuvaus:</b><br>
-                        Vastaanottotarkastustilaisuus on yksi tärkeimmistä, jos ei tärkein yksittäinen tilaisuus rakennushankkeen aikana. Vastaanottotarkastuksessa tarkastetaan, että urakkasuoritus on sopimuksenmukainen ja urakoitsija on täyttänyt kaikki urakkasopimuksen velvoitteet. Urakoitsijan on ennen vastaanottotarkastusta itse myös varmistettava, että rakennustyö on valmis ja täyttää sopimuksen mukaiset vaatimukset. Vastaanottotarkastukseen liittyy yksityiskohtaisten virhe- ja puutelistojen teko sekä urakoitsijan luovutusaineiston tarkastus (ml. tarkastuspöytäkirjat, itselleluovutustarkastukset, materiaalitiedot ja punakynäpiirustukset). Virheet ja puutteet tarkastetaan yhdessä urakoitsijan kanssa ja urakoitsija kirjaa ne muistiin. Huomiona kuitenkin, että suorittamatta olevat vähäiset viimeistelytyöt eivät estä vastaanottoa, jos niistä ei aiheudu estettä tai haittaa työntuloksen käyttöönotolle. Tällaisia vähäisiä korjaustöitä urakoitsija voi vielä käydä tekemässä tilassa muutamana päivänä vastaanottotarkastuksen jälkeen. <br><br>
-						Hyväksytyn vastaanottotarkastuksen jälkeen muutosalue siirtyy takaisin tilaajan vastuulle urakoitsijalta. Silloin tulee varmistua siitä, että tilat ovat turvalliset käyttää ja ne voidaan luovuttaa edelleen vuokralaisen käyttöön turvallisesti (mm. sähkön käyttöönottopöytäkirjan avulla osoitetaan, että tilan sähköturvallisuus on kunnossa). Urakoitsijalla ei ole enää oikeutta toimia tiloissa omatoimisesti ja kaikki urakoitsijan kulkuoikeudet sekä avaimet luovutetaan tilaajalle, jos ei muusta sovita. <br><br>
-						On tärkeä ymmärtää, että viimeistään vastaanottotarkastuksessa kummankin sopijapuolen on esitettävä toisiinsa kohdistuvat vaatimuksensa perusteiltaan sillä uhalla, että oikeus näiden vaatimusten tekemiseen on muutoin menetetty. Tällainen vaatimus tilaajalta urakoitsijalle voisi olla esimerkiksi urakan myöhästymisestä vaadittu viivästymissakko. On ehdottoman tärkeää valmistella vastaanottotarkastusasialista hyvin ja kiinnittää erityistä huomiota pöytäkirjan kirjauksiin. <br>
+                        Käydään läpi tilaajan kanssa sähköpostitse / Teamsilla / puhelimitse vuokralaismuutoksen lähtötiedot ja lähtötietotarpeet sekä sovitaan projektipäällikön tehtävät. Lisäksi dokumentoidaan läpikäydyt asiat.
                     </p>
+
+                    <div class="mb-6 excerpt-expand">
+                        <p class="text-base text-[#475467]"><b>Kuvaus:</b></p>
+                        <p class="text-base text-[#475467] mb-4 content">
+                            Eri tilaajilla on erilaisia tarpeita vuokralaismuutosten osalta. On tärkeää käydä heti alussa läpi yhdessä tilaajan kanssa projektin lähtötiedot ja tehtävät, jotta tarpeista ja tavoitteista ollaan samaa mieltä. Tilaaja- tai tapauskohtaisesti vuokralaismuutoksia tehdään joko kevyesti suunnittelun-rakentamisen-projektinjohdon osalta tai sitten raskaammin. Se kuinka paljon vuokralaismuutokseen panostetaan, vaikuttaa paljon projektissa käytettävään aikaan ja kustannuksiin. Noste.ion toimeksiannon osalta on tärkeää ymmärtää, toivooko tilaaja kevyempää projektinjohtoa pienellä kustannuksella, vai onko tilaajan tarvitsemat prosessit raskaammat, mikä johtaa suurempaan ajankäyttöön ja kustannuksiin. <br><br>
+                            Lähtötietopalaverin asialista antaa hyvän raamin asioiden läpikäynnille tilaajan kanssa sekä antaa ammattimaisen ja valmiin kuvan asioiden hoitamisesta. Tämä vaihe on tärkeä erityisesti, jos asiakas on sinulle uusi. Pääset asialistan avulla helpommin tutuksi kohteen kanssa. Jos kohde on sinulle entuudestaan tuttu, voit karsia selvitettäviä asioita jotka jo tiedät, kuten esimerkiksi yhteystiedot. <br><br>
+                            Huom. vaikka projektin valmisteluvaiheessa on vasta tarkoituksena auttaa tilaajaa pääsemään vuokrasopimukseen vuokralaisen kanssa, on projektipäällikölle tärkeää pyrkiä ymmärtämään koko projektin luonne mahdollisimman hyvin, jotta vuokrasopimukseen liittyvät lähtötiedot saadaan mahdollisimman paikkansapitäviksi. Tavanomaiset lähtötiedot tässä vaiheessa ovat esimerkiksi tilasuunnittelijan tekemä alustava pohjapiirustus, karkea näkemys aikataulusta, yksittäisiä tietoja siitä millaisia muutoksia halutaan olemassa olevaan tilaan. Tässä vaiheessa pitää pyrkiä kaivamaan mahdollisimman paljon lisää tietoa sellaisista asioista, joilla on merkittävä vaikutus vuokralaismuutokselle.
+                        </p>
+
+                        <button class="text-accent underline decoration-accent text-base showMore">Lue lisää</button>
+                    </div>
 
                     <div>
                     

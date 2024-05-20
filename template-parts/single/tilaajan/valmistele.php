@@ -40,7 +40,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                 <div class="mb-8 mx-auto max-w-[750px]">
                                     <div class="flex flex-wrap mb-4">
                                         <label class="flex-[3] mr-4 text-sm font-medium text-black" for="version">Versio:</label>
-                                        <p class="flex-[3] text-sm text-accent" id="version">xx.xx.xxxx</p>
+                                        <p class="flex-[3] text-sm text-accent" id="version"><?php echo esc_html( gmdate('d.m.Y') ); ?></p>
                                     </div>
 
                                     <div class="flex flex-wrap mb-2">
@@ -335,3 +335,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
     </div>
 </section>
 <!-- Main Content -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+<!-- <button onclick="generatePDF('<?php echo esc_attr(implode('-', [$_GET['tm'], $_GET['tmin']])); ?>')">Generate PDF</button> -->

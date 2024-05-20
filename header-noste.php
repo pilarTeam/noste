@@ -56,9 +56,7 @@ date_default_timezone_set("Asia/Dhaka");
                         <div class="flex items-center gap-5">
                             <div class="notification-wrapper flex items-center gap-5">
                                 <?php 
-                                if ( array_intersect(['um_valvoja', 'administrator'], $user->roles) ) {
                                     echo noste_header_notification(); 
-                                }
                                 ?>  
                             </div>
     

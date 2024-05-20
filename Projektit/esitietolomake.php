@@ -29,6 +29,8 @@ get_header( 'noste' );
 
 ?>
 
+
+
 <?php if ( ( isset($_POST['submit-form']) && $_POST['submit-form'] == 'submitted' ) && ( isset($_POST['pid']) && !empty($_POST['pid']) ) ): 
     
     $project_id = (int) $_POST['pid'];
@@ -487,7 +489,7 @@ get_header( 'noste' );
                             </td>
                         </tr>
                         <tr>
-                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Projektin valmistumisaika xx.xx.xxxx</td>
+                            <td class="w-1/2 py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]">Projektin valmistumisaika <?php echo esc_html( gmdate('d.m.Y') ); ?></td>
                             <td class="py-[10px] px-[15px] text-[#586B74] border border-solid border-[#E1E1EA]"><?php echo esc_html(implode(', ', [$_POST['pilar_VA1']??'',
                             // $_POST['pilar_VA2']??''
                             ])); ?></td>
@@ -757,7 +759,7 @@ get_header( 'noste' );
                     <div class="help_wrap relative mb-2">
                         <div class="max-w-[700px] mx-auto flex items-center gap-2">
                             <label class="text-[#586B74] text-[14px] block min-w-[230px]">
-                                Projektin valmistumisaika xx.xx.xxxx
+                                Projektin valmistumisaika <?php echo esc_html( gmdate('d.m.Y') ); ?>
                             </label>
 
                             <a href="#!" class="help_click">
@@ -1602,7 +1604,7 @@ get_header( 'noste' );
                                             </span>
                                              <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_TY10" <?php checked( !empty( noste_check_empty( get_post_meta( $pid, 'pilar_TY10', true ) ) ) , true, true ); ?> />
                                         </label>
-                                        <input type="text" name="pilar_TY10" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty(get_post_meta( $pid, 'pilar_TY10', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_TY10', true ) )) ); ?>/>
+                                        <input type="text" name="pilar_TY10" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_empty( get_post_meta( $pid, 'pilar_TY10', true )) ); ?>" <?php echo esc_attr( noste_checkbox_status_readonly(noste_check_empty( get_post_meta( $pid, 'pilar_TY10', true ) )) ); ?>/>
                                     </div>
                                 </div>
 
@@ -1632,6 +1634,7 @@ get_header( 'noste' );
                             Syöte2 lisää kustannusarviosta kustannus (€)
                         </div>
                     </div>
+                    <?php /* ?>
                     <div class="help_wrap relative mt-5">
                         <div class="max-w-[700px] mx-auto flex items-center gap-2">
                             <div class="grid grid-cols-1 lg:min-w-[675px] gap-3">
@@ -1678,6 +1681,9 @@ get_header( 'noste' );
                             Syöte2 lisää kustannusarviosta kustannus (€)
                         </div>
                     </div>
+                    <?php */ ?>
+
+
                     <div class="help_wrap relative mt-5">
                         <div class="max-w-[700px] mx-auto flex items-center gap-2">
                             <div class="grid grid-cols-1 lg:min-w-[675px] gap-3">

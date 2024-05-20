@@ -1,13 +1,23 @@
 const PRINTS_ARGS = {
   allowTwig: true
 };
+function generatePDF(filename = 'report') {
+    const element = document.querySelector('.noste_pages');
+    const opt = {
+        margin:       1,
+        filename:     `${filename}.pdf`,
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    html2pdf().from(element).set(opt).save();
+}
 
-
-document.querySelectorAll('#update-project .project-submit-btn').forEach(button => {
-  var form = button.parentElement.parentElement;
-  button.addEventListener('click', (event) => handleUpdateProjects(event, button, form));
-  form.addEventListener('submit', (event) => handleUpdateProjects(event, button, form));
-});
+// document.querySelectorAll('#update-project .project-submit-btn').forEach(button => {
+//   var form = button.parentElement.parentElement;
+//   button.addEventListener('click', (event) => handleUpdateProjects(event, button, form));
+//   form.addEventListener('submit', (event) => handleUpdateProjects(event, button, form));
+// });
 
 function handleUpdateProjects(event, button, form) {
   event.preventDefault();
@@ -53,6 +63,42 @@ jQuery(document).ready(function ($) {
     //      $(".dropdown-menu").addClass("hidden");
     //  }
     // });
+
+    // Step Content Expand Close
+    $("#showMore").click(function(){
+        $("#excerpt_content").hide();
+        $("#full_content").removeClass("hidden");
+    });
+
+    $("#hideMore").click(function(){
+        $("#full_content").addClass("hidden");
+        $("#excerpt_content").show();
+    });
+
+    // Excerpt Expand Content
+    var $showMoreButton = $('.excerpt-expand .showMore');
+    var $content = $('.excerpt-expand .content');
+
+    if ($showMoreButton.length > 0 && $content.length > 0) {
+        var wordsToShow = 30;
+        var words = $content.html().trim().split(/\s+/);
+        var isVisible = false;
+
+        $content.html(words.slice(0, wordsToShow).join(' ') + ' ...');
+
+        $showMoreButton.click(function () {
+            if (isVisible) {
+                $content.html(words.slice(0, wordsToShow).join(' ') + ' ...');
+                $showMoreButton.text('Lue lisää');
+            } else {
+                $content.html(words.join(' '));
+                $showMoreButton.text('Vähemmän lukemista');
+            }
+            isVisible = !isVisible;
+        });
+    }
+
+
 
     // Image Upload
     $("#FileUpload1").on('change', function (event) {
@@ -113,8 +159,10 @@ jQuery(document).ready(function ($) {
                             grid_card.find('.project-edit-osoite a').attr('href', value['edit_permalink']);
 
                             grid_card.find('.projektinumero').html(value['projektinumero']);
+                            
                             grid_card.find('.projektipaallikko').html(value['projektipaallikko']);
                             grid_card.find('.valvoja').html(value['valvoja']);
+
                             grid_card.find('.projektin_valmistelu').html(value['projektin_valmistelu']);
 
                             grid_card.find('.status').removeClass('aktiivinen keskeneräiset arkistoitu');
@@ -212,9 +260,7 @@ jQuery(document).ready(function ($) {
     $('#create-project').on('click', '.project-submit-btn', function(e){
         e.preventDefault();
 
-        if ( confirm("Are you sure?") ) {
-            $(this).parents('form').trigger('submit');
-         }
+        $('.popup_wrap').removeClass('hidden');
     });
 
     $('#create-project').on('submit', 'form', function(e){
@@ -284,11 +330,14 @@ jQuery(document).ready(function ($) {
 
     // calendar init
     $('#calendar').daterangepicker({
-        singleDatePicker: true,
-        showDropdowns: true,
-        minYear: 1901,
-        maxYear: parseInt(moment().format('YYYY'),10)
+        "singleDatePicker": true,
+        "showDropdowns": true,
+        "autoApply": true,
+        "minYear": 1901,
+        "maxYear": parseInt(moment().format('YYYY'),10)
     }, function(start, end, label) {});
+
+
 
     // checkbox toogle click 
     $('body').on('change', '.checkbox_change', function(e){
@@ -396,6 +445,9 @@ jQuery(document).ready(function ($) {
                         var printPrevCard = document.createElement('div');
                         formCard.classList.add('print_preview');
                         printPrevCard.classList.add('section-to-print');
+                        if (data?.is_approved) {
+                            printPrevCard.classList.add('is_approved');
+                        }
                         printPrevCard.innerHTML = template.render(data.submission);
 
                         formCard.insertBefore(printPrevCard, $(formCard).children('.card_footer')[0]);
@@ -404,6 +456,10 @@ jQuery(document).ready(function ($) {
                         $this.parents('body').find('.print-btn').removeClass('hidden');
                         
                     }).catch(error => console.error(error));
+                } else {
+                    if ( response['data'][0] ) {
+                        alert(response['data'][0]['message']);
+                    }
                 }
             },
             error: function(response) {
@@ -411,17 +467,49 @@ jQuery(document).ready(function ($) {
                 alert('failed!');
             }
         });
-    
     });
-    
     /**
      * Enableing print button functions.
      */
-    $('.card_header .print-btn').on('click', function(e){
+    $('.card_header .print-btn').on('click', async function(e){
         e.preventDefault();
-
-        if ($('.print_preview').length) {
+        // var theForm = document.querySelector('form.ajax-submit');
+        // theForm.reset();
+        if ($(this).data('previewed')) {
             print();
+        } else {
+            var formCard = $this = window.formCard = $('form.ajax-submit')[0];
+            // var data = Object.fromEntries(new FormData(theForm));
+            var data = await fetch(`${main_ajax_object.ajaxurl}?action=noste_get_project_step&tm=${$(this).data('tm')}&tmin=${$(this).data('tmin')}&project_id=${$(this).data('project_id')}`);
+            fetch($(this).data('form-path'))
+            .then(data => data.text())
+            .then(body => {
+                var template = Twig.twig({data: body});
+                data.submission = data ?. submission ?? data;
+                data.submission.locale_args = main_ajax_object;
+                // 
+                data.submission.get_global_keyword = (key, def = '') => {
+                    if ( typeof data.submission[key] !== 'undefined' && data.submission[key] != '') {
+                        return data.submission[key];
+                    }
+                    return def;
+                };
+                // 
+                var printPrevCard = document.createElement('div');
+                formCard.classList.add('print_preview');
+                printPrevCard.classList.add('section-to-print');
+                if ($(this).data('is-approved')) {
+                    printPrevCard.classList.add('is_approved');
+                }
+                printPrevCard.innerHTML = template.render(data.submission);
+                // 
+                formCard.insertBefore(printPrevCard, $(formCard).children('.card_footer')[0]);
+                // 
+                // $(this).data('previewed', true);
+                print();
+                printPrevCard.remove();
+                formCard.classList.remove('print_preview');
+            }).catch(error => console.error(error));
         }
     });
 
@@ -481,7 +569,8 @@ jQuery(document).ready(function ($) {
                 if ( response['success'] ) {
                     location.replace(response['data']['permalink']);
                 } else {
-                    alert(response['data'][0]['message'])
+                    console.log(response);
+                    // alert(response['data'][0]['message'])
                 }
             }
         );        
@@ -511,4 +600,3 @@ jQuery(document).ready(function ($) {
 $('')
 
 });
-
