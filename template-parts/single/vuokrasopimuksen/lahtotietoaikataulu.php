@@ -4,7 +4,7 @@ if ( !is_singular( 'projektitiedot' ) ) {
    return;
 }
 
-$project_id = get_the_ID();
+$project_id = $pid = get_the_ID();
 
 ?>
 
@@ -28,19 +28,19 @@ $project_id = get_the_ID();
                     <!-- Card Body -->
                     <div class="px-4 md:px-8 pt-6 pb-10 lg:h-[645px] overflow-y-auto no-scrollbar scroll-smooth"> 
                         <div class="mt-10">
-                            <span class="font-medium italic text-[#00B2A9] block"><?php echo esc_attr( noste_check_empty( get_post_meta( $project_id, 'pilar_T1', true ), 'T1' )); ?></span>
-                            <span class="font-medium italic text-[#00B2A9] block"><?php echo esc_attr( noste_check_empty( get_post_meta( $project_id, 'pilar_K1', true ), 'K1') ); ?></span>
+                            <span class="font-medium italic text-[#00B2A9] block"><?php echo esc_attr( noste_check_empty( get_post_meta( $pid, 'pilar_T1', true ), 'T1' )); ?></span>
+                            <span class="font-medium italic text-[#00B2A9] block"><?php echo esc_attr( noste_check_empty( get_post_meta( $pid, 'pilar_K1', true ), 'K1') ); ?></span>
                         </div>
                         <h4 class="mb-2 text-[#081F2C] max-w-[750px]">LÄHTÖTIETOAIKATAULU</h4>
                         <div class="max-w-[700px]">
-                            <h4 class="font-medium italic text-[#00B2A9] block"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K4', true ), 'K4') ); ?></h4>
+                            <h4 class="font-medium italic text-[#00B2A9] block"><?php echo esc_html( noste_check_empty(get_post_meta( $pid, 'pilar_K4', true ), 'K4') ); ?></h4>
                         </div>
                         
                         <div class="max-w-[-750px] mx-auto mt-10">
                             <?php echo do_shortcode( '[gantt-form form_id="' . esc_attr( implode('/', [$_GET['tm'], $_GET['tmin']]) ) . '" columns="Text,Vastuu,Ajankohta"]' ); ?>
                         </div>
                         <div class="max-w-[-750px] mx-auto mt-10">
-                            <div class="bg-[#D0D3D4] mb-6 max-w-[573px] p-2">Lomakuukausi</div>
+                            <div class="bg-gray mb-6 p-2">Lomakuukausi</div>
                             <p class="font-light italic block">
                                 Tämän dokumentin tarkoituksena on ohjata päätöksentekoa aikataulullisesti hankkeen aikataulun varmistamiseksi. Päätöksenteon oikea-aikaisuudella varmistetaan hallinnanluovutus sovitussa aikataulussa. Päätösten / lähtötietojen oikea-aikainen teko / toimitus ovat kriittisiä tilan valmistumisen kannalta aikataulussa. Päivämäärät kirjataan viimeisimmän päivämäärän mukaan, jolloin päätöksen tai lähtötiedon on oltava projektiorganisaation käytettävissä.
                                 <br><br>

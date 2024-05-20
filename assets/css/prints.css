@@ -135,7 +135,6 @@
 .page-body {
     text-wrap: wrap;
     overflow: hidden;
-    position: relative;
     word-wrap: break-word;
     height: calc(var(--a4-paper-height) - 110px - var(--a4-header-height) - var(--a4-footer-height));
 }
@@ -184,6 +183,8 @@
         position: unset;
     }
 }
+
+.section-to-print:not(.is_approved) .noste_pages .single-page .page-body {position: relative;}
 .section-to-print:not(.is_approved) .noste_pages .single-page .page-body > * {
     position: relative;z-index: 2;
 }

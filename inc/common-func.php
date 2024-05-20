@@ -5,7 +5,6 @@ add_action( 'wp_ajax_create_a_project', 'noste_create_a_project');
 
 add_action( 'wp_ajax_esitietolomake_form', 'noste_esitietolomake_form');
 add_action( 'wp_ajax_noste_update_project_step', 'noste_update_project_step');
-add_action( 'wp_ajax_noste_get_project_step', 'noste_get_project_step');
 
 add_action( 'wp_ajax_update_manager_project_status', 'update_manager_project_status');
 
@@ -362,11 +361,11 @@ function noste_header_notification(){
 		}
 
 		 ?>
-	        <a href="<?php echo esc_attr( $esitietolomake_url ); ?>" class="hidden sm:block hover:bg-[#FAFAFB] focus:bg-[#FAFAFB] rounded p-2">
+	        <a href="<?php echo esc_attr( $esitietolomake_url ); ?>" class="hidden sm:block hover:bg-[#FAFAFB] focus:bg-[#FAFAFB] rounded p-2" title="Esitietolomake">
 				<?php echo noste_check_empty ( GetIconsMarkup( 'global-1.svg' ) ); ?>         
 	        </a>
 	        
-	        <a href="<?php echo esc_attr( $kustannusseuranta_url ); ?>" class="hidden sm:block hover:bg-[#FAFAFB] focus:bg-[#FAFAFB] rounded p-2">
+	        <a href="<?php echo esc_attr( $kustannusseuranta_url ); ?>" class="hidden sm:block hover:bg-[#FAFAFB] focus:bg-[#FAFAFB] rounded p-2" title="kustannusseuranta">
 				<?php echo noste_check_empty ( GetIconsMarkup( 'global-2.svg' ) ); ?>
 	        </a>
 	        
@@ -532,6 +531,45 @@ function noste_esitietolomake_form(){
 	wp_send_json_error( $error );
 }
 
+
+// function noste_update_project_step() {
+// 	check_ajax_referer( 'project_step_form_validation', 'project_step_form__nonce_field' );
+
+// 	if ( empty($_POST['ptname']) ) {
+// 		$error = new WP_Error( '001', 'PT NAME ISSUE' );
+// 		wp_send_json_error( $error );
+// 	}
+
+// 	if ( empty($_POST['post_id']) ) {
+// 		$error = new WP_Error( '002', 'Invalid Project' );
+// 		wp_send_json_error( $error );
+// 	}
+
+// 	$field_key = $_POST['ptname'];
+// 	$post_id = $_POST['post_id'];
+
+// 	unset($_POST['ptname']);
+// 	unset($_POST['action']);
+// 	unset($_POST['project_step_form__nonce_field']);
+// 	unset($_POST['_wp_http_referer']);
+
+// 	$data = serialize($_POST);
+
+// 	if ( empty($data) ) {
+// 		$error = new WP_Error( '001', 'Conent Data issue' );
+// 		wp_send_json_error( $error );		
+// 	}
+
+// 	$updated = update_post_meta( $post_id, $field_key, $data );
+
+// 	if ( $updated ) {
+// 		wp_send_json_success($_POST, 200);
+// 	}
+
+// 	wp_die();	
+// }
+
+
 function recursive_sanitize_text_field( $array ) {
 
     foreach ($array as $key => & $value ) {
@@ -552,7 +590,7 @@ function noste_update_project_step() {
 	check_ajax_referer( 'project_step_form_validation', 'project_step_form__nonce_field' );
 	$response = (object) ['template' => false, 'submission' => []];
 
-	error_log('before sanitize : ' . print_r($_POST, true));
+	// error_log('before sanitize : ' . print_r($_POST, true));
 
 	if ( empty($_POST['ptname']) ) {
 		$error = new WP_Error( '001', 'PT NAME ISSUE' );
@@ -600,7 +638,7 @@ function noste_update_project_step() {
 	}
 
 
-	/* Preview Template */
+/* Preview Template */
 	$ref_queries = (array) json_decode( preg_replace( '/[\x00-\x1F\x80-\xFF]/', '', stripslashes(html_entity_decode(isset($_POST['ref_queries'] ) ? $_POST['ref_queries'] : '{}' ) ) ), true);
 
 	$step_id = $ref_queries['tm'] ?? false;
@@ -636,12 +674,19 @@ function noste_update_project_step() {
 	} else {
 		$response->template = get_template_directory_uri() . '/template-preview/blank.twig';
 	}
-	
-	$tm = implode('-', [ $ref_queries['tm'], $ref_queries['tmin'] ]);$pid = (int) $post_id;
-	$project_tmin_status = !empty( get_post_meta( $pid, sprintf('%s_status', $step_id), true ) ) ? json_decode( get_post_meta( $pid, sprintf('%s_status', $step_id), true ), true ) : [];
-	$response->is_approved = isset($project_tmin_status[$form_id]) && isset($project_tmin_status[$form_id]['status']) && $project_tmin_status[$form_id]['status'] == 3;
+/* Preview Template */
 
-	/* Preview Template */
+	// remal
+	$tm = implode('-', [ $ref_queries['tm'], $ref_queries['tmin'] ]);
+	$pid = (int) $post_id;
+
+    $project_tmin_status = !empty( get_post_meta( $pid, sprintf('%s_status', $step_id), true ) ) ? json_decode( get_post_meta( $pid, sprintf('%s_status', $step_id), true ), true ) : [];
+
+    $response->is_approved = isset($project_tmin_status[$form_id]) && isset($project_tmin_status[$form_id]['status']) && $project_tmin_status[$form_id]['status'] == 3;
+	// remal
+
+	error_log('project tmin status : ' . print_r($project_tmin_status, true));
+
 	foreach ($global_data as $k => $v) {
 		unset($_POST[$k]);			
 	}
@@ -653,7 +698,7 @@ function noste_update_project_step() {
 		wp_send_json_error( $error );		
 	}
 
-	error_log('after sanitize : ' . print_r($_POST, true));
+	// error_log('after sanitize : ' . print_r($_POST, true));
 	
 	$updated = update_post_meta( $post_id, $field_key, $data );
 
@@ -705,11 +750,6 @@ function noste_update_project_step() {
 
 	wp_die();	
 }
-function noste_get_project_step() {
-	$json = get_post_meta((int) $_GET['project_id']);
-	foreach ((array) $json as $key => $valArr) {$json[$key] = $valArr[0];}
-	wp_send_json($json);
-}
 
 
 function noste_form_header($type = 'form') {
@@ -727,6 +767,7 @@ function noste_form_header($type = 'form') {
 	$form_name = $project_header_info[$tm]['form_name'] ?? '';
 
 	$project_tmin_status = !empty( get_post_meta( get_the_ID(), sprintf('%s_status', $_GET['tm']), true ) ) ? json_decode( get_post_meta( get_the_ID(), sprintf('%s_status', $_GET['tm']), true ), true ) : [];
+
 
 	ob_start();
 
@@ -752,7 +793,7 @@ function noste_form_header($type = 'form') {
 	            </nav>
 	        </div>
 
-	        <button class="btn gap-2 border border-line bg-[#E9E9F0] print-btn" data-form-path="<?php echo esc_url(get_template_directory_uri() . '/template-preview/' . implode('/', [$_GET['tm'], $_GET['tmin']]) . '.twig'); ?>" data-is-approved="<?php echo esc_attr(isset($project_tmin_status[$_GET['tmin']]) && isset($project_tmin_status[$_GET['tmin']]['status']) && $project_tmin_status[$_GET['tmin']]['status'] == 3?'true':'false'); ?>" data-tm="<?php echo esc_attr($_GET['tm']??''); ?>" data-tmin="<?php echo esc_attr($_GET['tmin']??''); ?>" data-project_id="<?php echo esc_attr(get_the_ID()); ?>">
+	        <button class="btn gap-2 border border-line bg-[#E9E9F0] print-btn" data-form-path="<?php echo esc_url(get_template_directory_uri() . '/template-preview/' . implode('/', [$_GET['tm'], $_GET['tmin']]) . '.twig'); ?>" data-is-approved="<?php echo esc_attr(isset($project_tmin_status[$_GET['tmin']]) && isset($project_tmin_status[$_GET['tmin']]['status']) && $project_tmin_status[$_GET['tmin']]['status'] == 3?'true':'false'); ?>" data-tm="<?php echo esc_attr($_GET['tm']??''); ?>" data-tmin="<?php echo esc_attr($_GET['tmin'] ?? ''); ?>" data-project_id="<?php echo esc_attr(get_the_ID()); ?>">
 				<i class="um-icon-ios-printer-outline"></i>
 				Luonnos
 	        </button>

@@ -88,28 +88,31 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                 <p class="mb-8 text-[#081F2C] text-sm font-medium mx-auto max-w-[750px]">Tämän läpikäynnin tavoitteena on projektin lähtötietojen tehokas selvittäminen ja koonti yhteen paikkaan. Lisäksi käydään yhteisesti läpi Nosteelle astetetut tehtävät sekä arvioitu aikataulu.</p>
 
                                 <div>
-                                    <div class="dropdown relative">
-                                        <div class="flex flex-wrap flex-col mb-8 mx-auto max-w-[750px]">
-                                            <label class="mr-4 mb-2 text-sm font-medium text-black flex items-center" for="general_situation">
-                                                Vuokrauksen yleistilanne 
-                                                <a href="javascript:void(0)" class="dropdown-toggle z-1 ml-3" data-dropdown="other_questions_tooltip">
+                                    <div class="help_wrap my-10 relative">
+                                        <div class="max-w-[750px] mx-auto">
+                                            <div class="flex flex-col lg:flex-row lg:items-center gap-2">
+                                                <label class="mr-4 mb-2 text-sm font-medium text-black flex items-center" for="general_situation">
+                                                    Vuokrauksen yleistilanne
+                                                </label>
+                                                <a href="#!" class="help_click active">
                                                     <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                                        <g id="SVGRepo_iconCarrier">
+                                                        <g stroke-width="0"></g>
+                                                        <g stroke-linecap="round" stroke-linejoin="round"></g>
+                                                        <g>
                                                             <circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="0.72"></circle>
                                                             <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
                                                             <circle cx="12" cy="16" r="1" fill="#000000"></circle>
                                                         </g>
-                                                    </svg>
+                                                    </svg> 
                                                 </a>
-                                            </label>
-                                            <textarea class="shadow-input text-sm border-accent rounded-md text-[#586B74] order-3" id="general_ituation" name="general_situation" rows="4" placeholder="Onko tila ollut pitkään tyhjänä (vuokrauksen haasteet vs tilan vapautuminen juuri) tai milloin tila vapautuu? Mikä uuden vuokralaisen kanssa solmittavan vuokrasopimuksen tilanne on?"><?php echo esc_html( noste_check_array_data( $data, 'general_situation' ) ); ?></textarea>
-
-                                            <div class="tooltip_content p-2 lg:w-52 lg:after:w-[210%] xl:after:w-[273%] 2xl:after:w-[337%] border border-[#E1E1EA] bg-[#F6F8FF] rounded-md relkative lg:absolute top-0 right-2 order-2 mb-2 hidden
-                                            " id="other_questions_tooltip">
-                                                <p class="text-xs font-normal text-[#586B74]">Vuokrauksen yleistilanteessa käydään läpi, miksi ja milloin vuokraus on aktivoitunut (selvitetään onko tilassa haasteita tai ollaanko jo pitkään neuvoteltu samaa vuokrasopimusta) Korvaa pohjassa olevat apukysymykset keskustelun mukaan.</p>
+                                    
+                                                <hr class="help_line w-full border border-solid border-[#E1E1EA] hidden">
                                             </div>
+                                            <textarea class="shadow-input text-sm border-accent rounded-md text-[#586B74] order-3" id="general_ituation" name="general_situation" rows="4" placeholder="Onko tila ollut pitkään tyhjänä (vuokrauksen haasteet vs tilan vapautuminen juuri) tai milloin tila vapautuu? Mikä uuden vuokralaisen kanssa solmittavan vuokrasopimuksen tilanne on?"><?php echo esc_html( noste_check_array_data( $data, 'general_situation' ) ); ?></textarea>
+                                        </div>
+                                    
+                                        <div class="help_show text-[#586B74] text-[14px] lg:w-[240px] 2xl:w-[384px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:right-[10px] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-50px] hidden">
+                                            Vuokrauksen yleistilanteessa käydään läpi, miksi ja milloin vuokraus on aktivoitunut (selvitetään onko tilassa haasteita tai ollaanko jo pitkään neuvoteltu samaa vuokrasopimusta) Korvaa pohjassa olevat apukysymykset keskustelun mukaan.
                                         </div>
                                     </div>
                                     
@@ -335,7 +338,3 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
     </div>
 </section>
 <!-- Main Content -->
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
-<!-- <button onclick="generatePDF('<?php echo esc_attr(implode('-', [$_GET['tm'], $_GET['tmin']])); ?>')">Generate PDF</button> -->

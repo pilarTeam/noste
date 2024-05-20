@@ -1,17 +1,7 @@
 const PRINTS_ARGS = {
   allowTwig: true
 };
-function generatePDF(filename = 'report') {
-    const element = document.querySelector('.noste_pages');
-    const opt = {
-        margin:       1,
-        filename:     `${filename}.pdf`,
-        image:        { type: 'jpeg', quality: 0.98 },
-        html2canvas:  { scale: 2 },
-        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-    };
-    html2pdf().from(element).set(opt).save();
-}
+
 
 // document.querySelectorAll('#update-project .project-submit-btn').forEach(button => {
 //   var form = button.parentElement.parentElement;
@@ -47,23 +37,7 @@ document.querySelectorAll('a[href="#!"], a[href="#"]').forEach(anchor => {
 });
 
 jQuery(document).ready(function ($) {
-    // DropDown
-
-    // $("#dropdown-toggle").on('click', function () {
-    //  var dropdownMenuId = $(this).data("dropdown");
-    //  $("#" + dropdownMenuId).toggleClass("hidden");
-    // });
-
-    // $(document).on('click', function (e) {
-    //  var target = e.target;
-    //  if (
-    //      !$(target).is("#dropdown-toggle") &&
-    //      !$(target).parents().is(".dropdown")
-    //  ) {
-    //      $(".dropdown-menu").addClass("hidden");
-    //  }
-    // });
-
+    
     // Step Content Expand Close
     $("#showMore").click(function(){
         $("#excerpt_content").hide();
@@ -372,10 +346,25 @@ jQuery(document).ready(function ($) {
     });
 
     // help toogle click 
-    $('.help_click').on('click', function(){
-        $(this).parent().find('.help_line').toggleClass('hidden');
-        $(this).parents('.help_wrap').find('.help_show').toggleClass('hidden');
+    $('.help_click').on('click', function(e){
+        e.preventDefault();
+
+        if ( $(this).hasClass('active') ) {
+            console.log('with');
+            $('.help_line, .help_show').addClass('hidden');
+            $('.help_click').removeClass('active');
+        } else {
+            $('.help_line, .help_show').addClass('hidden');
+
+            $(this).parent().find('.help_line').removeClass('hidden')
+            $(this).parents('.help_wrap').find('.help_show').removeClass('hidden');
+
+            $(this).addClass('active');
+        }
     });
+
+
+
     
     // input field readonly switch by checkbox
     $('.switch_readonly').on('change', '*[type="checkbox"]', function(e){
@@ -445,9 +434,6 @@ jQuery(document).ready(function ($) {
                         var printPrevCard = document.createElement('div');
                         formCard.classList.add('print_preview');
                         printPrevCard.classList.add('section-to-print');
-                        if (data?.is_approved) {
-                            printPrevCard.classList.add('is_approved');
-                        }
                         printPrevCard.innerHTML = template.render(data.submission);
 
                         formCard.insertBefore(printPrevCard, $(formCard).children('.card_footer')[0]);
@@ -467,7 +453,9 @@ jQuery(document).ready(function ($) {
                 alert('failed!');
             }
         });
+    
     });
+    
     /**
      * Enableing print button functions.
      */
