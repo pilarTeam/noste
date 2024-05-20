@@ -636,10 +636,10 @@ function noste_update_project_step() {
 	} else {
 		$response->template = get_template_directory_uri() . '/template-preview/blank.twig';
 	}
-	$tm = implode('-', [ $_GET['tm'], $_GET['tmin'] ]);$pid = (int) $post_id;
 	
-	$project_tmin_status = !empty( get_post_meta( $pid, sprintf('%s_status', $tm), true ) ) ? json_decode( get_post_meta( $pid, sprintf('%s_status', $tm), true ), true ) : [];
-	$response->is_approved = $project_tmin_status[$tm]['status'] == 3;
+	$tm = implode('-', [ $ref_queries['tm'], $ref_queries['tmin'] ]);$pid = (int) $post_id;
+	$project_tmin_status = !empty( get_post_meta( $pid, sprintf('%s_status', $step_id), true ) ) ? json_decode( get_post_meta( $pid, sprintf('%s_status', $step_id), true ), true ) : [];
+	$response->is_approved = isset($project_tmin_status[$form_id]) && isset($project_tmin_status[$form_id]['status']) && $project_tmin_status[$form_id]['status'] == 3;
 
 	/* Preview Template */
 	foreach ($global_data as $k => $v) {
