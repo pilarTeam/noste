@@ -793,7 +793,13 @@ function noste_form_header($type = 'form') {
 	            </nav>
 	        </div>
 
-	        <button class="btn gap-2 border border-line bg-[#E9E9F0] print-btn" data-form-path="<?php echo esc_url(get_template_directory_uri() . '/template-preview/' . implode('/', [$_GET['tm'], $_GET['tmin']]) . '.twig'); ?>" data-is-approved="<?php echo esc_attr(isset($project_tmin_status[$_GET['tmin']]) && isset($project_tmin_status[$_GET['tmin']]['status']) && $project_tmin_status[$_GET['tmin']]['status'] == 3?'true':'false'); ?>" data-tm="<?php echo esc_attr($_GET['tm']??''); ?>" data-tmin="<?php echo esc_attr($_GET['tmin'] ?? ''); ?>" data-project_id="<?php echo esc_attr(get_the_ID()); ?>">
+			<?php
+			$preview_path = '/template-preview/' . implode('/', [$_GET['tm'], $_GET['tmin']]) . '.twig';
+			if (file_exists(get_template_directory() . $preview_path) && !is_dir(get_template_directory() . $preview_path)) {
+				$preview_path = $preview_path . '?v=' . filemtime(get_template_directory() . $preview_path);
+			}
+			?>
+	        <button class="btn gap-2 border border-line bg-[#E9E9F0] print-btn" data-form-path="<?php echo esc_url(get_template_directory_uri() . $preview_path); ?>" data-is-approved="<?php echo esc_attr(isset($project_tmin_status[$_GET['tmin']]) && isset($project_tmin_status[$_GET['tmin']]['status']) && $project_tmin_status[$_GET['tmin']]['status'] == 3?'true':'false'); ?>" data-tm="<?php echo esc_attr($_GET['tm']??''); ?>" data-tmin="<?php echo esc_attr($_GET['tmin'] ?? ''); ?>" data-project_id="<?php echo esc_attr(get_the_ID()); ?>">
 				<i class="um-icon-ios-printer-outline"></i>
 				Luonnos
 	        </button>

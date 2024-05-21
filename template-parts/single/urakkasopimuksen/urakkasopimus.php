@@ -1,4 +1,12 @@
+<?php 
 
+if ( !is_singular( 'projektitiedot' ) ) {
+   return;
+}
+
+$project_id = get_the_ID();
+
+?>
         <!-- Main Content Start-->
         <section class="py-10 lg:overflow-hidden">
             <div class="container px-4">

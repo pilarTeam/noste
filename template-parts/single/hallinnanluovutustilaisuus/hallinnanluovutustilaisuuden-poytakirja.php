@@ -563,9 +563,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                     </div>
                     <!-- Card Body -->
 
-                    <!-- Card footer -->
-                    <?php echo wp_kses_post(noste_form_footer('form')); ?>
-                    <!-- Card footer -->
+                    <!-- Card footer --><?php echo wp_kses_post(noste_form_footer('form')); ?><!-- Card footer -->
                 </form>
             </div>
 

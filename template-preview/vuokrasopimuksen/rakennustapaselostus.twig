@@ -1,0 +1,264 @@
+
+<div class="noste_pages">
+	<div class="single-page">
+		<div class="page-wrap">
+			<div class="page-header">
+				<img src="{{ locale_args.thumbnail }}" alt="Logo" />
+			</div>
+			<div class="page-body">
+				<div class="mb-8 mx-auto max-w-[700px]">
+                    <div class="flex flex-wrap mb-4">
+                        <label class="flex-[3] md:flex-[.7] lg:flex-[.67] mr-4 text-sm font-medium text-black" for="version">Versio:</label>
+                        <p class="md:ml-5 text-sm border-accent rounded-md text-[#686d70]" type="text" id="version" name="" placeholder="xx.xx.xxxx">{{ present }}</p>
+                    </div>
+        
+                    <div class="flex flex-wrap mb-2">
+                        <label class="flex-[3] mr-4 text-sm font-medium text-black" for="um_project-manager">Tilaaja:</label>
+                        <p class="flex-[3] text-sm text-accent italic" id="um_project-manager">{{ get_global_keyword('pilar_T1', 'T1') }}</p>
+                    </div>
+                    
+                    <div class="flex flex-wrap mb-4">
+                        <label class="flex-[3] mr-4 text-sm font-medium text-black" for="author">Laatija:</label>
+                        <p class="flex-[3] text-sm text-accent italic" id="author">{{ get_global_keyword('pilar_P1', 'P1') }}, <span class="text-[#586B74]">Partners at Noste Oy</span></p>
+                    </div>
+                    
+                    <div class="flex flex-wrap mb-4">
+                        <label class="flex-[3] mr-4 text-sm font-medium text-black" for="target">Kohde:</label>
+                        <p class="flex-[3] text-sm text-accent italic" id="target">{{ get_global_keyword('pilar_K4', 'K4') }}</p>
+                    </div>
+        
+                    <div class="flex flex-wrap mb-4">
+                        <label class="flex-[3] mr-4 text-sm font-medium text-black" for="target"></label>
+                        <p class="flex-[3] text-sm text-accent italic">{{ get_global_keyword('pilar_K1', 'K1') }}</p>
+                    </div>
+                    
+                    <div class="flex flex-wrap mb-4">
+                        <label class="flex-[3] mr-4 text-sm font-medium text-black" for="target"></label>
+                        <p class="flex-[3] text-sm text-accent italic">{{ get_global_keyword('pilar_K2', 'K2') }}</p>
+                    </div>
+        
+                    <div class="flex flex-wrap mb-4">
+                        <label class="flex-[3] mr-4 text-sm font-medium text-black" for="target"></label>
+                        <p class="flex-[3] text-sm text-accent italic">{{ get_global_keyword('pilar_K3', 'K3') }}</p>
+                    </div>
+                </div>
+                <h4 class="mb-8 text-[#081F2C] mx-auto max-w-[700px]">YLEISTÄ</h4>
+                <div class="help_wrap my-10 relative">
+                    <div class="max-w-[700px] mx-auto">
+                        <div class="flex flex-col lg:flex-row lg:items-center gap-2">
+                            <p type="text" name="" class="inline-block max-w-full w-full rounded-[5px] p-2" value="Kuvaus muutosten laajuudesta yleisellä tasolla...">{{ pilar_filed8_1 }}</p>
+                            <a href="#!" class="help_click">
+                                <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g stroke-width="0"></g>
+                                    <g stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g>
+                                        <circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="0.72"></circle>
+                                        <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
+                                        <circle cx="12" cy="16" r="1" fill="#000000"></circle>
+                                    </g>
+                                </svg> </a>
+                    
+                            <hr class="help_line hidden w-full lg:w-[0px] border border-solid border-[#E1E1EA]">
+                        </div>
+                    </div>
+                
+                    <div class="help_show hidden text-[#586B74] text-[14px] lg:w-[240px] 2xl:w-[384px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:right-[10px] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-50px]">
+                        Esittelykappaleeseen avataan tehtävien töiden luonnetta, eli ollaanko tekemässä kuinka mittavia muutoksia. Esim: -Vasta valmistuvan toimistotalon muokkaukset uudelle toimijalle. - Olevan toimistorakennuksen muokkaaminen kokonaisvaltaisesti uuden toimijan käyttöön - Olevan tilan toimintojen parantaminen olevalle toimijalle - Olevan tilan laajentaminen olevalle toimijalle jne. Näin seuraavista kappaleista lukija saa enemmän irti ja paremman käsityksen, siitä mitä ollaan tekemässä. Pyri välttämän sanamuotoja, jotka saavat tilan näyttämään huonolta Viittaa lopuksi suunnitelmiin, jos niitä o, ristiriitaisuuksien välttämiseksi.
+                    </div>
+                </div>
+                <div class="max-w-[700px] mx-auto flex items-center gap-2">
+                    <ul class="list-none w-full">
+                        <li class="mb-10">
+                            <label class="flex items-center text-md md:text-lg mb-5" for="agreed_prepare_documents9">
+                                <span class="font-bold mr-5">1.</span>
+                                <input class="shadow-input mr-3 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[1]" id="agreed_prepare_documents9" >
+                                SUUNNITTELU
+                            </label>
+                            <p class="inline-block max-w-full w-full rounded-[5px] p-4" id="suunnittelu" name="suunnittelu" rows="2">{{ suunnittelu }}</p>
+                        </li>
+                        
+                        <li class="mb-10">
+                            <label class="flex items-center text-md md:text-lg mb-5" for="agreed_prepare_documents2">
+                                <span class="font-bold mr-5">2.</span>
+                                <input class="shadow-input mr-3 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[2]" id="agreed_prepare_documents2">
+                                TILAJAKO-OSAT
+                            </label>
+                            <p class="inline-block max-w-full w-full rounded-[5px] p-4" id="tilajako-osat" name="tilajako-osat" rows="22">{{ tilajako-osat | nl2br }}</p>
+                        </li>
+                    </ul>
+                </div>
+			</div>
+			<div class="page-footer">
+				<span class="page-footer-pagination">1/5</span>
+			</div>
+		</div>
+	</div>
+	<div class="single-page">
+		<div class="page-wrap">
+			<div class="page-header">
+				<img src="{{ locale_args.thumbnail }}" alt="Logo" />
+			</div>
+			<div class="page-body">
+				<div class="mb-8 mx-aut0 max-w-[700px]">
+                    <ul class="list-none w-full">
+                        <li class="mb-10">
+                            <label class="flex items-center text-md md:text-lg mb-5" for="agreed_prepare_documents3">
+                                <span class="font-bold mr-5">3.</span>
+                                <input class="shadow-input mr-3 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[3]" id="agreed_prepare_documents3">
+                                TILAPINNAT
+                            </label>
+                            <p class="inline-block max-w-full w-full rounded-[5px] p-4" id="tilapinnat" name="tilapinnat" rows="20">{{ tilapinnat | nl2br }}
+                            </p>
+                        </li>
+                        
+                        <li class="mb-10">
+                            <label class="flex items-center text-md md:text-lg mb-5" for="agreed_prepare_documents4">
+                                <span class="font-bold mr-5">4.</span>
+                                <input class="shadow-input mr-3 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[4]" id="agreed_prepare_documents4">
+                                KALUSTEET JA VARUSTEET
+                            </label>
+                            <p class="inline-block max-w-full w-full rounded-[5px] p-4" id="kalusteet-ja-varusteet" name="kalusteet-ja-varusteet" rows="20">{{ kalusteet-ja-varusteet | nl2br }}
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+			</div>
+			<div class="page-footer">
+				<span class="page-footer-pagination">2/5</span>
+			</div>
+		</div>
+	</div>
+	<div class="single-page">
+		<div class="page-wrap">
+			<div class="page-header">
+				<img src="{{ locale_args.thumbnail }}" alt="Logo" />
+			</div>
+			<div class="page-body">
+				<div class="mb-8 mx-aut0 max-w-[700px]">
+                    <ul class="list-none w-full">
+                        <li class="mb-10">
+                            <label class="flex items-center text-md md:text-lg mb-5" for="agreed_prepare_documents5">
+                                <span class="font-bold mr-5">5.</span>
+                                <input class="shadow-input mr-3 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[5]" id="agreed_prepare_documents5">
+                                LVIA-JÄRJESTELMÄT
+                            </label>
+                            <textarea class="shadow-input inline-block max-w-full w-full rounded-[5px] p-4" id="lvia-järjestelmät" name="lvia-järjestelmät" rows="25">Vuokratilaa palvelee kiinteistön olemassa olevat vesi, viemäri, lämmitys, jäähdytys- ja ilmanvaihtojärjestelmät, jotka pysyvät ennallaan. Vuokratilassa on kiinteistön sprinkleri-sammutusjärjestelmä
+                                    
+                            Tilamuutoksen yhteydessä huomioidaan seuraavat muutokset olemassa oleviin järjestelmiin
+                                                                    
+                            Ilmanvaihtokanavistoon tehdään tilamuutosten vaatimat muutokset. Vaadittavat muutokset määrittää vuokranantaja. Mahdolliset uudet ilmanvaihdon päätelaitteet toteutetaan ko tilan kattoon sopivaksi ja olemassa olevien päätelaitteiden ilmeen mukaisiksi. Ilmanvaihtojärjestelmä mitataan ja säädetään sekä tarvittaessa kanavat nuohotaan vuokratilan alueella. Tilojen ilmamäärät säädetään sisäilmastoluokitus 2018, RT 07-11299 mukaan, 82 sisälimastoluokka (hyvä ilmanlaatu).
+                                                                    
+                            Jäähdytykseen ei tule muutoksia pois lukien seuraava lisäys. Uuteen rakennettavaan neuvotteluhuoneeseen lisätään jäähdytystä. Jäähdytys toteutetaan kattoon asennettavalla jäähdytyspalkilla tai jäähdytyskonvektorilla jäähdytystarpeen mukaan.
+                                                                    
+                            Vesi- ja viemänjärjestelmiin ei tehdä muutoksia pois lukien seuraavaa lisäystä. Keittiökalusteeseen lisätään uudelle kahvikoneelle kylmävesipiste ja viemäripiste.
+                                                                    
+                            Sprinkleri-järjestelmään tehdään tilamuutoksesta syntyvät välttämättömät muutokset niin, että viranomaismääräykset täyttyvät.
+                            </textarea>
+                        </li>
+                        
+                        <li class="mb-10">
+                            <label class="flex items-center text-md md:text-lg mb-5" for="agreed_prepare_documents6">
+                                <span class="font-bold mr-5">6.</span>
+                                <input class="shadow-input mr-3 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[6]" id="agreed_prepare_documents6">
+                                SÄHKÖ- JA YLEISKAAPELOINTIJÄRJESTELMÄT
+                            </label>
+                            <textarea class="shadow-input inline-block max-w-full w-full rounded-[5px] p-4" id="sähkö-ja" name="sähkö-ja" rows="45">Vuokratilaa palvelee kiinteistön olemassa olevat sähkö- ja yleiskaapelointijärjestelmät, jotka pysyvät ennallaan Vuokratilassa on olemassa oleva ryhmäkeskus, joka palvelee vain tätä vuokratilaa. Sähkön mittaus toteutetaan kiinteistöautomaation kautta/sähköyhtiön mittauksella/tilakohtaista sähkönmittausta ei suoriteta, vaan mittaus perustuu neliömetripohjaiseen anvioon. Vuokralaisella on mahdollisuus/ei ole mahdollisuutta tehda oma sähkösopimus vuokratilaan.
+                                    
+                            Sähkönjakelu on toteutettu ulkoseinälinjoilla johtokanavilla ja keskialueilla katossa olevalla yläjakeluna kaapelihyllyjen avulla. Vuokralainen jatkaa tarvittaessa sähkönjakelua työpisteelle esim. pistorasiapylväällä tai jatkojohdolla
+                                                                    
+                            Vuokratilassa on olemassa oleva huoneistojakamo, joka palvelee vain tätä vuokratilaa. Huoneistojakamoon tuodaan talojakamosta x kpl CATSa kaapelia ja x kpl 8SM valokuitu. Kiinteistö on liitetty Elisan ja Tellan valokuituverkkoihin. Yleiskaapelointi on toteutettu ulkoseinälinjoilla johtokanavilla ja keskialueilla katossa olevalla yläjakeluna kaapelihyllyjen avulla Vuokralainen jatkaa tarvittaessa yleiskaapelointia työpisteelle esim. pistorasiapylväällä tai patch-kaapelilla.
+                                                                    
+                            Vuokratilassa on olemassa oleva valaistus ja olemassa oleva valaistuksenohjaus Yleisvalaistuksen ohjaus on/off kytkimin, ohjaus pääsääntöisesti tilaan tultaessa seinässä olevalla painikkeella tai suoraan kiinni valaisimessa
+                                                                    
+                            olevalla vetonarulla.
+                                                                    
+                            ΤΑΙ
+                                                                    
+                            Vuokratilaan asennetaan uusi yleisvalaistus (LED). Yleisvalaistuksen perusvalotaso on noin 300lx. Alakaton alueilla yleisvalaistus upotetuin led-valoin. Alueilla, joilla ei ole alakattoa, yleisvalaistus toteutetaan ripustetuin led- valaisimin. Neuvotteluhuoneissa säädettävä valaistustaso (rasiasäädin ja on/off). Neuvotteluhuoneiden säädin sijoitetaan lasiseinän sähköpieleen. Muuten vuokratilaan asennetaan valaisimet, joissa on valaisinkohtainen päivänvalo/läsnäolotunniste. Ei muuta valaistusohjausta
+
+                            Tilamuutoksen yhteydessä huomioidaan seuraavat asiat olemassa oleviin sähkö- ja yleiskaapelointijärjestelmiin
+
+                            Sähkön ja yleiskaapeloinnin osalta vain tilamuutosten vaatimat muutokset.
+                            Tilamuutoksen yhteydessä varmistetaan, että jokaisen työpisteen lähellä on kutakin työpistettä kohden vähintään 1kpl 2-osainen suojamaadoitettu sähköpistorasia ja 1kpl RJ45-verkkopistorasia.
+                            Tilamuutoksen yhteydessä varmistetaan, että neuvotteluhuoneessa on 1kpl 2-osainen suojamaadoitettu sähköpistorasia ja 2xRJ45-verkkopistorasia, lisäksi 1kpl 1-osainen suojamaadoitettu sähköpistorasia näytölle. Jakelu johtokanavalla tai seinästä rasioilla (jos rakennetaan uusi seinä). Vuokralainen voi jatkaa kaapeloinnin tarvittaessa neuvotteluhuoneen pöytään tai näytölle esim. pinta-asenteisena sähkökourussa.
+
+                            Vuokratilassa ei ole ovipuhelinjärjestelmää eikä ovikelloa.
+                            </textarea>
+                        </li>
+                    </ul>
+                </div>
+			</div>
+			<div class="page-footer">
+				<span class="page-footer-pagination">3/5</span>
+			</div>
+		</div>
+	</div>
+	<div class="single-page">
+		<div class="page-wrap">
+			<div class="page-header">
+				<img src="{{ locale_args.thumbnail }}" alt="Logo" />
+			</div>
+			<div class="page-body">
+				Preview template not found!
+			</div>
+			<div class="page-footer">
+				<span class="page-footer-pagination">4/5</span>
+			</div>
+		</div>
+	</div>
+	<div class="single-page">
+		<div class="page-wrap">
+			<div class="page-header">
+				<img src="{{ locale_args.thumbnail }}" alt="Logo" />
+			</div>
+			<div class="page-body">
+				<div class="mb-8 mx-aut0 max-w-[700px]">
+                    <ul class="list-none w-full">
+                        <li class="mb-10">
+                            <label class="flex items-center text-md md:text-lg mb-5" for="agreed_prepare_documents7">
+                                <span class="font-bold mr-5">7.</span>
+                                <input class="shadow-input mr-3 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[7]" id="agreed_prepare_documents7" 
+                                {% if agreed_prepare_documents and agreed_prepare_documents[7] is defined and agreed_prepare_documents[7] == 'on' %}checked{% endif %}
+                                >
+                                TURVA-, KULUNVALVONTA- JA LUKITUSJÄRJESTELMÄT
+                            </label>
+                            <textarea class="shadow-input inline-block max-w-full w-full rounded-[5px] p-4" id="kulunvalvonta-ja" name="kulunvalvonta-ja" rows="18">Klinteistön kulunvalvonnan piiriin kuuluvat ulko-ovet, hissit, porrashuoneet ja toimistohuoneistoihin johtavat ovet
+
+                            Edellä mainituissa ovissa on myös lukitus avaimilla, pois lukien hissit
+                                                                    
+                            Vuokratilan rajalla on hätäpoistumistieovi joka johtaa viereiseen vuokratilaan. Ovessa on hätäpoistumistielukitus, hälytin ja magneettikosketin. Oven käyttö aiheuttaa hälytyksen ja sitä ei saa käyttää, ellei ole hätätilanne.
+                                                                    
+                            Vuokratilan sisällä on sähkökaappi, jossa on kiinteistön lukitus (vuokralainen ei pääse tilaan). Muuten vuokratilan sisällä ei ole kulunvalvottuja tai lukollisia ovia,
+                                                                    
+                            Paloilmoitin, hätäpoistumistie sekä turvavalojärjestelmien muutokset toteutetaan tilamuutosten vaatimassa laajuudessa kiinteistön järjestelmien kanssa yhteensopivaksi ja viranomaismääräykset täyttäviksl
+                                                                    
+                            Kiinteisttiesä ja vuokratilassa on olemassa oleva palosammutuskalusto
+                            </textarea>
+                        </li>
+                        <li class="mb-10">
+                            <label class="flex items-center text-md md:text-lg mb-5" for="agreed_prepare_documents8">
+                                <span class="font-bold mr-5">8.</span>
+                                <input class="shadow-input mr-3 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[8]" id="agreed_prepare_documents8">
+                                vuokralaisen hankinnat
+                            </label>
+                            <textarea class="shadow-input inline-block max-w-full w-full rounded-[5px] p-4" id="vuokralaisen-hankinnat" name="vuokralaisen-hankinnat" rows="18">Vuokralainen hankkii ja asentaa kaikki liiketoimintaan liittyvät varusteet, laitteet, kalusteet, irtokalusteet ja toimistokalusteet. Vuokralainen vastaa omien hankintojen teknisistä varauksista, jos varauksia ei ole nimenomaisesti edellä tässä dokumentissa kirjattu tehtäväksi vuokrasopimuksen peruslaatutasoon. Vuokranantaja voi kieltää vuokralaisen hankinnan asennuksen, jos se voi aiheuttaa vaaraa tai vaurioita rakennukselle (esim. painava kassakaappi tai sähkölaite, joka ei täytä turvallisuusmääräyksiä). Vuokralaisen kalustus tulee mahdollistaa kaiken alkaa turvallisen ja esteettömän poistumisen vuokratilasta Vuokralainen hankkil asentaa ja tarvittaessa suunnittelee min
+
+                            Toimistokalusteet ja -laitent
+                            WLAN järjestelmät
+                            Serverijärjestelmät sekä aktiivilaitteet
+                            AV- ja informaatiojärjestelmät
+                            Sisustusvalaisimet ja kohdevalaisimet
+                            Kulunvalvonta ja lukitusjärjestelmät vuokratilojen sisällä
+                            Kamera- ja turvajärjestelmät vuokratilojen sisällä
+                            Tilapintojen erikoisvärit, tekstuurit tai akustikkapinnat
+                            </textarea>
+                        </li>
+                    </ul>
+                </div>
+			</div>
+			<div class="page-footer">
+				<span class="page-footer-pagination">5/5</span>
+			</div>
+		</div>
+	</div>
+</div>

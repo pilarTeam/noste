@@ -417,31 +417,31 @@ jQuery(document).ready(function ($) {
 
                     var data = response ?. data ?? {};
 
-                    fetch(data ?. template)
-                    .then(data => data.text() )
-                    .then(body => {
-                        var template = Twig.twig({data: body});
-                        data.submission = data ?. submission ?? {};
-                        data.submission.locale_args = main_ajax_object;
+                    // fetch(data ?. template)
+                    // .then(data => data.text() )
+                    // .then(body => {
+                    //     var template = Twig.twig({data: body});
+                    //     data.submission = data ?. submission ?? {};
+                    //     data.submission.locale_args = main_ajax_object;
 
-                        data.submission.get_global_keyword = (key, def = '') => {
-                            if ( typeof data.submission[key] !== 'undefined' && data.submission[key] != '') {
-                                return data.submission[key];
-                            }
-                            return def;
-                        };
+                    //     data.submission.get_global_keyword = (key, def = '') => {
+                    //         if ( typeof data.submission[key] !== 'undefined' && data.submission[key] != '') {
+                    //             return data.submission[key];
+                    //         }
+                    //         return def;
+                    //     };
 
-                        var printPrevCard = document.createElement('div');
-                        formCard.classList.add('print_preview');
-                        printPrevCard.classList.add('section-to-print');
-                        printPrevCard.innerHTML = template.render(data.submission);
+                    //     var printPrevCard = document.createElement('div');
+                    //     formCard.classList.add('print_preview');
+                    //     printPrevCard.classList.add('section-to-print');
+                    //     printPrevCard.innerHTML = template.render(data.submission);
 
-                        formCard.insertBefore(printPrevCard, $(formCard).children('.card_footer')[0]);
+                    //     formCard.insertBefore(printPrevCard, $(formCard).children('.card_footer')[0]);
 
-                        $this.find('*[type="submit"]').html('<i class="um-faicon-pencil-square-o"></i>Muokkaa').attr('class', 'btn bg-white border border-black2 edit_form' ).removeAttr('type');
-                        $this.parents('body').find('.print-btn').removeClass('hidden');
+                    //     $this.find('*[type="submit"]').html('<i class="um-faicon-pencil-square-o"></i>Muokkaa').attr('class', 'btn bg-white border border-black2 edit_form' ).removeAttr('type');
+                    //     $this.parents('body').find('.print-btn').removeClass('hidden');
                         
-                    }).catch(error => console.error(error));
+                    // }).catch(error => console.error(error));
                 } else {
                     if ( response['data'][0] ) {
                         alert(response['data'][0]['message']);
@@ -475,7 +475,20 @@ jQuery(document).ready(function ($) {
                 var template = Twig.twig({data: body});
                 data.submission = data ?. submission ?? data;
                 data.submission.locale_args = main_ajax_object;
+                var functions_to_do = {before: [], after: []};
                 // 
+                data.submission.print_the_gantt_chart = (args) => {
+                    const chart_id = 'the_gantt_chart-' + new Date().getTime();
+                    functions_to_do.after.push(() => {
+                        $.ajax({
+                            url: main_ajax_object.ajaxurl, type: 'POST',
+                            data: {action: 'gantt_form_print', ...args},
+                            success: (response) => document.querySelectorAll('#' + chart_id).forEach(body => body.innerHTML = response),
+                            error: (error) => console.error(error)
+                        });
+                    });
+                    return '<div class="place_gantt_chart_here" id="' + chart_id + '"></div>';
+                };
                 data.submission.get_global_keyword = (key, def = '') => {
                     if ( typeof data.submission[key] !== 'undefined' && data.submission[key] != '') {
                         return data.submission[key];
@@ -491,15 +504,29 @@ jQuery(document).ready(function ($) {
                 }
                 printPrevCard.innerHTML = template.render(data.submission);
                 // 
+                functions_to_do.before.map(func => func());
+                // 
                 formCard.insertBefore(printPrevCard, $(formCard).children('.card_footer')[0]);
                 // 
                 // $(this).data('previewed', true);
-                print();
-                printPrevCard.remove();
-                formCard.classList.remove('print_preview');
+                // 
+                functions_to_do.after.map(func => func());
+                // 
+                
+                // print();
+                // printPrevCard.remove();
+                // formCard.classList.remove('print_preview');
             }).catch(error => console.error(error));
         }
     });
+    document.addEventListener('keyup', (event) => {
+        if (event.shiftKey && event?.code == 'KeyF') {
+            // console.log(event)
+            navigator.clipboard.writeText(
+                `C:/Users/Lenovo/Local Sites/noste/app/public/wp-content/themes/noste/template-preview/${Object.values(main_ajax_object.query).join('/')}.twig`
+            );
+        }
+    })
 
     $('body').on('click', '.edit_form', function(e){
         e.preventDefault();

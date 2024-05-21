@@ -1,0 +1,31 @@
+
+<div class="noste_pages">
+	<div class="single-page">
+		<div class="page-wrap">
+			<div class="page-header">
+				<img src="{{ locale_args.thumbnail }}" alt="Logo" />
+			</div>
+			<div class="page-body">
+                <div class="mt-10">
+                    <span class="font-medium italic text-[#00B2A9] block">{{ get_global_keyword('pilar_T1', 'T1') }}</span>
+                    <span class="font-medium italic text-[#00B2A9] block">{{ get_global_keyword('pilar_K1', 'K1') }}</span>
+                </div>
+                <h4 class="mb-2 text-[#081F2C] max-w-[750px]">Aikataulu</h4>
+                <div class="max-w-[700px]">
+                    <h4 class="font-medium italic text-[#00B2A9] block">{{ get_global_keyword('pilar__K4', 'K4') }}</h4>
+                </div>
+                
+                <div class="max-w-[-750px] mx-auto mt-10">
+                    {{ print_the_gantt_chart({columns: 'Text,Päättyy', form_id: 'lahtotietojen/aikataulu'}) }}
+                </div>
+                
+                <div class="max-w-[-750px] mx-auto mt-10">
+                    <div class="bg-[#D0D3D4] mb-6 max-w-[573px] p-2">Lomakuukausi</div>
+                </div>
+            </div>
+			<div class="page-footer">
+				<span class="page-footer-pagination">1/1</span>
+			</div>
+		</div>
+	</div>
+</div>
