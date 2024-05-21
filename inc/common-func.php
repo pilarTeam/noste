@@ -361,16 +361,19 @@ function noste_header_notification(){
 		}
 
 		 ?>
-	        <a href="<?php echo esc_attr( $esitietolomake_url ); ?>" class="hidden sm:block hover:bg-[#FAFAFB] focus:bg-[#FAFAFB] rounded p-2" title="Esitietolomake">
-				<?php echo noste_check_empty ( GetIconsMarkup( 'global-1.svg' ) ); ?>         
+	        <a href="<?php echo esc_attr( $esitietolomake_url ); ?>" class="hidden sm:block hover:bg-[#FAFAFB] focus:bg-[#FAFAFB] rounded p-2 relative tooltip">
+				<?php echo noste_check_empty ( GetIconsMarkup( 'global-1.svg' ) ); ?>
+				<span class="tooltiptext">Esitietolomake</span>
 	        </a>
 	        
-	        <a href="<?php echo esc_attr( $kustannusseuranta_url ); ?>" class="hidden sm:block hover:bg-[#FAFAFB] focus:bg-[#FAFAFB] rounded p-2" title="kustannusseuranta">
+	        <a href="<?php echo esc_attr( $kustannusseuranta_url ); ?>" class="hidden sm:block hover:bg-[#FAFAFB] focus:bg-[#FAFAFB] rounded p-2 relative tooltip">
 				<?php echo noste_check_empty ( GetIconsMarkup( 'global-2.svg' ) ); ?>
+				<span class="tooltiptext">Kustannusseuranta</span>
 	        </a>
 	        
-	        <a href="#!" class="hidden sm:block hover:bg-[#FAFAFB] focus:bg-[#FAFAFB] rounded p-2">
+	        <a href="#!" class="hidden sm:block hover:bg-[#FAFAFB] focus:bg-[#FAFAFB] rounded p-2 relative tooltip">
 				<?php echo noste_check_empty ( GetIconsMarkup( 'global-3.svg' ) ); ?>
+				<span class="tooltiptext">Projektiraportti 31 pv</span>
 	        </a>	
 		<?php 
 	endif;
@@ -590,7 +593,7 @@ function noste_update_project_step() {
 	check_ajax_referer( 'project_step_form_validation', 'project_step_form__nonce_field' );
 	$response = (object) ['template' => false, 'submission' => []];
 
-	// error_log('before sanitize : ' . print_r($_POST, true));
+	error_log('before sanitize : ' . print_r($_POST, true));
 
 	if ( empty($_POST['ptname']) ) {
 		$error = new WP_Error( '001', 'PT NAME ISSUE' );
@@ -676,17 +679,6 @@ function noste_update_project_step() {
 	}
 /* Preview Template */
 
-	// remal
-	$tm = implode('-', [ $ref_queries['tm'], $ref_queries['tmin'] ]);
-	$pid = (int) $post_id;
-
-    $project_tmin_status = !empty( get_post_meta( $pid, sprintf('%s_status', $step_id), true ) ) ? json_decode( get_post_meta( $pid, sprintf('%s_status', $step_id), true ), true ) : [];
-
-    $response->is_approved = isset($project_tmin_status[$form_id]) && isset($project_tmin_status[$form_id]['status']) && $project_tmin_status[$form_id]['status'] == 3;
-	// remal
-
-	error_log('project tmin status : ' . print_r($project_tmin_status, true));
-
 	foreach ($global_data as $k => $v) {
 		unset($_POST[$k]);			
 	}
@@ -698,7 +690,7 @@ function noste_update_project_step() {
 		wp_send_json_error( $error );		
 	}
 
-	// error_log('after sanitize : ' . print_r($_POST, true));
+	error_log('after sanitize : ' . print_r($_POST, true));
 	
 	$updated = update_post_meta( $post_id, $field_key, $data );
 
@@ -793,13 +785,7 @@ function noste_form_header($type = 'form') {
 	            </nav>
 	        </div>
 
-			<?php
-			$preview_path = '/template-preview/' . implode('/', [$_GET['tm'], $_GET['tmin']]) . '.twig';
-			if (file_exists(get_template_directory() . $preview_path) && !is_dir(get_template_directory() . $preview_path)) {
-				$preview_path = $preview_path . '?v=' . filemtime(get_template_directory() . $preview_path);
-			}
-			?>
-	        <button class="btn gap-2 border border-line bg-[#E9E9F0] print-btn" data-form-path="<?php echo esc_url(get_template_directory_uri() . $preview_path); ?>" data-is-approved="<?php echo esc_attr(isset($project_tmin_status[$_GET['tmin']]) && isset($project_tmin_status[$_GET['tmin']]['status']) && $project_tmin_status[$_GET['tmin']]['status'] == 3?'true':'false'); ?>" data-tm="<?php echo esc_attr($_GET['tm']??''); ?>" data-tmin="<?php echo esc_attr($_GET['tmin'] ?? ''); ?>" data-project_id="<?php echo esc_attr(get_the_ID()); ?>">
+	        <button class="btn gap-2 border border-line bg-[#E9E9F0] print-btn">
 				<i class="um-icon-ios-printer-outline"></i>
 				Luonnos
 	        </button>

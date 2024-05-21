@@ -76,10 +76,12 @@ get_header( 'noste' );
                             <tr>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-left text-[#283B44] font-medium p-3 border border-solid border-[#E1E1EA]">Rakennustyöt yhteensä</td>
-                                <td class="text-[#00B2A9] italic text-left p-3 border border-solid border-[#E1E1EA]"><?php echo esc_attr( noste_check_empty( get_post_meta( $pid, 'pilar_BU2', true ), 'BU2') ); ?></td>
+                                <td class="text-[#00B2A9] italic text-left p-3 border border-solid border-[#E1E1EA] pilar_BU2"><?php echo esc_attr( noste_check_empty( get_post_meta( $pid, 'pilar_BU2', true ), 'BU2') ); ?></td>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="text-[#586B74] text-[14px] text-left p-3 border border-solid border-[#E1E1EA]">E2=<span class="text-[#00B2A9] italic"><?php echo esc_attr( noste_check_empty( get_post_meta( $pid, 'pilar_UH1', true ), 'UH1') ); ?></span> + 6200€ + <span class="italic">Ennuste1 + jne.</span></td>
+                                <td class="text-[#586B74] text-[14px] text-left p-3 border border-solid border-[#E1E1EA] ennusteE2">
+                                    <input type="text" name="ennusteE2" value="" placeholder="E2=250 + 6200€ + Ennuste1 + jne." class="readonly_global text-[#00B2A9]" readonly>                                        
+                                </td>
                                 <td class=""></td>
                             </tr>
     
@@ -753,7 +755,7 @@ get_header( 'noste' );
                                 </td>
                                 <td class="min-w-[300px] text-left text-[#586B74] p-3 border border-solid border-[#E1E1EA] tarjous_1_total">6000 €  </td>
                                 <td class="min-w-[350px] text-[#586B74] text-[14px] text-left p-3 border border-solid border-[#E1E1EA]">
-                                    <input type="text" name="pilar_M4" value="Ennuste1" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" name="ennuste1" placeholder="Ennuste1" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2 ennuste1">
                                 </td>
                                 <td class=""></td>
                             </tr>
@@ -836,10 +838,12 @@ get_header( 'noste' );
                             <tr>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-black text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">Projektinjohto, rakennuttaminen ja valvonta</td>
-                                <td class="text-[#00B2A9] italic text-left p-3 border border-solid border-[#E1E1EA]"><?php echo esc_attr( noste_check_empty( get_post_meta( $pid, 'pilar_BU3', true ), 'BU3') ); ?></td>
+                                <td class="text-[#00B2A9] italic text-left p-3 border border-solid border-[#E1E1EA] pilar_BU3"><?php echo esc_attr( noste_check_empty( get_post_meta( $pid, 'pilar_BU3', true ), 'BU3') ); ?></td>
                                 <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="min-w-[350px] text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA] italic">E3=Ennuste2+ Ennuste3 + jne.</td>
+                                <td class="min-w-[350px] text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA] italic">
+                                    <input type="text" name="ennusteE3" value="" placeholder="E3=Ennuste2+ Ennuste3 + jne." class="readonly_global text-[#00B2A9]" readonly>
+                                </td>
                                 <td class=""></td>
                             </tr>
     
@@ -852,7 +856,7 @@ get_header( 'noste' );
                                 </td>
                                 <td class="text-right text-[#586B74] text-[14px] p-3 border border-solid border-[#E1E1EA] tarjous_2_total">4500 €</td>
                                 <td class="min-w-[350px] text-right text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA] italic">
-                                    <input type="text" name="pilar_M4" value="Ennuste2" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" name="ennuste2" placeholder="Ennuste2" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2 ennuste2">
                                 </td>
                                 <td class=""></td>
                             </tr>
@@ -940,7 +944,7 @@ get_header( 'noste' );
                                 </td>
                                 <td class="min-w-[300px] text-right p-3 border border-solid border-[#E1E1EA] tarjous_3_total">500 € </td>
                                 <td class="min-w-[350px] text-[#586B74] text-[14px] text-left p-3 border border-solid border-[#E1E1EA]">
-                                    <input type="text" name="pilar_M4" value="Ennuste3" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" name="ennuste3" placeholder="Ennuste3" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2 ennuste3">
                                 </td>
                                 <td class=""></td>
                             </tr>
@@ -1009,10 +1013,12 @@ get_header( 'noste' );
                             <tr>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-black text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">Suunnittelu</td>
-                                <td class="text-[#00B2A9] italic text-left p-3 border border-solid border-[#E1E1EA]"><?php echo esc_attr( noste_check_empty( get_post_meta( $pid, 'pilar_BU4', true ), 'BU4') ); ?></td>
+                                <td class="text-[#00B2A9] italic text-left p-3 border border-solid border-[#E1E1EA] pilar_BU4"><?php echo esc_attr( noste_check_empty( get_post_meta( $pid, 'pilar_BU4', true ), 'BU4') ); ?></td>
                                 <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="min-w-[350px] text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA] italic">E4=Ennuste4+ Ennuste5 + jne.</td>
+                                <td class="min-w-[350px] text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA] italic">
+                                    <input type="text" name="ennusteE4" value="" placeholder="E4=Ennuste4+ Ennuste5 + jne." class="readonly_global text-[#00B2A9]" readonly>
+                                </td>
                                 <td class=""></td>
                             </tr>
 
@@ -1034,7 +1040,7 @@ get_header( 'noste' );
                                 </td>
                                 <td class="min-w-[300px] text-right p-3 border border-solid border-[#E1E1EA] tarjous_4_total">1250 €</td>
                                 <td class="min-w-[350px] text-[#586B74] text-[14px] text-left p-3 border border-solid border-[#E1E1EA]">
-                                    <input type="text" name="pilar_M4" value="Ennuste4" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" name="ennuste4" placeholder="Ennuste4" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2 ennuste4">
                                 </td>
                                 <td class=""></td>
                             </tr>
@@ -1122,7 +1128,7 @@ get_header( 'noste' );
                                 </td>
                                 <td class="min-w-[300px] text-right p-3 border border-solid border-[#E1E1EA] tarjous_5_total">100 € </td>
                                 <td class="min-w-[350px] text-[#586B74] text-[14px] text-left p-3 border border-solid border-[#E1E1EA]">
-                                    <input type="text" name="pilar_M4" value="Ennuste5" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" name="ennuste5" placeholder="Ennuste5" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2 ennuste5">
                                 </td>
                                 <td class=""></td>
                             </tr>
@@ -1181,10 +1187,12 @@ get_header( 'noste' );
                             <tr>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-black text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">Muut rakennuttajan tehtävät</td>
-                                <td class="text-[#00B2A9] italic text-left p-3 border border-solid border-[#E1E1EA]"><?php echo esc_attr( noste_check_empty( get_post_meta( $pid, 'pilar_BU6', true ), 'BU6') ); ?></td>
+                                <td class="text-[#00B2A9] italic text-left p-3 border border-solid border-[#E1E1EA] pilar_BU6"><?php echo esc_attr( noste_check_empty( get_post_meta( $pid, 'pilar_BU6', true ), 'BU6') ); ?></td>
                                 <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="min-w-[350px] text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA] italic">E6=Ennuste6+ jne.</td>
+                                <td class="min-w-[350px] text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA] italic">
+                                    <input type="text" name="ennusteE6" value="" placeholder="E6=Ennuste6+ jne." class="readonly_global text-[#00B2A9]" readonly>
+                                </td>
                                 <td class=""></td>
                             </tr>
 
@@ -1206,7 +1214,7 @@ get_header( 'noste' );
                                 </td>
                                 <td class="min-w-[300px] text-right p-3 border border-solid border-[#E1E1EA] tarjous_6_total">100 €</td>
                                 <td class="min-w-[350px] text-[#586B74] text-[14px] text-left p-3 border border-solid border-[#E1E1EA]">
-                                    <input type="text" name="pilar_M4" value="Ennuste6" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" name="ennuste6" placeholder="Ennuste6" class="italic shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2 ennuste6">
                                 </td>
                                 <td class=""></td>
                             </tr>
@@ -1289,11 +1297,11 @@ get_header( 'noste' );
                             <tr>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">Kaikki yhteensä (alv. 0%)</td>
-                                <td class="text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA]"><?php echo esc_attr( noste_check_empty( get_post_meta( $pid, 'pilar_BU5', true ), 'BU5' )); ?></td>
+                                <td class="text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA] pilar_BU5"><?php echo esc_attr( noste_check_empty( get_post_meta( $pid, 'pilar_BU5', true ), 'BU5' )); ?></td>
                                 <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]"></td>
-                                <td class="min-w-[350px] text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA] italic">E5-(<span class="text-[#00B2A9] italic"><?php echo esc_attr( noste_check_empty( get_post_meta( $pid, 'pilar_BU5', true ), 'BU5') ); ?></span>-((E2-<span class="text-[#00B2A9] italic"><?php echo esc_attr( noste_check_empty( get_post_meta( $pid, 'pilar_BU2', true ), 'BU2') ); ?></span>)+(E3-<span class="text-[#00B2A9] italic"><?php echo esc_attr( noste_check_empty( get_post_meta( $pid, 'pilar_BU3', true ), 'BU3') ); ?></span>)+(E4-<span class="text-[#00B2A9] italic"><?php echo esc_attr( noste_check_empty( get_post_meta( $pid, 'pilar_BU4', true ), 'BU4') ); ?></span>)+(E6-<span class="text-[#00B2A9] italic"><?php echo esc_attr( noste_check_empty( get_post_meta( $pid, 'pilar_BU6', true ), 'BU6') ); ?></span>))
-                                    jos negatiivinen niin E5=0</td>
+                                <td class="min-w-[350px] text-left text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA] italic">
+                                    <input type="text" name="ennusteE5" value="" placeholder="E5-(500-((E2-500)+(E3-500)+(E4-500)+(E6-500)) jos negatiivinen niin E5=0" class="readonly_global text-[#00B2A9]" readonly>
                                 <td class=""></td>
                             </tr>
 
@@ -1310,15 +1318,18 @@ get_header( 'noste' );
                             <tr>
                                 <td class="text-left font-medium p-3 border border-solid border-[#E1E1EA]"></td>
                                 <td class="text-[#586B74] text-[14px] text-left font-medium p-3 border border-solid border-[#E1E1EA]">Riskivaraus</td>
-                                <td class="text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA]"><?php echo esc_attr( noste_check_empty( get_post_meta( $pid, 'pilar_BU1', true ), 'BU1') ); ?></td>
+                                <td class="text-[#00B2A9] italic text-left font-medium p-3 border border-solid border-[#E1E1EA] pilar_BU1"><?php echo esc_attr( noste_check_empty( get_post_meta( $pid, 'pilar_BU1', true ), 'BU1') ); ?></td>
                                 <td class="text-left text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">
-                                    =<span class="text-[#00B2A9] italic"><?php echo esc_attr( noste_check_empty( get_post_meta( $pid, 'pilar_UH1', true ), 'UH1') ); ?></span>+5000€ + Tarjous1 + Tarjous2 + Tarjous3 + Tarjous4 + Tarjous5+ Tarjous6
+                                    <input type="text" name="tarjous_total" value="" placeholder="=250+5000€ + Tarjous1 + Tarjous2 + Tarjous3 + Tarjous4 + Tarjous5+ Tarjous6" class="readonly_global text-[#00B2A9]" readonly>
                                 </td>
                                 <td class="text-right text-[#586B74] font-medium text-[14px] p-3 border border-solid border-[#E1E1EA]">
                                     '=Summa <br>
                                     toteumasarekkeesta
                                 </td>
-                                <td class="min-w-[350px] text-left font-medium text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA] italic">'=E2+ E3+E4+E5+E6</td>
+                                <td class="min-w-[350px] text-left font-medium text-[#586B74] p-3 text-[14px] border border-solid border-[#E1E1EA] italic">
+                                     <input type="text" name="E1-6T" value="" placeholder="=E2+ E3+E4+E5+E6" class="readonly_global text-[#00B2A9]" readonly>
+                                    
+                                </td>
                                 <td class=""></td>
                             </tr>
 

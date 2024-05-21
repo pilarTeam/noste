@@ -14,13 +14,13 @@
 			'comment' => !empty($project_intdata['valmistele']['comment']) ? $project_intdata['valmistele']['comment'] : 0,
 		],
 		'pida' => [
-			'title' => 'Valmistele ja laadi lähtötietopalaverin asialista',
+			'title' => 'Pidä lähtötietopalaveri tilaajalle sopivalla tavalla',
 			'status' => !empty($project_intdata['pida']['status']) ? $project_intdata['pida']['status'] : 0,
 			'url' => '',
 			'comment' => !empty($project_intdata['pida']['comment']) ? $project_intdata['pida']['comment'] : 'aloittamatta',
 		],		
 		'laadi' => [
-			'title' => 'Valmistele ja laadi lähtötietopalaverin asialista',
+			'title' => 'Laadi lähtötietopalaverin muistio ja toimita se kokouksen osallistujille',
 			'status' => !empty($project_intdata['laadi']['status']) ? $project_intdata['laadi']['status'] : 0,
 			'url' => [
 				'link' => 'laadi',
@@ -29,7 +29,7 @@
 			'comment' => !empty($project_intdata['laadi']['comment']) ? $project_intdata['laadi']['comment'] : 'aloittamatta',
 		],
 		'sovi' => [
-			'title' => 'Valmistele ja laadi lähtötietopalaverin asialista',
+			'title' => 'Sovi kirjallisesti tilaajan kanssa projektin valmisteluvaiheen tehtävien tekemisestä',
 			'status' => !empty($project_intdata['sovi']['status']) ? $project_intdata['sovi']['status'] : 0,
 			'url' => '',
 			'comment' => !empty($project_intdata['sovi']['comment']) ? $project_intdata['sovi']['comment'] : 'aloittamatta',

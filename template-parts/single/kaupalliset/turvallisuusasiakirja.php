@@ -35,10 +35,11 @@ $project_id = get_the_ID();
                             </div>
 
                             <div class="mb-[30px]">
-                                <h3 class="text-[#08202C] text-[24px] font-medium my-4">työturvallisuusasiakirja T. TAVANOMAINEN</h3>
+                                <h3 class="text-[#08202C] text-[24px] font-medium my-4 uppercase">työturvallisuusasiakirja T. TAVANOMAINEN</h3>
                                 <h1 class="text-black text-[28px] font-medium mb-4">KORJAUSRAKENNUSHANKE</h1>
                                 <p class="text-[#586B74] mt-5 mb-10">
                                     Lomake sisältää työturvallisuuteen liittyvät asiakirjat tavanomaisessa korjausrakennushankkeessa ja liittyy ohjekorttiin RT 10-10982 Rakennuttajan työturvallisuusvelvoitteet rakennushankkeessa. Viittaukset VNa 205/2009. 
+                                    <br>
                                     <br>
                                     Turvallisuusasiakirjan, turvallisuussääntöjen ja menettelyohjeiden avulla rakennuttajan ja rakennushankkeeseen osallistuvien osapuolten työturvallisuustehtävät määritellään selkeästi, parannetaan aktiivista yhteistyötä ja tiedonsiirtoa.
                                 </p>  
@@ -76,7 +77,7 @@ $project_id = get_the_ID();
                             </div>
 
                             <div class="mt-10">
-                                <h3 class="text-black text-[20px] font-medium">
+                                <h3 class="text-black text-[20px] font-medium uppercase">
                                     1. Yleistä
                                 </h3>
 
@@ -366,7 +367,7 @@ $project_id = get_the_ID();
 
                         <div class="help_wrap mt-10 mb-5 relative">
                             <div class="max-w-[700px] mx-auto flex items-center gap-2">
-                                <h3 class="text-black text-[20px] font-medium min-w-[210px]">
+                                <h3 class="text-black text-[20px] font-medium uppercase min-w-[210px]">
                                     2. Turvallisuusasiakirja
                                 </h3>
 
@@ -407,7 +408,7 @@ $project_id = get_the_ID();
                                 Päätoteuttaja vastaa tämän turvallisuusasiakirjan ja näiden menettelyohjeiden jakelusta muille päätoteuttajan kanssa sopimussuhteessa oleville osapuolille. Suunnittelijoille menettelyohjeiden toimittamisesta vastaa rakennuttajan turvallisuuskoordinaattori.
                             </p>
 
-                            <h3 class="text-black text-[20px] font-medium mt-10">
+                            <h3 class="text-black text-[20px] font-medium uppercase mt-10">
                                 2.1 Rakennuskohteen ominaisuuksia ja olosuhteita
                             </h3>
 
@@ -509,7 +510,7 @@ $project_id = get_the_ID();
                                 </div>
                             </div>
 
-                            <h3 class="text-black text-[20px] font-medium mt-10">
+                            <h3 class="text-black text-[20px] font-medium uppercase mt-10">
                                 2.2 Rakennuskohteen tyypilliset turvallisuusriskit
                             </h3>
                         </div>
@@ -630,13 +631,15 @@ $project_id = get_the_ID();
                                 </label>
                             </div>
 
-                            <h3 class="text-black text-[20px] font-medium mt-10">
-                                2.3 Rakennuskohteen tyypilliset turvallisuusriskit
+                            <h3 class="text-black text-[20px] font-medium uppercase mt-10">
+                                2.3 Turvallisuusasiakirjan ylläpito
                             </h3>
                             <p class="text-[#586B74] mt-5">
                                 Turvallisuusasiakirjaa päivitetään tarpeen vaatiessa. 
                                 <br>
+                                <br>
                                 Rakennuttajan turvallisuuskoordinaattorina toimii <span class="text-[#FE3B2D]">TK1</span> (Partners at Noste Oy). 
+                                <br>
                                 <br>
                                 Urakoitsijat ilmoittavat havainnoistaan Rakennuttajan turvallisuuskoordinaattorille, joka vastaa asiakirjan päivittämisestä.
                             </p>
@@ -644,7 +647,7 @@ $project_id = get_the_ID();
 
                         <div class="help_wrap mt-10 mb-5 relative">
                             <div class="max-w-[700px] mx-auto flex items-center gap-2">
-                                <h3 class="text-black text-[20px] font-medium min-w-[210px]">
+                                <h3 class="text-black text-[20px] font-medium uppercase min-w-[210px]">
                                     3. Turvallisuussäännöt
                                 </h3>
 
@@ -663,8 +666,8 @@ $project_id = get_the_ID();
                                 Turvallisuussäännöillä tarkoitetaan rakennuttajan antamia kirjallisia ohjeita, missä on esitetty turvallisuushallinnan tavoitteet ja toimenpiteet sekä ohjeet turvallisuusseurantaan, tarkastuksiin, yhteistoimintaan, työmaakokouksiin, henkilötunnisteen ja kulkuluvan käyttöön sekä osapuolten hyväksyntää edellyttävien turvallisuussuunnitelmien käsittelyyn.
                             </p>
 
-                            <h3 class="text-black text-[20px] font-medium mt-10">
-                                2.3 Rakennuskohteen tyypilliset turvallisuusriskit
+                            <h3 class="text-black text-[20px] font-medium uppercase mt-10">
+                                3.1 rakennuttajan tavoitteet työturvallisuudesta
                             </h3>
                             <p class="text-[#586B74] my-5">Turvallisuustaso ja sen seuranta:</p>
 
@@ -857,7 +860,7 @@ $project_id = get_the_ID();
 
                         <div class="help_wrap mt-10 mb-5 relative">
                             <div class="max-w-[700px] mx-auto flex items-center gap-2">
-                                <h3 class="text-black text-[20px] font-medium min-w-[210px]">
+                                <h3 class="text-black text-[20px] font-medium uppercase min-w-[210px]">
                                     4. Menettelyohjeet
                                 </h3>
 
@@ -927,7 +930,7 @@ $project_id = get_the_ID();
                         <div class="max-w-[700px] mx-auto">
                             <p class="text-[#586B74] my-5">Turvallisuussäännöillä tarkoitetaan rakennuttajan antamia kirjallisia ohjeita, missä on esitetty turvallisuushallinnan tavoitteet ja toimenpiteet sekä ohjeet turvallisuusseurantaan, tarkastuksiin, yhteistoimintaan, työmaakokouksiin, henkilötunnisteen ja kulkuluvan käyttöön sekä osapuolten hyväksyntää edellyttävien turvallisuussuunnitelmien käsittelyyn.</p>
 
-                            <h3 class="text-black text-[20px] mt-10">
+                            <h3 class="text-black text-[20px] mt-10 uppercase">
                                 4.1 Projektin suunnittelu
                             </h3>
                             <p class="text-[#586B74] my-5">
@@ -938,7 +941,7 @@ $project_id = get_the_ID();
                                 Päätoteuttaja laatii säädösten mukaisen työmaasuunnitelman, jossa huomioi ainakin poistumistiet, alkusammutus- ja ensiapuvälineistön sijainnit sekä varastointi ja sosiaalitilat. Lisäksi päätoteuttaja laatii kaikista merkittävistä asennuksista työmaa- ja asennussuunnitelmat ja toimittaa ne rakennuttajan edustajalle hyväksyttäväksi. Lisäksi päätoteuttaja valvoo ja tarkastaa muiden työmaalla toimivien tahojen työmaa- ja asennussuunnitelmat ennen kunkin työvaiheen toteutusta.
                             </p>
 
-                            <h3 class="text-black text-[20px] mt-10">
+                            <h3 class="text-black text-[20px] mt-10 uppercase">
                                 4.2 Purkutyöt ja rakennusjäte
                             </h3>
                             <p class="text-[#586B74] mt-5">
@@ -972,12 +975,12 @@ $project_id = get_the_ID();
                                 Sähköasennuksien purkaminen ja jännitteettömäksi tekeminen tulee suorittaa ennen muiden purkutöiden aloittamista. Purettavat kaapelit on merkittävä asianmukaisesti. Purettaessa väliseiniä tai muita rakenteita tulee varmistaa, ettei niihin tukeudu rakenteita, jotka voivat samalla sortua. Tällaiset rakenteet on tuettava ennen purkua. On myös varmistuttava siitä, ettei purettavissa rakenteissa ole jatkuvan sortumisen vaaraa (esim. alakatot), vaan purku tapahtuu hallitusti ja suunnitellusti.
                             </p>
 
-                            <h3 class="text-black text-[20px] mt-10">
+                            <h3 class="text-black text-[20px] mt-10 uppercase">
                                 4.3 Vesikatolla, kerroksissa ja kuiluissa tehtvävät työt
                             </h3>
                             <p class="text-[#586B74] my-5">Vesikatolla, kerroksissa ja kuiluissa tehtävien töiden osalta urakoitsijan on varmistettava putoamissuojaus sekä työntekijöiden, että esineiden ja materiaalien osalta.</p>
 
-                            <h3 class="text-black text-[20px] mt-10">
+                            <h3 class="text-black text-[20px] mt-10 uppercase">
                                 4.4 Rakennustyön suoritusvaatimus
                             </h3>
                             <p class="text-[#586B74] my-5">Asennusten ja tuentojen lujuus ja tarkoituksenmukaisuus:</p>
@@ -1114,7 +1117,7 @@ $project_id = get_the_ID();
                                 <span>Väliaikaiset kulkutiet yms. on merkittävä selkeästi ja poistumistiet on pidettävä vapaana kaikesta rakennusmateriaalista yms., jotka voivat estää tai vaikeuttaa poistumisteiden käyttöä mahdollisessa hätä- tai palotilanteessa.</span>
                             </p>
 
-                            <h3 class="text-black text-[20px] mt-10">
+                            <h3 class="text-black text-[20px] mt-10 uppercase">
                                 4.5 Rakennusalue ja sen olosuhteet
                             </h3>
                             <p class="text-[#586B74] my-5">Työmaa-alue:</p>
@@ -1177,7 +1180,7 @@ $project_id = get_the_ID();
                                 <span>Mikäli työntekijä rikkoo toistuvasti määräystä, poistetaan hänet työmaalta pysyvästi.</span>
                             </p>
 
-                            <h3 class="text-black text-[20px] mt-10">
+                            <h3 class="text-black text-[20px] mt-10 uppercase">
                                 4.6 Sähkötekniset turvamääräykset
                             </h3>
                             <p class="text-[#586B74] my-5">Työmaan sähköturvallisuus:</p>
@@ -1248,7 +1251,7 @@ $project_id = get_the_ID();
                                 <span>Työt on tarvittaessa tehtävä normaalin työajan ulkopuolella.</span>
                             </p>
 
-                            <h3 class="text-black text-[20px] mt-10">
+                            <h3 class="text-black text-[20px] mt-10 uppercase">
                                 4.7 Lvi-tekniset turvamääräykset
                             </h3>
                             <p class="text-[#586B74] my-5">Vesivuodot:</p>

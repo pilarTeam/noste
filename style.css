@@ -656,3 +656,23 @@ section#single-main-list .approval {
     justify-content: center;
     font-size: 12px;
 }
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #475467;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 6px;
+    padding: 4px 10px;
+    position: absolute;
+    z-index: 1;
+    line-height: normal;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}

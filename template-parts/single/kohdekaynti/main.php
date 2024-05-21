@@ -56,7 +56,7 @@
                         <div class="content-wrap">
                             <div class="excerpt" id="excerpt_content">
                                 <p class="text-base text-[#475467] mb-2">
-                                    Projektin valmisteluvaiheessa tärkeintä on tukea kiinteistönomistajan vuokraamisesta vastaavaa tahoa niin, että tilasta tehtävä vuokrasopimustarjous kiinteistönomistajan (eli vuokranantajan / tilaajan) asiakkaalle, eli vuokralaisehdokkaalle olisi mahdollisimman houkutteleva. Samalla vuokrasopimustarjous pyritään laatimaan mahdollisimman...
+                                Projektin valmisteluvaiheessa tärkeintä on tukea kiinteistönomistajan vuokraamisesta vastaavaa tahoa niin, että tilasta tehtävä vuokrasopimustarjous kiinteistönomistajan (eli vuokranantajan / tilaajan) asiakkaalle, eli vuokralaisehdokkaalle olisi mahdollisimman houkutteleva. Samalla vuokrasopimustarjous pyritään laatimaan mahdollisimman...
                                 </p>
 
                                 <button class="text-accent underline decoration-accent text-base" id="showMore">Lue lisää</button>
@@ -86,15 +86,13 @@
 
                     <p class="text-base text-[#475467] mb-4">
                         <b>Sisältö:</b><br>
-                        Käydään läpi tilaajan kanssa sähköpostitse / Teamsilla / puhelimitse vuokralaismuutoksen lähtötiedot ja lähtötietotarpeet sekä sovitaan projektipäällikön tehtävät. Lisäksi dokumentoidaan läpikäydyt asiat.
+                        Käydään kohteessa tutustumassa ja selvittämässä avoimet asiat sekä riskit. Dokumentoidaan tila.
                     </p>
 
                     <div class="mb-6 excerpt-expand">
                         <p class="text-base text-[#475467]"><b>Kuvaus:</b></p>
                         <p class="text-base text-[#475467] mb-4 content">
-                            Eri tilaajilla on erilaisia tarpeita vuokralaismuutosten osalta. On tärkeää käydä heti alussa läpi yhdessä tilaajan kanssa projektin lähtötiedot ja tehtävät, jotta tarpeista ja tavoitteista ollaan samaa mieltä. Tilaaja- tai tapauskohtaisesti vuokralaismuutoksia tehdään joko kevyesti suunnittelun-rakentamisen-projektinjohdon osalta tai sitten raskaammin. Se kuinka paljon vuokralaismuutokseen panostetaan, vaikuttaa paljon projektissa käytettävään aikaan ja kustannuksiin. Noste.ion toimeksiannon osalta on tärkeää ymmärtää, toivooko tilaaja kevyempää projektinjohtoa pienellä kustannuksella, vai onko tilaajan tarvitsemat prosessit raskaammat, mikä johtaa suurempaan ajankäyttöön ja kustannuksiin. <br><br>
-                            Lähtötietopalaverin asialista antaa hyvän raamin asioiden läpikäynnille tilaajan kanssa sekä antaa ammattimaisen ja valmiin kuvan asioiden hoitamisesta. Tämä vaihe on tärkeä erityisesti, jos asiakas on sinulle uusi. Pääset asialistan avulla helpommin tutuksi kohteen kanssa. Jos kohde on sinulle entuudestaan tuttu, voit karsia selvitettäviä asioita jotka jo tiedät, kuten esimerkiksi yhteystiedot. <br><br>
-                            Huom. vaikka projektin valmisteluvaiheessa on vasta tarkoituksena auttaa tilaajaa pääsemään vuokrasopimukseen vuokralaisen kanssa, on projektipäällikölle tärkeää pyrkiä ymmärtämään koko projektin luonne mahdollisimman hyvin, jotta vuokrasopimukseen liittyvät lähtötiedot saadaan mahdollisimman paikkansapitäviksi. Tavanomaiset lähtötiedot tässä vaiheessa ovat esimerkiksi tilasuunnittelijan tekemä alustava pohjapiirustus, karkea näkemys aikataulusta, yksittäisiä tietoja siitä millaisia muutoksia halutaan olemassa olevaan tilaan. Tässä vaiheessa pitää pyrkiä kaivamaan mahdollisimman paljon lisää tietoa sellaisista asioista, joilla on merkittävä vaikutus vuokralaismuutokselle.
+                        Moni epäselvä asia selviää vain vuokralaismuutostilassa paikan päällä käymällä. Kohdekäynti on hyvä hetki selvittää asioita, joihin et vielä ole saanut lähtötiedoista, suunnitelmista tai kiinteistöpäälliköltä / -huollolta vastauksia. Jotta käynti olisi mahdollisimman hyödyllinen, valmistaudu käyntiin hyvin etukäteen ja tallenna käynti valokuvin. Liikaa valokuvia ei voi ottaa. Näin voit palata kohteeseen myöhemminkin valokuvien avulla. Muista selvittää miten tilaan pääsee (avaimet / kulkuoikeudet) ja saako tiloihin mennä vapaasti (onko tiloissa vuokralainen). Voit sopia kohdekäynnille, varsinkin kohteessa ensikertaa toimiessasi, tapaamisen vuokrauksen, huollon tai kiinteistöpäällikön kanssa, jolloin saat helposti lisää tietoa kohteesta myös heiltä.<br><br> Joskus voi olla sellainen tilanne, että vuokranantajalla ja entisellä vuokralaisella, joka kuitenkin vielä toimii vuokralaismuutoksen kohteena olevissa tiloissa, ei ole parhaimmat mahdolliset välit. Silloin kohdekäynti on syytä tehdä mahdollisimman huomaamattomasti, häiriötä herättämättömästi ja kiinteistöpäällikön johtamana. Omasta toimeksiannosta ei myöskään saa antaa ulkopuolisille mitään tietoja. Tällaisesta tilanteesta tilaaja kuitenkin pääsääntöisesti muistaa ilmoittaa.
                         </p>
 
                         <button class="text-accent underline decoration-accent text-base showMore">Lue lisää</button>

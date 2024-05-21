@@ -1231,7 +1231,7 @@ get_header('noste');
                                         </label>
                                         <label class="text-[#586B74] text-[14px] block min-w-[155px]">Purkutyöt</label>
                                     </div>
-                                    <input type="text" name="pilar_TY1" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr(noste_check_empty(get_post_meta($pid, 'pilar_TY1', true))); ?>" <?php echo esc_attr(noste_checkbox_status_readonly(noste_check_empty(get_post_meta($pid, 'pilar_TY1', true)))); ?> />
+                                    <input type="text" name="pilar_TY1" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr(noste_check_empty(get_post_meta($pid, 'pilar_TY1', true))); ?>" />
                                 </div>
 
                             </div>
@@ -1275,7 +1275,7 @@ get_header('noste');
                                         </label>
                                         <label class="text-[#586B74] text-[14px] block min-w-[155px]">Lattiatyöt</label>
                                     </div>
-                                    <input type="text" name="pilar_TY2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr(noste_check_empty(get_post_meta($pid, 'pilar_TY2', true))); ?>" <?php echo esc_attr(noste_checkbox_status_readonly(noste_check_empty(get_post_meta($pid, 'pilar_TY2', true)))); ?> />
+                                    <input type="text" name="pilar_TY2" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr(noste_check_empty(get_post_meta($pid, 'pilar_TY2', true))); ?>" />
                                 </div>
 
                             </div>
@@ -1319,7 +1319,7 @@ get_header('noste');
                                         </label>
                                         <label class="text-[#586B74] text-[14px] block min-w-[155px]">Seinätyöt</label>
                                     </div>
-                                    <input type="text" name="pilar_TY3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr(noste_check_empty(get_post_meta($pid, 'pilar_TY3', true))); ?>" <?php echo esc_attr(noste_checkbox_status_readonly(noste_check_empty(get_post_meta($pid, 'pilar_TY3', true)))); ?> />
+                                    <input type="text" name="pilar_TY3" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr(noste_check_empty(get_post_meta($pid, 'pilar_TY3', true))); ?>" />
 
                                 </div>
 
@@ -1364,7 +1364,7 @@ get_header('noste');
                                         </label>
                                         <label class="text-[#586B74] text-[14px] block min-w-[155px]">Alakatto- ja holvityöt</label>
                                     </div>
-                                    <input type="text" name="pilar_TY4" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr(noste_check_empty(get_post_meta($pid, 'pilar_TY4', true))); ?>" <?php echo esc_attr(noste_checkbox_status_readonly(noste_check_empty(get_post_meta($pid, 'pilar_TY4', true)))); ?> />
+                                    <input type="text" name="pilar_TY4" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr(noste_check_empty(get_post_meta($pid, 'pilar_TY4', true))); ?>" />
                                 </div>
 
                             </div>
@@ -1408,7 +1408,7 @@ get_header('noste');
                                         </label>
                                         <label class="text-[#586B74] text-[14px] block min-w-[155px]">WC-muutokset</label>
                                     </div>
-                                    <input type="text" name="pilar_TY5" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr(noste_check_empty(get_post_meta($pid, 'pilar_TY5', true))); ?>" <?php echo esc_attr(noste_checkbox_status_readonly(noste_check_empty(get_post_meta($pid, 'pilar_TY5', true)))); ?> />
+                                    <input type="text" name="pilar_TY5" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr(noste_check_empty(get_post_meta($pid, 'pilar_TY5', true))); ?>" />
                                 </div>
 
                             </div>
@@ -1452,7 +1452,7 @@ get_header('noste');
                                         </label>
                                         <label class="text-[#586B74] text-[14px] block min-w-[155px]">Keittiömuutokset</label>
                                     </div>
-                                    <input type="text" name="pilar_TY6" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr(noste_check_empty(get_post_meta($pid, 'pilar_TY6', true))); ?>" <?php echo esc_attr(noste_checkbox_status_readonly(noste_check_empty(get_post_meta($pid, 'pilar_TY6', true)))); ?> />
+                                    <input type="text" name="pilar_TY6" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr(noste_check_empty(get_post_meta($pid, 'pilar_TY6', true))); ?>" />
                                 </div>
 
                             </div>
@@ -1496,7 +1496,7 @@ get_header('noste');
                                         </label>
                                         <label class="text-[#586B74] text-[14px] block min-w-[155px]">Kalustustyöt</label>
                                     </div>
-                                    <input type="text" name="pilar_TY7" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr(noste_check_empty(get_post_meta($pid, 'pilar_TY7', true))); ?>" <?php echo esc_attr(noste_checkbox_status_readonly(noste_check_empty(get_post_meta($pid, 'pilar_TY7', true)))); ?> />
+                                    <input type="text" name="pilar_TY7" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr(noste_check_empty(get_post_meta($pid, 'pilar_TY7', true))); ?>" />
                                 </div>
 
                             </div>
@@ -1540,7 +1540,7 @@ get_header('noste');
                                         </label>
                                         <label class="text-[#586B74] text-[14px] block min-w-[155px]">Sähkötyöt</label>
                                     </div>
-                                    <input type="text" name="pilar_TY8" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr(noste_check_empty(get_post_meta($pid, 'pilar_TY8', true))); ?>" <?php echo esc_attr(noste_checkbox_status_readonly(noste_check_empty(get_post_meta($pid, 'pilar_TY8', true)))); ?> />
+                                    <input type="text" name="pilar_TY8" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr(noste_check_empty(get_post_meta($pid, 'pilar_TY8', true))); ?>" />
                                 </div>
 
                             </div>
@@ -1584,7 +1584,7 @@ get_header('noste');
                                         </label>
                                         <label class="text-[#586B74] text-[14px] block min-w-[155px]">LVIA-työt</label>
                                     </div>
-                                    <input type="text" name="pilar_TY9" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr(noste_check_empty(get_post_meta($pid, 'pilar_TY9', true))); ?>" <?php echo esc_attr(noste_checkbox_status_readonly(noste_check_empty(get_post_meta($pid, 'pilar_TY9', true)))); ?> />
+                                    <input type="text" name="pilar_TY9" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr(noste_check_empty(get_post_meta($pid, 'pilar_TY9', true))); ?>"/>
                                 </div>
 
                             </div>
@@ -1628,7 +1628,7 @@ get_header('noste');
                                         </label>
                                         <label class="text-[#586B74] text-[14px] block min-w-[155px]">SPR-työt</label>
                                     </div>
-                                    <input type="text" name="pilar_TY10" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr(noste_check_empty(get_post_meta($pid, 'pilar_TY10', true))); ?>" <?php echo esc_attr(noste_checkbox_status_readonly(noste_check_empty(get_post_meta($pid, 'pilar_TY10', true)))); ?> />
+                                    <input type="text" name="pilar_TY10" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr(noste_check_empty(get_post_meta($pid, 'pilar_TY10', true))); ?>" />
                                 </div>
 
                             </div>
@@ -1722,7 +1722,7 @@ get_header('noste');
                                         </label>
                                         <label class="text-[#586B74] text-[14px] block min-w-[155px]">Turva- ja lukitustyöt</label>
                                     </div>
-                                    <input type="text" name="pilar_TY11" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr(noste_check_empty(get_post_meta($pid, 'pilar_TY11', true))); ?>" <?php echo esc_attr(noste_checkbox_status_readonly(noste_check_empty(get_post_meta($pid, 'pilar_TY11', true)))); ?> />
+                                    <input type="text" name="pilar_TY11" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr(noste_check_empty(get_post_meta($pid, 'pilar_TY11', true))); ?>" />
                                 </div>
 
                             </div>
@@ -1767,7 +1767,7 @@ get_header('noste');
                                         </label>
                                         <label class="text-[#586B74] text-[14px] block min-w-[155px]">Muut työt</label>
                                     </div>
-                                    <input type="text" name="pilar_TY12" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr(noste_check_empty(get_post_meta($pid, 'pilar_TY12', true))); ?>" <?php echo esc_attr(noste_checkbox_status_readonly(noste_check_empty(get_post_meta($pid, 'pilar_TY12', true)))); ?> />
+                                    <input type="text" name="pilar_TY12" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr(noste_check_empty(get_post_meta($pid, 'pilar_TY12', true))); ?>" />
                                 </div>
 
                             </div>
@@ -1811,7 +1811,7 @@ get_header('noste');
                                         </label>
                                         <label class="text-[#586B74] text-[14px] block min-w-[155px]">Käyttö- ja yhteiskustannukset</label>
                                     </div>
-                                    <input type="text" name="pilar_TY13" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr(noste_check_empty(get_post_meta($pid, 'pilar_TY13', true))); ?>" <?php echo esc_attr(noste_checkbox_status_readonly(noste_check_empty(get_post_meta($pid, 'pilar_TY13', true)))); ?> />
+                                    <input type="text" name="pilar_TY13" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr(noste_check_empty(get_post_meta($pid, 'pilar_TY13', true))); ?>" />
                                 </div>
 
                             </div>
@@ -1851,7 +1851,7 @@ get_header('noste');
                                         </span>
                                         <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_TYX" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_TYX', true))), true, true); ?> />
                                     </label>
-                                    <input type="text" name="pilar_TYX" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Muuta" value="<?php echo esc_attr(noste_check_empty(get_post_meta($pid, 'pilar_TYX', true))); ?>" <?php echo esc_attr(noste_checkbox_status_readonly(noste_check_empty(get_post_meta($pid, 'pilar_TYX', true)))); ?> />
+                                    <input type="text" name="pilar_TYX" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Muuta" value="<?php echo esc_attr(noste_check_empty(get_post_meta($pid, 'pilar_TYX', true))); ?>" />
                                 </div>
                             </div>
 
@@ -2089,7 +2089,7 @@ get_header('noste');
                                             </g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL1" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL1', true))), true, true); ?> />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL1" value="Urakoitsijan itselle luovutuksen virhe- ja puutelista" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL1', true))), true, true); ?> />
                                 </label>
                                 <label class="text-[#586B74] text-[14px] block">Urakoitsijan itselle luovutuksen virhe- ja puutelista</label>
                             </div>
@@ -2107,7 +2107,7 @@ get_header('noste');
                                             </g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL2" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL2', true))), true, true); ?> />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL2" value="Sähköasennusten tarkastus- ja käyttöönottopöytäkirjat" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL2', true))), true, true); ?> />
                                 </label>
                                 <label class="text-[#586B74] text-[14px] block">Sähköasennusten tarkastus- ja käyttöönottopöytäkirjat</label>
                             </div>
@@ -2125,7 +2125,7 @@ get_header('noste');
                                             </g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL3" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL3', true))), true, true); ?> />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL3" value="Sähköasennusten 3. osapuolen varmennustarkastuksen pöytäkirja" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL3', true))), true, true); ?> />
                                 </label>
                                 <label class="text-[#586B74] text-[14px] block">Sähköasennusten 3. osapuolen varmennustarkastuksen pöytäkirja</label>
                             </div>
@@ -2143,7 +2143,7 @@ get_header('noste');
                                             </g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL4" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL4', true))), true, true); ?> />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL4" value="Yleiskaapelointipisteiden mittauspöytäkirja" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL4', true))), true, true); ?> />
                                 </label>
                                 <label class="text-[#586B74] text-[14px] block">Yleiskaapelointipisteiden mittauspöytäkirja</label>
                             </div>
@@ -2161,7 +2161,7 @@ get_header('noste');
                                             </g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL5" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL5', true))), true, true); ?> />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL5" value="Nousukuidun mittauspöytäkirja" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL5', true))), true, true); ?> />
                                 </label>
                                 <label class="text-[#586B74] text-[14px] block">Nousukuidun mittauspöytäkirja</label>
                             </div>
@@ -2179,7 +2179,7 @@ get_header('noste');
                                             </g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL6" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL6', true))), true, true); ?> />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL6" value="Ilmamäärämittaus- ja säätöpöytäkirja" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL6', true))), true, true); ?> />
                                 </label>
                                 <label class="text-[#586B74] text-[14px] block">Ilmamäärämittaus- ja säätöpöytäkirja</label>
                             </div>
@@ -2197,7 +2197,7 @@ get_header('noste');
                                             </g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL7" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL7', true))), true, true); ?> />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL7" value="Uusien jäähdytyspalkkien/konvektoreiden asennuspöytäkirja" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL7', true))), true, true); ?> />
                                 </label>
                                 <label class="text-[#586B74] text-[14px] block">Uusien jäähdytyspalkkien/konvektoreiden asennuspöytäkirja</label>
                             </div>
@@ -2215,7 +2215,7 @@ get_header('noste');
                                             </g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL8" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL8', true))), true, true); ?> />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL8" value="Vesivirtojen mittaupöytäkirja (jäähdytys)" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL8', true))), true, true); ?> />
                                 </label>
                                 <label class="text-[#586B74] text-[14px] block">Vesivirtojen mittaupöytäkirja (jäähdytys)</label>
                             </div>
@@ -2233,7 +2233,7 @@ get_header('noste');
                                             </g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL9" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL9', true))), true, true); ?> />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL9" value="Jäähdytysverkoston koepainepöytäkirja" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL9', true))), true, true); ?> />
                                 </label>
                                 <label class="text-[#586B74] text-[14px] block">Jäähdytysverkoston koepainepöytäkirja</label>
                             </div>
@@ -2251,7 +2251,7 @@ get_header('noste');
                                             </g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL10" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL10', true))), true, true); ?> />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL10" value="Uusien vesijohtojen painekokeiden pöytäkirja" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL10', true))), true, true); ?> />
                                 </label>
                                 <label class="text-[#586B74] text-[14px] block">Uusien vesijohtojen painekokeiden pöytäkirja</label>
                             </div>
@@ -2269,7 +2269,7 @@ get_header('noste');
                                             </g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL11" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL11', true))), true, true); ?> />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL11" value="Paloilmoitinasennusten tarkastuspöytäkirja" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL11', true))), true, true); ?> />
                                 </label>
                                 <label class="text-[#586B74] text-[14px] block">Paloilmoitinasennusten tarkastuspöytäkirja</label>
                             </div>
@@ -2287,7 +2287,7 @@ get_header('noste');
                                             </g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL12" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL12', true))), true, true); ?> />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL12" value="Paloilmoitinasennusten 3. osapuolen varmennustarkastuksen pöytäkirja" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL12', true))), true, true); ?> />
                                 </label>
                                 <label class="text-[#586B74] text-[14px] block">Paloilmoitinasennusten 3. osapuolen varmennustarkastuksen pöytäkirja</label>
                             </div>
@@ -2305,7 +2305,7 @@ get_header('noste');
                                             </g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL13" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL13', true))), true, true); ?> />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL13" value="Sprinkleriasennusten asennustodistus" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL13', true))), true, true); ?> />
                                 </label>
                                 <label class="text-[#586B74] text-[14px] block">Sprinkleriasennusten asennustodistus</label>
                             </div>
@@ -2323,7 +2323,7 @@ get_header('noste');
                                             </g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL14" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL14', true))), true, true); ?> />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL14" value="Sprinkleriasennusten 3. osapuolen varmennustarkastuksen pöytäkirja" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL14', true))), true, true); ?> />
                                 </label>
                                 <label class="text-[#586B74] text-[14px] block">Sprinkleriasennusten 3. osapuolen varmennustarkastuksen pöytäkirja</label>
                             </div>
@@ -2341,7 +2341,7 @@ get_header('noste');
                                             </g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL15" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL15', true))), true, true); ?> />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL15" value="Automaation tarkastuspöytäkirja" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL15', true))), true, true); ?> />
                                 </label>
                                 <label class="text-[#586B74] text-[14px] block">Automaation tarkastuspöytäkirja</label>
                             </div>
@@ -2359,7 +2359,7 @@ get_header('noste');
                                             </g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL16" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL16', true))), true, true); ?> />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL16" value="Vedeneristetöiden toteutuspöytäkirja" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL16', true))), true, true); ?> />
                                 </label>
                                 <label class="text-[#586B74] text-[14px] block">Vedeneristetöiden toteutuspöytäkirja</label>
                             </div>
@@ -2377,7 +2377,7 @@ get_header('noste');
                                             </g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL17" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL17', true))), true, true); ?> />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL17" value="Turva- ja merkkivalojärjestelmän käyttöönotto ja testaus pöytäkirja" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL17', true))), true, true); ?> />
                                 </label>
                                 <label class="text-[#586B74] text-[14px] block">Turva- ja merkkivalojärjestelmän käyttöönotto ja testaus pöytäkirja</label>
                             </div>
@@ -2395,7 +2395,7 @@ get_header('noste');
                                             </g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL18" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL18', true))), true, true); ?> />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL18" value="Antennimittaus pöytäkirja" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL18', true))), true, true); ?> />
                                 </label>
                                 <label class="text-[#586B74] text-[14px] block">Antennimittaus pöytäkirja</label>
                             </div>
@@ -2413,7 +2413,7 @@ get_header('noste');
                                             </g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL19" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL19', true))), true, true); ?> />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL19" value="Pikapalopostien tarkastuspöytäkirja" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL19', true))), true, true); ?> />
                                 </label>
                                 <label class="text-[#586B74] text-[14px] block">Pikapalopostien tarkastuspöytäkirja</label>
                             </div>
@@ -2431,7 +2431,7 @@ get_header('noste');
                                             </g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL20" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL20', true))), true, true); ?> />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL20" value="Talotekniikka-asennusten punakynäpiirustukset" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL20', true))), true, true); ?> />
                                 </label>
                                 <label class="text-[#586B74] text-[14px] block">Talotekniikka-asennusten punakynäpiirustukset</label>
                             </div>
@@ -2449,7 +2449,7 @@ get_header('noste');
                                             </g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL21" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL21', true))), true, true); ?> />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL21" value="Palokatkojen sijaintikaaviot ja detaljit" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL21', true))), true, true); ?> />
                                 </label>
                                 <label class="text-[#586B74] text-[14px] block">Palokatkojen sijaintikaaviot ja detaljit</label>
                             </div>
@@ -2467,7 +2467,7 @@ get_header('noste');
                                             </g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VL22" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL22', true))), true, true); ?> />
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_VL22" value="Palopeltien asennustodistus" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VL22', true))), true, true); ?> />
                                 </label>
                                 <label class="text-[#586B74] text-[14px] block">Palopeltien asennustodistus</label>
                             </div>
@@ -2488,7 +2488,7 @@ get_header('noste');
                                 </span>
                                 <input type="checkbox" class="checkbox_change absolute opacity-0" name="checked_VLX" <?php checked(!empty(noste_check_empty(get_post_meta($pid, 'pilar_VLX', true))), true, true); ?> />
                             </label>
-                            <input type="text" name="pilar_VLX" placeholder="Muuta..." class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[91%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr(noste_check_empty(get_post_meta($pid, 'pilar_VLX', true))); ?>" <?php echo esc_attr(noste_checkbox_status_readonly(noste_check_empty(get_post_meta($pid, 'pilar_VLX', true)))); ?> />
+                            <input type="text" name="pilar_VLX" placeholder="Muuta..." class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[91%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr(noste_check_empty(get_post_meta($pid, 'pilar_VLX', true))); ?>" />
                         </div>
                     </div>
 

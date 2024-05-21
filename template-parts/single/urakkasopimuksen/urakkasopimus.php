@@ -1,12 +1,4 @@
-<?php 
 
-if ( !is_singular( 'projektitiedot' ) ) {
-   return;
-}
-
-$project_id = get_the_ID();
-
-?>
         <!-- Main Content Start-->
         <section class="py-10 lg:overflow-hidden">
             <div class="container px-4">
@@ -509,9 +501,7 @@ $project_id = get_the_ID();
                                                             <td class="px-4 py-3 border border-line text-sm" id="project_table_status">
                                                                 <p class="text-center">Urakkaneuvottelupöytäkirja</p>
                                                             </td>
-                                                            <td class="px-4 py-3 border border-line">
-                                                                <p class="text-center">1</p>
-                                                            </td>
+                                                            <td class="px-4 py-3 border border-line"></td>
                                                             <td class="px-4 py-3 border border-line">
                                                                 <form action="#">
                                                                     <input class="border shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] w-full" type="text" value="xx.xx.xxxx" />
@@ -537,9 +527,7 @@ $project_id = get_the_ID();
                                                             <td class="px-4 py-3 border border-line text-sm" id="project_table_status">
                                                                 <p class="text-center">Lisäkirje 3</p>
                                                             </td>
-                                                            <td class="px-4 py-3 border border-line">
-                                                                <p class="text-center">2</p>
-                                                            </td>
+                                                            <td class="px-4 py-3 border border-line"></td>
                                                             <td class="px-4 py-3 border border-line">
                                                                 <form action="#">
                                                                     <input class="border shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] w-full" type="text" value="xx.xx.xxxx" />
@@ -565,9 +553,7 @@ $project_id = get_the_ID();
                                                             <td class="px-4 py-3 border border-line text-sm" id="project_table_status">
                                                                 <p class="text-center">Lisäkirje 2</p>
                                                             </td>
-                                                            <td class="px-4 py-3 border border-line">
-                                                                <p class="text-center">3</p>
-                                                            </td>
+                                                            <td class="px-4 py-3 border border-line"></td>
                                                             <td class="px-4 py-3 border border-line">
                                                                 <form action="#">
                                                                     <input class="border shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] w-full" type="text" value="xx.xx.xxxx" />
@@ -593,9 +579,7 @@ $project_id = get_the_ID();
                                                             <td class="px-4 py-3 border border-line text-sm" id="project_table_status">
                                                                 <p class="text-center">Lisäkirje 1</p>
                                                             </td>
-                                                            <td class="px-4 py-3 border border-line">
-                                                                <p class="text-center">4</p>
-                                                            </td>
+                                                            <td class="px-4 py-3 border border-line"></td>
                                                             <td class="px-4 py-3 border border-line">
                                                                 <form action="#">
                                                                     <input class="border shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] w-full" type="text" value="xx.xx.xxxx" />
@@ -608,9 +592,7 @@ $project_id = get_the_ID();
                                                             <td class="px-4 py-3 border border-line text-sm" id="project_table_status">
                                                                 <p class="text-center">Tarjouspyyntökirje</p>
                                                             </td>
-                                                            <td class="px-4 py-3 border border-line">
-                                                                <p class="text-center">5</p>
-                                                            </td>
+                                                            <td class="px-4 py-3 border border-line"></td>
                                                             <td class="px-4 py-3 border border-line">
                                                                 <form action="#">
                                                                     <input class="border shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] w-full" type="text" value="xx.xx.xxxx" />
@@ -623,9 +605,7 @@ $project_id = get_the_ID();
                                                             <td class="px-4 py-3 border border-line text-sm" id="project_table_status">
                                                                 <p class="text-center">Rakennuttajan turvallisuusasiakirja</p>
                                                             </td>
-                                                            <td class="px-4 py-3 border border-line">
-                                                                <p class="text-center">6</p>
-                                                            </td>
+                                                            <td class="px-4 py-3 border border-line"></td>
                                                             <td class="px-4 py-3 border border-line">
                                                                 <form action="#">
                                                                     <input class="border shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] w-full" type="text" value="xx.xx.xxxx" />
@@ -641,9 +621,7 @@ $project_id = get_the_ID();
                                                                     kopioida sopimukseen)
                                                                 </p>
                                                             </td>
-                                                            <td class="px-4 py-3 border border-line">
-                                                                <p class="text-center">7</p>
-                                                            </td>
+                                                            <td class="px-4 py-3 border border-line"></td>
                                                             <td class="px-4 py-3 border border-line">
                                                                 <form action="#">
                                                                     <input class="border shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] w-full" type="text" value="xx.xx.xxxx" />
@@ -656,9 +634,7 @@ $project_id = get_the_ID();
                                                             <td class="px-4 py-3 border border-line text-sm" id="project_table_status">
                                                                 <p class="text-center">Tarjous</p>
                                                             </td>
-                                                            <td class="px-4 py-3 border border-line">
-                                                                <p class="text-center">8</p>
-                                                            </td>
+                                                            <td class="px-4 py-3 border border-line"></td>
                                                             <td class="px-4 py-3 border border-line">
                                                                 <form action="#">
                                                                     <input class="border shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] w-full" type="text" value="xx.xx.xxxx" />
@@ -671,9 +647,7 @@ $project_id = get_the_ID();
                                                             <td class="px-4 py-3 border border-line text-sm" id="project_table_status">
                                                                 <p class="text-center">Maksuerätaulukko</p>
                                                             </td>
-                                                            <td class="px-4 py-3 border border-line">
-                                                                <p class="text-center">9</p>
-                                                            </td>
+                                                            <td class="px-4 py-3 border border-line"></td>
                                                             <td class="px-4 py-3 border border-line">
                                                                 <form action="#">
                                                                     <input class="border shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] w-full" type="text" value="xx.xx.xxxx" />
@@ -701,9 +675,7 @@ $project_id = get_the_ID();
                                                                     <input class="border shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] w-[264px] mx-auto italic" type="text" value="Vapaa teksti" />
                                                                 </form>
                                                             </td>
-                                                            <td class="px-4 py-3 border border-line">
-                                                                <p class="text-center">10</p>
-                                                            </td>
+                                                            <td class="px-4 py-3 border border-line"></td>
                                                             <td class="px-4 py-3 border border-line">
                                                                 <form action="#">
                                                                     <input class="border shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] w-full" type="text" value="xx.xx.xxxx" />
@@ -725,9 +697,7 @@ $project_id = get_the_ID();
                                                             <td class="px-[75px] py-4 border border-line text-sm" id="project_table_status">
                                                                 <p class="text-center">Asiakirjan nimi</p>
                                                             </td>
-                                                            <td class="border border-line">
-                                                                <p class="text-center">11</p>
-                                                            </td>
+                                                            <td class="border border-line"></td>
                                                             <td class="px-[18px] py-3 border border-line">
                                                                 <p>Päiväys</p>
                                                             </td>

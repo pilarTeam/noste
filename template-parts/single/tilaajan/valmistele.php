@@ -88,32 +88,32 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                 <p class="mb-8 text-[#081F2C] text-sm font-medium mx-auto max-w-[750px]">Tämän läpikäynnin tavoitteena on projektin lähtötietojen tehokas selvittäminen ja koonti yhteen paikkaan. Lisäksi käydään yhteisesti läpi Nosteelle astetetut tehtävät sekä arvioitu aikataulu.</p>
 
                                 <div>
-                                    <div class="help_wrap my-10 relative">
-                                        <div class="max-w-[750px] mx-auto">
-                                            <div class="flex flex-col lg:flex-row lg:items-center gap-2">
-                                                <label class="mr-4 mb-2 text-sm font-medium text-black flex items-center" for="general_situation">
-                                                    Vuokrauksen yleistilanne
-                                                </label>
-                                                <a href="#!" class="help_click active">
-                                                    <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <g stroke-width="0"></g>
-                                                        <g stroke-linecap="round" stroke-linejoin="round"></g>
-                                                        <g>
-                                                            <circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="0.72"></circle>
-                                                            <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
-                                                            <circle cx="12" cy="16" r="1" fill="#000000"></circle>
-                                                        </g>
-                                                    </svg> 
-                                                </a>
+                                    <div class="help_wrap relative mb-4 mt-10">
+                                        <div class="max-w-[750px] mx-auto flex items-center gap-2">
+                                            <label class="inline-flex items-center gap-2 cursor-pointer min-w-[190px]">                        
+                                                <span class="text-sm font-medium text-black">Vuokrauksen yleistilanne</span>
+                                            </label>
                                     
-                                                <hr class="help_line w-full border border-solid border-[#E1E1EA] hidden">
-                                            </div>
-                                            <textarea class="shadow-input text-sm border-accent rounded-md text-[#586B74] order-3" id="general_ituation" name="general_situation" rows="4" placeholder="Onko tila ollut pitkään tyhjänä (vuokrauksen haasteet vs tilan vapautuminen juuri) tai milloin tila vapautuu? Mikä uuden vuokralaisen kanssa solmittavan vuokrasopimuksen tilanne on?"><?php echo esc_html( noste_check_array_data( $data, 'general_situation' ) ); ?></textarea>
+                                            <a href="#!" class="help_click">
+                                                <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                                    <g id="SVGRepo_iconCarrier">
+                                                        <circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="0.72"></circle>
+                                                        <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
+                                                        <circle cx="12" cy="16" r="1" fill="#000000"></circle>
+                                                    </g>
+                                                </svg>
+                                            </a>
+                                            <hr class="help_line w-full border border-solid border-[#E1E1EA] hidden">
                                         </div>
-                                    
-                                        <div class="help_show text-[#586B74] text-[14px] lg:w-[240px] 2xl:w-[384px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:right-[10px] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-50px] hidden">
+                                        <div class="help_show text-[#586B74] text-[14px] lg:w-[384px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:right-[10px] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-50px] hidden">
                                             Vuokrauksen yleistilanteessa käydään läpi, miksi ja milloin vuokraus on aktivoitunut (selvitetään onko tilassa haasteita tai ollaanko jo pitkään neuvoteltu samaa vuokrasopimusta) Korvaa pohjassa olevat apukysymykset keskustelun mukaan.
                                         </div>
+                                    </div>
+
+                                    <div class="max-w-[750px] mx-auto flex items-center gap-2 mb-10">
+                                        <textarea class="shadow-input text-sm border-accent rounded-md text-[#586B74] order-3 w-full" id="general_ituation" name="general_situation" rows="4" placeholder="Onko tila ollut pitkään tyhjänä (vuokrauksen haasteet vs tilan vapautuminen juuri) tai milloin tila vapautuu? Mikä uuden vuokralaisen kanssa solmittavan vuokrasopimuksen tilanne on?"><?php echo esc_html( noste_check_array_data( $data, 'general_situation' ) ); ?></textarea>
                                     </div>
                                     
                                     <div class="flex flex-wrap flex-col mb-8 mx-auto max-w-[750px]">
@@ -123,119 +123,142 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                         <textarea class="shadow-input text-sm border-accent rounded-md text-[#586B74]" id="nosti_tasks" name="nosti_tasks" rows="4" placeholder="Nosteelta toivotaan kustannusarvion ja alustavan aikataulun laadintaa? Millä aikataululla yllä olevat tarvitaan?"><?php echo esc_html( noste_check_array_data( $data, 'nosti_tasks' ) ); ?></textarea>
                                     </div>
 
-                                    <div class="dropdown relative">
-                                        <div class="flex flex-wrap flex-col mb-8 mx-auto max-w-[750px]">
-                                            <div class="flex items-center mb-2">
+                                    <div class="help_wrap relative mb-4 mt-10">
+                                        <div class="max-w-[750px] mx-auto flex items-center gap-2">
+                                            <label class="inline-flex items-center gap-2 cursor-pointer min-w-[325px]">                        
                                                 <p class="mr-4 text-sm font-normal text-[#586B74]">Sovittiin, että Noste laatii seuraavat dokumentit:</p>
-                                                <a href="#" class="dropdown-toggle z-1" data-dropdown="other_questions_tooltip3">
-                                                    <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                                        <g id="SVGRepo_iconCarrier">
-                                                            <circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="0.72"></circle>
-                                                            <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
-                                                            <circle cx="12" cy="16" r="1" fill="#000000"></circle>
-                                                        </g>
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                            <div class="md:pl-12 order-3">
-                                                <label class="flex items-center text-sm md:text-sm mb-2" for="agreed_prepare_documents1">
-                                                    <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[1]" id="agreed_prepare_documents1" value="Vuokrasopimuksen hankintarajaliite" <?php echo esc_attr( noste_checked_with_array( noste_check_array_data( $data, 'agreed_prepare_documents' ), 'Vuokrasopimuksen hankintarajaliite' ) ); ?>>
-                                                    Vuokrasopimuksen hankintarajaliite
-                                                </label>
-                                                <label class="flex items-center text-sm md:text-sm mb-2" for="agreed_prepare_documents2">
-                                                    <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[2]" id="agreed_prepare_documents2" value="Vuokrasopimuksen rakennustapaselostus" <?php echo esc_attr( noste_checked_with_array( noste_check_array_data( $data, 'agreed_prepare_documents' ), 'Vuokrasopimuksen rakennustapaselostus' ) ); ?> >
-                                                    Vuokrasopimuksen rakennustapaselostus
-                                                </label>
-                                                <label class="flex items-center text-sm md:text-sm mb-2" for="agreed_prepare_documents3">
-                                                    <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[3]" id="agreed_prepare_documents3" value="Vuokrasopimuksen lahtotietoaikataulu" <?php echo esc_attr( noste_checked_with_array( noste_check_array_data( $data, 'agreed_prepare_documents' ), 'Vuokrasopimuksen lahtotietoaikataulu' ) ); ?> >
-                                                    Vuokrasopimuksen lähtötietoaikataulu
-                                                </label>
-                                                <label class="flex items-center text-sm md:text-sm mb-2" for="agreed_prepare_documents4">
-                                                    <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[4]" id="agreed_prepare_documents4" <?php echo esc_attr( !empty($data['agreed_prepare_documents'][4]) ? 'checked' : '' ); ?> value="other">
-                                                    <input class="shadow-input text-sm border-accent rounded-md text-[#586B74] w-1/2" type="text" id="agreed_prepare_documents_content" name="agreed_prepare_documents_content" value="<?php echo esc_attr( $data['agreed_prepare_documents'][4] ?? '' ); ?>">
-                                                </label>
-                                            </div>
-
-                                            <div class="tooltip_content p-2 lg:w-52 lg:after:w-[142%] xl:after:w-[201%] 2xl:after:w-[265%] border border-[#E1E1EA] bg-[#F6F8FF] rounded-md relkative lg:absolute top-0 right-2 order-2 mb-2 hidden
-                                            " id="other_questions_tooltip3">
-                                                <p class="text-xs font-normal text-[#586B74]">Vuokrauksen yleistilanteessa käydään läpi, miksi ja milloin vuokraus on aktivoitunut (selvitetään onko tilassa haasteita tai ollaanko jo pitkään neuvoteltu samaa vuokrasopimusta) Korvaa pohjassa olevat apukysymykset keskustelun mukaan.</p>
-                                            </div>
+                                            </label>
+                                    
+                                            <a href="#!" class="help_click">
+                                                <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                                    <g id="SVGRepo_iconCarrier">
+                                                        <circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="0.72"></circle>
+                                                        <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
+                                                        <circle cx="12" cy="16" r="1" fill="#000000"></circle>
+                                                    </g>
+                                                </svg>
+                                            </a>
+                                            <hr class="help_line w-full border border-solid border-[#E1E1EA] hidden">
+                                        </div>
+                                        <div class="help_show text-[#586B74] text-[14px] lg:w-[384px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:right-[10px] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-50px] hidden">
+                                            Vuokrauksen yleistilanteessa käydään läpi, miksi ja milloin vuokraus on aktivoitunut (selvitetään onko tilassa haasteita tai ollaanko jo pitkään neuvoteltu samaa vuokrasopimusta) Korvaa pohjassa olevat apukysymykset keskustelun mukaan.
                                         </div>
                                     </div>
-                                    <div class="dropdown relative">
-                                        <div class="mb-2 mx-auto max-w-[750px]">
-                                            <div class="flex items-center mb-4">
+
+                                    <div class="flex flex-wrap flex-col mb-8 mx-auto max-w-[750px]">
+                                        <div class="md:pl-12 order-3">
+                                            <label class="flex items-center text-sm md:text-sm mb-2" for="agreed_prepare_documents1">
+                                                <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[1]" id="agreed_prepare_documents1" value="Vuokrasopimuksen hankintarajaliite" <?php echo esc_attr( noste_checked_with_array( noste_check_array_data( $data, 'agreed_prepare_documents' ), 'Vuokrasopimuksen hankintarajaliite' ) ); ?>>
+                                                Vuokrasopimuksen hankintarajaliite
+                                            </label>
+                                            <label class="flex items-center text-sm md:text-sm mb-2" for="agreed_prepare_documents2">
+                                                <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[2]" id="agreed_prepare_documents2" value="Vuokrasopimuksen rakennustapaselostus" <?php echo esc_attr( noste_checked_with_array( noste_check_array_data( $data, 'agreed_prepare_documents' ), 'Vuokrasopimuksen rakennustapaselostus' ) ); ?> >
+                                                Vuokrasopimuksen rakennustapaselostus
+                                            </label>
+                                            <label class="flex items-center text-sm md:text-sm mb-2" for="agreed_prepare_documents3">
+                                                <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[3]" id="agreed_prepare_documents3" value="Vuokrasopimuksen lahtotietoaikataulu" <?php echo esc_attr( noste_checked_with_array( noste_check_array_data( $data, 'agreed_prepare_documents' ), 'Vuokrasopimuksen lahtotietoaikataulu' ) ); ?> >
+                                                Vuokrasopimuksen lähtötietoaikataulu
+                                            </label>
+                                            <label class="flex items-center text-sm md:text-sm mb-2" for="agreed_prepare_documents4">
+                                                <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[4]" id="agreed_prepare_documents4" <?php echo esc_attr( !empty($data['agreed_prepare_documents'][4]) ? 'checked' : '' ); ?> value="other">
+                                                <input class="shadow-input text-sm border-accent rounded-md text-[#586B74] w-1/2" type="text" id="agreed_prepare_documents_content" name="agreed_prepare_documents_content" value="<?php echo esc_attr( $data['agreed_prepare_documents'][4] ?? '' ); ?>" placeholder="Muu, mikä">
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="help_wrap relative mb-4 mt-10">
+                                        <div class="max-w-[750px] mx-auto flex items-center gap-2">
+                                            <label class="inline-flex items-center gap-2 cursor-pointer min-w-[480px]">                        
                                                 <h5 class="font-medium">Vuokralaismuutoksen sisällön ja laatutason läpikäynti</h5>
-                                                <a href="#" class="dropdown-toggle z-1 ml-4" data-dropdown="field_of_change_of_status_tooltip">
-                                                    <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                                        <g id="SVGRepo_iconCarrier">
-                                                            <circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="0.72"></circle>
-                                                            <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
-                                                            <circle cx="12" cy="16" r="1" fill="#000000"></circle>
-                                                        </g>
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                        
-                                            <div class="tooltip_content p-2 lg:w-52 lg:after:w-[142%] xl:after:w-[136%] 2xl:after:w-[265%] border border-[#E1E1EA] bg-[#F6F8FF] rounded-md relkative lg:absolute top-0 right-2 order-2 mb-2 hidden
-                                            " id="field_of_change_of_status_tooltip">
-                                                <p class="text-xs font-normal text-[#586B74]">Kustannusjako on tärkeää, jotta tiedetään maksaja uusille toiveille ja budjettiylityksille.</p>
-                                            </div>
+                                            </label>
+                                    
+                                            <a href="#!" class="help_click">
+                                                <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                                    <g id="SVGRepo_iconCarrier">
+                                                        <circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="0.72"></circle>
+                                                        <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
+                                                        <circle cx="12" cy="16" r="1" fill="#000000"></circle>
+                                                    </g>
+                                                </svg>
+                                            </a>
+                                            <hr class="help_line w-full border border-solid border-[#E1E1EA] hidden">
                                         </div>
-                                        <div class="mb-8 mx-auto max-w-[750px]">
-                                            <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
-                                                <label class="flex-[.5] md:mr-4 text-sm font-medium text-[#999a9b]" for="field_of_change_of_status">Tilamuutoksen ala</label>
-                                                <div class="flex items-center">
-                                                    <input class="shadow-input text-sm border-accent rounded-md text-black w-36 md:ml-6" type="text" id="field_of_change_of_status" name="field_of_change_of_status" value="<?php echo esc_attr( noste_check_array_data( $data, 'field_of_change_of_status' ) ); ?>">
-                                                    <span class="flex items-center ml-2">m<sup>2</sup></span>
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
-                                                <label class="flex-[.5] md:mr-4 text-sm font-medium text-[#999a9b]" for="project_name">Projektin nimi</label>
-                                                <input class="shadow-input text-sm border-accent rounded-md w-36 text-black" type="text" id="project_name" name="project_name" placeholder="xxxxx" value="<?php echo esc_attr( noste_check_array_data( $data, 'project_name' ) ); ?>">
-                                            </div>
-                                            <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4">
-                                                <label class="flex-[.5] md:mr-4 text-sm font-medium text-[#999a9b]" for="the_building_ompleted_year">Rakennuksen valmistumisvuosi</label>
-                                                <input class="shadow-input text-sm border-accent rounded-md w-36 text-black " type="text" id="the_building_ompleted_year" name="the_building_completed_year" value="<?php echo esc_attr( noste_check_array_data( $data, 'the_building_completed_year' ) ); ?>">
-                                            </div>
+                                        <div class="help_show text-[#586B74] text-[14px] lg:w-[384px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:right-[10px] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-50px] hidden">
+                                            Kustannusjako on tärkeää, jotta tiedetään maksaja uusille toiveille ja budjettiylityksille.
                                         </div>
                                     </div>
-                                    
-                                    <div class="mb-8 dropdown relative">
-                                        <div class="mx-auto max-w-[750px] relative">
-                                            <textarea class="shadow-input w-full text-sm border-accent rounded-md text-[#586B74]" id="who_pays_new_requests_and_budget" name="who_pays_new_requests_and_budget" rows="6" placeholder="Käytiin läpi lähtötilanne. Käytiin läpi tilasuunnitelma, tilasuunnitelman lähtötietopuutteet/kysymykset sekä vuokralaisen erikoistoiveet ja tekniset vaatimukset. Käytiin läpi kiinteistön tekniset valmiudet verrattuna vuokralaisen vaatimuksiin. Käytiin läpi tilamuutosten laajuus verrattuna olemassa olevaan tilaan. Käytiin läpi maksaako vuokralainen osan kustannuksista (ja mikä on mahdollinen kustannusjako). Mikä suunnitelmien taso on? Joko suunnitelmat on lukittu vai vieläkö muutoksia tulee."><?php echo esc_html( noste_check_array_data( $data, 'who_pays_new_requests_and_budget' ) ); ?></textarea>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="dropdown relative">
-                                        <div class="flex flex-wrap flex-col mb-8 mx-auto max-w-[750px]">
-                                            <div class="flex items-center mb-4">
-                                                <label class="mr-4 text-sm font-medium text-black" for="other_questions">
-                                                    Muut kysymykset
-                                                </label>
-                                                <a href="#" class="dropdown-toggle z-1 ml-4" data-dropdown="other_questions_tooltip4">
-                                                    <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                                        <g id="SVGRepo_iconCarrier">
-                                                            <circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="0.72"></circle>
-                                                            <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
-                                                            <circle cx="12" cy="16" r="1" fill="#000000"></circle>
-                                                        </g>
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                            
-                                            <textarea class="shadow-input text-sm border-accent rounded-md text-[#586B74]" id="other_questions" name="other_questions" rows="4" placeholder="Tullaanko töiden aikana tekemään töitä, jotka eivät kuulu vuokralaismuutokseen (esim. PTS asiat)"><?php echo esc_html( noste_check_array_data( $data, 'other_questions' ) ); ?></textarea>
-                                        </div>
 
-                                        <div class="tooltip_content p-2 lg:w-52 lg:after:w-[142%] xl:after:w-[286%] 2xl:after:w-[351%] border border-[#E1E1EA] bg-[#F6F8FF] rounded-md relkative lg:absolute top-0 right-2 order-2 mb-2 hidden" id="other_questions_tooltip4">
-                                            <p class="text-xs font-normal text-[#586B74]">Kiinteistöissä tehdään kiinteistön ylläpitoon ja huoltoon liittyviä PTS-korjauksia (eli pitkän tähtäimen suunnitelman mukaisia korjauksia). Kiinteistö hoitaa PTS-korjaukset pääsääntöisesti itse mutta jos vuokralaismuutosalueella on jotakin tiedossa olevia töitä ne usein halutaan yhdistää vuokralaismuutoksen kanssa.</p>
+                                    <div class="mb-8 mx-auto max-w-[750px]">
+                                        <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
+                                            <label class="flex-[.5] md:mr-4 text-sm font-medium text-[#999a9b]" for="field_of_change_of_status">Tilamuutoksen ala</label>
+                                            <div class="flex items-center">
+                                                <input class="shadow-input text-sm border-accent rounded-md text-black w-36 md:ml-6" type="text" id="field_of_change_of_status" name="field_of_change_of_status" value="<?php echo esc_attr( noste_check_array_data( $data, 'field_of_change_of_status' ) ); ?>">
+                                                <span class="flex items-center ml-2">m<sup>2</sup></span>
+                                            </div>
                                         </div>
+                                        <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
+                                            <label class="flex-[.5] md:mr-4 text-sm font-medium text-[#999a9b]" for="project_name">Projektin nimi</label>
+                                            <input class="shadow-input text-sm border-accent rounded-md w-36 text-black" type="text" id="project_name" name="project_name" placeholder="xxxxx" value="<?php echo esc_attr( noste_check_array_data( $data, 'project_name' ) ); ?>">
+                                        </div>
+                                        <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4">
+                                            <label class="flex-[.5] md:mr-4 text-sm font-medium text-[#999a9b]" for="the_building_ompleted_year">Rakennuksen valmistumisvuosi</label>
+                                            <input class="shadow-input text-sm border-accent rounded-md w-36 text-black " type="text" id="the_building_ompleted_year" name="the_building_completed_year" value="<?php echo esc_attr( noste_check_array_data( $data, 'the_building_completed_year' ) ); ?>">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="help_wrap relative mb-4 mt-10">
+                                        <div class="max-w-[750px] mx-auto flex items-center gap-2">
+                                            <textarea class="shadow-input text-sm border-accent rounded-md text-[#586B74] min-w-[680px]" id="who_pays_new_requests_and_budget" name="who_pays_new_requests_and_budget" rows="6" placeholder="Käytiin läpi lähtötilanne. Käytiin läpi tilasuunnitelma, tilasuunnitelman lähtötietopuutteet/kysymykset sekä vuokralaisen erikoistoiveet ja tekniset vaatimukset. Käytiin läpi kiinteistön tekniset valmiudet verrattuna vuokralaisen vaatimuksiin. Käytiin läpi tilamuutosten laajuus verrattuna olemassa olevaan tilaan. Käytiin läpi maksaako vuokralainen osan kustannuksista (ja mikä on mahdollinen kustannusjako). Mikä suunnitelmien taso on? Joko suunnitelmat on lukittu vai vieläkö muutoksia tulee."><?php echo esc_html( noste_check_array_data( $data, 'who_pays_new_requests_and_budget' ) ); ?></textarea>
+                                    
+                                            <a href="#!" class="help_click">
+                                                <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                                    <g id="SVGRepo_iconCarrier">
+                                                        <circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="0.72"></circle>
+                                                        <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
+                                                        <circle cx="12" cy="16" r="1" fill="#000000"></circle>
+                                                    </g>
+                                                </svg>
+                                            </a>
+                                            <hr class="help_line w-full border border-solid border-[#E1E1EA] hidden">
+                                        </div>
+                                        <div class="help_show text-[#586B74] text-[14px] lg:w-[192px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:right-[10px] mt-[10px] mb-[15px] lg:mb[0] lg:-mt-[75px] hidden">
+                                            Kustannusjako on tärkeää, jotta tiedetään maksaja uusille toiveille ja budjettiylityksille.
+                                        </div>
+                                    </div>
+
+
+                                    <div class="help_wrap relative mb-4 mt-10">
+                                        <div class="max-w-[750px] mx-auto flex items-center gap-2">
+                                            <label class="inline-flex items-center gap-2 cursor-pointer min-w-[190px]">                        
+                                                <span class="text-sm font-medium text-black">Muut kysymykset</span>
+                                            </label>
+                                    
+                                            <a href="#!" class="help_click">
+                                                <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                                    <g id="SVGRepo_iconCarrier">
+                                                        <circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="0.72"></circle>
+                                                        <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
+                                                        <circle cx="12" cy="16" r="1" fill="#000000"></circle>
+                                                    </g>
+                                                </svg>
+                                            </a>
+                                            <hr class="help_line w-full border border-solid border-[#E1E1EA] hidden">
+                                        </div>
+                                        <div class="help_show text-[#586B74] text-[14px] lg:w-[384px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:right-[10px] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-50px] hidden">
+                                            Kiinteistöissä tehdään kiinteistön ylläpitoon ja huoltoon liittyviä PTS-korjauksia (eli pitkän tähtäimen suunnitelman mukaisia korjauksia). Kiinteistö hoitaa PTS-korjaukset pääsääntöisesti itse mutta jos vuokralaismuutosalueella on jotakin tiedossa olevia töitä ne usein halutaan yhdistää vuokralaismuutoksen kanssa.
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-8 mx-auto max-w-[750px]">
+                                        <textarea class="shadow-input text-sm border-accent rounded-md text-[#586B74] w-full" rows="4" placeholder="Tullaanko töiden aikana tekemään töitä, jotka eivät kuulu vuokralaismuutokseen (esim. PTS asiat)"><?php echo esc_html( noste_check_array_data( $data, 'other_questions' ) ); ?></textarea>
                                     </div>
                                     
                                     
@@ -260,7 +283,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
 
                                     <div class="mx-auto max-w-[750px]">
                                         <h5 class="mr-4 mb-4 text-sm font-medium text-black">Perustiedot</h5>
-                                        <p class="mb-4 text-sm">Tämän läpikäynnin tavoitteena on projektin lähtötietojen tehokas selvittäminen ja koonti yhteen paikkaan. Lisäksi käydään yhteisesti läpi Nosteelle astetetut tehtävät sekä arvioitu aikataulu.</p>
+                                        <p class="mb-4 text-sm">Seuraavat tiedot on kerätty mahdollisuuksien mukaan ennen palaveria ja tietojen oikeellisuus on tarkastettu palaverin aikana/jälkeen.</p>
                                     </div>
 
 

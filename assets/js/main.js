@@ -367,15 +367,15 @@ jQuery(document).ready(function ($) {
 
     
     // input field readonly switch by checkbox
-    $('.switch_readonly').on('change', '*[type="checkbox"]', function(e){
-        e.preventDefault();
+    // $('.switch_readonly').on('change', '*[type="checkbox"]', function(e){
+    //     e.preventDefault();
 
-        if ( $(this).prop('checked') ) {
-            $(this).parents('.switch_readonly').find('*[type="text"]').prop('readonly', false);
-        } else {
-            $(this).parents('.switch_readonly').find('*[type="text"]').prop('readonly', true).val('');
-        }
-    });
+    //     if ( $(this).prop('checked') ) {
+    //         $(this).parents('.switch_readonly').find('*[type="text"]').prop('readonly', false);
+    //     } else {
+    //         $(this).parents('.switch_readonly').find('*[type="text"]').prop('readonly', true).val('');
+    //     }
+    // });
     // input field readonly switch by checkbox
 
 
@@ -504,8 +504,6 @@ jQuery(document).ready(function ($) {
                 }
                 printPrevCard.innerHTML = template.render(data.submission);
                 // 
-                functions_to_do.before.map(func => func());
-                // 
                 formCard.insertBefore(printPrevCard, $(formCard).children('.card_footer')[0]);
                 // 
                 // $(this).data('previewed', true);
@@ -519,14 +517,6 @@ jQuery(document).ready(function ($) {
             }).catch(error => console.error(error));
         }
     });
-    document.addEventListener('keyup', (event) => {
-        if (event.shiftKey && event?.code == 'KeyF') {
-            // console.log(event)
-            navigator.clipboard.writeText(
-                `C:/Users/Lenovo/Local Sites/noste/app/public/wp-content/themes/noste/template-preview/${Object.values(main_ajax_object.query).join('/')}.twig`
-            );
-        }
-    })
 
     $('body').on('click', '.edit_form', function(e){
         e.preventDefault();
