@@ -31,8 +31,8 @@ get_header('noste');
 </section>
 <section class="register-tiedot py-10">
 	<div class="max-w-3xl mx-auto">
-		<h3 class="text-lg text-heading font-medium m-0">Käyttäjätilin tiedot</h3>
-		<p class=" text-sm text-lightGray font-normal m-0">Luo paikallinen käyttäjä- tai järjestelmänvalvojatili</p>
+		<h3 class="text-heading font-medium m-0">Käyttäjätilin tiedot</h3>
+		<p class=" text-sm text-lightGray font-normal m-0">Luo käyttäjä- tai järjestelmänvalvojatili</p>
 		<?php echo do_shortcode( '[ultimatemember form_id="8"]' ); ?>
 	</div>
 </section>

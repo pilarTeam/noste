@@ -1,7 +1,9 @@
 <?php 
 	$tm = $_GET['tm'];
+    $user = wp_get_current_user();
 
 	$project_intdata = !empty(get_post_meta( get_the_ID(), sprintf('%s_status', $tm), true )) ? json_decode( get_post_meta( get_the_ID(), sprintf('%s_status', $tm), true ), true ) : [];
+
 
 	$tm_inner = [
 		'valmistele' => [
@@ -11,28 +13,28 @@
 				'link' => 'valmistele',
 				'title' => 'Lähtötietopalaverin asialista',
 			],
-			'comment' => !empty($project_intdata['valmistele']['comment']) ? $project_intdata['valmistele']['comment'] : 0,
+			'comment' => !empty($project_intdata['valmistele']['comment']) ? $project_intdata['valmistele']['comment'] : '',
 		],
 		'pida' => [
-			'title' => 'Valmistele ja laadi lähtötietopalaverin asialista',
+			'title' => 'Pidä lähtötietopalaveri tilaajalle sopivalla tavalla',
 			'status' => !empty($project_intdata['pida']['status']) ? $project_intdata['pida']['status'] : 0,
 			'url' => '',
-			'comment' => !empty($project_intdata['pida']['comment']) ? $project_intdata['pida']['comment'] : 'aloittamatta',
+			'comment' => !empty($project_intdata['pida']['comment']) ? $project_intdata['pida']['comment'] : '',
 		],		
 		'laadi' => [
-			'title' => 'Valmistele ja laadi lähtötietopalaverin asialista',
+			'title' => 'Laadi lähtötietopalaverin muistio ja toimita se kokouksen osallistujille',
 			'status' => !empty($project_intdata['laadi']['status']) ? $project_intdata['laadi']['status'] : 0,
 			'url' => [
 				'link' => 'laadi',
-				'title' => 'Lähtötietopalaverin asialista',
+				'title' => 'Lähtötietopalaverin muistio',
 			],
-			'comment' => !empty($project_intdata['laadi']['comment']) ? $project_intdata['laadi']['comment'] : 'aloittamatta',
+			'comment' => !empty($project_intdata['laadi']['comment']) ? $project_intdata['laadi']['comment'] : '',
 		],
 		'sovi' => [
-			'title' => 'Valmistele ja laadi lähtötietopalaverin asialista',
+			'title' => 'Sovi kirjallisesti tilaajan kanssa projektin valmisteluvaiheen tehtävien tekemisestä',
 			'status' => !empty($project_intdata['sovi']['status']) ? $project_intdata['sovi']['status'] : 0,
 			'url' => '',
-			'comment' => !empty($project_intdata['sovi']['comment']) ? $project_intdata['sovi']['comment'] : 'aloittamatta',
+			'comment' => !empty($project_intdata['sovi']['comment']) ? $project_intdata['sovi']['comment'] : '',
 		],		
 	];
 
@@ -130,10 +132,46 @@
 	                                                        <p class="text-sm text-[#818D93]"><?php echo esc_html( $value['title'] ); ?></p>
 	                                                    </td>
 	                                                    <td class="px-4 py-3 border border-line text-sm" id="project_table_status">
-	                                                        <div class="instep-status relative inline-flex items-center rounded-md border border-line px-2 py-1 <?php echo esc_attr( 'status_' . strtolower( $value['status'] ) ); ?>">
-	                                                        	<span></span>
-	                                                            <?php echo esc_html( $status[$value['status']] ); ?>
-	                                                        </div>
+
+                                                        <?php if ( array_intersect( [ 'um_valvoja' ], $user->roles ) ): ?>
+                                                            <form action="#" method="post" id="valvoja_status">
+                                                                <input type="hidden" name="post_id" value="<?php echo esc_attr(get_the_ID()); ?>">
+                                                                <input type="hidden" name="tm" value="<?php echo esc_attr( $tm ); ?>">
+                                                                <input type="hidden" name="tmin" value="<?php echo esc_attr( $key ); ?>">
+
+                                                                <select name="valvoja_status" class="status_<?php echo esc_attr( strtolower( $value['status'] ) ); ?>">
+                                                                    <?php foreach ($status as $k => $v): ?>
+                                                                        <option value="<?php echo esc_attr( $k ); ?>" <?php selected( strtolower( $value['status'] ), $k, true ); ?>><?php echo esc_html( $v ); ?></option>
+                                                                    <?php endforeach; ?>
+                                                                </select>
+                                                            </form>
+                                                        <?php else: ?>    
+                                                            <div class="instep-status relative inline-flex items-center rounded-md border border-line px-2 py-1 <?php echo esc_attr( 'status_' . strtolower( $value['status'] ) ); ?>">
+                                                            	<span></span>
+                                                                <?php echo esc_html( $status[$value['status']] ); ?>
+                                                            </div>
+                                                        <?php endif ?>
+                                                        <style type="text/css">
+                                                            form#valvoja_status select {
+                                                                border: 1px solid #ddd;
+                                                                background: transparent;
+                                                                border-radius: 3px;
+                                                            }
+                                                            form#valvoja_status select.status_2 {
+                                                                border-left: 8px solid rgb(0 178 169 / var(--tw-border-opacity));
+                                                            }   
+                                                            form#valvoja_status select.status_3 {
+                                                                border-left: 8px solid rgb(6 249 183 / var(--tw-border-opacity));
+                                                            }
+                                                            form#valvoja_status select.status_1 {
+                                                                border-left: 8px solid #E1E1EA;
+                                                            }
+                                                            form#valvoja_status select.status_0 {
+                                                                border-left: 10px solid #f5f5f5;
+                                                            }
+                                                        </style>
+
+                                                            <!-- $status -->
 	                                                    </td>
 	                                                    <td class="px-4 py-3 border border-line">
 	                                                    	<?php if ( !empty($value['url']) ): 
@@ -146,10 +184,11 @@
 	                                                    	<?php endif ?>
 	                                                    </td>
 	                                                    <td class="px-4 py-3 border border-line">
-	                                                        <form action="#" method="post" id="step_comments">
+	                                                        <form action="#" method="post" id="step_comments" class="<?php echo esc_attr( empty($value['url']) ? 'not_form' : 'form' ); ?>">
+                                                                <input type="hidden" name="post_id" value="<?php echo esc_attr(get_the_ID()); ?>">
 	                                                        	<input type="hidden" name="tm" value="<?php echo esc_attr( $tm ); ?>">
 	                                                        	<input type="hidden" name="tmin" value="<?php echo esc_attr( $key ); ?>">
-	                                                            <input class="border border-accent w-full rounded-md" type="text" name="comments">
+	                                                            <input class="border border-accent w-full rounded-md" type="text" name="comments" value="<?php echo esc_attr( $value['comment'] ); ?>">
 	                                                        </form>
 	                                                    </td>
 	                                                </tr>                                            		

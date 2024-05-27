@@ -27,7 +27,7 @@ $project_id = get_the_ID();
                     
                     <!-- Card Body -->
                     <div class="px-4 md:px-8 pt-6 pb-10 lg:h-[645px] overflow-y-auto no-scrollbar scroll-smooth"> 
-                        <div class="max-w-[750px] mx-auto mt-10">
+                        <div class="max-w-[800px] mx-auto mt-10">
                             <span class="font-medium italic text-[#00B2A9] block"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K1', true ), 'K1') ); ?></span>
                             <span class="font-medium italic text-[#00B2A9] block"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K4', true ), 'K4') ); ?></span>
                             <div class="text-right">
@@ -36,7 +36,7 @@ $project_id = get_the_ID();
                         </div>
 
                         <div class="help_wrap my-10 relative">
-                            <div class="max-w-[750px] mx-auto">
+                            <div class="max-w-[800px] mx-auto">
                                 <div class="flex flex-col lg:flex-row lg:items-center gap-2">
                                     <input type="text" name="pilar_filed8_1" class="shadow-input max-w-[310px] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="Vuokralaismuutoksen kustannusarvio (alv. 0%)">
                                     <a href="#!" class="help_click">
@@ -54,25 +54,25 @@ $project_id = get_the_ID();
                                 </div>
                             </div>
                         
-                            <div class="help_show hidden text-[#586B74] text-[14px] lg:w-[240px] 2xl:w-[384px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:right-[10px] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-50px]">
+                            <div class="help_show hidden text-black text-[14px] lg:w-[240px] 2xl:w-[384px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:right-[10px] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-50px]">
                                 Minkä tyyppinen muutostyö on kyseessä
                             </div>
                         </div>
             
-                        <div class="max-w-[750px] mx-auto mb-5">
+                        <div class="max-w-[800px] mx-auto mb-5">
                             <h3 class="text-accent text-[17px] italic font-medium"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K4', true ), 'K4') ); ?></h3>
                         </div>
 
                         <div class="mb-3">
-                            <div class="max-w-[750px] mx-auto">
+                            <div class="max-w-[800px] mx-auto">
                                 <div class="flex flex-wrap mb-4">
-                                    <label class="flex-[3] mr-4 text-sm font-medium text-black">Tilan pinta-ala:</label>
-                                    <p class="flex-[3] text-sm text-black"> <span class="text-accent italic font-medium"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_M5', true ), 'M5') ); ?></span> m<sup>2</sup></p>
+                                    <label class="mr-4 text-sm font-medium text-black">Tilan pinta-ala:</label>
+                                    <p class="text-sm text-black"> <span class="text-accent italic font-medium mr-1"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_M5', true ), 'M5') ); ?></span> m<sup>2</sup></p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="max-w-[750px] mx-auto flex items-center gap-2 mb-10">
+                        <div class="max-w-[800px] mx-auto flex items-center gap-2 mb-10">
                         <table class="w-full whitespace-wrap border-collapse">
                             <thead class="text-left rounded-t-lg bg-accent text-white">
                                 <tr class="rounded-lg">
@@ -106,7 +106,7 @@ $project_id = get_the_ID();
                                                 </span>
                                                 <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_filed2_1">
                                             </label>
-                                            <input type="text" name="pilar_filed8_2" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Osa-alueet eriteltynä">
+                                            <input type="text" name="pilar_filed8_2" class="shadow-input w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Osa-alueet eriteltynä">
                                         </div>
                                     </td>
                                     <td class="px-4 py-3 border border-line text-sm">
@@ -123,15 +123,15 @@ $project_id = get_the_ID();
                                     </td>
                                     <td class="px-4 py-3 border border-line">
                                         <div class="flex items-center gap-3">
-                                            <input type="text" name="pilar_filed8_4" value="500" class="shadow-input w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
-                                            <label class="block text-[#586B74] w-24">
+                                            <input type="text" name="pilar_filed8_4" value="500" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
+                                            <label class="block text-black w-24">
                                                 € / kpl
                                             </label>
                                             
                                         </div>
                                     </td>
-                                    <td class="px-4 py-3 border border-line">
-                                        <label class="inline-flex items-center gap-2 text-[#586B74]">2 500 € </label>
+                                    <td class="px-4 py-3 border border-line text-right">
+                                        <label class="inline-flex items-center gap-2 text-black">2 500 € </label>
                                     </td>
 
                                     <td class="px-4 py-3 border border-line"></td>
@@ -151,7 +151,7 @@ $project_id = get_the_ID();
                                                 </span>
                                                 <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_filed2_2">
                                             </label>
-                                            <input type="text" name="pilar_filed8_5" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Osa-alueet eriteltynä">
+                                            <input type="text" name="pilar_filed8_5" class="shadow-input w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Osa-alueet eriteltynä">
                                         </div>
                                     </td>
                                     <td class="px-4 py-3 border border-line text-sm">
@@ -169,14 +169,14 @@ $project_id = get_the_ID();
                                     <td class="px-4 py-3 border border-line">
                                         <div class="flex items-center gap-3">
                                             <input type="text" name="pilar_filed8_7" value="500" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
-                                            <label class="block text-[#586B74] w-24">
+                                            <label class="block text-black w-24">
                                                 € / kpl
                                             </label>
                                             
                                         </div>
                                     </td>
-                                    <td class="px-4 py-3 border border-line">
-                                        <label class="inline-flex items-center gap-2 cursor-pointer text-[#586B74]">2 500 € </label>
+                                    <td class="px-4 py-3 border border-line text-right">
+                                        <label class="inline-flex items-center gap-2 cursor-pointer text-black">2 500 € </label>
                                     </td>
 
                                     <td class="px-4 py-3 border border-line">
@@ -197,7 +197,7 @@ $project_id = get_the_ID();
                                                 </span>
                                                 <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_filed2_3">
                                             </label>
-                                            <input type="text" name="pilar_filed8_7" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Osa-alueet eriteltynä">
+                                            <input type="text" name="pilar_filed8_7" class="shadow-input w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Osa-alueet eriteltynä">
                                         </div>
                                     </td>
                                     <td class="px-4 py-3 border border-line text-sm">
@@ -215,14 +215,14 @@ $project_id = get_the_ID();
                                     <td class="px-4 py-3 border border-line">
                                         <div class="flex items-center gap-3">
                                             <input type="text" name="pilar_filed8_9" value="500" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
-                                            <label class="block text-[#586B74] w-24">
+                                            <label class="block text-black w-24">
                                                 € / kpl
                                             </label>
                                             
                                         </div>
                                     </td>
-                                    <td class="px-4 py-3 border border-line">
-                                        <label class="inline-flex items-center gap-2 cursor-pointer text-[#586B74]">2 500 € </label>
+                                    <td class="px-4 py-3 border border-line text-right">
+                                        <label class="inline-flex items-center gap-2 cursor-pointer text-black">2 500 € </label>
                                     </td>
 
                                     <td class="px-4 py-3 border border-line">
@@ -231,7 +231,7 @@ $project_id = get_the_ID();
                                 <tr>
                                     <td colspan="4" class="px-4 py-3 border border-line">
                                     </td>
-                                    <td class="px-4 py-3 border border-line font-bold">
+                                    <td class="px-4 py-3 border border-line">
                                         7 500 €
                                     </td>
                                     <td class="py-2 px-3">
@@ -247,7 +247,7 @@ $project_id = get_the_ID();
                                                     </g>
                                                 </svg> </a>
                                         
-                                            <div class="help_show text-[#586B74] text-[14px] lg:w-[170px] 2xl:w-[260px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:ml-[5px] lg:left-[100%] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-42px] whitespace-normal hidden">
+                                            <div class="help_show text-black text-[14px] lg:w-[170px] 2xl:w-[260px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:ml-[5px] lg:left-[100%] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-42px] whitespace-normal hidden">
                                                 <hr class="inline-block absolute right-[100%] top-[31px] w-[7px] border border-solid border-[#E1E1EA]">
                                                 <span>
                                                     Syötä kustannus myös esitietolomakkeelle ko. sarakkeeseen syöte2
@@ -264,7 +264,7 @@ $project_id = get_the_ID();
                                 <!-- 2nd Body -->
                                 <tr>
                                     <td colspan="5" class="px-4 py-3 border border-line">
-                                        <h4 class="text-normal italic text-accent"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_TY2', true ), 'TY2') ); ?></h4>
+                                        <h4 class="text-normal italic text-accent"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_TY2', true ), 'TY2') ); ?>...</h4>
                                     </td>
                                 </tr>
                                 <tr>
@@ -282,7 +282,7 @@ $project_id = get_the_ID();
                                                 </span>
                                                 <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_filed2_3">
                                             </label>
-                                            <input type="text" name="pilar_filed8_10" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Osa-alueet eriteltynä">
+                                            <input type="text" name="pilar_filed8_10" class="shadow-input w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Osa-alueet eriteltynä">
                                         </div>
                                     </td>
                                     <td class="px-4 py-3 border border-line text-sm" id="project_table_status">
@@ -300,14 +300,14 @@ $project_id = get_the_ID();
                                     <td class="px-4 py-3 border border-line">
                                         <div class="flex items-center gap-3">
                                             <input type="text" name="pilar_filed8_12" value="500" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
-                                            <label class="block text-[#586B74] w-24">
+                                            <label class="block text-black w-24">
                                                 € / kpl
                                             </label>
                                 
                                         </div>
                                     </td>
-                                    <td class="px-4 py-3 border border-line">
-                                        <label class="inline-flex items-center gap-2 cursor-pointer text-[#586B74]">2 500 € </label>
+                                    <td class="px-4 py-3 border border-line text-right">
+                                        <label class="inline-flex items-center gap-2 cursor-pointer text-black">2 500 € </label>
                                     </td>
                                 
                                     <td class="px-4 py-3 border border-line">
@@ -328,7 +328,7 @@ $project_id = get_the_ID();
                                                 </span>
                                                 <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_filed2_5">
                                             </label>
-                                            <input type="text" name="pilar_filed8_13" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Osa-alueet eriteltynä">
+                                            <input type="text" name="pilar_filed8_13" class="shadow-input w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Osa-alueet eriteltynä">
                                         </div>
                                     </td>
                                     <td class="px-4 py-3 border border-line text-sm" id="project_table_status">
@@ -346,14 +346,14 @@ $project_id = get_the_ID();
                                     <td class="px-4 py-3 border border-line">
                                         <div class="flex items-center gap-3">
                                             <input type="text" name="pilar_filed8_15" value="500" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
-                                            <label class="block text-[#586B74] w-24">
+                                            <label class="block text-black w-24">
                                                 € / kpl
                                             </label>
                                 
                                         </div>
                                     </td>
-                                    <td class="px-4 py-3 border border-line">
-                                        <label class="inline-flex items-center gap-2 cursor-pointer text-[#586B74]">2 500 € </label>
+                                    <td class="px-4 py-3 border border-line text-right">
+                                        <label class="inline-flex items-center gap-2 cursor-pointer text-black">2 500 € </label>
                                     </td>
                                 
                                     <td class="px-4 py-3 border border-line">
@@ -364,7 +364,7 @@ $project_id = get_the_ID();
                                     <td colspan="4" class="px-4 py-3 border border-line">
                                     </td>
                                 
-                                    <td class="px-4 py-3 border border-line font-bold">
+                                    <td class="px-4 py-3 border border-line">
                                         7 500 €
                                     </td>
 
@@ -383,7 +383,7 @@ $project_id = get_the_ID();
                                                 </svg> 
                                             </a>
                                     
-                                            <div class="help_show text-[#586B74] text-[14px] lg:w-[170px] 2xl:w-[260px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:ml-[5px] lg:left-[100%] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-42px] whitespace-normal hidden">
+                                            <div class="help_show text-black text-[14px] lg:w-[170px] 2xl:w-[260px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:ml-[5px] lg:left-[100%] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-42px] whitespace-normal hidden">
                                                 <hr class="inline-block absolute right-[100%] top-[31px] w-[7px] border border-solid border-[#E1E1EA]">
                                                 <span class="flex flex-wrap">
                                                     Syötä kustannus myös esitietolomakkeelle ko. sarakkeeseen syöte2
@@ -434,7 +434,7 @@ $project_id = get_the_ID();
                                                 </span>
                                                 <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_filed2_6">
                                             </label>
-                                            <input type="text" name="pilar_filed8_16" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Osa-alueet eriteltynä">
+                                            <input type="text" name="pilar_filed8_16" class="shadow-input w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Osa-alueet eriteltynä">
                                         </div>
                                     </td>
                                     <td class="px-4 py-3 border border-line text-sm">
@@ -452,14 +452,14 @@ $project_id = get_the_ID();
                                     <td class="px-4 py-3 border border-line">
                                         <div class="flex items-center gap-3">
                                             <input type="text" name="pilar_filed8_18" value="80" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
-                                            <label class="block text-[#586B74] w-24">
+                                            <label class="block text-black w-24">
                                                 € / kpl
                                             </label>
                                 
                                         </div>
                                     </td>
-                                    <td class="px-4 py-3 border border-line">
-                                        <label class="inline-flex items-center gap-2 cursor-pointer text-[#586B74]">2 500 € </label>
+                                    <td class="px-4 py-3 border border-line text-right">
+                                        <label class="inline-flex items-center gap-2 cursor-pointer text-black">2 500 € </label>
                                     </td>
                                 
                                     <td class="px-4 py-3 border border-line">
@@ -480,7 +480,7 @@ $project_id = get_the_ID();
                                                 </span>
                                                 <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_filed2_7">
                                             </label>
-                                            <input type="text" name="pilar_filed8_19" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Osa-alueet eriteltynä">
+                                            <input type="text" name="pilar_filed8_19" class="shadow-input w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Osa-alueet eriteltynä">
                                         </div>
                                     </td>
                                     <td class="px-4 py-3 border border-line text-sm">
@@ -498,14 +498,14 @@ $project_id = get_the_ID();
                                     <td class="px-4 py-3 border border-line">
                                         <div class="flex items-center gap-3">
                                             <input type="text" name="pilar_filed8_21" value="500" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
-                                            <label class="block text-[#586B74] w-24">
+                                            <label class="block text-black w-24">
                                                 € / kpl
                                             </label>
                                 
                                         </div>
                                     </td>
-                                    <td class="px-4 py-3 border border-line">
-                                        <label class="inline-flex items-center gap-2 cursor-pointer text-[#586B74]">2 500 € </label>
+                                    <td class="px-4 py-3 border border-line text-right">
+                                        <label class="inline-flex items-center gap-2 cursor-pointer text-black">2 500 € </label>
                                     </td>
                                 
                                     <td class="px-4 py-3 border border-line">
@@ -516,7 +516,7 @@ $project_id = get_the_ID();
                                     <td colspan="4" class="px-4 py-3 border border-line">
                                     </td>
                                 
-                                    <td class="px-4 py-3 border border-line font-bold">
+                                    <td class="px-4 py-3 border border-line">
                                         7 500 €
                                     </td>
 
@@ -535,7 +535,7 @@ $project_id = get_the_ID();
                                                 </svg>
                                             </a>
                                     
-                                            <div class="help_show text-[#586B74] text-[14px] lg:w-[170px] 2xl:w-[260px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:ml-[5px] lg:left-[100%] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-42px] whitespace-normal hidden">
+                                            <div class="help_show text-black text-[14px] lg:w-[170px] 2xl:w-[260px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:ml-[5px] lg:left-[100%] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-42px] whitespace-normal hidden">
                                                 <hr class="inline-block absolute right-[100%] top-[31px] w-[7px] border border-solid border-[#E1E1EA]">
                                                 <span class="flex flex-wrap">
                                                     Syötä kustannus myös esitietolomakkeelle ko. sarakkeeseen syöte2
@@ -558,7 +558,7 @@ $project_id = get_the_ID();
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-3 border border-line whitespace-wrap">
-                                        <label class="text-[#586B74] text-[14px]">
+                                        <label class="text-black text-[14px]">
                                         89-Kustannukset (työnjohto, siivous, kuljetukset ym.)
                                         </label>
                                     </td>
@@ -566,21 +566,13 @@ $project_id = get_the_ID();
                                         <div class="flex items-center border border-solid border-accent shadow-input rounded-lg">
                                             <input type="text" name="pilar_filed8_26" class="w-[100%] rounded-[5px] p-2 rounded-l-lg text-right" value="12">
                                         </div>
-                                        <label class="inline-flex items-center gap-2 cursor-pointer text-[#586B74]">
+                                        <label class="inline-flex items-center gap-2 cursor-pointer text-black">
                                             %
                                         </label>
                                     </td>
-                                    <td class="px-4 py-3">
-                                        <div class="flex items-center gap-3">
-                                            <input type="text" name="pilar_filed8_24" value="500" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
-                                            <label class="block text-[#586B74] w-24">
-                                                € / kpl
-                                            </label>
-                                            
-                                        </div>
-                                    </td>
-                                    <td class="px-4 py-3 border border-line">
-                                        <label class="inline-flex items-center gap-2 cursor-pointer text-[#586B74]">2 500 € </label>
+                                    <td class="px-4 py-3"></td>
+                                    <td class="px-4 py-3 border border-line text-right">
+                                        <label class="inline-flex items-center gap-2 cursor-pointer text-black">2 500 € </label>
                                     </td>
                                 
                                     <td class="px-4 py-3 border border-line">
@@ -600,7 +592,7 @@ $project_id = get_the_ID();
                                                 </svg>
                                             </a>
                                     
-                                            <div class="help_show text-[#586B74] text-[14px] lg:w-[170px] 2xl:w-[260px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:ml-[5px] lg:left-[100%] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-42px] whitespace-normal hidden">
+                                            <div class="help_show text-black text-[14px] lg:w-[170px] 2xl:w-[260px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:ml-[5px] lg:left-[100%] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-42px] whitespace-normal hidden">
                                                 <hr class="inline-block absolute right-[100%] top-[31px] w-[7px] border border-solid border-[#E1E1EA]">
                                                 <span class="flex flex-wrap">
                                                 Tyypillisesti 12%
@@ -611,7 +603,7 @@ $project_id = get_the_ID();
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-3 border border-line">
-                                        <label class="text-[#586B74] text-[14px]">
+                                        <label class="text-black text-[14px]">
                                             Urakoitsijan kate
                                         </label>
                                     </td>
@@ -619,21 +611,13 @@ $project_id = get_the_ID();
                                         <div class="flex items-center border border-solid border-accent shadow-input rounded-lg">
                                             <input type="text" name="pilar_filed8_26" class="w-[100%] rounded-[5px] p-2 rounded-l-lg text-right" value="12">
                                         </div>
-                                        <label class="inline-flex items-center gap-2 cursor-pointer text-[#586B74]">
+                                        <label class="inline-flex items-center gap-2 cursor-pointer text-black">
                                             %
                                         </label>
                                     </td>
-                                    <td class="px-4 py-3 border border-line">
-                                        <div class="flex items-center gap-3">
-                                            <input type="text" name="pilar_filed8_27" value="500" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
-                                            <label class="block text-[#586B74] w-24">
-                                                € / kpl
-                                            </label>
-                                
-                                        </div>
-                                    </td>
-                                    <td class="px-4 py-3 border border-line">
-                                        <label class="inline-flex items-center gap-2 cursor-pointer text-[#586B74]">2 500 € </label>
+                                    <td class="px-4 py-3 border border-line"></td>
+                                    <td class="px-4 py-3 border border-line text-right">
+                                        <label class="inline-flex items-center gap-2 cursor-pointer text-black">2 500 € </label>
                                     </td>
                                 
                                     <td class="px-4 py-3 border border-line">
@@ -654,7 +638,7 @@ $project_id = get_the_ID();
                                                 </svg>
                                             </a>
                                     
-                                            <div class="help_show text-[#586B74] text-[14px] lg:w-[170px] 2xl:w-[260px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:ml-[5px] lg:left-[100%] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-42px] whitespace-normal hidden">
+                                            <div class="help_show text-black text-[14px] lg:w-[170px] 2xl:w-[260px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:ml-[5px] lg:left-[100%] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-42px] whitespace-normal hidden">
                                                 <hr class="inline-block absolute right-[100%] top-[31px] w-[7px] border border-solid border-[#E1E1EA]">
                                                 <span class="flex flex-wrap">
                                                     Tyypillisesti 12%
@@ -663,12 +647,22 @@ $project_id = get_the_ID();
                                         </div>
                                     </td>
                                 </tr>
+
+                                <tr>
+                                    <td colspan="3" class="px-4 py-3 border border-line">
+                                    </td>
+                                
+                                    <td class="px-4 py-3 border border-line text-right">
+                                        7 440 €
+                                    </td>
+                                    <td class="px-4 py-3 border border-line"></td>
+                                </tr>
                                 
                                 <tr>
                                     <td colspan="4" class="px-4 py-3 border border-line">
                                     </td>
                                 
-                                    <td class="px-4 py-3 border border-line font-bold">
+                                    <td class="px-4 py-3 border border-line">
                                         7 500 €
                                     </td>
 
@@ -687,7 +681,7 @@ $project_id = get_the_ID();
                                                 </svg>
                                             </a>
                                     
-                                            <div class="help_show text-[#586B74] text-[14px] lg:w-[170px] 2xl:w-[260px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:ml-[5px] lg:left-[100%] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-42px] whitespace-normal hidden">
+                                            <div class="help_show text-black text-[14px] lg:w-[170px] 2xl:w-[260px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:ml-[5px] lg:left-[100%] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-42px] whitespace-normal hidden">
                                                 <hr class="inline-block absolute right-[100%] top-[31px] w-[7px] border border-solid border-[#E1E1EA]">
                                                 <span class="flex flex-wrap">
                                                     Syötä kustannus myös esitietolomakkeelle ko. sarakkeeseen syöte2
@@ -696,6 +690,12 @@ $project_id = get_the_ID();
                                         </div>
                                     </td>
                                 </tr>
+
+                                <!-- devider -->
+                                <tr>
+                                    <td colspan="5" class="p-2 border border-line"></td>
+                                </tr>
+                                <!-- devider -->
 
                                 <!-- 5th Body -->
                                 
@@ -728,14 +728,14 @@ $project_id = get_the_ID();
                                     <td class="px-4 py-3 border border-line">
                                         <div class="flex items-center gap-3">
                                             <input type="text" name="pilar_filed8_29" value="500" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
-                                            <label class="block text-[#586B74] w-24">
-                                                € / kpl
+                                            <label class="block text-black w-24">
+                                                € / h
                                             </label>
                                 
                                         </div>
                                     </td>
-                                    <td class="px-4 py-3 border border-line">
-                                        <label class="inline-flex items-center gap-2 cursor-pointer text-[#586B74]">2 500 € </label>
+                                    <td class="px-4 py-3 border border-line text-right">
+                                        <label class="inline-flex items-center gap-2 cursor-pointer text-black">2 500 € </label>
                                     </td>
                                     <td class="px-4 py-3 border border-line"></td>
                                     <td class="py-2 px-3 help_wrap">
@@ -753,7 +753,7 @@ $project_id = get_the_ID();
                                                 </svg>
                                             </a>
                                     
-                                            <div class="help_show text-[#586B74] text-[14px] lg:w-[170px] 2xl:w-[260px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:ml-[5px] lg:left-[100%] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-42px] whitespace-normal hidden">
+                                            <div class="help_show text-black text-[14px] lg:w-[170px] 2xl:w-[260px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:ml-[5px] lg:left-[100%] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-42px] whitespace-normal hidden">
                                                 <hr class="inline-block absolute right-[100%] top-[31px] w-[7px] border border-solid border-[#E1E1EA]">
                                                 <span class="flex flex-wrap">
                                                     Syötä kustannus myös esitietolomakkeelle kohtaan BU3, huomioi, että tämä ei ole Nosteen sitova tarjous ja sisältää mahdollisesti muita konsulttikuluja. Mikäli tämä on hankala arvioida, voi käyttää esim 8-12 % koko urakkahinnasta.
@@ -779,14 +779,14 @@ $project_id = get_the_ID();
                                     <td class="px-4 py-3 border border-line">
                                         <div class="flex items-center gap-3">
                                             <input type="text" name="pilar_filed8_30" value="500" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
-                                            <label class="block text-[#586B74] w-24">
+                                            <label class="block text-black w-24">
                                                 € / kpl
                                             </label>
                                 
                                         </div>
                                     </td>
-                                    <td class="px-4 py-3 border border-line">
-                                        <label class="inline-flex items-center gap-2 cursor-pointer text-[#586B74]">2 500 € </label>
+                                    <td class="px-4 py-3 border border-line text-right">
+                                        <label class="inline-flex items-center gap-2 cursor-pointer text-black">2 500 € </label>
                                     </td>
                                     <td class="px-4 py-3 border border-line"></td>
                                     <td class="py-2 px-3">
@@ -804,7 +804,7 @@ $project_id = get_the_ID();
                                                 </svg>
                                             </a>
                                     
-                                            <div class="help_show text-[#586B74] text-[14px] lg:w-[170px] 2xl:w-[260px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:ml-[5px] lg:left-[100%] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-42px] whitespace-normal hidden">
+                                            <div class="help_show text-black text-[14px] lg:w-[170px] 2xl:w-[260px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:ml-[5px] lg:left-[100%] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-42px] whitespace-normal hidden">
                                                 <hr class="inline-block absolute right-[100%] top-[31px] w-[7px] border border-solid border-[#E1E1EA]">
                                                 <span class="flex flex-wrap">
                                                     Syötä kustannus myös esitietolomakkeelle kohtaan BU4. Huom! Sisältää myös erikoissuunnittelun konsultoinnin kustannukset jos tarpeen.
@@ -831,14 +831,14 @@ $project_id = get_the_ID();
                                     <td class="px-4 py-3 border border-line">
                                         <div class="flex items-center gap-3">
                                             <input type="text" name="pilar_filed8_32" value="500" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
-                                            <label class="block text-[#586B74] w-24">
+                                            <label class="block text-black w-24">
                                                 € / kpl
                                             </label>
                                 
                                         </div>
                                     </td>
-                                    <td class="px-4 py-3 border border-line">
-                                        <label class="inline-flex items-center gap-2 cursor-pointer text-[#586B74]">2 500 € </label>
+                                    <td class="px-4 py-3 border border-line text-right">
+                                        <label class="inline-flex items-center gap-2 cursor-pointer text-black">2 500 € </label>
                                     </td>
                                     <td class="px-4 py-3 border border-line"></td>
                                     <td class="py-2 px-3">
@@ -856,7 +856,7 @@ $project_id = get_the_ID();
                                                 </svg>
                                             </a>
                                     
-                                            <div class="help_show text-[#586B74] text-[14px] lg:w-[170px] 2xl:w-[260px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:ml-[5px] lg:left-[100%] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-42px] whitespace-normal hidden">
+                                            <div class="help_show text-black text-[14px] lg:w-[170px] 2xl:w-[260px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:ml-[5px] lg:left-[100%] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-42px] whitespace-normal hidden">
                                                 <hr class="inline-block absolute right-[100%] top-[31px] w-[7px] border border-solid border-[#E1E1EA]">
                                                 <span class="flex flex-wrap">
                                                     Syötä kustannus myös esitietolomakkeelle kohtaan BU6. Sisältää esimerkiksi asbestikartoituksen, projektipankin tai piirustuskopiotilauksen kustannukset.
@@ -878,15 +878,15 @@ $project_id = get_the_ID();
                                     </td>
                                     <td class="px-4 py-3 border border-line">
                                         <div class="flex items-center gap-3">
-                                            <input type="text" name="pilar_filed8_34" value="500" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
-                                            <label class="block text-[#586B74] w-24">
+                                            <input type="text" name="pilar_filed8_34" value="500" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
+                                            <label class="block text-black w-24">
                                                 € / kpl
                                             </label>
                                 
                                         </div>
                                     </td>
-                                    <td class="px-4 py-3 border border-line">
-                                        <label class="inline-flex items-center gap-2 cursor-pointer text-[#586B74]">2 500 € </label>
+                                    <td class="px-4 py-3 border border-line text-right">
+                                        <label class="inline-flex items-center gap-2 cursor-pointer text-black">2 500 € </label>
                                     </td>
                                     <td class="px-4 py-3 border border-line"></td>
                                     <td class="py-2 px-3">
@@ -904,7 +904,7 @@ $project_id = get_the_ID();
                                                 </svg>
                                             </a>
                                     
-                                            <div class="help_show text-[#586B74] text-[14px] lg:w-[170px] 2xl:w-[260px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:ml-[5px] lg:left-[100%] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-42px] whitespace-normal hidden">
+                                            <div class="help_show text-black text-[14px] lg:w-[170px] 2xl:w-[260px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:ml-[5px] lg:left-[100%] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-42px] whitespace-normal hidden">
                                                 <hr class="inline-block absolute right-[100%] top-[31px] w-[7px] border border-solid border-[#E1E1EA]">
                                                 <span class="flex flex-wrap">
                                                     Tyypillisesti maksimissaan 10%, Syötä kustannus myös esitietolomakkeelle kohtaan BU5
@@ -937,13 +937,13 @@ $project_id = get_the_ID();
 
 
                     <div class="help_wrap mb-8 relative">
-                        <div class="max-w-[750px] mx-auto flex items-center gap-2">
+                        <div class="max-w-[800px] mx-auto flex items-center gap-2">
                             <div class="w-full border border-line">
                                 <div class="bg-accent px-4 py-3">
                                     <span class="text-sm text-white">Huomiot</span>
                                 </div>
                                 <div class="p-4">
-                                    <textarea class="shadow-input text-sm border-accent rounded-md text-[#586B74] order-3 w-full" rows="4"></textarea>
+                                    <textarea class="shadow-input text-sm border-accent rounded-md text-black order-3 w-full" rows="4"></textarea>
                                 </div>
                             </div>
                     
@@ -962,7 +962,7 @@ $project_id = get_the_ID();
                         </div>
                     
 
-                        <div class="help_show hidden text-[#586B74] text-[14px] lg:w-[170px] 2xl:w-[260px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:right-[10px] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-122px]">
+                        <div class="help_show hidden text-black text-[14px] lg:w-[170px] 2xl:w-[260px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:right-[10px] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-122px]">
                             <hr class="inline-block absolute right-[100%] top-[31px] w-[50px] border border-solid border-[#E1E1EA]">
                             <span>
                                 Esimerkiksi minkä hintaa ei voida järkevästi arvioida ja on siksi jätetty pois kustannusarviosta. <br><br>
@@ -973,13 +973,13 @@ $project_id = get_the_ID();
                     </div>
                     
                     <div class="help_wrap mb-4 relative">
-                        <div class="max-w-[750px] mx-auto flex items-center gap-2">
+                        <div class="max-w-[800px] mx-auto flex items-center gap-2">
                             <div class="w-full border border-line">
                                 <div class="bg-accent px-4 py-3">
-                                    <span class="text-sm text-white">Rakennustyöt yhteensä</span>
+                                    <span class="text-sm text-white">Käytössä olleet lähtötiedot</span>
                                 </div>
                                 <div class="p-4">
-                                    <textarea class="shadow-input text-sm border-accent rounded-md text-[#586B74] order-3 w-full" name="general_situation" rows="4"></textarea>
+                                    <textarea class="shadow-input text-sm border-accent rounded-md text-black order-3 w-full" name="general_situation" rows="4"></textarea>
                                 </div>
                             </div>
                     
@@ -997,7 +997,7 @@ $project_id = get_the_ID();
                     
                         </div>
                     
-                        <div class="help_show hidden text-[#586B74] text-[14px] lg:w-[170px] 2xl:w-[260px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:right-[10px] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-122px]">
+                        <div class="help_show hidden text-black text-[14px] lg:w-[170px] 2xl:w-[260px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:right-[10px] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-122px]">
                             <hr class="inline-block absolute right-[100%] top-[31px] w-[50px] border border-solid border-[#E1E1EA]">
                             <span>
                                 Esim. Tilasuunnitelma jne.

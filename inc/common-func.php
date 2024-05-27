@@ -11,6 +11,9 @@ add_action( 'wp_ajax_update_manager_project_status', 'update_manager_project_sta
 add_filter('acf/load_field/name=projektipaallikko', 'noste_project_projektipaallikko');
 add_filter('acf/load_field/name=valvoja', 'noste_project_valvoja');
 
+add_action( 'wp_ajax_update_comment_box', 'update_comment_box' );
+add_action( 'wp_ajax_update_valvoja_step_status', 'update_valvoja_step_status' );
+
 function GetIconsMarkup($url, $width = '20px', $class = 'iconsmarkup') {
 
 	if ( empty($url) ) {
@@ -86,6 +89,15 @@ function noste_check_empty($value, $default = '') {
 	return $value;
 }
 
+function noste_check_empty_2($project_id, $key_code) {
+	$meta = get_post_meta( $project_id, 'pilar_' . $key_code, true );
+    if ( !isset($meta) || empty($meta) ) {
+		echo esc_html($key_code);
+	} else {
+        echo $meta;
+    }
+}
+
 function noste_checked_with_json($checked = '', $current = '' ){
 
 	if ( !isset($checked) || empty($checked) || strlen($checked) < 3 ) {
@@ -119,8 +131,35 @@ function noste_checked_with_array($checked = [], $current = '' ){
 	return;
 
 }
+function noste_is_checked($stored, $current, $echo = true) {
+    $stored = (array) $stored;
+    if ( in_array($current, $stored) ) {
+        if ($echo) {
+            echo 'checked';
+        } else {
+            return 'checked';
+        }
+    }
+    return;
+}
 
-
+/** <?php noste_checkbox_attrset('pilar_TY1', $data); ?> */
+function noste_checkbox_attrset($value, $data) {
+	$dataset = isset($data['noste_check'])?(array) $data['noste_check']:(array) $data;
+	echo sprintf(
+		'name="noste_check[]" value="%s" %s',
+		esc_attr($value),
+		in_array($value, (array) $dataset)?'checked':''
+	);
+}
+/** <?php noste_textinput_attrset('pilar_TY1', $data, ''); ?> */
+function noste_textinput_attrset($name, $data, $default = '') {
+	echo sprintf(
+		'name="%s" value="%s"',
+		esc_attr($name),
+		esc_attr(isset($data[$name])?$data[$name]:$default)
+	);
+}
 
 
 function noste_custom_logo_url () {
@@ -234,7 +273,7 @@ function noste_project_status_change(){
 	 $projects = get_posts( $args );
 
 	 if ( empty($projects) ) {
-		$error = new WP_Error( '001', 'Not Found!!!' );
+		$error = new WP_Error( '001', 'Ei tuloksia!!!' );
 		wp_send_json_error( $error );		 	
 	 }
 
@@ -283,13 +322,13 @@ function noste_header_middle() {
 	        <li class="flex item-center justify-center" data-status="Aktiivinen">
 	            <button class="tab_list_btn flex flex-wrap gap-x-2 px-3 py-1 rounded-3xl">
 	            	<?php echo noste_check_empty ( GetIconsMarkup( 'aktiivinien.svg' ) ); ?> 
-	                Aktiivinien
+	                Aktiiviset
 	            </button>
 	        </li>
 	        <li class="flex item-center justify-center" data-status="Arkistoitu">
 	            <button class="tab_list_btn flex flex-wrap gap-x-2 px-3 py-1 rounded-3xl">
 	            	<?php echo noste_check_empty ( GetIconsMarkup( 'arkistoitu.svg' ) ); ?> 
-	                Arkistoitu
+	                Arkistoidut
 	            </button>
 	        </li>
 	    </ul> <!-- tab_box -->
@@ -357,20 +396,26 @@ function noste_header_notification(){
 						'pid' => get_the_ID()
 					], get_permalink( 64 ) );
 
+			$projektiraportti_url = add_query_arg([
+						'pid' => get_the_ID()
+					], get_permalink( 121 ) );
 
 		}
 
 		 ?>
-	        <a href="<?php echo esc_attr( $esitietolomake_url ); ?>" class="hidden sm:block hover:bg-[#FAFAFB] focus:bg-[#FAFAFB] rounded p-2">
-				<?php echo noste_check_empty ( GetIconsMarkup( 'global-1.svg' ) ); ?>         
+	        <a href="<?php echo esc_attr( $esitietolomake_url ); ?>" class="hidden sm:block hover:bg-[#FAFAFB] focus:bg-[#FAFAFB] rounded p-2 relative tooltip">
+				<?php echo noste_check_empty ( GetIconsMarkup( 'global-1.svg' ) ); ?>
+				<span class="tooltiptext">Esitietolomake</span>
 	        </a>
 	        
-	        <a href="<?php echo esc_attr( $kustannusseuranta_url ); ?>" class="hidden sm:block hover:bg-[#FAFAFB] focus:bg-[#FAFAFB] rounded p-2">
+	        <a href="<?php echo esc_attr( $kustannusseuranta_url ); ?>" class="hidden sm:block hover:bg-[#FAFAFB] focus:bg-[#FAFAFB] rounded p-2 relative tooltip">
 				<?php echo noste_check_empty ( GetIconsMarkup( 'global-2.svg' ) ); ?>
+				<span class="tooltiptext">Kustannusseuranta</span>
 	        </a>
 	        
-	        <a href="#!" class="hidden sm:block hover:bg-[#FAFAFB] focus:bg-[#FAFAFB] rounded p-2">
+	        <a href="<?php echo esc_attr( $projektiraportti_url ); ?>" class="hidden sm:block hover:bg-[#FAFAFB] focus:bg-[#FAFAFB] rounded p-2 relative tooltip">
 				<?php echo noste_check_empty ( GetIconsMarkup( 'global-3.svg' ) ); ?>
+				<span class="tooltiptext">Projektiraportti 31 pv</span>
 	        </a>	
 		<?php 
 	endif;
@@ -532,44 +577,6 @@ function noste_esitietolomake_form(){
 }
 
 
-// function noste_update_project_step() {
-// 	check_ajax_referer( 'project_step_form_validation', 'project_step_form__nonce_field' );
-
-// 	if ( empty($_POST['ptname']) ) {
-// 		$error = new WP_Error( '001', 'PT NAME ISSUE' );
-// 		wp_send_json_error( $error );
-// 	}
-
-// 	if ( empty($_POST['post_id']) ) {
-// 		$error = new WP_Error( '002', 'Invalid Project' );
-// 		wp_send_json_error( $error );
-// 	}
-
-// 	$field_key = $_POST['ptname'];
-// 	$post_id = $_POST['post_id'];
-
-// 	unset($_POST['ptname']);
-// 	unset($_POST['action']);
-// 	unset($_POST['project_step_form__nonce_field']);
-// 	unset($_POST['_wp_http_referer']);
-
-// 	$data = serialize($_POST);
-
-// 	if ( empty($data) ) {
-// 		$error = new WP_Error( '001', 'Conent Data issue' );
-// 		wp_send_json_error( $error );		
-// 	}
-
-// 	$updated = update_post_meta( $post_id, $field_key, $data );
-
-// 	if ( $updated ) {
-// 		wp_send_json_success($_POST, 200);
-// 	}
-
-// 	wp_die();	
-// }
-
-
 function recursive_sanitize_text_field( $array ) {
 
     foreach ($array as $key => & $value ) {
@@ -588,9 +595,7 @@ function recursive_sanitize_text_field( $array ) {
 
 function noste_update_project_step() {
 	check_ajax_referer( 'project_step_form_validation', 'project_step_form__nonce_field' );
-	$response = (object) ['template' => false, 'submission' => []];
-
-	error_log('before sanitize : ' . print_r($_POST, true));
+	$response = (object) ['template' => false, 'submission' => [], 'global_keywords' => []];
 
 	if ( empty($_POST['ptname']) ) {
 		$error = new WP_Error( '001', 'PT NAME ISSUE' );
@@ -636,9 +641,7 @@ function noste_update_project_step() {
 	foreach ($global_data as $k => $v) {
 		$_POST[$k] = get_post_meta( $post_id, $k, true );			
 	}
-
-
-/* Preview Template */
+    /* Preview Template */
 	$ref_queries = (array) json_decode( preg_replace( '/[\x00-\x1F\x80-\xFF]/', '', stripslashes(html_entity_decode(isset($_POST['ref_queries'] ) ? $_POST['ref_queries'] : '{}' ) ) ), true);
 
 	$step_id = $ref_queries['tm'] ?? false;
@@ -648,6 +651,9 @@ function noste_update_project_step() {
 
 	$template = implode('/', (array) [$step_id, $form_id]);
 	$template_path = get_template_directory() . '/template-preview/' . $template . '.twig';
+
+	$template_dir = get_template_directory() . '/template-preview/'. $step_id;
+	if (!is_dir($template_dir)) {mkdir($template_dir, 0777, true);}
 	
 	if (!file_exists($template_path)) {
 		$myfile = fopen($template_path, "w+") or die("Unable to open file!");
@@ -674,7 +680,7 @@ function noste_update_project_step() {
 	} else {
 		$response->template = get_template_directory_uri() . '/template-preview/blank.twig';
 	}
-/* Preview Template */
+    /* Preview Template */
 
 	foreach ($global_data as $k => $v) {
 		unset($_POST[$k]);			
@@ -687,7 +693,6 @@ function noste_update_project_step() {
 		wp_send_json_error( $error );		
 	}
 
-	error_log('after sanitize : ' . print_r($_POST, true));
 	
 	$updated = update_post_meta( $post_id, $field_key, $data );
 
@@ -731,6 +736,21 @@ function noste_update_project_step() {
 	update_post_meta( $post_id, sprintf('%s_status', $step_id), json_encode( $project_tmin_status ) );
 	
 	/* Step Status */
+
+
+	/** Last Updated Step **/
+	$single_main_step = json_decode( get_option( 'single_main_steps'), true ) ?? [];
+
+	if ( !empty($single_main_step) ) {
+    	foreach ($single_main_step as $step_top => $value): 
+    		if ( isset($ref_queries['tm']) && !empty($ref_queries['tm']) && array_key_exists($ref_queries['tm'], $value)  ) {
+    			update_post_meta( $post_id, 'last_updated_step', $step_top );
+    		}
+    	endforeach;
+	}
+
+	/** End Last Updated Step **/
+
 
 		// preview_template_response
 		wp_send_json_success((array) $response, 200);
@@ -782,7 +802,13 @@ function noste_form_header($type = 'form') {
 	            </nav>
 	        </div>
 
-	        <button class="btn gap-2 border border-line bg-[#E9E9F0] print-btn">
+			<?php
+			$preview_path = '/template-preview/' . implode('/', [$_GET['tm'], $_GET['tmin']]) . '.twig';
+			if (file_exists(get_template_directory() . $preview_path) && !is_dir(get_template_directory() . $preview_path)) {
+				$preview_path = $preview_path . '?v=' . filemtime(get_template_directory() . $preview_path);
+			}
+			?>
+	        <button class="btn gap-2 border border-line bg-[#E9E9F0] print-btn" data-form-path="<?php echo esc_url(get_template_directory_uri() . $preview_path); ?>" data-is-approved="<?php echo esc_attr(isset($project_tmin_status[$_GET['tmin']]) && isset($project_tmin_status[$_GET['tmin']]['status']) && $project_tmin_status[$_GET['tmin']]['status'] == 3?'true':'false'); ?>" data-tm="<?php echo esc_attr($_GET['tm']??''); ?>" data-tmin="<?php echo esc_attr($_GET['tmin'] ?? ''); ?>" data-project_id="<?php echo esc_attr(get_the_ID()); ?>">
 				<i class="um-icon-ios-printer-outline"></i>
 				Luonnos
 	        </button>
@@ -861,7 +887,7 @@ function noste_form_footer($type = 'form') {
 	                    Takaisin
 	                </a>
 
-	                <button class="btn gap-2 border border-accent bg-accent text-white" type="submit">Hyväksy</button>
+	                <button class="btn gap-2 border border-accent bg-accent text-white" type="submit">Lähetä hyväksyttäväksi</button>
 	            </div>
 	        </div>  	
 	    <?php endif ?>
@@ -931,4 +957,122 @@ function update_manager_project_status(){
 	}
 
 	wp_die();
+}
+add_action( 'wp_ajax_noste_get_project_step', 'noste_get_project_step');
+function noste_get_project_step() {
+    $response = (object) ['global_keywords' => [], 'submissions' => []];
+    $ptname = implode('_', ['noste', $_GET['tm'], $_GET['tmin']]);
+	// $json = get_post_meta((int) $_GET['project_id']);
+	// foreach ((array) $json as $key => $valArr) {if ($valArr[0]) {$json[$key] = $valArr[0];}}
+    // $json = [
+    //     ...$json,
+    //     ...(array) json_decode(get_post_meta((int) $_GET['project_id'], $ptname, true), true)
+    // ];
+    $global_keywords = (array) get_post_meta((int) $_GET['project_id']);
+    foreach ($global_keywords as $key => $value) {
+        if (count($value) == 1) {$global_keywords[$key] = $value[0];}
+    }
+	$global_data = array_filter($global_keywords, function($k){
+		return str_contains( $k, 'pilar' );
+	}, ARRAY_FILTER_USE_KEY);
+    $response->global_keywords = $global_data;
+    $response->submissions = (array) json_decode(get_post_meta((int) $_GET['project_id'], $ptname, true), true);
+	wp_send_json($response);
+}
+
+
+
+function update_comment_box() {
+
+	if ( empty($_POST['tm']) || empty($_POST['tmin']) || empty($_POST['comments']) || empty($_POST['post_id']) ) {
+		$error = new WP_Error( '001', "Please reload again!!!" );
+		wp_send_json_error( $error );			
+	}
+
+	recursive_sanitize_text_field($_POST);
+
+	$post_id = $_POST['post_id'];
+
+	$project_tmin_status = !empty( get_post_meta( $post_id, sprintf('%s_status', $_POST['tm']), true ) ) ? json_decode( get_post_meta( $post_id, sprintf('%s_status', $_POST['tm']), true ), true ) : [];
+
+	$project_tmin_status[$_POST['tmin']]['comment'] = $_POST['comments'];
+
+	if ( !empty($_POST['update_status']) ) {
+		$project_tmin_status[$_POST['tmin']]['status'] = 2;
+	}
+
+	$updated_status = update_post_meta( $post_id, sprintf('%s_status', $_POST['tm']), json_encode( $project_tmin_status ) );
+
+
+	if ( !empty($_POST['update_status']) ) {
+
+		if ( $updated_status ) {
+
+			/* Notification */
+				$user_id = !empty(get_field('valvoja', $post_id)) ? get_field('valvoja', $post_id)['value'] : 0;
+
+				if ( !empty($user_id) ) {
+					$project_header_info = [
+						'tmin' => $_POST['tmin'],
+						'tm' =>  $_POST['tm'],
+					];
+					$notify = noste_send_form_notification( 
+						get_current_user_id(), 
+						json_encode( $project_header_info ), 
+						$post_id, 
+						$user_id,
+						$_POST['tm'],
+						'active'
+					);
+
+				}
+			/* Notification */
+			
+			if ( $notify ) {
+				wp_send_json_success([
+					'status' => $_POST['update_status']
+				], 200);
+			} else {
+				$error = new WP_Error( '001', "Updated but Didn't update notification!!!" );
+				wp_send_json_error( $error );				
+			}
+			
+		} else {
+			$error = new WP_Error( '001', "Already Updated!!!" );
+			wp_send_json_error( $error );		
+		}	
+
+	} else {
+		wp_send_json_success([
+			'status' => $_POST['update_status']
+		], 200);
+	}
+
+
+}
+
+
+function update_valvoja_step_status(){
+
+	if ( empty($_POST['tm']) || empty($_POST['tmin']) || empty($_POST['valvoja_status']) || empty($_POST['post_id']) ) {
+		$error = new WP_Error( '001', "Please reload again!!!" );
+		wp_send_json_error( $error );			
+	}
+
+	recursive_sanitize_text_field($_POST);
+
+	$post_id = $_POST['post_id'];
+
+	$project_tmin_status = !empty( get_post_meta( $post_id, sprintf('%s_status', $_POST['tm']), true ) ) ? json_decode( get_post_meta( $post_id, sprintf('%s_status', $_POST['tm']), true ), true ) : [];
+
+	$project_tmin_status[$_POST['tmin']]['status'] = $_POST['valvoja_status'];
+
+	$updated_status = update_post_meta( $post_id, sprintf('%s_status', $_POST['tm']), json_encode( $project_tmin_status ) );
+
+	if ( $updated_status ) {
+		wp_send_json_success([
+			'status' => $_POST['valvoja_status']
+		], 200);
+	}
+
 }

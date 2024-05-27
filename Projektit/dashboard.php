@@ -259,7 +259,7 @@ get_header( 'noste' );
                     $projektinumero = !empty( $projektinumero_k8 ) ? $projektinumero_k8 : get_field('projektinumero', $id);
                     $projektipaallikko = !empty(get_field('projektipaallikko', $id)) ? array_column(get_field('projektipaallikko', $id), 'label')[0]: [];
                     $valvoja = !empty(get_field('valvoja', $id)) ? get_field('valvoja', $id)['label'] : 0;
-                    $projektin_valmistelu = !empty(get_field('projektin_valmistelu', $id)) ? get_field('projektin_valmistelu', $id) : '';
+                    $projektin_valmistelu = !empty( get_post_meta( $id, 'last_updated_step', true ) ) ? get_post_meta( $id, 'last_updated_step', true ) : '';
 
 
                     $edit_project = add_query_arg([ 'pid' => $id ], get_permalink( 60 ) );

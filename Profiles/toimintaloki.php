@@ -61,8 +61,14 @@ if ( empty($args) ) {
 $projects = get_posts($args);
 
 global $wpdb;
-$sql = $wpdb->prepare( "SELECT * FROM wp_noste_notifications WHERE " . $filter ." ORDER BY `id` DESC
-", 'active' );
+
+if ( !empty($filter) ) {
+    $sql = $wpdb->prepare( "SELECT * FROM wp_noste_notifications WHERE " . $filter ." ORDER BY `id` DESC" );
+} else {
+    $sql = $wpdb->prepare( "SELECT * FROM wp_noste_notifications ORDER BY `id` DESC" );    
+}
+
+
 $notifications = $wpdb->get_results( $sql, ARRAY_A );
 
 
@@ -186,9 +192,9 @@ $notifications = $wpdb->get_results( $sql, ARRAY_A );
 
                                     if ( $recent_time > 0 ) {
 
-                                        $minutes = (int)($recent_time / 60);
-                                        $hours = (int)($minutes / 60);
-                                        $days = (int)($hours / 24);
+                                        $minutes = (int) ($recent_time / 60);
+                                        $hours = (int) ($minutes / 60);
+                                        $days = (int) ($hours / 24);
                                         if ($days >= 1) {
                                           $how_log_ago = $days . ' days sitten' . ( $days != 1 ? 's' : '');
                                         } else if ($hours >= 1) {
@@ -221,8 +227,16 @@ $notifications = $wpdb->get_results( $sql, ARRAY_A );
                                                                        
                                             <div class="flex-1">
                                                 <span class="text-offwhite text-[14px]">Uusi toiminta • <?php echo esc_html( $how_log_ago ); ?></span>
-                                                <p class="text-[#94969C] mt-1"><b class="text-black"><?php echo um_user( 'display_name' ); ?> <?php echo implode(' - ', [ $tm[0], $tm[1] ]); ?> - <?php echo esc_attr( $form_name ); ?></b></p>
+
+                                                <?php if ( empty($form_name) ): ?>
+                                                    <p class="text-[#94969C] mt-1"><b class="text-black"><?php echo um_user( 'display_name' ); ?> <?php echo implode(' - ', [ $content['tm'], $content['tmin'] ]); ?></b> - Comments</p>
+                                                <?php else: ?>      
+                                                    <p class="text-[#94969C] mt-1"><b class="text-black"><?php echo um_user( 'display_name' ); ?> <?php echo implode(' - ', [ $tm[0], $tm[1] ]); ?> - <?php echo esc_attr( $form_name ); ?></b></p>
+                                                <?php endif ?>
                                             </div>
+
+
+
                                         </div>
                                     </a>
                                 

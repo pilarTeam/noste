@@ -37,7 +37,7 @@ $project_id = $pid = get_the_ID();
                         </div>
                         
                         <div class="max-w-[-750px] mx-auto mt-10">
-                            <?php echo do_shortcode( '[gantt-form form_id="' . esc_attr( implode('/', [$_GET['tm'], $_GET['tmin']]) ) . '"]' ); ?>
+                            <?php echo do_shortcode( '[gantt-form form_id="' . esc_attr( implode('/', [$_GET['tm'], $_GET['tmin']]) ) . '" columns="Text,Vastuu,Ajankohta"]' ); ?>
                         </div>
                         <div class="max-w-[-750px] mx-auto mt-10">
                             <div class="bg-gray mb-6 p-2">Lomakuukausi</div>

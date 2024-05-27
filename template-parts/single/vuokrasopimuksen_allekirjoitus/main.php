@@ -1,27 +1,27 @@
-<?php 
-	$tm = $_GET['tm'];
+<?php
+$tm = $_GET['tm'];
 
-	$project_intdata = get_post_meta( get_the_ID(), sprintf('%s_status', $tm), true );
-
-
+$project_intdata = get_post_meta(get_the_ID(), sprintf('%s_status', $tm), true);
 
 
-	$tm_inner = [
-		'varmista' => [
-			'title' => 'Pidä yhteyttä tilaajaan ja varmista, että vuokrasopimuson allekirjoitettu ja että vuokralaismuutosta voidaan edistää',
-			'status' => !empty($project_intdata['status']['varmista']) ? $project_intdata['status']['varmista'] : 'aloittamatta',
-			'url' => '',
-			'comment' => !empty($project_intdata['comment']['varmista']) ? $project_intdata['comment']['varmista'] : 'aloittamatta',
-		],		
-		'lopullisen' => [
-			'title' => 'Pyydä tilaajalta käyttöösi lopullisen vuokrasopimuksen tilamuutokseen liittyvät tiedot ja liitteet',
-			'status' => !empty($project_intdata['status']['lopullisen']) ? $project_intdata['status']['lopullisen'] : 'aloittamatta',
-			'url' => '',
-			'comment' => !empty($project_intdata['comment']['lopullisen']) ? $project_intdata['comment']['lopullisen'] : 'aloittamatta',
-		],
-	];
 
- ?>
+
+$tm_inner = [
+    'varmista' => [
+        'title' => 'Pidä yhteyttä tilaajaan ja varmista, että vuokrasopimuson allekirjoitettu ja että vuokralaismuutosta voidaan edistää',
+        'status' => !empty($project_intdata['status']['varmista']) ? $project_intdata['status']['varmista'] : 'aloittamatta',
+        'url' => '',
+        'comment' => !empty($project_intdata['comment']['varmista']) ? $project_intdata['comment']['varmista'] : 'aloittamatta',
+    ],
+    'lopullisen' => [
+        'title' => 'Pyydä tilaajalta käyttöösi lopullisen vuokrasopimuksen tilamuutokseen liittyvät tiedot ja liitteet',
+        'status' => !empty($project_intdata['status']['lopullisen']) ? $project_intdata['status']['lopullisen'] : 'aloittamatta',
+        'url' => '',
+        'comment' => !empty($project_intdata['comment']['lopullisen']) ? $project_intdata['comment']['lopullisen'] : 'aloittamatta',
+    ],
+];
+
+?>
 
 
 <!-- Main Content -->
@@ -61,93 +61,91 @@
                                 <div class="text-right">
                                     <button class="text-accent underline decoration-accent text-base" id="hideMore">Vähemmän lukemista</button>
                                 </div>
-                            </div >
+                            </div>
                         </div>
 
                     </div>
                 </div><!-- Card Header -->
                 <!-- Card Body -->
                 <div class="px-4 md:px-8 pt-6 pb-10 lg:h-[645px] overflow-y-auto no-scrollbar scroll-smooth">
-                    <h1 class="text-lg text-dark mb-4">Vuokrasopimuksen allekirjoitus ja vuokralaismuutoksen aloituspäätös</h1>
+                    <h1 class="text-2xl text-dark mb-4">Vuokrasopimuksen allekirjoitus ja vuokralaismuutoksen aloituspäätös</h1>
 
                     <p class="text-base text-[#475467] mb-4">
                         <b>Sisältö:</b><br>
-                        Käydään läpi tilaajan kanssa sähköpostitse / Teamsilla / puhelimitse vuokralaismuutoksen lähtötiedot ja lähtötietotarpeet sekä sovitaan projektipäällikön tehtävät. Lisäksi dokumentoidaan läpikäydyt asiat.
+                        Pidetään yhteyttä tilaajaan vuokrasopimuksen allekirjoitustilanteen osalta. Pidetään noste.ion sisällä resursoinnista vastaava taho tietoisena vuokralaismuutoksen aloituksen tilanteesta.
                     </p>
 
                     <div class="mb-6 excerpt-expand">
                         <p class="text-base text-[#475467]"><b>Kuvaus:</b></p>
                         <p class="text-base text-[#475467] mb-4 content">
-                            Eri tilaajilla on erilaisia tarpeita vuokralaismuutosten osalta. On tärkeää käydä heti alussa läpi yhdessä tilaajan kanssa projektin lähtötiedot ja tehtävät, jotta tarpeista ja tavoitteista ollaan samaa mieltä. Tilaaja- tai tapauskohtaisesti vuokralaismuutoksia tehdään joko kevyesti suunnittelun-rakentamisen-projektinjohdon osalta tai sitten raskaammin. Se kuinka paljon vuokralaismuutokseen panostetaan, vaikuttaa paljon projektissa käytettävään aikaan ja kustannuksiin. Noste.ion toimeksiannon osalta on tärkeää ymmärtää, toivooko tilaaja kevyempää projektinjohtoa pienellä kustannuksella, vai onko tilaajan tarvitsemat prosessit raskaammat, mikä johtaa suurempaan ajankäyttöön ja kustannuksiin. <br><br>
-                            Lähtötietopalaverin asialista antaa hyvän raamin asioiden läpikäynnille tilaajan kanssa sekä antaa ammattimaisen ja valmiin kuvan asioiden hoitamisesta. Tämä vaihe on tärkeä erityisesti, jos asiakas on sinulle uusi. Pääset asialistan avulla helpommin tutuksi kohteen kanssa. Jos kohde on sinulle entuudestaan tuttu, voit karsia selvitettäviä asioita jotka jo tiedät, kuten esimerkiksi yhteystiedot. <br><br>
-                            Huom. vaikka projektin valmisteluvaiheessa on vasta tarkoituksena auttaa tilaajaa pääsemään vuokrasopimukseen vuokralaisen kanssa, on projektipäällikölle tärkeää pyrkiä ymmärtämään koko projektin luonne mahdollisimman hyvin, jotta vuokrasopimukseen liittyvät lähtötiedot saadaan mahdollisimman paikkansapitäviksi. Tavanomaiset lähtötiedot tässä vaiheessa ovat esimerkiksi tilasuunnittelijan tekemä alustava pohjapiirustus, karkea näkemys aikataulusta, yksittäisiä tietoja siitä millaisia muutoksia halutaan olemassa olevaan tilaan. Tässä vaiheessa pitää pyrkiä kaivamaan mahdollisimman paljon lisää tietoa sellaisista asioista, joilla on merkittävä vaikutus vuokralaismuutokselle.
+                            Koska tilaaja pyrkii välttämään turhia kustannuksia projektin valmisteluvaiheessa, on tärkeää ettei töitä edistetä ennenaikaisesti, ennen kuin tilaaja on antanut hyväksynnän vuokralaismuutoksen edistämiselle. Selkeä merkki vuokralaismuutoksen etenemisestä on vuokrasopimuksen allekirjoitus. Kun vuokrasopimus on allekirjoitettu, varmista että projektia voidaan alkaa edistämään rakentamisen valmisteluvaiheeseen. Tässä vaiheessa on hyvä vielä kerran varmistaa, mitä tietoja ja liitteitä lopulliseen vuokrasopimukseen on sisällytetty. Pyydä tilamuutokseen liittyvät lopulliset tiedot ja sopimusliitteet tilaajalta käyttöösi. Näin voidaan varmistua esimerkiksi vuokrasopimuksessa olevan aikataulun oikeellisuudesta, suunnitelman oikeasta versiosta ja siitä, että oleellisia liitteitä ei puutu sopimuksesta.
                         </p>
 
                         <button class="text-accent underline decoration-accent text-base showMore">Lue lisää</button>
                     </div>
 
                     <div>
-                    
+
                         <div class="flex flex-col">
                             <div class="overflow-x-auto shadow-md sm:rounded-lg">
                                 <div class="inline-block min-w-full align-middle">
                                     <div class="overflow-hidden">
-                                        <table class="w-full whitespace-nowrap border-collapse">
+                                        <table class="w-full whitespace-wrap border-collapse">
                                             <thead class="text-left rounded-t-lg bg-accent text-white">
                                                 <tr class="rounded-lg">
                                                     <th class="p-3">Tehtävät:</th>
                                                     <th class="p-3">Status:</th>
                                                     <th class="p-3">Dokumentit:</th>
-                                                    <th class="p-3">Kommentti:</th>
+                                                    <th class="p-3 min-w-[310px]">Kommentti:</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            	<?php foreach ($tm_inner as $key => $value): ?>
-	                                                <tr>
-	                                                    <td class="px-4 py-3 border border-line">
-	                                                        <p class="text-sm text-[#818D93]"><?php echo esc_html( $value['title'] ); ?></p>
-	                                                    </td>
-	                                                    <td class="px-4 py-3 border border-line text-sm" id="project_table_status">
-	                                                        <div class="inline-flex items-center rounded-md border border-line px-2 py-1 <?php echo esc_attr( strtolower($value['status']) ); ?>">
-	                                                            <span></span>
-	                                                            <?php echo esc_html( $value['status'] ); ?>
-	                                                        </div>
-	                                                    </td>
-	                                                    <td class="px-4 py-3 border border-line">
-	                                                    	<?php
-															if ( !empty($value['url']) ): 
-																$title = !empty($value['url']['title'])?$value['url']['title']:false;
-																$link = !empty($value['url']['link'])?$value['url']['link']:false;
-																if (!empty($link)) :
-																	$tmin_url = add_query_arg([
-																		'tm' => $tm,
-																		'tmin' => $value['url']['link']
-																	], get_permalink( get_the_ID() ) );
-																	?>
-	                                                        		<a href="<?php echo esc_attr( $tmin_url ); ?>" class="text-accent underline decoration-accent text-sm"><?php echo esc_html($title); ?></a>
-																	<?php
-																else:
-																	?>
-	                                                        		<p class="text-sm text-[#818D93]"><?php echo esc_html($title); ?></p>
-																<?php endif; ?>		
-	                                                    	<?php endif ?>
-	                                                    </td>
-	                                                    <td class="px-4 py-3 border border-line">
-	                                                        <form action="#" method="post" id="step_comments">
-	                                                        	<input type="hidden" name="tm" value="<?php echo esc_attr( $tm ); ?>">
-	                                                        	<input type="hidden" name="tmin" value="<?php echo esc_attr( $key ); ?>">
-	                                                            <input class="border border-accent w-full rounded-md" type="text" name="comments">
-	                                                        </form>
-	                                                    </td>
-	                                                </tr>                                            		
-                                            	<?php endforeach ?>
+                                                <?php foreach ($tm_inner as $key => $value) : ?>
+                                                    <tr>
+                                                        <td class="px-4 py-3 border border-line">
+                                                            <p class="text-sm text-[#818D93]"><?php echo esc_html($value['title']); ?></p>
+                                                        </td>
+                                                        <td class="px-4 py-3 border border-line text-sm" id="project_table_status">
+                                                            <div class="inline-flex items-center rounded-md border border-line px-2 py-1 <?php echo esc_attr(strtolower($value['status'])); ?>">
+                                                                <span></span>
+                                                                <?php echo esc_html($value['status']); ?>
+                                                            </div>
+                                                        </td>
+                                                        <td class="px-4 py-3 border border-line">
+                                                            <?php
+                                                            if (!empty($value['url'])) :
+                                                                $title = !empty($value['url']['title']) ? $value['url']['title'] : false;
+                                                                $link = !empty($value['url']['link']) ? $value['url']['link'] : false;
+                                                                if (!empty($link)) :
+                                                                    $tmin_url = add_query_arg([
+                                                                        'tm' => $tm,
+                                                                        'tmin' => $value['url']['link']
+                                                                    ], get_permalink(get_the_ID()));
+                                                            ?>
+                                                                    <a href="<?php echo esc_attr($tmin_url); ?>" class="text-accent underline decoration-accent text-sm"><?php echo esc_html($title); ?></a>
+                                                                <?php
+                                                                else :
+                                                                ?>
+                                                                    <p class="text-sm text-[#818D93]"><?php echo esc_html($title); ?></p>
+                                                                <?php endif; ?>
+                                                            <?php endif ?>
+                                                        </td>
+                                                        <td class="px-4 py-3 border border-line">
+                                                            <form action="#" method="post" id="step_comments">
+                                                                <input type="hidden" name="tm" value="<?php echo esc_attr($tm); ?>">
+                                                                <input type="hidden" name="tmin" value="<?php echo esc_attr($key); ?>">
+                                                                <input class="border border-accent w-full rounded-md" type="text" name="comments">
+                                                            </form>
+                                                        </td>
+                                                    </tr>
+                                                <?php endforeach ?>
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    
+
                     </div>
                 </div><!-- Card Body -->
             </div>
