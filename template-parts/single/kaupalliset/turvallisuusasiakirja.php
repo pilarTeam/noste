@@ -7,7 +7,6 @@ if ( !is_singular( 'projektitiedot' ) ) {
 
 
 $project_id = get_the_ID();
-$ptname = implode('_', ['noste', $_GET['tm'], $_GET['tmin']]);
 $data = the_form_stored_data();
 $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['noste_check']):[];
 
@@ -23,9 +22,9 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
             <div class="card_item relative h-fit">
                 <!-- Card Header --><?php echo wp_kses_post(noste_form_header('form')); ?><!-- Card Header -->
                 
-                <form action="<?php echo esc_url( get_permalink( get_the_ID() ) ); ?>" method="post" enctype="multipart/form-data" class="ajax-submit">
+                <form action="<?php echo esc_url(get_permalink(get_the_ID())); ?>" method="post" enctype="multipart/form-data" class="ajax-submit">
                     <?php wp_nonce_field('project_step_form_validation', 'project_step_form__nonce_field'); ?>
-                    <input type="hidden" name="ptname" value="<?php echo esc_attr(implode('_', ['noste', $_GET['tm'], $_GET['tmin']])); ?>">
+                    <input type="hidden" name="ptname" value="<?php echo esc_attr(get_the_ptname()); ?>">
                     <input type="hidden" name="action" value="noste_update_project_step">
                     <input type="hidden" name="post_id" value="<?php echo esc_attr( $project_id ); ?>">
                     
@@ -628,7 +627,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
                                     <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('pilar_TY1_52', $data); ?>>
-                                    <input type="text" name="pilar_filed8_4" placeholder="(Tähän oma)" class="flex-1 w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" <?php noste_textinput_attrset('pilar_filed8_4', $data, ''); ?> placeholder="(Tähän oma)" class="flex-1 w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </label>
                             </div>
 

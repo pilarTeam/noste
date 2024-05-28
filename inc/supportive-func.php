@@ -27,6 +27,19 @@ function noste_textinput_attrset($name, $data = false, $default = '') {
 		esc_attr(isset($data[$name])?$data[$name]:$default)
 	);
 }
+/** <?php noste_select_options(['kpl', 'm2', 'erä', 'kpl', 'jm'], 'measured1', $data, 'kpl'); ?> */
+function noste_select_options($options, $name, $data = false, $default = '') {
+    global $globalSFormData;if (!$data) {$data = $globalSFormData;}
+	foreach ((array) $options as $key => $title) {
+		if (is_integer($key)) {$key = $title;}
+		echo sprintf(
+            '<option value="%s" %s>%s</option>',
+            esc_attr($key),
+            selected(isset($data[$name])?$data[$name]:$default, $key, false),
+            wp_kses_post($title)
+        );
+	}
+}
 /** get_the_ptname() */
 function get_the_ptname() {
 	return implode('_', ['noste', $_GET['tm']??'', $_GET['tmin']??'']);

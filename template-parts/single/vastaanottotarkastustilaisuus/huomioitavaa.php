@@ -5,7 +5,7 @@ if (!is_singular('projektitiedot')) {
 }
 
 $project_id = get_the_ID();
-$ptname = implode('_', ['noste', $_GET['tm'], $_GET['tmin']]);
+
 
 $data = the_form_stored_data();
 
@@ -22,7 +22,7 @@ $data = the_form_stored_data();
                 <!-- Card Header --><?php echo wp_kses_post(noste_form_header('form')); ?><!-- Card Header -->
                 <form action="<?php echo esc_url(get_permalink(get_the_ID())); ?>" method="post" enctype="multipart/form-data" class="ajax-submit">
                     <?php wp_nonce_field('project_step_form_validation', 'project_step_form__nonce_field'); ?>
-                    <input type="hidden" name="ptname" value="<?php echo esc_attr($ptname); ?>">
+                    <input type="hidden" name="ptname" value="<?php echo esc_attr(get_the_ptname()); ?>">
                     <input type="hidden" name="action" value="noste_update_project_step">
                     <input type="hidden" name="post_id" value="<?php echo esc_attr($project_id); ?>">
 
@@ -125,9 +125,9 @@ $data = the_form_stored_data();
                                         <span class="text-[#586B74]">
                                             <div class="flex flex-col lg:flex-row lg:items-center gap-2">
                                                 <span class="text-[#586B74]">Vastaanottotarkastuksen ajankohta,</span>
-                                                <input type="text" name="pilar_VA4" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_array_data( $data, 'pilar_VA4' ) ); ?>">
+                                                <input type="text" name="noste_VA4" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_array_data( $data, 'noste_VA4' ) ); ?>">
                                                 <span class="text-[#586B74] text-[15px]">klo</span>
-                                                <input type="text" name="pilar_VA5" placeholder="XX.XX" class="w-full lg:w-[68px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_array_data( $data, 'pilar_VA5' ) ); ?>">
+                                                <input type="text" name="noste_VA5" placeholder="XX.XX" class="w-full lg:w-[68px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_array_data( $data, 'noste_VA5' ) ); ?>">
                                             </div>
                                         </span>
                                     </div>
@@ -1067,7 +1067,7 @@ $data = the_form_stored_data();
                                     </h3>
 
                                     <p class="text-[#586B74] text-[14px] leading-7">Urakkasopimuksen mukainen valmistumisaika:</p>
-                                    <p class="text-[#586B74] text-[14px] leading-7">Rakennuttajan ja pääurakoitsijan välillä allekirjoitettuun pääurakkasopimukseen perustuva valmistumisaika on koko hankkeen osalta <span class="flex-1 text-[14px] italic text-[#00B2A9]"><?php echo esc_html(noste_check_empty(get_post_meta($project_id, 'pilar_VA1', true), 'VA1')); ?></span>.</p>
+                                    <p class="text-[#586B74] text-[14px] leading-7">Rakennuttajan ja pääurakoitsijan välillä allekirjoitettuun pääurakkasopimukseen perustuva valmistumisaika on koko hankkeen osalta <span class="flex-1 text-[14px] italic text-[#00B2A9]"><?php echo esc_html(noste_check_empty(get_post_meta($project_id, 'noste_VA1', true), 'VA1')); ?></span>.</p>
                                     <p class="text-[#586B74] text-[14px] leading-7 mb-4">Myönnetyt urakka-ajan pidennykset ja niiden syyt:</p>
 
                                     <span class="text-[#586B74] text-[14px] mb-4">
@@ -1118,7 +1118,7 @@ $data = the_form_stored_data();
                                     </h3>
 
                                     <p class="text-[#586B74] text-[14px] leading-7">Urakkasopimuksen mukainen valmistumisaika:</p>
-                                    <p class="text-[#586B74] text-[14px] leading-7">Rakennuttajan ja pääurakoitsijan välillä allekirjoitettuun pääurakkasopimukseen perustuva valmistumisaika on koko hankkeen osalta <span class="flex-1 text-[14px] italic text-[#00B2A9]"><?php echo esc_html(noste_check_empty(get_post_meta($project_id, 'pilar_VA1', true), 'VA1')); ?></span>.</p>
+                                    <p class="text-[#586B74] text-[14px] leading-7">Rakennuttajan ja pääurakoitsijan välillä allekirjoitettuun pääurakkasopimukseen perustuva valmistumisaika on koko hankkeen osalta <span class="flex-1 text-[14px] italic text-[#00B2A9]"><?php echo esc_html(noste_check_empty(get_post_meta($project_id, 'noste_VA1', true), 'VA1')); ?></span>.</p>
                                     <p class="text-[#586B74] text-[14px] leading-7 mb-4">Myönnetyt urakka-ajan pidennykset ja niiden syyt:</p>
 
                                     <div class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">

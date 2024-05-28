@@ -9,7 +9,7 @@
 <div class="mx-auto max-w-[650px]">
     <div class="flex flex-col lg:flex-row lg:items-center gap-3">
         <span class="text-[#586B74] text-[15px]"><span class="text-[#00B2A9] italic">{{ get_global_keyword('pilar_T1', 'T1') }}</span> tilaa <span class="text-[#00B2A9] italic">{{ get_global_keyword('pilar_K4', 'K4') }}</span> - urakan työt</span>
-        <input type="text" name="pilar_filed8_6_4" class="w-full lg:w-[68px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2 text-[#00B2A9] italic" value="U1"><span class="text-[#586B74] text-[15px]">( Y-tunnus <span class="text-[#00B2A9] italic">U2</span> ) tämän tilauksen liitteenä</span>
+        <p type="text" name="" class="w-full lg:w-[68px] rounded-[5px] p-2 text-[#00B2A9] italic">{{ noste_filed8_1 }}</p><span class="text-[#586B74] text-[15px]">( Y-tunnus <span class="text-[#00B2A9] italic">U2</span> ) tämän tilauksen liitteenä</span>
     </div>
         
     <p class="text-[#586B74] text-[14px]">olevan tarjouksen jav urakkaneuvottelupöytäkirjan mukaisesti kiinteällä kokonaishinnalla <span class="text-[#00B2A9] italic">{{ get_global_keyword('pilar_UH1', 'UH1') }}</span> € (alv. 0%).</p>
@@ -28,7 +28,7 @@
             Lilte 1. Urakoitsijan tarjous,
         </span>
         <span class="text-[#586B74]">
-            <input type="text" name="pilar_filed8_6_4" placeholder="xx.xx.xxxx." class="w-[150px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id46">
+            <p type="text" name="" placeholder="xx.xx.xxxx." class="w-[150px] rounded-[5px] p-2" wfd-id="id46">{{ noste_filed8_2 }}</p>
         </span>
     </div>
     <div class="flex flex-col flex-wrap lg:flex-row lg:items-center gap-2 mt-1">
@@ -36,7 +36,7 @@
             Liite2. Urakkaneuvottelupöytäkirja,
         </span>
         <span class="text-[#586B74]">
-            <input type="text" name="pilar_filed8_6_4" placeholder="xx.xx.xxxx." class="w-[150px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id46">
+            <p type="text" name="" placeholder="xx.xx.xxxx." class="w-[150px] rounded-[5px] p-2" wfd-id="id46">{{ noste_filed8_3 }}</p>
         </span>
     </div>
 </div>

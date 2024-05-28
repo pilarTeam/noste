@@ -7,7 +7,6 @@ if ( !is_singular( 'projektitiedot' ) ) {
 
 
 $project_id = get_the_ID();
-$ptname = implode('_', ['noste', $_GET['tm'], $_GET['tmin']]);
 $data = the_form_stored_data();
 $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['noste_check']):[];
 
@@ -23,9 +22,9 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
             <div class="card_item relative h-fit">
                 <!-- Card Header --><?php echo wp_kses_post(noste_form_header('form')); ?><!-- Card Header -->
                 
-                <form action="<?php echo esc_url( get_permalink( get_the_ID() ) ); ?>" method="post" enctype="multipart/form-data" class="ajax-submit">
+                <form action="<?php echo esc_url(get_permalink(get_the_ID())); ?>" method="post" enctype="multipart/form-data" class="ajax-submit">
                     <?php wp_nonce_field('project_step_form_validation', 'project_step_form__nonce_field'); ?>
-                    <input type="hidden" name="ptname" value="<?php echo esc_attr(implode('_', ['noste', $_GET['tm'], $_GET['tmin']])); ?>">
+                    <input type="hidden" name="ptname" value="<?php echo esc_attr(get_the_ptname()); ?>">
                     <input type="hidden" name="action" value="noste_update_project_step">
                     <input type="hidden" name="post_id" value="<?php echo esc_attr( $project_id ); ?>">
                     
