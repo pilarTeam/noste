@@ -6,9 +6,7 @@ if ( !is_singular( 'projektitiedot' ) ) {
 
 $project_id = get_the_ID();
 $ptname = implode('_', ['noste', $_GET['tm'], $_GET['tmin']]);
-
-$data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get_post_meta( $project_id, $ptname, true ), true ) : '';
-
+$data = the_form_stored_data();
 ?>
 
 
@@ -40,7 +38,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                     <div class="flex lg:justify-between items-center">
                                         <h1 class="text-black text-[25px] font-medium mb-4">Käyttäjän virhe- ja puutelistaus</h1>
                                         <div class="text-right">
-                                            <span class="font-medium italic text-[#00B2A9] block">xx.xx.xxxx</span>
+                                            <span class="font-medium italic text-[#00B2A9] block"><?php echo esc_html( gmdate('d.m.Y') ); ?></span>
                                         </div>
                                     </div>
                                 </div>
@@ -59,44 +57,38 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                         </thead>
                                         <tbody>
                                             <!-- 1st Body -->
-                                            <tr>
-                                                <td class="px-4 py-3 border border-line"></td>
-                                                <td class="px-4 py-3 border border-line">
-                                                    <input type="text" name="pilar_filed1_1" placeholder="1" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
-                                                </td>
-                                                <td class="px-4 py-3 border border-line text-sm">
-                                                    <input type="text" name="pilar_filed1_2" placeholder="Tila jossa virhe on: Virhe yksilöitynä" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
-                                                </td>
-                                                <td class="px-4 py-3 border border-line">
-                                                    <input type="text" name="pilar_filed1_3" placeholder="Sovittu toimenpide" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
-                                                </td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td class="px-4 py-3 border border-line">
-                                                    <label class="inline-flex items-center gap-2 cursor-pointer">
-                                                        <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
-                                                            <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <g stroke-width="0"></g>
-                                                                <g stroke-linecap="round" stroke-linejoin="round"></g>
-                                                                <g>
-                                                                    <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                                </g>
-                                                            </svg>
-                                                        </span>
-                                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_filed2_3">
-                                                    </label>
-                                                </td>
-                                                <td class="px-4 py-3 border border-line">
-                                                    <input type="text" name="pilar_filed2_1" placeholder="2" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
-                                                </td>
-                                                <td class="px-4 py-3 border border-line text-sm">
-                                                    <input type="text" name="pilar_filed2_2"  class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
-                                                </td>
-                                                <td class="px-4 py-3 border border-line">
-                                                    <input type="text" name="pilar_filed2_3" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
-                                                </td>
-                                            </tr>
+                                            <?php for ($i=1; $i < 3; $i++) { ?>
+                                                <tr>
+                                                    <?php if ( $i == 2 ): ?>
+                                                        <td class="px-4 py-3 border border-line">
+                                                            <label class="inline-flex items-center gap-2 cursor-pointer">
+                                                                <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
+                                                                    <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                        <g stroke-width="0"></g>
+                                                                        <g stroke-linecap="round" stroke-linejoin="round"></g>
+                                                                        <g>
+                                                                            <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                                        </g>
+                                                                    </svg>
+                                                                </span>
+                                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="user_error_check[<?php echo $i ?>]" <?php checked( noste_check_array_data( noste_check_array_data( $data, 'user_error_check' ), $i ), 'on', true); ?>
+>
+                                                            </label>
+                                                        </td>  
+                                                    <?php else: ?>     
+                                                    <td class="px-4 py-3 border border-line"></td>  
+                                                    <?php endif ?>
+                                                    <td class="px-4 py-3 border border-line">
+                                                        <input type="text" name="user_error_number[<?php echo $i ?>]" placeholder="<?php echo $i ?>" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo noste_check_array_data( noste_check_array_data( $data, 'user_error_number' ), $i ) ?>">
+                                                    </td>
+                                                    <td class="px-4 py-3 border border-line text-sm">
+                                                        <input type="text" name="user_error_error[<?php echo $i ?>]" placeholder="Tila jossa virhe on: Virhe yksilöitynä" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo noste_check_array_data( noste_check_array_data( $data, 'user_error_error' ), $i ) ?>">
+                                                    </td>
+                                                    <td class="px-4 py-3 border border-line">
+                                                        <input type="text" name="user_error_comment[<?php echo $i ?>]" placeholder="Sovittu toimenpide" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo noste_check_array_data( noste_check_array_data( $data, 'user_error_comment' ), $i ) ?>">
+                                                    </td>
+                                                </tr>                                                    
+                                            <?php } ?>
                                         </tbody>
                                     </table>
 

@@ -99,21 +99,14 @@
                         </div>
 
                         <div class="md:pl-12 order-3 gap-3 flex flex-column mt-4">
-                            {% for index, agreed_prepare_document in agreed_prepare_documents %}
-                                <label class="flex items-center text-sm md:text-sm mb-2" for="agreed_prepare_documents-{{ index }}">
-                                    {# <input class="mr-2 relative appearance-none rounded cursor-pointer checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[]" id="agreed_prepare_documents-{{ index }}" checked readonly disabled> #}
-                                    <p class="mr-2 relative appearance-none rounded cursor-pointer text-[#586B74] text-sm">
-                                        {% if index == 4 %}
-                                            {{ agreed_prepare_documents_content }}
-                                        {% else %}
-                                            {{ agreed_prepare_document }}
-                                        {% endif %}
-                                    </p>
-                                </label>
-                            {% else %}
-                                {# <label class="flex items-center text-sm md:text-sm mb-2" for="agreed_prepare_documents-0">
-                                    <p class="mr-2 relative appearance-none rounded border cursor-pointer border-accent h-5 w-2 p-2" id="agreed_prepare_documents-0">No users have been found.</p>
-                                </label> #}
+                            {% for index, apd_single in apd %}
+                                    {% if apd_ck.includes(apd_single) %}
+                                    <label class="flex items-center text-sm md:text-sm mb-2" for="apd-{{ index }}">
+                                        <p class="mr-2 relative appearance-none rounded cursor-pointer text-[#586B74] text-sm">
+                                            {{ apd_single }}
+                                        </p>
+                                    </label>
+                                    {% endif %}
                             {% endfor %}
                         </div>
 
@@ -207,7 +200,7 @@
                 
                 <div class="mb-8 mx-auto max-w-[750px]">
                     <h5 class="mr-4 mb-2 text-sm font-normal text-black">Sähkön laskutus</h5>
-                    <div class="flex md:flex-wrap flex-col md:flex-row md:items-center justify-between mb-4">
+                    <div class="flex md:flex-wrap flex-col md:flex-row md:items-center justify-start mb-4">
                     
                         {% for index, electricity_bill in electricity_billing %}
                             <label class="flex items-center text-sm mb-2 text-[#586B74]" for="electricity_billing-{{ index }}">

@@ -6,9 +6,23 @@ add_action( 'um_registration_complete', 'noste_employee_registration_complete', 
 
 function umcf_init(){
 	remove_action( 'um_after_login_fields', 'um_after_login_submit', 1001 );
-	add_action( 'um_after_login_fields', 'um_after_login_submit', 999 );
+	add_action( 'um_after_login_fields', 'noste_after_login_submit', 999 );
 }
 
+
+function noste_after_login_submit( $args ){
+	if ( empty( $args['forgot_pass_link'] ) ) {
+		return;
+	} ?>
+
+	<div class="um-col-alt-b">
+		<a href="<?php echo esc_url( um_get_core_page( 'password-reset' ) ); ?>" class="um-link-alt">
+			<?php _e( 'Unohditko salasanasi?', 'ultimate-member' ); ?>
+		</a>
+	</div>
+
+	<?php
+}
 add_filter( 'um_registration_for_loggedin_users', '__return_true' );
 
 

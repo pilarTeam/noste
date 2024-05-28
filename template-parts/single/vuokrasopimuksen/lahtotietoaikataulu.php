@@ -5,7 +5,7 @@ if ( !is_singular( 'projektitiedot' ) ) {
 }
 
 $project_id = $pid = get_the_ID();
-
+$data = the_form_stored_data();
 ?>
 
 

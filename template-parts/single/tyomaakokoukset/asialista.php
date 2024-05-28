@@ -7,7 +7,7 @@ if ( !is_singular( 'projektitiedot' ) ) {
 $project_id = get_the_ID();
 $ptname = implode('_', ['noste', $_GET['tm'], $_GET['tmin']]);
 
-$data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get_post_meta( $project_id, $ptname, true ), true ) : '';
+$data = the_form_stored_data();
 
 ?>
 

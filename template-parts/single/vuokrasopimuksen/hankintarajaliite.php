@@ -5,6 +5,9 @@ if ( !is_singular( 'projektitiedot' ) ) {
 }
 
 $project_id = get_the_ID();
+$ptname = implode('_', ['noste', $_GET['tm'], $_GET['tmin']]);
+$data = the_form_stored_data();
+
 
 ?>
 
@@ -37,7 +40,7 @@ $project_id = get_the_ID();
                             <div class="mb-8 mx-auto max-w-full">
                                 <div class="flex flex-wrap items-center mb-4">
                                     <label class="flex-[3] md:flex-[.7] lg:flex-[.2] mr-4 text-sm text-accent italic" for="version">Versio:</label>
-                                    <input class="shadow-input md:ml-5 text-sm border-accent rounded-md text-[#686d70] max-w-[420px]" type="text" id="version" name="present" placeholder="xx.xx.xxxx">
+                                    <input class="shadow-input md:ml-5 text-sm border-accent rounded-md text-[#686d70] max-w-[420px]" type="text" id="version" name="present" placeholder="xx.xx.xxxx" value="<?php echo esc_attr( noste_check_array_data( $data, 'present' ) ); ?>">
                                 </div>
                             </div>
 
@@ -72,7 +75,7 @@ $project_id = get_the_ID();
                                                     <thead class="text-left rounded-t-lg bg-accent">
                                                         <tr class="rounded-lg">
                                                             <th colspan="2" class="p-3"></th>
-                                                            <th class="p-3 min-w-[250px]"><input type="text" name="pilar_filed1_1" id="pilar_filed1_1" class="shadow-input w-full border border-solid border-[#06F9B7] font-normal rounded-[5px] p-2" placeholder="Vapaata tekstiä…"></th>
+                                                            <th class="p-3 min-w-[250px]"><input type="text" name="pilar_filed1_1" id="pilar_filed1_1" class="shadow-input w-full border border-solid border-[#06F9B7] font-normal rounded-[5px] p-2" placeholder="Vapaata tekstiä…" value="<?php echo esc_attr( noste_check_array_data( $data, 'pilar_filed1_1' ) ); ?>"></th>
                                                             <th colspan="3" class="p-3"></th>
                                                         </tr>
                                                     </thead>
@@ -83,7 +86,7 @@ $project_id = get_the_ID();
                                                         </tr>
                                                         <tr>
                                                             <td class="px-4 py-3 border border-line">
-                                                                <input class="shadow-input mr-3 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="coder_attention1" id="coder_attention1">
+                                                                <input class="shadow-input mr-3 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="coder_attention1" id="coder_attention1" value="<?php echo esc_attr( noste_check_array_data( $data, 'coder_attention1' ) ); ?>">
                                                             </td>
                                                             <td class="px-4 py-3 border border-line">
                                                                 <span class="text-sm text-black">1</span>
@@ -106,7 +109,7 @@ $project_id = get_the_ID();
                                                             <td class="px-4 py-3 border border-line"></td>
                                                             <td class="px-4 py-3 border border-line"></td>
                                                             <td class="px-4 py-3 border border-line">
-                                                                <input type="text" name="pilar_filed1_1" id="pilar_filed1_1" class="shadow-input w-full border border-solid border-[#06F9B7] rounded-[5px] p-2" value="Vapaata tekstiä…">
+                                                                <input type="text" name="pilar_filed1_1" id="pilar_filed1_1" class="shadow-input w-full border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Vapaata tekstiä…" value="<?php echo esc_attr( noste_check_array_data( $data, 'pilar_filed1_1' ) ); ?>">
                                                             </td>
                                                             <td class="px-4 py-3 border border-line"></td>
                                                             <td class="px-4 py-3 border border-line"></td>
@@ -117,7 +120,7 @@ $project_id = get_the_ID();
 
                                                         <tr>
                                                             <td class="px-4 py-3 border border-line">
-                                                                <input class="shadow-input mr-3 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="coder_attention2" id="coder_attention2">
+                                                                <input class="shadow-input mr-3 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="coder_attention2" id="coder_attention2" value="<?php echo esc_attr( noste_check_array_data( $data, 'coder_attention2' ) ); ?>">
                                                             </td>
                                                             <td class="px-4 py-3 border border-line">
                                                                 <span class="text-sm text-black">1.1</span>
@@ -134,13 +137,13 @@ $project_id = get_the_ID();
                                                                 <span class="text-sm text-black">vuokranantaja</span>
                                                             </td>
                                                             <td class="px-4 py-3 border border-line">
-                                                                <input type="text" name="pilar_filed2_1" id="pilar_filed2_1" class="shadow-input w-full border border-solid border-[#06F9B7] rounded-[5px] p-2" value="Vapaata tekstiä… / Katso rakennustapaselostus.">
+                                                                <input type="text" name="pilar_filed2_1" id="pilar_filed2_1" class="shadow-input w-full border border-solid border-[#06F9B7] rounded-[5px] p-2" value="Vapaata tekstiä… / Katso rakennustapaselostus."  value="<?php echo esc_attr( noste_check_array_data( $data, 'pilar_filed2_1' ) ); ?>">
                                                             </td>
                                                         </tr>
                                                         
                                                         <tr>
                                                             <td class="px-4 py-3 border border-line">
-                                                                <input class="shadow-input mr-3 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="coder_attention3" id="coder_attention3">
+                                                                <input class="shadow-input mr-3 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="coder_attention3" id="coder_attention3" value="<?php echo esc_attr( noste_check_array_data( $data, 'coder_attention3' ) ); ?>">
                                                             </td>
                                                             <td class="px-4 py-3 border border-line">
                                                                 <span class="text-sm text-black">1.2</span>
@@ -157,13 +160,13 @@ $project_id = get_the_ID();
                                                                 <span class="text-sm text-black">vuokralainen</span>
                                                             </td>
                                                             <td class="px-4 py-3 border border-line">
-                                                                <input type="text" name="pilar_filed2_2" id="pilar_filed2_2" class="shadow-input w-full border border-solid border-[#06F9B7] rounded-[5px] p-2" value="Vapaata tekstiä… / Katso rakennustapaselostus.">
+                                                                <input type="text" name="pilar_filed2_2" id="pilar_filed2_2" class="shadow-input w-full border border-solid border-[#06F9B7] rounded-[5px] p-2" value="Vapaata tekstiä… / Katso rakennustapaselostus." value="<?php echo esc_attr( noste_check_array_data( $data, 'pilar_filed2_2' ) ); ?>">
                                                             </td>
                                                         </tr>
 
                                                         <tr>
                                                             <td class="px-4 py-3 border border-line">
-                                                                <input class="shadow-input mr-3 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="coder_attention4" id="coder_attention4">
+                                                                <input class="shadow-input mr-3 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="coder_attention4" id="coder_attention4" value="<?php echo esc_attr( noste_check_array_data( $data, 'coder_attention4' ) ); ?>">
                                                             </td>
                                                             <td class="px-4 py-3 border border-line">
                                                                 <span class="text-sm text-black">1.3</span>
@@ -180,13 +183,13 @@ $project_id = get_the_ID();
                                                                 <span class="text-sm text-black">vuokranantaja</span>
                                                             </td>
                                                             <td class="px-4 py-3 border border-line">
-                                                                <input type="text" name="pilar_filed2_3" id="pilar_filed2_3" class="shadow-input w-full border border-solid border-[#06F9B7] rounded-[5px] p-2" value="Vapaata tekstiä… / Katso rakennustapaselostus.">
+                                                                <input type="text" name="pilar_filed2_3" id="pilar_filed2_3" class="shadow-input w-full border border-solid border-[#06F9B7] rounded-[5px] p-2" value="Vapaata tekstiä… / Katso rakennustapaselostus." value="<?php echo esc_attr( noste_check_array_data( $data, 'pilar_filed2_3' ) ); ?>">
                                                             </td>
                                                         </tr>
                                                         
                                                         <tr>
                                                             <td class="px-4 py-3 border border-line">
-                                                                <input class="shadow-input mr-3 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="coder_attention5" id="coder_attention5">
+                                                                <input class="shadow-input mr-3 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="coder_attention5" id="coder_attention5" value="<?php echo esc_attr( noste_check_array_data( $data, 'coder_attention5' ) ); ?>">
                                                             </td>
                                                             <td class="px-4 py-3 border border-line">
                                                                 <span class="text-sm text-black">1.4</span>
@@ -203,7 +206,7 @@ $project_id = get_the_ID();
                                                                 <span class="text-sm text-black">vuokranantaja</span>
                                                             </td>
                                                             <td class="px-4 py-3 border border-line">
-                                                                <input type="text" name="pilar_filed2_4" id="pilar_filed2_4" class="shadow-input w-full border border-solid border-[#06F9B7] rounded-[5px] p-2" value="Vapaata tekstiä… / Katso rakennustapaselostus.">
+                                                                <input type="text" name="pilar_filed2_4" id="pilar_filed2_4" class="shadow-input w-full border border-solid border-[#06F9B7] rounded-[5px] p-2" value="Vapaata tekstiä… / Katso rakennustapaselostus." value="<?php echo esc_attr( noste_check_array_data( $data, 'pilar_filed2_4' ) ); ?>">
                                                             </td>
                                                         </tr>
                                                         <tr>

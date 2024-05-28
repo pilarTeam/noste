@@ -1,16 +1,313 @@
+{{ do_pages_start(4) }}
 
-<div class="noste_pages">
-	<div class="single-page">
-		<div class="page-wrap">
-			<div class="page-header">
-				<img src="{{ locale_args.thumbnail }}" alt="Logo" />
-			</div>
-			<div class="page-body">
-				Preview template not found!
-			</div>
-			<div class="page-footer">
-				<span class="page-footer-pagination">1/1</span>
-			</div>
-		</div>
-	</div>
+<div class="max-w-[700px] mx-auto mt-20">
+    <div class="mb-[30px]">
+        <span class="font-medium italic text-[#00B2A9] block">{{ get_global_keyword( 'pilar_K1', 'K1') }}</span>
+        <span class="font-medium italic text-[#00B2A9] block">{{ get_global_keyword( 'pilar_K1', 'K1') }}</span>
+    </div>
+
+    <div class="mb-[30px]">
+        <h1 class="text-black text-[25px] font-medium mb-4">Tarjouslomake</h1>
+    </div>
+
+    <div class="my-[30px]">
+        <span class="font-medium italic text-[#00B2A9] block">{{ get_global_keyword( 'pilar_T1', 'T1') }}</span>
+        <span class="font-medium italic text-[#00B2A9] block">K1, K2, K3</span>
+    </div>
+
+    <h2 class="text-black text-[20px] font-medium mb-10">URAKKATARJOUS</h2>
+
+    <div class="grid grid-cols-3 items-center mb-8">
+        <span class="text-[#586B74] block">Urakoitsijan nimi</span>
+        <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px] block col-span-2"></span>
+    </div>
+    <div class="grid grid-cols-3 items-center mb-8">
+        <span class="text-[#586B74] block">Osoite</span>
+        <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px] block col-span-2"></span>
+    </div>
+    <div class="grid grid-cols-3 items-center mb-8">
+        <span class="text-[#586B74] block">Puhelin</span>
+        <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px] block col-span-2"></span>
+    </div>
+    <div class="grid grid-cols-3 items-center mb-8">
+        <span class="text-[#586B74] block">Sähköposti</span>
+        <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px] block col-span-2"></span>
+    </div>
+    <div class="grid grid-cols-3 items-center mb-8">
+        <span class="text-[#586B74] block">Yhteyshenkilö</span>
+        <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px] block col-span-2"></span>
+    </div>
+
+    <p class="text-[#586B74] text-[15px] mt-5 mb-10">Allekirjoittanut urakoitsija sitoutuu <span class="italic text-[#00B2A9]">{{ get_global_keyword( 'pilar_T1', 'T1') }}</span>:n toimeksiannosta suorittamaan urakkaan tarjouspyyntöasiakirjoissa kuuluvat rakennus- ja LVIAS-tekniset työt täysin valmiiksi sekä toimimaan työturvallisuudesta vastaavana päätoteuttajana ja pääurakoitsijana seuraavasti:</p>
+
+    <div class="grid grid-cols-3 items-center mb-8">
+        <span class="text-[#283B44] font-medium block">Kiinteä kokonaishinta (alv.0 %)</span>
+        <span class="flex items-end gap-2 block col-span-2 text-[#283B44] font-medium">
+            <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px]"></span>
+            €
+        </span>
+    </div>
 </div>
+{{ do_page_break() }}
+<div class="max-w-[700px] mx-auto mt-20">
+    <div class="grid grid-cols-3 items-center mb-8">
+        <span class="text-[#283B44] font-medium block">Arvonlisävero 24 %</span>
+        <span class="flex items-end gap-2 block col-span-2 text-[#283B44] font-medium">
+            <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px]"></span>
+            €
+        </span>
+    </div>
+    <div class="grid grid-cols-3 items-center mb-8">
+        <span class="text-[#283B44] font-medium block">Verollinen hinta yhteensä</span>
+        <span class="flex items-end gap-2 block col-span-2 text-[#283B44] font-medium">
+            <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px]"></span>
+            €
+        </span>
+    </div>
+
+    <p class="text-[#283B44] font-medium block mt-20 mb-8">Tarjoushinta jakautuu seuraavasti:</p>
+    <div class="grid grid-cols-3 items-center mb-8">
+        <span class="text-[#00B2A9] italic text-[15px] block">{{ get_global_keyword( 'pilar_TY1', 'TY1') }}</span>
+        <span class="flex items-end gap-2 block col-span-2 text-[#283B44] ml-[-80px]">
+            <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px]"></span>
+            € (alv. 0%)
+        </span>
+    </div>
+    <div class="grid grid-cols-3 items-center mb-8">
+        <span class="text-[#00B2A9] italic text-[15px] block">{{ get_global_keyword( 'pilar_TY2', 'TY2') }}</span>
+        <span class="flex items-end gap-2 block col-span-2 text-[#283B44] ml-[-80px]">
+            <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px]"></span>
+            € (alv. 0%)
+        </span>
+    </div>
+    <div class="grid grid-cols-3 items-center mb-8">
+        <span class="text-[#00B2A9] italic text-[15px] block">{{ get_global_keyword( 'pilar_TY3', 'TY3') }}</span>
+        <span class="flex items-end gap-2 block col-span-2 text-[#283B44] ml-[-80px]">
+            <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px]"></span>
+            € (alv. 0%)
+        </span>
+    </div>
+    <div class="grid grid-cols-3 items-center mb-8">
+        <span class="text-[#00B2A9] italic text-[15px] block">{{ get_global_keyword( 'pilar_TY4', 'TY4') }}</span>
+        <span class="flex items-end gap-2 block col-span-2 text-[#283B44] ml-[-80px]">
+            <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px]"></span>
+            € (alv. 0%)
+        </span>
+    </div>
+    <div class="grid grid-cols-3 items-center mb-8">
+        <span class="text-[#00B2A9] italic text-[15px] block"{{ get_global_keyword( 'pilar_TY5', 'TY5') }}</span>
+        <span class="flex items-end gap-2 block col-span-2 text-[#283B44] ml-[-80px]">
+            <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px]"></span>
+            € (alv. 0%)
+        </span>
+    </div>
+    <div class="grid grid-cols-3 items-center mb-8">
+        <span class="text-[#00B2A9] italic text-[15px] block"{{ get_global_keyword( 'pilar_TY6', 'TY6') }}</span>
+        <span class="flex items-end gap-2 block col-span-2 text-[#283B44] ml-[-80px]">
+            <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px]"></span>
+            € (alv. 0%)
+        </span>
+    </div>
+    <div class="grid grid-cols-3 items-center mb-8">
+        <span class="text-[#00B2A9] italic text-[15px] block">{{ get_global_keyword( 'pilar_TY7', 'TY7') }}</span>
+        <span class="flex items-end gap-2 block col-span-2 text-[#283B44] ml-[-80px]">
+            <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px]"></span>
+            € (alv. 0%)
+        </span>
+    </div>
+    <div class="grid grid-cols-3 items-center mb-8">
+        <span class="text-[#00B2A9] italic text-[15px] block">{{ get_global_keyword( 'pilar_TY8', 'TY8') }}</span>
+        <span class="flex items-end gap-2 block col-span-2 text-[#283B44] ml-[-80px]">
+            <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px]"></span>
+            € (alv. 0%)
+        </span>
+    </div>
+    <div class="grid grid-cols-3 items-center mb-8">
+        <span class="text-[#00B2A9] italic text-[15px] block">{{ get_global_keyword( 'pilar_TY9', 'TY9') }}</span>
+        <span class="flex items-end gap-2 block col-span-2 text-[#283B44] ml-[-80px]">
+            <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px]"></span>
+            € (alv. 0%)
+        </span>
+    </div>
+    <div class="grid grid-cols-3 items-center mb-8">
+        <span class="text-[#00B2A9] italic text-[15px] block">{{ get_global_keyword( 'pilar_TY10', 'TY10') }}</span>
+        <span class="flex items-end gap-2 block col-span-2 text-[#283B44] ml-[-80px]">
+            <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px]"></span>
+            € (alv. 0%)
+        </span>
+    </div>
+    <div class="grid grid-cols-3 items-center mb-8">
+        <span class="text-[#00B2A9] italic text-[15px] block">{{ get_global_keyword( 'pilar_TY11', 'TY11') }}</span>
+        <span class="flex items-end gap-2 block col-span-2 text-[#283B44] ml-[-80px]">
+            <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px]"></span>
+            € (alv. 0%)
+        </span>
+    </div>
+    <div class="grid grid-cols-3 items-center mb-8">
+        <span class="text-[#00B2A9] italic text-[15px] block">{{ get_global_keyword( 'pilar_TY12', 'TY12') }}</span>
+        <span class="flex items-end gap-2 block col-span-2 text-[#283B44] ml-[-80px]">
+            <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px]"></span>
+            € (alv. 0%)
+        </span>
+    </div>
+</div>
+
+<div class="help_wrap relative mb-2 mt-20">
+    <div class="max-w-[700px] mx-auto flex items-center gap-2">
+        <label class="inline-flex items-center gap-2 cursor-pointer">
+            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
+                <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+            </span>
+            <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_checkbox_attrset('pilar_TY_1') }}>
+            
+            <span class="text-[#283B44] font-medium">OPTIOT</span>
+        </label>
+
+        <a href="#!" class="help_click"><svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="0.72"></circle> <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path> <circle cx="12" cy="16" r="1" fill="#000000"></circle> </g></svg> </a>                                      
+        
+        <hr class="help_line w-full border border-solid border-[#E1E1EA] hidden">
+    </div>
+
+    <div class="help_show text-[#586B74] text-[14px] lg:w-[384px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:right-[10px] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-50px] hidden">
+        Mahdollisuus selvittää erillistöiden tms kustannuksia. Näitä voisi olla: Minikeittiövarausten tekeminen, LVI-suunnitelmien mukaan (2 kpl), Aulan ilmanvaihtomuutos LVI-suunnitelmien mukaan jne.
+    </div>
+</div>
+
+{{ do_page_break() }}
+
+<div class="max-w-[700px] mx-auto">
+    <p class="text-[#283B44] text-[15px] font-medium">Option mukainen työ ei sisälly kiinteään kokonaishintaan. Optiohinta ilmoitetaan työsuorituksen tekemisestä täysin valmiiseen tasoon kaikki liittyvät työt huomioituna.</p>
+</div>
+<div class="help_wrap relative mb-2 mt-5">
+    <div class="max-w-[700px] mx-auto flex items-center gap-2">
+        <div class="flex flex-col lg:flex-row gap-5">
+            <label class="inline-flex items-center gap-2 cursor-pointer">
+                <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
+                    <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                </span>
+                <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_checkbox_attrset('pilar_TY_2') }}>
+                
+                <span class="text-[#283B44] font-medium">OPTIOT</span>
+            </label>
+            <input type="text" <?php noste_textinput_attrset('pilar_TY1', $data, ''); ?> placeholder="Aihe" class="w-[290px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">   
+            <span class="flex items-end gap-2 block col-span-2 text-[#283B44]">
+                <span class="bg-[#D0D3D4] h-[1px] w-[164px]"></span>
+                € (alv. 0%)
+            </span>
+        </div>
+
+        <a href="#!" class="help_click"><svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="0.72"></circle> <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path> <circle cx="12" cy="16" r="1" fill="#000000"></circle> </g></svg> </a>                                      
+        
+        <hr class="help_line w-full border border-solid border-[#E1E1EA] hidden">
+    </div>
+
+    <div class="help_show text-[#586B74] text-[14px] lg:w-[384px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:right-[10px] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-50px] hidden">
+        Mahdollisuus selvittää erillistöiden tms kustannuksia. Näitä voisi olla: Minikeittiövarausten tekeminen, LVI-suunnitelmien mukaan (2 kpl), Aulan ilmanvaihtomuutos LVI-suunnitelmien mukaan jne.
+    </div>
+</div>
+
+<div class="max-w-[700px] mx-auto">
+    <p class="text-[#283B44] font-medium block mt-20 mb-8">Urakoitsijan tuntiveloitushinnat mahdollisia lisä- ja muutostöitä varten:</p>
+    <div class="grid grid-cols-3 items-center mb-8">
+        <span class="text-[#586B74] block">Työnjohto</span>
+        <span class="flex items-end gap-2 block col-span-2 text-[#283B44] ">
+            <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[350px]"></span>
+            €/h (alv. 0 %)
+        </span>
+    </div>
+    <div class="grid grid-cols-3 items-center mb-8">
+        <span class="text-[#586B74] block">Rakennusammattityöntekijä</span>
+        <span class="flex items-end gap-2 block col-span-2 text-[#283B44] ">
+            <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[350px]"></span>
+            €/h (alv. 0 %)
+        </span>
+    </div>  
+    <div class="grid grid-cols-3 items-center mb-8">
+        <span class="text-[#586B74] block">Rakennustyöntekijä</span>
+        <span class="flex items-end gap-2 block col-span-2 text-[#283B44] ">
+            <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[350px]"></span>
+            €/h (alv. 0 %)
+        </span>
+    </div>  
+    <div class="grid grid-cols-3 items-center mb-8">
+        <span class="text-[#586B74] block">Rakennusaputöidentekijä</span>
+        <span class="flex items-end gap-2 block col-span-2 text-[#283B44] ">
+            <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[350px]"></span>
+            €/h (alv. 0 %)
+        </span>
+    </div>
+    <div class="grid grid-cols-3 items-center mb-8">
+        <span class="text-[#586B74] block">Sähköasentaja</span>
+        <span class="flex items-end gap-2 block col-span-2 text-[#283B44] ">
+            <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[350px]"></span>
+            €/h (alv. 0 %)
+        </span>
+    </div> 
+    <div class="grid grid-cols-3 items-center mb-8">
+        <span class="text-[#586B74] block">IV-asentaja</span>
+        <span class="flex items-end gap-2 block col-span-2 text-[#283B44] ">
+            <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[350px]"></span>
+            €/h (alv. 0 %)
+        </span>
+    </div>  
+    <div class="grid grid-cols-3 items-center">
+        <span class="text-[#586B74] block">Putkiasentaja</span>
+        <span class="flex items-end gap-2 block col-span-2 text-[#283B44] ">
+            <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[350px]"></span>
+            €/h (alv. 0 %)
+        </span>
+    </div>  
+
+    <p class="text-[#283B44] font-medium block mt-20 mb-8">Vakuudet:</p>
+    <div class="grid grid-cols-3 items-center">
+        <span class="text-[#586B74] block">Vakuuden antaja</span>
+        <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px] block col-span-2"></span>
+    </div>
+
+</div>
+{{ do_page_break() }}
+<div class="max-w-[700px] mx-auto">
+    
+    <p class="text-[#283B44] font-medium block mt-20 mb-8">Allekirjoitus:</p>
+    <div class="grid grid-cols-3 items-center mb-8">
+        <span class="text-[#586B74] block">Paikka ja päiväys</span>
+        <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px] block col-span-2"></span>
+    </div>
+    <div class="grid grid-cols-3 items-center mb-8">
+        <span class="text-[#586B74] block">IV-asentaja</span>
+        <span class="flex items-end gap-2 block col-span-2 text-[#586B74] ">
+            <span class="bg-[#D0D3D4] h-[1px] w-[400px]"></span>
+            puolesta
+        </span>
+    </div>
+    <div class="grid grid-cols-3 items-center mb-8">
+        <span class="text-[#586B74] block">Allekirjoitus</span>
+        <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px] block col-span-2"></span>
+    </div>
+    <div class="grid grid-cols-3 items-center">
+        <span class="text-[#586B74] block">Nimenselvennys</span>
+        <span class="bg-[#D0D3D4] h-[1px] w-full lg:w-[464px] block col-span-2"></span>
+    </div>
+
+    <p class="text-[#283B44] font-medium block mt-20 mb-3">Allekirjoitus:</p>
+    <div>
+        <label class="flex items-center gap-2 cursor-pointer">
+            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
+                <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+            </span>
+            <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_checkbox_attrset('pilar_TY_3') }}>
+            
+            <span class="text-[#586B74]">Tilaajavastuulain mukaiset selvitykset</span>
+        </label>
+        <label class="flex items-center gap-2 cursor-pointer mt-5">
+            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
+                <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+            </span>
+            <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_checkbox_attrset('pilar_TY_4') }}>
+            
+            <span class="text-[#586B74]">Ehdotus maksuerätaulukosta</span>
+        </label>
+    </div>
+</div>
+
+{{ do_pages_end() }}

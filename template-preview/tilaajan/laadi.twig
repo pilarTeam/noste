@@ -1,332 +1,299 @@
-
 <div class="noste_pages">
-	<div class="single-page">
-		<div class="page-wrap">
-			<div class="page-header">
-				<img src="{{ locale_args.thumbnail }}" alt="Logo" />
-			</div>
-			<div class="page-body">
-				
-				<div class="mx-auto max-w-[750px] mb-8">
-					<p type="text" name="pilar_K1" class="text-[#586B74] text-sm mb-3">{{ get_global_keyword('pilar_K1', 'K1') }}</p>
-					<p type="text" name="pilar_K4" class="text-[#586B74] text-sm mb-3">{{ get_global_keyword('pilar_K4', 'K4') }}</p>
-				</div>
-				
-				<h4 class="mb-8 text-[#081F2C] mx-auto max-w-[750px]">Projektin lähtötietopalaveri</h4>
+    {#  #}
+    <div class="single-page">
+        <div class="page-wrap">
+            <div class="page-header">
+                <img src="{{ locale_args.thumbnail }}" alt="Logo" />
+            </div>
+            <div class="page-body">
+                <div class="mx-auto max-w-[750px] mb-4 mt-4">
+                    <input type="text" name="pilar_K1" class="mb-2 text-xl text-[#586B74] readonly_global" value="{{ get_global_keyword('pilar_K1', 'K1') }}" readonly>
+                    <input type="text" name="pilar_K4" class="mb-2 text-xl text-[#586B74] readonly_global" value="{{ get_global_keyword('pilar_K4', 'K4') }}" readonly>
+                </div>
+                <h4 class="mb-8 text-[#081F2C] mt-[60px] mx-auto max-w-[750px] text-4xl">Projektin lähtötietopalaveri</h4>
+                <div class="pt-8 mb-8 mx-auto max-w-[750px]">
+                    <div class="flex flex-wrap mb-4">
+                        <label class="flex-[3] mr-4 text-sm font-medium text-black" for="version">Versio:</label>
+                        <p class="flex-[3] text-sm text-accent" id="version">xx.xx.xxxx</p>
+                    </div>
+        
+                    <div class="flex flex-wrap mb-2">
+                        <label class="flex-[3] mr-4 text-sm font-medium text-black" for="um_project-manager">Tilaaja:</label>
+                        <p class="flex-[3] text-sm text-accent italic" id="um_project-manager">{{ get_global_keyword('pilar_T1', 'T1') }}</p>
+                    </div>
+                    
+                    <div class="flex flex-wrap mb-4">
+                        <label class="flex-[3] mr-4 text-sm font-medium text-black" for="author">Laatija:</label>
+                        <p class="flex-[3] text-sm text-accent italic" id="author">{{ get_global_keyword('pilar_P4', 'P4') }}, Partners at Noste Oy</p>
+                    </div>
+                    
+                    <div class="flex flex-wrap mb-4">
+                        <label class="flex-[3] mr-4 text-sm font-medium text-black" for="target">Kohde:</label>
+                        <p class="flex-[3] text-sm text-accent italic" id="target">{{ get_global_keyword('pilar_K4', 'K4') }}</p>
+                    </div>
+        
+                    <div class="flex flex-wrap mb-4">
+                        <label class="flex-[3] mr-4 text-sm font-medium text-black" for="target"></label>
+                        <p class="flex-[3] text-sm text-accent italic">{{ get_global_keyword('pilar_K1', 'K1') }}</p>
+                    </div>
+                    
+                    <div class="flex flex-wrap mb-4">
+                        <label class="flex-[3] mr-4 text-sm font-medium text-black" for="target"></label>
+                        <p class="flex-[3] text-sm text-accent italic">{{ get_global_keyword('pilar_K2', 'K2') }}</p>
+                    </div>
+        
+                    <div class="flex flex-wrap mb-4">
+                        <label class="flex-[3] mr-4 text-sm font-medium text-black" for="target"></label>
+                        <p class="flex-[3] text-sm text-accent italic">{{ get_global_keyword('pilar_K3', 'K3') }}</p>
+                    </div>
+        
+                    <div class="flex flex-wrap mb-4">
+                        <label class="flex-[3] mr-4 text-sm font-medium text-black" for="present">Läsnä:</label>
+                        <p class="flex-[3] text-sm border-accent rounded-md text-[#686d70]" id="present">{{ present }}</p>
+                    </div>
+        
+                </div>
+                <p class="mb-8 mt-[60px] text-[#081F2C] text-sm font-bold mx-auto max-w-[750px]">Tämän läpikäynnin tavoitteena on projektin lähtötietojen tehokas selvittäminen ja koonti yhteen paikkaan. Lisäksi käydään yhteisesti läpi Nosteelle astetetut tehtävät sekä arvioitu aikataulu.</p>
+    
+                <div class="mb-8 mt-[60px] text-[#081F2C] text-sm font-bolder mx-auto max-w-[750px]">
+                    <div class="dropdown relative">
+                        <div class="flex flex-wrap flex-col mb-8 mx-auto max-w-[750px]">
+                            <label class="mr-4 mb-4 text-sm font-medium text-black flex items-center" for="general_situation">Vuokrauksen yleistilanne </label>
+                            <p class="text-sm border-accent rounded-md text-[#586B74] order-3" id="general_ituation">{{ general_situation }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-footer">
+                <span class="page-footer-pagination">1/3</span>
+            </div>
+        </div>
+    </div>
+    <div class="single-page">
+        <div class="page-wrap">
+            <div class="page-header">
+                <img src="{{ locale_args.thumbnail }}" alt="Logo" />
+            </div>
+            <div class="page-body">
+                
+                <div class="flex flex-wrap flex-col mb-8 mx-auto max-w-[750px]">
+                    <label class="mb-4 mb-2 text-sm font-medium text-black font-bolder" for="nosti_tasks">Nosteen tehtävät</label>
+                    <p class="text-sm border-accent rounded-md text-[#586B74]" id="nosti_tasks">{{ nosti_tasks }}</p>
+                </div>
 
-				<div class="mb-8 mx-auto max-w-[750px]">
-					<div class="flex flex-wrap mb-4">
-						<label class="flex-[3] mr-4 text-sm font-medium text-black" for="version">Versio:</label>
-						<p class="flex-[3] text-sm text-accent" id="version">xx.xx.xxxx</p>
-					</div>
+                <div class="dropdown relative">
+                    <div class="flex flex-wrap flex-col mb-8 mx-auto max-w-[750px]">
+                        <div class="flex items-center mb-2">
+                            <p class="mr-4 text-sm font-normal text-[#586B74]">Sovittiin, että Noste laatii seuraavat dokumentit:</p>
+                            <a href="#" class="dropdown-toggle z-1" data-dropdown="other_questions_tooltip3">
+                                <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="0.72"></circle>
+                                        <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
+                                        <circle cx="12" cy="16" r="1" fill="#000000"></circle>
+                                    </g>
+                                </svg>
+                            </a>
+                        </div>
 
-					<div class="flex flex-wrap mb-2">
-						<label class="flex-[3] mr-4 text-sm font-medium text-black" for="um_project-manager">Tilaaja:</label>
+                        <div class="md:pl-12 order-3 gap-3 flex flex-column mt-4">
+                            {% for index, apd_single in apd %}
+                                    {% if apd_ck.includes(apd_single) %}
+                                    <label class="flex items-center text-sm md:text-sm mb-2" for="apd-{{ index }}">
+                                        <p class="mr-2 relative appearance-none rounded cursor-pointer text-[#586B74] text-sm">
+                                            {{ apd_single }}
+                                        </p>
+                                    </label>
+                                    {% endif %}
+                            {% endfor %}
+                        </div>
 
-						<input type="text" id="um_project-manager" name="pilar_T1" class="flex-[3] text-sm text-accent italic readonly_global" value="{{ get_global_keyword('pilar_T4', 'T4') }}" readonly>
-					</div>
-					
-					<div class="flex flex-wrap mb-4">
-						<label class="flex-[3] mr-4 text-sm font-medium text-black" for="author">Laatija:</label>
+                    </div>
+                </div>
+                <div class="dropdown relative">
+                    <div class="mb-2 mx-auto max-w-[750px]">
+                        <div class="flex items-center mb-4">
+                            <h5 class="font-medium text-xl">Vuokralaismuutoksen sisällön ja laatutason läpikäynti</h5>
+                            <a href="#" class="dropdown-toggle z-1 ml-4" data-dropdown="field_of_change_of_status_tooltip">
+                                <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="0.72"></circle>
+                                        <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
+                                        <circle cx="12" cy="16" r="1" fill="#000000"></circle>
+                                    </g>
+                                </svg>
+                            </a>
+                        </div>
+                    
+                        <div class="tooltip_content p-2 lg:w-52 lg:after:w-[142%] xl:after:w-[136%] 2xl:after:w-[265%] border border-[#E1E1EA] bg-[#F6F8FF] rounded-md relkative lg:absolute top-0 right-2 order-2 mb-2 hidden
+                        " id="field_of_change_of_status_tooltip">
+                            <p class="text-xs font-normal text-[#586B74]">Kustannusjako on tärkeää, jotta tiedetään maksaja uusille toiveille ja budjettiylityksille.</p>
+                        </div>
+                    </div>
+                    <div class="mb-8 mx-auto max-w-[750px]">
+                        <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
+                            <label class="flex-[.5] md:mr-4 text-sm font-medium text-[#999a9b]" for="field_of_change_of_status">Tilamuutoksen ala</label>
+                            <div class="flex items-center">
+                                <p class="text-sm border-accent rounded-md text-black w-36 md:ml-6" type="text" id="field_of_change_of_status" name="field_of_change_of_status">{{ field_of_change_of_status }}</p>
+                                <span class="flex items-center ml-2">m<sup>2</sup></span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
+                            <label class="flex-[.5] md:mr-4 text-sm font-medium text-[#999a9b]" for="project_name">Projektin nimi</label>
+                            <p class="text-sm border-accent rounded-md w-36 text-black" type="text" id="project_name" name="project_name" placeholder="xxxxx">{{ project_name }}</p>
+                        </div>
+                        <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4">
+                            <label class="flex-[.5] md:mr-4 text-sm font-medium text-[#999a9b]" for="the_building_ompleted_year">Rakennuksen valmistumisvuosi</label>
+                            <p class="text-sm border-accent rounded-md w-36 text-black " type="text" id="the_building_ompleted_year" name="the_building_ompleted_year">{{ the_building_ompleted_year }}</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-8 dropdown relative">
+                    <div class="mx-auto max-w-[750px] relative">
+                        <p class="w-full font-medium text-sm border-accent rounded-md text-[#586B74]" id="who_pays_new_requests_and_budget" name="who_pays_new_requests_and_budget" rows="6" >{{ who_pays_new_requests_and_budget | nl2br }}</p>
+                    </div>
+                </div>
+                
+                <div class="dropdown relative">
+                    <div class="flex flex-wrap flex-col mb-8 mx-auto max-w-[750px]">
+                        <div class="flex items-center mb-4">
+                            <label class="mr-4 text-sm font-medium text-black" for="other_questions">
+                                Muut kysymykset
+                            </label>
+                            <a href="#" class="dropdown-toggle z-1 ml-4" data-dropdown="other_questions_tooltip4">
+                                <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="0.72"></circle>
+                                        <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
+                                        <circle cx="12" cy="16" r="1" fill="#000000"></circle>
+                                    </g>
+                                </svg>
+                            </a>
+                        </div>
+                        
+                        <p class="text-sm border-accent rounded-md text-[#586B74]" id="other_questions" name="other_questions" rows="4">{{ other_questions }}</p>
+                    </div>
 
-						<input type="text" id="author" name="pilar_P1" class="flex-[3] text-sm text-accent italic readonly_global" value="{{ get_global_keyword('pilar_P4', 'P4') }}, Partners at Noste Oy" readonly>
-					</div>
-					
-					<div class="flex flex-wrap mb-4">
-						<label class="flex-[3] mr-4 text-sm font-medium text-black" for="target">Kohde:</label>
+                    <div class="tooltip_content p-2 lg:w-52 lg:after:w-[142%] xl:after:w-[286%] 2xl:after:w-[351%] border border-[#E1E1EA] bg-[#F6F8FF] rounded-md relkative lg:absolute top-0 right-2 order-2 mb-2 hidden" id="other_questions_tooltip4">
+                        <p class="text-xs font-normal text-[#586B74]">Kiinteistöissä tehdään kiinteistön ylläpitoon ja huoltoon liittyviä PTS-korjauksia (eli pitkän tähtäimen suunnitelman mukaisia korjauksia). Kiinteistö hoitaa PTS-korjaukset pääsääntöisesti itse mutta jos vuokralaismuutosalueella on jotakin tiedossa olevia töitä ne usein halutaan yhdistää vuokralaismuutoksen kanssa.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-footer">
+                <span class="page-footer-pagination">2/3</span>
+            </div>
+        </div>
+    </div>
+    <div class="single-page">
+        <div class="page-wrap">
+            <div class="page-header">
+                <img src="{{ locale_args.thumbnail }}" alt="Logo" />
+            </div>
+            <div class="page-body">
+                
+                <div class="mb-8 mx-auto max-w-[750px]">
+                    <h5 class="mr-4 mb-2 text-sm font-normal text-black">Sähkön laskutus</h5>
+                    <div class="flex md:flex-wrap flex-col md:flex-row md:items-center justify-start mb-4">
+                    
+                        {% for index, electricity_bill in electricity_billing %}
+                            <label class="flex items-center text-sm mb-2 text-[#586B74]" for="electricity_billing-{{ index }}">
+                                {# <input class="mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="electricity_billing[{{ index }}]" id="electricity_billing-{{ index }}" checked readonly disabled> #}
+                                {{ electricity_bill }}
+                            </label>
+                        {% endfor %}
+                    </div>
+                    <p class="w-full text-sm border-accent rounded-md text-[#586B74]" id="electricity_billing_comment">{{ electricity_billing_comment }}</p>
+                </div>
 
-						<input type="text" id="target" name="pilar_K4" class="flex-[3] text-sm text-accent italic readonly_global" value="{{ get_global_keyword('pilar_K4', 'K4') }}" readonly>
-					</div>
-
-					<div class="flex flex-wrap mb-4">
-						<label class="flex-[3] mr-4 text-sm font-medium text-black" for="target"></label>
-
-						<input type="text" id="target" name="pilar_K1" class="flex-[3] text-sm text-accent italic readonly_global" value="{{ get_global_keyword('pilar_K1', 'K1') }}" readonly>
-					</div>
-					
-					<div class="flex flex-wrap mb-4">
-						<label class="flex-[3] mr-4 text-sm font-medium text-black" for="target"></label>
-
-						<input type="text" id="target" name="pilar_K2" class="flex-[3] text-sm text-accent italic readonly_global" value="{{ get_global_keyword('pilar_K2', 'K2') }}" readonly>
-					</div>
-
-					<div class="flex flex-wrap mb-4">
-						<label class="flex-[3] mr-4 text-sm font-medium text-black" for="target"></label>
-
-						<input type="text" id="target" name="pilar_K3" class="flex-[3] text-sm text-accent italic readonly_global" value="{{ get_global_keyword('pilar_K3', 'K3') }}" readonly>
-					</div>
-
-					<div class="flex flex-wrap mb-4">
-						<label class="flex-[3] mr-4 text-sm font-medium text-black" for="present">Läsnä:</label>
-						<p class="flex-[3] text-sm text-[#686d70]" type="text" id="present" name="present" value="">{{ present }}</p>
-					</div>
-				</div>
-
-				<p class="mb-8 text-[#081F2C] text-sm font-medium mx-auto max-w-[750px]">Tämän läpikäynnin tavoitteena on projektin lähtötietojen tehokas selvittäminen ja koonti yhteen paikkaan. Lisäksi käydään yhteisesti läpi Nosteelle astetetut tehtävät sekä arvioitu aikataulu.</p>
-				
-				<div>
-					<div class="dropdown relative">
-						<div class="flex flex-wrap flex-col mb-8 mx-auto max-w-[750px]">
-							<label class="mr-4 mb-2 text-sm font-medium text-black flex items-center" for="general_situation">
-								Vuokrauksen yleistilanne 
-								<a href="javascript:void(0)" class="dropdown-toggle z-1 ml-3" data-dropdown="other_questions_tooltip">
-									<svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-										<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-										<g id="SVGRepo_iconCarrier">
-											<circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="0.72"></circle>
-											<path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
-											<circle cx="12" cy="16" r="1" fill="#000000"></circle>
-										</g>
-									</svg>
-								</a>
-							</label>
-							<p class="text-sm rounded-md text-[#586B74] order-3" id="general_ituation" name="general_situation" rows="4">{{ general_situation | nl2br }}</p>
-
-							<div class="tooltip_content p-2 lg:w-52 lg:after:w-[210%] xl:after:w-[273%] 2xl:after:w-[337%] border border-[#E1E1EA] bg-[#F6F8FF] rounded-md relkative lg:absolute top-0 right-2 order-2 mb-2 hidden
-							" id="other_questions_tooltip">
-								<p class="text-xs font-normal text-[#586B74]">Vuokrauksen yleistilanteessa käydään läpi, miksi ja milloin vuokraus on aktivoitunut (selvitetään onko tilassa haasteita tai ollaanko jo pitkään neuvoteltu samaa vuokrasopimusta) Korvaa pohjassa olevat apukysymykset keskustelun mukaan.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="page-footer">
-				<span class="page-footer-pagination">1/3</span>
-			</div>
-		</div>
-	</div>
-	<div class="single-page">
-		<div class="page-wrap">
-			<div class="page-header">
-				<img src="{{ locale_args.thumbnail }}" alt="Logo" />
-			</div>
-			<div class="page-body">
-				<div>
-					<div class="flex flex-wrap flex-col mb-8 mx-auto max-w-[750px]">
-						<label class="mr-4 mb-2 text-sm font-medium text-black" for="nosti_tasks">
-							Nosteen tehtävät
-						</label>
-						<p class="text-sm rounded-md text-[#586B74]" id="nosti_tasks" name="nosti_tasks">{{ nosti_tasks }}</p>
-					</div>
-
-					<div class="dropdown relative">
-						<div class="flex flex-wrap flex-col mb-8 mx-auto max-w-[750px]">
-							<div class="flex items-center mb-2">
-								<p class="mr-4 text-sm font-normal text-[#586B74]">Sovittiin, että Noste laatii seuraavat dokumentit:</p>
-								<a href="#" class="dropdown-toggle z-1" data-dropdown="other_questions_tooltip3">
-									<svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-										<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-										<g id="SVGRepo_iconCarrier">
-											<circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="0.72"></circle>
-											<path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
-											<circle cx="12" cy="16" r="1" fill="#000000"></circle>
-										</g>
-									</svg>
-								</a>
-							</div>
-							<div class="md:pl-12 order-3">
-								
-								{% for index, agreed_prepare_document in agreed_prepare_documents %}
-									<label class="flex items-center text-sm md:text-sm mb-2" for="agreed_prepare_documents-{{ index }}">
-										<input class="mr-2 relative appearance-none rounded cursor-pointer checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[{{ index }}]" id="agreed_prepare_documents-{{ index }}" checked readonly disabled>
-										<p class="mr-2 relative appearance-none rounded cursor-pointer">
-											{% if agreed_prepare_document == 'other' %}
-												{{ agreed_prepare_documents_content }}
-											{% else %}
-												{{ agreed_prepare_document }}
-											{% endif %}
-										</p>
-									</label>
-								{% else %}
-									{# Blank template area #}
-								{% endfor %}
-							</div>
-
-							<div class="tooltip_content p-2 lg:w-52 lg:after:w-[142%] xl:after:w-[201%] 2xl:after:w-[265%] border border-[#E1E1EA] bg-[#F6F8FF] rounded-md relkative lg:absolute top-0 right-2 order-2 mb-2 hidden
-							" id="other_questions_tooltip3">
-								<p class="text-xs font-normal text-[#586B74]">Vuokrauksen yleistilanteessa käydään läpi, miksi ja milloin vuokraus on aktivoitunut (selvitetään onko tilassa haasteita tai ollaanko jo pitkään neuvoteltu samaa vuokrasopimusta) Korvaa pohjassa olevat apukysymykset keskustelun mukaan.</p>
-							</div>
-						</div>
-					</div>
-					<div class="dropdown relative">
-						<div class="mb-2 mx-auto max-w-[750px]">
-							<div class="flex items-center mb-4">
-								<h5 class="font-medium">Vuokralaismuutoksen sisällön ja laatutason läpikäynti</h5>
-								<a href="#" class="dropdown-toggle z-1 ml-4" data-dropdown="field_of_change_of_status_tooltip">
-									<svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-										<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-										<g id="SVGRepo_iconCarrier">
-											<circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="0.72"></circle>
-											<path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
-											<circle cx="12" cy="16" r="1" fill="#000000"></circle>
-										</g>
-									</svg>
-								</a>
-							</div>
-						
-							<div class="tooltip_content p-2 lg:w-52 lg:after:w-[142%] xl:after:w-[136%] 2xl:after:w-[265%] border border-[#E1E1EA] bg-[#F6F8FF] rounded-md relkative lg:absolute top-0 right-2 order-2 mb-2 hidden
-							" id="field_of_change_of_status_tooltip">
-								<p class="text-xs font-normal text-[#586B74]">Kustannusjako on tärkeää, jotta tiedetään maksaja uusille toiveille ja budjettiylityksille.</p>
-							</div>
-						</div>
-						<div class="mb-8 mx-auto max-w-[750px]">
-							<div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
-								<label class="flex-[.5] md:mr-4 text-sm font-medium text-[#999a9b]" for="field_of_change_of_status">Tilamuutoksen ala</label>
-								<div class="flex items-center">
-									<p class="text-sm rounded-md text-black w-36 md:ml-6" type="text" id="field_of_change_of_status" name="field_of_change_of_status">{{ field_of_change_of_status }}</p>
-									<span class="flex items-center ml-2">m<sup>2</sup></span>
-								</div>
-							</div>
-							<div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
-								<label class="flex-[.5] md:mr-4 text-sm font-medium text-[#999a9b]" for="project_name">Projektin nimi</label>
-								<p class="text-sm rounded-md w-36 text-black" type="text" id="project_name" name="project_name" placeholder="xxxxx">{{ project_name }}</p>
-							</div>
-							<div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4">
-								<label class="flex-[.5] md:mr-4 text-sm font-medium text-[#999a9b]" for="the_building_ompleted_year">Rakennuksen valmistumisvuosi</label>
-								<p class="text-sm rounded-md w-36 text-black " type="text" id="the_building_ompleted_year" name="the_building_completed_year">{{ the_building_completed_year }}</p>
-							</div>
-						</div>
-					</div>
-					
-					<div class="mb-8 dropdown relative">
-						<div class="mx-auto max-w-[750px] relative">
-							<p class="w-full text-sm rounded-md text-[#586B74]" id="who_pays_new_requests_and_budget" name="who_pays_new_requests_and_budget" rows="6">{{ who_pays_new_requests_and_budget }}</p>
-						</div>
-					</div>
-					
-					<div class="dropdown relative">
-						<div class="flex flex-wrap flex-col mb-8 mx-auto max-w-[750px]">
-							<div class="flex items-center mb-4">
-								<label class="mr-4 text-sm font-medium text-black" for="other_questions">
-									Muut kysymykset
-								</label>
-								<a href="#" class="dropdown-toggle z-1 ml-4" data-dropdown="other_questions_tooltip4">
-									<svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-										<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-										<g id="SVGRepo_iconCarrier">
-											<circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="0.72"></circle>
-											<path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
-											<circle cx="12" cy="16" r="1" fill="#000000"></circle>
-										</g>
-									</svg>
-								</a>
-							</div>
-							
-							<p class="text-sm rounded-md text-[#586B74]" id="other_questions" name="other_questions" rows="4">{{ other_questions | nl2br }}</p>
-						</div>
-
-						<div class="tooltip_content p-2 lg:w-52 lg:after:w-[142%] xl:after:w-[286%] 2xl:after:w-[351%] border border-[#E1E1EA] bg-[#F6F8FF] rounded-md relkative lg:absolute top-0 right-2 order-2 mb-2 hidden" id="other_questions_tooltip4">
-							<p class="text-xs font-normal text-[#586B74]">Kiinteistöissä tehdään kiinteistön ylläpitoon ja huoltoon liittyviä PTS-korjauksia (eli pitkän tähtäimen suunnitelman mukaisia korjauksia). Kiinteistö hoitaa PTS-korjaukset pääsääntöisesti itse mutta jos vuokralaismuutosalueella on jotakin tiedossa olevia töitä ne usein halutaan yhdistää vuokralaismuutoksen kanssa.</p>
-						</div>
-					</div>
-					
-					<div class="mb-8 mx-auto max-w-[750px]">
-						<h5 class="mr-4 mb-2 text-sm font-normal text-black">Sähkön laskutus</h5>
-						<div class="flex md:flex-wrap flex-col md:flex-row md:items-center justify-between mb-4">
-							{% for index, electricity_bill in electricity_billing %}
-								<label class="flex items-center text-sm md:text-sm mb-2" for="electricity_bill-{{ index }}">
-									<input class="mr-2 relative appearance-none rounded cursor-pointer checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="electricity_billing[{{ index }}]" id="electricity_bill-{{ index }}" checked readonly disabled>
-									<p class="mr-2 relative appearance-none rounded cursor-pointer">
-										{{ electricity_bill }}
-									</p>
-								</label>
-							{% else %}
-								{# Blank template area #}
-							{% endfor %}
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="page-footer">
-				<span class="page-footer-pagination">2/3</span>
-			</div>
-		</div>
-	</div>
-	<div class="single-page">
-		<div class="page-wrap">
-			<div class="page-header">
-				<img src="{{ locale_args.thumbnail }}" alt="Logo" />
-			</div>
-			<div class="page-body">
-				<div>
-
-					<div class="mx-auto max-w-[750px]">
-						<p class="w-full text-sm rounded-md text-[#586B74]" id="electricity_billing_comment" name="electricity_billing_comment" rows="4">{{ electricity_billing_comment | nl2br }}</p>
-					</div>
-					<div class="mx-auto max-w-[750px]">
-						<h5 class="mr-4 mb-4 text-sm font-medium text-black">Perustiedot</h5>
-						<p class="mb-4 text-sm">Tämän läpikäynnin tavoitteena on projektin lähtötietojen tehokas selvittäminen ja koonti yhteen paikkaan. Lisäksi käydään yhteisesti läpi Nosteelle astetetut tehtävät sekä arvioitu aikataulu.</p>
-					</div>
+                <div class="mx-auto max-w-[750px]">
+                    <h5 class="mr-4 mb-4 text-sm font-medium text-black font-bolder">Perustiedot</h5>
+                    <p class="mb-4 text-sm text-[#586B74]">Tämän läpikäynnin tavoitteena on projektin lähtötietojen tehokas selvittäminen ja koonti yhteen paikkaan. Lisäksi käydään yhteisesti läpi Nosteelle astetetut tehtävät sekä arvioitu aikataulu.</p>
+                </div>
 
 
-					<div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
-						<label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="property_name">Kiinteistön nimi</label>
-						<p class="flex-[3] text-sm rounded-md text-[#586B74]" type="text" id="property_name" name="property_name">{{ property_name }}</p>
-					</div>
+                <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
+                    <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="property_name">Kiinteistön nimi</label>
+                    <p class="flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="text" id="property_name">{{ property_name }}</p>
+                </div>
 
-					<div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
-						<label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="sreet_address">Kiinteistön katuosoite</label>
-						<p class="flex-[3] text-sm rounded-md text-[#586B74]" type="text" id="sreet_address" name="sreet_address">{{ sreet_address }}</p>
-					</div>
+                <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
+                    <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="sreet_address">Kiinteistön katuosoite</label>
+                    <p class="flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="text" id="sreet_address" name="sreet_address">{{ sreet_address }}</p>
+                </div>
 
-					<div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
-						<label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="property_manager">Kiinteistöpäällikkö (Henkilö)</label>
-						<p class="flex-[3] text-sm rounded-md text-[#586B74]" type="text" id="property_manager" name="property_manager">{{ property_manager }}</p>
-					</div>
+                <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
+                    <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="property_manager">Kiinteistöpäällikkö (Henkilö)</label>
+                    <p class="flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="text" id="property_manager">{{ property_manager }}</p>
+                </div>
 
-					<div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
-						<label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="property_manager_email">Kiinteistöpäällikön sähköposti</label>
-						<p class="flex-[3] text-sm rounded-md text-[#586B74]" type="email" id="property_manager_email" name="property_manager_email">{{ property_manager_email }}</p>
-					</div>
+                <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
+                    <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="property_manager_email">Kiinteistöpäällikön sähköposti</label>
+                    <p class="flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="email" id="property_manager_email">{{ property_manager_email }}</p>
+                
+                </div>
 
-					<div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
-						<label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="property_manager_phone">Kiinteistöpäällikön puhelinnumero</label>
-						<p class="flex-[3] text-sm rounded-md text-[#586B74]" type="tel" id="property_manager_phone" name="property_manager_phone">{{ property_manager_phone }}</p>
-					</div>
+                <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
+                    <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="property_manager_phone">Kiinteistöpäällikön puhelinnumero</label>
+                    <p class="flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="tel" id="property_manager_phone">{{ property_manager_phone }}</p>
+                </div>
 
-					<div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
-						<label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="maintenance_person">Huoltohenkilö (Henkilö)</label>
-						<p class="flex-[3] text-sm rounded-md text-[#586B74]" type="text" id="maintenance_person" name="maintenance_person">{{ maintenance_person }}</p>
-					</div>
+                <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
+                    <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="maintenance_person">Huoltohenkilö (Henkilö)</label>
+                    <p class="flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="text" id="maintenance_person">{{ maintenance_person }}</p>
+                </div>
 
-					<div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
-						<label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="service_email">Huollon sähköposti</label>
-						<p class="flex-[3] text-sm rounded-md text-[#586B74]" type="email" id="service_email" name="service_email">{{ service_email }}</p>
-					</div>
+                <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
+                    <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="service_email">Huollon sähköposti</label>
+                    <p class="flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="email" id="service_email">{{ service_email }}</p>
+                </div>
 
-					<div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
-						<label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="service_phone_number">Huollon puhelinnumero</label>
-						<p class="flex-[3] text-sm rounded-md text-[#586B74]" type="tel" id="service_phone_number" name="service_phone_number">{{ service_phone_number }}</p>
-					</div>
+                <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
+                    <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="service_phone_number">Huollon puhelinnumero</label>
+                    <p class="flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="tel" id="service_phone_number">{{ service_phone_number }}</p>
+                </div>
 
-					<div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
-						<label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="aulas_email">Aulan sähköposti</label>
-						<p class="flex-[3] text-sm rounded-md text-[#586B74]" type="email" id="aulas_email" name="aulas_email">{{ aulas_email }}</p>
-					</div>
+                <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
+                    <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="aulas_email">Aulan sähköposti</label>
+                    <p class="flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="email" id="aulas_email">{{ aulas_email }}</p>
+                </div>
 
-					<div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
-						<label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="lobby_phone_number">Aulan puhelinnumero</label>
-						<p class="flex-[3] text-sm rounded-md text-[#586B74]" type="tel" id="lobby_phone_number" name="lobby_phone_number">{{ lobby_phone_number }}</p>
-					</div>
+                <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
+                    <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="lobby_phone_number">Aulan puhelinnumero</label>
+                    <p class="flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="tel" id="lobby_phone_number">{{ lobby_phone_number }}</p>
+                </div>
 
-					<div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
-						<label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="lobby_opening_hours">Aulan aukioloajat</label>
-						<p class="flex-[3] text-sm rounded-md text-[#586B74]" type="text" id="lobby_opening_hours" name="lobby_opening_hours">{{ lobby_opening_hours }}</p>
-					</div>
+                <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
+                    <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="lobby_opening_hours">Aulan aukioloajat</label>
+                    <p class="flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="text" id="lobby_opening_hours">{{ lobby_opening_hours }}</p>
+                </div>
 
-					<div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
-						<label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="tenant_company">Vuokralainen (yhtiö)</label>
-						<p class="flex-[3] text-sm rounded-md text-[#586B74]" type="text" id="tenant_company" name="tenant_company">{{ tenant_company }}</p>
-					</div>
-				</div>
-			</div>
-			<div class="page-footer">
-				<span class="page-footer-pagination">3/3</span>
-			</div>
-		</div>
-	</div>
+                <div class="flex flex-wrap flex-col md:flex-row md:items-center mb-4 mx-auto max-w-[750px]">
+                    <label class="flex-[2] mr-4 text-sm font-normal text-[#586B74]" for="tenant_company">Vuokralainen (yhtiö)</label>
+                    <p class="flex-[3] text-sm border-accent rounded-md text-[#586B74]" type="text" id="tenant_company">{{ tenant_company }}</p>
+                </div>
+            </div>
+            <div class="page-footer">
+                <span class="page-footer-pagination">3/3</span>
+            </div>
+        </div>
+    </div>
+    {#  #}
 </div>
+
+<style>
+.font-bolder {font-weight: 900;}
+.flex-column {flex-direction: column;}
+.page-body .italic {text-style: unset;}
+.page-body .mb-4 {margin-bottom: 1.3rem;}
+.page-body .text-accent {color: #586B74;}
+.page-body .max-w-\[750px\] {max-width: unset;}
+.text-4xl {font-size: 2rem;line-height: 2.5rem;}
+.page-body .text-sm {font-size: 1.2rem;line-height: 1.75rem;}
+</style>

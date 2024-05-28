@@ -626,6 +626,7 @@ section#single-main-list .approval {
     color: #00B2A9;
     font-size: 14px;
     font-weight: 700;
+    border-radius: 12px 12px 0 0 !important;
 }
 
 .list-tile-bar .project-title, .list-tile-bar ul, .list-tile-bar .project-kiinteisto, .list-tile-bar .project-head {
@@ -675,4 +676,20 @@ section#single-main-list .approval {
 
 .tooltip:hover .tooltiptext {
     visibility: visible;
+}
+
+.tooltiptext.text-tooltip{
+    color: #08202c;
+    background: #f6f8ff;
+    border: 1px solid #E1E1EA;
+    border-radius: 0.5rem;
+    top: initial;
+    bottom: 100%;
+    text-align: left;
+    padding: 1.25rem;
+    width: 230px;
+}
+
+.cursor-pointer {
+    position: relative;
 }

@@ -26,8 +26,6 @@ $project_id = get_the_ID();
                     
                     <!-- Card Body -->
                     <div class="px-4 md:px-8 pt-6 pb-10 lg:h-[645px] overflow-y-auto no-scrollbar scroll-smooth">
-                        
-                    
                         <div class="max-w-[700px] mx-auto mt-20">
                             <div class="mb-[30px]">
                                 <span class="font-medium italic text-[#00B2A9] block"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K1', true ), 'K1') ); ?></span>
@@ -36,7 +34,7 @@ $project_id = get_the_ID();
 
                             <div class="mb-[30px]">
                                 <h1 class="text-black text-[25px] font-medium mb-4">Tarjouspyyntökirje</h1>
-                                <input type="text" name="pilar_VA1" placeholder="XX.XX.XXXX" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] min-w-full  lg:min-w-[209px] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <input type="text" <?php noste_textinput_attrset('pilar_VA_1', $data, ''); ?> placeholder="XX.XX.XXXX" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] min-w-full  lg:min-w-[209px] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                             </div>
 
                             <div class="grid grid-cols-1 lg:grid-cols-3 gap-[20px] mb-5">
@@ -57,7 +55,7 @@ $project_id = get_the_ID();
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K17">
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('pilar_K17_1', $data); ?>>
                                     <span class="flex-1 text-[#586B74] text-[14px]">Projektipäällikkö</span>
                                 </label>
                             </div>
@@ -87,7 +85,7 @@ $project_id = get_the_ID();
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K17">
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('pilar_K17_2', $data); ?>>
                                     <span class="flex-1 text-[#586B74] text-[14px]">Projektijohtamisen asiantuntija</span>
                                 </label>
                             </div>
@@ -113,7 +111,7 @@ $project_id = get_the_ID();
                             <div>
                                 <div class="flex flex-col lg:flex-row lg:items-center gap-3">
                                     <span class="text-[#586B74] text-[15px]">Pyydämme tarjoustanne osoitteessa <span class="text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K2', true ), 'K2') ); ?></span>, <span class="text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K3', true ), 'K3') ); ?></span> sijaitsevan</span>
-                                    <input type="text" name="pilar_filed8_6_4" class="flex-1 w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" <?php noste_textinput_attrset('pilar_filed8_6_4', $data, ''); ?> class="flex-1 w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </div>
                                 <p class="text-[#586B74] text-[14px] mt-2">Urakkaan kuuluvat YSE 1§:n mukaisesti kaikki sopimusasiakirjoissa urakoitsijalle määritellyt rakennustekniset sekä LVIAS-tekniset työt materiaaleineen, laitteineen ja hankintoineen sekä toimenpiteet, jotka tarvitaan kohteen saattamiseksi täysin valmiiksi.</p>
                             </div>
@@ -129,7 +127,7 @@ $project_id = get_the_ID();
                                         <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_textinput_attrset('pilar_K18_1', $data, ''); ?>>
                                         <span class="flex-1 text-[#586B74] text-[14px]">välittömästi tilauksesta</span>
                                     </label>
                                     ]
@@ -140,13 +138,13 @@ $project_id = get_the_ID();
                                         <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_textinput_attrset('pilar_K18_2', $data, ''); ?>>
                                         <span class="flex-1 text-[#586B74] text-[14px]">aikaisintaan</span>
                                     </label>
                                     ]
                                 </span>
                                 <span>
-                                    <input type="text" name="pilar_VA1" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" <?php noste_textinput_attrset('pilar_VA_2', $data, ''); ?> placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </span>
                                 <span class="flex-1 h-[1px] bg-[#94969C] inline-block self-end"></span>
                                 <div class="help_wrap relative mb-2">
@@ -186,11 +184,11 @@ $project_id = get_the_ID();
                             <div class="flex flex-col lg:flex-row lg:items-center gap-2 mt-10">
                                 <span class="text-[#586B74] text-[15px]">Tarjous pyydetään toimittamaan</span>
                                 <span class="">
-                                    <input type="text" name="pilar_VA1" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" <?php noste_textinput_attrset('pilar_VA_3', $data, ''); ?> placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </span>
                                 <span class="flex-1 text-[#586B74] text-[15px]">klo</span>
                                 <span class="">
-                                    <input type="text" name="pilar_VA1" placeholder="XX.XX.XXXX" class="w-full lg:w-[68px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" <?php noste_textinput_attrset('pilar_VA_4', $data, ''); ?> placeholder="XX.XX.XXXX" class="w-full lg:w-[68px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </span>
                                 <span class="text-[#586B74] text-[15px]">mennessä sähköpostitse osoitteeseen</span>
                                 <span class="text-[#586B74] text-[15px] inline-flex gap-1">
@@ -199,7 +197,7 @@ $project_id = get_the_ID();
                                         <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_textinput_attrset('pilar_K18_3', $data, ''); ?>>
                                         <span class="flex-1 text-[#586B74] text-[14px]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P3', true ), 'P3') ); ?></span>
                                     </label>
                                     ]
@@ -210,7 +208,7 @@ $project_id = get_the_ID();
                                         <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_textinput_attrset('pilar_K18_4', $data, ''); ?>>
                                         <span class="flex-1 text-[#586B74] text-[14px]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P6', true ), 'P6') ); ?></span>
                                     </label>
                                     ]
@@ -226,7 +224,7 @@ $project_id = get_the_ID();
                                         <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_textinput_attrset('pilar_K18_5', $data, ''); ?>>
                                         <span class="flex-1 text-[#586B74] text-[14px]">Projektipäällikkö <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P1', true ), 'P1') ); ?></span></span>
                                     </label>
                                     ]
@@ -237,7 +235,7 @@ $project_id = get_the_ID();
                                         <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_textinput_attrset('pilar_K18_6', $data, ''); ?>>
                                         <span class="flex-1 text-[#586B74] text-[14px]">Projektijohtamisen asiantuntija <span class="italic text-[#FE3B2D]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></span></span>
                                     </label>
                                     ]
@@ -256,28 +254,28 @@ $project_id = get_the_ID();
                                     <span class="text-[#586B74]">Tarjouspyyntökirje</span>
                                     <span class="text-[#586B74]">Partners at Noste Oy</span>
                                     <span class="text-[#586B74]">
-                                        <input type="text" name="pilar_VA1" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php noste_textinput_attrset('pilar_VA_5', $data, ''); ?> placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                 </div>
                                 <div class="grid lg:grid-cols-3 items-center gap-[20px] mb-5">
                                     <span class="text-[#586B74]">Tarjouspyyntölomake</span>
                                     <span class="text-[#586B74]">Partners at Noste Oy</span>
                                     <span class="text-[#586B74]">
-                                        <input type="text" name="pilar_VA1" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php noste_textinput_attrset('pilar_VA_6', $data, ''); ?> placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                 </div>
                                 <div class="grid lg:grid-cols-3 items-center gap-[20px] mb-5">
                                     <span class="text-[#586B74]">Turvallisuusasiakirja</span>
                                     <span class="text-[#586B74]">Partners at Noste Oy</span>
                                     <span class="text-[#586B74]">
-                                        <input type="text" name="pilar_VA1" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php noste_textinput_attrset('pilar_VA_7', $data, ''); ?> placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                 </div>
                                 <div class="grid lg:grid-cols-3 items-center gap-[20px] mb-5">
                                     <span class="text-[#586B74]">Urakkasopimusluonnos</span>
                                     <span class="text-[#586B74]">Partners at Noste Oy</span>
                                     <span class="text-[#586B74]">
-                                        <input type="text" name="pilar_VA1" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php noste_textinput_attrset('pilar_VA_8', $data, ''); ?> placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                 </div>
                                 <div class="grid lg:grid-cols-3 items-center gap-[20px] mb-5">
@@ -287,16 +285,16 @@ $project_id = get_the_ID();
                                                 <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                                     <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_textinput_attrset('pilar_TY_1', $data, ''); ?>>
                                             </label>
-                                            <input type="text" name="pilar_filed8_6" placeholder="Muu" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text" <?php noste_textinput_attrset('pilar_filed8_6_1', $data, ''); ?> placeholder="Muu" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </div>
                                     </span>
                                     <span class="text-[#586B74]">
-                                        <input type="text" name="pilar_M1" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php noste_textinput_attrset('pilar_M_1', $data, ''); ?> class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                     <span class="text-[#586B74]">
-                                        <input type="text" name="pilar_VA1" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php noste_textinput_attrset('pilar_VA_9', $data, ''); ?> placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                 </div>
                             </div>
@@ -311,7 +309,7 @@ $project_id = get_the_ID();
                                     <span class="text-[#586B74]"><span class="flex-1 h-[1px] bg-[#94969C] inline-block w-full"></span></span>
                                     <span class="text-[#586B74]"><span class="flex-1 h-[1px] bg-[#94969C] inline-block w-full"></span></span>
                                     <span class="text-[#586B74]">
-                                        <input type="text" name="pilar_VA1" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php noste_textinput_attrset('pilar_VA_10', $data, ''); ?> placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                 </div>
                                 <div class="grid lg:grid-cols-3 items-center gap-[20px] mb-5">
@@ -321,14 +319,14 @@ $project_id = get_the_ID();
                                                 <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                                     <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_textinput_attrset('pilar_TY_2', $data, ''); ?>>
                                             </label>
                                             <span class="text-[#586B74]">Rakennustapaselostus</span>
                                         </div>
                                     </span>
                                     <span class="text-[#586B74]">Partners at Noste Oy</span>
                                     <span class="text-[#586B74]">
-                                        <input type="text" name="pilar_VA1" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php noste_textinput_attrset('pilar_VA_11', $data, ''); ?> placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                 </div>
                                 <div class="grid lg:grid-cols-3 items-center gap-[20px] mb-5">
@@ -338,16 +336,16 @@ $project_id = get_the_ID();
                                                 <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                                     <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_textinput_attrset('pilar_TY_3', $data, ''); ?>>
                                             </label>
-                                            <input type="text" name="pilar_filed8_6" placeholder="Muu" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text" <?php noste_textinput_attrset('pilar_filed8_6_2', $data, ''); ?> placeholder="Muu" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </div>
                                     </span>
                                     <span class="text-[#586B74]">
-                                        <input type="text" name="pilar_M1" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php noste_textinput_attrset('pilar_M_2', $data, ''); ?> class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                     <span class="text-[#586B74]">
-                                        <input type="text" name="pilar_VA1" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php noste_textinput_attrset('pilar_VA_12', $data, ''); ?> placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                 </div>
                             </div>
