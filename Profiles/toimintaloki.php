@@ -25,7 +25,7 @@ if ( !array_intersect( [ 'administrator' , 'um_valvoja' ], $user->roles ) ) {
 $filter = '';
 
 if ( isset($_GET['pid']) && !empty($_GET['pid']) ) {
-    $filter .= ' AND project_id = ' . (int) $_GET['pid'];
+    $filter .= 'project_id = ' . (int) $_GET['pid'];
 } 
 
 if ( array_intersect( [ 'administrator' ], $user->roles ) ) {
@@ -46,7 +46,11 @@ if ( array_intersect( [ 'um_valvoja' ], $user->roles ) ) {
         'meta_value'    => get_current_user_id()
     ];
 
-    $filter .= ' AND user_id = ' . (int) get_current_user_id();
+    if ( isset($_GET['pid']) && !empty($_GET['pid']) ) {
+        $filter .= ' AND user_id = ' . (int) get_current_user_id();
+    } else {
+        $filter .= ' user_id = ' . (int) get_current_user_id();        
+    }
 }
 
 if ( empty($args) ) {
@@ -57,9 +61,16 @@ if ( empty($args) ) {
 $projects = get_posts($args);
 
 global $wpdb;
-$sql = $wpdb->prepare( "SELECT * FROM wp_noste_notifications WHERE status = %s " . $filter ." ORDER BY `id` DESC
-", 'active' );
+
+if ( !empty($filter) ) {
+    $sql = $wpdb->prepare( "SELECT * FROM wp_noste_notifications WHERE " . $filter ." ORDER BY `id` DESC" );
+} else {
+    $sql = $wpdb->prepare( "SELECT * FROM wp_noste_notifications ORDER BY `id` DESC" );    
+}
+
+
 $notifications = $wpdb->get_results( $sql, ARRAY_A );
+
 
 ?>
 
@@ -181,9 +192,9 @@ $notifications = $wpdb->get_results( $sql, ARRAY_A );
 
                                     if ( $recent_time > 0 ) {
 
-                                        $minutes = (int)($recent_time / 60);
-                                        $hours = (int)($minutes / 60);
-                                        $days = (int)($hours / 24);
+                                        $minutes = (int) ($recent_time / 60);
+                                        $hours = (int) ($minutes / 60);
+                                        $days = (int) ($hours / 24);
                                         if ($days >= 1) {
                                           $how_log_ago = $days . ' days sitten' . ( $days != 1 ? 's' : '');
                                         } else if ($hours >= 1) {
@@ -196,7 +207,7 @@ $notifications = $wpdb->get_results( $sql, ARRAY_A );
 
                                     }
 
-                                    if ( !empty($tm) ) {
+                                    if ( !empty($tm) && $notification['status'] == 'active' ) {
                                         $tmin_url = add_query_arg([
                                             'tm' => $tm[0],
                                             'tmin' => $tm[1],
@@ -207,18 +218,26 @@ $notifications = $wpdb->get_results( $sql, ARRAY_A );
 
                                     ?>
                                     <a href="<?php echo esc_attr( $tmin_url ); ?>">
-                                   <div class="my-3 p-4 gap-3 flex rounded-lg border border-solid border-[#E1E1EA] cursor-pointer <?php echo $notification['mark'] ? 'not_mark' : ''; ?>"> 
+                                       <div class="my-3 p-4 gap-3 flex rounded-lg border border-solid border-[#E1E1EA] cursor-pointer <?php echo $notification['status'] == 'active' ? 'not_mark' : ''; ?> <?php echo $notification['status'] ?? ''; ?>"> 
                                         
-                                        <?php 
-                                            echo $notification['mark'] ? noste_check_empty ( GetIconsMarkup( 'alert-triangle.svg', '30px' ) ) : '<div class="user_avatar">' . um_user( 'profile_photo' ) . '</div> ';
-                                        ?>
+                                            <?php 
+                                                echo $notification['status'] == 'active' ? noste_check_empty ( GetIconsMarkup( 'alert-triangle.svg', '30px' ) ) : noste_check_empty( GetIconsMarkup('check-circle.svg', '30px') );
+                                            ?>
 
-                                                                   
-                                        <div class="flex-1">
-                                            <span class="text-offwhite text-[14px]">Uusi toiminta • <?php echo esc_html( $how_log_ago ); ?></span>
-                                            <p class="text-[#94969C] mt-1"><b class="text-black"><?php echo um_user( 'display_name' ); ?> <?php echo implode(' - ', [ $tm[0], $tm[1] ]); ?> - <?php echo esc_attr( $form_name ); ?></b></p>
+                                                                       
+                                            <div class="flex-1">
+                                                <span class="text-offwhite text-[14px]">Uusi toiminta • <?php echo esc_html( $how_log_ago ); ?></span>
+
+                                                <?php if ( empty($form_name) ): ?>
+                                                    <p class="text-[#94969C] mt-1"><b class="text-black"><?php echo um_user( 'display_name' ); ?> <?php echo implode(' - ', [ $content['tm'], $content['tmin'] ]); ?></b> - Comments</p>
+                                                <?php else: ?>      
+                                                    <p class="text-[#94969C] mt-1"><b class="text-black"><?php echo um_user( 'display_name' ); ?> <?php echo implode(' - ', [ $tm[0], $tm[1] ]); ?> - <?php echo esc_attr( $form_name ); ?></b></p>
+                                                <?php endif ?>
+                                            </div>
+
+
+
                                         </div>
-                                    </div>
                                     </a>
                                 
                             <?php } endforeach ?>

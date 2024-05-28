@@ -28,7 +28,11 @@ $project_id = get_the_ID();
                     <!-- Card Body -->
                     <div class="px-4 md:px-8 pt-6 pb-10 lg:h-[645px] overflow-y-auto no-scrollbar scroll-smooth"> 
                         <div class="max-w-[-750px] mx-auto mt-10">
+<<<<<<< HEAD
                             <?php echo do_shortcode( '[gantt-form form_id="' . esc_attr( implode('/', [$_GET['tm'], $_GET['tmin']]) ) . '"]' ); ?>
+=======
+                            <?php echo do_shortcode( '[gantt-form form_id="' . esc_attr( implode('/', [$_GET['tm'], $_GET['tmin']]) ) . '" columns="Text,Päättyy"]' ); ?>
+>>>>>>> ab13571eacaddea1c130c975b10737a39efd6106
                         </div>
                     </div>
                     <!-- Card footer --><?php echo wp_kses_post(noste_form_footer('form')); ?><!-- Card footer -->

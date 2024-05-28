@@ -1,7 +1,9 @@
 <?php 
 	$tm = $_GET['tm'];
+    $user = wp_get_current_user();
 
 	$project_intdata = !empty(get_post_meta( get_the_ID(), sprintf('%s_status', $tm), true )) ? json_decode( get_post_meta( get_the_ID(), sprintf('%s_status', $tm), true ), true ) : [];
+
 
 	$tm_inner = [
 		'valmistele' => [
@@ -11,28 +13,28 @@
 				'link' => 'valmistele',
 				'title' => 'Lähtötietopalaverin asialista',
 			],
-			'comment' => !empty($project_intdata['valmistele']['comment']) ? $project_intdata['valmistele']['comment'] : 0,
+			'comment' => !empty($project_intdata['valmistele']['comment']) ? $project_intdata['valmistele']['comment'] : '',
 		],
 		'pida' => [
-			'title' => 'Valmistele ja laadi lähtötietopalaverin asialista',
+			'title' => 'Pidä lähtötietopalaveri tilaajalle sopivalla tavalla',
 			'status' => !empty($project_intdata['pida']['status']) ? $project_intdata['pida']['status'] : 0,
 			'url' => '',
-			'comment' => !empty($project_intdata['pida']['comment']) ? $project_intdata['pida']['comment'] : 'aloittamatta',
+			'comment' => !empty($project_intdata['pida']['comment']) ? $project_intdata['pida']['comment'] : '',
 		],		
 		'laadi' => [
-			'title' => 'Valmistele ja laadi lähtötietopalaverin asialista',
+			'title' => 'Laadi lähtötietopalaverin muistio ja toimita se kokouksen osallistujille',
 			'status' => !empty($project_intdata['laadi']['status']) ? $project_intdata['laadi']['status'] : 0,
 			'url' => [
 				'link' => 'laadi',
-				'title' => 'Lähtötietopalaverin asialista',
+				'title' => 'Lähtötietopalaverin muistio',
 			],
-			'comment' => !empty($project_intdata['laadi']['comment']) ? $project_intdata['laadi']['comment'] : 'aloittamatta',
+			'comment' => !empty($project_intdata['laadi']['comment']) ? $project_intdata['laadi']['comment'] : '',
 		],
 		'sovi' => [
-			'title' => 'Valmistele ja laadi lähtötietopalaverin asialista',
+			'title' => 'Sovi kirjallisesti tilaajan kanssa projektin valmisteluvaiheen tehtävien tekemisestä',
 			'status' => !empty($project_intdata['sovi']['status']) ? $project_intdata['sovi']['status'] : 0,
 			'url' => '',
-			'comment' => !empty($project_intdata['sovi']['comment']) ? $project_intdata['sovi']['comment'] : 'aloittamatta',
+			'comment' => !empty($project_intdata['sovi']['comment']) ? $project_intdata['sovi']['comment'] : '',
 		],		
 	];
 
@@ -56,16 +58,36 @@
                 <!-- Card Header -->
                 <div class="card_header px-4 md:px-8 py-6 border-b border-line top-0 z-10">
                     <div>
-                        <p class="text-sm font-normal text-[#818D93] mb-1">Project nimi</p>
+                        <p class="text-sm font-normal text-[#818D93] mb-1"><?php echo esc_html( noste_check_empty( $args['page_title'] ) ); ?></p>
                         <h2 class="text-xl font-medium text-[#08202C] mb-4">Projektin valmistelu</h2>
 
 
-                        <p class="text-base text-[#475467] mb-2" id="content">
-                            Projektin valmisteluvaiheessa tärkeintä on tukea kiinteistönomistajan vuokraamisesta vastaavaa tahoa niin, että tilasta tehtävä vuokrasopimustarjous kiinteistönomistajan (eli vuokranantajan / tilaajan) asiakkaalle, eli vuokralaisehdokkaalle olisi mahdollisimman houkutteleva. Samalla vuokrasopimustarjous pyritään laatimaan mahdollisimman kannattavaksi kiinteistönomistajalle. Vaiheelle kuvaavaa on aika-ajoin kiireelliset selvitystyöt, teknisten reunaehtojen selvitys vähillä lähtötiedoilla, sekä vuokrasopimustarjoukseen tarvittavien avustavien lähtötietojen nopea toimitus vuokrauksesta vastaavalle taholle. Tässä vaiheessa vuokralaisehdokas usein kilpailuttaa useita kiinteistönomistajia lyhyen ajanjakson sisällä ja kiinteistöomistajan, jota noste.io auttaa, on pyrittävä antamaan vuokralaisehdokkaalle paras mahdollinen tarjous vuokralaisen tarvitsemista tiloista, niin tilatarpeiden kuin kustannusten osalta. <br> <br>
-                            Noste.ion toimittamat vuokrasopimustarjouksen lähtötiedot pyritään antamaan mahdollisimman paikkaansa pitävänä, ilman virheitä ja mahdollisimman nopeasti kiinteistönomistajalle vuokrasopimustarjouksen lähtötiedoiksi. Tässä vaiheessa tehtävät alustavat selvitykset pyritään usein myös tekemään hyvin kustannustehokkaasti, koska vuokralaisehdokas voi päätyä valitsemaan jonkin toisen kiinteistönomistajan tilat, jäämään vanhoihin tiloihin tai tekemään jonkin muun ratkaisuun. Vuokrauksesta vastaavan tahon mieltymysten mukaan, henkilö joko toivoo paljon yhteystyötä noste.iolta tai sitten henkilö tekee hyvin omatoimisesti ja omin päin tämän vaiheen.
-                        </p>
-                        
-                        <button class="text-accent underline decoration-accent text-base" id="showMore">Lue lisää</button>
+                        <div class="content-wrap">
+                            <div class="excerpt" id="excerpt_content">
+                                <p class="text-base text-[#475467] mb-2">
+                                    Projektin valmisteluvaiheessa tärkeintä on tukea kiinteistönomistajan vuokraamisesta vastaavaa tahoa niin, että tilasta tehtävä vuokrasopimustarjous kiinteistönomistajan (eli vuokranantajan / tilaajan) asiakkaalle, eli vuokralaisehdokkaalle olisi mahdollisimman houkutteleva. Samalla vuokrasopimustarjous pyritään laatimaan mahdollisimman...
+                                </p>
+
+                                <button class="text-accent underline decoration-accent text-base" id="showMore">Lue lisää</button>
+                            </div>
+
+                            <div class="hidden" id="full_content">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                                    <p class="text-base text-[#475467] mb-2">
+                                        Projektin valmisteluvaiheessa tärkeintä on tukea kiinteistönomistajan vuokraamisesta vastaavaa tahoa niin, että tilasta tehtävä vuokrasopimustarjous kiinteistönomistajan (eli vuokranantajan / tilaajan) asiakkaalle, eli vuokralaisehdokkaalle olisi mahdollisimman houkutteleva. Samalla vuokrasopimustarjous pyritään laatimaan mahdollisimman kannattavaksi kiinteistönomistajalle. Vaiheelle kuvaavaa on aika-ajoin kiireelliset selvitystyöt, teknisten reunaehtojen selvitys vähillä lähtötiedoilla, sekä vuokrasopimustarjoukseen tarvittavien avustavien lähtötietojen nopea toimitus vuokrauksesta vastaavalle taholle. <br><br>Tässä vaiheessa vuokralaisehdokas usein kilpailuttaa useita kiinteistönomistajia lyhyen ajanjakson sisällä ja kiinteistöomistajan, jota noste.io auttaa, on pyrittävä antamaan vuokralaisehdokkaalle paras mahdollinen tarjous vuokralaisen tarvitsemista tiloista, niin tilatarpeiden kuin kustannusten osalta.
+                                    </p>
+
+                                    <p class="text-base text-[#475467] mb-2">
+                                        Noste.ion toimittamat vuokrasopimustarjouksen lähtötiedot pyritään antamaan mahdollisimman paikkaansa pitävänä, ilman virheitä ja mahdollisimman nopeasti kiinteistönomistajalle vuokrasopimustarjouksen lähtötiedoiksi.<br><br> Tässä vaiheessa tehtävät alustavat selvitykset pyritään usein myös tekemään hyvin kustannustehokkaasti, koska vuokralaisehdokas voi päätyä valitsemaan jonkin toisen kiinteistönomistajan tilat, jäämään vanhoihin tiloihin tai tekemään jonkin muun ratkaisuun. Vuokrauksesta vastaavan tahon mieltymysten mukaan, henkilö joko toivoo paljon yhteystyötä noste.iolta tai sitten henkilö tekee hyvin omatoimisesti ja omin päin tämän vaiheen.
+                                    </p>
+                                </div>
+
+                                <div class="text-right">
+                                    <button class="text-accent underline decoration-accent text-base" id="hideMore">Vähemmän lukemista</button>
+                                </div>
+                            </div >
+                        </div>
+
                     </div>
                 </div><!-- Card Header -->
                 <!-- Card Body -->
@@ -74,12 +96,19 @@
 
                     <p class="text-base text-[#475467] mb-4">
                         <b>Sisältö:</b><br>
-                        Käydään läpi tilaajan kanssa sähköpostitse / Teamsilla / puhelimitse vuokralaismuutoksen lähtötiedot ja lähtötietotarpeet sekä sovitaan projektipäällikön tehtävät. Lisäksi dokumentoidaan läpikäydyt asiat. <br><br><br>
-                        <b>Kuvaus:</b><br>
-                        Eri tilaajilla on erilaisia tarpeita vuokralaismuutosten osalta. On tärkeää käydä heti alussa läpi yhdessä tilaajan kanssa projektin lähtötiedot ja tehtävät, jotta tarpeista ja tavoitteista ollaan samaa mieltä. Tilaaja- tai tapauskohtaisesti vuokralaismuutoksia tehdään joko kevyesti suunnittelun-rakentamisen-projektinjohdon osalta tai sitten raskaammin. Se kuinka paljon vuokralaismuutokseen panostetaan, vaikuttaa paljon projektissa käytettävään aikaan ja kustannuksiin. Noste.ion toimeksiannon osalta on tärkeää ymmärtää, toivooko tilaaja kevyempää projektinjohtoa pienellä kustannuksella, vai onko tilaajan tarvitsemat prosessit raskaammat, mikä johtaa suurempaan ajankäyttöön ja kustannuksiin. <br><br><br>
-                        Lähtötietopalaverin asialista antaa hyvän raamin asioiden läpikäynnille tilaajan kanssa sekä antaa ammattimaisen ja valmiin kuvan asioiden hoitamisesta. Tämä vaihe on tärkeä erityisesti, jos asiakas on sinulle uusi. Pääset asialistan avulla helpommin tutuksi kohteen kanssa. Jos kohde on sinulle entuudestaan tuttu, voit karsia selvitettäviä asioita jotka jo tiedät, kuten esimerkiksi yhteystiedot. <br><br>
-                        Huom. vaikka projektin valmisteluvaiheessa on vasta tarkoituksena auttaa tilaajaa pääsemään vuokrasopimukseen vuokralaisen kanssa, on projektipäällikölle tärkeää pyrkiä ymmärtämään koko projektin luonne mahdollisimman hyvin, jotta vuokrasopimukseen liittyvät lähtötiedot saadaan mahdollisimman paikkansapitäviksi. Tavanomaiset lähtötiedot tässä vaiheessa ovat esimerkiksi tilasuunnittelijan tekemä alustava pohjapiirustus, karkea näkemys aikataulusta, yksittäisiä tietoja siitä millaisia muutoksia halutaan olemassa olevaan tilaan. Tässä vaiheessa pitää pyrkiä kaivamaan mahdollisimman paljon lisää tietoa sellaisista asioista, joilla on merkittävä vaikutus vuokralaismuutokselle.
+                        Käydään läpi tilaajan kanssa sähköpostitse / Teamsilla / puhelimitse vuokralaismuutoksen lähtötiedot ja lähtötietotarpeet sekä sovitaan projektipäällikön tehtävät. Lisäksi dokumentoidaan läpikäydyt asiat.
                     </p>
+
+                    <div class="mb-6 excerpt-expand">
+                        <p class="text-base text-[#475467]"><b>Kuvaus:</b></p>
+                        <p class="text-base text-[#475467] mb-4 content">
+                            Eri tilaajilla on erilaisia tarpeita vuokralaismuutosten osalta. On tärkeää käydä heti alussa läpi yhdessä tilaajan kanssa projektin lähtötiedot ja tehtävät, jotta tarpeista ja tavoitteista ollaan samaa mieltä. Tilaaja- tai tapauskohtaisesti vuokralaismuutoksia tehdään joko kevyesti suunnittelun-rakentamisen-projektinjohdon osalta tai sitten raskaammin. Se kuinka paljon vuokralaismuutokseen panostetaan, vaikuttaa paljon projektissa käytettävään aikaan ja kustannuksiin. Noste.ion toimeksiannon osalta on tärkeää ymmärtää, toivooko tilaaja kevyempää projektinjohtoa pienellä kustannuksella, vai onko tilaajan tarvitsemat prosessit raskaammat, mikä johtaa suurempaan ajankäyttöön ja kustannuksiin. <br><br>
+                            Lähtötietopalaverin asialista antaa hyvän raamin asioiden läpikäynnille tilaajan kanssa sekä antaa ammattimaisen ja valmiin kuvan asioiden hoitamisesta. Tämä vaihe on tärkeä erityisesti, jos asiakas on sinulle uusi. Pääset asialistan avulla helpommin tutuksi kohteen kanssa. Jos kohde on sinulle entuudestaan tuttu, voit karsia selvitettäviä asioita jotka jo tiedät, kuten esimerkiksi yhteystiedot. <br><br>
+                            Huom. vaikka projektin valmisteluvaiheessa on vasta tarkoituksena auttaa tilaajaa pääsemään vuokrasopimukseen vuokralaisen kanssa, on projektipäällikölle tärkeää pyrkiä ymmärtämään koko projektin luonne mahdollisimman hyvin, jotta vuokrasopimukseen liittyvät lähtötiedot saadaan mahdollisimman paikkansapitäviksi. Tavanomaiset lähtötiedot tässä vaiheessa ovat esimerkiksi tilasuunnittelijan tekemä alustava pohjapiirustus, karkea näkemys aikataulusta, yksittäisiä tietoja siitä millaisia muutoksia halutaan olemassa olevaan tilaan. Tässä vaiheessa pitää pyrkiä kaivamaan mahdollisimman paljon lisää tietoa sellaisista asioista, joilla on merkittävä vaikutus vuokralaismuutokselle.
+                        </p>
+
+                        <button class="text-accent underline decoration-accent text-base showMore">Lue lisää</button>
+                    </div>
 
                     <div>
                     
@@ -103,10 +132,46 @@
 	                                                        <p class="text-sm text-[#818D93]"><?php echo esc_html( $value['title'] ); ?></p>
 	                                                    </td>
 	                                                    <td class="px-4 py-3 border border-line text-sm" id="project_table_status">
-	                                                        <div class="instep-status relative inline-flex items-center rounded-md border border-line px-2 py-1 <?php echo esc_attr( 'status_' . strtolower( $value['status'] ) ); ?>">
-	                                                        	<span></span>
-	                                                            <?php echo esc_html( $status[$value['status']] ); ?>
-	                                                        </div>
+
+                                                        <?php if ( array_intersect( [ 'um_valvoja' ], $user->roles ) ): ?>
+                                                            <form action="#" method="post" id="valvoja_status">
+                                                                <input type="hidden" name="post_id" value="<?php echo esc_attr(get_the_ID()); ?>">
+                                                                <input type="hidden" name="tm" value="<?php echo esc_attr( $tm ); ?>">
+                                                                <input type="hidden" name="tmin" value="<?php echo esc_attr( $key ); ?>">
+
+                                                                <select name="valvoja_status" class="status_<?php echo esc_attr( strtolower( $value['status'] ) ); ?>">
+                                                                    <?php foreach ($status as $k => $v): ?>
+                                                                        <option value="<?php echo esc_attr( $k ); ?>" <?php selected( strtolower( $value['status'] ), $k, true ); ?>><?php echo esc_html( $v ); ?></option>
+                                                                    <?php endforeach; ?>
+                                                                </select>
+                                                            </form>
+                                                        <?php else: ?>    
+                                                            <div class="instep-status relative inline-flex items-center rounded-md border border-line px-2 py-1 <?php echo esc_attr( 'status_' . strtolower( $value['status'] ) ); ?>">
+                                                            	<span></span>
+                                                                <?php echo esc_html( $status[$value['status']] ); ?>
+                                                            </div>
+                                                        <?php endif ?>
+                                                        <style type="text/css">
+                                                            form#valvoja_status select {
+                                                                border: 1px solid #ddd;
+                                                                background: transparent;
+                                                                border-radius: 3px;
+                                                            }
+                                                            form#valvoja_status select.status_2 {
+                                                                border-left: 8px solid rgb(0 178 169 / var(--tw-border-opacity));
+                                                            }   
+                                                            form#valvoja_status select.status_3 {
+                                                                border-left: 8px solid rgb(6 249 183 / var(--tw-border-opacity));
+                                                            }
+                                                            form#valvoja_status select.status_1 {
+                                                                border-left: 8px solid #E1E1EA;
+                                                            }
+                                                            form#valvoja_status select.status_0 {
+                                                                border-left: 10px solid #f5f5f5;
+                                                            }
+                                                        </style>
+
+                                                            <!-- $status -->
 	                                                    </td>
 	                                                    <td class="px-4 py-3 border border-line">
 	                                                    	<?php if ( !empty($value['url']) ): 
@@ -119,10 +184,11 @@
 	                                                    	<?php endif ?>
 	                                                    </td>
 	                                                    <td class="px-4 py-3 border border-line">
-	                                                        <form action="#" method="post" id="step_comments">
+	                                                        <form action="#" method="post" id="step_comments" class="<?php echo esc_attr( empty($value['url']) ? 'not_form' : 'form' ); ?>">
+                                                                <input type="hidden" name="post_id" value="<?php echo esc_attr(get_the_ID()); ?>">
 	                                                        	<input type="hidden" name="tm" value="<?php echo esc_attr( $tm ); ?>">
 	                                                        	<input type="hidden" name="tmin" value="<?php echo esc_attr( $key ); ?>">
-	                                                            <input class="border border-accent w-full rounded-md" type="text" name="comments">
+	                                                            <input class="border border-accent w-full rounded-md" type="text" name="comments" value="<?php echo esc_attr( $value['comment'] ); ?>">
 	                                                        </form>
 	                                                    </td>
 	                                                </tr>                                            		

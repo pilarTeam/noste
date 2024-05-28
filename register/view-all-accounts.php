@@ -48,15 +48,15 @@ $users = get_users([
 </section>
 
 <section>
-	<div class=" w-sm pb-7 border-b border-solid border-gray mx-auto">
-		<h3 class="text-xl text-heading font-medium m-0">Tilit</h3>
+	<div class="mx-auto max-w-[700px] pb-7 border-b border-solid border-gray mx-auto">
+		<h2 class="text-heading font-medium m-0">Tilit</h2>
 	</div>
 </section>
 
-<section id="view-all-accounts" class="py-14">
+<section id="view-all-accounts" class="py-14 mx-auto max-w-[700px]">
 	<div class="w-sm border border-gray border-solid rounded-lg mx-auto">
 		<div class=" px-8 py-4 border-b border-gray border-solid">
-			<h3 class="text-md font-medium text-heading m-0">Näytä kaikki tilit</h3>
+			<h3 class="font-medium text-heading m-0">Näytä kaikki tilit</h3>
 			<span class="close"></span>
 		</div>
 

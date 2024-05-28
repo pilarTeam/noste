@@ -76,8 +76,15 @@ function noste_scripts() {
 
 	wp_enqueue_style('prints-script', get_template_directory_uri() . '/assets/css/prints.css', [], filemtime(get_template_directory() . '/assets/css/prints.css'), 'all');
 	wp_enqueue_script('twig-script', 'https://cdnjs.cloudflare.com/ajax/libs/twig.js/1.15.0/twig.min.js', ['jquery'], '1.15.0', true);
+	wp_enqueue_script('print-script', get_template_directory_uri() . '/assets/js/prints.js', ['jquery'], filemtime(get_template_directory() . '/assets/js/prints.js'), true);
 
 	wp_enqueue_script('main-script', get_template_directory_uri() . '/assets/js/main.js', ['jquery', 'date-picker-script'], rand(1, 100), true);
+
+
+	if ( is_page( 64 ) ) {
+		wp_enqueue_script('kustannusseuranta-script', get_template_directory_uri() . '/assets/js/kustannusseuranta.js', ['jquery'], rand(1, 100), true);		
+	}
+
 
 	$localize = [
 		'ajaxurl'		=> admin_url('admin-ajax.php'),

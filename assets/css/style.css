@@ -853,10 +853,6 @@ input:focus,
   left: 0px;
 }
 
-.left-\[100\%\] {
-  left: 100%;
-}
-
 .left-\[14px\] {
   left: 14px;
 }
@@ -1395,6 +1391,10 @@ input:focus,
   margin-top: 26px;
 }
 
+.mt-\[30px\] {
+  margin-top: 30px;
+}
+
 .mt-\[33px\] {
   margin-top: 33px;
 }
@@ -1520,8 +1520,20 @@ input:focus,
   height: 100%;
 }
 
+.min-h-\[150px\] {
+  min-height: 150px;
+}
+
+.min-h-\[200px\] {
+  min-height: 200px;
+}
+
 .min-h-\[4rem\] {
   min-height: 4rem;
+}
+
+.w-0 {
+  width: 0px;
 }
 
 .w-1\/2 {
@@ -1570,6 +1582,10 @@ input:focus,
 
 .w-\[105px\] {
   width: 105px;
+}
+
+.w-\[12\%\] {
+  width: 12%;
 }
 
 .w-\[120px\] {
@@ -1676,6 +1692,10 @@ input:focus,
   width: 25px;
 }
 
+.w-\[26\%\] {
+  width: 26%;
+}
+
 .w-\[264px\] {
   width: 264px;
 }
@@ -1698,6 +1718,10 @@ input:focus,
 
 .w-\[314px\] {
   width: 314px;
+}
+
+.w-\[33\%\] {
+  width: 33%;
 }
 
 .w-\[35\%\] {
@@ -1820,6 +1844,14 @@ input:focus,
   width: 100%;
 }
 
+.min-w-\[100px\] {
+  min-width: 100px;
+}
+
+.min-w-\[10rem\] {
+  min-width: 10rem;
+}
+
 .min-w-\[126px\] {
   min-width: 126px;
 }
@@ -1830,6 +1862,10 @@ input:focus,
 
 .min-w-\[138px\] {
   min-width: 138px;
+}
+
+.min-w-\[14rem\] {
+  min-width: 14rem;
 }
 
 .min-w-\[150px\] {
@@ -1992,12 +2028,20 @@ input:focus,
   min-width: 530px;
 }
 
+.min-w-\[5rem\] {
+  min-width: 5rem;
+}
+
 .min-w-\[655px\] {
   min-width: 655px;
 }
 
 .min-w-\[680px\] {
   min-width: 680px;
+}
+
+.min-w-\[6rem\] {
+  min-width: 6rem;
 }
 
 .min-w-\[70px\] {
@@ -2012,12 +2056,20 @@ input:focus,
   min-width: 85px;
 }
 
+.min-w-\[8rem\] {
+  min-width: 8rem;
+}
+
 .min-w-full {
   min-width: 100%;
 }
 
 .max-w-3xl {
   max-width: 48rem;
+}
+
+.max-w-\[1000px\] {
+  max-width: 1000px;
 }
 
 .max-w-\[173px\] {
@@ -2070,10 +2122,6 @@ input:focus,
 
 .max-w-\[785px\] {
   max-width: 785px;
-}
-
-.max-w-\[793px\] {
-  max-width: 793px;
 }
 
 .max-w-\[800px\] {
@@ -2266,6 +2314,10 @@ input:focus,
 
 .gap-\[135px\] {
   gap: 135px;
+}
+
+.gap-\[15px\] {
+  gap: 15px;
 }
 
 .gap-\[20px\] {
@@ -2468,11 +2520,6 @@ input:focus,
 
 .border-\[\#818D930F\] {
   border-color: #818D930F;
-}
-
-.border-\[\#9b9ba5\] {
-  --tw-border-opacity: 1;
-  border-color: rgb(155 155 165 / var(--tw-border-opacity));
 }
 
 .border-\[\#CCCCD6\] {
@@ -2972,6 +3019,10 @@ input:focus,
 
 .text-\[20px\] {
   font-size: 20px;
+}
+
+.text-\[22px\] {
+  font-size: 22px;
 }
 
 .text-\[24px\] {
@@ -3773,10 +3824,6 @@ input:focus,
 
   .lg\:right-\[0px\] {
     right: 0px;
-  }
-
-  .lg\:right-\[100\%\] {
-    right: 100%;
   }
 
   .lg\:right-\[10px\] {

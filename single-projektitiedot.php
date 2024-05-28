@@ -18,8 +18,9 @@ if ( !array_intersect( [ 'administrator' , 'um_valvoja', 'um_project-manager'], 
 }
 
 
+
 if ( array_intersect( [ 'um_project-manager' ], $user->roles ) ) {
-	$projektipaallikko = !empty(get_field('projektipaallikko', get_the_ID())) ? array_column(get_field('valvoja', get_the_ID()), 'value'): [];
+	$projektipaallikko = !empty(get_field('projektipaallikko', get_the_ID())) ? array_column(get_field('projektipaallikko', get_the_ID()), 'value'): [];
 
 	if ( empty($projektipaallikko) || !is_array($projektipaallikko) || !in_array(get_current_user_id(), $projektipaallikko) ) {
 	    wp_redirect( site_url() );
@@ -29,7 +30,7 @@ if ( array_intersect( [ 'um_project-manager' ], $user->roles ) ) {
 
 
 if ( array_intersect( [ 'um_valvoja' ], $user->roles ) ) {
-	$valvoja = !empty(get_field('valvoja', get_the_ID())) ? get_field('valvoja', get_the_ID())[0]['value'] : 0;
+	$valvoja = !empty(get_field('valvoja', get_the_ID())) ? get_field('valvoja', get_the_ID())['value'] : 0;
 
 	if ( empty($valvoja) || $valvoja != get_current_user_id() ) {
 	    wp_redirect( site_url() );
@@ -40,16 +41,24 @@ if ( array_intersect( [ 'um_valvoja' ], $user->roles ) ) {
 
 get_header( 'noste' );
 
+$projektinimi_k4 = noste_check_empty( get_post_meta( get_the_ID(), 'pilar_K4', true ) );
+$project_title = !empty($projektinimi_k4) ? $projektinimi_k4 : get_the_title( get_the_ID() );
+
+
 if ( !isset($_GET['tm']) ) {
 
-	echo get_template_part( 'template-parts/single/single-main' );
+	echo get_template_part( 'template-parts/single/single-main', '', [
+		'page_title' => $project_title
+	]);
 
 } elseif ( isset($_GET['tm']) && !empty($_GET['tm']) && !isset($_GET['tmin'] ) ) {
 	
 	$tm_url = sprintf('template-parts/single/%s/main', $_GET['tm']);
 
 	if ( locate_template( $tm_url . '.php' ) ) {
-		echo get_template_part( $tm_url );
+		echo get_template_part( $tm_url, '', [
+		'page_title' => $project_title
+	]);
 
 ?>
 <section class="pb-10 ">
