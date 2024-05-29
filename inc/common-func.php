@@ -670,7 +670,7 @@ function noste_update_project_step() {
 	}
 
 	// $data = maybe_serialize( $_POST );
-	$data = $_POST;
+	$data = $_POST; // Added by Remal mahmud Please review @mdkamrulislam0093
 
 	if ( empty($data) ) {
 		$error = new WP_Error( '005', 'Content Data issue' );

@@ -477,7 +477,7 @@ const PRINTS_ARGS = {
                         }
                         data.submissions.helpers.noste_checkbox_attrset = (keyword) => {
                             var dataset = (data.submissions['noste_check'])?data.submissions['noste_check']:data.submissions;
-                            var attrs = 'name="noste_check[]" value="' + keyword + '" readonly style="display:none;"';
+                            var attrs = 'name="noste_check[]" value="' + keyword + '" readonly';
                             if (Object.values(dataset).includes(keyword)) {
                                 attrs +=' checked';
                             }
@@ -493,6 +493,12 @@ const PRINTS_ARGS = {
                                 (data.submissions[keyword][0] && data.submissions[keyword][0] == value)
                             ))?'checked':'';
                         };
+                        functions_to_do.after.push(() => {
+                            document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                                checkbox.style.display = 'none';
+                                checkbox.previousElementSibling.style.display = 'none';
+                            });
+                        });
                         data.submissions.print_the_gantt_chart = (args) => {
                             const chart_id = 'the_gantt_chart-' + new Date().getTime();
                             functions_to_do.after.push(() => {
