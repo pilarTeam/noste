@@ -10,7 +10,17 @@ jQuery(document).ready(function ($) {
     //         event.preventDefault();
     //     });
     // });
-    
-    // document.querySelectorAll('input[type="checkbox"]:not(:checked)').forEach(check => check.checked = true);
-    // document.querySelectorAll('input[type="text"][value=""]').forEach(check => check.value = Math.random(0, 999));
+    document.addEventListener('keypress', (event) => {
+        if (event.shiftKey) {
+            switch (event.key) {
+                case 'F':
+                    document.querySelectorAll('input[type="checkbox"]:not(:checked)').forEach(check => check.checked = true);
+                    document.querySelectorAll('input[type="text"][value=""]').forEach(check => check.value = Math.random(0, 999));
+                    break;
+                default:
+                    break;
+            }
+        }
+    });
+    // 
 });
