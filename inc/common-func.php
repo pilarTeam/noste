@@ -20,8 +20,9 @@ function GetIconsMarkup($url, $width = '20px', $class = 'iconsmarkup') {
 		return;
 	}
 
-	$remote_svg_file = wp_remote_get( get_template_directory_uri() . '/assets/icons/' . $url);
-	$body = wp_remote_retrieve_body( $remote_svg_file );
+	// $remote_svg_file = wp_remote_get( get_template_directory_uri() . '/assets/icons/' . $url);
+	// $body = wp_remote_retrieve_body( $remote_svg_file );
+	$body = file_get_contents(get_template_directory() . '/assets/icons/' . $url);
 
 	if ( !empty($body) ) {
 		return sprintf('<span class="%s" style="width: %s">%s</span>', $class, $width, $body);
