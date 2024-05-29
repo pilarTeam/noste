@@ -61,7 +61,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'K17'); ?> value="K17" />
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'K17'); ?> value="K17" />
                                                 <p class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U4', true ), 'U4') ); ?></p>
                                             </div>
                                         </div>
@@ -82,7 +82,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                             </g>
                                                         </svg>
                                                     </span>
-                                                    <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'U7'); ?> value="U7"/>
+                                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'U7'); ?> value="U7"/>
                                                     <p class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U7', true ), 'U7') ); ?></p>
                                                 </div>
                                             </div>
@@ -101,7 +101,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'U1'); ?> value="U1"/>
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'U1'); ?> value="U1"/>
                                                 <input class="border text-[#283B44] lg:min-w-[192px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] p-3 italic font-medium" type="text" name="vapaa_teksti_1" id="vapaa_teksti_1" value="<?php echo esc_attr( noste_check_array_data( $data, "vapaa_teksti_1", "Vapaa teksti" ) ); ?>"/>
                                             </div>
                                             <p class="italic text-[#00B2A9] mr-4"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U1', true ), 'U1') ); ?></p>
@@ -121,7 +121,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                             </g>
                                                         </svg>
                                                     </span>
-                                                    <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'T10'); ?> value="T10"/>
+                                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'T10'); ?> value="T10"/>
                                                     <p class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T10', true ), 'T10') ); ?></p>
                                                 </div>
                                             </div>
@@ -141,7 +141,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'T9'); ?> value="T9"/>
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'T9'); ?> value="T9"/>
                                                 <input class="border text-[#283B44] lg:min-w-[192px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] p-3 italic font-medium" type="text" name="vapaa_teksti_2" id="vapaa_teksti_2" value="<?php echo esc_attr( noste_check_array_data( $data, "vapaa_teksti_2", "Vapaa teksti" ) ); ?>"/>
                                             </div>
                                             <p class="italic text-[#00B2A9] mr-4"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T9', true ), 'T9') ); ?></p>
@@ -161,7 +161,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                             </g>
                                                         </svg>
                                                     </span>
-                                                    <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'K6'); ?> value="K6"/>
+                                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'K6'); ?> value="K6"/>
                                                     <p class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K6', true ), 'K6') ); ?></p>
                                                 </div>
                                             </div>
@@ -182,7 +182,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                             </g>
                                                         </svg>
                                                     </span>
-                                                    <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'T3'); ?> value="T3"/>
+                                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'T3'); ?> value="T3"/>
                                                     <p class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T3', true ), 'T3') ); ?></p>
                                                 </div>
                                             </div>
@@ -202,7 +202,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'teksti_4'); ?> value="teksti_4"/>
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'teksti_4'); ?> value="teksti_4"/>
                                                 <input class="border text-[#283B44] lg:min-w-[192px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] p-3 italic font-medium" type="text" name="vapaa_teksti_3" id="vapaa_teksti_3" value="<?php echo esc_attr( noste_check_array_data( $data, "vapaa_teksti_3", "Vapaa teksti" ) ); ?>"/>
                                             </div>
                                             <input class="border text-[#283B44] lg:min-w-[192px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] p-3 italic font-medium" type="text" name="vapaa_teksti_4" id="vapaa_teksti_4" value="<?php echo esc_attr( noste_check_array_data( $data, "vapaa_teksti_4", "Vapaa teksti" ) ); ?>"/>
@@ -222,7 +222,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                             </g>
                                                         </svg>
                                                     </span>
-                                                    <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'P1'); ?> value="P1"/>
+                                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'P1'); ?> value="P1"/>
                                                     <p class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P1', true ), 'P1') ); ?></p>
                                                 </div>
                                             </div>
@@ -243,7 +243,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                             </g>
                                                         </svg>
                                                     </span>
-                                                    <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'P4'); ?> value="P4"/>
+                                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'P4'); ?> value="P4"/>
                                                     <p class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></p>
                                                 </div>
                                             </div>
@@ -301,7 +301,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'P4_'); ?> value="P4_"/>
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'P4_'); ?> value="P4_"/>
                                                 <p class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></p>
                                             </div>
                                             <div class="relative flex items-center gap-2">
@@ -314,7 +314,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'P4'); ?> value="P4"/>
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'P4'); ?> value="P4"/>
                                                 <p class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></p>
                                             </div>
                                         </div>
@@ -334,7 +334,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'P4'); ?> value="P4"/>
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'P4'); ?> value="P4"/>
                                                 <p class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></p>
                                             </div>
                                             <div class="relative flex items-center gap-2">
@@ -347,7 +347,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'P4_2'); ?> value="P4_2"/>
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'P4_2'); ?> value="P4_2"/>
                                                 <p class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></p>
                                             </div>
                                             <p class="md:mx-4">/ Partners at Noste Oy ja sihteerinä</p>
@@ -361,7 +361,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'P4_3'); ?> value="P4_3" />
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'P4_3'); ?> value="P4_3" />
                                                 <p class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></p>
                                             </div>
                                             <div class="relative flex items-center gap-2 lg:mx-4 ">
@@ -374,7 +374,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'P4_4'); ?> value="P4_4" />
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'P4_4'); ?> value="P4_4" />
                                                 <p class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></p>
                                                 / Partners
                                             </div>
@@ -438,7 +438,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'P2'); ?> value="P2"/>
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'P2'); ?> value="P2"/>
                                         <p>Projektipäällikkö</p>
                                     </div>
                                     <p><span class="italic text-[#00B2A9]">P1, </span>puh. <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P2', true ), 'P2') ); ?></span></p>
@@ -455,7 +455,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'Projektijohtamisen_asiantuntija'); ?> value="Projektijohtamisen_asiantuntija" />
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'Projektijohtamisen_asiantuntija'); ?> value="Projektijohtamisen_asiantuntija" />
                                         <p>Projektijohtamisen asiantuntija</p>
                                     </div>
                                     <p><span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?>, </span>puh. <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P5', true ), 'P5') ); ?></span></p>
@@ -522,7 +522,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'Aulapalvelut'); ?> value="Aulapalvelut"/>
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'Aulapalvelut'); ?> value="Aulapalvelut"/>
                                         <p class="font-medium">Aulapalvelut</p>
                                     </div>
                                 </div>
@@ -564,7 +564,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'Kesken'); ?> value="Kesken"/>
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'Kesken'); ?> value="Kesken"/>
                                             <p>Kesken</p>
                                         </div>
 
@@ -579,7 +579,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'Kommenteilla'); ?> value="Kommenteilla"/>
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'Kommenteilla'); ?> value="Kommenteilla"/>
                                             <p>Kommenteilla</p>
                                         </div>
 
@@ -594,7 +594,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'Allekirjoitettu'); ?> value="Allekirjoitettu"/>
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'Allekirjoitettu'); ?> value="Allekirjoitettu"/>
                                             <p>Allekirjoitettu</p>
                                         </div>
                                     </div>
@@ -670,7 +670,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'Kesken_2'); ?> value="Kesken_2"/>
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'Kesken_2'); ?> value="Kesken_2"/>
                                             <p>Kesken</p>
                                         </div>
 
@@ -685,7 +685,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'Kommenteilla_2'); ?> value="Kommenteilla_2"/>
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'Kommenteilla_2'); ?> value="Kommenteilla_2"/>
                                             <p>Kommenteilla</p>
                                         </div>
 
@@ -700,7 +700,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'hyvaksytty'); ?> value="hyvaksytty"/>
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'hyvaksytty'); ?> value="hyvaksytty"/>
                                             <p>Hyväksytty</p>
                                         </div>
                                     </div>
@@ -761,7 +761,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'hankenumero_K8'); ?> value="hankenumero_K8"/>
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'hankenumero_K8'); ?> value="hankenumero_K8"/>
                                                 <p class="mr-5">hankenumero K8</p>
                                             </div>
 
@@ -776,7 +776,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'teksti_7'); ?> value="teksti_7" />
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'teksti_7'); ?> value="teksti_7" />
                                                 <input class="border md:min-w-[245px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] italic ml-2 font-medium" type="text" name="vapaa_teksti_7" id="vapaa_teksti_7" value="<?php echo esc_attr( noste_check_array_data( $data, "vapaa_teksti_7", "Vapaa teksti…" ) ); ?>"/>
                                             </div>
                                         </div>
@@ -1307,7 +1307,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                                 </g>
                                                             </svg>
                                                         </span>
-                                                        <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'urakoitsijalla_selvityksessa'); ?> value="urakoitsijalla_selvityksessa" />
+                                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'urakoitsijalla_selvityksessa'); ?> value="urakoitsijalla_selvityksessa" />
                                                         <p>Urakoitsijalla selvityksessä] [</p>
                                                     </div>
 
@@ -1322,7 +1322,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                                 </g>
                                                             </svg>
                                                         </span>
-                                                        <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'tilattu'); ?> value="tilattu" />
+                                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'tilattu'); ?> value="tilattu" />
                                                         <p>Tilattu] [</p>
                                                     </div>
 
@@ -1337,7 +1337,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                                 </g>
                                                             </svg>
                                                         </span>
-                                                        <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'Toimituksessa'); ?> value="Toimituksessa" />
+                                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'Toimituksessa'); ?> value="Toimituksessa" />
                                                         <p class="mr-1">Toimituksessa] [</p>
                                                     </div>
 
@@ -1352,7 +1352,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                                 </g>
                                                             </svg>
                                                         </span>
-                                                        <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'toimitettu_tyomaalle'); ?> value="toimitettu_tyomaalle" />
+                                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'toimitettu_tyomaalle'); ?> value="toimitettu_tyomaalle" />
                                                         <p class="ml-2">Toimitettu työmaalle]</p>
                                                     </div>
                                                 </div>
@@ -1375,7 +1375,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                                 </g>
                                                             </svg>
                                                         </span>
-                                                        <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'vahvistettu'); ?> value="vahvistettu" />
+                                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'vahvistettu'); ?> value="vahvistettu" />
                                                         <p class="mr-3">vahvistettu vapaa teksti] [</p>
                                                     </div>
 
@@ -1390,7 +1390,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                                 </g>
                                                             </svg>
                                                         </span>
-                                                        <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'arviolta'); ?> value="arviolta" />
+                                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'arviolta'); ?> value="arviolta" />
                                                         <p class="mr-2">arviolta vapaa teksti] [</p>
                                                     </div>
 
@@ -1405,7 +1405,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                                 </g>
                                                             </svg>
                                                         </span>
-                                                        <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'tiedossa'); ?> value="tiedossa" />
+                                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'tiedossa'); ?> value="tiedossa" />
                                                         <p class="ml-3">ei vielä tiedossa]</p>
                                                     </div>
                                                 </div>
@@ -2539,7 +2539,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'Laadittu_ck'); ?> value="Laadittu_ck" />
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'Laadittu_ck'); ?> value="Laadittu_ck" />
                                             <p class="mr-2">Laadittu.] [</p>
                                         </div>
                         
@@ -2557,7 +2557,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer top-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'laaditaan_mennessa'); ?> value="laaditaan_mennessa" />
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0 top-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'laaditaan_mennessa'); ?> value="laaditaan_mennessa" />
                                             <p class="mr-2">Laaditaan xx.xx.xxxx mennessä.]</p>
                                         </div>
                                     </div>
@@ -2638,7 +2638,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'suunnitelma_nahtavilla'); ?> value="suunnitelma_nahtavilla" />
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'suunnitelma_nahtavilla'); ?> value="suunnitelma_nahtavilla" />
                                             <p class="mr-2"> Suunnitelma nähtävillä työmaalla.] [</p>
                                         </div>
                         
@@ -2656,7 +2656,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'tyomaasuunnitelman_nakyviin'); ?> value="tyomaasuunnitelman_nakyviin" />
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'tyomaasuunnitelman_nakyviin'); ?> value="tyomaasuunnitelman_nakyviin" />
                                             <p class="mr-2">Urakoitsija lisää työmaasuunnitelman näkyviin</p>
                                         </div>
                                         
@@ -2802,7 +2802,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'turvallisuuskoordinaattorina_ck'); ?> value="turvallisuuskoordinaattorina_ck" />
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'turvallisuuskoordinaattorina_ck'); ?> value="turvallisuuskoordinaattorina_ck" />
                                             <p class="ml-3">P1] [</p>
                                         </div>
                     
@@ -2820,7 +2820,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer"
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0"
                                                 name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'partners_at_noste_oy'); ?> value="partners_at_noste_oy" />
                                             <p class="mr-1 ml-3"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></p>],</p>
                                             <p>Partners at Noste Oy.</p>
@@ -3169,7 +3169,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'Kokouksen_jalkeen'); ?> value="Kokouksen_jalkeen" />
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'Kokouksen_jalkeen'); ?> value="Kokouksen_jalkeen" />
                                         <p class="mr-3"> Kokouksen jälkeen] [</p>
                                     </div>
                     
@@ -3187,7 +3187,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'kokousta_tehtiin_ck'); ?> value="kokousta_tehtiin_ck" />
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'kokousta_tehtiin_ck'); ?> value="kokousta_tehtiin_ck" />
                                         <p class="mr-2">Ennen kokousta] tehtiin yhteinen kierros työmaalla.</p>
                                     </div>
                                     
@@ -3217,7 +3217,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'tarkistettiin_seuraavat_ck'); ?> value="tarkistettiin_seuraavat_ck" />
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'tarkistettiin_seuraavat_ck'); ?> value="tarkistettiin_seuraavat_ck" />
                                             <p class="mr-2 min-w-[190px] md:min-w-[0px]">Tarkistettiin seuraavat asiat</p>
                                         </div>
                                     </div>
@@ -3290,7 +3290,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer"
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"
                                             name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'tyomaalta_liitteessa_ck'); ?> value="tyomaalta_liitteessa_ck" />
                                         <p>Kuvat työmaalta liitteessä</p>
                                         <input
@@ -3320,7 +3320,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'yhteista_kierrosta'); ?> value="yhteista_kierrosta" />
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'yhteista_kierrosta'); ?> value="yhteista_kierrosta" />
                                         <p>Ei pidetty yhteistä kierrosta työmaalla, koska vapaa teksti.]</p>
                                     </div>
                                 </div>
@@ -3404,7 +3404,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer left-[14px]" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'pilar_P1_ck'); ?> value="pilar_P1_ck" />
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0 left-[14px]" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'pilar_P1_ck'); ?> value="pilar_P1_ck" />
                                             </div>
                                             <p class="text-[#00B2A9] italic"><?php noste_check_empty_2($project_id, 'P1'); ?></p>
                                             <p> ] [</p>
@@ -3421,7 +3421,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer left-[14px]" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'pilar_P4_ck'); ?> value="pilar_P4_ck" />
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0 left-[14px]" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'pilar_P4_ck'); ?> value="pilar_P4_ck" />
                                             </div>
                                             <p class="text-[#00B2A9] italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></p>]</p>
                                         </div>
@@ -3443,7 +3443,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" <?php noste_checkbox_attrset('pilar_TY1', $data); ?> />
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('pilar_TY1', $data); ?> />
                                             </label>
                                             Sopijapuolet ovat allekirjoittaneet tämän pöytäkirjan sähköisesti. Pöytäkirja on pätevä, kun
                                         </span>
@@ -3464,7 +3464,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'tilaajan_edustaja_ck'); ?> value="tilaajan_edustaja_ck" />
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'tilaajan_edustaja_ck'); ?> value="tilaajan_edustaja_ck" />
                                     </div>
 
                                     <!-- between section -->
@@ -3486,7 +3486,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                             </g>
                                                         </svg>
                                                     </span>
-                                                    <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer left-[16px]" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'tilaajan_edustaja_2_ck'); ?> value="tilaajan_edustaja_2_ck" />
+                                                    <input type="checkbox" class="checkbox_change absolute opacity-0 left-[16px]" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'tilaajan_edustaja_2_ck'); ?> value="tilaajan_edustaja_2_ck" />
                                                     </div>
                                                     <p class="text-[#00B2A9] italic">P1 </p> ]
                                                     <div class="relative flex items-center">
@@ -3499,7 +3499,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer left-[16px]" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'partners_at_noste_2_ck'); ?> value="partners_at_noste_2_ck" />
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0 left-[16px]" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'partners_at_noste_2_ck'); ?> value="partners_at_noste_2_ck" />
                                                     </div>
                                                     <p class="text-[#00B2A9] italic">P4 </p> ]
                                                 </div>
@@ -3525,7 +3525,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                             </g>
                                                         </svg>
                                                     </span>
-                                                    <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer left-[16px]" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'pilar_P1_2_ck'); ?> value="pilar_P1_2_ck" />
+                                                    <input type="checkbox" class="checkbox_change absolute opacity-0 left-[16px]" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'pilar_P1_2_ck'); ?> value="pilar_P1_2_ck" />
                                                     </div>
                                                     
                                                     <p class="text-[#00B2A9] italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P1', true ), 'P1') ); ?></p>
@@ -3543,7 +3543,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                             </g>
                                                         </svg>
                                                     </span>
-                                                    <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer left-[16px]" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'pilar_P4_2_ck'); ?> value="pilar_P4_2_ck" />
+                                                    <input type="checkbox" class="checkbox_change absolute opacity-0 left-[16px]" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'pilar_P4_2_ck'); ?> value="pilar_P4_2_ck" />
                                                     </div>
                                                     <p class="text-[#00B2A9] italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></p>]
                                                 </div>
@@ -3595,7 +3595,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'ei_liitteita'); ?> value="ei_liitteita" />
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="noste_check[]" <?php noste_is_checked($data['noste_check'], 'ei_liitteita'); ?> value="ei_liitteita" />
                                         <p class="mr-3"> Ei liitteitä</p>
                                     </div>
 

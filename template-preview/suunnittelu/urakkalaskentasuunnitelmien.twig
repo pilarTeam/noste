@@ -31,17 +31,17 @@
                 <span class="text-black">
                     <div class="flex flex-col lg:flex-row lg:items-center gap-2">
                         <span class="flex-1 ">
-                            <input type="text" {{ helpers.noste_textinput_attrset('noste_VA1_1') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px]  rounded-[5px] p-2">
+                            <p type="text" {{ helpers.noste_textinput_attrset('noste_VA1_1') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] rounded-[5px] p-2">{{ noste_VA1_1 }}</p>
                         </span>
                         <span class="flex-1 text-black text-[15px]">klo</span>
                         <span class="flex-1 ">
-                            <input type="text" {{ helpers.noste_textinput_attrset('noste_VA1_2') }} placeholder="X.XX" class="w-full lg:w-[68px]  rounded-[5px] p-2">
+                            <p type="text" {{ helpers.noste_textinput_attrset('noste_VA1_2') }} placeholder="X.XX" class="w-full lg:w-[68px] rounded-[5px] p-2">{{ noste_VA1_2 }}</p>
                         </span>
                     </div>
                 </span>
                 
                 <span>
-                    <input type="text" {{ helpers.noste_textinput_attrset('noste_M1_1') }} placeholder="Vapaa teksti" class="w-[100%] rounded-[5px] p-2">
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_M1_1') }} placeholder="Vapaa teksti" class="w-[100%] rounded-[5px] p-2">{{ noste_M1_1 }}</p>
                 </span>
             </div>
 
@@ -55,12 +55,12 @@
                             </span>
                             <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_checkbox_attrset('noste_TY1_1') }}>
                         </label>
-                        <input type="text" {{ helpers.noste_textinput_attrset('noste_filed8_1') }} placeholder="Vapaa teksti" class="w-full rounded-[5px] p-2">
+                        <p type="text" {{ helpers.noste_textinput_attrset('noste_filed8_1') }} placeholder="Vapaa teksti" class="w-full rounded-[5px] p-2">{{ noste_filed8_1 }}</p>
                     </div>
                 </span>
                 
                 <span>
-                    <input type="text" {{ helpers.noste_textinput_attrset('noste_filed8_2') }} placeholder="Vapaa teksti" class="w-full rounded-[5px] p-2">
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_filed8_2') }} placeholder="Vapaa teksti" class="w-full rounded-[5px] p-2">{{ noste_filed8_2 }}</p>
                 </span>
             </div>
 
@@ -194,7 +194,7 @@
                     Tämä urakkaneuvottelu koskee osoitteessa <span class="italic text-[#00B2A9]">{{ get_global_keyword( 'pilar_K2', 'K2') }}</span>, <span class="italic text-[#00B2A9]">{{ get_global_keyword( 'pilar_K3', 'K3') }}</span> sijaitsevan
                 </span>
                 <span class="text-black text-[14px]">
-                    <input type="text" {{ helpers.noste_textinput_attrset('noste_filed9_1') }} value="toimistorakennuksen x. krs tilamuutostöistä " class="w-[290px] rounded-[5px] p-2">
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_filed9_1') }} value="toimistorakennuksen x. krs tilamuutostöistä " class="w-[290px] rounded-[5px] p-2">{{ noste_filed9_1 }}</p>
                 </span>
                 <span class="text-black text-[14px]">
                     tehtyä tarjouspyyntöä, tarjousta ja niiden sisältöä. Töiden laajuus on esitetty tarjouspyyntöasiakirjoissa.
@@ -244,7 +244,7 @@
                 <div class="help_wrap relative mb-2">
                     <div class="flex items-center gap-2">
                         <span class="text-black">
-                            <input type="text" {{ helpers.noste_textinput_attrset('noste_VA1_3') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px]  rounded-[5px] p-2">
+                            <p type="text" {{ helpers.noste_textinput_attrset('noste_VA1_3') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] rounded-[5px] p-2">{{ noste_VA1_3 }}</p>
                         </span>
 
                         <a href="#!" class="help_click"><svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="0.72"></circle> <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path> <circle cx="12" cy="16" r="1" fill="#000000"></circle> </g></svg> </a>                                      
@@ -260,21 +260,21 @@
                 <span class="text-black">Tarjouspyyntölomake</span>
                 <span class="text-black">Partners at Noste Oy</span>
                 <span class="text-black">
-                    <input type="text" {{ helpers.noste_textinput_attrset('noste_VA1_4') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px]  rounded-[5px] p-2">
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_VA1_4') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] rounded-[5px] p-2">{{ noste_VA1_4 }}</p>
                 </span>
             </div>
             <div class="grid lg:grid-cols-3 items-center gap-[20px] mb-5">
                 <span class="text-black">Turvallisuusasiakirja</span>
                 <span class="text-black">Partners at Noste Oy</span>
                 <span class="text-black">
-                    <input type="text" {{ helpers.noste_textinput_attrset('noste_VA1_5') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px]  rounded-[5px] p-2">
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_VA1_5') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] rounded-[5px] p-2">{{ noste_VA1_5 }}</p>
                 </span>
             </div>
             <div class="grid lg:grid-cols-3 items-center gap-[20px] mb-5">
                 <span class="text-black">Urakkasopimusluonnos</span>
                 <span class="text-black">Partners at Noste Oy</span>
                 <span class="text-black">
-                    <input type="text" {{ helpers.noste_textinput_attrset('noste_VA1_6') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px]  rounded-[5px] p-2">
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_VA1_6') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] rounded-[5px] p-2">{{ noste_VA1_6 }}</p>
                 </span>
             </div>
             <div class="grid lg:grid-cols-3 items-center gap-[20px] mb-5">
@@ -286,14 +286,14 @@
                             </span>
                             <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_checkbox_attrset('noste_TY1_4') }}>
                         </label>
-                        <input type="text" {{ helpers.noste_textinput_attrset('noste_filed8_3') }} placeholder="Muu" class="w-full rounded-[5px] p-2">
+                        <p type="text" {{ helpers.noste_textinput_attrset('noste_filed8_3') }} placeholder="Muu" class="w-full rounded-[5px] p-2">{{ noste_filed8_3 }}</p>
                     </div>
                 </span>
                 <span class="text-black">
-                    <input type="text" {{ helpers.noste_textinput_attrset('noste_M1_2') }} placeholder="..." class="w-[100%] lg:w-[85%] rounded-[5px] p-2">
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_M1_2') }} placeholder="..." class="w-[100%] lg:w-[85%] rounded-[5px] p-2">{{ noste_M1_2 }}</p>
                 </span>
                 <span class="text-black">
-                    <input type="text" {{ helpers.noste_textinput_attrset('noste_VA1_7') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px]  rounded-[5px] p-2">
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_VA1_7') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] rounded-[5px] p-2">{{ noste_VA1_7 }}</p>
                 </span>
             </div>
 
@@ -304,13 +304,13 @@
             </div>
             <div class="grid lg:grid-cols-3 items-center gap-[20px] mb-5">
                 <span class="text-black">
-                    <input type="text" {{ helpers.noste_textinput_attrset('noste_M1_3') }} class="w-[100%] lg:w-[85%] rounded-[5px] p-2">
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_M1_3') }} class="w-[100%] lg:w-[85%] rounded-[5px] p-2">{{ noste_M1_3 }}</p>
                 </span>
                 <span class="text-black">
-                    <input type="text" {{ helpers.noste_textinput_attrset('noste_M1_4') }} class="w-[100%] lg:w-[85%] rounded-[5px] p-2">
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_M1_4') }} class="w-[100%] lg:w-[85%] rounded-[5px] p-2">{{ noste_M1_4 }}</p>
                 </span>
                 <span class="text-black">
-                    <input type="text" {{ helpers.noste_textinput_attrset('noste_VA1_8') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px]  rounded-[5px] p-2">
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_VA1_8') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] rounded-[5px] p-2">{{ noste_VA1_8 }}</p>
                 </span>
             </div>
             <div class="grid lg:grid-cols-3 items-center gap-[20px] mb-5">
@@ -327,7 +327,7 @@
                 </span>
                 <span class="text-black">Partners at Noste Oy</span>
                 <span class="text-black">
-                    <input type="text" {{ helpers.noste_textinput_attrset('noste_VA1_9') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px]  rounded-[5px] p-2">
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_VA1_9') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] rounded-[5px] p-2">{{ noste_VA1_9 }}</p>
                 </span>
             </div>
             <div class="grid lg:grid-cols-3 items-center gap-[20px] mb-5">
@@ -339,14 +339,14 @@
                             </span>
                             <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_checkbox_attrset('noste_TY1_6') }}>
                         </label>
-                        <input type="text" {{ helpers.noste_textinput_attrset('noste_filed8_4') }} placeholder="Muu__" class="w-full rounded-[5px] p-2">
+                        <p type="text" {{ helpers.noste_textinput_attrset('noste_filed8_4') }} placeholder="Muu__" class="w-full rounded-[5px] p-2">{{ noste_filed8_4 }}</p>
                     </div>
                 </span>
                 <span class="text-black">
-                    <input type="text" {{ helpers.noste_textinput_attrset('noste_M1_5') }} placeholder="..." class="w-[100%] lg:w-[85%] rounded-[5px] p-2">
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_M1_5') }} placeholder="..." class="w-[100%] lg:w-[85%] rounded-[5px] p-2">{{ noste_M1_5 }}</p>
                 </span>
                 <span class="text-black">
-                    <input type="text" {{ helpers.noste_textinput_attrset('noste_VA1_10') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px]  rounded-[5px] p-2">
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_VA1_10') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] rounded-[5px] p-2">{{ noste_VA1_10 }}</p>
                 </span>
             </div>
             <div class="flex items-center gap-3 mt-10">
@@ -376,7 +376,7 @@
                 </span>
                 <span class="text-black">Partners at Noste Oy</span>
                 <span class="text-black">
-                    <input type="text" {{ helpers.noste_textinput_attrset('noste_VA1_11') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px]  rounded-[5px] p-2">
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_VA1_11') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] rounded-[5px] p-2">{{ noste_VA1_11 }}</p>
                 </span>
             </div>
             <div class="grid lg:grid-cols-3 items-center gap-[20px] mb-5">
@@ -391,7 +391,7 @@
                 </span>
                 <span class="text-black">Partners at Noste Oy</span>
                 <span class="text-black">
-                    <input type="text" {{ helpers.noste_textinput_attrset('noste_VA1_12') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px]  rounded-[5px] p-2">
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_VA1_12') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] rounded-[5px] p-2">{{ noste_VA1_12 }}</p>
                 </span>
             </div>
             <div class="grid lg:grid-cols-3 items-center gap-[20px] mb-5">
@@ -403,14 +403,14 @@
                             </span>
                             <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_checkbox_attrset('noste_TY1_8') }}>
                         </label>
-                        <input type="text" {{ helpers.noste_textinput_attrset('noste_filed8_5') }} placeholder="Muu__" class="w-full rounded-[5px] p-2">
+                        <p type="text" {{ helpers.noste_textinput_attrset('noste_filed8_5') }} placeholder="Muu__" class="w-full rounded-[5px] p-2">{{ noste_filed8_5 }}</p>
                     </div>
                 </span>
                 <span class="text-black">
-                    <input type="text" {{ helpers.noste_textinput_attrset('noste_M1_6') }} placeholder="..." class="w-[100%] lg:w-[85%] rounded-[5px] p-2">
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_M1_6') }} placeholder="..." class="w-[100%] lg:w-[85%] rounded-[5px] p-2">{{ noste_M1_6 }}</p>
                 </span>
                 <span class="text-black">
-                    <input type="text" {{ helpers.noste_textinput_attrset('noste_VA1_13') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px]  rounded-[5px] p-2">
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_VA1_13') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] rounded-[5px] p-2">{{ noste_VA1_13 }}</p>
                 </span>
             </div>
             
@@ -428,14 +428,14 @@
                             </span>
                             <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_checkbox_attrset('noste_TY1_9') }}>
                         </label>
-                        <input type="text" {{ helpers.noste_textinput_attrset('noste_filed8_22') }} placeholder="Vapaa teksti" class="w-full rounded-[5px] p-2">
+                        <p type="text" {{ helpers.noste_textinput_attrset('noste_filed8_22') }} placeholder="Vapaa teksti" class="w-full rounded-[5px] p-2">{{ noste_filed8_22 }}</p>
                     </div>
                 </span>
                 <span class="text-black">
-                    <input type="text" {{ helpers.noste_textinput_attrset('noste_M1_7') }} placeholder="Vapaa teksti" class="w-[100%] lg:w-[85%] rounded-[5px] p-2">
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_M1_7') }} placeholder="Vapaa teksti" class="w-[100%] lg:w-[85%] rounded-[5px] p-2">{{ noste_M1_7 }}</p>
                 </span>
                 <span class="text-black">
-                    <input type="text" {{ helpers.noste_textinput_attrset('noste_VA1_14') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px]  rounded-[5px] p-2">
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_VA1_14') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] rounded-[5px] p-2">{{ noste_VA1_14 }}</p>
                 </span>
             </div>
 
@@ -455,7 +455,7 @@
                     Urakoitsija on toimittanut tarjouksensa
                 </span>
                 <span class="text-black">
-                    <input type="text" {{ helpers.noste_textinput_attrset('noste_filed9_2') }} placeholder="xx.xx.xxxx." class="w-[150px] rounded-[5px] p-2">
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_filed9_2') }} placeholder="xx.xx.xxxx." class="w-[150px] rounded-[5px] p-2">{{ noste_filed9_2 }}</p>
                 </span>
             </div>
 
@@ -472,7 +472,7 @@
             <div class="flex lg:items-end flex-col lg:flex-row gap-4 mt-3">
                 <p class="text-black">Tarjouksen mukainen kiinteä urakkasumma on yhteensä</p>
                 <span class="text-black">
-                    <input type="text" {{ helpers.noste_textinput_attrset('noste_M1_8') }} class="w-[100%] rounded-[5px] p-2">
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_M1_8') }} class="w-[100%] rounded-[5px] p-2">{{ noste_M1_8 }}</p>
                 </span>
                 <p class="text-black"> € (alv. 0</p>
             </div>
@@ -504,7 +504,7 @@
                     </span>
                     <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_checkbox_attrset('noste_TY1_13') }}>
                 </label>
-                <input type="text" {{ helpers.noste_textinput_attrset('noste_filed8_7') }} placeholder="Esim. sähköpurkutöitä ja LVIA‐purkutöitä ei ole eritelty sähkötöistä ja LVIA‐töistä.]" class="w-full rounded-[5px] p-2">
+                <p type="text" {{ helpers.noste_textinput_attrset('noste_filed8_7') }} placeholder="Esim. sähköpurkutöitä ja LVIA‐purkutöitä ei ole eritelty sähkötöistä ja LVIA‐töistä.]" class="w-full rounded-[5px] p-2">{{ noste_filed8_7 }}</p>
             </div>
             <div class="flex items-center gap-3 ml-[150px] mt-3">
                 <label class="inline-flex items-center gap-2 cursor-pointer">
@@ -513,7 +513,7 @@
                     </span>
                     <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_checkbox_attrset('noste_TY1_14') }}>
                 </label>
-                <input type="text" {{ helpers.noste_textinput_attrset('noste_filed8_8') }} placeholder="Vapaa teksti" class="w-full rounded-[5px] p-2">
+                <p type="text" {{ helpers.noste_textinput_attrset('noste_filed8_8') }} placeholder="Vapaa teksti" class="w-full rounded-[5px] p-2">{{ noste_filed8_8 }}</p>
             </div>
 
             <p class="text-black mt-3">Tarjouksen poikkeamat ja mahdolliset erityisehdot:</p>
@@ -535,7 +535,7 @@
                     </span>
                     <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_checkbox_attrset('noste_TY1_16') }}>
                 </label>
-                <input type="text" {{ helpers.noste_textinput_attrset('noste_filed8_9') }} placeholder="Kirjataan tarjouksessa esiin nostetut erityisehdot tai poikkeamat. Esim. sakko YSEn mukaan" class="w-full rounded-[5px] p-2">
+                <p type="text" {{ helpers.noste_textinput_attrset('noste_filed8_9') }} placeholder="Kirjataan tarjouksessa esiin nostetut erityisehdot tai poikkeamat. Esim. sakko YSEn mukaan" class="w-full rounded-[5px] p-2">{{ noste_filed8_9 }}</p>
             </div>
             
             <div class="flex items-center gap-3 ml-[150px] mt-3">
@@ -545,7 +545,7 @@
                     </span>
                     <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_checkbox_attrset('noste_TY1_17') }}>
                 </label>
-                <input type="text" {{ helpers.noste_textinput_attrset('noste_filed8_10') }} placeholder="Vapaa teksti" class="w-full rounded-[5px] p-2">
+                <p type="text" {{ helpers.noste_textinput_attrset('noste_filed8_10') }} placeholder="Vapaa teksti" class="w-full rounded-[5px] p-2">{{ noste_filed8_10 }}</p>
             </div>
             
             <div class="flex items-center gap-3 mt-5">
@@ -555,7 +555,7 @@
                     </span>
                     <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_checkbox_attrset('noste_TY1_18') }}>
                 </label>
-                <input type="text" {{ helpers.noste_textinput_attrset('noste_filed8_11') }} placeholder="Vapaa teksti" class="w-full rounded-[5px] p-2">
+                <p type="text" {{ helpers.noste_textinput_attrset('noste_filed8_11') }} placeholder="Vapaa teksti" class="w-full rounded-[5px] p-2">{{ noste_filed8_11 }}</p>
                 
                 <div class="help_wrap relative mb-2 mr-[-30px]">
                     <a href="#!" class="help_click"><svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="0.72"></circle> <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path> <circle cx="12" cy="16" r="1" fill="#000000"></circle> </g></svg> </a>                                      
@@ -609,7 +609,7 @@
                     </span>
                     <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_checkbox_attrset('noste_TY1_19') }}>
                 </label>
-                <input type="text" {{ helpers.noste_textinput_attrset('noste_filed8_12') }} placeholder="Tarjouspyyntöaineiston mukaan." class="w-full rounded-[5px] p-2">
+                <p type="text" {{ helpers.noste_textinput_attrset('noste_filed8_12') }} placeholder="Tarjouspyyntöaineiston mukaan." class="w-full rounded-[5px] p-2">{{ noste_filed8_12 }}</p>
             </div>
         </div>
 
@@ -625,7 +625,7 @@
                     </span>
                     <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_checkbox_attrset('noste_TY1_20') }}>
                 </label>
-                <input type="text" {{ helpers.noste_textinput_attrset('noste_filed8_13') }} placeholder="Tarjouspyyntöaineiston mukaan." class="w-full rounded-[5px] p-2">
+                <p type="text" {{ helpers.noste_textinput_attrset('noste_filed8_13') }} placeholder="Tarjouspyyntöaineiston mukaan." class="w-full rounded-[5px] p-2">{{ noste_filed8_13 }}</p>
             </div>
             <div class="flex items-center gap-3 mt-5">
                 <label class="inline-flex items-center gap-2 cursor-pointer">
@@ -634,7 +634,7 @@
                     </span>
                     <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_checkbox_attrset('noste_TY1_21') }}>
                 </label>
-                <input type="text" {{ helpers.noste_textinput_attrset('noste_filed8_14') }} placeholder="Vapaa teksti" class="w-full rounded-[5px] p-2">
+                <p type="text" {{ helpers.noste_textinput_attrset('noste_filed8_14') }} placeholder="Vapaa teksti" class="w-full rounded-[5px] p-2">{{ noste_filed8_14 }}</p>
             </div>
         </div>
 
@@ -666,11 +666,11 @@
                     </label>
                 </div>
 
-                <input type="text" {{ helpers.noste_textinput_attrset('noste_M1_9') }} placeholder="nro." class="w-[100%] lg:w-[70px] rounded-[5px] p-2">
+                <p type="text" {{ helpers.noste_textinput_attrset('noste_M1_9') }} placeholder="nro." class="w-[100%] lg:w-[70px] rounded-[5px] p-2">{{ noste_M1_9 }}</p>
                 <span class="text-[#283B44] font-medium">,</span>
-                <input type="text" {{ helpers.noste_textinput_attrset('noste_M1_10') }} placeholder="Aihe" class="w-[100%] lg:w-[100px] rounded-[5px] p-2">
+                <p type="text" {{ helpers.noste_textinput_attrset('noste_M1_10') }} placeholder="Aihe" class="w-[100%] lg:w-[100px] rounded-[5px] p-2">{{ noste_M1_10 }}</p>
                 <span class="text-[#283B44] font-medium">,</span>
-                <input type="text" {{ helpers.noste_textinput_attrset('noste_M1_11') }} placeholder="tarjous" class="w-[100%] lg:w-[120px] rounded-[5px] p-2">
+                <p type="text" {{ helpers.noste_textinput_attrset('noste_M1_11') }} placeholder="tarjous" class="w-[100%] lg:w-[120px] rounded-[5px] p-2">{{ noste_M1_11 }}</p>
                 <span class="text-[#283B44] font-medium">.</span>
             </div>
 
@@ -681,7 +681,7 @@
                     </span>
                     <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_checkbox_attrset('noste_TY1_24') }}>
                 </label>
-                <input type="text" {{ helpers.noste_textinput_attrset('noste_filed8_15') }} placeholder="Vapaa teksti" class="w-full rounded-[5px] p-2">
+                <p type="text" {{ helpers.noste_textinput_attrset('noste_filed8_15') }} placeholder="Vapaa teksti" class="w-full rounded-[5px] p-2">{{ noste_filed8_15 }}</p>
                 
                 <div class="help_wrap relative mb-2 mr-[-30px]">
                     <a href="#!" class="help_click"><svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="0.72"></circle> <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path> <circle cx="12" cy="16" r="1" fill="#000000"></circle> </g></svg> </a>                                      
@@ -730,7 +730,7 @@
                         <span class="text-black">TATE-työnjohtajat</span>
                     </label>
 
-                    <input type="text" {{ helpers.noste_textinput_attrset('noste_filed8_16') }} placeholder="Vapaa teksti" class="flex-1 w-full rounded-[5px] p-2">
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_filed8_16') }} placeholder="Vapaa teksti" class="flex-1 w-full rounded-[5px] p-2">{{ noste_filed8_16 }}</p>
                 </div>
             </div>
             <div class="flex items-center gap-3 mt-5">
@@ -740,7 +740,7 @@
                     </span>
                     <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_checkbox_attrset('noste_TY1_27') }}>
                 </label>
-                <input type="text" {{ helpers.noste_textinput_attrset('noste_filed8_17') }} placeholder="Vapaa teksti" class="w-full rounded-[5px] p-2">
+                <p type="text" {{ helpers.noste_textinput_attrset('noste_filed8_17') }} placeholder="Vapaa teksti" class="w-full rounded-[5px] p-2">{{ noste_filed8_17 }}</p>
             </div>
         </div>
 
@@ -786,7 +786,7 @@
                     ]
                 </span>
                 <span class="text-black text-[15px]">Koko urakka on oltava täysin valmis ja vastaanotettavissa</span>
-                <input type="text" {{ helpers.noste_textinput_attrset('noste_VA1_15') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px]  rounded-[5px] p-2">
+                <p type="text" {{ helpers.noste_textinput_attrset('noste_VA1_15') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] rounded-[5px] p-2">{{ noste_VA1_15 }}</p>
             </div>
 
             <div class="flex items-center gap-3 mt-5">
@@ -796,7 +796,7 @@
                     </span>
                     <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_checkbox_attrset('noste_TY1_28') }}>
                 </label>
-                <input type="text" {{ helpers.noste_textinput_attrset('noste_filed8_18') }} placeholder="Kirjaus poikkeamista aikatauluun, esimerkiksi vaiheistus" class="w-full rounded-[5px] p-2">
+                <p type="text" {{ helpers.noste_textinput_attrset('noste_filed8_18') }} placeholder="Kirjaus poikkeamista aikatauluun, esimerkiksi vaiheistus" class="w-full rounded-[5px] p-2">{{ noste_filed8_18 }}</p>
             </div>
 
             <div class="flex flex-col flex-wrap lg:flex-row lg:items-center gap-2 mt-5">
@@ -811,7 +811,7 @@
                         <span class="flex-1 text-black text-[14px]">Aikataulua laatiessa urakoitsijan on huomioitava</span>
                     </label>
                 </span>
-                <input type="text" {{ helpers.noste_textinput_attrset('noste_VA1_16') }} placeholder="erityisehto, kuten vaiheistus" class="w-full lg:w-[220px]  rounded-[5px] p-2">
+                <p type="text" {{ helpers.noste_textinput_attrset('noste_VA1_16') }} placeholder="erityisehto, kuten vaiheistus" class="w-full lg:w-[220px] rounded-[5px] p-2">{{ noste_VA1_16 }}</p>
             </div>
         </div>
 
@@ -824,13 +824,13 @@
             <div class="flex items-start my-5">
                 <div class="flex flex-col flex-wrap lg:flex-row lg:items-center">
                     <span class="text-black text-[15px] mr-2">Työt toteutetaan</span>
-                    <input type="text" {{ helpers.noste_textinput_attrset('noste_VA1_17') }} placeholder="vapaa teksti" class="w-full lg:w-[110px]  rounded-[5px] p-2 mr-2">
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_VA1_17') }} placeholder="vapaa teksti" class="w-full lg:w-[110px] rounded-[5px] p-2 mr-2">{{ noste_VA1_17 }}</p>
                     <a href="#!" class="relative tooltip mr-2">
                         <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="0.72"></circle> <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path> <circle cx="12" cy="16" r="1" fill="#000000"></circle> </g></svg> 
                         <span class="tooltiptext text-tooltip">Lisää sijainti. Esim: <br> <br>"Helsingissä, Pitäjänmäessä, sijaitsevassa toimistorakennuksessa MOVE:ssa."</span>
                     </a>
                     <span class="text-black text-[15px] mr-2">Kohdetta ympäröivät tilat ovat</span>
-                    <input type="text" {{ helpers.noste_textinput_attrset('noste_VA1_18') }} placeholder="käytössä/tyhjänä" class="w-full lg:w-[130px]  rounded-[5px] p-2 mr-2">
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_VA1_18') }} placeholder="käytössä/tyhjänä" class="w-full lg:w-[130px] rounded-[5px] p-2 mr-2">{{ noste_VA1_18 }}</p>
                     <span class="text-black text-[15px]">Urakoitsijan</span>
                     <span class="text-black text-[15px]">tulee huomioida työalueen sijainnista aiheutuvat haitat työjärjestelyjensä suunnittelussa. Kiinteistön ja ympäristön käyttäjien turvallisuudesta, toimintaedellytyksistä ja häiriöttömyydestä tulee huolehtia kaikkien työvaiheiden aikana. Urakoitsijan on huomioitava, että rakennustyöt tapahtuvat toimivassa kiinteistössä.</span>
                 </div>
@@ -931,14 +931,14 @@
             
             <div class="flex flex-col flex-wrap lg:flex-row lg:items-center mb-5">
                 <span class="text-black text-[15px] mr-2">Rakennuttaja on laatinut kohteesta rakennuttajan turvallisuusasiakirjan ( </span>
-                <input type="text" {{ helpers.noste_textinput_attrset('noste_VA1_19') }} placeholder="xx.xx.xxxx" class="w-full lg:w-[110px]  rounded-[5px] p-2 mr-2">
+                <p type="text" {{ helpers.noste_textinput_attrset('noste_VA1_19') }} placeholder="xx.xx.xxxx" class="w-full lg:w-[110px] rounded-[5px] p-2 mr-2">{{ noste_VA1_19 }}</p>
                 <span class="text-black text-[15px]">), joka on ollut tarjouspyynnön liitteenä. </span>
             </div>
             <p class="text-black text-[15px]"><span class="inline-block mr-10">-</span> Todettiin, että urakoitsija on ottanut tarjouksessaan huomioon turvallisuusasiakirjassa mainitut seikat ja toimenpiteet. </p>
             <p class="text-black text-[15px] my-5">Pääurakoitsija on työturvallisuudesta vastaava päätoteuttaja. </p>
             <div class="flex flex-col flex-wrap lg:flex-row lg:items-center mb-5">
                 <p class="text-black text-[15px] mr-2">Urakoitsijan nimeämä työturvallisuudesta vastaava henkilö on</p>
-                <input type="text" {{ helpers.noste_textinput_attrset('noste_VA1_20') }} class="w-full lg:w-[60px]  rounded-[5px] p-2">
+                <p type="text" {{ helpers.noste_textinput_attrset('noste_VA1_20') }} class="w-full lg:w-[60px] rounded-[5px] p-2">{{ noste_VA1_20 }}</p>
             </div>
             <p class="text-black text-[15px] mb-5">Turvallisuusasiakirjan mukaisesti päätoteuttajan tulee laatia ja esittää rakennuttajalle ennen töiden aloittamista kirjallinen turvallisuussuunnitelma sekä työmaa-alueen suunnitelma. </p>
             <p class="text-black text-[15px] mb-5">Henkilökohtaisten suojavarusteiden käyttö</p>
@@ -985,7 +985,7 @@
                         <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_checkbox_attrset('noste_K_17') }}>
                         <span class="flex-1 text-black text-[14px]">Erityisesti huomioitavaa</span>
                     </label>
-                    <input type="text" {{ helpers.noste_textinput_attrset('noste_VA1_21') }} placeholder="työvaihetta" class="w-full lg:w-[130px]  rounded-[5px] p-2">
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_VA1_21') }} placeholder="työvaihetta" class="w-full lg:w-[130px] rounded-[5px] p-2">{{ noste_VA1_21 }}</p>
                     <span class="text-black text-[15px]">tehdessä</span>
                     ]
                 </div>
@@ -1004,7 +1004,7 @@
                     </span>
                     <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_checkbox_attrset('noste_TY1_29') }}>
                 </label>
-                <input type="text" {{ helpers.noste_textinput_attrset('noste_filed8_19') }} placeholder="Vapaa teksti" class="w-full rounded-[5px] p-2">
+                <p type="text" {{ helpers.noste_textinput_attrset('noste_filed8_19') }} placeholder="Vapaa teksti" class="w-full rounded-[5px] p-2">{{ noste_filed8_19 }}</p>
             </div>
         </div>
     </div>
@@ -1045,7 +1045,7 @@
                     </span>
                     <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_checkbox_attrset('noste_TY1_31') }}>
                 </label>
-                <input type="text" {{ helpers.noste_textinput_attrset('noste_filed8_20') }} placeholder="Erillishankinta ja toimittaja" class="w-full rounded-[5px] p-2">
+                <p type="text" {{ helpers.noste_textinput_attrset('noste_filed8_20') }} placeholder="Erillishankinta ja toimittaja" class="w-full rounded-[5px] p-2">{{ noste_filed8_20 }}</p>
             </div>
             <div class="flex items-center gap-3 mt-3">
                 <label class="inline-flex items-center gap-2 cursor-pointer">
@@ -1078,7 +1078,7 @@
                     </span>
                     <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_checkbox_attrset('noste_TY1_33') }}>
                     
-                    <input type="text" {{ helpers.noste_textinput_attrset('noste_VA1_22') }} placeholder="vapaa teksti" class="w-full lg:w-[110px]  rounded-[5px] p-2">
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_VA1_22') }} placeholder="vapaa teksti" class="w-full lg:w-[110px] rounded-[5px] p-2">{{ noste_VA1_22 }}</p>
                 </label>
 
                 <a href="#!" class="help_click"><svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="0.72"></circle> <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path> <circle cx="12" cy="16" r="1" fill="#000000"></circle> </g></svg> </a>                                      
@@ -1103,9 +1103,9 @@
                 <span class="inline-block mr-10">-</span>  
                 <div class="flex items-center gap-2">
                     <span class="text-black text-[15px]">Urakoitsija on toimittanut</span>
-                    <input type="text" {{ helpers.noste_textinput_attrset('noste_VA1_23') }} placeholder="Luotettava Kumppani -raportin" class="w-full lg:w-[220px]  rounded-[5px] p-2">
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_VA1_23') }} placeholder="Luotettava Kumppani -raportin" class="w-full lg:w-[220px] rounded-[5px] p-2">{{ noste_VA1_23 }}</p>
                     <span class="text-black text-[15px]">(</span>
-                    <input type="text" {{ helpers.noste_textinput_attrset('noste_VA1_24') }} placeholder="xx.xx.xxxx" class="w-full lg:w-[130px]  rounded-[5px] p-2">
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_VA1_24') }} placeholder="xx.xx.xxxx" class="w-full lg:w-[130px] rounded-[5px] p-2">{{ noste_VA1_24 }}</p>
                     <span class="text-black text-[15px]">)</span>
                 </div>
             </div> 
@@ -1117,7 +1117,7 @@
                     </span>
                     <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_checkbox_attrset('noste_TY1_34') }}>
                     
-                    <input type="text" {{ helpers.noste_textinput_attrset('noste_VA1_25') }} placeholder="vapaa teksti" class="w-full lg:w-[110px]  rounded-[5px] p-2">
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_VA1_25') }} placeholder="vapaa teksti" class="w-full lg:w-[110px] rounded-[5px] p-2">{{ noste_VA1_25 }}</p>
                 </label>
             </div>
             <p class="text-black text-[15px] ml-[50px]">o Pääurakoitsija vastaa myös käytettävien aliurakoitsijoiden tilaaja vastuu -lain mukaisten selvitysten tarkastamisesta ja ilmoittamisesta rakennuttajakonsultille.</p>
@@ -1164,7 +1164,7 @@
                             </span>
                             <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_checkbox_attrset('noste_TY1_35') }}>
                             
-                            <input type="text" {{ helpers.noste_textinput_attrset('noste_VA1_26') }} placeholder="vapaa teksti" class="w-full lg:w-[110px]  rounded-[5px] p-2">
+                            <p type="text" {{ helpers.noste_textinput_attrset('noste_VA1_26') }} placeholder="vapaa teksti" class="w-full lg:w-[110px] rounded-[5px] p-2">{{ noste_VA1_26 }}</p>
                         </label>
                     </div>
                 </div>
@@ -1217,7 +1217,7 @@
                         </span>
                         <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_checkbox_attrset('noste_TY1_36') }}>
                         
-                        <input type="text" {{ helpers.noste_textinput_attrset('noste_VA1_27') }} placeholder="vapaa teksti" class="w-full lg:w-[110px]  rounded-[5px] p-2">
+                        <p type="text" {{ helpers.noste_textinput_attrset('noste_VA1_27') }} placeholder="vapaa teksti" class="w-full lg:w-[110px] rounded-[5px] p-2">{{ noste_VA1_27 }}</p>
                     </label>
                 </div>
             </div>
@@ -1230,7 +1230,7 @@
             </h3>
 
             <p class="text-black text-[14px] leading-7 mt-3 mb-2">Pääurakoitsija suorittaa urakan luovutusvaiheessa urakkasopimusasiakirjojen mukaiset tarkastukset ja laatii sekä toimittaa urakkasopimusluonnoksen kohdan 7 "laadun varmistus" mukaiset luovutusdokumentit. Aineisto luovutetaan sähköisesti.</p>
-            <input type="text" {{ helpers.noste_textinput_attrset('noste_filed8_21') }} placeholder="Vapaa teksti" class="w-full rounded-[5px] p-2">
+            <p type="text" {{ helpers.noste_textinput_attrset('noste_filed8_21') }} placeholder="Vapaa teksti" class="w-full rounded-[5px] p-2">{{ noste_filed8_21 }}</p>
         </div>
 
         <div class="max-w-[700px] mx-auto mt-10">
@@ -1261,11 +1261,11 @@
                 
                 <div class="flex flex-col lg:flex-row lg:items-center gap-2">
                     <span class="">
-                        <input type="text" {{ helpers.noste_textinput_attrset('noste_VA1_28') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px]  rounded-[5px] p-2">
+                        <p type="text" {{ helpers.noste_textinput_attrset('noste_VA1_28') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] rounded-[5px] p-2">{{ noste_VA1_28 }}</p>
                     </span>
                     <span class="text-black text-[15px]">klo</span>
                     <span class="">
-                        <input type="text" {{ helpers.noste_textinput_attrset('noste_VA1_29') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[68px]  rounded-[5px] p-2">
+                        <p type="text" {{ helpers.noste_textinput_attrset('noste_VA1_29') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[68px] rounded-[5px] p-2">{{ noste_VA1_29 }}</p>
                     </span>
                 </div>
                 <span class="text-black text-[14px]">mennessä tarjouksensa tämän neuvottelun perusteella. Rakennuttaja ilmoittaa urakoitsijavalinnasta mahdollisimman pian päivitetyn tarjouksen jättämisen jälkeen. ]</span>
@@ -1284,7 +1284,7 @@
                 
                 <div class="flex flex-col lg:flex-row lg:items-center gap-2">
                     <span class="">
-                        <input type="text" {{ helpers.noste_textinput_attrset('noste_VA1_30') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px]  rounded-[5px] p-2">
+                        <p type="text" {{ helpers.noste_textinput_attrset('noste_VA1_30') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] rounded-[5px] p-2">{{ noste_VA1_30 }}</p>
                     </span>
                 </div>
                 <span class="text-black text-[14px]">ja kiinteä kokonaishinta tässä asiakirjassa ja tarjouspyyntöaineistossa määritetyille töille on <span class="text-[#06F9B7] rounded-[5px] p-2">{{ get_global_keyword( 'pilar_UH1', 'UH1') }}</span> (alv. 0%)]</span>
@@ -1300,7 +1300,7 @@
 
             <div class="flex items-center gap-2 mt-5">
                 <span class="text-black text-[15px]">Puheenjohtaja päätti kokouksen klo</span>
-                <input type="text" {{ helpers.noste_textinput_attrset('noste_VA1_31') }} placeholder="xx.xx" class="w-full lg:w-[60px]  rounded-[5px] p-2">
+                <p type="text" {{ helpers.noste_textinput_attrset('noste_VA1_31') }} placeholder="xx.xx" class="w-full lg:w-[60px] rounded-[5px] p-2">{{ noste_VA1_31 }}</p>
             </div>
             <p class="text-black text-[15px]">Pöytäkirjan vakuudeksi</p>
             <div>

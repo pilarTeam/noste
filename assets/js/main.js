@@ -477,7 +477,7 @@ const PRINTS_ARGS = {
                         }
                         data.submissions.helpers.noste_checkbox_attrset = (keyword) => {
                             var dataset = (data.submissions['noste_check'])?data.submissions['noste_check']:data.submissions;
-                            var attrs = 'name="noste_check[]" value="' + keyword + '" readonly ';
+                            var attrs = 'name="noste_check[]" value="' + keyword + '" readonly style="display:none;"';
                             if (Object.values(dataset).includes(keyword)) {
                                 attrs +=' checked';
                             }
