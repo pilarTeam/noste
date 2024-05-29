@@ -14,8 +14,9 @@ jQuery(document).ready(function ($) {
         if (event.shiftKey) {
             switch (event.key) {
                 case 'F':
-                    document.querySelectorAll('input[type="checkbox"]:not(:checked)').forEach(check => check.checked = true);
-                    document.querySelectorAll('input[type="text"][value=""]').forEach(check => check.value = Math.random(0, 999));
+                    // document.querySelectorAll('input[type="checkbox"]:not(:checked)').forEach(check => check.checked = true);
+                    // document.querySelectorAll('input[type="text"][value=""]').forEach(check => check.value = Math.random(0, 999));
+                    // console.log('All inputs are blank filled with random numbers and all checkboxs are not checked mark them checked');
                     break;
                 default:
                     break;

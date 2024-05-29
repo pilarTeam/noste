@@ -45,7 +45,7 @@
                                                {% if index == 2 %}
                                                     <td class="px-4 py-3 border border-line">
                                                         <label class="inline-flex items-center gap-2 cursor-pointer">
-                                                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
+                                                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                     <g stroke-width="0"></g>
                                                                     <g stroke-linecap="round" stroke-linejoin="round"></g>
@@ -62,13 +62,13 @@
                                                 {% endif %}
 
                                                 <td class="px-4 py-3 border border-line">
-                                                    <input type="text" name="user_error_number[{{ index }}]" placeholder="{{ index }}" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="{{ user_error_number[index] }}">
+                                                    <input type="text" name="user_error_number[{{ index }}]" placeholder="{{ index }}" class="shadow-input w-[100%] lg:w-[81%] rounded-[5px] p-2" value="{{ user_error_number[index] }}">
                                                 </td>
                                                 <td class="px-4 py-3 border border-line text-sm">
-                                                    <input type="text" name="user_error_error[{{ index }}]" placeholder="Tila jossa virhe on: Virhe yksilöitynä" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="{{ user_error_error[index] }}">
+                                                    <input type="text" name="user_error_error[{{ index }}]" placeholder="Tila jossa virhe on: Virhe yksilöitynä" class="shadow-input w-[100%] lg:w-[81%] rounded-[5px] p-2" value="{{ user_error_error[index] }}">
                                                 </td>
                                                 <td class="px-4 py-3 border border-line">
-                                                    <input type="text" name="user_error_comment[{{ index }}]" placeholder="Sovittu toimenpide" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="{{ user_error_comment[index] }}">
+                                                    <input type="text" name="user_error_comment[{{ index }}]" placeholder="Sovittu toimenpide" class="shadow-input w-[100%] lg:w-[81%] rounded-[5px] p-2" value="{{ user_error_comment[index] }}">
                                                 </td>
                                             </tr>   
                                     {% else %}
