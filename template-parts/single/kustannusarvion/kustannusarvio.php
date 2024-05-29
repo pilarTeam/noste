@@ -1,11 +1,9 @@
 <?php 
 
-if ( !is_singular( 'projektitiedot' ) ) {
-   return;
-}
+if (!is_singular('projektitiedot')) {return;}
 
 $project_id = get_the_ID();
-
+$data = the_form_stored_data();
 ?>
 
 
@@ -18,9 +16,9 @@ $project_id = get_the_ID();
             <div class="card_item relative h-fit">
                 <!-- Card Header --><?php echo wp_kses_post(noste_form_header('form')); ?><!-- Card Header -->
                 
-                <form action="<?php echo esc_url( get_permalink( get_the_ID() ) ); ?>" method="post" enctype="multipart/form-data" class="ajax-submit">
+                <form action="<?php echo esc_url(get_permalink(get_the_ID())); ?>" method="post" enctype="multipart/form-data" class="ajax-submit">
                     <?php wp_nonce_field('project_step_form_validation', 'project_step_form__nonce_field'); ?>
-                    <input type="hidden" name="ptname" value="<?php echo esc_attr(implode('_', ['noste', $_GET['tm'], $_GET['tmin']])); ?>">
+                    <input type="hidden" name="ptname" value="<?php echo esc_attr(get_the_ptname()); ?>">
                     <input type="hidden" name="action" value="noste_update_project_step">
                     <input type="hidden" name="post_id" value="<?php echo esc_attr( $project_id ); ?>">
 
@@ -38,7 +36,7 @@ $project_id = get_the_ID();
                         <div class="help_wrap my-10 relative">
                             <div class="max-w-[800px] mx-auto">
                                 <div class="flex flex-col lg:flex-row lg:items-center gap-2">
-                                    <input type="text" name="pilar_filed8_1" class="shadow-input max-w-[310px] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2" value="Vuokralaismuutoksen kustannusarvio (alv. 0%)">
+                                    <input type="text" <?php noste_textinput_attrset('noste_filed8_1', $data, 'Vuokralaismuutoksen kustannusarvio (alv. 0%)'); ?> class="shadow-input max-w-[310px] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     <a href="#!" class="help_click">
                                         <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g stroke-width="0"></g>
@@ -104,26 +102,22 @@ $project_id = get_the_ID();
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_filed2_1">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_filed2_1', $data); ?>>
                                             </label>
-                                            <input type="text" name="pilar_filed8_2" class="shadow-input w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Osa-alueet eriteltynä">
+                                            <input type="text" <?php noste_textinput_attrset('noste_filed8_2', $data); ?> class="shadow-input w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Osa-alueet eriteltynä">
                                         </div>
                                     </td>
                                     <td class="px-4 py-3 border border-line text-sm">
                                         <div class="flex items-center border border-solid border-accent shadow-input rounded-lg">
-                                            <input type="text" name="pilar_filed8_3" class="w-[100%] lg:w-[81%] rounded-[5px] p-2 rounded-l-lg text-right" value="5">
-                                            <select id="measured1" class="bg-[#F6F8FF] border border-[#E1E1EA] text-black text-sm rounded-r-lg px-1">
-                                                <option selected value="kpl">kpl</option>
-                                                <option value="m2">m <sup>2</sup> </option>
-                                                <option value="erä">erä</option>
-                                                <option value="kpl">kpl</option>
-                                                <option value="jm">jm</option>
+                                            <input type="text" <?php noste_textinput_attrset('noste_filed8_3', $data, '5'); ?> class="w-[100%] lg:w-[81%] rounded-[5px] p-2 rounded-l-lg text-right">
+                                            <select id="measured1" class="bg-[#F6F8FF] border border-[#E1E1EA] text-black text-sm rounded-r-lg px-1" name="measured1">
+                                                <?php noste_select_options(['kpl', 'm2', 'erä', 'kpl', 'jm'], 'measured1'); ?>
                                             </select>
                                         </div>
                                     </td>
                                     <td class="px-4 py-3 border border-line">
                                         <div class="flex items-center gap-3">
-                                            <input type="text" name="pilar_filed8_4" value="500" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
+                                            <input type="text" <?php noste_textinput_attrset('noste_filed8_4', $data, '500'); ?> class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
                                             <label class="block text-black w-24">
                                                 € / kpl
                                             </label>
@@ -149,26 +143,22 @@ $project_id = get_the_ID();
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_filed2_2">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_filed2_2', $data); ?>>
                                             </label>
-                                            <input type="text" name="pilar_filed8_5" class="shadow-input w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Osa-alueet eriteltynä">
+                                            <input type="text" <?php noste_textinput_attrset('noste_filed8_5', $data); ?> class="shadow-input w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Osa-alueet eriteltynä">
                                         </div>
                                     </td>
                                     <td class="px-4 py-3 border border-line text-sm">
                                         <div class="flex items-center border border-solid border-accent shadow-input rounded-lg">
-                                            <input type="text" name="pilar_filed8_6" class="w-[100%] lg:w-[81%] rounded-[5px] p-2 rounded-l-lg text-right" value="7">
-                                            <select id="measured2" class="bg-[#F6F8FF] border border-[#E1E1EA] text-black text-sm rounded-r-lg px-1">
-                                                <option selected value="kpl">kpl</option>
-                                                <option value="m2">m<sup>2</sup></option>
-                                                <option value="erä">erä</option>
-                                                <option value="kpl">kpl</option>
-                                                <option value="jm">jm</option>
+                                            <input type="text" <?php noste_textinput_attrset('noste_filed8_6', $data, '7'); ?> class="w-[100%] lg:w-[81%] rounded-[5px] p-2 rounded-l-lg text-right">
+                                            <select id="measured2" class="bg-[#F6F8FF] border border-[#E1E1EA] text-black text-sm rounded-r-lg px-1" name="measured2">
+                                                <?php noste_select_options(['kpl', 'm2' => 'm<sup>2</sup>', 'erä', 'jm'], 'measured2'); ?>
                                             </select>
                                         </div>
                                     </td>
                                     <td class="px-4 py-3 border border-line">
                                         <div class="flex items-center gap-3">
-                                            <input type="text" name="pilar_filed8_7" value="500" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
+                                            <input type="text" <?php noste_textinput_attrset('noste_filed8_7', $data, '500'); ?> class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
                                             <label class="block text-black w-24">
                                                 € / kpl
                                             </label>
@@ -195,26 +185,22 @@ $project_id = get_the_ID();
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_filed2_3">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_filed2_3', $data); ?>>
                                             </label>
-                                            <input type="text" name="pilar_filed8_7" class="shadow-input w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Osa-alueet eriteltynä">
+                                            <input type="text" <?php noste_textinput_attrset('noste_filed8_7', $data); ?> class="shadow-input w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Osa-alueet eriteltynä">
                                         </div>
                                     </td>
                                     <td class="px-4 py-3 border border-line text-sm">
                                         <div class="flex items-center border border-solid border-accent shadow-input rounded-lg">
-                                            <input type="text" name="pilar_filed8_8" class="w-[100%] lg:w-[81%] rounded-[5px] p-2 rounded-l-lg text-right" value="5">
-                                            <select id="measured3" class="bg-[#F6F8FF] border border-[#E1E1EA] text-black text-sm rounded-r-lg px-1">
-                                                <option selected value="kpl">kpl</option>
-                                                <option value="m2">m<sup>2</sup></option>
-                                                <option value="erä">erä</option>
-                                                <option value="kpl">kpl</option>
-                                                <option value="jm">jm</option>
+                                            <input type="text" <?php noste_textinput_attrset('noste_filed8_8', $data, '5'); ?> class="w-[100%] lg:w-[81%] rounded-[5px] p-2 rounded-l-lg text-right">
+                                            <select id="measured3" class="bg-[#F6F8FF] border border-[#E1E1EA] text-black text-sm rounded-r-lg px-1" name="measured3">
+                                                <?php noste_select_options(['kpl', 'm2' => 'm<sup>2</sup>', 'erä', 'jm'], 'measured3'); ?>
                                             </select>
                                         </div>
                                     </td>
                                     <td class="px-4 py-3 border border-line">
                                         <div class="flex items-center gap-3">
-                                            <input type="text" name="pilar_filed8_9" value="500" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
+                                            <input type="text" <?php noste_textinput_attrset('noste_filed8_9', $data, '500'); ?> class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
                                             <label class="block text-black w-24">
                                                 € / kpl
                                             </label>
@@ -280,26 +266,22 @@ $project_id = get_the_ID();
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_filed2_3">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_filed2_3', $data); ?>>
                                             </label>
-                                            <input type="text" name="pilar_filed8_10" class="shadow-input w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Osa-alueet eriteltynä">
+                                            <input type="text" <?php noste_textinput_attrset('noste_filed8_10', $data); ?> class="shadow-input w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Osa-alueet eriteltynä">
                                         </div>
                                     </td>
                                     <td class="px-4 py-3 border border-line text-sm" id="project_table_status">
                                         <div class="flex items-center border border-solid border-accent shadow-input rounded-lg">
-                                            <input type="text" name="pilar_filed8_11" class="w-[100%] lg:w-[81%] rounded-[5px] p-2 rounded-l-lg text-right" value="120">
-                                            <select id="measured4" class="bg-[#F6F8FF] border border-[#E1E1EA] text-black text-sm rounded-r-lg px-1">
-                                                <option selected value="kpl">kpl</option>
-                                                <option value="m2">m<sup>2</sup></option>
-                                                <option value="erä">erä</option>
-                                                <option value="kpl">kpl</option>
-                                                <option value="jm">jm</option>
+                                            <input type="text" <?php noste_textinput_attrset('noste_filed8_11', $data, '120'); ?> class="w-[100%] lg:w-[81%] rounded-[5px] p-2 rounded-l-lg text-right">
+                                            <select id="measured4_1" class="bg-[#F6F8FF] border border-[#E1E1EA] text-black text-sm rounded-r-lg px-1" name="measured4_1">
+                                                <?php noste_select_options(['kpl', 'm2' => 'm<sup>2</sup>', 'erä', 'jm'], 'measured4_1'); ?>
                                             </select>
                                         </div>
                                     </td>
                                     <td class="px-4 py-3 border border-line">
                                         <div class="flex items-center gap-3">
-                                            <input type="text" name="pilar_filed8_12" value="500" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
+                                            <input type="text" <?php noste_textinput_attrset('noste_filed8_12', $data, '500'); ?> class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
                                             <label class="block text-black w-24">
                                                 € / kpl
                                             </label>
@@ -326,26 +308,22 @@ $project_id = get_the_ID();
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_filed2_5">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_filed2_5', $data); ?>>
                                             </label>
-                                            <input type="text" name="pilar_filed8_13" class="shadow-input w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Osa-alueet eriteltynä">
+                                            <input type="text" <?php noste_textinput_attrset('noste_filed8_13', $data); ?> class="shadow-input w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Osa-alueet eriteltynä">
                                         </div>
                                     </td>
                                     <td class="px-4 py-3 border border-line text-sm" id="project_table_status">
                                         <div class="flex items-center border border-solid border-accent shadow-input rounded-lg">
-                                            <input type="text" name="pilar_filed8_14" class="w-[100%] lg:w-[81%] rounded-[5px] p-2 rounded-l-lg text-right" value="0">
-                                            <select id="measured5" class="bg-[#F6F8FF] border border-[#E1E1EA] text-black text-sm rounded-r-lg px-1">
-                                                <option selected value="kpl">kpl</option>
-                                                <option value="m2">m<sup>2</sup></option>
-                                                <option value="erä">erä</option>
-                                                <option value="kpl">kpl</option>
-                                                <option value="jm">jm</option>
+                                            <input type="text" <?php noste_textinput_attrset('noste_filed8_14', $data, '0'); ?> class="w-[100%] lg:w-[81%] rounded-[5px] p-2 rounded-l-lg text-right">
+                                            <select id="measured5" class="bg-[#F6F8FF] border border-[#E1E1EA] text-black text-sm rounded-r-lg px-1" name="measured5">
+                                                <?php noste_select_options(['kpl', 'm2' => 'm<sup>2</sup>', 'erä', 'jm'], 'measured5'); ?>
                                             </select>
                                         </div>
                                     </td>
                                     <td class="px-4 py-3 border border-line">
                                         <div class="flex items-center gap-3">
-                                            <input type="text" name="pilar_filed8_15" value="500" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
+                                            <input type="text" <?php noste_textinput_attrset('noste_filed8_15', $data, '500'); ?> class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
                                             <label class="block text-black w-24">
                                                 € / kpl
                                             </label>
@@ -432,26 +410,22 @@ $project_id = get_the_ID();
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_filed2_6">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_filed2_6', $data); ?>>
                                             </label>
-                                            <input type="text" name="pilar_filed8_16" class="shadow-input w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Osa-alueet eriteltynä">
+                                            <input type="text" <?php noste_textinput_attrset('noste_filed8_16', $data); ?> class="shadow-input w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Osa-alueet eriteltynä">
                                         </div>
                                     </td>
                                     <td class="px-4 py-3 border border-line text-sm">
                                         <div class="flex items-center border border-solid border-accent shadow-input rounded-lg">
-                                            <input type="text" name="pilar_filed8_17" class="w-[100%] lg:w-[81%] rounded-[5px] p-2 rounded-l-lg text-right" value="120">
-                                            <select id="measured4" class="bg-[#F6F8FF] border border-[#E1E1EA] text-black text-sm rounded-r-lg px-1">
-                                                <option selected value="kpl">kpl</option>
-                                                <option value="m2">m<sup>2</sup></option>
-                                                <option value="erä">erä</option>
-                                                <option value="kpl">kpl</option>
-                                                <option value="jm">jm</option>
+                                            <input type="text" <?php noste_textinput_attrset('noste_filed8_17', $data, '120'); ?> class="w-[100%] lg:w-[81%] rounded-[5px] p-2 rounded-l-lg text-right">
+                                            <select id="measured4_2" class="bg-[#F6F8FF] border border-[#E1E1EA] text-black text-sm rounded-r-lg px-1" name="measured4_2">
+                                            <?php noste_select_options(['kpl', 'm2' => 'm<sup>2</sup>', 'erä', 'jm'], 'measured4_2'); ?>
                                             </select>
                                         </div>
                                     </td>
                                     <td class="px-4 py-3 border border-line">
                                         <div class="flex items-center gap-3">
-                                            <input type="text" name="pilar_filed8_18" value="80" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
+                                            <input type="text" <?php noste_textinput_attrset('noste_filed8_18', $data, '80'); ?> class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
                                             <label class="block text-black w-24">
                                                 € / kpl
                                             </label>
@@ -478,26 +452,22 @@ $project_id = get_the_ID();
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_filed2_7">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_filed2_7', $data); ?>>
                                             </label>
-                                            <input type="text" name="pilar_filed8_19" class="shadow-input w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Osa-alueet eriteltynä">
+                                            <input type="text" <?php noste_textinput_attrset('noste_filed8_19', $data); ?> class="shadow-input w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Osa-alueet eriteltynä">
                                         </div>
                                     </td>
                                     <td class="px-4 py-3 border border-line text-sm">
                                         <div class="flex items-center border border-solid border-accent shadow-input rounded-lg">
-                                            <input type="text" name="pilar_filed8_20" class="w-[100%] lg:w-[81%] rounded-[5px] p-2 rounded-l-lg text-right" value="0">
-                                            <select id="measured6" class="bg-[#F6F8FF] border border-[#E1E1EA] text-black text-sm rounded-r-lg px-1">
-                                                <option selected value="kpl">kpl</option>
-                                                <option value="m2">m<sup>2</sup></option>
-                                                <option value="erä">erä</option>
-                                                <option value="kpl">kpl</option>
-                                                <option value="jm">jm</option>
+                                            <input type="text" <?php noste_textinput_attrset('noste_filed8_20', $data, '0'); ?> class="w-[100%] lg:w-[81%] rounded-[5px] p-2 rounded-l-lg text-right">
+                                            <select id="measured6" class="bg-[#F6F8FF] border border-[#E1E1EA] text-black text-sm rounded-r-lg px-1" name="measured6">
+                                            <?php noste_select_options(['kpl', 'm2' => 'm<sup>2</sup>', 'erä', 'jm'], 'measured6'); ?>
                                             </select>
                                         </div>
                                     </td>
                                     <td class="px-4 py-3 border border-line">
                                         <div class="flex items-center gap-3">
-                                            <input type="text" name="pilar_filed8_21" value="500" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
+                                            <input type="text" <?php noste_textinput_attrset('noste_filed8_21', $data, '500'); ?> class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
                                             <label class="block text-black w-24">
                                                 € / kpl
                                             </label>
@@ -564,7 +534,7 @@ $project_id = get_the_ID();
                                     </td>
                                     <td class="px-4 py-3 border border-line text-sm flex items-center justify-center gap-2">
                                         <div class="flex items-center border border-solid border-accent shadow-input rounded-lg">
-                                            <input type="text" name="pilar_filed8_26" class="w-[100%] rounded-[5px] p-2 rounded-l-lg text-right" value="12">
+                                            <input type="text" <?php noste_textinput_attrset('noste_filed8_26_1', $data, '12'); ?> class="w-[100%] rounded-[5px] p-2 rounded-l-lg text-right">
                                         </div>
                                         <label class="inline-flex items-center gap-2 cursor-pointer text-black">
                                             %
@@ -609,7 +579,7 @@ $project_id = get_the_ID();
                                     </td>
                                     <td class="px-4 py-3 border border-line text-sm flex items-center gap-2" id="project_table_status">
                                         <div class="flex items-center border border-solid border-accent shadow-input rounded-lg">
-                                            <input type="text" name="pilar_filed8_26" class="w-[100%] rounded-[5px] p-2 rounded-l-lg text-right" value="12">
+                                            <input type="text" <?php noste_textinput_attrset('noste_filed8_26_2', $data, '12'); ?> class="w-[100%] rounded-[5px] p-2 rounded-l-lg text-right">
                                         </div>
                                         <label class="inline-flex items-center gap-2 cursor-pointer text-black">
                                             %
@@ -718,16 +688,15 @@ $project_id = get_the_ID();
                                     </td>
                                     <td class="px-4 py-3 border border-line text-sm">
                                         <div class="flex items-center border border-solid border-accent shadow-input rounded-lg">
-                                            <input type="text" name="pilar_filed8_28" class="w-[100%] lg:w-[81%] rounded-[5px] p-2 rounded-l-lg text-right" value="30">
-                                            <select id="measured4" class="bg-[#F6F8FF] border border-[#E1E1EA] text-black text-sm rounded-r-lg px-1">
-                                                <option value="erä">erä</option>
-                                                <option value="h">h</option>
+                                            <input type="text" <?php noste_textinput_attrset('noste_filed8_28', $data, '30'); ?> class="w-[100%] lg:w-[81%] rounded-[5px] p-2 rounded-l-lg text-right">
+                                            <select id="measured4_3" class="bg-[#F6F8FF] border border-[#E1E1EA] text-black text-sm rounded-r-lg px-1" name="measured4_3">
+                                            <?php noste_select_options(['erä', 'h'], 'measured4_3'); ?>
                                             </select>
                                         </div>
                                     </td>
                                     <td class="px-4 py-3 border border-line">
                                         <div class="flex items-center gap-3">
-                                            <input type="text" name="pilar_filed8_29" value="500" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
+                                            <input type="text" <?php noste_textinput_attrset('noste_filed8_29', $data, '500'); ?> class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
                                             <label class="block text-black w-24">
                                                 € / h
                                             </label>
@@ -769,16 +738,15 @@ $project_id = get_the_ID();
                                     </td>
                                     <td class="px-4 py-3 border border-line text-sm">
                                         <div class="flex items-center border border-solid border-accent shadow-input rounded-lg">
-                                            <input type="text" name="pilar_filed8_30" class="w-[100%] lg:w-[81%] rounded-[5px] p-2 rounded-l-lg text-right" value="0">
-                                            <select id="measured8" class="bg-[#F6F8FF] border border-[#E1E1EA] text-black text-sm rounded-r-lg px-1">
-                                                <option value="erä">erä</option>
-                                                <option value="h">h</option>
+                                            <input type="text" <?php noste_textinput_attrset('noste_filed8_30_1', $data, '0'); ?> class="w-[100%] lg:w-[81%] rounded-[5px] p-2 rounded-l-lg text-right">
+                                            <select id="measured8" class="bg-[#F6F8FF] border border-[#E1E1EA] text-black text-sm rounded-r-lg px-1" name="measured8">
+                                            <?php noste_select_options(['erä', 'h'], 'measured4_3'); ?>
                                             </select>
                                         </div>
                                     </td>
                                     <td class="px-4 py-3 border border-line">
                                         <div class="flex items-center gap-3">
-                                            <input type="text" name="pilar_filed8_30" value="500" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
+                                            <input type="text" <?php noste_textinput_attrset('noste_filed8_30_2', $data, '500'); ?> class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
                                             <label class="block text-black w-24">
                                                 € / kpl
                                             </label>
@@ -821,16 +789,15 @@ $project_id = get_the_ID();
                                     </td>
                                     <td class="px-4 py-3 border border-line text-sm">
                                         <div class="flex items-center border border-solid border-accent shadow-input rounded-lg">
-                                            <input type="text" name="pilar_filed8_31" class="w-[100%] lg:w-[81%] rounded-[5px] p-2 rounded-l-lg text-right" value="0">
-                                            <select id="measured9" class="bg-[#F6F8FF] border border-[#E1E1EA] text-black text-sm rounded-r-lg px-1">
-                                                <option value="erä">erä</option>
-                                                <option value="h">h</option>
+                                            <input type="text" <?php noste_textinput_attrset('noste_filed8_31', $data, '0'); ?> class="w-[100%] lg:w-[81%] rounded-[5px] p-2 rounded-l-lg text-right">
+                                            <select id="measured9" class="bg-[#F6F8FF] border border-[#E1E1EA] text-black text-sm rounded-r-lg px-1" name="measured9">
+                                            <?php noste_select_options(['erä', 'h'], 'measured4_3'); ?>
                                             </select>
                                         </div>
                                     </td>
                                     <td class="px-4 py-3 border border-line">
                                         <div class="flex items-center gap-3">
-                                            <input type="text" name="pilar_filed8_32" value="500" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
+                                            <input type="text" <?php noste_textinput_attrset('noste_filed8_32', $data, '500'); ?> class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
                                             <label class="block text-black w-24">
                                                 € / kpl
                                             </label>
@@ -878,7 +845,7 @@ $project_id = get_the_ID();
                                     </td>
                                     <td class="px-4 py-3 border border-line">
                                         <div class="flex items-center gap-3">
-                                            <input type="text" name="pilar_filed8_34" value="500" class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
+                                            <input type="text" <?php noste_textinput_attrset('noste_filed8_34', $data, '500'); ?> class="shadow-input w-[100%] lg:w-[81%] border border-solid border-[#06F9B7] rounded-[5px] p-2 text-right">
                                             <label class="block text-black w-24">
                                                 € / kpl
                                             </label>
@@ -943,7 +910,7 @@ $project_id = get_the_ID();
                                     <span class="text-sm text-white">Huomiot</span>
                                 </div>
                                 <div class="p-4">
-                                    <textarea class="shadow-input text-sm border-accent rounded-md text-black order-3 w-full" rows="4"></textarea>
+                                    <textarea class="shadow-input text-sm border-accent rounded-md text-black order-3 w-full" rows="4" name="huomiot"><?php echo esc_textarea(isset($data['huomiot'])?$data['huomiot']:''); ?></textarea>
                                 </div>
                             </div>
                     
@@ -979,7 +946,7 @@ $project_id = get_the_ID();
                                     <span class="text-sm text-white">Käytössä olleet lähtötiedot</span>
                                 </div>
                                 <div class="p-4">
-                                    <textarea class="shadow-input text-sm border-accent rounded-md text-black order-3 w-full" name="general_situation" rows="4"></textarea>
+                                    <textarea class="shadow-input text-sm border-accent rounded-md text-black order-3 w-full" name="general_situation" rows="4"><?php echo esc_textarea(isset($data['general_situation'])?$data['general_situation']:''); ?></textarea>
                                 </div>
                             </div>
                     

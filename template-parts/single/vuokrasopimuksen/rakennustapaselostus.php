@@ -1,12 +1,9 @@
 <?php 
 
-if ( !is_singular( 'projektitiedot' ) ) {
-   return;
-}
+if (!is_singular('projektitiedot')) {return;}
 
 $project_id = get_the_ID();
-$ptname = implode('_', ['noste', $_GET['tm'], $_GET['tmin']]);
-$data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get_post_meta( $project_id, $ptname, true ), true ) : '';
+$data = the_form_stored_data();
 
 ?>
 
@@ -15,9 +12,9 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
     <div class="grid grid-cols-1 gap-4">
         <div class="container">
             <!-- Card Header --><?php echo wp_kses_post(noste_form_header('form')); ?><!-- Card Header -->
-            <form action="<?php echo esc_url( get_permalink( get_the_ID() ) ); ?>" method="post" enctype="multipart/form-data" class="ajax-submit">
+            <form action="<?php echo esc_url(get_permalink(get_the_ID())); ?>" method="post" enctype="multipart/form-data" class="ajax-submit">
                 <?php wp_nonce_field('project_step_form_validation', 'project_step_form__nonce_field'); ?>
-                <input type="hidden" name="ptname" value="<?php echo esc_attr(implode('_', ['noste', $_GET['tm'], $_GET['tmin']])); ?>">
+                <input type="hidden" name="ptname" value="<?php echo esc_attr(get_the_ptname()); ?>">
                 <input type="hidden" name="action" value="noste_update_project_step">
                 <input type="hidden" name="post_id" value="<?php echo esc_attr( $project_id ); ?>">
 
@@ -34,7 +31,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                         <div class="mb-8 mx-auto max-w-[700px]">
                             <div class="flex flex-wrap mb-4">
                                 <label class="flex-[3] md:flex-[.7] lg:flex-[.67] mr-4 text-sm font-medium text-black" for="version">Versio:</label>
-                                <input class="shadow-input md:ml-5 text-sm border-accent rounded-md text-[#686d70]" type="text" id="version" name="updated_date" placeholder="xx.xx.xxxx" value="<?php echo esc_html(gmdate('d.m.Y')); ?>">
+                                <input class="shadow-input md:ml-5 text-sm border-accent rounded-md text-[#686d70]" type="text" id="version" <?php noste_textinput_attrset('updated_date', $data, gmdate('d.m.Y')); ?> placeholder="xx.xx.xxxx">
                             </div>
     
                             <div class="flex flex-wrap mb-2">
@@ -73,7 +70,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                         <div class="help_wrap my-10 relative">
                             <div class="max-w-[700px] mx-auto">
                                 <div class="flex flex-col lg:flex-row lg:items-center gap-2">
-                                    <input type="text" name="yleista" class="shadow-input inline-block max-w-full w-full border border-solid border-[#06F9B7] rounded-[5px] p-2" value="<?php echo esc_attr( noste_check_array_data( $data, 'yleista' ) ); ?>" placeholder="Kuvaus muutosten laajuudesta yleisellä tasolla...">
+                                    <input type="text" <?php noste_textinput_attrset('yleista', $data, ''); ?> class="shadow-input inline-block max-w-full w-full border border-solid border-[#06F9B7] rounded-[5px] p-2" placeholder="Kuvaus muutosten laajuudesta yleisellä tasolla...">
                                     <a href="#!" class="help_click">
                                         <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g stroke-width="0"></g>
@@ -102,7 +99,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                         <input class="shadow-input mr-3 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="suunnittelu_agree[1]" id="suunnittelu_agree" <?php echo esc_attr( noste_checked_with_array( noste_check_array_data( $data, 'suunnittelu_agree' ), 'on' ) ); ?>>
                                         SUUNNITTELU
                                     </label>
-                                    <textarea class="shadow-input inline-block max-w-full w-full border border-solid border-[#06F9B7] rounded-[5px] p-4" id="suunnittelu" name="suunnittelu" rows="2"><?php echo htmlspecialchars( noste_check_array_data( $data, 'suunnittelu' ) ); ?></textarea>
+                                    <textarea class="shadow-input inline-block max-w-full w-full border border-solid border-[#06F9B7] rounded-[5px] p-4" id="suunnittelu" name="suunnittelu" rows="2"><?php echo esc_textarea( noste_check_array_data( $data, 'suunnittelu' ) ); ?></textarea>
                                 </li>
                                 
                                 <li class="mb-10">
@@ -111,7 +108,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                         <input class="shadow-input mr-3 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="tilajakoosat_agree[1]" id="tilajakoosat_agree" <?php echo esc_attr( noste_checked_with_array( noste_check_array_data( $data, 'tilajakoosat_agree' ), 'on' ) ); ?>>
                                         TILAJAKO-OSAT
                                     </label>
-                                    <textarea class="shadow-input inline-block max-w-full w-full border border-solid border-[#06F9B7] rounded-[5px] p-4" id="tilajako-osat" name="tilajako_osat" rows="22"><?php echo htmlspecialchars( noste_check_array_data( $data, 'tilajako_osat' ) ); ?></textarea>
+                                    <textarea class="shadow-input inline-block max-w-full w-full border border-solid border-[#06F9B7] rounded-[5px] p-4" id="tilajako-osat" name="tilajako_osat" rows="22"><?php echo esc_textarea( noste_check_array_data( $data, 'tilajako_osat' ) ); ?></textarea>
                                 </li>
                                 
                                 <li class="mb-10">
@@ -120,7 +117,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                         <input class="shadow-input mr-3 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="tilapinnat_agree[1]" id="tilapinnat_agree" <?php echo esc_attr( noste_checked_with_array( noste_check_array_data( $data, 'tilapinnat_agree' ), 'on' ) ); ?>>
                                         TILAPINNAT
                                     </label>
-                                    <textarea class="shadow-input inline-block max-w-full w-full border border-solid border-[#06F9B7] rounded-[5px] p-4" id="tilapinnat" name="tilapinnat" rows="20"><?php echo htmlspecialchars( noste_check_array_data( $data, 'tilapinnat' ) ); ?></textarea>
+                                    <textarea class="shadow-input inline-block max-w-full w-full border border-solid border-[#06F9B7] rounded-[5px] p-4" id="tilapinnat" name="tilapinnat" rows="20"><?php echo esc_textarea( noste_check_array_data( $data, 'tilapinnat' ) ); ?></textarea>
                                 </li>
                                 
                                 <li class="mb-10">
@@ -129,7 +126,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                         <input class="shadow-input mr-3 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="kalusteetjavarusteet_agree[4]" id="kalusteetjavarusteet_agree" <?php echo esc_attr( noste_checked_with_array( noste_check_array_data( $data, 'kalusteetjavarusteet_agree' ), 'on' ) ); ?>>
                                         KALUSTEET JA VARUSTEET
                                     </label>
-                                    <textarea class="shadow-input inline-block max-w-full w-full border border-solid border-[#06F9B7] rounded-[5px] p-4" id="kalusteet-ja-varusteet" name="kalusteetjavarusteet" rows="20"><?php echo htmlspecialchars( noste_check_array_data( $data, 'kalusteetjavarusteet' ) ); ?></textarea>
+                                    <textarea class="shadow-input inline-block max-w-full w-full border border-solid border-[#06F9B7] rounded-[5px] p-4" id="kalusteet-ja-varusteet" name="kalusteetjavarusteet" rows="20"><?php echo esc_textarea( noste_check_array_data( $data, 'kalusteetjavarusteet' ) ); ?></textarea>
                                 </li>
                                 
                                 <li class="mb-10">
@@ -138,7 +135,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                         <input class="shadow-input mr-3 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="lviajarjestelmat_agree[1]" id="lviajarjestelmat_agree" <?php echo esc_attr( noste_checked_with_array( noste_check_array_data( $data, 'lviajarjestelmat_agree' ), 'on' ) ); ?>>
                                         LVIA-JÄRJESTELMÄT
                                     </label>
-                                    <textarea class="shadow-input inline-block max-w-full w-full border border-solid border-[#06F9B7] rounded-[5px] p-4" id="lvia-järjestelmät" name="lvia-jarjestelmat" rows="25"><?php echo htmlspecialchars( noste_check_array_data( $data, 'lvia-jarjestelmat' ) ); ?></textarea>
+                                    <textarea class="shadow-input inline-block max-w-full w-full border border-solid border-[#06F9B7] rounded-[5px] p-4" id="lvia_jarjestelmat" name="lvia_jarjestelmat" rows="25"><?php echo esc_textarea( noste_check_array_data( $data, 'lvia_jarjestelmat' ) ); ?></textarea>
                                 </li>
                                 
                                 <li class="mb-10">
@@ -147,7 +144,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                         <input class="shadow-input mr-3 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="sahkoja_agree[1]" id="sahkoja_agree" <?php echo esc_attr( noste_checked_with_array( noste_check_array_data( $data, 'sahkoja_agree' ), 'on' ) ); ?>>
                                         SÄHKÖ- JA YLEISKAAPELOINTIJÄRJESTELMÄT
                                     </label>
-                                    <textarea class="shadow-input inline-block max-w-full w-full border border-solid border-[#06F9B7] rounded-[5px] p-4" id="sähkö-ja" name="sahkoja" rows="45"><?php echo htmlspecialchars( noste_check_array_data( $data, 'sahkoja' ) ); ?></textarea>
+                                    <textarea class="shadow-input inline-block max-w-full w-full border border-solid border-[#06F9B7] rounded-[5px] p-4" id="sähkö-ja" name="sahkoja" rows="45"><?php echo esc_textarea( noste_check_array_data( $data, 'sahkoja' ) ); ?></textarea>
                                 </li>
                                 
                                 <li class="mb-10">
@@ -156,7 +153,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                         <input class="shadow-input mr-3 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="kulunvalvontaja_agree[1]" id="kulunvalvontaja_agree" <?php echo esc_attr( noste_checked_with_array( noste_check_array_data( $data, 'kulunvalvontaja_agree' ), 'on' ) ); ?>>
                                         TURVA-, KULUNVALVONTA- JA LUKITUSJÄRJESTELMÄT
                                     </label>
-                                    <textarea class="shadow-input inline-block max-w-full w-full border border-solid border-[#06F9B7] rounded-[5px] p-4" id="kulunvalvonta-ja" name="kulunvalvontaja" rows="18"><?php echo htmlspecialchars( noste_check_array_data( $data, 'kulunvalvontaja' ) ); ?></textarea>
+                                    <textarea class="shadow-input inline-block max-w-full w-full border border-solid border-[#06F9B7] rounded-[5px] p-4" id="kulunvalvonta-ja" name="kulunvalvontaja" rows="18"><?php echo esc_textarea( noste_check_array_data( $data, 'kulunvalvontaja' ) ); ?></textarea>
                                 </li>
     
                                 <li class="mb-10">
@@ -165,15 +162,14 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                         <input class="shadow-input mr-3 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="vuokralaisenhankinnat_agree[1]" id="vuokralaisenhankinnat_agree" <?php echo esc_attr( noste_checked_with_array( noste_check_array_data( $data, 'vuokralaisenhankinnat_agree' ), 'on' ) ); ?>>
                                         VUOKRALAISEN HANKINNAT
                                     </label>
-                                    <textarea class="shadow-input inline-block max-w-full w-full border border-solid border-[#06F9B7] rounded-[5px] p-4" id="vuokralaisen-hankinnat" name="vuokralaisenhankinnat" rows="18"><?php echo htmlspecialchars( noste_check_array_data( $data, 'vuokralaisenhankinnat' ) ); ?></textarea>
+                                    <textarea class="shadow-input inline-block max-w-full w-full border border-solid border-[#06F9B7] rounded-[5px] p-4" id="vuokralaisen-hankinnat" name="vuokralaisenhankinnat" rows="18"><?php echo esc_textarea( noste_check_array_data( $data, 'vuokralaisenhankinnat' ) ); ?></textarea>
                                 </li>
                             </ul>
                         </div>
-                    </div><!-- Card Body -->
-                    <!-- Card footer -->
-                    <?php echo wp_kses_post(noste_form_footer('form')); ?>
-                    <!-- Card footer -->
+                    </div>
                 </div>
+                <!-- Card Body -->
+                <!-- Card footer --><?php echo wp_kses_post(noste_form_footer('form')); ?><!-- Card footer -->
             </form>
         </div>
     </div>

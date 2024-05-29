@@ -1,14 +1,10 @@
 <?php 
 
-if ( !is_singular( 'projektitiedot' ) ) {
-   return;
-}
+if (!is_singular('projektitiedot')) {return;}
 
+// global $globalSFormData;
 $project_id = get_the_ID();
-$ptname = implode('_', ['noste', $_GET['tm'], $_GET['tmin']]);
-
-$data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get_post_meta( $project_id, $ptname, true ), true ) : '';
-
+$data = the_form_stored_data();
 ?>
 
 
@@ -20,10 +16,10 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
             <!-- card_item -->
             <div class="card_item relative h-fit">
                 <!-- Card Header --><?php echo wp_kses_post(noste_form_header('form')); ?><!-- Card Header -->
-                <form action="<?php echo esc_url( get_permalink( get_the_ID() ) ); ?>" method="post" enctype="multipart/form-data" class="ajax-submit">
+                <form action="<?php echo esc_url(get_permalink(get_the_ID())); ?>" method="post" enctype="multipart/form-data" class="ajax-submit">
                     <!-- Card Body -->
                     <?php wp_nonce_field('project_step_form_validation', 'project_step_form__nonce_field'); ?>
-                    <input type="hidden" name="ptname" value="<?php echo esc_attr( $ptname ) ; ?>">
+                    <input type="hidden" name="ptname" value="<?php echo esc_attr(get_the_ptname()); ?>">
                     <input type="hidden" name="action" value="noste_update_project_step">
                     <input type="hidden" name="post_id" value="<?php echo esc_attr( $project_id ); ?>">
 
@@ -80,7 +76,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
 
                                 <div class="flex flex-wrap items-center mb-4">
                                     <label class="flex-[3] mr-4 text-sm font-medium text-black" for="present">Läsnä:</label>
-                                    <input class="shadow-input flex-[3] md:ml-5 text-sm border-accent rounded-md text-[#686d70]" type="text" id="present" name="present" value="<?php echo esc_attr( noste_check_array_data( $data, 'present' ) ); ?>">
+                                    <input class="shadow-input flex-[3] md:ml-5 text-sm border-accent rounded-md text-[#686d70]" type="text" id="present" <?php noste_textinput_attrset('present'); ?>>
                                 </div>
                             </div>
 
@@ -112,14 +108,14 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                 </div>
 
                                 <div class="max-w-[750px] mx-auto flex items-center gap-2 mb-10">
-                                    <textarea class="shadow-input text-sm border-accent rounded-md text-[#586B74] order-3 w-full" id="general_ituation" name="general_situation" rows="4" placeholder="Onko tila ollut pitkään tyhjänä (vuokrauksen haasteet vs tilan vapautuminen juuri) tai milloin tila vapautuu? Mikä uuden vuokralaisen kanssa solmittavan vuokrasopimuksen tilanne on?"><?php echo esc_html( noste_check_array_data( $data, 'general_situation' ) ); ?></textarea>
+                                    <textarea class="shadow-input text-sm border-accent rounded-md text-[#586B74] order-3 w-full" id="general_ituation" name="general_situation" rows="4" placeholder="Onko tila ollut pitkään tyhjänä (vuokrauksen haasteet vs tilan vapautuminen juuri) tai milloin tila vapautuu? Mikä uuden vuokralaisen kanssa solmittavan vuokrasopimuksen tilanne on?"><?php echo esc_textarea(noste_check_array_data($data, 'general_situation')); ?></textarea>
                                 </div>
                                 
                                 <div class="flex flex-wrap flex-col mb-8 mx-auto max-w-[750px]">
                                     <label class="mr-4 mb-2 text-sm font-medium text-black" for="nosti_tasks">
                                         Nosteen tehtävät
                                     </label>
-                                    <textarea class="shadow-input text-sm border-accent rounded-md text-[#586B74]" id="nosti_tasks" name="nosti_tasks" rows="4" placeholder="Nosteelta toivotaan kustannusarvion ja alustavan aikataulun laadintaa? Millä aikataululla yllä olevat tarvitaan?"><?php echo esc_html( noste_check_array_data( $data, 'nosti_tasks' ) ); ?></textarea>
+                                    <textarea class="shadow-input text-sm border-accent rounded-md text-[#586B74]" id="nosti_tasks" name="nosti_tasks" rows="4" placeholder="Nosteelta toivotaan kustannusarvion ja alustavan aikataulun laadintaa? Millä aikataululla yllä olevat tarvitaan?"><?php echo esc_textarea(noste_check_array_data($data, 'nosti_tasks')); ?></textarea>
                                 </div>
 
                                 <div class="help_wrap relative mb-4 mt-10">
@@ -148,21 +144,17 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
 
                                 <div class="flex flex-wrap flex-col mb-8 mx-auto max-w-[750px]">
                                     <div class="md:pl-12 order-3">
-                                        <label class="flex items-center text-sm md:text-sm mb-2" for="agreed_prepare_documents1">
-                                            <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[1]" id="agreed_prepare_documents1" value="Vuokrasopimuksen hankintarajaliite" <?php echo esc_attr( noste_checked_with_array( noste_check_array_data( $data, 'agreed_prepare_documents' ), 'Vuokrasopimuksen hankintarajaliite' ) ); ?>>
-                                            Vuokrasopimuksen hankintarajaliite
-                                        </label>
-                                        <label class="flex items-center text-sm md:text-sm mb-2" for="agreed_prepare_documents2">
-                                            <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[2]" id="agreed_prepare_documents2" value="Vuokrasopimuksen rakennustapaselostus" <?php echo esc_attr( noste_checked_with_array( noste_check_array_data( $data, 'agreed_prepare_documents' ), 'Vuokrasopimuksen rakennustapaselostus' ) ); ?> >
-                                            Vuokrasopimuksen rakennustapaselostus
-                                        </label>
-                                        <label class="flex items-center text-sm md:text-sm mb-2" for="agreed_prepare_documents3">
-                                            <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[3]" id="agreed_prepare_documents3" value="Vuokrasopimuksen lahtotietoaikataulu" <?php echo esc_attr( noste_checked_with_array( noste_check_array_data( $data, 'agreed_prepare_documents' ), 'Vuokrasopimuksen lahtotietoaikataulu' ) ); ?> >
-                                            Vuokrasopimuksen lähtötietoaikataulu
-                                        </label>
-                                        <label class="flex items-center text-sm md:text-sm mb-2" for="agreed_prepare_documents4">
-                                            <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="agreed_prepare_documents[4]" id="agreed_prepare_documents4" <?php echo esc_attr( !empty($data['agreed_prepare_documents'][4]) ? 'checked' : '' ); ?> value="other">
-                                            <input class="shadow-input text-sm border-accent rounded-md text-[#586B74] w-1/2" type="text" id="agreed_prepare_documents_content" name="agreed_prepare_documents_content" value="<?php echo esc_attr( $data['agreed_prepare_documents'][4] ?? '' ); ?>" placeholder="Muu, mikä">
+                                        <?php foreach((isset($data['apd'])?(array) $data['apd']:[]) as $index => $item) :
+                                            if (empty(trim($item))) {continue;} ?>
+                                            <label class="flex items-center text-sm md:text-sm mb-2" for="apd_<?php echo esc_attr($index); ?>">
+                                                <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" <?php noste_repeatable_area_checkbox_attrset('apd_ck', $item); ?> id="apd_<?php echo esc_attr($index); ?>">
+                                                <?php echo esc_html($item); ?>
+                                                <input type="hidden" name="apd[]" value="<?php echo esc_attr($item); ?>">
+                                            </label>
+                                        <?php endforeach; ?>
+                                        <label class="flex items-center text-sm md:text-sm mb-2" for="apd_extra">
+                                            <input class="shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-['\2713'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2" type="checkbox" name="apd_ck[]" id="apd_extra">
+                                            <input class="shadow-input text-sm border-accent rounded-md text-[#586B74] w-1/2" type="text" id="apd_extra_content" name="apd[]" placeholder="Muu, mikä" oninput="this.previousElementSibling.value = value;" onblur="do_repeat_once(this);">
                                         </label>
                                     </div>
                                 </div>
@@ -191,7 +183,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                 
                                 <div class="help_wrap relative mb-4 mt-10">
                                     <div class="max-w-[750px] mx-auto flex items-center gap-2">
-                                        <textarea class="shadow-input text-sm border-accent rounded-md text-[#586B74] min-w-[680px]" id="who_pays_new_requests_and_budget" name="who_pays_new_requests_and_budget" rows="6" placeholder="Käytiin läpi lähtötilanne. Käytiin läpi tilasuunnitelma, tilasuunnitelman lähtötietopuutteet/kysymykset sekä vuokralaisen erikoistoiveet ja tekniset vaatimukset. Käytiin läpi kiinteistön tekniset valmiudet verrattuna vuokralaisen vaatimuksiin. Käytiin läpi tilamuutosten laajuus verrattuna olemassa olevaan tilaan. Käytiin läpi maksaako vuokralainen osan kustannuksista (ja mikä on mahdollinen kustannusjako). Mikä suunnitelmien taso on? Joko suunnitelmat on lukittu vai vieläkö muutoksia tulee."><?php echo esc_html( noste_check_array_data( $data, 'who_pays_new_requests_and_budget' ) ); ?></textarea>
+                                        <textarea class="shadow-input text-sm border-accent rounded-md text-[#586B74] min-w-[680px]" id="who_pays_new_requests_and_budget" name="who_pays_new_requests_and_budget" rows="6" placeholder="Käytiin läpi lähtötilanne. Käytiin läpi tilasuunnitelma, tilasuunnitelman lähtötietopuutteet/kysymykset sekä vuokralaisen erikoistoiveet ja tekniset vaatimukset. Käytiin läpi kiinteistön tekniset valmiudet verrattuna vuokralaisen vaatimuksiin. Käytiin läpi tilamuutosten laajuus verrattuna olemassa olevaan tilaan. Käytiin läpi maksaako vuokralainen osan kustannuksista (ja mikä on mahdollinen kustannusjako). Mikä suunnitelmien taso on? Joko suunnitelmat on lukittu vai vieläkö muutoksia tulee."><?php echo esc_textarea(noste_check_array_data($data, 'who_pays_new_requests_and_budget')); ?></textarea>
                                 
                                         <a href="#!" class="help_click">
                                             <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -237,7 +229,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                 </div>
                                 
                                 <div class="mb-8 mx-auto max-w-[750px]">
-                                    <textarea class="shadow-input text-sm border-accent rounded-md text-[#586B74] w-full" rows="4" placeholder="Tullaanko töiden aikana tekemään töitä, jotka eivät kuulu vuokralaismuutokseen (esim. PTS asiat)"><?php echo esc_html( noste_check_array_data( $data, 'other_questions' ) ); ?></textarea>
+                                    <textarea class="shadow-input text-sm border-accent rounded-md text-[#586B74] w-full" rows="4" placeholder="Tullaanko töiden aikana tekemään töitä, jotka eivät kuulu vuokralaismuutokseen (esim. PTS asiat)" name="other_questions"><?php echo esc_textarea(noste_check_array_data($data, 'other_questions')); ?></textarea>
                                 </div>
                                 
                                 
@@ -257,7 +249,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                             vuokralaisella oma sähkösopimus
                                         </label>
                                     </div>
-                                    <textarea class="shadow-input w-full text-sm border-accent rounded-md text-[#586B74]" id="electricity_billing_comment" name="electricity_billing_comment" rows="4" placeholder="Miten tilaan pääsee käymään/kulkutunnisteet? Onko käytössä projektipankkia vai jaetaanko suunnitelmia sähköpostilla? Sähköisen laskutuksen ohjeet?"><?php echo esc_html( noste_check_array_data( $data, 'electricity_billing_comment' ) ); ?></textarea>
+                                    <textarea class="shadow-input w-full text-sm border-accent rounded-md text-[#586B74]" id="electricity_billing_comment" name="electricity_billing_comment" rows="4" placeholder="Miten tilaan pääsee käymään/kulkutunnisteet? Onko käytössä projektipankkia vai jaetaanko suunnitelmia sähköpostilla? Sähköisen laskutuksen ohjeet?"><?php echo esc_textarea(noste_check_array_data($data, 'electricity_billing_comment')); ?></textarea>
                                 </div>
 
                                 <div class="mx-auto max-w-[750px]">
@@ -340,3 +332,21 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
     </div>
 </section>
 <!-- Main Content -->
+<script>
+    window.do_repeat_once = (trgInput) => {
+        if (trgInput.value !== '' && trgInput.previousElementSibling?.checked) {
+            var label_id = 'id_' + Math.random(0, 99999).toString().replaceAll('.', '');
+            var label = document.createElement('label');label.className = 'flex items-center text-sm md:text-sm mb-2';
+            label.setAttribute('for', label_id);
+            var checkbox = document.createElement('input');
+            checkbox.className = 'shadow-input mr-2 relative appearance-none rounded border cursor-pointer border-accent checked:border-accent checked:after:content-[\'\2713\'] checked:after:text-primary checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 h-5 w-2 p-2';
+            if (trgInput.previousElementSibling?.checked) {checkbox.setAttribute('checked', true);}
+            checkbox.setAttribute('value', trgInput.value);checkbox.name = 'apd_ck[]';
+            checkbox.id = label.getAttribute('for');label.appendChild(checkbox);
+            var span = document.createElement('span');span.innerHTML = trgInput.value;label.appendChild(span);
+            var hidden = document.createElement('input');hidden.type = 'hidden';hidden.setAttribute('value', trgInput.value);hidden.name = 'apd[]';label.appendChild(hidden);
+            trgInput.parentElement.parentElement.insertBefore(label, trgInput.parentElement);
+            trgInput.value = '';trgInput.previousElementSibling.checked = false;
+        }
+    }
+</script>

@@ -1,10 +1,9 @@
 <?php 
 
-if ( !is_singular( 'projektitiedot' ) ) {
-   return;
-}
+if (!is_singular('projektitiedot')) {return;}
 
 $project_id = get_the_ID();
+$data = the_form_stored_data();
 
 ?>
 
@@ -18,9 +17,9 @@ $project_id = get_the_ID();
             <div class="card_item relative h-fit">
                 <!-- Card Header --><?php echo wp_kses_post(noste_form_header('form')); ?><!-- Card Header -->
                 
-                <form action="<?php echo esc_url( get_permalink( get_the_ID() ) ); ?>" method="post" enctype="multipart/form-data" class="ajax-submit">
+                <form action="<?php echo esc_url(get_permalink(get_the_ID())); ?>" method="post" enctype="multipart/form-data" class="ajax-submit">
                     <?php wp_nonce_field('project_step_form_validation', 'project_step_form__nonce_field'); ?>
-                    <input type="hidden" name="ptname" value="<?php echo esc_attr(implode('_', ['noste', $_GET['tm'], $_GET['tmin']])); ?>">
+                    <input type="hidden" name="ptname" value="<?php echo esc_attr(get_the_ptname()); ?>">
                     <input type="hidden" name="action" value="noste_update_project_step">
                     <input type="hidden" name="post_id" value="<?php echo esc_attr( $project_id ); ?>">
                     
@@ -38,7 +37,7 @@ $project_id = get_the_ID();
                             <div class="mx-auto max-w-[650px]">
                                 <div class="flex flex-col lg:flex-row lg:items-center gap-3">
                                     <span class="text-[#586B74] text-[15px]"><span class="text-[#00B2A9] italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T1', true ), 'T1') ); ?></span> tilaa <span class="text-[#00B2A9] italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K4', true ), 'K4') ); ?></span> - urakan työt</span>
-                                    <input type="text" name="pilar_filed8_6_4" class="w-full lg:w-[68px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2 text-[#00B2A9] italic" value="U1"><span class="text-[#586B74] text-[15px]">( Y-tunnus <span class="text-[#00B2A9] italic">U2</span> ) tämän tilauksen liitteenä</span>
+                                    <input type="text" <?php noste_textinput_attrset('noste_filed8_1', $data, 'U1'); ?> class="w-full lg:w-[68px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2 text-[#00B2A9] italic"><span class="text-[#586B74] text-[15px]">( Y-tunnus <span class="text-[#00B2A9] italic">U2</span> ) tämän tilauksen liitteenä</span>
                                 </div>
                                  
                                 <p class="text-[#586B74] text-[14px]">olevan tarjouksen jav urakkaneuvottelupöytäkirjan mukaisesti kiinteällä kokonaishinnalla <span class="text-[#00B2A9] italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_UH1', true ), 'UH1') ); ?></span> € (alv. 0%).</p>
@@ -57,7 +56,7 @@ $project_id = get_the_ID();
                                         Lilte 1. Urakoitsijan tarjous,
                                     </span>
                                     <span class="text-[#586B74]">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="xx.xx.xxxx." class="w-[150px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id46">
+                                        <input type="text" <?php noste_textinput_attrset('noste_filed8_2', $data, ''); ?> placeholder="xx.xx.xxxx." class="w-[150px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id46">
                                     </span>
                                 </div>
                                 <div class="flex flex-col flex-wrap lg:flex-row lg:items-center gap-2 mt-1">
@@ -65,7 +64,7 @@ $project_id = get_the_ID();
                                         Liite2. Urakkaneuvottelupöytäkirja,
                                     </span>
                                     <span class="text-[#586B74]">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="xx.xx.xxxx." class="w-[150px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id46">
+                                        <input type="text" <?php noste_textinput_attrset('noste_filed8_3', $data, 'U1'); ?> placeholder="xx.xx.xxxx." class="w-[150px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id46">
                                     </span>
                                 </div>
                             </div>

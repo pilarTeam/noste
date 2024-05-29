@@ -1,97 +1,104 @@
-<?php
-$tm = $_GET['tm'];
+<?php 
+	$tm = $_GET['tm'];
+    $user = wp_get_current_user();
 
-$project_intdata = get_post_meta(get_the_ID(), sprintf('%s_status', $tm), true);
+	$project_intdata = !empty(get_post_meta( get_the_ID(), sprintf('%s_status', $tm), true )) ? json_decode( get_post_meta( get_the_ID(), sprintf('%s_status', $tm), true ), true ) : [];
 
 
 
+	$tm_inner = [
+		'tarjouspyyntoaineisto' => [
+			'title' => 'Tarkista ja kokoa tarjouspyyntöaineisto',
+			'status' => !empty($project_intdata['tarjouspyyntoaineisto']['status']) ? $project_intdata['tarjouspyyntoaineisto']['status'] : 0,
+			'url' => '',
+			'comment' => !empty($project_intdata['tarjouspyyntoaineisto']['comment']) ? $project_intdata['tarjouspyyntoaineisto']['comment'] : '',
+		],
+		'urakoitsijoille' => [
+			'title' => 'Lähetä tarjouspyyntöaineisto urakoitsijoille',
+			'status' => !empty($project_intdata['urakoitsijoille']['status']) ? $project_intdata['urakoitsijoille']['status'] : 0,
+			'url' => [
+				'link'	=> '',
+				'title'	=> 'OHJE Tarjouspyynnön lähetys'
+			],
+			'comment' => !empty($project_intdata['urakoitsijoille']['comment']) ? $project_intdata['urakoitsijoille']['comment'] : '',
+		],
+		'tutustuneet' => [
+			'title' => 'Varmista, että urakoitsijat ovat tutustuneet kohteeseen',
+			'status' => !empty($project_intdata['tutustuneet']['status']) ? $project_intdata['tutustuneet']['status'] : 0,
+			'url' => [
+				'link'	=> '',
+				'title'	=> 'OHJE Kohdekäynti urakoitsijan kanssa'
+			],
+			'comment' => !empty($project_intdata['tutustuneet']['comment']) ? $project_intdata['tutustuneet']['comment'] : '',
+		],
+		'lisakirje' => [
+			'title' => 'Laadi tarvittaessa lisäkirje urakkakilpailutukseen',
+			'status' => !empty($project_intdata['lisakirje']['status']) ? $project_intdata['lisakirje']['status'] : 0,
+			'url' => [
+				'link'	=> 'lisakirje',
+				'title'	=> 'lisäkirje'
+			],
+			'comment' => !empty($project_intdata['lisakirje']['comment']) ? $project_intdata['lisakirje']['comment'] : '',
+		],
+		'alustava' => [
+			'title' => 'Laadi alustava urakkatarjousvertailu',
+			'status' => !empty($project_intdata['alustava']['status']) ? $project_intdata['alustava']['status'] : 0,
+			'url' => [
+				'link'	=> 'alustava',
+				'title'	=> 'Urakkatarjousvertailu'
+			],
+			'comment' => !empty($project_intdata['alustava']['comment']) ? $project_intdata['alustava']['comment'] : '',
+		],
+		'vertaile' => [
+			'title' => 'Vertaile urakkatarjoukset kustannusarvion kanssa',
+			'status' => !empty($project_intdata['vertaile']['status']) ? $project_intdata['vertaile']['status'] : 0,
+			'url' => '',
+			'comment' => !empty($project_intdata['vertaile']['comment']) ? $project_intdata['vertaile']['comment'] : '',
+		],
+		'tilaajalle' => [
+			'title' => 'Toimita tilaajalle alustava urakkatarjousvertailu ja ehdota miten edetään',
+			'status' => !empty($project_intdata['tilaajalle']['status']) ? $project_intdata['tilaajalle']['status'] : 0,
+			'url' => '',
+			'comment' => !empty($project_intdata['tilaajalle']['comment']) ? $project_intdata['tilaajalle']['comment'] : '',
+		],
+		'huomiota' => [
+			'title' => 'Selvitä asiat, mihin erityisesti tulee kiinnittää huomiota urakkaneuvotteluissa',
+			'status' => !empty($project_intdata['huomiota']['status']) ? $project_intdata['huomiota']['status'] : 0,
+			'url' => '',
+			'comment' => !empty($project_intdata['huomiota']['comment']) ? $project_intdata['huomiota']['comment'] : '',
+		],
+		'asialista' => [
+			'title' => 'Valmistele ja laadi urakkaneuvottelun asialista',
+			'status' => !empty($project_intdata['asialista']['status']) ? $project_intdata['asialista']['status'] : 0,
+			'url' => [
+				'link'	=> 'asialista',
+				'title'	=> 'Urakkaneuvottelun asialista'
+			],
+			'comment' => !empty($project_intdata['asialista']['comment']) ? $project_intdata['asialista']['comment'] : '',
+		],
+		'pida_urakkan' => [
+			'title' => 'Pidä urakkaneuvottelu(t)',
+			'status' => !empty($project_intdata['pida_urakkan']['status']) ? $project_intdata['pida_urakkan']['status'] : 0,
+			'url' => '',
+			'comment' => !empty($project_intdata['pida_urakkan']['comment']) ? $project_intdata['pida_urakkan']['comment'] : '',
+		],
+		'liitteineen' => [
+			'title' => 'Laadi urakkaneuvottelun pöytäkirja liitteineen valmiiksi',
+			'status' => !empty($project_intdata['liitteineen']['status']) ? $project_intdata['liitteineen']['status'] : 0,
+			'url' => [
+				'link'	=> 'poytakirja',
+				'title'	=> 'Urakkaneuvottelun pöytäkirja'
+			],
+			'comment' => !empty($project_intdata['liitteineen']['comment']) ? $project_intdata['liitteineen']['comment'] : '',
+		],
+	];
 
-$tm_inner = [
-	'tarjouspyyntoaineisto' => [
-		'title' => 'Tarkista ja kokoa tarjouspyyntöaineisto',
-		'status' => !empty($project_intdata['status']['tarjouspyyntoaineisto']) ? $project_intdata['status']['tarjouspyyntoaineisto'] : 'aloittamatta',
-		'url' => '',
-		'comment' => !empty($project_intdata['comment']['tarjouspyyntoaineisto']) ? $project_intdata['comment']['tarjouspyyntoaineisto'] : 'aloittamatta',
-	],
-	'urakoitsijoille' => [
-		'title' => 'Lähetä tarjouspyyntöaineisto urakoitsijoille',
-		'status' => !empty($project_intdata['status']['urakoitsijoille']) ? $project_intdata['status']['urakoitsijoille'] : 'aloittamatta',
-		'url' => [
-			'link'	=> '',
-			'title'	=> 'OHJE Tarjouspyynnön lähetys'
-		],
-		'comment' => !empty($project_intdata['comment']['urakoitsijoille']) ? $project_intdata['comment']['urakoitsijoille'] : 'aloittamatta',
-	],
-	'tutustuneet' => [
-		'title' => 'Varmista, että urakoitsijat ovat tutustuneet kohteeseen',
-		'status' => !empty($project_intdata['status']['tutustuneet']) ? $project_intdata['status']['tutustuneet'] : 'aloittamatta',
-		'url' => [
-			'link'	=> '',
-			'title'	=> 'OHJE Kohdekäynti urakoitsijan kanssa'
-		],
-		'comment' => !empty($project_intdata['comment']['tutustuneet']) ? $project_intdata['comment']['tutustuneet'] : 'aloittamatta',
-	],
-	'lisakirje' => [
-		'title' => 'Laadi tarvittaessa lisäkirje urakkakilpailutukseen',
-		'status' => !empty($project_intdata['status']['lisakirje']) ? $project_intdata['status']['lisakirje'] : 'aloittamatta',
-		'url' => [
-			'link'	=> 'lisakirje',
-			'title'	=> 'lisäkirje'
-		],
-		'comment' => !empty($project_intdata['comment']['lisakirje']) ? $project_intdata['comment']['lisakirje'] : 'aloittamatta',
-	],
-	'alustava' => [
-		'title' => 'Laadi alustava urakkatarjousvertailu',
-		'status' => !empty($project_intdata['status']['alustava']) ? $project_intdata['status']['alustava'] : 'aloittamatta',
-		'url' => [
-			'link'	=> 'alustava',
-			'title'	=> 'Urakkatarjousvertailu'
-		],
-		'comment' => !empty($project_intdata['comment']['alustava']) ? $project_intdata['comment']['alustava'] : 'aloittamatta',
-	],
-	'vertaile' => [
-		'title' => 'Vertaile urakkatarjoukset kustannusarvion kanssa',
-		'status' => !empty($project_intdata['status']['vertaile']) ? $project_intdata['status']['vertaile'] : 'aloittamatta',
-		'url' => '',
-		'comment' => !empty($project_intdata['comment']['vertaile']) ? $project_intdata['comment']['vertaile'] : 'aloittamatta',
-	],
-	'tilaajalle' => [
-		'title' => 'Toimita tilaajalle alustava urakkatarjousvertailu ja ehdota miten edetään',
-		'status' => !empty($project_intdata['status']['tilaajalle']) ? $project_intdata['status']['tilaajalle'] : 'aloittamatta',
-		'url' => '',
-		'comment' => !empty($project_intdata['comment']['tilaajalle']) ? $project_intdata['comment']['tilaajalle'] : 'aloittamatta',
-	],
-	'huomiota' => [
-		'title' => 'Selvitä asiat, mihin erityisesti tulee kiinnittää huomiota urakkaneuvotteluissa',
-		'status' => !empty($project_intdata['status']['huomiota']) ? $project_intdata['status']['huomiota'] : 'aloittamatta',
-		'url' => '',
-		'comment' => !empty($project_intdata['comment']['huomiota']) ? $project_intdata['comment']['huomiota'] : 'aloittamatta',
-	],
-	'asialista' => [
-		'title' => 'Valmistele ja laadi urakkaneuvottelun asialista',
-		'status' => !empty($project_intdata['status']['asialista']) ? $project_intdata['status']['asialista'] : 'aloittamatta',
-		'url' => [
-			'link'	=> 'asialista',
-			'title'	=> 'Urakkaneuvottelun asialista'
-		],
-		'comment' => !empty($project_intdata['comment']['asialista']) ? $project_intdata['comment']['asialista'] : 'aloittamatta',
-	],
-	'pida' => [
-		'title' => 'Pidä urakkaneuvottelu(t)',
-		'status' => !empty($project_intdata['status']['pida']) ? $project_intdata['status']['pida'] : 'aloittamatta',
-		'url' => '',
-		'comment' => !empty($project_intdata['comment']['pida']) ? $project_intdata['comment']['pida'] : 'aloittamatta',
-	],
-	'liitteineen' => [
-		'title' => 'Laadi urakkaneuvottelun pöytäkirja liitteineen valmiiksi',
-		'status' => !empty($project_intdata['status']['liitteineen']) ? $project_intdata['status']['liitteineen'] : 'aloittamatta',
-		'url' => [
-			'link'	=> 'poytakirja',
-			'title'	=> 'Urakkaneuvottelun pöytäkirja'
-		],
-		'comment' => !empty($project_intdata['comment']['liitteineen']) ? $project_intdata['comment']['liitteineen'] : 'aloittamatta',
-	],
-];
+	$status = [
+		'Aloittamatta',
+		'Aloitettu',
+		'Odottaa hyväksyntää',
+		'Hyväksytty'
+	];
 
 ?>
 
@@ -171,9 +178,9 @@ $tm_inner = [
 					<div>
 
 						<div class="flex flex-col">
-							<div class="overflow-x-auto shadow-md sm:rounded-lg">
-								<div class="inline-block min-w-full align-middle">
-									<div class="overflow-hidden">
+                            <div class="overflow-x-auto shadow-md sm:rounded-lg">
+                                <div class="inline-block min-w-full align-middle">
+                                    <div class="overflow-hidden">
 										<table class="w-full whitespace-wrap border-collapse">
 											<thead class="text-left rounded-t-lg bg-accent text-white">
 												<tr class="rounded-lg">
@@ -183,52 +190,89 @@ $tm_inner = [
 													<th class="p-3 min-w-[310px]">Kommentti:</th>
 												</tr>
 											</thead>
-											<tbody>
-												<?php foreach ($tm_inner as $key => $value) : ?>
-													<tr>
-														<td class="px-4 py-3 border border-line">
-															<p class="text-sm text-[#818D93]"><?php echo esc_html($value['title']); ?></p>
-														</td>
-														<td class="px-4 py-3 border border-line text-sm" id="project_table_status">
-															<div class="inline-flex items-center rounded-md border border-line px-2 py-1 <?php echo esc_attr(strtolower($value['status'])); ?>">
-																<span></span>
-																<?php echo esc_html($value['status']); ?>
-															</div>
-														</td>
-														<td class="px-4 py-3 border border-line">
-															<?php
-															if (!empty($value['url'])) :
-																$title = !empty($value['url']['title']) ? $value['url']['title'] : false;
-																$link = !empty($value['url']['link']) ? $value['url']['link'] : false;
-																if (!empty($link)) :
-																	$tmin_url = add_query_arg([
-																		'tm' => $tm,
-																		'tmin' => $value['url']['link']
-																	], get_permalink(get_the_ID()));
-															?>
-																	<a href="<?php echo esc_attr($tmin_url); ?>" class="text-accent underline decoration-accent text-sm"><?php echo esc_html($title); ?></a>
-																<?php
-																else :
-																?>
-																	<p class="text-sm text-[#818D93]"><?php echo esc_html($title); ?></p>
-																<?php endif; ?>
-															<?php endif ?>
-														</td>
-														<td class="px-4 py-3 border border-line">
-															<form action="#" method="post" id="step_comments">
-																<input type="hidden" name="tm" value="<?php echo esc_attr($tm); ?>">
-																<input type="hidden" name="tmin" value="<?php echo esc_attr($key); ?>">
-																<input class="border border-accent w-full rounded-md" type="text" name="comments">
-															</form>
-														</td>
-													</tr>
-												<?php endforeach ?>
-											</tbody>
-										</table>
-									</div>
-								</div>
-							</div>
-						</div>
+                                            <tbody>
+                                            	<?php foreach ($tm_inner as $key => $value): ?>
+	                                                <tr>
+	                                                    <td class="px-4 py-3 border border-line">
+	                                                        <p class="text-sm text-[#818D93]"><?php echo esc_html( $value['title'] ); ?></p>
+	                                                    </td>
+	                                                    <td class="px-4 py-3 border border-line text-sm" id="project_table_status">
+
+                                                        <?php if ( array_intersect( [ 'um_valvoja' ], $user->roles ) ): ?>
+                                                            <form action="#" method="post" id="valvoja_status">
+                                                                <input type="hidden" name="post_id" value="<?php echo esc_attr(get_the_ID()); ?>">
+                                                                <input type="hidden" name="tm" value="<?php echo esc_attr( $tm ); ?>">
+                                                                <input type="hidden" name="tmin" value="<?php echo esc_attr( $key ); ?>">
+
+                                                                <select name="valvoja_status" class="status_<?php echo esc_attr( strtolower( $value['status'] ) ); ?>">
+                                                                    <?php foreach ($status as $k => $v): ?>
+                                                                        <option value="<?php echo esc_attr( $k ); ?>" <?php selected( strtolower( $value['status'] ), $k, true ); ?>><?php echo esc_html( $v ); ?></option>
+                                                                    <?php endforeach; ?>
+                                                                </select>
+                                                            </form>
+                                                        <?php else: ?>    
+                                                            <div class="instep-status relative inline-flex items-center rounded-md border border-line px-2 py-1 <?php echo esc_attr( 'status_' . strtolower( $value['status'] ) ); ?>">
+                                                            	<span></span>
+                                                                <?php echo esc_html( $status[$value['status']] ); ?>
+                                                            </div>
+                                                        <?php endif ?>
+                                                        <style type="text/css">
+                                                            form#valvoja_status select {
+                                                                border: 1px solid #ddd;
+                                                                background: transparent;
+                                                                border-radius: 3px;
+                                                            }
+                                                            form#valvoja_status select.status_2 {
+                                                                border-left: 8px solid rgb(0 178 169 / var(--tw-border-opacity));
+                                                            }   
+                                                            form#valvoja_status select.status_3 {
+                                                                border-left: 8px solid rgb(6 249 183 / var(--tw-border-opacity));
+                                                            }
+                                                            form#valvoja_status select.status_1 {
+                                                                border-left: 8px solid #E1E1EA;
+                                                            }
+                                                            form#valvoja_status select.status_0 {
+                                                                border-left: 10px solid #f5f5f5;
+                                                            }
+                                                        </style>
+
+                                                            <!-- $status -->
+	                                                    </td>
+	                                                    <td class="px-4 py-3 border border-line">
+                                                            <?php
+                                                                if (!empty($value['url'])) :
+                                                                    $title = !empty($value['url']['title']) ? $value['url']['title'] : false;
+                                                                    $link = !empty($value['url']['link']) ? $value['url']['link'] : false;
+                                                                    if (!empty($link)) :
+                                                                        $tmin_url = add_query_arg([
+                                                                            'tm' => $tm,
+                                                                            'tmin' => $value['url']['link']
+                                                                        ], get_permalink(get_the_ID()));
+                                                                ?>
+                                                                        <a href="<?php echo esc_attr($tmin_url); ?>" class="text-accent underline decoration-accent text-sm"><?php echo esc_html($title); ?></a>
+                                                                    <?php
+                                                                    else :
+                                                                    ?>
+                                                                        <p class="text-sm text-[#818D93]"><?php echo esc_html($title); ?></p>
+                                                                    <?php endif; ?>
+                                                                <?php endif ?>
+	                                                    </td>
+	                                                    <td class="px-4 py-3 border border-line">
+	                                                        <form action="#" method="post" id="step_comments" class="<?php echo esc_attr( empty($value['url']) || empty($value['url']['link']) ? 'not_form' : 'form' ); ?>">
+                                                                <input type="hidden" name="post_id" value="<?php echo esc_attr(get_the_ID()); ?>">
+	                                                        	<input type="hidden" name="tm" value="<?php echo esc_attr( $tm ); ?>">
+	                                                        	<input type="hidden" name="tmin" value="<?php echo esc_attr( $key ); ?>">
+	                                                            <input class="border border-accent w-full rounded-md" type="text" name="comments" value="<?php echo esc_attr( $value['comment'] ); ?>">
+	                                                        </form>
+	                                                    </td>
+	                                                </tr>                                            		
+                                            	<?php endforeach ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 					</div>
 				</div><!-- Card Body -->

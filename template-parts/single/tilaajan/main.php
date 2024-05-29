@@ -116,13 +116,13 @@
                             <div class="overflow-x-auto shadow-md sm:rounded-lg">
                                 <div class="inline-block min-w-full align-middle">
                                     <div class="overflow-hidden">
-                                        <table class="w-full whitespace-nowrap border-collapse">
+                                        <table class="w-full whitespace-wrap border-collapse">
                                             <thead class="text-left rounded-t-lg bg-accent text-white">
                                                 <tr class="rounded-lg">
                                                     <th class="p-3">Tehtävät:</th>
                                                     <th class="p-3">Status:</th>
                                                     <th class="p-3">Dokumentit:</th>
-                                                    <th class="p-3">Kommentti:</th>
+                                                    <th class="p-3 min-w-[310px]">Kommentti:</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -174,17 +174,26 @@
                                                             <!-- $status -->
 	                                                    </td>
 	                                                    <td class="px-4 py-3 border border-line">
-	                                                    	<?php if ( !empty($value['url']) ): 
-										                        $tmin_url = add_query_arg([
-										                            'tm' => $tm,
-										                            'tmin' => $value['url']['link']
-										                        ], get_permalink( get_the_ID() ) ); 
-	                                                    	?>
-	                                                        	<a href="<?php echo esc_attr( $tmin_url ); ?>" class="text-accent underline decoration-accent text-sm"><?php echo esc_html( $value['url']['title'] ); ?></a>     		
-	                                                    	<?php endif ?>
+                                                            <?php
+                                                                if (!empty($value['url'])) :
+                                                                    $title = !empty($value['url']['title']) ? $value['url']['title'] : false;
+                                                                    $link = !empty($value['url']['link']) ? $value['url']['link'] : false;
+                                                                    if (!empty($link)) :
+                                                                        $tmin_url = add_query_arg([
+                                                                            'tm' => $tm,
+                                                                            'tmin' => $value['url']['link']
+                                                                        ], get_permalink(get_the_ID()));
+                                                                ?>
+                                                                        <a href="<?php echo esc_attr($tmin_url); ?>" class="text-accent underline decoration-accent text-sm"><?php echo esc_html($title); ?></a>
+                                                                    <?php
+                                                                    else :
+                                                                    ?>
+                                                                        <p class="text-sm text-[#818D93]"><?php echo esc_html($title); ?></p>
+                                                                    <?php endif; ?>
+                                                                <?php endif ?>
 	                                                    </td>
 	                                                    <td class="px-4 py-3 border border-line">
-	                                                        <form action="#" method="post" id="step_comments" class="<?php echo esc_attr( empty($value['url']) ? 'not_form' : 'form' ); ?>">
+	                                                        <form action="#" method="post" id="step_comments" class="<?php echo esc_attr( empty($value['url']) || empty($value['url']['link']) ? 'not_form' : 'form' ); ?>">
                                                                 <input type="hidden" name="post_id" value="<?php echo esc_attr(get_the_ID()); ?>">
 	                                                        	<input type="hidden" name="tm" value="<?php echo esc_attr( $tm ); ?>">
 	                                                        	<input type="hidden" name="tmin" value="<?php echo esc_attr( $key ); ?>">

@@ -7,9 +7,9 @@ if ( !is_singular( 'projektitiedot' ) ) {
 
 
 $project_id = get_the_ID();
-$ptname = implode('_', ['noste', $_GET['tm'], $_GET['tmin']]);
-$data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get_post_meta( $project_id, $ptname, true ), true ) : [];
+$data = the_form_stored_data();
 $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['noste_check']):[];
+
 
 ?>
 
@@ -23,9 +23,9 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
             <div class="card_item relative h-fit">
                 <!-- Card Header --><?php echo wp_kses_post(noste_form_header('form')); ?><!-- Card Header -->
                 
-                <form action="<?php echo esc_url( get_permalink( get_the_ID() ) ); ?>" method="post" enctype="multipart/form-data" class="ajax-submit">
+                <form action="<?php echo esc_url(get_permalink(get_the_ID())); ?>" method="post" enctype="multipart/form-data" class="ajax-submit">
                     <?php wp_nonce_field('project_step_form_validation', 'project_step_form__nonce_field'); ?>
-                    <input type="hidden" name="ptname" value="<?php echo esc_attr(implode('_', ['noste', $_GET['tm'], $_GET['tmin']])); ?>">
+                    <input type="hidden" name="ptname" value="<?php echo esc_attr(get_the_ptname()); ?>">
                     <input type="hidden" name="action" value="noste_update_project_step">
                     <input type="hidden" name="post_id" value="<?php echo esc_attr( $project_id ); ?>">
                     
@@ -51,7 +51,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
 
                                 <div class="flex items-center mb-5">
                                     <span class="text-dark text-[17px] w-[15%]">Versio:</span>
-                                    <input type="text" name="pilar_VA1_1" placeholder="XX.XX.XXXX" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] min-w-full  lg:min-w-[209px] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" <?php echo noste_textinput_attrset('noste_kaupalliset_asiakirjat_text_1', $data); ?>  placeholder="XX.XX.XXXX" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] min-w-full  lg:min-w-[209px] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </div>
                                 <div class="flex items-center mb-5">
                                     <span class="text-dark text-[17px] w-[15%]">Tilaaja:</span>
@@ -93,7 +93,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                         <div class="flex items-center gap-2">
                                             <span class="text-dark text-[17px]">Rakennushanke käsittää</span>
                                             <span class="text-dark">
-                                                <input type="text" name="pilar_VA1_2" placeholder="" class="w-full lg:w-[209px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                                <input type="text" <?php echo noste_textinput_attrset('noste_kaupalliset_asiakirjat_text_2', $data); ?> placeholder="" class="w-full lg:w-[209px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                             </span>
                     
                                             <a href="#!" class="help_click"><svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="0.72"></circle> <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path> <circle cx="12" cy="16" r="1" fill="#000000"></circle> </g></svg> </a>                                      
@@ -344,7 +344,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                                     <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                                 </span>
                                                 <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('pilar_TY1_23', $data); ?>>
-                                                <input type="text" name="pilar_filed8_2" placeholder="(Tähän oma)" class="flex-1 w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                                <input type="text" <?php echo noste_textinput_attrset('noste_kaupalliset_asiakirjat_text_3', $data); ?> placeholder="(Tähän oma)" class="flex-1 w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                             </label>
                                         </div>
                                     </div>
@@ -506,7 +506,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
                                         <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('pilar_TY1_37', $data); ?>>
-                                        <input type="text" name="pilar_filed8_3" placeholder="(Tähän oma)" class="flex-1 w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php echo noste_textinput_attrset('noste_kaupalliset_asiakirjat_text_4', $data); ?> placeholder="(Tähän oma)" class="flex-1 w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </label>
                                 </div>
                             </div>
@@ -628,7 +628,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
                                     <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('pilar_TY1_52', $data); ?>>
-                                    <input type="text" name="pilar_filed8_4" placeholder="(Tähän oma)" class="flex-1 w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" <?php echo noste_textinput_attrset('noste_kaupalliset_asiakirjat_text_5', $data); ?> placeholder="(Tähän oma)" class="flex-1 w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </label>
                             </div>
 
@@ -690,7 +690,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                         <span>-</span>
                                         <span class="inline-flex items-center gap-2">
                                             Tilaaja edellyttää työssä hyvää turvallisuustasoa (TR-mittaus > 
-                                            <input type="text" name="pilar_filed8_5" placeholder="90" class="flex-1 w-[80px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text" <?php echo noste_textinput_attrset('noste_kaupalliset_asiakirjat_text_6', $data); ?> placeholder="90" class="flex-1 w-[80px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                             %)
                                         </span>
                                     </p>
@@ -1292,7 +1292,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
                                     <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('pilar_TY1_53', $data); ?>>
-                                    <input type="text" name="pilar_filed8_6" placeholder="Asbesti- ja haitta-ainekartoitusraportti xx.xx.20xx" class="flex-1 w-full lg:w-[420px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" <?php echo noste_textinput_attrset('noste_kaupalliset_asiakirjat_text_7', $data); ?> placeholder="Asbesti- ja haitta-ainekartoitusraportti xx.xx.20xx" class="flex-1 w-full lg:w-[420px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </label>
                             </div>
                             <div class="flex items-center gap-3 mb-3">
@@ -1301,7 +1301,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
                                     <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('pilar_TY1_54', $data); ?>>
-                                    <input type="text" name="pilar_filed8_7" placeholder="Asbesti- ja haitta-ainekartoitusraportti xx.xx.20xx" class="flex-1 w-full lg:w-[420px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" <?php echo noste_textinput_attrset('noste_kaupalliset_asiakirjat_text_8', $data); ?> placeholder="Asbesti- ja haitta-ainekartoitusraportti xx.xx.20xx" class="flex-1 w-full lg:w-[420px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </label>
                             </div>
                         </div>

@@ -1,14 +1,11 @@
 <?php 
 
 if ( !is_singular( 'projektitiedot' ) ) {
-   return;
-}
-
-$project_id = get_the_ID();
-$ptname = implode('_', ['noste', $_GET['tm'], $_GET['tmin']]);
-
-$data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get_post_meta( $project_id, $ptname, true ), true ) : '';
-
+    return;
+ }
+ 
+ $project_id = get_the_ID();
+ $data = the_form_stored_data();
 ?>
 
 
@@ -20,14 +17,14 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
             <!-- card_item -->
             <div class="card_item relative h-fit">
                 <!-- Card Header --><?php echo wp_kses_post(noste_form_header('form')); ?><!-- Card Header -->
-                <form action="<?php echo esc_url( get_permalink( get_the_ID() ) ); ?>" method="post" enctype="multipart/form-data" class="ajax-submit">
+                <form action="<?php echo esc_url(get_permalink(get_the_ID())); ?>" method="post" enctype="multipart/form-data" class="ajax-submit">
                     <?php wp_nonce_field('project_step_form_validation', 'project_step_form__nonce_field'); ?>
-                    <input type="hidden" name="ptname" value="<?php echo esc_attr( $ptname ) ; ?>">
+                    <input type="hidden" name="ptname" value="<?php echo esc_attr(get_the_ptname()); ?>">
                     <input type="hidden" name="action" value="noste_update_project_step">
                     <input type="hidden" name="post_id" value="<?php echo esc_attr( $project_id ); ?>">
 
-                    <!-- Card Body -->
                     <div class="px-4 md:px-8 pt-6 pb-10 lg:h-[645px] overflow-y-auto no-scrollbar scroll-smooth">
+                        
                     <div>
                             <div class="max-w-[700px] mx-auto mt-20 mb-20">
                                 <div class="mb-[30px]">
@@ -46,17 +43,17 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                     <span class="text-[#586B74]">
                                         <div class="flex flex-col lg:flex-row lg:items-center gap-2">
                                             <span class="flex-1 ">
-                                                <input type="text" name="pilar_VA1" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                                <input type="text" <?php echo noste_textinput_attrset('present_date', $data); ?> placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                             </span>
                                             <span class="flex-1 text-[#586B74] text-[15px]">klo</span>
                                             <span class="flex-1 ">
-                                                <input type="text" name="pilar_VA1" placeholder="XX.XX.XXXX" class="w-full lg:w-[68px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                                <input type="text" <?php echo noste_textinput_attrset('present_date_kio', $data); ?> placeholder="XX.XX.XXXX" class="w-full lg:w-[68px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                             </span>
                                         </div>
                                     </span>
                             
                                     <span>
-                                        <input type="text" name="pilar_M1" placeholder="Vapaa teksti" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php echo noste_textinput_attrset('noste_M1', $data); ?> placeholder="Vapaa teksti" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                 </div>
                             
@@ -74,7 +71,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('pilar_U4_check', $data); ?>>
                                             </label>
                                             <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U4', true ), 'U4') ); ?></span>
                                         </div>
@@ -97,7 +94,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('pilar_U7_check', $data); ?>>
                                             </label>
                                             <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U7', true ), 'U7') ); ?></span>
                                         </div>
@@ -120,9 +117,9 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('pilar_U7_vappa_check', $data); ?>>
                                             </label>
-                                            <input type="text" name="pilar_filed8_6" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text" <?php echo noste_textinput_attrset('noste_U7_vappa', $data); ?> placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </div>
                                     </span>
                             
@@ -143,7 +140,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('pilar_T10_check', $data); ?>>
                                             </label>
                                             <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T10', true ), 'T10') ); ?></span>
                                         </div>
@@ -166,9 +163,9 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_T_vappa_check', $data); ?>>
                                             </label>
-                                            <input type="text" name="pilar_filed8_6" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text" <?php echo noste_textinput_attrset('noste_T_vappa_value', $data); ?>  placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </div>
                                     </span>
                                 
@@ -188,7 +185,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_k6_check', $data); ?>>
                                             </label>
                                             <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K6', true ), 'K6') ); ?></span>
                                         </div>
@@ -211,7 +208,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_T3_check', $data); ?>>
                                             </label>
                                             <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T3', true ), 'T3') ); ?></span>
                                         </div>
@@ -234,14 +231,14 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('pilar_T86_vapaa_check', $data); ?>>
                                             </label>
-                                            <input type="text" name="pilar_filed8_6" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text" <?php echo noste_textinput_attrset('noste_T86_vapaa_value', $data); ?>  placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </div>
                                     </span>
                             
                                     <span>
-                                        <input type="text" name="pilar_filed8_6" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php echo noste_textinput_attrset('noste_T86_vapaa_value_2', $data); ?>  placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                 </div>
                             
@@ -259,7 +256,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_P1_check', $data); ?>>
                                             </label>
                                             <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P1', true ), 'P1') ); ?></span>
                                         </div>
@@ -282,7 +279,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_P4_check', $data); ?>>
                                             </label>
                                             <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></span>
                                         </div>
@@ -300,7 +297,8 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                             <span>KOKOUKSEN AVAUS JA JÄRJESTÄYTYMINEN</span>
                                         </h3>
                                 
-                                        <a href="#!" class="help_click"><svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <a href="#!" class="help_click">
+                                            <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                                 <g id="SVGRepo_iconCarrier">
@@ -308,7 +306,8 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
                                                     <circle cx="12" cy="16" r="1" fill="#000000"></circle>
                                                 </g>
-                                            </svg> </a>
+                                            </svg>
+                                        </a>
                                 
                                         <hr class="help_line w-full lg:w-[105px] border border-solid border-[#E1E1EA] hidden">
                                     </div>
@@ -331,7 +330,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_P11_check', $data); ?>>
                                                 <span class="flex-1 text-[14px] italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P1', true ), 'P1') ); ?></span>
                                             </label>
                                         </span>
@@ -346,15 +345,15 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_P41_check', $data); ?>>
                                                 <span class="flex-1 text-[14px] italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></span>
                                             </label>
                                         </span>
-                                        <span class="text-[#586B74] text-[14px] ">toivotti läsnäolijat tervetulleiksi työmaan aloituskokoukseen.</span>
+                                        <span class="text-[#586B74] text-[14px] w-full">toivotti läsnäolijat tervetulleiksi työmaan aloituskokoukseen.</span>
                                     </div>
                                 
                                     <div class="flex flex-col flex-wrap lg:flex-row lg:items-center gap-2 mt-1">
-                                        <span class="text-[#586B74] text-[14px]">Kokouksen puheenjohtajana toimii</span>
+                                        <span class="text-[#586B74] text-[14px] w-full">Kokouksen puheenjohtajana toimii</span>
                                         <span class="text-[#586B74] text-[14px] inline-flex gap-1">
                                             <label class="inline-flex items-center gap-2 cursor-pointer">
                                                 <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
@@ -366,7 +365,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_P111_check', $data); ?>>
                                                 <span class="flex-1 text-[14px] italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P1', true ), 'P1') ); ?></span>
                                             </label>
                                         </span>
@@ -381,11 +380,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_P411_check', $data); ?>>
                                                 <span class="flex-1 text-[14px] italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></span>
                                             </label>
                                         </span>
-                                        <span class="text-[#586B74] text-[14px]">/ Partners at Noste Oy ja sihteerinä</span>
+                                        <span class="text-[#586B74] text-[14px] w-full">/ Partners at Noste Oy ja sihteerinä</span>
                                         <span class="text-[#586B74] text-[14px] inline-flex gap-1">
                                             <label class="inline-flex items-center gap-2 cursor-pointer">
                                                 <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
@@ -397,7 +396,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_P12_check', $data); ?>>
                                                 <span class="flex-1 text-[14px] italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P1', true ), 'P1') ); ?></span>
                                             </label>
                                         </span>
@@ -412,7 +411,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_P42_check', $data); ?>>
                                                 <span class="flex-1 text-[14px] italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></span>
                                             </label>
                                         </span>
@@ -423,22 +422,23 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                             </div>
 
                             
+
                             <div class="max-w-[700px] mx-auto">
                                 <div class="flex items-center gap-2">
                                     <h3 class="flex gap-20 text-black text-[20px] font-medium min-w-[295px]">
                                         <span>2.</span>
-                                        <span>KOKOUKSEN PÄÄTÖSVALTAISUUS</span>
+                                        <span>HANKKEEN ESITTELY</span>
                                     </h3>
                                 </div>
 
-                                <div class="flex flex-col lg:flex-row flex-wrap lg:items-center gap-2 mt-1">
-                                    <span class="text-[#586B74] text-[14px]">
+                                <div class="flex flex-col flex-wrap lg:flex-row lg:items-center gap-2 mt-1">
+                                    <span class="text-[#586B74] text-[14px] w-full">
                                         Todettiin, että Tilaajan ja Urakoitsijan päätösvaltaiset edustajat ovat paikalla. Kokouksen pitämisestä ja ajankohdasta on sovittu yhteisesti osapuolten kesken
                                     </span>
-                                    <span class="text-[#586B74] text-[14px]">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="xx.xx.xxxx" class="w-[120px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <span class="text-[#586B74] text-[14px] w-full">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_1', $data); ?>  placeholder="xx.xx.xxxx" class="w-[120px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
-                                    <span class="text-[#586B74] text-[14px]">
+                                    <span class="text-[#586B74] text-[14px] w-full">
                                         . Todettiin kokous sopimuksen mukaiseksi ja päätösvaltaiseksi työmaakokoukseksi.
                                     </span>
                                 </div>
@@ -461,7 +461,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_hyvaksyttin_3_check', $data); ?>>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">Hyväksyttiin työmaakokouksen nro 1 pöytäkirja kokouksen kulun mukaisena </p>
                                     </div>
@@ -476,7 +476,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_jalkikirjau_check', $data); ?>>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">jälkikirjauksineen.</p>
                                     </div>
@@ -494,11 +494,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_osapuolet_check', $data); ?>>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">Osapuolet ovat allekirjoittaneet TMK1 pöytäkirjan</p>
-                                        <span class="text-[#586B74] text-[14px]">
-                                            <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-[200px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <span class="text-[#586B74] text-[14px] w-full">
+                                            <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_2', $data); ?>  placeholder="Vapaa teksti…" class="w-[200px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </span>
                                     </div>
                                     <div class="flex gap-3 mb-4">
@@ -513,7 +513,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_osapuolet_allekirjou_check', $data); ?>>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">Osapuolet allekirjoittivat TMK1 pöytäkirjan. </p>
                                     </div>
@@ -529,7 +529,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_hyvaksyttiin_TMK1_check', $data); ?>>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">Hyväksyttiin TMK1 pöytäkirja allekirjoitettavaksi sähköisesti tämän kokouksen jälkeen (<span class="font-bold text-black">NOSTE</span>).</p>
                                     </div>
@@ -548,7 +548,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_hyvaksyttiin_tyomaakokou_check', $data); ?>>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">Hyväksyttiin työmaakokouksen nro 1 pöytäkirja kokouksen kulun mukaisena seuraavin korjauksin:</p>
                                     </div>
@@ -566,10 +566,10 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_31_vappa_check', $data); ?>>
                                         </label>
                                         <span class="text-[#586B74] text-[14px] w-full">
-                                            <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text" <?php echo noste_textinput_attrset('noste_31_vappa_value', $data); ?>  placeholder="Vapaa teksti…" class="w-[280px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </span>
                                     </div>
                                     <div class="flex items-center gap-3 mb-4">
@@ -584,7 +584,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_ylla_olevat_check', $data); ?>>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">Yllä olevat korjaukset on päivitetty kokousvälillä TMK1 pöytäkirjaan.</p>
                                     </div>
@@ -602,11 +602,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_osapuolet_ovat_check', $data); ?>>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">Osapuolet ovat allekirjoittaneet TMK1 pöytäkirjan</p>
-                                        <span class="text-[#586B74] text-[14px]">
-                                            <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-[120px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <span class="text-[#586B74] text-[14px] w-full">
+                                            <input type="text" <?php echo noste_textinput_attrset('noste_osapuolet_ovat_value', $data); ?>  placeholder="Vapaa teksti…" class="w-[120px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </span>
                                     </div>
 
@@ -623,7 +623,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_osapuolet_alle_check', $data); ?>>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">Osapuolet allekirjoittivat päivitetyn TMK1 pöytäkirjan</p>
                                     </div>
@@ -640,7 +640,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_rakennuttajakonsultti_check', $data); ?>>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">Rakennuttajakonsultti lähettää päivitetyn TMK1 pöytäkirjan allekirjoitettavaksi sähköisesti yllä olevin muutoksin(<span class="font-bold text-black">NOSTE</span>).</p>
                                     </div>
@@ -657,7 +657,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_paivitetaan_check', $data); ?>>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">Päivitetään yllä olevat allekirjoitettavaan TMK1 pöytäkirjaan kokouksen jälkeen ja hyväksytään päivitetty TMK1 pöytäkirja allekirjoitettavaksi sähköisesti. (<span class="font-bold text-black">NOSTE</span>)</p>
                                     </div>
@@ -676,6 +676,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                     <p class="text-[#586B74] text-[14px] leading-7">Osoite: <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K2', true ), 'K2') ); ?></span>, <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K3', true ), 'K3') ); ?></span></p>
                                 </div>
                                 <p class="text-[#586B74] text-[14px] leading-7 mb-5">PROJEKTIN OSAPUOLET</p>
+
 
                                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-[20px]">
                                     <p class="mb-5 text-black text-[14px] font-medium">Rakennuttaja</p>
@@ -697,7 +698,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_projektipaallokko_check', $data); ?>>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">Projektipäällikkö</p>
                                     </div>
@@ -715,7 +716,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_projekti_asian_check', $data); ?>>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">Projektijohtamisen asiantuntija</p>
                                     </div>
@@ -734,20 +735,20 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                     <p class="italic text-[#00B2A9] text-[14px] font-medium"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T9', true ), 'T9') ); ?></p>
                                 </div>
                                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-[20px] mb-5">
-                                    <input type="text" name="pilar_filed8_6_4" placeholder="Sisustusarkkitehti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" <?php echo noste_textinput_attrset('noste_4_sisustusarkkiten', $data); ?>  placeholder="Sisustusarkkitehti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     <p class="text-[#586B74] text-[14px]  leading-7"><span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T10', true ), 'T10') ); ?></span>, puh. <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T11', true ), 'T11') ); ?></span></p>
                                 </div>
                                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-[20px]">
                                     <p class="mb-5 text-black text-[14px] font-medium">Käyttäjä</p>
-                                    <p class="italic text-[#00B2A9] text-[14px] font-medium">V1</p>
+                                    <p class="italic text-[#00B2A9] text-[14px] font-medium"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_V1', true ), 'V1') ); ?></p>
                                 </div>
                                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-[20px]">
                                     <p class="mb-5 text-black text-[14px] font-medium">Kiinteistömanageeraus</p>
                                     <p class="italic text-[#00B2A9] text-[14px] font-medium"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K22', true ), 'K22') ); ?></p>
                                 </div>
                                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-[20px] mb-5">
-                                    <input type="text" name="pilar_filed8_6_4" placeholder="Kiinteistöpäällikkö" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
-                                    <p class="text-[#586B74] text-[14px]  leading-7"><span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K6', true ), 'K6') ); ?></span>, puh. <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K10', true ), 'K10') ); ?></span></p>
+                                    <input type="text" <?php echo noste_textinput_attrset('noste_4_kiinteistopaallikko', $data); ?> placeholder="Kiinteistöpäällikkö" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <p class="text-[#586B74] text-[14px] leading-7"><span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K6', true ), 'K6') ); ?></span>, puh. <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K10', true ), 'K10') ); ?></span></p>
                                 </div>
                                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-[20px]">
                                     <p class="mb-5 text-black text-[14px] font-medium">Huolto</p>
@@ -769,7 +770,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_aulapalvelut_check', $data); ?>>
                                         </label>
                                         <p class="text-black text-[14px] font-medium">Aulapalvelut</p>
                                     </div>
@@ -811,7 +812,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_kesken_v_check', $data); ?>>
                                             </label>
                                             <p class="text-[#586B74] text-[14px] leading-7">Kesken</p>
                                         </div>
@@ -826,7 +827,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_kommenteilla_v_check', $data); ?>>
                                             </label>
                                             <p class="text-[#586B74] text-[14px] leading-7">Kommenteilla</p>
                                         </div>
@@ -841,7 +842,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_allekirjoitettu_v_check', $data); ?>>
                                             </label>
                                             <p class="text-[#586B74] text-[14px] leading-7">Allekirjoitettu</p>
                                         </div>
@@ -863,14 +864,15 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_5tmk1_v_check', $data); ?>>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     </div>
                                     
                                     <div class="flex items-center  gap-3">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
-                                        <a href="#!" class="help_click"><svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <input type="text" <?php echo noste_textinput_attrset('noste_5_vappa1_value', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <a href="#!" class="help_click">
+                                            <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                                 <g id="SVGRepo_iconCarrier">
@@ -902,12 +904,12 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_textinput_attrset('noste_tmk52_vappa_check', $data); ?>>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     </div>
                                     <div class="flex gap-3">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php echo noste_textinput_attrset('noste_tmk52_vappa_value', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </div>
                                 </div>
 
@@ -939,12 +941,12 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_aikataulu_tmk1_check', $data); ?>>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     </div>
                                     <div class="flex gap-3">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php echo noste_textinput_attrset('noste_aikataulu_tmk1_value', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </div>
                                 </div>
                                 <div class="flex gap-2 mb-5">
@@ -960,17 +962,17 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_aikataulu_tmk2_check', $data); ?>>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     </div>
                                     <div class="flex gap-3">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php echo noste_textinput_attrset('noste_aikataulu_tmk2_value', $data); ?> placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </div>
                                 </div>
 
                                 <p class="text-[#586B74] text-[14px] leading-7">LASKUTUSKÄYTÄNTÖ</p>
-                                <p class="text-[#586B74] text-[14px] leading-7 mb-8">Maksuerätaulukko</p>
+                                <p class="text-[#586B74] text-[14px] leading-7 mb-8">Aikataulu</p>
                                 
                                 <div class="flex gap-2 mb-5">
                                     <div class="flex items-center gap-3">
@@ -997,12 +999,12 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_5aikataulu_tm1_check', $data); ?>>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     </div>
                                     <div class="flex gap-3">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php echo noste_textinput_attrset('noste_5aikataulu_tm1_value', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </div>
                                 </div>
                                 <div class="flex gap-2 mb-5">
@@ -1018,12 +1020,12 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_5aikataulu_tm2_check', $data); ?>>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     </div>
                                     <div class="flex gap-3">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php echo noste_textinput_attrset('noste_5aikataulu_tm2_value', $data); ?> placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </div>
                                 </div>
 
@@ -1051,12 +1053,12 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_laskujen_tmk2_check', $data); ?>>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     </div>
                                     <div class="flex gap-3">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php echo noste_textinput_attrset('noste_laskujen_tmk2_value', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </div>
                                 </div>
 
@@ -1075,7 +1077,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                         <span class="inline-block mr-5"></span>
                                         <span class="inline-block mr-5"></span>
                                         <p class="text-[#586B74] text-[14px] leading-7"></p>
-                                        <p class="text-[#586B74] text-[14px] leading-7">M1</p>
+                                        <p class="text-[#586B74] text-[14px] leading-7"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_M1', true ), 'M1') ); ?></p>
                                     </div>
                                 </div>
 
@@ -1102,7 +1104,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_hankenumero_5_check', $data); ?>>
                                             </label>
                                             <p class="text-[#586B74] text-[14px] leading-7">hankenumero K8</p>
                                         </div>
@@ -1117,9 +1119,9 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_hankenumero_5vappa_check', $data); ?>>
                                             </label>
-                                            <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text" <?php echo noste_textinput_attrset('noste_hankenumero_5vappa_value', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </div>
                                     </div>
                                 </div>
@@ -1137,12 +1139,12 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_hankenumero_5tmk2_check', $data); ?>>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     </div>
                                     <div class="flex gap-3">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php echo noste_textinput_attrset('noste_hankenumero_5tmk2_value', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </div>
                                 </div>
                             </div>
@@ -1153,7 +1155,8 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                         <span class="text-[#586B74]">KOKOUSKÄYTÄNNÖT</span>
                                     </label>
                             
-                                    <a href="#!" class="help_click"><svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <a href="#!" class="help_click">
+                                        <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                             <g id="SVGRepo_iconCarrier">
@@ -1161,7 +1164,8 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
                                                 <circle cx="12" cy="16" r="1" fill="#000000"></circle>
                                             </g>
-                                        </svg> </a>
+                                        </svg>
+                                    </a>
                             
                                     <hr class="help_line w-full border border-solid border-[#E1E1EA] hidden">
                                 </div>
@@ -1192,7 +1196,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_kokouskaytan_6tmk1_check', $data); ?>>
                                         <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">Tilasuunnittelija kutsuttu aloituskokoukseen</p>
@@ -1220,12 +1224,12 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_kokouskaytan_6tmk2_vappa_check', $data); ?>>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     </div>
                                     <div class="flex gap-3">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php echo noste_textinput_attrset('noste_kokouskaytan_6tmk2_vappa_value', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </div>
                                 </div>
 
@@ -1257,7 +1261,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_paaurakoitsija_6tmk1_check', $data); ?>>
                                         <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">Pääurakoitsija on toimittanut todistuksen rakennustyövakuutuksesta</p>
@@ -1276,7 +1280,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_paaurakoitsija_U7tmk1_check', $data); ?>>
                                         <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">Pääurakoitsija ei ole toimittanut todistusta rakennustyövakuutuksesta, toimitetaan (U7)</p>
@@ -1295,12 +1299,12 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_paaurakoitsija_tmk1vappa_check', $data); ?>>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     </div>
                                     <div class="flex gap-3">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php echo noste_textinput_attrset('noste_paaurakoitsija_tmk1vappa_value', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </div>
                                 </div>
 
@@ -1349,12 +1353,12 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_aikataulu_7_tmk1_check', $data); ?>>
                                             <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">Viimeisin työvaiheilmoitus (</p>
                                         <span class="text-[#586B74] text-[14px]">
-                                            <input type="text" name="pilar_filed8_6_4" placeholder="xx.xx.xxxx" class="w-[85px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text" <?php echo noste_textinput_attrset('noste_aikataulu_7_tmk1_date', $data); ?>  placeholder="xx.xx.xxxx" class="w-[85px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </span>
                                         <p class="text-[#586B74] text-[14px] leading-7">) , liite 1.</p>
                                     </div>
@@ -1372,7 +1376,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_tyovaiheilmoi_7_tmk1_check', $data); ?>>
                                             <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">Työvaiheilmoitusta ei toimitettu.</p>
@@ -1385,7 +1389,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                         <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                         <p class="text-[#586B74] text-[14px] leading-7">Työmaan yhteisvahvuus</p>
                                         <span class="text-[#586B74] text-[14px]">
-                                            <input type="text" name="pilar_filed8_6_4" placeholder="x" class="w-[25px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text" <?php echo noste_textinput_attrset('noste_hioa_7_tmk1_value', $data); ?> placeholder="x" class="w-[25px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </span>
                                         <p class="text-[#586B74] text-[14px] leading-7">hlöä.</p>
                                     </div>
@@ -1403,12 +1407,12 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_viimeisin_7_tmk2_check', $data); ?>>
                                             <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">Viimeisin työvaiheilmoitus (</p>
                                         <span class="text-[#586B74] text-[14px]">
-                                            <input type="text" name="pilar_filed8_6_4" placeholder="xx.xx.xxxx" class="w-[85px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text" <?php echo noste_textinput_attrset('noste_viimeisin_7_tmk2_date', $data); ?>  placeholder="xx.xx.xxxx" class="w-[85px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </span>
                                         <p class="text-[#586B74] text-[14px] leading-7">) , liite 1.</p>
                                     </div>
@@ -1426,7 +1430,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_tyovaiheilmoit_7_tmk2_check', $data); ?>>
                                             <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">Työvaiheilmoitusta ei toimitettu.</p>
@@ -1438,7 +1442,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                         <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                         <p class="text-[#586B74] text-[14px] leading-7">Työmaan yhteisvahvuus</p>
                                         <span class="text-[#586B74] text-[14px]">
-                                            <input type="text" name="pilar_filed8_6_4" placeholder="x" class="w-[25px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text" <?php echo noste_textinput_attrset('noste_tyomaan_7_tmk1_value', $data); ?>  placeholder="x" class="w-[25px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </span>
                                         <p class="text-[#586B74] text-[14px] leading-7">hlöä.</p>
                                     </div>
@@ -1459,12 +1463,12 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_aikataulutilanne_tmk1_check', $data); ?>>
                                             <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">Työmaa-aikataulu seurantaviivalla, (</p>
                                         <span class="text-[#586B74] text-[14px]">
-                                            <input type="text" name="pilar_filed8_6_4" placeholder="xx.xx.xxxx" class="w-[85px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text" <?php echo noste_textinput_attrset('noste_aikataulutilanne_tmk1_date', $data); ?>  placeholder="xx.xx.xxxx" class="w-[85px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </span>
                                         <p class="text-[#586B74] text-[14px] leading-7">), liite 2.</p>
                                     </div>
@@ -1482,7 +1486,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_tyomaa_7tmk1_check', $data); ?>>
                                             <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">Työmaa-aikataulua ei toimitettu.</p>
@@ -1501,12 +1505,12 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_tyomaa_7tmk2_check', $data); ?>>
                                             <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">Päivitetty työmaa-aikataulu seurantaviivalla, (</p>
                                         <span class="text-[#586B74] text-[14px]">
-                                            <input type="text" name="pilar_filed8_6_4" placeholder="xx.xx.xxxx" class="w-[85px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text" <?php echo noste_textinput_attrset('noste_paivitetty_tyo_date', $data); ?>  placeholder="xx.xx.xxxx" class="w-[85px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </span>
                                         <p class="text-[#586B74] text-[14px] leading-7">), liite 2</p>
                                     </div>
@@ -1524,7 +1528,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_paivitettya_tmk2_7_check', $data); ?>>
                                             <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">Päivitettyä työmaa-aikataulua ei toimitettu.</p>
@@ -1547,7 +1551,8 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
                                                 <circle cx="12" cy="16" r="1" fill="#000000"></circle>
                                             </g>
-                                        </svg> </a>
+                                        </svg>
+                                    </a>
                             
                                     <hr class="help_line w-full border border-solid border-[#E1E1EA] hidden">
                                 </div>
@@ -1556,9 +1561,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                     Käydään läpi onko työt saatu aloitettua/milloin aloitetaan ja mikä työvaihe on menossa. Lisäksi käydään läpi muutokset/epävarmuudet loppu urakan aikataulujen suhteen. Mikäli jokin työvaihe puuttuu tai on epäselvä kirjataan siitä huomiot. Käydään läpi, saadaanko urakka valmiiksi vuokrasopimuksen mukaisesti ja tuleeko asiasta viestiä Tilaajalle ja/tai Vuokralaiselle. Tarkennetaan, että kokonaisaikataulu on kaikille selvä ja varmistetaan, että urakoitsija on suunnitellut koko aikataulun.
                                 </div>
                             </div>
+
+
                             <div class="max-w-[700px] mx-auto">
 
-                                <div class="flex items-center gap-3 mb-4    ">
+                                <div class="flex items-center gap-3 mb-4">
                                     <span class="inline-block mr-5 text-white">-</span>
                                     <span class="inline-block mr-8"></span>
                                     <label class="inline-flex items-center gap-2 cursor-pointer">
@@ -1571,15 +1578,15 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_urakoitsijan_TMK1_vappa_check', $data); ?>>
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php echo noste_textinput_attrset('noste_urakoitsijan_TMK1_vappa_value', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                 </div>
                                 
-                                <div class="flex items-center gap-3 mb-4    ">
+                                <div class="flex items-center gap-3 mb-4">
                                     <span class="inline-block mr-5 text-white">-</span>
                                     <span class="inline-block mr-8"></span>
                                     <label class="inline-flex items-center gap-2 cursor-pointer">
@@ -1592,15 +1599,15 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_tehty_urakan_TMK1_check', $data); ?>>
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Tehty urakan mukaisista töistä…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php echo noste_textinput_attrset('noste_tehty_urakan_TMK1_value', $data); ?>  placeholder="Tehty urakan mukaisista töistä…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                 </div>
                                 
-                                <div class="flex items-center gap-3 mb-4    ">
+                                <div class="flex items-center gap-3 mb-4">
                                     <span class="inline-block mr-5 text-white">-</span>
                                     <span class="inline-block mr-8"></span>
                                     <label class="inline-flex items-center gap-2 cursor-pointer">
@@ -1613,15 +1620,15 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_tehty_urakan_TMK2_check', $data); ?>>
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Tehty urakan mukaisista töistä…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php echo noste_textinput_attrset('noste_tehty_urakan_TMK2_value', $data); ?> placeholder="Tehty urakan mukaisista töistä…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                 </div>
                                 
-                                <div class="flex items-center gap-3 mb-4    ">
+                                <div class="flex items-center gap-3 mb-4">
                                     <span class="inline-block mr-5 text-white">-</span>
                                     <span class="inline-block mr-8"></span>
                                     <label class="inline-flex items-center gap-2 cursor-pointer">
@@ -1634,15 +1641,15 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_meneillaan_TMK1_check', $data); ?>>
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Meneillään oleva työvaihe on…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php echo noste_textinput_attrset('noste_meneillaan_TMK1_value', $data); ?> placeholder="Meneillään oleva työvaihe on…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                 </div>
                                 
-                                <div class="flex items-center gap-3 mb-4    ">
+                                <div class="flex items-center gap-3 mb-4">
                                     <span class="inline-block mr-5 text-white">-</span>
                                     <span class="inline-block mr-8"></span>
                                     <label class="inline-flex items-center gap-2 cursor-pointer">
@@ -1655,15 +1662,15 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_meneillaan_TMK2_check', $data); ?>>
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Meneillään oleva työvaihe on…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php echo noste_textinput_attrset('noste_meneillaan_TMK2_value', $data); ?> placeholder="Meneillään oleva työvaihe on…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                 </div>
                                 
-                                <div class="flex items-center gap-3 mb-4    ">
+                                <div class="flex items-center gap-3 mb-4">
                                     <span class="inline-block mr-5 text-white">-</span>
                                     <span class="inline-block mr-8"></span>
                                     <label class="inline-flex items-center gap-2 cursor-pointer">
@@ -1676,15 +1683,15 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_valmistuminen_TMK1_check', $data); ?>>
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Valmistuminen vuokrasopimuksen mukaisesti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php echo noste_textinput_attrset('noste_valmistuminen_TMK1_value', $data); ?> placeholder="Valmistuminen vuokrasopimuksen mukaisesti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                 </div>
                                 
-                                <div class="flex items-center gap-3 mb-4    ">
+                                <div class="flex items-center gap-3 mb-4">
                                     <span class="inline-block mr-5 text-white">-</span>
                                     <span class="inline-block mr-8"></span>
                                     <label class="inline-flex items-center gap-2 cursor-pointer">
@@ -1697,15 +1704,15 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_valmistuminen_TMK2_check', $data); ?>>
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Valmistuminen vuokrasopimuksen mukaisesti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php echo noste_textinput_attrset('noste_valmistuminen_TMK2_value', $data); ?> placeholder="Valmistuminen vuokrasopimuksen mukaisesti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                 </div>
                                 
-                                <div class="flex items-center gap-3 mb-4    ">
+                                <div class="flex items-center gap-3 mb-4">
                                     <span class="inline-block mr-5 text-white">-</span>
                                     <span class="inline-block mr-8"></span>
                                     <label class="inline-flex items-center gap-2 cursor-pointer">
@@ -1718,15 +1725,15 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_aikataulussa_TMK1_check', $data); ?>>
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Aikataulussa epävarmuuksia? …" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php echo noste_textinput_attrset('noste_aikataulussa_TMK1_value', $data); ?> placeholder="Aikataulussa epävarmuuksia? …" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                 </div>
                                 
-                                <div class="flex items-center gap-3 mb-4    ">
+                                <div class="flex items-center gap-3 mb-4">
                                     <span class="inline-block mr-5 text-white">-</span>
                                     <span class="inline-block mr-8"></span>
                                     <label class="inline-flex items-center gap-2 cursor-pointer">
@@ -1739,11 +1746,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_aikataulussa_TMK2_check', $data); ?>>
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Aikataulussa epävarmuuksia? …" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php echo noste_textinput_attrset('noste_aikataulussa_TMK2_value', $data); ?> placeholder="Aikataulussa epävarmuuksia? …" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                 </div>
                             </div>
@@ -1762,11 +1769,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_aikataulussa_TMK1_vappa_check', $data); ?>>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                         <span class="text-[#586B74] text-[14px] w-full">
-                                            <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text" <?php echo noste_textinput_attrset('noste_aikataulussa_TMK1_vappa_value', $data); ?> placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </span>
                                     </div>
                                     <a href="#!" class="help_click"><svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1800,11 +1807,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_aikataulussa_TMK2_vappa_check', $data); ?>>
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php echo noste_textinput_attrset('noste_aikataulussa_TMK2_vappa_value', $data); ?> placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                 </div>
 
@@ -1820,7 +1827,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id87">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_paivitetaan_aik_TMK1_check', $data); ?> wfd-id="id87">
                                         <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">Päivitetään aikataulu yllä olevien kirjausten mukaan. <span class="flex-1 text-[14px] italic text-[#00B2A9]">(U7)</span></p>
@@ -1838,7 +1845,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id87">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_paivitetaan_aik_TMK2_check', $data); ?> wfd-id="id87">
                                         <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">Päivitetään aikataulu yllä olevien kirjausten mukaan. <span class="flex-1 text-[14px] italic text-[#00B2A9]">(U7)</span></p>
@@ -1860,11 +1867,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_paivitetaan_aikataulu_TMK1_check', $data); ?>>
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                         <span class="text-[#586B74] text-[14px] w-full">
-                                            <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text" <?php echo noste_textinput_attrset('noste_paivitetaan_aikataulu_TMK1_value', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </span>
                                     </div>
                                     <a href="#!" class="help_click"><svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1897,11 +1904,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_paivitetaan_aikataulu_TMK2_check', $data); ?>>
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php echo noste_textinput_attrset('noste_paivitetaan_aikataulu_TMK2_value', $data); ?> placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                 </div>
 
@@ -1932,7 +1939,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_urakoitsijalla_TMK1_check', $data); ?>>
                                                 <span class="flex-1 text-[#586B74] text-[14px]">Urakoitsijalla selvityksessä</span>
                                             </label>
                                             ]
@@ -1949,7 +1956,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_tilattu7_check', $data); ?>>
                                                 <span class="flex-1 text-[#586B74] text-[14px]">Tilattu</span>
                                             </label>
                                             ]
@@ -1966,7 +1973,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_toimituksessa7_check', $data); ?>>
                                                 <span class="flex-1 text-[#586B74] text-[14px]">Toimituksessa</span>
                                             </label>
                                             ]
@@ -1983,7 +1990,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_toimitettu_tyomaa7_check', $data); ?>>
                                                 <span class="flex-1 text-[#586B74] text-[14px]">Toimitettu työmaalle</span>
                                             </label>
                                             ]
@@ -2004,11 +2011,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_hankinta_vappa_tmk27_check', $data); ?> wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text" <?php echo noste_textinput_attrset('noste_hankinta_vappa_tmk27_value', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
 
@@ -2029,7 +2036,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_vahvistettu_vappa_tmk27_check', $data); ?>>
                                                 <span class="flex-1 text-[#586B74] text-[14px]">vahvistettu vapaa teksti</span>
                                             </label>
                                             ]
@@ -2046,7 +2053,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_arviolta_vappa_tmk27_check', $data); ?>>
                                                 <span class="flex-1 text-[#586B74] text-[14px]">arviolta vapaa teksti</span>
                                             </label>
                                             ]
@@ -2063,7 +2070,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_ei_viela_vappa_tmk27_check', $data); ?>>
                                                 <span class="flex-1 text-[#586B74] text-[14px]">ei vielä tiedossa</span>
                                             </label>
                                             ]
@@ -2080,7 +2087,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_toimitettu_vappa_tmk27_check', $data); ?>>
                                                 <span class="flex-1 text-[#586B74] text-[14px]">Toimitettu työmaalle</span>
                                             </label>
                                             ]
@@ -2103,10 +2110,10 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_toimitussikavappa_tmk271_check', $data); ?> wfd-id="id108">
                                     </label>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text" <?php echo noste_textinput_attrset('noste_toimitussikavappa_tmk271_value', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -2123,11 +2130,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_vappa_tmk272_check', $data); ?> wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text" <?php echo noste_textinput_attrset('noste_vappa_tmk272_value', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
 
@@ -2144,11 +2151,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_vappa_tmk173_check', $data); ?> wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text" <?php echo noste_textinput_attrset('noste_vappa_tmk173_value', $data); ?> placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
 
@@ -2165,11 +2172,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_vappa_tmk274_check', $data); ?> wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text" <?php echo noste_textinput_attrset('noste_vappa_tmk274_value', $data); ?> placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
 
@@ -2185,7 +2192,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_hankinta_77_check', $data); ?> wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">Hankinta</p>
                                 </div>
@@ -2207,7 +2214,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_vahvistettu_vappa77_check', $data); ?>>
                                                 <span class="flex-1 text-[#586B74] text-[14px]">vahvistettu vapaa teksti</span>
                                             </label>
                                             ]
@@ -2224,7 +2231,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_arviolta_vappa77_check', $data); ?>>
                                                 <span class="flex-1 text-[#586B74] text-[14px]">arviolta vapaa teksti</span>
                                             </label>
                                             ]
@@ -2241,7 +2248,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_eiviela_vappa77_check', $data); ?>>
                                                 <span class="flex-1 text-[#586B74] text-[14px]">ei vielä tiedossa</span>
                                             </label>
                                             ]
@@ -2258,7 +2265,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_toimitettua_vappa77_check', $data); ?>>
                                                 <span class="flex-1 text-[#586B74] text-[14px]">Toimitettu työmaalle</span>
                                             </label>
                                             ]
@@ -2283,12 +2290,12 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_vahvistettu_tmk277_check', $data); ?>>
                                                 <span class="flex-1 text-[#586B74] text-[14px]">vahvistettu vapaa teksti</span>
                                             </label>
                                         </span>
                                         <span class="text-[#586B74] text-[15px] inline-flex items-center gap-1">
-                                            <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                            <input type="text" <?php echo noste_textinput_attrset('noste_vahvistettu_tmk2vappa7_check', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                             ]
                                         </span>
                                         <span class="text-[#586B74] text-[15px] inline-flex gap-1">
@@ -2303,12 +2310,12 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_arviolta_vp_tmk277_check', $data); ?>>
                                                 <span class="flex-1 text-[#586B74] text-[14px]">arviolta vapaa teksti</span>
                                             </label>
                                         </span>
                                         <span class="text-[#586B74] text-[15px] inline-flex items-center gap-1">
-                                            <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                            <input type="text" <?php echo noste_textinput_attrset('noste_arviolta_vp_tmk277_value', $data); ?> placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                             ]
                                         </span>
                                         <span class="text-[#586B74] text-[15px] inline-flex gap-1">
@@ -2323,7 +2330,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_ei_viela_tmk277_check', $data); ?>>
                                                 <span class="flex-1 text-[#586B74] text-[14px]">ei vielä tiedossa</span>
                                             </label>
                                             ]
@@ -2345,10 +2352,10 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_toimitusaika_tmk277_check', $data); ?> wfd-id="id108">
                                     </label>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text" <?php echo noste_textinput_attrset('noste_toimitusaika_tmk277_value', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
 
@@ -2365,11 +2372,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php echo noste_checkbox_attrset('noste_toimitusaika_tmk278_check', $data); ?> wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text" <?php echo noste_checkbox_attrset('noste_toimitusaika_tmk278_value', $data); ?> placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
 
@@ -2399,7 +2406,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_1', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <p class="text-[#586B74] text-[14px] leading-7">Urakoitsijalla on tarvittavat avaimet ja kulkutunnisteet kiinteistössä liikkumiseen.</p>
@@ -2422,7 +2429,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_2', $data); ?>  wfd-id="id108">
                                             </label>
                                             <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                             <p class="text-[#586B74] text-[14px] leading-7">Kulkutunnisteet myönnetään aulasta. Sähköpostiin henkilöiden nimet, työnantajat ja kopioksi rakennuttajakonsultti.</p>
@@ -2460,11 +2467,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_3', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_3', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -2481,11 +2488,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_4', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_4', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
 
@@ -2499,7 +2506,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                     <span class="inline-block mr-5">o</span>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_5', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
 
@@ -2516,11 +2523,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_5', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_6', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
 
@@ -2537,11 +2544,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_6', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_7', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                             </div>
@@ -2561,7 +2568,8 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
                                                 <circle cx="12" cy="16" r="1" fill="#000000"></circle>
                                             </g>
-                                        </svg> </a>
+                                        </svg>
+                                    </a>
                             
                                     <hr class="help_line w-full border border-solid border-[#E1E1EA] hidden">
                                 </div>
@@ -2579,7 +2587,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                     <span class="inline-block mr-5">o</span>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_8', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -2596,11 +2604,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_7', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_8', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -2617,11 +2625,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_8', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_9', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
 
@@ -2635,7 +2643,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                     <span class="inline-block mr-5">o</span>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_10', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -2652,11 +2660,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_9', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_11', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -2673,11 +2681,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_10', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_12', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
 
@@ -2698,7 +2706,8 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
                                                 <circle cx="12" cy="16" r="1" fill="#000000"></circle>
                                             </g>
-                                        </svg> </a>
+                                        </svg>
+                                    </a>
                             
                                     <hr class="help_line w-full border border-solid border-[#E1E1EA] hidden">
                                 </div>
@@ -2715,7 +2724,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                     <span class="inline-block mr-5">o</span>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_13', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -2732,11 +2741,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_11', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_14', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -2753,11 +2762,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_12', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_15', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                             
@@ -2777,7 +2786,8 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
                                                 <circle cx="12" cy="16" r="1" fill="#000000"></circle>
                                             </g>
-                                        </svg> </a>
+                                        </svg>
+                                    </a>
                             
                                     <hr class="help_line w-full border border-solid border-[#E1E1EA] hidden">
                                 </div>
@@ -2794,7 +2804,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                     <span class="inline-block mr-5">-</span>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_16', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                             
@@ -2811,11 +2821,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_13', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_17', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -2824,7 +2834,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                     <span class="inline-block mr-5">-</span>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_18', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                             
@@ -2841,11 +2851,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_14', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_19', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                             </div>
@@ -2864,7 +2874,8 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
                                                 <circle cx="12" cy="16" r="1" fill="#000000"></circle>
                                             </g>
-                                        </svg> </a>
+                                        </svg>
+                                    </a>
                             
                                     <hr class="help_line w-full border border-solid border-[#E1E1EA] hidden">
                                 </div>
@@ -2881,7 +2892,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                     <span class="inline-block mr-5">-</span>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_20', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                             
@@ -2898,11 +2909,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_15', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_21', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                             
@@ -2911,7 +2922,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                     <span class="inline-block mr-5">-</span>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_22', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                             
@@ -2928,11 +2939,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_16', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_23', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                             </div>
@@ -2953,7 +2964,8 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
                                                     <circle cx="12" cy="16" r="1" fill="#000000"></circle>
                                                 </g>
-                                            </svg> </a>
+                                            </svg>
+                                        </a>
                             
                                         <hr class="help_line w-full lg:w-[105px] border border-solid border-[#E1E1EA] hidden">
                                     </div>
@@ -2985,22 +2997,22 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_17', $data); ?> >
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                         <span class="text-[#586B74] text-[15px] inline-flex gap-1">LMT</span>
                                         <span class="text-[#586B74] text-[14px] w-full">
-                                            <input type="text" name="pilar_filed8_6_4" placeholder="X" class="w-[30px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_24', $data); ?>  placeholder="X" class="w-[30px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </span>
                                         <span class="text-[#586B74] text-[14px] w-full">,</span>
                                         <span class="text-[#586B74] text-[14px] w-full">
-                                            <input type="text" name="pilar_filed8_6_4" placeholder="Aihe" class="w-[50px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_25', $data); ?>  placeholder="Aihe" class="w-[50px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </span>
                                     </div>
                                     <span class="text-[#586B74]"><span class="flex-1 h-[1px] bg-[#94969C] inline-block w-[105px]"></span></span>
                                     <p class="text-[#586B74]"> € (alv. 0 ), tilattu</p>
                                     <span class="text-[#586B74] text-[14px]">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-[120px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_26', $data); ?>  placeholder="Vapaa teksti…" class="w-[120px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                 </div>
                                 
@@ -3018,22 +3030,22 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_18', $data); ?> >
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                         <span class="text-[#586B74] text-[15px] inline-flex gap-1">LMT</span>
                                         <span class="text-[#586B74] text-[14px] w-full">
-                                            <input type="text" name="pilar_filed8_6_4" placeholder="X" class="w-[30px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_27', $data); ?>  placeholder="X" class="w-[30px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </span>
                                         <span class="text-[#586B74] text-[14px] w-full">,</span>
                                         <span class="text-[#586B74] text-[14px] w-full">
-                                            <input type="text" name="pilar_filed8_6_4" placeholder="Aihe" class="w-[50px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_28', $data); ?>  placeholder="Aihe" class="w-[50px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </span>
                                     </div>
                                     <span class="text-[#586B74]"><span class="flex-1 h-[1px] bg-[#94969C] inline-block w-[105px]"></span></span>
                                     <p class="text-[#586B74]"> € (alv. 0 ), tilattu</p>
                                     <span class="text-[#586B74] text-[14px]">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-[120px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_29', $data); ?>  placeholder="Vapaa teksti…" class="w-[120px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                 </div>
                                 
@@ -3054,16 +3066,16 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_19', $data); ?> >
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                         <span class="text-[#586B74] text-[15px] inline-flex gap-1">LMT</span>
                                         <span class="text-[#586B74] text-[14px] w-full">
-                                            <input type="text" name="pilar_filed8_6_4" placeholder="X" class="w-[30px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_30', $data); ?>  placeholder="X" class="w-[30px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </span>
                                         <span class="text-[#586B74] text-[14px] w-full">,</span>
                                         <span class="text-[#586B74] text-[14px] w-full">
-                                            <input type="text" name="pilar_filed8_6_4" placeholder="Aihe" class="w-[50px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_31', $data); ?>  placeholder="Aihe" class="w-[50px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </span>
                                     </div>
                                     <span class="text-[#586B74]"><span class="flex-1 h-[1px] bg-[#94969C] inline-block w-[105px]"></span></span>
@@ -3084,16 +3096,16 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_20', $data); ?> >
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                         <span class="text-[#586B74] text-[15px] inline-flex gap-1">LMT</span>
                                         <span class="text-[#586B74] text-[14px] w-full">
-                                            <input type="text" name="pilar_filed8_6_4" placeholder="X" class="w-[30px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_32', $data); ?>  placeholder="X" class="w-[30px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </span>
                                         <span class="text-[#586B74] text-[14px] w-full">,</span>
                                         <span class="text-[#586B74] text-[14px] w-full">
-                                            <input type="text" name="pilar_filed8_6_4" placeholder="Aihe" class="w-[50px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_33', $data); ?>  placeholder="Aihe" class="w-[50px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </span>
                                     </div>
                                     <span class="text-[#586B74]"><span class="flex-1 h-[1px] bg-[#94969C] inline-block w-[105px]"></span></span>
@@ -3115,11 +3127,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_21', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_34', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
 
@@ -3136,11 +3148,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_22', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_35', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
 
@@ -3179,7 +3191,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_23', $data); ?> >
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                         <p class="text-[#586B74] text-[14px] leading-7">Työnjohtajana toimii U7</p>
@@ -3213,11 +3225,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_24', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_36', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 <div class="flex items-start gap-3 mb-4">
@@ -3238,7 +3250,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_25', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <p class="text-[#586B74] text-[14px] leading-7">Miten tiedot kerätään? (perehdytyksessä, leimauslaitteella, muuten?)</p>
@@ -3257,11 +3269,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_26', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_37', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -3277,11 +3289,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_27', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_38', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
 
@@ -3303,7 +3315,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_28', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <p class="text-[#586B74] text-[14px] leading-7">Miten tiedot kerätään? (perehdytyksessä, leimauslaitteella, muuten?)</p>
@@ -3322,11 +3334,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_29', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_39', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -3342,11 +3354,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_30', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_40', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -3377,11 +3389,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_31', $data); ?> >
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                         <span class="text-[#586B74] text-[14px] w-full">
-                                            <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_41', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </span>
                                     </div>
                                     <a href="#!" class="help_click"><svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -3414,11 +3426,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_32', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_42', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                             </div>
@@ -3436,7 +3448,8 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
                                                 <circle cx="12" cy="16" r="1" fill="#000000"></circle>
                                             </g>
-                                        </svg> </a>
+                                        </svg>
+                                    </a>
                             
                                     <hr class="help_line w-full border border-solid border-[#E1E1EA] hidden">
                                 </div>
@@ -3465,11 +3478,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_33', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_43', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
 
@@ -3485,11 +3498,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_34', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_44', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                             </div>
@@ -3509,7 +3522,8 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
                                                 <circle cx="12" cy="16" r="1" fill="#000000"></circle>
                                             </g>
-                                        </svg> </a>
+                                        </svg>
+                                    </a>
                             
                                     <hr class="help_line w-full border border-solid border-[#E1E1EA] hidden">
                                 </div>
@@ -3534,11 +3548,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_35', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_45', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -3554,11 +3568,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_36', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_46', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                             </div>
@@ -3577,7 +3591,8 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
                                                 <circle cx="12" cy="16" r="1" fill="#000000"></circle>
                                             </g>
-                                        </svg> </a>
+                                        </svg>
+                                    </a>
                             
                                     <hr class="help_line w-full border border-solid border-[#E1E1EA] hidden">
                                 </div>
@@ -3606,11 +3621,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_37', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_47', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                             
@@ -3626,11 +3641,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_38', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_48', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
 
@@ -3651,11 +3666,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_39', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_49', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -3672,11 +3687,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_40', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Onko toimenpiteitä noudatettu? (IV-tulppaus, kanavien varastointi suojattuna, kohdepoistot purkutöissä jne.?)" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_50', $data); ?>  placeholder="Onko toimenpiteitä noudatettu? (IV-tulppaus, kanavien varastointi suojattuna, kohdepoistot purkutöissä jne.?)" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
 
@@ -3705,7 +3720,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                             </g>
                                                         </svg>
                                                     </span>
-                                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                    <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_66', $data); ?> >
                                                     <span class="flex-1 text-[#586B74] text-[14px]">Laadittu</span>
                                                 </label>
                                                 ]
@@ -3722,7 +3737,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                             </g>
                                                         </svg>
                                                     </span>
-                                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                    <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_67', $data); ?> >
                                                     <span class="flex-1 text-[#586B74] text-[14px]">Laaditaan xx.xx.xxxx mennessä.</span>
                                                 </label>
                                                 ]
@@ -3737,7 +3752,8 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
                                                 <circle cx="12" cy="16" r="1" fill="#000000"></circle>
                                             </g>
-                                        </svg> </a>
+                                        </svg>
+                                    </a>
                                         <hr class="help_line w-full border border-solid border-[#E1E1EA] hidden">
                                 </div>
                                 <div class="help_show text-[#586B74] text-[14px] lg:w-[384px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:right-[10px] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-50px] hidden">
@@ -3759,11 +3775,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_41', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_51', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 <div class="flex items-center gap-3 mb-4">
@@ -3778,11 +3794,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_42', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_52', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 <div class="flex items-center gap-3 mb-4">
@@ -3809,7 +3825,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_68', $data); ?> >
                                                 <span class="flex-1 text-[#586B74] text-[14px]">Suunnitelma nähtävillä työmaalla.</span>
                                             </label>
                                             ]
@@ -3826,7 +3842,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_69', $data); ?> >
                                                 <span class="flex-1 text-[#586B74] text-[14px]">Urakoitsija lisää työmaasuunnitelman näkyviin työmaalle. (U1)</span>
                                             </label>
                                             ]
@@ -3846,11 +3862,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_43', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_53', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                             </div>
@@ -3868,10 +3884,10 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_44', $data); ?> >
                                         </label>
                                         <span class="text-[#586B74] text-[14px] w-full">
-                                            <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_54', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </span>
                                     </div>
                                     <a href="#!" class="help_click"><svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -3905,10 +3921,10 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_45', $data); ?> >
                                     </label>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_55', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                 </div>
 
@@ -3943,10 +3959,10 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_46', $data); ?> >
                                         </label>
                                         <span class="text-[#586B74] text-[14px] w-full">
-                                            <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_56', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </span>
                                     </div>
                                     <a href="#!" class="help_click"><svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -3979,10 +3995,10 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_47', $data); ?> >
                                     </label>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_57', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                 </div>
 
@@ -3998,7 +4014,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_70', $data); ?> >
                                         <span class="flex-1 text-[#586B74] text-[14px]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P1', true ), 'P1') ); ?></span>
                                     </label>
                                     <label class="inline-flex items-center gap-2 cursor-pointer">
@@ -4011,7 +4027,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_71', $data); ?> >
                                         <span class="flex-1 text-[#586B74] text-[14px]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></span>
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">, Partners at Noste Oy.</p>
@@ -4042,10 +4058,10 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_48', $data); ?> >
                                     </label>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_58', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                 </div>
 
@@ -4066,7 +4082,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_72', $data); ?> >
                                                 <span class="flex-1 text-[#586B74] text-[14px]">vahvistettu vapaa teksti</span>
                                             </label>
                                         </span>
@@ -4087,7 +4103,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                         <span class="inline-block mr-5">-</span>
                                         <p class="text-[#586B74] text-[14px] leading-7">Tavoitellaan</p>
                                         <span class="text-[#586B74]">
-                                            <input type="text" name="pilar_VA1" placeholder="90" class="w-full lg:w-[35px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_97', $data); ?>  placeholder="90" class="w-full lg:w-[35px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </span>
                                         <p class="text-[#586B74] text-[14px] leading-7"> %</p>
                                     </div>
@@ -4099,7 +4115,8 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
                                                 <circle cx="12" cy="16" r="1" fill="#000000"></circle>
                                             </g>
-                                        </svg> </a>
+                                        </svg>
+                                    </a>
                                         <hr class="help_line w-full border border-solid border-[#E1E1EA] hidden">
                                 </div>
                                 <div class="help_show text-[#586B74] text-[14px] lg:w-[384px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:right-[10px] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-50px] hidden">
@@ -4123,12 +4140,12 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_49', $data); ?> >
                                         </label>
                                         <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                         <span class="text-[#586B74] text-[15px] inline-flex gap-1">Viimeisin mittaustulos</span>
                                         <span class="text-[#586B74] text-[14px]">
-                                            <input type="text" name="pilar_filed8_6_4" placeholder="xx.xx.xxxx" class="w-[120px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_59', $data); ?>  placeholder="xx.xx.xxxx" class="w-[120px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </span>
                                         <span class="text-[#586B74] text-[14px]">,</span>
                                     </div>
@@ -4154,11 +4171,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_50', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_60', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -4175,15 +4192,15 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_51', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_61', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
 
-                                <h3 class="mb-5 flex gap-20 text-black text-[20px] font-medium">
+                                <h3 class="mb-5 flex gap-20 text-black text-[20px] font-medium mb-4">
                                     <span>10. </span>
                                     <span>LAADUNVARMISTUS</span>
                                 </h3>
@@ -4196,7 +4213,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                     
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Noudatetaan urakoitsijan omaa laatusuunnitelmaa. Urakoitsija toimittaa työmaan laatusuunnitelman rakennuttajakonsultille." class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_62', $data); ?>  placeholder="Noudatetaan urakoitsijan omaa laatusuunnitelmaa. Urakoitsija toimittaa työmaan laatusuunnitelman rakennuttajakonsultille." class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -4213,11 +4230,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_52', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_63', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -4229,7 +4246,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                     
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_64', $data); ?>  placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -4246,11 +4263,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_53', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_65', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
 
@@ -4293,7 +4310,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                 
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Mikä pankki" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_66', $data); ?>  placeholder="Mikä pankki" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -4304,7 +4321,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                 
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Tilanne (Onko kaikilla tunnukset, toimiiko jne.)" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_67', $data); ?>  placeholder="Tilanne (Onko kaikilla tunnukset, toimiiko jne.)" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
 
@@ -4322,11 +4339,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_54', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_68', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -4344,11 +4361,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_55', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_69', $data); ?>  placeholder="Vapaa teksti…" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
 
@@ -4367,7 +4384,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                 
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_70', $data); ?>  placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -4385,11 +4402,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_56', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_71', $data); ?>  placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -4403,7 +4420,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                 
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_72', $data); ?>  placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -4421,11 +4438,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_57', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_73', $data); ?>  placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -4440,10 +4457,10 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_58', $data); ?>  wfd-id="id108">
                                     </label>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Aihe" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_74', $data); ?>  placeholder="Aihe" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
 
@@ -4451,7 +4468,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                     <span class="inline-block mr-5">-</span>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_75', $data); ?>  placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
 
@@ -4470,7 +4487,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                 
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_76', $data); ?>  placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -4488,11 +4505,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_59', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_77', $data); ?>  placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -4507,10 +4524,10 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_60', $data); ?>  wfd-id="id108">
                                     </label>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Aihe" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_78', $data); ?>  placeholder="Aihe" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
 
@@ -4518,7 +4535,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                     <span class="inline-block mr-5">-</span>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_79', $data); ?>  placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
 
@@ -4544,7 +4561,8 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
                                                 <circle cx="12" cy="16" r="1" fill="#000000"></circle>
                                             </g>
-                                        </svg> </a>
+                                        </svg>
+                                    </a>
                             
                                     <hr class="help_line w-full border border-solid border-[#E1E1EA] hidden">
                                 </div>
@@ -4563,7 +4581,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                 
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_80', $data); ?>  placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -4581,11 +4599,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_61', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_81', $data); ?>  placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
 
@@ -4600,10 +4618,10 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_62', $data); ?>  wfd-id="id108">
                                     </label>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Aihe" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_83', $data); ?>  placeholder="Aihe" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -4611,7 +4629,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                     <span class="inline-block mr-5">-</span>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_84', $data); ?>  placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
 
@@ -4638,7 +4656,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_73', $data); ?> >
                                                 <span class="flex-1 text-[#586B74] text-[14px]">Kokouksen jälkeen</span>
                                             </label>
                                             ]
@@ -4655,7 +4673,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_74', $data); ?> >
                                                 <span class="flex-1 text-[#586B74] text-[14px]">Ennen kokousta</span>
                                             </label>
                                             ]
@@ -4683,7 +4701,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_75', $data); ?> >
                                                 <span class="flex-1 text-[#586B74] text-[14px]">Kokouksen jälkeen</span>
                                             </label>
                                             ]
@@ -4700,7 +4718,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_76', $data); ?> >
                                                 <span class="flex-1 text-[#586B74] text-[14px]">Ennen kokousta</span>
                                             </label>
                                             ]
@@ -4731,7 +4749,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                             </g>
                                                         </svg>
                                                     </span>
-                                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                    <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_77', $data); ?> >
                                                     <span class="flex-1 text-[#586B74] text-[14px]">Tarkistettiin seuraavat asiat</span>
                                                 </label>
                                             </span>
@@ -4745,7 +4763,8 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
                                                 <circle cx="12" cy="16" r="1" fill="#000000"></circle>
                                             </g>
-                                        </svg> </a>
+                                        </svg>
+                                    </a>
                                     <hr class="help_line w-full border border-solid border-[#E1E1EA] hidden">
                                 </div>
                                 <div class="help_show text-[#586B74] text-[14px] lg:w-[384px] bg-[#F6F8FF] border border-solid border-[#E1E1EA] rounded-lg p-5 lg:absolute lg:right-[10px] mt-[10px] mb-[15px] lg:mb[0] lg:mt-[-50px] hidden">
@@ -4761,7 +4780,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                 
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Aihe ja kommentti/sovittu toimenpide" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_85', $data); ?>  placeholder="Aihe ja kommentti/sovittu toimenpide" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                             
@@ -4782,7 +4801,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_78', $data); ?> >
                                                 <span class="flex-1 text-[#586B74] text-[14px]">Tarkistettiin seuraavat asiat</span>
                                             </label>
                                         </span>
@@ -4796,7 +4815,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                 
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Tarkistettiin seuraavat asiat" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_86', $data); ?>  placeholder="Tarkistettiin seuraavat asiat" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                             
@@ -4817,7 +4836,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_79', $data); ?> >
                                                 <span class="flex-1 text-[#586B74] text-[14px]">Kuvat työmaalta liitteessä 3.</span>
                                             </label>
                                         </span>
@@ -4841,10 +4860,10 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_80', $data); ?> >
                                                 <span class="flex-1 text-[#586B74] text-[14px]">Kuvat työmaalta liitteessä</span>
                                                 <span class="text-[#586B74]">
-                                                    <input type="text" name="pilar_VA1" placeholder="3" class="w-full lg:w-[25px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                                    <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_95', $data); ?>  placeholder="3" class="w-full lg:w-[25px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                                 </span>
                                             </label>
                                         </span>
@@ -4868,7 +4887,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_81', $data); ?> >
                                                 <span class="flex-1 text-[#586B74] text-[14px]">Ei pidetty yhteistä kierrosta työmaalla, koska vapaa teksti.</span>
                                             </label>
                                             ]
@@ -4893,7 +4912,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_82', $data); ?> >
                                                 <span class="flex-1 text-[#586B74] text-[14px]">Ei pidetty yhteistä kierrosta työmaalla, koska vapaa teksti.</span>
                                             </label>
                                             ]
@@ -4916,7 +4935,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                 
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK1:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_87', $data); ?>  placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -4934,11 +4953,11 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_63', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_90', $data); ?>  placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -4953,10 +4972,10 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_64', $data); ?>  wfd-id="id108">
                                     </label>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Aihe" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_91', $data); ?>  placeholder="Aihe" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -4964,7 +4983,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                     <span class="inline-block mr-5">-</span>
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_92', $data); ?>  placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
 
@@ -4984,7 +5003,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                 <div class="flex items-center gap-3 mb-4">
                                     <p class="text-[#586B74] text-[14px] leading-7">TMK2:</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Seuraavan kokouksen aihe ja ajankohta." class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_93', $data); ?>  placeholder="Seuraavan kokouksen aihe ja ajankohta." class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
@@ -4999,7 +5018,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                             
                                 <div class="flex items-center gap-2 mt-5 mb-5">
                                     <span class="text-[#586B74] text-[15px]">Puheenjohtaja päätti kokouksen klo</span>
-                                    <input type="text" name="pilar_VA1" placeholder="xx.xx" class="w-full lg:w-[60px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_96', $data); ?>  placeholder="xx.xx" class="w-full lg:w-[60px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </div>
 
                                 <p class="text-[#586B74] text-[15px]">Pöytäkirjan vakuudeksi</p>
@@ -5017,7 +5036,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_83', $data); ?> >
                                             <span class="flex-1 text-[#586B74] text-[14px]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P1', true ), 'P1') ); ?></span>
                                         </label>
                                         ]
@@ -5034,7 +5053,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_84', $data); ?> >
                                             <span class="flex-1 text-[#586B74] text-[14px]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></span>
                                         </label>
                                         ]
@@ -5055,7 +5074,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_85', $data); ?> >
                                     </label>
                                     <span class="flex-1 text-[#586B74] text-[14px]">Sopijapuolet ovat allekirjoittaneet tämän pöytäkirjan sähköisesti. Pöytäkirja on pätevä, kun molemmat osapuolet ovat sen allekirjoittaneet. Kumpikin sopijapuoli tallentaa ja/tai tulostaa allekirjoituspalvelujärjestelmästä oman asiakirjakappaleensa.]</span>
                                 </span>
@@ -5070,7 +5089,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                             </g>
                                         </svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_86', $data); ?> >
                                 </label>
                             
                                 <div class="grid lg:grid-cols-12">
@@ -5091,7 +5110,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                             </g>
                                                         </svg>
                                                     </span>
-                                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                    <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_87', $data); ?> >
                                                     <span class="flex-1 text-[#586B74] text-[14px]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P1', true ), 'P1') ); ?></span>
                                                 </label>
                                                 ]
@@ -5108,7 +5127,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                             </g>
                                                         </svg>
                                                     </span>
-                                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                    <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_88', $data); ?> >
                                                     <span class="flex-1 text-[#586B74] text-[14px]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></span>
                                                 </label>
                                                 ]
@@ -5134,7 +5153,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                             </g>
                                                         </svg>
                                                     </span>
-                                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                    <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_89', $data); ?> >
                                                     <span class="flex-1 text-[#586B74] text-[14px]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P1', true ), 'P1') ); ?></span>
                                                 </label>
                                                 ]
@@ -5151,7 +5170,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                             </g>
                                                         </svg>
                                                     </span>
-                                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                                    <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_90', $data); ?> >
                                                     <span class="flex-1 text-[#586B74] text-[14px]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></span>
                                                 </label>
                                                 ]
@@ -5173,7 +5192,8 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path>
                                                 <circle cx="12" cy="16" r="1" fill="#000000"></circle>
                                             </g>
-                                        </svg> </a>
+                                        </svg>
+                                    </a>
                             
                                     <hr class="help_line w-full border border-solid border-[#E1E1EA] hidden">
                                 </div>
@@ -5186,7 +5206,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                             <div class="max-w-[700px] mx-auto">
 
                                 <span class="text-[#586B74] text-[15px] inline-flex flex-center gap-1 mb-4">
-                                    <label class="inline-flex items-center gap-2 cursor-pointer mr-2">
+                                    <label class="inline-flex items-center gap-2 cursor-pointer">
                                         <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -5196,7 +5216,7 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_91', $data); ?> >
                                     </label>
                                     <span class="flex-1 text-[#586B74] text-[14px]">Ei liitteitä</span>
                                 </span>
@@ -5212,18 +5232,17 @@ $data = !empty( get_post_meta( $project_id, $ptname, true ) ) ? json_decode( get
                                                 </g>
                                             </svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1" wfd-id="id108">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0"  <?php echo noste_checkbox_attrset('noste_tals2_poytakirja_check_65', $data); ?>  wfd-id="id108">
                                     </label>
                                     <p class="text-[#586B74] text-[14px] leading-7 w-[50px]">Liite 1</p>
                                     <span class="text-[#586B74] text-[14px] w-full">
-                                        <input type="text" name="pilar_filed8_6_4" placeholder="Vapaa teksti, xx.xx.xxxx" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
+                                        <input type="text"  <?php echo noste_textinput_attrset('noste_tals2_paytakirja_94', $data); ?>  placeholder="Vapaa teksti, xx.xx.xxxx" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2" wfd-id="id109">
                                     </span>
                                 </div>
                                 
                             </div>
                         </div>
-                    </div>
-                    <!-- / Card Body -->
+                    </div><!-- Card Body -->
 
                     <!-- Card footer -->
                     <?php echo wp_kses_post(noste_form_footer('form')); ?>

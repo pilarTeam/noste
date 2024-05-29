@@ -1,59 +1,66 @@
-<?php
-$tm = $_GET['tm'];
+<?php 
+	$tm = $_GET['tm'];
+    $user = wp_get_current_user();
 
-$project_intdata = get_post_meta(get_the_ID(), sprintf('%s_status', $tm), true);
+	$project_intdata = !empty(get_post_meta( get_the_ID(), sprintf('%s_status', $tm), true )) ? json_decode( get_post_meta( get_the_ID(), sprintf('%s_status', $tm), true ), true ) : [];
 
 
 
-
-$tm_inner = [
-	'suunnittelijoilta' => [
-		'title' => 'Pyydä tilasuunnittelijalta suunnittelutarjous ja pyydä tarvittaessa muilta suunnittelijoilta tarjoukset konsultoinnista',
-		'status' => !empty($project_intdata['status']['suunnittelijoilta']) ? $project_intdata['status']['suunnittelijoilta'] : 'aloittamatta',
-		'url' => [
-			'link'	=> 'suunnittelutarjouksen',
-			'title'	=> 'OHJE Suunnittelutarjouksen pyytäminen'
+	$tm_inner = [
+		'suunnittelijoilta' => [
+			'title' => 'Pyydä tilasuunnittelijalta suunnittelutarjous ja pyydä tarvittaessa muilta suunnittelijoilta tarjoukset konsultoinnista',
+			'status' => !empty($project_intdata['suunnittelijoilta']['status']) ? $project_intdata['suunnittelijoilta']['status'] : 0,
+			'url' => [
+				'link'	=> 'suunnittelutarjouksen',
+				'title'	=> 'OHJE Suunnittelutarjouksen pyytäminen'
+			],
+			'comment' => !empty($project_intdata['suunnittelijoilta']['comment']) ? $project_intdata['suunnittelijoilta']['comment'] : '',
 		],
-		'comment' => !empty($project_intdata['comment']['suunnittelijoilta']) ? $project_intdata['comment']['suunnittelijoilta'] : 'aloittamatta',
-	],
-	'kirjallisesti' => [
-		'title' => 'Varmista, että tarjoukset ovat kustannusarvion rajoissa ja että tilaaja hyväksyy toimeksiantotilaukset kirjallisesti',
-		'status' => !empty($project_intdata['status']['kirjallisesti']) ? $project_intdata['status']['kirjallisesti'] : 'aloittamatta',
-		'url' => '',
-		'comment' => !empty($project_intdata['comment']['kirjallisesti']) ? $project_intdata['comment']['kirjallisesti'] : 'aloittamatta',
-	],
-	'suunnittelijoilla' => [
-		'title' => 'Tilaa suunnittelu ja varmista että suunnittelijoilla on oikeat lähtötiedot ja ohjeet toimeksiantoa varten',
-		'status' => !empty($project_intdata['status']['suunnittelijoilla']) ? $project_intdata['status']['suunnittelijoilla'] : 'aloittamatta',
-		'url' => '',
-		'comment' => !empty($project_intdata['comment']['suunnittelijoilla']) ? $project_intdata['comment']['suunnittelijoilla'] : 'aloittamatta',
-	],
-	'haitta-ainekartoitusraportti' => [
-		'title' => 'Tilaa asbesti- ja haitta-ainekartoitusraportti tarvittaessa',
-		'status' => !empty($project_intdata['status']['haitta-ainekartoitusraportti']) ? $project_intdata['status']['haitta-ainekartoitusraportti'] : 'aloittamatta',
-		'url' => [
-			'link'	=> '',
-			'title'	=> 'OHJE Asbesti ja haitta-ainekartoituksen tekeminen'
+		'kirjallisesti' => [
+			'title' => 'Varmista, että tarjoukset ovat kustannusarvion rajoissa ja että tilaaja hyväksyy toimeksiantotilaukset kirjallisesti',
+			'status' => !empty($project_intdata['kirjallisesti']['status']) ? $project_intdata['kirjallisesti']['status'] : 0,
+			'url' => '',
+			'comment' => !empty($project_intdata['kirjallisesti']['comment']) ? $project_intdata['kirjallisesti']['comment'] : '',
 		],
-		'comment' => !empty($project_intdata['comment']['haitta-ainekartoitusraportti']) ? $project_intdata['comment']['haitta-ainekartoitusraportti'] : 'aloittamatta',
-	],
-	'urakkalaskentasuunnitelmat' => [
-		'title' => 'Tarkista, että tehdyt urakkalaskentasuunnitelmat vastaavat vuokrasopimuksessa sovittua laatua',
-		'status' => !empty($project_intdata['status']['urakkalaskentasuunnitelmat']) ? $project_intdata['status']['urakkalaskentasuunnitelmat'] : 'aloittamatta',
-		'url' => [
-			'link'	=> 'urakkalaskentasuunnitelmien',
-			'title'	=> 'OHJE Urakkalaskentasuunnitelmien tarkastus'
+		'suunnittelijoilla' => [
+			'title' => 'Tilaa suunnittelu ja varmista että suunnittelijoilla on oikeat lähtötiedot ja ohjeet toimeksiantoa varten',
+			'status' => !empty($project_intdata['suunnittelijoilla']['status']) ? $project_intdata['suunnittelijoilla']['status'] : 0,
+			'url' => '',
+			'comment' => !empty($project_intdata['suunnittelijoilla']['comment']) ? $project_intdata['suunnittelijoilla']['comment'] : '',
 		],
-		'comment' => !empty($project_intdata['comment']['urakkalaskentasuunnitelmat']) ? $project_intdata['comment']['urakkalaskentasuunnitelmat'] : 'aloittamatta',
-	],
-	'varmista' => [
-		'title' => 'Varmista, että urakkalaskentasuunnittelu saatetaan valmiiksi',
-		'status' => !empty($project_intdata['status']['varmista']) ? $project_intdata['status']['varmista'] : 'aloittamatta',
-		'url' => '',
-		'comment' => !empty($project_intdata['comment']['varmista']) ? $project_intdata['comment']['varmista'] : 'aloittamatta',
-	],
-];
+		'haitta-ainekartoitusraportti' => [
+			'title' => 'Tilaa asbesti- ja haitta-ainekartoitusraportti tarvittaessa',
+			'status' => !empty($project_intdata['haitta-ainekartoitusraportti']['status']) ? $project_intdata['haitta-ainekartoitusraportti']['status'] : 0,
+			'url' => [
+				'link'	=> '',
+				'title'	=> 'OHJE Asbesti ja haitta-ainekartoituksen tekeminen'
+			],
+			'comment' => !empty($project_intdata['haitta-ainekartoitusraportti']['comment']) ? $project_intdata['haitta-ainekartoitusraportti']['comment'] : '',
+		],
+		'urakkalaskentasuunnitelmat' => [
+			'title' => 'Tarkista, että tehdyt urakkalaskentasuunnitelmat vastaavat vuokrasopimuksessa sovittua laatua',
+			'status' => !empty($project_intdata['urakkalaskentasuunnitelmat']['status']) ? $project_intdata['urakkalaskentasuunnitelmat']['status'] : 0,
+			'url' => [
+				'link'	=> 'urakkalaskentasuunnitelmien',
+				'title'	=> 'OHJE Urakkalaskentasuunnitelmien tarkastus'
+			],
+			'comment' => !empty($project_intdata['urakkalaskentasuunnitelmat']['comment']) ? $project_intdata['urakkalaskentasuunnitelmat']['comment'] : '',
+		],
+		'varmista' => [
+			'title' => 'Varmista, että urakkalaskentasuunnittelu saatetaan valmiiksi',
+			'status' => !empty($project_intdata['varmista']['status']) ? $project_intdata['varmista']['status'] : 0,
+			'url' => '',
+			'comment' => !empty($project_intdata['varmista']['comment']) ? $project_intdata['varmista']['comment'] : '',
+		],
+	];
 
+
+	$status = [
+		'Aloittamatta',
+		'Aloitettu',
+		'Odottaa hyväksyntää',
+		'Hyväksytty'
+	];
 ?>
 
 
@@ -135,9 +142,9 @@ $tm_inner = [
 					<div>
 
 						<div class="flex flex-col">
-							<div class="overflow-x-auto shadow-md sm:rounded-lg">
-								<div class="inline-block min-w-full align-middle">
-									<div class="overflow-hidden">
+                            <div class="overflow-x-auto shadow-md sm:rounded-lg">
+                                <div class="inline-block min-w-full align-middle">
+                                    <div class="overflow-hidden">
 										<table class="w-full whitespace-wrap border-collapse">
 											<thead class="text-left rounded-t-lg bg-accent text-white">
 												<tr class="rounded-lg">
@@ -147,52 +154,89 @@ $tm_inner = [
 													<th class="p-3 min-w-[310px]">Kommentti:</th>
 												</tr>
 											</thead>
-											<tbody>
-												<?php foreach ($tm_inner as $key => $value) : ?>
-													<tr>
-														<td class="px-4 py-3 border border-line">
-															<p class="text-sm text-[#818D93]"><?php echo esc_html($value['title']); ?></p>
-														</td>
-														<td class="px-4 py-3 border border-line text-sm" id="project_table_status">
-															<div class="inline-flex items-center rounded-md border border-line px-2 py-1 <?php echo esc_attr(strtolower($value['status'])); ?>">
-																<span></span>
-																<?php echo esc_html($value['status']); ?>
-															</div>
-														</td>
-														<td class="px-4 py-3 border border-line">
-															<?php
-															if (!empty($value['url'])) :
-																$title = !empty($value['url']['title']) ? $value['url']['title'] : false;
-																$link = !empty($value['url']['link']) ? $value['url']['link'] : false;
-																if (!empty($link)) :
-																	$tmin_url = add_query_arg([
-																		'tm' => $tm,
-																		'tmin' => $value['url']['link']
-																	], get_permalink(get_the_ID()));
-															?>
-																	<a href="<?php echo esc_attr($tmin_url); ?>" class="text-accent underline decoration-accent text-sm"><?php echo esc_html($title); ?></a>
-																<?php
-																else :
-																?>
-																	<p class="text-sm text-[#818D93]"><?php echo esc_html($title); ?></p>
-																<?php endif; ?>
-															<?php endif ?>
-														</td>
-														<td class="px-4 py-3 border border-line">
-															<form action="#" method="post" id="step_comments">
-																<input type="hidden" name="tm" value="<?php echo esc_attr($tm); ?>">
-																<input type="hidden" name="tmin" value="<?php echo esc_attr($key); ?>">
-																<input class="border border-accent w-full rounded-md" type="text" name="comments">
-															</form>
-														</td>
-													</tr>
-												<?php endforeach ?>
-											</tbody>
-										</table>
-									</div>
-								</div>
-							</div>
-						</div>
+                                            <tbody>
+                                            	<?php foreach ($tm_inner as $key => $value): ?>
+	                                                <tr>
+	                                                    <td class="px-4 py-3 border border-line">
+	                                                        <p class="text-sm text-[#818D93]"><?php echo esc_html( $value['title'] ); ?></p>
+	                                                    </td>
+	                                                    <td class="px-4 py-3 border border-line text-sm" id="project_table_status">
+
+                                                        <?php if ( array_intersect( [ 'um_valvoja' ], $user->roles ) ): ?>
+                                                            <form action="#" method="post" id="valvoja_status">
+                                                                <input type="hidden" name="post_id" value="<?php echo esc_attr(get_the_ID()); ?>">
+                                                                <input type="hidden" name="tm" value="<?php echo esc_attr( $tm ); ?>">
+                                                                <input type="hidden" name="tmin" value="<?php echo esc_attr( $key ); ?>">
+
+                                                                <select name="valvoja_status" class="status_<?php echo esc_attr( strtolower( $value['status'] ) ); ?>">
+                                                                    <?php foreach ($status as $k => $v): ?>
+                                                                        <option value="<?php echo esc_attr( $k ); ?>" <?php selected( strtolower( $value['status'] ), $k, true ); ?>><?php echo esc_html( $v ); ?></option>
+                                                                    <?php endforeach; ?>
+                                                                </select>
+                                                            </form>
+                                                        <?php else: ?>    
+                                                            <div class="instep-status relative inline-flex items-center rounded-md border border-line px-2 py-1 <?php echo esc_attr( 'status_' . strtolower( $value['status'] ) ); ?>">
+                                                            	<span></span>
+                                                                <?php echo esc_html( $status[$value['status']] ); ?>
+                                                            </div>
+                                                        <?php endif ?>
+                                                        <style type="text/css">
+                                                            form#valvoja_status select {
+                                                                border: 1px solid #ddd;
+                                                                background: transparent;
+                                                                border-radius: 3px;
+                                                            }
+                                                            form#valvoja_status select.status_2 {
+                                                                border-left: 8px solid rgb(0 178 169 / var(--tw-border-opacity));
+                                                            }   
+                                                            form#valvoja_status select.status_3 {
+                                                                border-left: 8px solid rgb(6 249 183 / var(--tw-border-opacity));
+                                                            }
+                                                            form#valvoja_status select.status_1 {
+                                                                border-left: 8px solid #E1E1EA;
+                                                            }
+                                                            form#valvoja_status select.status_0 {
+                                                                border-left: 10px solid #f5f5f5;
+                                                            }
+                                                        </style>
+
+                                                            <!-- $status -->
+	                                                    </td>
+	                                                    <td class="px-4 py-3 border border-line">
+                                                            <?php
+                                                                if (!empty($value['url'])) :
+                                                                    $title = !empty($value['url']['title']) ? $value['url']['title'] : false;
+                                                                    $link = !empty($value['url']['link']) ? $value['url']['link'] : false;
+                                                                    if (!empty($link)) :
+                                                                        $tmin_url = add_query_arg([
+                                                                            'tm' => $tm,
+                                                                            'tmin' => $value['url']['link']
+                                                                        ], get_permalink(get_the_ID()));
+                                                                ?>
+                                                                        <a href="<?php echo esc_attr($tmin_url); ?>" class="text-accent underline decoration-accent text-sm"><?php echo esc_html($title); ?></a>
+                                                                    <?php
+                                                                    else :
+                                                                    ?>
+                                                                        <p class="text-sm text-[#818D93]"><?php echo esc_html($title); ?></p>
+                                                                    <?php endif; ?>
+                                                                <?php endif ?>
+	                                                    </td>
+	                                                    <td class="px-4 py-3 border border-line">
+	                                                        <form action="#" method="post" id="step_comments" class="<?php echo esc_attr( empty($value['url']) || empty($value['url']['link']) ? 'not_form' : 'form' ); ?>">
+                                                                <input type="hidden" name="post_id" value="<?php echo esc_attr(get_the_ID()); ?>">
+	                                                        	<input type="hidden" name="tm" value="<?php echo esc_attr( $tm ); ?>">
+	                                                        	<input type="hidden" name="tmin" value="<?php echo esc_attr( $key ); ?>">
+	                                                            <input class="border border-accent w-full rounded-md" type="text" name="comments" value="<?php echo esc_attr( $value['comment'] ); ?>">
+	                                                        </form>
+	                                                    </td>
+	                                                </tr>                                            		
+                                            	<?php endforeach ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 					</div>
 				</div><!-- Card Body -->

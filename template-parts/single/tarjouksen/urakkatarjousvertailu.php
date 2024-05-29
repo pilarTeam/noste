@@ -1,11 +1,9 @@
 <?php 
 
-if ( !is_singular( 'projektitiedot' ) ) {
-   return;
-}
+if (!is_singular('projektitiedot')) {return;}
 
 $project_id = get_the_ID();
-
+$data = the_form_stored_data();
 ?>
 
 
@@ -18,9 +16,9 @@ $project_id = get_the_ID();
             <div class="card_item relative h-fit">
                 <!-- Card Header --><?php echo wp_kses_post(noste_form_header('form')); ?><!-- Card Header -->
                 
-                <form action="<?php echo esc_url( get_permalink( get_the_ID() ) ); ?>" method="post" enctype="multipart/form-data" class="ajax-submit">
+                <form action="<?php echo esc_url(get_permalink(get_the_ID())); ?>" method="post" enctype="multipart/form-data" class="ajax-submit">
                     <?php wp_nonce_field('project_step_form_validation', 'project_step_form__nonce_field'); ?>
-                    <input type="hidden" name="ptname" value="<?php echo esc_attr(implode('_', ['noste', $_GET['tm'], $_GET['tmin']])); ?>">
+                    <input type="hidden" name="ptname" value="<?php echo esc_attr(get_the_ptname()); ?>">
                     <input type="hidden" name="action" value="noste_update_project_step">
                     <input type="hidden" name="post_id" value="<?php echo esc_attr( $project_id ); ?>">
                     
@@ -47,16 +45,16 @@ $project_id = get_the_ID();
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-white bg-[#00B2A9] text-[14px]">Sisältö</td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-white bg-[#00B2A9] text-[14px]">Nosteen kustannusarvio</td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_1" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_1'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_2" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_2'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_3" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_3'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_4" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_4'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="py-2 px-3">
                                         <div class="help_wrap relative">
@@ -83,16 +81,16 @@ $project_id = get_the_ID();
                                     <td class="text-[#00B2A9] italic border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-[14px]">TY1, Syöte1</td>
                                     <td class="text-[#00B2A9] text-right italic border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-[14px]">TY1, Syöte2</td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_5" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_5'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_6" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_6'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_7" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_7'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_8" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_8'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="py-2 px-3">
                                         <div class="help_wrap relative">
@@ -113,34 +111,16 @@ $project_id = get_the_ID();
                                     <td class="text-[#00B2A9] italic border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-[14px]">TY2, Syöte1</td>
                                     <td class="text-[#00B2A9] text-right italic border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-[14px]">TY2, Syöte2</td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_9" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_9'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_10" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_10'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_11" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_11'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_12" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
-                                    </td>
-                                    <td class="py-2 px-3"></td>
-                                </tr>
-
-                                <tr>
-                                    <td class="text-[#00B2A9] italic border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-[14px]"></td>
-                                    <td class="text-[#00B2A9] text-right italic border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-[14px]"></td>
-                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_13" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
-                                    </td>
-                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_14" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
-                                    </td>
-                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_15" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
-                                    </td>
-                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_16" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_12'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="py-2 px-3"></td>
                                 </tr>
@@ -149,34 +129,16 @@ $project_id = get_the_ID();
                                     <td class="text-[#00B2A9] italic border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-[14px]"></td>
                                     <td class="text-[#00B2A9] text-right italic border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-[14px]"></td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_17" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_13'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_18" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_14'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_19" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_15'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_20" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
-                                    </td>
-                                    <td class="py-2 px-3"></td>
-                                </tr>
-
-                                <tr>
-                                    <td class="text-[#00B2A9] italic border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-[14px]"></td>
-                                    <td class="text-[#00B2A9] text-right italic border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-[14px]"></td>
-                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_21" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
-                                    </td>
-                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_22" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
-                                    </td>
-                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_23" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
-                                    </td>
-                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_24" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_16'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="py-2 px-3"></td>
                                 </tr>
@@ -185,34 +147,16 @@ $project_id = get_the_ID();
                                     <td class="text-[#00B2A9] italic border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-[14px]"></td>
                                     <td class="text-[#00B2A9] text-right italic border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-[14px]"></td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_25" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_17'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_26" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_18'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_27" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_19'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_28" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
-                                    </td>
-                                    <td class="py-2 px-3"></td>
-                                </tr>
-
-                                <tr>
-                                    <td class="text-[#00B2A9] italic border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-[14px]"></td>
-                                    <td class="text-[#00B2A9] text-right italic border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-[14px]"></td>
-                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_29" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
-                                    </td>
-                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_30" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
-                                    </td>
-                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_31" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
-                                    </td>
-                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_32" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_20'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="py-2 px-3"></td>
                                 </tr>
@@ -221,34 +165,16 @@ $project_id = get_the_ID();
                                     <td class="text-[#00B2A9] italic border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-[14px]"></td>
                                     <td class="text-[#00B2A9] text-right italic border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-[14px]"></td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_33" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_21'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_34" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_22'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_35" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_23'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_36" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
-                                    </td>
-                                    <td class="py-2 px-3"></td>
-                                </tr>
-
-                                <tr>
-                                    <td class="text-[#00B2A9] italic border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-[14px]"></td>
-                                    <td class="text-[#00B2A9] text-right italic border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-[14px]"></td>
-                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_37" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
-                                    </td>
-                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_38" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
-                                    </td>
-                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_39" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
-                                    </td>
-                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_40" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_24'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="py-2 px-3"></td>
                                 </tr>
@@ -257,16 +183,88 @@ $project_id = get_the_ID();
                                     <td class="text-[#00B2A9] italic border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-[14px]"></td>
                                     <td class="text-[#00B2A9] text-right italic border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-[14px]"></td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_41" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_25'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_42" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_26'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_43" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_27'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_44" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_28'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                    </td>
+                                    <td class="py-2 px-3"></td>
+                                </tr>
+
+                                <tr>
+                                    <td class="text-[#00B2A9] italic border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-[14px]"></td>
+                                    <td class="text-[#00B2A9] text-right italic border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-[14px]"></td>
+                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_29'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                    </td>
+                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_30'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                    </td>
+                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_31'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                    </td>
+                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_32'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                    </td>
+                                    <td class="py-2 px-3"></td>
+                                </tr>
+
+                                <tr>
+                                    <td class="text-[#00B2A9] italic border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-[14px]"></td>
+                                    <td class="text-[#00B2A9] text-right italic border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-[14px]"></td>
+                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_33'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                    </td>
+                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_34'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                    </td>
+                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_35'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                    </td>
+                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_36'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                    </td>
+                                    <td class="py-2 px-3"></td>
+                                </tr>
+
+                                <tr>
+                                    <td class="text-[#00B2A9] italic border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-[14px]"></td>
+                                    <td class="text-[#00B2A9] text-right italic border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-[14px]"></td>
+                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_37'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                    </td>
+                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_38'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                    </td>
+                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_39'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                    </td>
+                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_40'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                    </td>
+                                    <td class="py-2 px-3"></td>
+                                </tr>
+
+                                <tr>
+                                    <td class="text-[#00B2A9] italic border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-[14px]"></td>
+                                    <td class="text-[#00B2A9] text-right italic border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-[14px]"></td>
+                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_41'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                    </td>
+                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_42'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                    </td>
+                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_43'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                    </td>
+                                    <td class="border border-solid border-[#E1E1EA] py-2 px-3">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_44'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="py-2 px-3"></td>
                                 </tr>
@@ -275,16 +273,16 @@ $project_id = get_the_ID();
                                     <td class="text-[#00B2A9] italic border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-[14px]">TY12, Syöte1</td>
                                     <td class="text-[#00B2A9] text-right italic border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-[14px]">TY12, Syöte2</td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_45" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_45'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_46" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_46'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_47" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_47'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_48" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_48'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="py-2 px-3"></td>
                                 </tr>
@@ -402,16 +400,16 @@ $project_id = get_the_ID();
                                 <tr>
                                     <td class="text-[#283B44] font-medium border border-solid border-[#E1E1EA] py-2 px-3 w-[20%] text-[14px]" colspan="2">Korjaus vertailukelpoiseksi</td>
                                     <td class="text-[#00B2A9] text-[14px] italic text-right border border-solid border-[#E1E1EA] py-2 px-3">
-                                    <input type="text" name="pilar_i1_49" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                    <input type="text" <?php noste_textinput_attrset('noste_i1_49'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="text-[#00B2A9] text-[14px] italic text-right border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_50" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_50'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="text-[#00B2A9] text-[14px] italic text-right border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_51" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_51'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="text-[#00B2A9] text-[14px] italic text-right border border-solid border-[#E1E1EA] py-2 px-3">
-                                        <input type="text" name="pilar_i1_52" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_i1_52'); ?>" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] py-1 px-2">
                                     </td>
                                     <td class="py-2 px-3">
                                         <div class="help_wrap relative">

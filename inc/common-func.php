@@ -143,24 +143,6 @@ function noste_is_checked($stored, $current, $echo = true) {
     return;
 }
 
-/** <?php noste_checkbox_attrset('pilar_TY1', $data); ?> */
-function noste_checkbox_attrset($value, $data) {
-	$dataset = isset($data['noste_check'])?(array) $data['noste_check']:(array) $data;
-	echo sprintf(
-		'name="noste_check[]" value="%s" %s',
-		esc_attr($value),
-		in_array($value, (array) $dataset)?'checked':''
-	);
-}
-/** <?php noste_textinput_attrset('pilar_TY1', $data, ''); ?> */
-function noste_textinput_attrset($name, $data, $default = '') {
-	echo sprintf(
-		'name="%s" value="%s"',
-		esc_attr($name),
-		esc_attr(isset($data[$name])?$data[$name]:$default)
-	);
-}
-
 
 function noste_custom_logo_url () {
 	$custom_logo_id = get_theme_mod( 'custom_logo' );
@@ -686,7 +668,8 @@ function noste_update_project_step() {
 		unset($_POST[$k]);			
 	}
 
-	$data = json_encode( $_POST );
+	// $data = maybe_serialize( $_POST );
+	$data = $_POST;
 
 	if ( empty($data) ) {
 		$error = new WP_Error( '005', 'Content Data issue' );
@@ -958,28 +941,6 @@ function update_manager_project_status(){
 
 	wp_die();
 }
-add_action( 'wp_ajax_noste_get_project_step', 'noste_get_project_step');
-function noste_get_project_step() {
-    $response = (object) ['global_keywords' => [], 'submissions' => []];
-    $ptname = implode('_', ['noste', $_GET['tm'], $_GET['tmin']]);
-	// $json = get_post_meta((int) $_GET['project_id']);
-	// foreach ((array) $json as $key => $valArr) {if ($valArr[0]) {$json[$key] = $valArr[0];}}
-    // $json = [
-    //     ...$json,
-    //     ...(array) json_decode(get_post_meta((int) $_GET['project_id'], $ptname, true), true)
-    // ];
-    $global_keywords = (array) get_post_meta((int) $_GET['project_id']);
-    foreach ($global_keywords as $key => $value) {
-        if (count($value) == 1) {$global_keywords[$key] = $value[0];}
-    }
-	$global_data = array_filter($global_keywords, function($k){
-		return str_contains( $k, 'pilar' );
-	}, ARRAY_FILTER_USE_KEY);
-    $response->global_keywords = $global_data;
-    $response->submissions = (array) json_decode(get_post_meta((int) $_GET['project_id'], $ptname, true), true);
-	wp_send_json($response);
-}
-
 
 
 function update_comment_box() {

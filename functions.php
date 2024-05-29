@@ -5,7 +5,8 @@ if ( ! defined( '_S_VERSION' ) ) {
 }
 
 
-require get_template_directory() . '/inc/common-func.php';	
+require get_template_directory() . '/inc/common-func.php';
+include_once get_template_directory() . '/inc/supportive-func.php';
 
 if ( class_exists( 'UM' ) ) {
 	require get_template_directory() . '/inc/um-func.php';	

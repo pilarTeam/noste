@@ -1,66 +1,70 @@
-<?php
-$tm = $_GET['tm'];
+<?php 
+	$tm = $_GET['tm'];
+    $user = wp_get_current_user();
 
-$project_intdata = get_post_meta(get_the_ID(), sprintf('%s_status', $tm), true);
-
-
-
+	$project_intdata = !empty(get_post_meta( get_the_ID(), sprintf('%s_status', $tm), true )) ? json_decode( get_post_meta( get_the_ID(), sprintf('%s_status', $tm), true ), true ) : [];
 
 
-$tm_inner = [
-	'vastaanottoon-liittyvat-dokumentit' => [
-		'title' => 'Tarkasta urakoitsijan toimittamat vastaanottoon liittyvät dokumentit',
-		'status' => !empty($project_intdata['status']['vastaanottoon-liittyvat-dokumentit']) ? $project_intdata['status']['vastaanottoon-liittyvat-dokumentit'] : 'aloittamatta',
-		'url' => [
-			'link'	=> 'huomioitavaa',
-			'title'	=> 'OHJE Vastaanotossa huomioitavaa'
+	$tm_inner = [
+		'vastaanottoon-liittyvat-dokumentit' => [
+			'title' => 'Tarkasta urakoitsijan toimittamat vastaanottoon liittyvät dokumentit',
+			'status' => !empty($project_intdata['vastaanottoon-liittyvat-dokumentit']['status']) ? $project_intdata['vastaanottoon-liittyvat-dokumentit']['status'] : 0,
+			'url' => [
+				'link'	=> 'huomioitavaa',
+				'title'	=> 'OHJE Vastaanotossa huomioitavaa'
+			],
+			'comment' => !empty($project_intdata['vastaanottoon-liittyvat-dokumentit']['comment']) ? $project_intdata['vastaanottoon-liittyvat-dokumentit']['comment'] : '',
 		],
-		'comment' => !empty($project_intdata['comment']['vastaanottoon-liittyvat-dokumentit']) ? $project_intdata['comment']['vastaanottoon-liittyvat-dokumentit'] : 'aloittamatta',
-	],
-	'toimita-kokouksen-osallistujille' => [
-		'title' => 'Laadi vastaanottotarkastusasialista ja toimita se kokouksen osallistujille',
-		'status' => !empty($project_intdata['status']['toimita-kokouksen-osallistujille']) ? $project_intdata['status']['toimita-kokouksen-osallistujille'] : 'aloittamatta',
-		'url' => [
-			'link'	=> 'vastaanottotarkastuksen-asialista',
-			'title'	=> 'Vastaanottotarkastuksen asialista'
+		'toimita-kokouksen-osallistujille' => [
+			'title' => 'Laadi vastaanottotarkastusasialista ja toimita se kokouksen osallistujille',
+			'status' => !empty($project_intdata['toimita-kokouksen-osallistujille']['status']) ? $project_intdata['toimita-kokouksen-osallistujille']['status'] : 0,
+			'url' => [
+				'link'	=> 'vastaanottotarkastuksen-asialista',
+				'title'	=> 'Vastaanottotarkastuksen asialista'
+			],
+			'comment' => !empty($project_intdata['toimita-kokouksen-osallistujille']['comment']) ? $project_intdata['toimita-kokouksen-osallistujille']['comment'] : '',
 		],
-		'comment' => !empty($project_intdata['comment']['toimita-kokouksen-osallistujille']) ? $project_intdata['comment']['toimita-kokouksen-osallistujille'] : 'aloittamatta',
-	],
-	'sopimuksenmukaisuus' => [
-		'title' => 'Tarkasta urakan sopimuksenmukaisuus',
-		'status' => !empty($project_intdata['status']['sopimuksenmukaisuus']) ? $project_intdata['status']['sopimuksenmukaisuus'] : 'aloittamatta',
-		'url' => '',
-		'comment' => !empty($project_intdata['comment']['sopimuksenmukaisuus']) ? $project_intdata['comment']['sopimuksenmukaisuus'] : 'aloittamatta',
-	],
-	'tarkasta-urakan-rakennustyöt' => [
-		'title' => 'Tarkasta urakan rakennustyöt ja huolehdi, että urakoitsija kirjaa ylös virhe- ja puutelistaukseen kaikki huomiot',
-		'status' => !empty($project_intdata['status']['tarkasta-urakan-rakennustyöt']) ? $project_intdata['status']['tarkasta-urakan-rakennustyöt'] : 'aloittamatta',
-		'url' => '',
-		'comment' => !empty($project_intdata['comment']['tarkasta-urakan-rakennustyöt']) ? $project_intdata['comment']['tarkasta-urakan-rakennustyöt'] : 'aloittamatta',
-	],
-	'vastaanottotarkastustilaisuus' => [
-		'title' => 'Pidä vastaanottotarkastustilaisuus',
-		'status' => !empty($project_intdata['status']['vastaanottotarkastustilaisuus']) ? $project_intdata['status']['vastaanottotarkastustilaisuus'] : 'aloittamatta',
-		'url' => '',
-		'comment' => !empty($project_intdata['comment']['vastaanottotarkastustilaisuus']) ? $project_intdata['comment']['vastaanottotarkastustilaisuus'] : 'aloittamatta',
-	],
-	'vastaanottotarkastuspoytakirja' => [
-		'title' => 'Laadi vastaanottotarkastuspöytäkirja liitteineen ja toimita se kokouksen osallistujille',
-		'status' => !empty($project_intdata['status']['vastaanottotarkastuspoytakirja']) ? $project_intdata['status']['vastaanottotarkastuspoytakirja'] : 'aloittamatta',
-		'url' => [
-			'link'	=> 'hallinnanluovutustilaisuus_poytakirja',
-			'title'	=> 'Vastaanottotarkastuksen poytäkirja'
+		'sopimuksenmukaisuus' => [
+			'title' => 'Tarkasta urakan sopimuksenmukaisuus',
+			'status' => !empty($project_intdata['sopimuksenmukaisuus']['status']) ? $project_intdata['sopimuksenmukaisuus']['status'] : 0,
+			'url' => '',
+			'comment' => !empty($project_intdata['sopimuksenmukaisuus']['comment']) ? $project_intdata['sopimuksenmukaisuus']['comment'] : '',
 		],
-		'comment' => !empty($project_intdata['comment']['vastaanottotarkastuspoytakirja']) ? $project_intdata['comment']['vastaanottotarkastuspoytakirja'] : 'aloittamatta',
-	],
-	'varmista' => [
-		'title' => 'Varmista, että vastaanottotarkastuspöytäkirja allekirjoitetaan',
-		'status' => !empty($project_intdata['status']['varmista']) ? $project_intdata['status']['varmista'] : 'aloittamatta',
-		'url' => '',
-		'comment' => !empty($project_intdata['comment']['varmista']) ? $project_intdata['comment']['varmista'] : 'aloittamatta',
-	],
-];
+		'tarkasta-urakan-rakennustyot' => [
+			'title' => 'Tarkasta urakan rakennustyöt ja huolehdi, että urakoitsija kirjaa ylös virhe- ja puutelistaukseen kaikki huomiot',
+			'status' => !empty($project_intdata['tarkasta-urakan-rakennustyot']['status']) ? $project_intdata['tarkasta-urakan-rakennustyot']['status'] : 0,
+			'url' => '',
+			'comment' => !empty($project_intdata['tarkasta-urakan-rakennustyot']['comment']) ? $project_intdata['tarkasta-urakan-rakennustyot']['comment'] : '',
+		],
+		'vastaanottotarkastustilaisuus' => [
+			'title' => 'Pidä vastaanottotarkastustilaisuus',
+			'status' => !empty($project_intdata['vastaanottotarkastustilaisuus']['status']) ? $project_intdata['vastaanottotarkastustilaisuus']['status'] : 0,
+			'url' => '',
+			'comment' => !empty($project_intdata['vastaanottotarkastustilaisuus']['comment']) ? $project_intdata['vastaanottotarkastustilaisuus']['comment'] : '',
+		],
+		'vastaanottotarkastuspoytakirja' => [
+			'title' => 'Laadi vastaanottotarkastuspöytäkirja liitteineen ja toimita se kokouksen osallistujille',
+			'status' => !empty($project_intdata['vastaanottotarkastuspoytakirja']['status']) ? $project_intdata['vastaanottotarkastuspoytakirja']['status'] : 0,
+			'url' => [
+				'link'	=> 'hallinnanluovutustilaisuus_poytakirja',
+				'title'	=> 'Vastaanottotarkastuksen poytäkirja'
+			],
+			'comment' => !empty($project_intdata['vastaanottotarkastuspoytakirja']['comment']) ? $project_intdata['vastaanottotarkastuspoytakirja']['comment'] : '',
+		],
+		'varmista' => [
+			'title' => 'Varmista, että vastaanottotarkastuspöytäkirja allekirjoitetaan',
+			'status' => !empty($project_intdata['varmista']['status']) ? $project_intdata['varmista']['status'] : 0,
+			'url' => '',
+			'comment' => !empty($project_intdata['varmista']['comment']) ? $project_intdata['varmista']['comment'] : '',
+		],
+	];
 
+	$status = [
+		'Aloittamatta',
+		'Aloitettu',
+		'Odottaa hyväksyntää',
+		'Hyväksytty'
+	];
 
 ?>
 
@@ -128,10 +132,10 @@ $tm_inner = [
 					<div>
 
 						<div class="flex flex-col">
-							<div class="overflow-x-auto shadow-md sm:rounded-lg">
-								<div class="inline-block min-w-full align-middle">
-									<div class="overflow-hidden">
-										<table class="w-full whitespace-wrap border-collapse">
+                            <div class="overflow-x-auto shadow-md sm:rounded-lg">
+                                <div class="inline-block min-w-full align-middle">
+                                    <div class="overflow-hidden">
+									<table class="w-full whitespace-wrap border-collapse">
 											<thead class="text-left rounded-t-lg bg-accent text-white">
 												<tr class="rounded-lg">
 													<th class="p-3">Tehtävät:</th>
@@ -140,59 +144,89 @@ $tm_inner = [
 													<th class="p-3 min-w-[310px]">Kommentti:</th>
 												</tr>
 											</thead>
-											<tbody>
-												<?php foreach ($tm_inner as $key => $value) : ?>
-													<tr>
-														<td class="px-4 py-3 border border-line">
-															<p class="text-sm text-[#818D93]"><?php echo esc_html($value['title']); ?></p>
-														</td>
-														<td class="px-4 py-3 border border-line text-sm" id="project_table_status">
-															<div class="inline-flex items-center rounded-md border border-line px-2 py-1 <?php echo esc_attr(strtolower($value['status'])); ?>">
-																<span></span>
-																<?php echo esc_html($value['status']); ?>
-															</div>
-														</td>
-														<td class="px-4 py-3 border border-line">
-															<?php
-															if (!empty($value['url'])) :
-																if (isset($value['url']['title'])) {
-																	$value['url'] = [
-																		$value['url']
-																	];
-																}
-																foreach ($value['url'] as $url) :
-																	$title = !empty($url['title']) ? $url['title'] : false;
-																	$link = !empty($url['link']) ? $url['link'] : false;
-																	if (!empty($link)) :
-																		$tmin_url = add_query_arg([
-																			'tm' => $tm,
-																			'tmin' => $url['link']
-																		], get_permalink(get_the_ID()));
-															?>
-																		<a href="<?php echo esc_attr($tmin_url); ?>" class="text-accent underline decoration-accent text-sm"><?php echo esc_html($title); ?></a>
-																	<?php
-																	else :
-																	?>
-																		<p class="text-sm text-[#818D93]"><?php echo esc_html($title); ?></p>
-																	<?php endif; ?>
-																<?php endforeach; ?>
-															<?php endif ?>
-														</td>
-														<td class="px-4 py-3 border border-line">
-															<form action="#" method="post" id="step_comments">
-																<input type="hidden" name="tm" value="<?php echo esc_attr($tm); ?>">
-																<input type="hidden" name="tmin" value="<?php echo esc_attr($key); ?>">
-																<input class="border border-accent w-full rounded-md" type="text" name="comments">
-															</form>
-														</td>
-													</tr>
-												<?php endforeach ?>
-											</tbody>
-										</table>
-									</div>
-								</div>
-							</div>
-						</div>
+                                            <tbody>
+                                            	<?php foreach ($tm_inner as $key => $value): ?>
+	                                                <tr>
+	                                                    <td class="px-4 py-3 border border-line">
+	                                                        <p class="text-sm text-[#818D93]"><?php echo esc_html( $value['title'] ); ?></p>
+	                                                    </td>
+	                                                    <td class="px-4 py-3 border border-line text-sm" id="project_table_status">
+
+                                                        <?php if ( array_intersect( [ 'um_valvoja' ], $user->roles ) ): ?>
+                                                            <form action="#" method="post" id="valvoja_status">
+                                                                <input type="hidden" name="post_id" value="<?php echo esc_attr(get_the_ID()); ?>">
+                                                                <input type="hidden" name="tm" value="<?php echo esc_attr( $tm ); ?>">
+                                                                <input type="hidden" name="tmin" value="<?php echo esc_attr( $key ); ?>">
+
+                                                                <select name="valvoja_status" class="status_<?php echo esc_attr( strtolower( $value['status'] ) ); ?>">
+                                                                    <?php foreach ($status as $k => $v): ?>
+                                                                        <option value="<?php echo esc_attr( $k ); ?>" <?php selected( strtolower( $value['status'] ), $k, true ); ?>><?php echo esc_html( $v ); ?></option>
+                                                                    <?php endforeach; ?>
+                                                                </select>
+                                                            </form>
+                                                        <?php else: ?>    
+                                                            <div class="instep-status relative inline-flex items-center rounded-md border border-line px-2 py-1 <?php echo esc_attr( 'status_' . strtolower( $value['status'] ) ); ?>">
+                                                            	<span></span>
+                                                                <?php echo esc_html( $status[$value['status']] ); ?>
+                                                            </div>
+                                                        <?php endif ?>
+                                                        <style type="text/css">
+                                                            form#valvoja_status select {
+                                                                border: 1px solid #ddd;
+                                                                background: transparent;
+                                                                border-radius: 3px;
+                                                            }
+                                                            form#valvoja_status select.status_2 {
+                                                                border-left: 8px solid rgb(0 178 169 / var(--tw-border-opacity));
+                                                            }   
+                                                            form#valvoja_status select.status_3 {
+                                                                border-left: 8px solid rgb(6 249 183 / var(--tw-border-opacity));
+                                                            }
+                                                            form#valvoja_status select.status_1 {
+                                                                border-left: 8px solid #E1E1EA;
+                                                            }
+                                                            form#valvoja_status select.status_0 {
+                                                                border-left: 10px solid #f5f5f5;
+                                                            }
+                                                        </style>
+
+                                                            <!-- $status -->
+	                                                    </td>
+	                                                    <td class="px-4 py-3 border border-line">
+                                                            <?php
+                                                                if (!empty($value['url'])) :
+                                                                    $title = !empty($value['url']['title']) ? $value['url']['title'] : false;
+                                                                    $link = !empty($value['url']['link']) ? $value['url']['link'] : false;
+                                                                    if (!empty($link)) :
+                                                                        $tmin_url = add_query_arg([
+                                                                            'tm' => $tm,
+                                                                            'tmin' => $value['url']['link']
+                                                                        ], get_permalink(get_the_ID()));
+                                                                ?>
+                                                                        <a href="<?php echo esc_attr($tmin_url); ?>" class="text-accent underline decoration-accent text-sm"><?php echo esc_html($title); ?></a>
+                                                                    <?php
+                                                                    else :
+                                                                    ?>
+                                                                        <p class="text-sm text-[#818D93]"><?php echo esc_html($title); ?></p>
+                                                                    <?php endif; ?>
+                                                                <?php endif ?>
+	                                                    </td>
+	                                                    <td class="px-4 py-3 border border-line">
+	                                                        <form action="#" method="post" id="step_comments" class="<?php echo esc_attr( empty($value['url']) || empty($value['url']['link']) ? 'not_form' : 'form' ); ?>">
+                                                                <input type="hidden" name="post_id" value="<?php echo esc_attr(get_the_ID()); ?>">
+	                                                        	<input type="hidden" name="tm" value="<?php echo esc_attr( $tm ); ?>">
+	                                                        	<input type="hidden" name="tmin" value="<?php echo esc_attr( $key ); ?>">
+	                                                            <input class="border border-accent w-full rounded-md" type="text" name="comments" value="<?php echo esc_attr( $value['comment'] ); ?>">
+	                                                        </form>
+	                                                    </td>
+	                                                </tr>                                            		
+                                            	<?php endforeach ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 					</div>
 				</div><!-- Card Body -->
