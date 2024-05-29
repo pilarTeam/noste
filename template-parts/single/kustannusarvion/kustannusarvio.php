@@ -29,7 +29,7 @@ $data = the_form_stored_data();
                             <span class="font-medium italic text-[#00B2A9] block"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K1', true ), 'K1') ); ?></span>
                             <span class="font-medium italic text-[#00B2A9] block"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K4', true ), 'K4') ); ?></span>
                             <div class="text-right">
-                                <span class="font-medium italic text-[#00B2A9] block">xx.xx.xxxx</span>
+                                <span class="font-medium italic text-[#00B2A9] block"><?php echo esc_html(wp_date('d.m.Y')); ?></span>
                             </div>
                         </div>
 

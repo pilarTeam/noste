@@ -155,7 +155,7 @@
 <div class="help_wrap relative mb-2 mt-20">
     <div class="max-w-[700px] mx-auto flex items-center gap-2">
         <label class="inline-flex items-center gap-2 cursor-pointer">
-            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
+            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
             </span>
             <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_checkbox_attrset('pilar_TY_1') }}>
@@ -182,14 +182,14 @@
     <div class="max-w-[700px] mx-auto flex items-center gap-2">
         <div class="flex flex-col lg:flex-row gap-5">
             <label class="inline-flex items-center gap-2 cursor-pointer">
-                <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
+                <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                     <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                 </span>
                 <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_checkbox_attrset('pilar_TY_2') }}>
                 
                 <span class="text-[#283B44] font-medium">OPTIOT</span>
             </label>
-            <input type="text" <?php noste_textinput_attrset('pilar_TY1', $data, ''); ?> placeholder="Aihe" class="w-[290px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">   
+            <input type="text" {{ helpers.noste_textinput_attrset('pilar_TY1') }} placeholder="Aihe" class="w-[290px] rounded-[5px] p-2">   
             <span class="flex items-end gap-2 block col-span-2 text-[#283B44]">
                 <span class="bg-[#D0D3D4] h-[1px] w-[164px]"></span>
                 € (alv. 0%)
@@ -292,7 +292,7 @@
     <p class="text-[#283B44] font-medium block mt-20 mb-3">Allekirjoitus:</p>
     <div>
         <label class="flex items-center gap-2 cursor-pointer">
-            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
+            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
             </span>
             <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_checkbox_attrset('pilar_TY_3') }}>
@@ -300,7 +300,7 @@
             <span class="text-[#586B74]">Tilaajavastuulain mukaiset selvitykset</span>
         </label>
         <label class="flex items-center gap-2 cursor-pointer mt-5">
-            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
+            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
             </span>
             <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_checkbox_attrset('pilar_TY_4') }}>

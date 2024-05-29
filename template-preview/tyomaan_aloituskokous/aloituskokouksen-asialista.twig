@@ -3,8 +3,8 @@
     <div>
         
         <div class="mb-14 pt-[72px] mx-auto lg:max-w-[850px]">
-            <p class="text-accent italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K1', true ), 'K1') ); ?></p>
-            <p class="text-accent italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K4', true ), 'K4') ); ?></p>
+            <p class="text-accent italic">{{ get_global_keyword( 'pilar_K1', 'K1') }}</p>
+            <p class="text-accent italic">{{ get_global_keyword( 'pilar_K4', 'K4') }}</p>
         </div>
 
         <!-- main step start -->
@@ -16,11 +16,11 @@
                 <div class="flex md:gap-[60px] flex-wrap">
                     <div class="flex gap-4 flex-wrap">
                         <p class="lg:mr-[107px] md:mr-[20px]">Aika ja paikka</p>
-                        <input class="border text-[#283B44] w-[104px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] p-3 font-medium" value="x.x.xxxx" type="text" name="" id="" />
+                        <input class="border text-[#283B44] w-[104px] h-8 rounded-md border-[#06F9B7] p-3 font-medium" value="x.x.xxxx" type="text" name="" id="" />
                         <p>klo</p>
-                        <input class="border w-[68px] text-[#283B44] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] p-3 font-medium" value="x.x.xxxx" type="text" name="" id="" />
+                        <input class="border w-[68px] text-[#283B44] h-8 rounded-md border-[#06F9B7] p-3 font-medium" value="x.x.xxxx" type="text" name="" id="" />
                     </div>
-                    <input class="border mt-[24px] md:mt-[0px] md:min-w-[264px] text-[#283B44] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] p-3 italic font-medium" value="Vapaa teksti" type="text" name="" id="" />
+                    <input class="border mt-[24px] md:mt-[0px] md:min-w-[264px] text-[#283B44] h-8 rounded-md border-[#06F9B7] p-3 italic font-medium" value="Vapaa teksti" type="text" name="" id="" />
                 </div>
 
                 <!-- nested step 1.2 -->
@@ -28,7 +28,7 @@
                     <div class="flex lg:gap-[20px] md:gap-[92px] gap-[20px] flex-wrap items-center">
                         <p class="lg:mr-[159px]">Läsnä</p>
                         <div class="relative flex items-center gap-3">
-                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -38,10 +38,10 @@
                                 </svg>
                             </span>
                             <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="pilar_K17" />
-                            <p class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U4', true ), 'U4') ); ?></p>
+                            <p class="italic text-[#00B2A9]">{{ get_global_keyword( 'pilar_U4', 'U4') }}</p>
                         </div>
                     </div>
-                    <p class="italic text-[#00B2A9] mr-4"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U1', true ), 'U1') ); ?></p>
+                    <p class="italic text-[#00B2A9] mr-4">{{ get_global_keyword( 'pilar_U1', 'U1') }}</p>
                 </div>
 
                 <!-- nested checkbox start -->
@@ -49,7 +49,7 @@
                     <div class="flex lg:gap-[236px] md:gap-[235px] gap-[24px] flex-wrap items-center mt-[21px]">
                         <div class="flex gap-4 flex-wrap items-center">
                             <div class="relative flex items-center gap-3">
-                                <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                     <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -59,16 +59,16 @@
                                     </svg>
                                 </span>
                                 <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="pilar_K17" />
-                                <p class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U7', true ), 'U7') ); ?></p>
+                                <p class="italic text-[#00B2A9]">{{ get_global_keyword( 'pilar_U7', 'U7') }}</p>
                             </div>
                         </div>
-                        <p class="italic text-[#00B2A9] mr-4"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U1', true ), 'U1') ); ?></p>
+                        <p class="italic text-[#00B2A9] mr-4">{{ get_global_keyword( 'pilar_U1', 'U1') }}</p>
                     </div>
 
                     <!-- nested checkbox 2 start -->
                     <div class="flex lg:gap-[60px] md:gap-[62px] gap-[24px] flex-wrap items-center mt-[21px]">
                         <div class="relative flex items-center gap-4">
-                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -78,9 +78,9 @@
                                 </svg>
                             </span>
                             <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="pilar_K17" />
-                            <input class="border text-[#283B44] lg:min-w-[192px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] p-3 italic font-medium" value="Vapaa teksti" type="text" name="" id="" />
+                            <input class="border text-[#283B44] lg:min-w-[192px] h-8 rounded-md border-[#06F9B7] p-3 italic font-medium" value="Vapaa teksti" type="text" name="" id="" />
                         </div>
-                        <p class="italic text-[#00B2A9] mr-4"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U1', true ), 'U1') ); ?></p>
+                        <p class="italic text-[#00B2A9] mr-4">{{ get_global_keyword( 'pilar_U1', 'U1') }}</p>
                     </div>
                     <!-- nested checkbox 2 end -->
 
@@ -88,7 +88,7 @@
                     <div class="flex lg:gap-[228px] md:gap-[226px] gap-[24px] flex-wrap items-center mt-[21px]">
                         <div class="flex gap-4 flex-wrap items-center">
                             <div class="relative flex items-center gap-3">
-                                <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                     <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -98,17 +98,17 @@
                                     </svg>
                                 </span>
                                 <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="pilar_K17" />
-                                <p class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T10', true ), 'T10') ); ?></p>
+                                <p class="italic text-[#00B2A9]">{{ get_global_keyword( 'pilar_T10', 'T10') }}</p>
                             </div>
                         </div>
-                        <p class="italic text-[#00B2A9] mr-4"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T9', true ), 'T9') ); ?></p>
+                        <p class="italic text-[#00B2A9] mr-4">{{ get_global_keyword( 'pilar_T9', 'T9') }}</p>
                     </div>
                     <!-- nested checkbox 3 end -->
 
                     <!-- nested checkbox 4 start -->
                     <div class="flex md:gap-[60px] gap-[24px] flex-wrap items-center mt-[21px]">
                         <div class="relative flex items-center gap-4">
-                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -118,9 +118,9 @@
                                 </svg>
                             </span>
                             <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="pilar_K17" />
-                            <input class="border text-[#283B44] lg:min-w-[192px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] p-3 italic font-medium" value="Vapaa teksti" type="text" name="" id="" />
+                            <input class="border text-[#283B44] lg:min-w-[192px] h-8 rounded-md border-[#06F9B7] p-3 italic font-medium" value="Vapaa teksti" type="text" name="" id="" />
                         </div>
-                        <p class="italic text-[#00B2A9] mr-4"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T9', true ), 'T9') ); ?></p>
+                        <p class="italic text-[#00B2A9] mr-4">{{ get_global_keyword( 'pilar_T9', 'T9') }}</p>
                     </div>
                     <!-- nested checkbox 4 end -->
 
@@ -128,7 +128,7 @@
                     <div class="flex md:gap-[236px] gap-[24px] flex-wrap items-center mt-[21px]">
                         <div class="flex gap-4 flex-wrap items-center">
                             <div class="relative flex items-center gap-3">
-                                <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                     <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -138,10 +138,10 @@
                                     </svg>
                                 </span>
                                 <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="pilar_K17" />
-                                <p class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K6', true ), 'K6') ); ?></p>
+                                <p class="italic text-[#00B2A9]">{{ get_global_keyword( 'pilar_K6', 'K6') }}</p>
                             </div>
                         </div>
-                        <p class="italic text-[#00B2A9] mr-4"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K22', true ), 'K22') ); ?></p>
+                        <p class="italic text-[#00B2A9] mr-4">{{ get_global_keyword( 'pilar_K22', 'K22') }}</p>
                     </div>
                     <!-- nested checkbox 5 end -->
 
@@ -149,7 +149,7 @@
                     <div class="flex md:gap-[237px] gap-[24px] flex-wrap items-center mt-[21px]">
                         <div class="flex gap-4 flex-wrap items-center">
                             <div class="relative flex items-center gap-3">
-                                <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                     <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -159,17 +159,17 @@
                                     </svg>
                                 </span>
                                 <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="pilar_K17" />
-                                <p class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T3', true ), 'T3') ); ?></p>
+                                <p class="italic text-[#00B2A9]">{{ get_global_keyword( 'pilar_T3', 'T3') }}</p>
                             </div>
                         </div>
-                        <p class="italic text-[#00B2A9] mr-4"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T2', true ), 'T2') ); ?></p>
+                        <p class="italic text-[#00B2A9] mr-4">{{ get_global_keyword( 'pilar_T2', 'T2') }}</p>
                     </div>
                     <!-- nested checkbox 6 end -->
 
                     <!-- nested checkbox 7 start -->
                     <div class="flex md:gap-[60px] gap-[24px] flex-wrap items-center mt-[21px]">
                         <div class="relative flex items-center gap-4">
-                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -179,9 +179,9 @@
                                 </svg>
                             </span>
                             <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="pilar_K17" />
-                            <input class="border text-[#283B44] lg:min-w-[192px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] p-3 italic font-medium" value="Vapaa teksti" type="text" name="" id="" />
+                            <input class="border text-[#283B44] lg:min-w-[192px] h-8 rounded-md border-[#06F9B7] p-3 italic font-medium" value="Vapaa teksti" type="text" name="" id="" />
                         </div>
-                        <input class="border text-[#283B44] lg:min-w-[192px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] p-3 italic font-medium" value="Vapaa teksti" type="text" name="" id="" />
+                        <input class="border text-[#283B44] lg:min-w-[192px] h-8 rounded-md border-[#06F9B7] p-3 italic font-medium" value="Vapaa teksti" type="text" name="" id="" />
                     </div>
                     <!-- nested checkbox 7 end -->
 
@@ -189,7 +189,7 @@
                     <div class="flex md:gap-[236px] gap-[24px] flex-wrap items-center mt-[21px]">
                         <div class="flex gap-4 flex-wrap items-center">
                             <div class="relative flex items-center gap-3">
-                                <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                     <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -199,7 +199,7 @@
                                     </svg>
                                 </span>
                                 <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="pilar_K17" />
-                                <p class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P1', true ), 'P1') ); ?></p>
+                                <p class="italic text-[#00B2A9]">{{ get_global_keyword( 'pilar_P1', 'P1') }}</p>
                             </div>
                         </div>
                         <p>Partners at Noste Oy</p>
@@ -210,7 +210,7 @@
                     <div class="flex md:gap-[236px] gap-[24px] flex-wrap items-center mt-[21px]">
                         <div class="flex gap-4 flex-wrap items-center">
                             <div class="relative flex items-center gap-3">
-                                <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                     <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -220,7 +220,7 @@
                                     </svg>
                                 </span>
                                 <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="pilar_K17" />
-                                <p class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></p>
+                                <p class="italic text-[#00B2A9]">{{ get_global_keyword( 'pilar_P4', 'P4') }}</p>
                             </div>
                         </div>
                         <p>Partners at Noste Oy</p>
@@ -268,7 +268,7 @@
                 <div class="flex items-center gap-2 flex-wrap">
                     <div class="flex items-center gap-5">
                         <div class="relative flex items-center gap-2">
-                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -278,10 +278,10 @@
                                 </svg>
                             </span>
                             <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="pilar_K17" />
-                            <p class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></p>
+                            <p class="italic text-[#00B2A9]">{{ get_global_keyword( 'pilar_P4', 'P4') }}</p>
                         </div>
                         <div class="relative flex items-center gap-2">
-                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -291,7 +291,7 @@
                                 </svg>
                             </span>
                             <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="pilar_K17" />
-                            <p class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></p>
+                            <p class="italic text-[#00B2A9]">{{ get_global_keyword( 'pilar_P4', 'P4') }}</p>
                         </div>
                     </div>
                     <p>toivotti läsnäolijat tervetulleiksi työmaan aloituskokoukseen.</p>
@@ -301,7 +301,7 @@
                     <div class="flex items-center flex-wrap">
                         <p>Kokouksen puheenjohtajana toimii</p>
                         <div class="relative flex items-center gap-2 md:mx-4 mr-4">
-                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -311,10 +311,10 @@
                                 </svg>
                             </span>
                             <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="pilar_K17" />
-                            <p class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></p>
+                            <p class="italic text-[#00B2A9]">{{ get_global_keyword( 'pilar_P4', 'P4') }}</p>
                         </div>
                         <div class="relative flex items-center gap-2">
-                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -324,11 +324,11 @@
                                 </svg>
                             </span>
                             <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="pilar_K17" />
-                            <p class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></p>
+                            <p class="italic text-[#00B2A9]">{{ get_global_keyword( 'pilar_P4', 'P4') }}</p>
                         </div>
                         <p class="md:mx-4">/ Partners at Noste Oy ja sihteerinä</p>
                         <div class="relative flex items-center gap-2 mr-4 md:mr-0">
-                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -338,10 +338,10 @@
                                 </svg>
                             </span>
                             <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="pilar_K17" />
-                            <p class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></p>
+                            <p class="italic text-[#00B2A9]">{{ get_global_keyword( 'pilar_P4', 'P4') }}</p>
                         </div>
                         <div class="relative flex items-center gap-2 lg:mx-4 ">
-                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -351,7 +351,7 @@
                                 </svg>
                             </span>
                             <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="pilar_K17" />
-                            <p class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></p>
+                            <p class="italic text-[#00B2A9]">{{ get_global_keyword( 'pilar_P4', 'P4') }}</p>
                             / Partners
                         </div>
                         <p>at Noste Oy. Puheenjohtaja avasi kokouksen.</p>
@@ -368,7 +368,7 @@
                 <p>Todettiin, että Tilaajan ja Urakoitsijan päätösvaltaiset edustajat ovat paikalla. Kokouksen pitämisestä ja ajankohdasta</p>
                 <div class="flex items-center flex-wrap gap-3">
                     <p>on sovittu yhteisesti osapuolten kesken</p>
-                    <input class="border text-[#283B44] w-[104px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] p-3 font-medium mb-[12px] md:mb-[0px]" value="xx.xx.xxxx" type="text" name="" id="" />
+                    <input class="border text-[#283B44] w-[104px] h-8 rounded-md border-[#06F9B7] p-3 font-medium mb-[12px] md:mb-[0px]" value="xx.xx.xxxx" type="text" name="" id="" />
                 </div>
                 <p>Todettiin kokous sopimuksen mukaiseksi ja päätösvaltaiseksi työmaakokoukseksi.</p>
             </div>
@@ -398,7 +398,7 @@
             <!-- nested content start -->
             <div class="flex md:flex-row gap-5 mt-6 text-[#283B44]">
                 <p class="font-medium w-2/5">Rakennuttaja</p>
-                <p class="text-accent italic font-medium"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T1', true ), 'T1') ); ?></p>
+                <p class="text-accent italic font-medium">{{ get_global_keyword( 'pilar_T1', 'T1') }}</p>
             </div>
 
             <div class="flex md:flex-row flex-col gap-5 mt-6 text-[#283B44]">
@@ -408,7 +408,7 @@
 
             <div class="flex md:flex-row flex-col gap-5 mt-6 text-[#586B74]">
                 <div class="relative flex items-center gap-3 w-2/5">
-                    <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                    <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -420,12 +420,12 @@
                     <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="pilar_K17" />
                     <p>Projektipäällikkö</p>
                 </div>
-                <p><span class="italic text-[#00B2A9]">P1, </span>puh. <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P2', true ), 'P2') ); ?></span></p>
+                <p><span class="italic text-[#00B2A9]">P1, </span>puh. <span class="italic text-[#00B2A9]">{{ get_global_keyword( 'pilar_P2', 'P2') }}</span></p>
             </div>
 
             <div class="flex md:flex-row flex-col gap-5 mt-6 text-[#586B74]">
                 <div class="relative flex md:items-center gap-3 w-2/5">
-                    <span class="mt-[5px] md:mt-[0px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                    <span class="mt-[5px] md:mt-[0px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -437,29 +437,29 @@
                     <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="pilar_K17" />
                     <p>Projektijohtamisen asiantuntija</p>
                 </div>
-                <p><span class="italic text-[#00B2A9]">P4, </span>puh. <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P5', true ), 'P5') ); ?></span></p>
+                <p><span class="italic text-[#00B2A9]">P4, </span>puh. <span class="italic text-[#00B2A9]">{{ get_global_keyword( 'pilar_P5', 'P5') }}</span></p>
             </div>
 
             <div class="flex flex-wrap gap-5 mt-8 text-[#283B44]">
                 <p class="font-medium w-2/5">Pääurakoitsija</p>
-                <p class="text-accent italic font-medium"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U1', true ), 'U1') ); ?></p>
+                <p class="text-accent italic font-medium">{{ get_global_keyword( 'pilar_U1', 'U1') }}</p>
             </div>
 
             <div class="flex md:flex-row flex-wrap gap-5 mt-6 text-[#586B74]">
                 <p class="w-2/5">Työnjohtaja</p>
-                <p><span class="italic text-[#00B2A9]">U7, </span>puh. <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U9', true ), 'U9') ); ?></span></p>
+                <p><span class="italic text-[#00B2A9]">U7, </span>puh. <span class="italic text-[#00B2A9]">{{ get_global_keyword( 'pilar_U9', 'U9') }}</span></p>
             </div>
 
             <div class="flex md:flex-row flex-wrap gap-5 mt-8 text-[#283B44]">
                 <p class="font-medium w-2/5">Tilasuunnittelu</p>
-                <p class="text-accent italic font-medium"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T9', true ), 'T9') ); ?></p>
+                <p class="text-accent italic font-medium">{{ get_global_keyword( 'pilar_T9', 'T9') }}</p>
             </div>
 
             <div class="flex md:flex-row flex-col gap-5 mt-8 text-[#283B44]">
                 <div class="w-2/5">
-                    <input class="border text-[#283B44] max-w-[245px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] p-3 italic font-medium" value="Sisustusarkkitehti" type="text" name="" id="" />
+                    <input class="border text-[#283B44] max-w-[245px] h-8 rounded-md border-[#06F9B7] p-3 italic font-medium" value="Sisustusarkkitehti" type="text" name="" id="" />
                 </div>
-                <p class="text-[#586B74]"><span class="italic text-[#00B2A9]">T10, </span>puh. <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_T11', true ), 'T11') ); ?></span></p>
+                <p class="text-[#586B74]"><span class="italic text-[#00B2A9]">T10, </span>puh. <span class="italic text-[#00B2A9]">{{ get_global_keyword( 'pilar_T11', 'T11') }}</span></p>
             </div>
 
             <div class="flex md:flex-row flex-wrap gap-5 mt-7 text-[#283B44]">
@@ -469,30 +469,30 @@
 
             <div class="flex md:flex-row flex-wrap gap-5 mt-8 text-[#283B44]">
                 <p class="font-medium md:w-2/5">Kiinteistömanageeraus</p>
-                <p class="text-accent italic font-medium"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K22', true ), 'K22') ); ?></p>
+                <p class="text-accent italic font-medium">{{ get_global_keyword( 'pilar_K22', 'K22') }}</p>
             </div>
 
             <div class="flex md:flex-row flex-col gap-5 mt-5 text-[#283B44]">
                 <div class="w-2/5">
-                    <input class="border text-[#283B44] max-w-[245px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] p-3 italic font-medium" value="Kiinteistöpäällikkö" type="text" name="" id="" />
+                    <input class="border text-[#283B44] max-w-[245px] h-8 rounded-md border-[#06F9B7] p-3 italic font-medium" value="Kiinteistöpäällikkö" type="text" name="" id="" />
                 </div>
-                <p class="text-[#586B74]"><span class="italic text-[#00B2A9]">K6, </span>puh. <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K10', true ), 'K10') ); ?></span></p>
+                <p class="text-[#586B74]"><span class="italic text-[#00B2A9]">K6, </span>puh. <span class="italic text-[#00B2A9]">{{ get_global_keyword( 'pilar_K10', 'K10') }}</span></p>
             </div>
 
             <div class="flex md:flex-row flex-wrap gap-5 mt-7 text-[#283B44]">
                 <p class="font-medium w-2/5">Huolto</p>
                 <div>
-                    <p class="text-accent italic font-medium"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K23', true ), 'K23') ); ?></p>
+                    <p class="text-accent italic font-medium">{{ get_global_keyword( 'pilar_K23', 'K23') }}</p>
                     <p class="mt-6 text-[#586B74]">
                         <span class="italic text-[#00B2A9]">K11, </span>puh.
-                        <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K13', true ), 'K13') ); ?></span>
+                        <span class="italic text-[#00B2A9]">{{ get_global_keyword( 'pilar_K13', 'K13') }}</span>
                     </p>
                 </div>
             </div>
 
             <div class="flex md:flex-row flex-col gap-5 mt-6 text-[#283B44]">
                 <div class="relative flex items-center gap-3 w-2/5">
-                    <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                    <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -508,7 +508,7 @@
 
             <div class="flex md:flex-row flex-col gap-5 md:mt-8 text-[#283B44]">
                 <p class="font-medium w-2/5"></p>
-                <p class="text-[#586B74]">Aukioloajat klo <span class="text-accent italic"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K16', true ), 'K16') ); ?></span></p>
+                <p class="text-[#586B74]">Aukioloajat klo <span class="text-accent italic">{{ get_global_keyword( 'pilar_K16', 'K16') }}</span></p>
             </div>
 
             <!-- nested content end -->
@@ -536,7 +536,7 @@
 
                     <!-- 1st nested -->
                     <div class="relative flex items-center gap-3">
-                        <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                        <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -551,7 +551,7 @@
 
                     <!-- 2nd nested -->
                     <div class="relative flex items-center gap-3">
-                        <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                        <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -566,7 +566,7 @@
 
                     <!-- 3rd nested -->
                     <div class="relative flex items-center gap-3">
-                        <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                        <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -587,7 +587,7 @@
                     <div class="flex items-center md:gap-[35.5px] gap-[20px] lg:min-w-[120px] md:min-w-[130px]">
                         <p>-</p>
                         <div class="flex items-center">
-                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -601,7 +601,7 @@
                         </div>
                     </div>
                     <input
-                        class="border lg:max-w-[245px] md:min-w-[245px] min-w-[85px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] italic ml-6 mr-3 font-medium"
+                        class="border lg:max-w-[245px] md:min-w-[245px] min-w-[85px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] italic ml-6 mr-3 font-medium"
                         value="Vapaa teksti…"
                         type="text"
                         name=""
@@ -648,7 +648,7 @@
 
                     <!-- nested 3.2 -->
                     <div class="relative flex items-center gap-3">
-                        <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                        <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -663,7 +663,7 @@
 
                     <!-- nested 3.3 -->
                     <div class="relative flex items-center gap-3">
-                        <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                        <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -678,7 +678,7 @@
 
                     <!-- nested 3.4 -->
                     <div class="relative flex items-center gap-3">
-                        <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                        <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -696,7 +696,7 @@
                     <div class="flex items-center md:gap-[35.5px] gap-[20px]">
                         <p>-</p>
                         <div class="flex items-center">
-                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -710,7 +710,7 @@
                         </div>
                     </div>
                     <input
-                        class="border max-w-[245px] w-full h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] italic ml-6 mr-3 font-medium"
+                        class="border max-w-[245px] w-full h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] italic ml-6 mr-3 font-medium"
                         value="Vapaa teksti…"
                         type="text"
                         name=""
@@ -745,7 +745,7 @@
 
                         <!-- nested 4.2 -->
                         <div class="relative flex items-center gap-3">
-                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -760,7 +760,7 @@
 
                         <!-- nested 4.3 -->
                         <div class="relative flex items-center gap-3 mt-4 lg:mt-0">
-                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -771,7 +771,7 @@
                             </span>
                             <input type="checkbox" class="checkbox_change absolute opacity-0 cursor-pointer" name="pilar_K17" />
                             <input
-                                class="border md:min-w-[245px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] italic ml-2 font-medium"
+                                class="border md:min-w-[245px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] italic ml-2 font-medium"
                                 value="Vapaa teksti…"
                                 type="text"
                                 name=""
@@ -824,7 +824,7 @@
                         <div class="flex md:items-center lg:gap-10 gap-5 mt-[18px]">
                             <p>o</p>
                             <div class="flex md:items-center relative">
-                                <span class="mt-[5px] md:mt-[0px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                <span class="mt-[5px] md:mt-[0px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                     <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -869,7 +869,7 @@
                 <div class="flex lg:gap-[60px] gap-[20px] mt-6">
                     <p>-</p>
                     <div class="flex md:items-center relative">
-                        <span class="mt-[5px] md:mt-[0px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                        <span class="mt-[5px] md:mt-[0px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -886,7 +886,7 @@
                 <div class="flex lg:gap-[60px] gap-[20px] mt-6">
                     <p>-</p>
                     <div class="flex md:items-center relative">
-                        <span class="mt-[5px] md:mt-[0px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                        <span class="mt-[5px] md:mt-[0px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -903,7 +903,7 @@
                 <div class="flex lg:gap-[60px] gap-[20px] mt-6">
                     <p>-</p>
                     <div class="flex md:items-center relative">
-                        <span class="mt-[5px] md:mt-[0px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                        <span class="mt-[5px] md:mt-[0px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -920,7 +920,7 @@
                 <div class="flex lg:gap-[60px] gap-[20px] mt-6">
                     <p>-</p>
                     <div class="flex md:items-center relative">
-                        <span class="mt-[5px] md:mt-[0px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                        <span class="mt-[5px] md:mt-[0px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -966,7 +966,7 @@
                         <div class="flex lg:gap-[60px] gap-[20px]">
                             <p>-</p>
                             <div class="flex md:items-center relative">
-                                <span class="mt-[5px] md:mt-[0px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                <span class="mt-[5px] md:mt-[0px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                     <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -980,7 +980,7 @@
                                     TMK1: Viimeisin työvaiheilmoitus (
                                     <span>
                                         <input
-                                            class="mt-[5px] md:mt-[0px] border w-[104px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] mx-1 font-medium"
+                                            class="mt-[5px] md:mt-[0px] border w-[104px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] mx-1 font-medium"
                                             value="xx.xx.xxxx"
                                             type="text"
                                             name=""
@@ -998,7 +998,7 @@
                         <div class="flex lg:gap-[60px] gap-[20px]">
                             <p>-</p>
                             <div class="flex md:items-center relative">
-                                <span class="mt-[5px] md:mt-[0px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                <span class="mt-[5px] md:mt-[0px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                     <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -1018,7 +1018,7 @@
                         <p>-</p>
                         <p class="flex items-center flex-wrap">
                             TMK1: Työmaan yhteisvahvuus
-                            <span><input class="border w-[42px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] mx-2 font-medium" value="x" type="text" name="" id="" /></span> hlöä.
+                            <span><input class="border w-[42px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] mx-2 font-medium" value="x" type="text" name="" id="" /></span> hlöä.
                         </p>
                     </div>
                 </div>
@@ -1039,7 +1039,7 @@
                             <div class="flex lg:gap-[60px] gap-[20px]">
                                 <p>-</p>
                                 <div class="flex md:items-center relative">
-                                    <span class="mt-[5px] md:mt-[0px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                    <span class="mt-[5px] md:mt-[0px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -1053,7 +1053,7 @@
                                         TMK1: Työmaa-aikataulu seurantaviivalla, (
                                         <span>
                                             <input
-                                                class="mt-[5px] md:mt-[0px] border w-[104px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] mx-1 font-medium"
+                                                class="mt-[5px] md:mt-[0px] border w-[104px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] mx-1 font-medium"
                                                 value="xx.xx.xxxx"
                                                 type="text"
                                                 name=""
@@ -1071,7 +1071,7 @@
                             <div class="flex lg:gap-[60px] gap-[20px]">
                                 <p>-</p>
                                 <div class="flex md:items-center relative">
-                                    <span class="mt-[5px] md:mt-[0px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                    <span class="mt-[5px] md:mt-[0px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -1127,7 +1127,7 @@
                                 <p>o</p>
                                 <p>TMK1:</p>
                             </div>
-                            <input class="mt-[14px] md:mt-[0px] border md:min-w-[408px] w-[200px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] ml-4 mr-3 font-medium" value="Työt aloitettu…" type="text" name="" id="" />
+                            <input class="mt-[14px] md:mt-[0px] border md:min-w-[408px] w-[200px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] ml-4 mr-3 font-medium" value="Työt aloitettu…" type="text" name="" id="" />
                         </div>
 
                         <!-- nested 6.3.2 -->
@@ -1136,7 +1136,7 @@
                                 <p>o</p>
                                 <p>TMK1:</p>
                             </div>
-                            <input class="border mt-[14px] md:mt-[0px] md:min-w-[408px] w-[200px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] ml-4 mr-3 font-medium" value="Tehty urakan mukaisista töistä…" type="text" name="" id="" />
+                            <input class="border mt-[14px] md:mt-[0px] md:min-w-[408px] w-[200px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] ml-4 mr-3 font-medium" value="Tehty urakan mukaisista töistä…" type="text" name="" id="" />
                         </div>
 
                         <!-- nested 6.3.3 -->
@@ -1145,7 +1145,7 @@
                                 <p>o</p>
                                 <p>TMK1:</p>
                             </div>
-                            <input class="border mt-[14px] md:mt-[0px] md:min-w-[408px] w-[200px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] ml-4 mr-3 font-medium" value="Meneillään oleva työvaihe on…" type="text" name="" id="" />
+                            <input class="border mt-[14px] md:mt-[0px] md:min-w-[408px] w-[200px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] ml-4 mr-3 font-medium" value="Meneillään oleva työvaihe on…" type="text" name="" id="" />
                         </div>
 
                         <!-- nested 6.3.4 -->
@@ -1154,7 +1154,7 @@
                                 <p>o</p>
                                 <p>TMK1:</p>
                             </div>
-                            <input class="border mt-[14px] md:mt-[0px] md:min-w-[408px] w-[200px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] ml-4 mr-3 font-medium" value="Valmistuminen vuokrasopimuksen mukaisesti…" type="text" name="" id="" />
+                            <input class="border mt-[14px] md:mt-[0px] md:min-w-[408px] w-[200px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] ml-4 mr-3 font-medium" value="Valmistuminen vuokrasopimuksen mukaisesti…" type="text" name="" id="" />
                         </div>
 
                         <!-- nested 6.3.4 -->
@@ -1163,7 +1163,7 @@
                                 <p>o</p>
                                 <p>TMK1:</p>
                             </div>
-                            <input class="border mt-[14px] md:mt-[0px] md:min-w-[408px] w-[200px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] ml-4 mr-3 font-medium" value="Aikataulussa epävarmuuksia? …" type="text" name="" id="" />
+                            <input class="border mt-[14px] md:mt-[0px] md:min-w-[408px] w-[200px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] ml-4 mr-3 font-medium" value="Aikataulussa epävarmuuksia? …" type="text" name="" id="" />
                         </div>
                     </div>
 
@@ -1173,7 +1173,7 @@
                             <div class="flex items-center gap-[26px] lg:min-w-[120px] lg:ml-[65px] ml-[20px]">
                                 <p>o</p>
                                 <div class="flex items-center">
-                                    <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                    <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -1187,7 +1187,7 @@
                                 </div>
                             </div>
                             <input
-                                class="ml-[10px] lg:ml-[0px] border md:min-w-[408px] w-[60px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] italic mr-3 font-medium"
+                                class="ml-[10px] lg:ml-[0px] border md:min-w-[408px] w-[60px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] italic mr-3 font-medium"
                                 value="Vapaa teksti…"
                                 type="text"
                                 name=""
@@ -1225,7 +1225,7 @@
                         <div class="flex lg:gap-[60px] gap-[20px]">
                             <p>-</p>
                             <div class="flex md:items-center relative">
-                                <span class="mt-[5px] md:mt-[0px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                <span class="mt-[5px] md:mt-[0px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                     <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -1253,7 +1253,7 @@
                             <div class="flex items-center lg:min-w-[145px]">
                                 <p class="lg:mr-[60px] mr-[20px]">-</p>
                                 <div class="flex items-center">
-                                    <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                    <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -1266,7 +1266,7 @@
                                     <p class="mx-2 text-[#586B74]">TMK1:</p>
                                 </div>
                             </div>
-                            <input class="border md:min-w-[408px] w-[90px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] mr-3 font-medium" value="Vapaa teksti…" type="text" name="" id="" />
+                            <input class="border md:min-w-[408px] w-[90px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] mr-3 font-medium" value="Vapaa teksti…" type="text" name="" id="" />
                             <a href="#!" class="help_click">
                                 <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -1312,7 +1312,7 @@
                                 <div class="flex items-center lg:gap-[60px] gap-[20px] mt-[18px]">
                                     <p>o</p>
                                     <input
-                                        class="border md:min-w-[408px] w-[190px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] font-medium"
+                                        class="border md:min-w-[408px] w-[190px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] font-medium"
                                         value="Hankinta"
                                         type="text"
                                         name=""
@@ -1329,7 +1329,7 @@
 
                                     <!-- 1st nested -->
                                     <div class="relative flex items-center gap-3">
-                                        <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                        <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -1344,7 +1344,7 @@
 
                                     <!-- 2nd nested -->
                                     <div class="relative flex items-center gap-3">
-                                        <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                        <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -1359,7 +1359,7 @@
 
                                     <!-- 3rd nested -->
                                     <div class="relative flex items-center gap-3">
-                                        <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                        <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -1374,7 +1374,7 @@
 
                                     <!-- 4th nested -->
                                     <div class="relative flex flex-wrap items-center">
-                                        <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                        <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -1397,7 +1397,7 @@
 
                                     <!-- 1st nested -->
                                     <div class="relative flex items-center gap-3">
-                                        <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                        <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -1412,7 +1412,7 @@
 
                                     <!-- 2nd nested -->
                                     <div class="relative flex items-center gap-3">
-                                        <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                        <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -1427,7 +1427,7 @@
 
                                     <!-- 3rd nested -->
                                     <div class="relative flex items-center">
-                                        <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                        <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -1448,7 +1448,7 @@
                                         <div class="flex items-center flex-wrap">
                                             <p class="text-[#586B74] mr-3">TMK1: Tavarantoimittaja</p>
                                             <input
-                                                class="mt-[14px] md:mt-[0px] border md:min-w-[408px] w-[190px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] font-medium"
+                                                class="mt-[14px] md:mt-[0px] border md:min-w-[408px] w-[190px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] font-medium"
                                                 value="Vapaa teksti…"
                                                 type="text"
                                                 name=""
@@ -1463,7 +1463,7 @@
                                     <div class="flex items-center lg:gap-[60px] gap-[20px]">
                                         <p>o</p>
                                         <div class="flex items-center">
-                                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -1477,7 +1477,7 @@
                                         </div>
                                     </div>
                                     <input
-                                        class="mt-[14px] md:mt-[0px] border md:w-[408px] w-[200px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] ml-[10px] font-medium"
+                                        class="mt-[14px] md:mt-[0px] border md:w-[408px] w-[200px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] ml-[10px] font-medium"
                                         value="Vapaa teksti…"
                                         type="text"
                                         name=""
@@ -1498,7 +1498,7 @@
                                     TMK1: Työmaa on luovutettu urakoitsijan käyttöön
                                     <span>
                                         <input
-                                            class="border w-[104px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] md:mx-2 font-medium"
+                                            class="border w-[104px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] md:mx-2 font-medium"
                                             value="xx.xx.xxxx"
                                             type="text"
                                             name=""
@@ -1516,7 +1516,7 @@
                                     <div class="flex lg:gap-[60px] gap-[20px] mt-6">
                                         <p>o</p>
                                         <div class="flex lg:items-center relative">
-                                            <span class="mt-[5px] lg:mt-[0px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                            <span class="mt-[5px] lg:mt-[0px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -1534,7 +1534,7 @@
                                     <div class="flex lg:gap-[60px] gap-[20px] mt-6">
                                         <p>o</p>
                                         <div class="flex lg:items-center relative">
-                                            <span class="mt-[5px] lg:mt-[0px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                            <span class="mt-[5px] lg:mt-[0px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -1602,7 +1602,7 @@
                         <div class="flex items-center lg:gap-[60px] gap-[20px] lg:ml-[65px] ">
                             <p>o</p>
                             <div class="flex items-center">
-                                <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                     <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -1615,7 +1615,7 @@
                                 <p class="ml-2 text-[#586B74]">TMK1:</p>
                             </div>
                         </div>
-                        <input class="border mt-[14px] md:mt-[0px] md:w-[408px] w-[190px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] ml-[10px] font-medium" value="Vapaa teksti…" type="text" name="" id="" />
+                        <input class="border mt-[14px] md:mt-[0px] md:w-[408px] w-[190px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] ml-[10px] font-medium" value="Vapaa teksti…" type="text" name="" id="" />
                     </div>
 
                     <!-- - Työmaatoimisto ja sosiaalitilat 1 -->
@@ -1629,7 +1629,7 @@
                                     <p class="text-[#586B74]">TMK1:</p>
                                 </div>
                                 <input
-                                    class="border md:w-[408px] w-[130px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] ml-[10px] font-medium"
+                                    class="border md:w-[408px] w-[130px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] ml-[10px] font-medium"
                                     value="Vapaa teksti…"
                                     type="text"
                                     name=""
@@ -1641,7 +1641,7 @@
                                 <div class="flex items-center lg:gap-[60px] gap-[20px]">
                                     <p>o</p>
                                     <div class="flex items-center">
-                                        <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                        <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -1655,7 +1655,7 @@
                                     </div>
                                 </div>
                                 <input
-                                    class="mt-[14px] md:mt-[0px] border md:w-[408px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] md:ml-[10px] font-medium"
+                                    class="mt-[14px] md:mt-[0px] border md:w-[408px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] md:ml-[10px] font-medium"
                                     value="Vapaa teksti…"
                                     type="text"
                                     name=""
@@ -1707,7 +1707,7 @@
                                 <p class="text-[#586B74]">TMK1:</p>
                             </div>
                             <input
-                                class="border mt-[14px] md:mt-[0px] md:w-[408px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] md:ml-[10px] ml-[20px] font-medium"
+                                class="border mt-[14px] md:mt-[0px] md:w-[408px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] md:ml-[10px] ml-[20px] font-medium"
                                 value="Vapaa teksti…"
                                 type="text"
                                 name=""
@@ -1719,7 +1719,7 @@
                             <div class="flex items-center lg:gap-[60px] gap-[20px] lg:ml-[65px] ml-[20px]">
                                 <p>o</p>
                                 <div class="flex items-center">
-                                    <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                    <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -1733,7 +1733,7 @@
                                 </div>
                             </div>
                             <input
-                                class="border mt-[14px] md:mt-[0px] md:w-[408px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] md:ml-[10px] ml-[20px] font-medium"
+                                class="border mt-[14px] md:mt-[0px] md:w-[408px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] md:ml-[10px] ml-[20px] font-medium"
                                 value="Vapaa teksti…"
                                 type="text"
                                 name=""
@@ -1753,7 +1753,7 @@
                                     <p class="text-[#586B74]">TMK1:</p>
                                 </div>
                                 <input
-                                    class="border md:w-[408px] w-[130px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] ml-[10px] font-medium"
+                                    class="border md:w-[408px] w-[130px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] ml-[10px] font-medium"
                                     value="Vapaa teksti…"
                                     type="text"
                                     name=""
@@ -1765,7 +1765,7 @@
                                 <div class="flex items-center lg:gap-[60px] gap-[20px]">
                                     <p>o</p>
                                     <div class="flex items-center">
-                                        <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                        <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -1779,7 +1779,7 @@
                                     </div>
                                 </div>
                                 <input
-                                    class="border mt-[14px] md:mt-[0px] md:w-[408px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] md:ml-[10px] font-medium"
+                                    class="border mt-[14px] md:mt-[0px] md:w-[408px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] md:ml-[10px] font-medium"
                                     value="Vapaa teksti…"
                                     type="text"
                                     name=""
@@ -1831,7 +1831,7 @@
                             <p class="text-[#586B74]">TMK1:</p>
                         </div>
                         <input
-                            class="border mt-[14px] md:mt-[0px] md:w-[408px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] md:ml-[10px] ml-[20px] font-medium"
+                            class="border mt-[14px] md:mt-[0px] md:w-[408px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] md:ml-[10px] ml-[20px] font-medium"
                             value="Vapaa teksti…"
                             type="text"
                             name=""
@@ -1843,7 +1843,7 @@
                         <div class="flex items-center lg:gap-[60px] gap-[20px] lg:ml-[65px] ml-[20px]">
                             <p>o</p>
                             <div class="flex items-center">
-                                <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                     <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -1857,7 +1857,7 @@
                             </div>
                         </div>
                         <input
-                            class="border mt-[14px] md:mt-[0px] md:w-[408px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] md:ml-[10px] ml-[20px] font-medium"
+                            class="border mt-[14px] md:mt-[0px] md:w-[408px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] md:ml-[10px] ml-[20px] font-medium"
                             value="Vapaa teksti…"
                             type="text"
                             name=""
@@ -1906,7 +1906,7 @@
                             <p class="text-[#586B74]">TMK1:</p>
                         </div>
                         <input
-                            class="border mt-[14px] md:mt-[0px] md:w-[408px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] md:ml-[10px] ml-[20px] font-medium"
+                            class="border mt-[14px] md:mt-[0px] md:w-[408px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] md:ml-[10px] ml-[20px] font-medium"
                             value="Vapaa teksti…"
                             type="text"
                             name=""
@@ -1918,7 +1918,7 @@
                         <div class="flex items-center lg:gap-[60px] gap-[20px] lg:ml-[65px] ml-[20px]">
                             <p>o</p>
                             <div class="flex items-center">
-                                <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                     <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -1932,7 +1932,7 @@
                             </div>
                         </div>
                         <input
-                            class="border mt-[14px] md:mt-[0px] md:w-[408px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] md:ml-[10px] ml-[20px] font-medium"
+                            class="border mt-[14px] md:mt-[0px] md:w-[408px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] md:ml-[10px] ml-[20px] font-medium"
                             value="Vapaa teksti…"
                             type="text"
                             name=""
@@ -1980,7 +1980,7 @@
                             <p class="text-[#586B74]">TMK1:</p>
                         </div>
                         <input
-                            class="border mt-[14px] md:mt-[0px] md:w-[408px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] md:ml-[10px] ml-[20px] font-medium"
+                            class="border mt-[14px] md:mt-[0px] md:w-[408px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] md:ml-[10px] ml-[20px] font-medium"
                             value="Vapaa teksti…"
                             type="text"
                             name=""
@@ -1992,7 +1992,7 @@
                         <div class="flex items-center lg:gap-[60px] gap-[20px] lg:ml-[65px] ml-[20px]">
                             <p>-</p>
                             <div class="flex items-center">
-                                <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                     <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -2006,7 +2006,7 @@
                             </div>
                         </div>
                         <input
-                            class="border mt-[14px] md:mt-[0px] md:w-[408px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] md:ml-[10px] ml-[20px] font-medium"
+                            class="border mt-[14px] md:mt-[0px] md:w-[408px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] md:ml-[10px] ml-[20px] font-medium"
                             value="Vapaa teksti…"
                             type="text"
                             name=""
@@ -2054,7 +2054,7 @@
                             <p class="text-[#586B74]">TMK1:</p>
                         </div>
                         <input
-                            class="border mt-[14px] md:mt-[0px] md:w-[408px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] md:ml-[10px] ml-[20px] font-medium"
+                            class="border mt-[14px] md:mt-[0px] md:w-[408px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] md:ml-[10px] ml-[20px] font-medium"
                             value="Vapaa teksti…"
                             type="text"
                             name=""
@@ -2066,7 +2066,7 @@
                         <div class="flex items-center lg:gap-[60px] gap-[20px] lg:ml-[65px] ml-[20px]">
                             <p>-</p>
                             <div class="flex items-center">
-                                <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                     <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -2080,7 +2080,7 @@
                             </div>
                         </div>
                         <input
-                            class="border mt-[14px] md:mt-[0px] md:w-[408px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] md:ml-[10px] ml-[20px] font-medium"
+                            class="border mt-[14px] md:mt-[0px] md:w-[408px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] md:ml-[10px] ml-[20px] font-medium"
                             value="Vapaa teksti…"
                             type="text"
                             name=""
@@ -2134,7 +2134,7 @@
                         <p>-</p>
                         <div class="flex md:items-center relative">
                             <span
-                                class="mt-[5px] md:mt-[0px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                class="mt-[5px] md:mt-[0px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -2151,11 +2151,11 @@
                                 TMK1: LMT
                                 <span class="flex items-center">
                                     <input
-                                        class="border w-[41px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] text-[#283B44] mx-1 font-medium"
+                                        class="border w-[41px] h-8 rounded-md border-[#06F9B7] text-[#283B44] mx-1 font-medium"
                                         value="x" type="text" name="" id="" />,
                                 </span>
                                 <span><input
-                                        class="border w-[65px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] text-[#283B44] mx-2 mr-3 font-medium"
+                                        class="border w-[65px] h-8 rounded-md border-[#06F9B7] text-[#283B44] mx-2 mr-3 font-medium"
                                         value="Aihe" type="text" name="" id="" /></span>,
                             <div class="border-b w-[171px] text-[#586B74] md:block hidden mt-3 mx-1"></div>
                             </p>
@@ -2164,7 +2164,7 @@
                     <div class="flex items-center flex-wrap gap-3 mt-[20px] lg:mt-[0px]">
                         <p>€ (alv. 0 %), tilattu</p>
                         <input
-                            class="border w-[131px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] text-[#283B44] mx-1 font-medium"
+                            class="border w-[131px] h-8 rounded-md border-[#06F9B7] text-[#283B44] mx-1 font-medium"
                             value="xx.xx.xxxx" type="text" name="" id="" />
                     </div>
                 </div>
@@ -2177,7 +2177,7 @@
                         <p>-</p>
                         <div class="flex md:items-center relative">
                             <span
-                                class="mt-[5px] md:mt-[0px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                                class="mt-[5px] md:mt-[0px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -2194,11 +2194,11 @@
                                 TMK1: LMT
                                 <span class="flex items-center">
                                     <input
-                                        class="border w-[41px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] text-[#283B44] mx-1 font-medium"
+                                        class="border w-[41px] h-8 rounded-md border-[#06F9B7] text-[#283B44] mx-1 font-medium"
                                         value="x" type="text" name="" id="" />,
                                 </span>
                                 <span><input
-                                        class="border w-[65px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] text-[#283B44] mx-2 mr-3 font-medium"
+                                        class="border w-[65px] h-8 rounded-md border-[#06F9B7] text-[#283B44] mx-2 mr-3 font-medium"
                                         value="Aihe" type="text" name="" id="" /></span>,
                             <div class="border-b-2 w-[171px] text-[#586B74] md:block hidden mt-3 mx-1"></div>
                             </p>
@@ -2214,7 +2214,7 @@
                     <div class="flex items-center lg:gap-[60px] gap-[20px] lg:ml-[60px] ml-[20px]">
                         <p>-</p>
                         <div class="flex items-center">
-                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
+                            <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] min-w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -2228,7 +2228,7 @@
                         </div>
                     </div>
                     <input
-                        class="border mt-[14px] md:mt-[0px] md:w-[408px] h-8 shadow-[0_0_5px_2px_rgb(81,244,200,44%)] rounded-md border-[#06F9B7] py-[10px] text-[#283B44] md:ml-3 ml-[20px] font-medium"
+                        class="border mt-[14px] md:mt-[0px] md:w-[408px] h-8 rounded-md border-[#06F9B7] py-[10px] text-[#283B44] md:ml-3 ml-[20px] font-medium"
                         value="Vapaa teksti…"
                         type="text"
                         name=""
