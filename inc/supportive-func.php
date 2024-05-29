@@ -8,7 +8,7 @@ function the_form_stored_data() {
 	// print_r($globalSFormData);
     return $globalSFormData;
 }
-/** <?php noste_checkbox_attrset('pilar_TY1', $data); ?> */
+/** <?php noste_checkbox_attrset('noste_TY1', $data); ?> */
 function noste_checkbox_attrset($value, $data = false) {
     global $globalSFormData;if (!$data) {$data = $globalSFormData;}
 	$dataset = isset($data['noste_check'])?(array) $data['noste_check']:(array) $data;
@@ -18,7 +18,7 @@ function noste_checkbox_attrset($value, $data = false) {
 		in_array($value, (array) $dataset)?'checked':''
 	);
 }
-/** <?php noste_textinput_attrset('pilar_TY1', $data, ''); ?> */
+/** <?php noste_textinput_attrset('noste_TY1', $data, ''); ?> */
 function noste_textinput_attrset($name, $data = false, $default = '') {
     global $globalSFormData;if (!$data) {$data = $globalSFormData;}
 	echo sprintf(

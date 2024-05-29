@@ -1,15 +1,11 @@
 <?php 
 
-if ( !is_singular( 'projektitiedot' ) ) {
-   return;
-}
+if (!is_singular('projektitiedot')) {return;}
 
 
 
 $project_id = get_the_ID();
 $data = the_form_stored_data();
-$data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['noste_check']):[];
-
 ?>
 
 
@@ -47,17 +43,17 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                 <span class="text-[#586B74]">
                                     <div class="flex flex-col lg:flex-row lg:items-center gap-2">
                                         <span class="flex-1 ">
-                                            <input type="text" name="pilar_VA1_1" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text" <?php noste_textinput_attrset('noste_VA1_1'); ?> placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </span>
                                         <span class="flex-1 text-[#586B74] text-[15px]">klo</span>
                                         <span class="flex-1 ">
-                                            <input type="text" name="pilar_VA1_2" placeholder="XX.XX.XXXX" class="w-full lg:w-[68px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text" <?php noste_textinput_attrset('noste_VA1_2'); ?> placeholder="XX.XX.XXXX" class="w-full lg:w-[68px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </span>
                                     </div>
                                 </span>
                                 
                                 <span>
-                                    <input type="text" name="pilar_M1_1" placeholder="Vapaa teksti" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input <?php noste_textinput_attrset('noste_M1_1'); ?> placeholder="Vapaa teksti" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </span>
                             </div>
 
@@ -69,7 +65,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                             <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_1'); ?>>
                                         </label>
                                         <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U4', true ), 'U4') ); ?></span>
                                     </div>
@@ -86,7 +82,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                             <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_2'); ?>>
                                         </label>
                                         <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_U7', true ), 'U7') ); ?></span>
                                     </div>
@@ -103,14 +99,14 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                             <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_3'); ?>>
                                         </label>
-                                        <input type="text" name="pilar_filed8_6" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_filed8_5_0', $data, ''); ?> placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </div>
                                 </span>
                                 
                                 <span>
-                                    <input type="text" name="pilar_filed8_6" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" <?php noste_textinput_attrset('noste_filed8_5_1', $data, ''); ?> placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </span>
                             </div>
 
@@ -122,7 +118,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                             <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_4'); ?>>
                                         </label>
                                         <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P1', true ), 'P1') ); ?></span>
                                     </div>
@@ -139,7 +135,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                             <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_5'); ?>>
                                         </label>
                                         <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></span>
                                     </div>
@@ -162,7 +158,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                         <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18_1">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_K18_1'); ?>>
                                         <span class="flex-1 text-[14px] italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P1', true ), 'P1') ); ?></span>
                                     </label>
                                 </span>
@@ -171,7 +167,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                         <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18_2">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_K18_2'); ?>>
                                         <span class="flex-1 text-[14px] italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></span>
                                     </label>
                                 </span>
@@ -185,7 +181,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                         <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18_3">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_K18_3'); ?>>
                                         <span class="flex-1 text-[14px] italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P1', true ), 'P1') ); ?></span>
                                     </label>
                                 </span>
@@ -194,7 +190,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                         <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18_4">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_K18_4'); ?>>
                                         <span class="flex-1 text-[14px] italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></span>
                                     </label>
                                 </span>
@@ -204,7 +200,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                         <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18_5">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_K18_5'); ?>>
                                         <span class="flex-1 text-[14px] italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P1', true ), 'P1') ); ?></span>
                                     </label>
                                 </span>
@@ -213,7 +209,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                         <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18_6">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_K18_6'); ?>>
                                         <span class="flex-1 text-[14px] italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></span>
                                     </label>
                                 </span>
@@ -244,7 +240,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                     Tämä urakkaneuvottelu koskee osoitteessa <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K2', true ), 'K2') ); ?></span>, <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K3', true ), 'K3') ); ?></span> sijaitsevan
                                 </span>
                                 <span class="text-[#586B74] text-[14px]">
-                                    <input type="text" name="pilar_filed8_6_4" value="toimistorakennuksen x. krs tilamuutostöistä " class="w-[290px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" <?php noste_textinput_attrset('noste_filed8_5_2_4_1', $data, ''); ?> value="toimistorakennuksen x. krs tilamuutostöistä " class="w-[290px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </span>
                                 <span class="text-[#586B74] text-[14px]">
                                     tehtyä tarjouspyyntöä, tarjousta ja niiden sisältöä. Töiden laajuus on esitetty tarjouspyyntöasiakirjoissa.
@@ -293,7 +289,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                 <div class="help_wrap relative mb-2">
                                     <div class="flex items-center gap-2">
                                         <span class="text-[#586B74]">
-                                            <input type="text" name="pilar_VA1_3" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text" <?php noste_textinput_attrset('noste_VA1_3'); ?> placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </span>
                 
                                         <a href="#!" class="help_click"><svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="0.72"></circle> <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path> <circle cx="12" cy="16" r="1" fill="#000000"></circle> </g></svg> </a>                                      
@@ -309,21 +305,21 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                 <span class="text-[#586B74]">Tarjouspyyntölomake</span>
                                 <span class="text-[#586B74]">Partners at Noste Oy</span>
                                 <span class="text-[#586B74]">
-                                    <input type="text" name="pilar_VA1_4" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" <?php noste_textinput_attrset('noste_VA1_4'); ?> placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </span>
                             </div>
                             <div class="grid lg:grid-cols-3 items-center gap-[20px] mb-5">
                                 <span class="text-[#586B74]">Turvallisuusasiakirja</span>
                                 <span class="text-[#586B74]">Partners at Noste Oy</span>
                                 <span class="text-[#586B74]">
-                                    <input type="text" name="pilar_VA1_5" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" <?php noste_textinput_attrset('noste_VA1_5'); ?> placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </span>
                             </div>
                             <div class="grid lg:grid-cols-3 items-center gap-[20px] mb-5">
                                 <span class="text-[#586B74]">Urakkasopimusluonnos</span>
                                 <span class="text-[#586B74]">Partners at Noste Oy</span>
                                 <span class="text-[#586B74]">
-                                    <input type="text" name="pilar_VA1_6" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" <?php noste_textinput_attrset('noste_VA1_6'); ?> placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </span>
                             </div>
                             <div class="grid lg:grid-cols-3 items-center gap-[20px] mb-5">
@@ -333,16 +329,16 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                             <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_6'); ?>>
                                         </label>
-                                        <input type="text" name="pilar_filed8_6" placeholder="Muu" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_filed8_5_3', $data, ''); ?> placeholder="Muu" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </div>
                                 </span>
                                 <span class="text-[#586B74]">
-                                    <input type="text" name="pilar_M1_2" placeholder="__" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input <?php noste_textinput_attrset('noste_M1_2'); ?> placeholder="__" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </span>
                                 <span class="text-[#586B74]">
-                                    <input type="text" name="pilar_VA1_7" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" <?php noste_textinput_attrset('noste_VA1_7'); ?> placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </span>
                             </div>
 
@@ -355,7 +351,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                 <span class="text-[#586B74]"><span class="flex-1 h-[1px] bg-[#94969C] inline-block w-full"></span></span>
                                 <span class="text-[#586B74]"><span class="flex-1 h-[1px] bg-[#94969C] inline-block w-full"></span></span>
                                 <span class="text-[#586B74]">
-                                    <input type="text" name="pilar_VA1_8" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" <?php noste_textinput_attrset('noste_VA1_8'); ?> placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </span>
                             </div>
                             <div class="grid lg:grid-cols-3 items-center gap-[20px] mb-5">
@@ -365,14 +361,14 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                             <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_7'); ?>>
                                         </label>
                                         <span class="text-[#586B74]">Rakennustapaselostus</span>
                                     </div>
                                 </span>
                                 <span class="text-[#586B74]">Partners at Noste Oy</span>
                                 <span class="text-[#586B74]">
-                                    <input type="text" name="pilar_VA1_9" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" <?php noste_textinput_attrset('noste_VA1_9'); ?> placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </span>
                             </div>
                             <div class="grid lg:grid-cols-3 items-center gap-[20px] mb-5">
@@ -382,16 +378,16 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                             <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_8'); ?>>
                                         </label>
-                                        <input type="text" name="pilar_filed8_6" placeholder="Muu__" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_filed8_5_4', $data, ''); ?> placeholder="Muu__" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </div>
                                 </span>
                                 <span class="text-[#586B74]">
-                                    <input type="text" name="pilar_M1_3" placeholder="__" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input <?php noste_textinput_attrset('noste_M1_3'); ?> placeholder="__" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </span>
                                 <span class="text-[#586B74]">
-                                    <input type="text" name="pilar_VA1_10" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" <?php noste_textinput_attrset('noste_VA1_10'); ?>" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </span>
                             </div>
                             <div class="flex items-center gap-3 mt-10">
@@ -399,7 +395,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_9'); ?>>
                                 </label>
                                 <span class="text-[#586B74]">Lisäksi lisäkirjeillä on toimitettu seuraavat asiakirjat.</span>
                             </div>
@@ -415,13 +411,13 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                         <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K17">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_K17_1'); ?>>
                                         <span class="flex-1 text-[#586B74] text-[14px]">Lisäkirje 1</span>
                                     </label>
                                 </span>
                                 <span class="text-[#586B74]">Partners at Noste Oy</span>
                                 <span class="text-[#586B74]">
-                                    <input type="text" name="pilar_VA1_11" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" <?php noste_textinput_attrset('noste_VA1_11'); ?>" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </span>
                             </div>
                             <div class="grid lg:grid-cols-3 items-center gap-[20px] mb-5">
@@ -430,13 +426,13 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                         <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K17">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_K17_2'); ?>>
                                         <span class="flex-1 text-[#586B74] text-[14px]">Lisäkirje 2</span>
                                     </label>
                                 </span>
                                 <span class="text-[#586B74]">Partners at Noste Oy</span>
                                 <span class="text-[#586B74]">
-                                    <input type="text" name="pilar_VA1_12" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" <?php noste_textinput_attrset('noste_VA1_12'); ?>" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </span>
                             </div>
                             <div class="grid lg:grid-cols-3 items-center gap-[20px] mb-5">
@@ -446,16 +442,16 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                             <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_10'); ?>>
                                         </label>
-                                        <input type="text" name="pilar_filed8_6" placeholder="Muu__" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_filed8_5_5', $data, ''); ?> placeholder="Muu__" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </div>
                                 </span>
                                 <span class="text-[#586B74]">
-                                    <input type="text" name="pilar_M1_4" placeholder="__" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input <?php noste_textinput_attrset('noste_M1_4'); ?> placeholder="__" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </span>
                                 <span class="text-[#586B74]">
-                                    <input type="text" name="pilar_VA1_13" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" <?php noste_textinput_attrset('noste_VA1_13'); ?>" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </span>
                             </div>
                             
@@ -471,16 +467,16 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                             <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_11'); ?>>
                                         </label>
-                                        <input type="text" name="pilar_filed8_6" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_filed8_5_6', $data, ''); ?> placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </div>
                                 </span>
                                 <span class="text-[#586B74]">
-                                    <input type="text" name="pilar_M1_5" placeholder="Vapaa teksti" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input <?php noste_textinput_attrset('noste_M1_5'); ?> placeholder="Vapaa teksti" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[85%] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </span>
                                 <span class="text-[#586B74]">
-                                    <input type="text" name="pilar_VA1_14" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" <?php noste_textinput_attrset('noste_VA1_14'); ?>" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </span>
                             </div>
 
@@ -498,7 +494,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                     Urakoitsija on toimittanut tarjouksensa
                                 </span>
                                 <span class="text-[#586B74]">
-                                    <input type="text" name="pilar_filed8_6_4" placeholder="xx.xx.xxxx." class="w-[150px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" <?php noste_textinput_attrset('noste_filed8_5_7_4_2', $data, ''); ?> placeholder="xx.xx.xxxx." class="w-[150px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </span>
                             </div>
 
@@ -507,7 +503,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_12'); ?>>
                                 </label>
                                 <span class="text-[#586B74]">Ennen tarjouksen toimittamista urakoitsija on tutustunut kohteeseen ja sen olosuhteisiin paikan päällä sekä tutustunut tarjouspyynnön mukana tulleisiin tarjouspyyntöasiakirjoihin.</span>
                             </div>
@@ -523,7 +519,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_13'); ?>>
                                 </label>
                                 <span class="text-[#586B74]">Urakoitsija on laatinut tarjouksen rakennuttajan toimittamalle lomakkeelle ja eritellyt tarjouksensa tarjouspyyntölomakkeen mukaisesti.</span>
                             </div>
@@ -533,7 +529,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_14'); ?>>
                                 </label>
                                 <span class="text-[#586B74]">Urakoitsija on laatinut tarjouksen rakennuttajan toimittamalle lomakkeelle ja eritellyt tarjouksensa tarjouspyyntölomakkeen mukaisesti seuraavin poikkeuksin:</span>
                             </div>
@@ -543,18 +539,18 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_15'); ?>>
                                 </label>
-                                <input type="text" name="pilar_filed8_6" placeholder="Esim. sähköpurkutöitä ja LVIA‐purkutöitä ei ole eritelty sähkötöistä ja LVIA‐töistä.]" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <input type="text" <?php noste_textinput_attrset('noste_filed8_5_8', $data, ''); ?> placeholder="Esim. sähköpurkutöitä ja LVIA‐purkutöitä ei ole eritelty sähkötöistä ja LVIA‐töistä.]" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                             </div>
                             <div class="flex items-center gap-3 ml-[150px] mt-3">
                                 <label class="inline-flex items-center gap-2 cursor-pointer">
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_16'); ?>>
                                 </label>
-                                <input type="text" name="pilar_filed8_6" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <input type="text" <?php noste_textinput_attrset('noste_filed8_5_9', $data, ''); ?> placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                             </div>
 
                             <p class="text-[#586B74] mt-3">Tarjouksen poikkeamat ja mahdolliset erityisehdot:</p>
@@ -564,7 +560,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_17'); ?>>
                                 </label>
                                 <span class="text-[#586B74]">Urakoitsijan tarjoukseen ei liity poikkeamia tai erityisiä ehtoja verrattuna tarjouspyyntöön.</span>
                             </div>
@@ -574,9 +570,9 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_18'); ?>>
                                 </label>
-                                <input type="text" name="pilar_filed8_6" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <input type="text" <?php noste_textinput_attrset('noste_filed8_5_10', $data, ''); ?> placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                             </div>
                             
                             <div class="flex items-center gap-3 mt-5">
@@ -584,9 +580,9 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_19'); ?>>
                                 </label>
-                                <input type="text" name="pilar_filed8_6" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <input type="text" <?php noste_textinput_attrset('noste_filed8_5_11', $data, ''); ?> placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 
                                 <div class="help_wrap relative mb-2 mr-[-30px]">
                                     <a href="#!" class="help_click"><svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="0.72"></circle> <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path> <circle cx="12" cy="16" r="1" fill="#000000"></circle> </g></svg> </a>                                      
@@ -638,9 +634,9 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_20'); ?>>
                                 </label>
-                                <input type="text" name="pilar_filed8_6" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <input type="text" <?php noste_textinput_attrset('noste_filed8_5_12', $data, ''); ?> placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                             </div>
                         </div>
 
@@ -654,18 +650,18 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_21'); ?>>
                                 </label>
-                                <input type="text" name="pilar_filed8_6" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <input type="text" <?php noste_textinput_attrset('noste_filed8_5_13', $data, ''); ?> placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                             </div>
                             <div class="flex items-center gap-3 mt-5">
                                 <label class="inline-flex items-center gap-2 cursor-pointer">
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_22'); ?>>
                                 </label>
-                                <input type="text" name="pilar_filed8_6" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <input type="text" <?php noste_textinput_attrset('noste_filed8_5_14', $data, ''); ?> placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                             </div>
                         </div>
 
@@ -680,7 +676,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_23'); ?>>
                                 </label>
                                 <span class="text-[#586B74]">Option mukainen työ ei sisälly kiinteään kokonaishintaan, vaan optio on tarjottu erillisenä työnä. Optiohinta on ilmoitettu työsuorituksen tekemisestä täysin valmiiseen tasoon kaikki liittyvät työt huomioituna.</span>
                             </div>
@@ -691,15 +687,15 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                         <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_24'); ?>>
                                         
                                         <span class="text-[#283B44] font-medium">OPTIO</span>
                                     </label>
                                 </div>
 
-                                <input type="text" name="pilar_M1_6" placeholder="nro." class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[70px] border border-solid border-[#06F9B7] rounded-[5px] p-2">
-                                <input type="text" name="pilar_M1_7" placeholder="Aihe" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[100px] border border-solid border-[#06F9B7] rounded-[5px] p-2">
-                                <input type="text" name="pilar_M1_8" placeholder="tarjous" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[120px] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <input <?php noste_textinput_attrset('noste_M1_6'); ?> placeholder="nro." class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[70px] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <input <?php noste_textinput_attrset('noste_M1_7'); ?> placeholder="Aihe" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[100px] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <input <?php noste_textinput_attrset('noste_M1_8'); ?> placeholder="tarjous" class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] w-[100%] lg:w-[120px] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                             </div>
 
                             <div class="flex items-center gap-3 mt-5 ml-[150px]">
@@ -707,9 +703,9 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_25'); ?>>
                                 </label>
-                                <input type="text" name="pilar_filed8_6" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <input type="text" <?php noste_textinput_attrset('noste_filed8_5_15', $data, ''); ?> placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 
                                 <div class="help_wrap relative mb-2 mr-[-30px]">
                                     <a href="#!" class="help_click"><svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="0.72"></circle> <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path> <circle cx="12" cy="16" r="1" fill="#000000"></circle> </g></svg> </a>                                      
@@ -726,7 +722,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_26'); ?>>
                                     
                                     <span class="text-[#586B74]">Urakkasuoritukseen ei liity optiotöitä.</span>
                                 </label>
@@ -751,12 +747,12 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                         <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_27'); ?>>
                                         
                                         <span class="text-[#586B74]">TATE-työnjohtajat</span>
                                     </label>
 
-                                    <input type="text" name="pilar_filed8_6" placeholder="Vapaa teksti" class="flex-1 w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" <?php noste_textinput_attrset('noste_filed8_5_16', $data, ''); ?> placeholder="Vapaa teksti" class="flex-1 w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </div>
                             </div>
                             <div class="flex items-center gap-3 mt-5">
@@ -764,9 +760,9 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_28'); ?>>
                                 </label>
-                                <input type="text" name="pilar_filed8_6" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <input type="text" <?php noste_textinput_attrset('noste_filed8_5_17', $data, ''); ?> placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                             </div>
                         </div>
 
@@ -795,7 +791,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                         <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18_7">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_K18_7'); ?>>
                                         <span class="flex-1 text-[#586B74] text-[14px]">välittömästi tilauksesta.</span>
                                     </label>
                                     ]
@@ -806,13 +802,13 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                         <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18_8">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_K18_8'); ?>>
                                         <span class="flex-1 text-[#586B74] text-[14px]">erikseen sovittavan mukaan. Arviolta xx.xx.xxxx</span>
                                     </label>
                                     ]
                                 </span>
                                 <span class="text-[#586B74] text-[15px]">Koko urakka on oltava täysin valmis ja vastaanotettavissa</span>
-                                <input type="text" name="pilar_VA1_15" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <input type="text" <?php noste_textinput_attrset('noste_VA1_15'); ?>" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                             </div>
 
                             <div class="flex items-center gap-3 mt-5">
@@ -820,9 +816,9 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_29'); ?>>
                                 </label>
-                                <input type="text" name="pilar_filed8_6" placeholder="Kirjaus poikkeamista aikatauluun, esimerkiksi vaiheistus" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <input type="text" <?php noste_textinput_attrset('noste_filed8_5_18', $data, ''); ?> placeholder="Kirjaus poikkeamista aikatauluun, esimerkiksi vaiheistus" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                             </div>
 
                             <div class="flex flex-col flex-wrap lg:flex-row lg:items-center gap-2 mt-5">
@@ -833,11 +829,11 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                         <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18_9">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_K18_9'); ?>>
                                         <span class="flex-1 text-[#586B74] text-[14px]">Aikataulua laatiessa urakoitsijan on huomioitava</span>
                                     </label>
                                 </span>
-                                <input type="text" name="pilar_VA1_16" placeholder="erityisehto, kuten vaiheistus" class="w-full lg:w-[220px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <input type="text" <?php noste_textinput_attrset('noste_VA1_16'); ?>" placeholder="erityisehto, kuten vaiheistus" class="w-full lg:w-[220px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                             </div>
                         </div>
 
@@ -850,9 +846,9 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                             <div class="flex items-start my-5">
                                 <div class="flex flex-col flex-wrap lg:flex-row lg:items-center gap-2">
                                     <span class="text-[#586B74] text-[15px]">Työt toteutetaan</span>
-                                    <input type="text" name="pilar_VA1_17" placeholder="vapaa teksti" class="w-full lg:w-[110px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" <?php noste_textinput_attrset('noste_VA1_17'); ?>" placeholder="vapaa teksti" class="w-full lg:w-[110px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     <span class="text-[#586B74] text-[15px]">Kohdetta ympäröivät tilat ovat</span>
-                                    <input type="text" name="pilar_VA1_18" placeholder="käytössä/tyhjänä" class="w-full lg:w-[130px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" <?php noste_textinput_attrset('noste_VA1_18'); ?>" placeholder="käytössä/tyhjänä" class="w-full lg:w-[130px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     <span class="text-[#586B74] text-[15px]">Urakoitsijan tulee huomioida</span>
                                     <span class="text-[#586B74] text-[15px]">työalueen sijainnista aiheutuvat haitat työjärjestelyjensä suunnittelussa. Kiinteistön ja ympäristön käyttäjien turvallisuudesta, toimintaedellytyksistä ja häiriöttömyydestä tulee huolehtia kaikkien työvaiheiden aikana. Urakoitsijan on huomioitava, että rakennustyöt tapahtuvat toimivassa kiinteistössä.</span>
                                 </div>
@@ -880,7 +876,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                         <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18_10">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_K18_10'); ?>">
                                         <span class="flex-1 text-[#586B74] text-[14px]">Vapaa teksti</span>
                                     </label>
                                     ]
@@ -902,7 +898,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                             <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18_11">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_K18_11'); ?>">
                                             <span class="flex-1 text-[#586B74] text-[14px]">kiinteistön yleisistä tiloista erikseen sovittavia</span>
                                         </label>
                                         ]
@@ -913,7 +909,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                             <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18_12">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_K18_12'); ?>">
                                             <span class="flex-1 text-[#586B74] text-[14px]">tilamuutosalueen</span>
                                         </label>
                                         ]
@@ -934,7 +930,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                         <span class="mb-[-3px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18_13">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_K18_13'); ?>">
                                         <span class="flex-1 text-[#586B74] text-[14px]">osoittaa urakoitsijan käyttöön suihkutilat.</span>
                                     </label>
                                     ]
@@ -944,7 +940,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                         <span class="mb-[-3px] shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18_14">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_K18_14'); ?>">
                                         <span class="flex-1 text-[#586B74] text-[14px]">ei osoita kiinteistön suihkutiloista urakoitsijalle rajattua tilaa, vaan urakoitsija vastaa itse työntekijöidensä peseytymismahdollisuuksien järjestämisestä.</span>
                                     </label>
                                     ]
@@ -960,7 +956,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                             
                             <div class="flex flex-col flex-wrap lg:flex-row lg:items-center gap-2">
                                 <span class="text-[#586B74] text-[15px]">Rakennuttaja on laatinut kohteesta rakennuttajan turvallisuusasiakirjan ( </span>
-                                <input type="text" name="pilar_VA1_19" placeholder="xx.xx.xxxx" class="w-full lg:w-[110px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <input type="text" <?php noste_textinput_attrset('noste_VA1_19'); ?>" placeholder="xx.xx.xxxx" class="w-full lg:w-[110px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 <span class="text-[#586B74] text-[15px]">), joka on ollut tarjouspyynnön liitteenä. </span>
                             </div>
                             <p class="text-[#586B74] text-[15px]"><span class="inline-block mr-10">-</span> Todettiin, että urakoitsija on ottanut tarjouksessaan huomioon turvallisuusasiakirjassa mainitut seikat ja toimenpiteet. </p>
@@ -979,7 +975,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                     <span class="mb-[-3px] mr-2 shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18_15">
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_K18_15'); ?>">
                                     <span class="flex-1 text-[#586B74] text-[14px]"> Kiinteistössä on toiminnassa oleva paloilmoitinjärjestelmä, joka on pidettävä toiminnassa koko työmaan ajan. Mikäli urakoitsijalla on tarvetta paloilmaisimien irtikytkennöille, urakoitsija vastaa irtikytkennästä ja sen kustannuksista sekä väliaikaisen palovartioinnin järjestämisestä irtikytkennän ajaksi. </span>
                                     ]
                                 </label>
@@ -992,7 +988,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                     <span class="mb-[-3px] mr-2 shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18_16">
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_K18_16'); ?>">
                                     <span class="flex-1 text-[#586B74] text-[14px]"> Kiinteistössä on toiminnassa oleva automaattinen sammutusjärjestelmä, joka on pidettävä toiminnassa koko työmaan ajan. Mikäli urakoitsijalla on tarvetta sammutusjärjestelmän sulkemiselle, urakoitsija vastaa sulkemisesta ja sen kustannuksista sekä väliaikaisen palovartioinnin järjestämisestä katkoksen ajaksi.</span>
                                     ]
                                 </label>
@@ -1008,10 +1004,10 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                         <span class="mb-[-3px] mr-2 shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18_17">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_K18_17'); ?>">
                                         <span class="flex-1 text-[#586B74] text-[14px]">Erityisesti huomioitavaa</span>
                                     </label>
-                                    <input type="text" name="pilar_VA1_20" placeholder="työvaihetta" class="w-full lg:w-[130px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" <?php noste_textinput_attrset('noste_VA1_20'); ?>" placeholder="työvaihetta" class="w-full lg:w-[130px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     <span class="text-[#586B74] text-[15px]">tehdessä</span>
                                     ]
                                 </div>
@@ -1028,9 +1024,9 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_30'); ?>>
                                 </label>
-                                <input type="text" name="pilar_filed8_6" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <input type="text" <?php noste_textinput_attrset('noste_filed8_5_19', $data, ''); ?> placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                             </div>
                         </div>
 
@@ -1046,7 +1042,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_31'); ?>>
                                     
                                     <span class="text-[#586B74]">Ei rakennuttajan erillishankintoja.</span>
                                 </label>
@@ -1067,16 +1063,16 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_32'); ?>>
                                 </label>
-                                <input type="text" name="pilar_filed8_6" placeholder="Erillishankinta ja toimittaja" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <input type="text" <?php noste_textinput_attrset('noste_filed8_5_20', $data, ''); ?> placeholder="Erillishankinta ja toimittaja" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                             </div>
                             <div class="flex items-center gap-3 mt-3">
                                 <label class="inline-flex items-center gap-2 cursor-pointer">
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_33'); ?>>
                                 </label>
                                 <span class="text-[#586B74]">Kiinteistössä on yhtä aikaa käynnissä myös muita tilamuutosurakoita.</span>
                             </div>
@@ -1100,9 +1096,9 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_34'); ?>>
                                     
-                                    <input type="text" name="pilar_VA1_21" placeholder="vapaa teksti" class="w-full lg:w-[110px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" <?php noste_textinput_attrset('noste_VA1_21'); ?>" placeholder="vapaa teksti" class="w-full lg:w-[110px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </label>
 
                                 <a href="#!" class="help_click"><svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="12" r="10" stroke="#000000" stroke-width="0.72"></circle> <path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13" stroke="#000000" stroke-width="0.72" stroke-linecap="round"></path> <circle cx="12" cy="16" r="1" fill="#000000"></circle> </g></svg> </a>                                      
@@ -1124,7 +1120,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                 <span class="inline-block mr-10">-</span>  
                                 <div class="flex items-center gap-2">
                                     <span class="text-[#586B74] text-[15px]">Urakoitsija on toimittanut Luotettava Kumppani -raportin</span>
-                                    <input type="text" name="pilar_VA1_22" placeholder="xx.xx.xxxx" class="w-full lg:w-[130px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" <?php noste_textinput_attrset('noste_VA1_22'); ?>" placeholder="xx.xx.xxxx" class="w-full lg:w-[130px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </div>
                             </div> 
                             <div class="text-[#586B74] text-[15px] flex items-center gap-[5px]">
@@ -1134,9 +1130,9 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                     <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_35'); ?>>
                                     
-                                    <input type="text" name="pilar_VA1_23" placeholder="vapaa teksti" class="w-full lg:w-[110px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                    <input type="text" <?php noste_textinput_attrset('noste_VA1_23'); ?>" placeholder="vapaa teksti" class="w-full lg:w-[110px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                 </label>
                             </div>
                             <p class="text-[#586B74] text-[15px] ml-[50px]">o Pääurakoitsija vastaa myös käytettävien aliurakoitsijoiden tilaaja vastuu -lain mukaisten selvitysten tarkastamisesta ja ilmoittamisesta rakennuttajakonsultille.</p>
@@ -1152,7 +1148,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                             <span class="mb-[-3px] mr-2 shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18_18">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_K18_18'); ?>">
                                             <span class="flex-1 text-[#586B74] text-[14px]">on toimittanut ehdotuksensa</span>
                                         </label>
                                         ]
@@ -1163,7 +1159,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                             <span class="mb-[-3px] mr-2 shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18_19">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_K18_19'); ?>">
                                             <span class="flex-1 text-[#586B74] text-[14px]">ei ole toimittanut ehdotustaan</span>
                                         </label>
                                         ] maksuerätaulukosta tarjouksen liitteenä.
@@ -1181,9 +1177,9 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                             <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_36'); ?>>
                                             
-                                            <input type="text" name="pilar_VA1_24" placeholder="vapaa teksti" class="w-full lg:w-[110px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                            <input type="text" <?php noste_textinput_attrset('noste_VA1_24'); ?>" placeholder="vapaa teksti" class="w-full lg:w-[110px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                         </label>
                                     </div>
                                 </div>
@@ -1219,7 +1215,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                             <span class="mb-[-3px] mr-2 shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                                 <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                             </span>
-                                            <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18_20">
+                                            <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_K18_20'); ?>">
                                             <span class="flex-1 text-[#586B74] text-[14px]">Viivästyssakko tarjouspyyntöaineiston mukaisesti.</span>
                                         </label>
                                         ]
@@ -1234,9 +1230,9 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                         <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_TY1">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_TY_37'); ?>>
                                         
-                                        <input type="text" name="pilar_VA1_25" placeholder="vapaa teksti" class="w-full lg:w-[110px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_VA1_25'); ?>" placeholder="vapaa teksti" class="w-full lg:w-[110px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </label>
                                 </div>
                             </div>
@@ -1249,7 +1245,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                             </h3>
 
                             <p class="text-[#586B74] text-[14px] leading-7 mt-3 mb-2">Pääurakoitsija suorittaa urakan luovutusvaiheessa urakkasopimusasiakirjojen mukaiset tarkastukset ja laatii sekä toimittaa urakkasopimusluonnoksen kohdan 7 "laadun varmistus" mukaiset luovutusdokumentit. Aineisto luovutetaan sähköisesti.</p>
-                            <input type="text" name="pilar_filed8_6" placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                            <input type="text" <?php noste_textinput_attrset('noste_filed8_5_21', $data, ''); ?> placeholder="Vapaa teksti" class="w-full shadow-[0_0_5px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] rounded-[5px] p-2">
                         </div>
 
                         <div class="max-w-[700px] mx-auto mt-10">
@@ -1263,10 +1259,10 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                 <span class="mb-[-3px] mr-2 shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                     <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                 </span>
-                                <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18_21">
+                                <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_K18_21'); ?>">
                                 <span class="flex-1 text-[#586B74] text-[14px]"> Ei tarvetta tarjouksen päivittämiselle. Rakennuttaja ilmoittaa urakoitsijavalinnasta mahdollisimman pian.</span>
                                 ]
-                            </label>  
+                            </label>
 
                             <div class="flex-wrap gap-2 text-[#586B74] flex items-center">
                                 [
@@ -1274,17 +1270,17 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                     <span class="mb-[-3px] mr-2 shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18_22">
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_K18_22'); ?>">
                                     <span class="text-[#586B74] text-[14px]"> Urakoitsija tarkistaa </span>
                                 </label>
                                 
                                 <div class="flex flex-col lg:flex-row lg:items-center gap-2">
                                     <span class="">
-                                        <input type="text" name="pilar_VA1_26" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_VA1_26'); ?>" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                     <span class="text-[#586B74] text-[15px]">klo</span>
                                     <span class="">
-                                        <input type="text" name="pilar_VA1_27" placeholder="XX.XX.XXXX" class="w-full lg:w-[68px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_VA1_27'); ?>" placeholder="XX.XX.XXXX" class="w-full lg:w-[68px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                 </div>
                                 <span class="text-[#586B74] text-[14px]">mennessä tarjouksensa tämän neuvottelun perusteella. Rakennuttaja ilmoittaa urakoitsijavalinnasta mahdollisimman pian päivitetyn tarjouksen jättämisen jälkeen. ]</span>
@@ -1297,13 +1293,13 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                     <span class="mb-[-3px] mr-2 shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                         <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                     </span>
-                                    <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18_23">
+                                    <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_K18_23'); ?>">
                                     <span class="text-[#586B74] text-[14px]"> (Jälkikirjaus: Urakoitsija on tämän selonottoneuvottelun seurauksena päivittänyt tarjoustaan </span>
                                 </label>
                                 
                                 <div class="flex flex-col lg:flex-row lg:items-center gap-2">
                                     <span class="">
-                                        <input type="text" name="pilar_VA1_28" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                        <input type="text" <?php noste_textinput_attrset('noste_VA1_28'); ?>" placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                                     </span>
                                 </div>
                                 <span class="text-[#586B74] text-[14px]">ja kiinteä kokonaishinta tässä asiakirjassa ja tarjouspyyntöaineistossa määritetyille töille on <span class="shadow-[0_0_5px_2px_rgb(81,244,200,44%)] text-[#06F9B7] border border-solid border-[#06F9B7] rounded-[5px] p-2"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_UH1', true ), 'UH1') ); ?></span> (alv. 0%)]</span>
@@ -1319,7 +1315,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
 
                             <div class="flex items-center gap-2 mt-5">
                                 <span class="text-[#586B74] text-[15px]">Puheenjohtaja päätti kokouksen klo</span>
-                                <input type="text" name="pilar_VA1_29" placeholder="xx.xx" class="w-full lg:w-[60px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
+                                <input type="text" <?php noste_textinput_attrset('noste_VA1_29'); ?>" placeholder="xx.xx" class="w-full lg:w-[60px] shadow-[0_0_5px_2px_rgb(81,244,200,44%)]  border border-solid border-[#06F9B7] rounded-[5px] p-2">
                             </div>
                             <p class="text-[#586B74] text-[15px]">Pöytäkirjan vakuudeksi</p>
                             <div>
@@ -1329,7 +1325,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                         <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18_24">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_K18_24'); ?>">
                                         <span class="flex-1 text-[#586B74] text-[14px]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P1', true ), 'P1') ); ?></span>
                                     </label>
                                     ]
@@ -1340,7 +1336,7 @@ $data['noste_check'] = isset($data['noste_check'])?array_values((array) $data['n
                                         <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] border border-solid border-[#06F9B7] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                         </span>
-                                        <input type="checkbox" class="checkbox_change absolute opacity-0" name="pilar_K18_25">
+                                        <input type="checkbox" class="checkbox_change absolute opacity-0" <?php noste_checkbox_attrset('noste_K18_25'); ?>">
                                         <span class="flex-1 text-[#586B74] text-[14px]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></span>
                                     </label>
                                     ]

@@ -1,8 +1,6 @@
 <?php 
 
-if ( !is_singular( 'projektitiedot' ) ) {
-   return;
-}
+if (!is_singular('projektitiedot')) {return;}
 
 // global $globalSFormData;
 $project_id = get_the_ID();

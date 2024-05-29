@@ -7,7 +7,7 @@
 
     <div class="mb-[30px]">
         <h1 class="text-black text-[25px] font-medium mb-4">Tarjouspyyntökirje</h1>
-        <p type="text" {{ helpers.noste_textinput_attrset('pilar_VA_1') }} placeholder="XX.XX.XXXX" class="min-w-full  lg:min-w-[209px] rounded-[5px] p-2">{{ pilar_VA_1 }}</p>
+        <p type="text" {{ helpers.noste_textinput_attrset('noste_VA_1') }} placeholder="XX.XX.XXXX" class="min-w-full  lg:min-w-[209px] rounded-[5px] p-2">{{ noste_VA_1 }}</p>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-[20px] mb-5">
@@ -84,7 +84,7 @@
     <div>
         <div class="flex flex-col lg:flex-row lg:items-center gap-3">
             <span class="text-[#586B74] text-[15px]">Pyydämme tarjoustanne osoitteessa <span class="text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K2', true ), 'K2') ); ?></span>, <span class="text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_K3', true ), 'K3') ); ?></span> sijaitsevan</span>
-            <p type="text" {{ helpers.noste_textinput_attrset('pilar_filed8_6_4') }} class="flex-1 w-full rounded-[5px] p-2">{{ pilar_filed8_6_4 }}</p>
+            <p type="text" {{ helpers.noste_textinput_attrset('noste_filed8_6_4') }} class="flex-1 w-full rounded-[5px] p-2">{{ noste_filed8_6_4 }}</p>
         </div>
         <p class="text-[#586B74] text-[14px] mt-2">Urakkaan kuuluvat YSE 1§:n mukaisesti kaikki sopimusasiakirjoissa urakoitsijalle määritellyt rakennustekniset sekä LVIAS-tekniset työt materiaaleineen, laitteineen ja hankintoineen sekä toimenpiteet, jotka tarvitaan kohteen saattamiseksi täysin valmiiksi.</p>
     </div>
@@ -102,7 +102,7 @@
                 <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                     <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                 </span>
-                <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_textinput_attrset('pilar_K18_1') }}>
+                <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_textinput_attrset('noste_K18_1') }}>
                 <span class="flex-1 text-[#586B74] text-[14px]">välittömästi tilauksesta</span>
             </label>
             ]
@@ -113,13 +113,13 @@
                 <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                     <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                 </span>
-                <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_textinput_attrset('pilar_K18_2') }}>
+                <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_textinput_attrset('noste_K18_2') }}>
                 <span class="flex-1 text-[#586B74] text-[14px]">aikaisintaan</span>
             </label>
             ]
         </span>
         <span>
-            <p type="text" {{ helpers.noste_textinput_attrset('pilar_VA_2') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] rounded-[5px] p-2">{{ pilar_VA_2 }}</p>
+            <p type="text" {{ helpers.noste_textinput_attrset('noste_VA_2') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] rounded-[5px] p-2">{{ noste_VA_2 }}</p>
         </span>
         <span class="flex-1 h-[1px] bg-[#94969C] inline-block self-end"></span>
         <div class="help_wrap relative mb-2">
@@ -159,11 +159,11 @@
     <div class="flex flex-col lg:flex-row lg:items-center gap-2 mt-10">
         <span class="text-[#586B74] text-[15px]">Tarjous pyydetään toimittamaan</span>
         <span class="">
-            <p type="text" {{ helpers.noste_textinput_attrset('pilar_VA_3') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px]  rounded-[5px] p-2">{{ pilar_VA_3 }}</p>
+            <p type="text" {{ helpers.noste_textinput_attrset('noste_VA_3') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px]  rounded-[5px] p-2">{{ noste_VA_3 }}</p>
         </span>
         <span class="flex-1 text-[#586B74] text-[15px]">klo</span>
         <span class="">
-            <p type="text" {{ helpers.noste_textinput_attrset('pilar_VA_4') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[68px] rounded-[5px] p-2">{{ pilar_VA_4 }}</p>
+            <p type="text" {{ helpers.noste_textinput_attrset('noste_VA_4') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[68px] rounded-[5px] p-2">{{ noste_VA_4 }}</p>
         </span>
         <span class="text-[#586B74] text-[15px]">mennessä sähköpostitse osoitteeseen</span>
         <span class="text-[#586B74] text-[15px] inline-flex gap-1">
@@ -172,7 +172,7 @@
                 <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                     <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                 </span>
-                <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_textinput_attrset('pilar_K18_3') }}>
+                <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_textinput_attrset('noste_K18_3') }}>
                 <span class="flex-1 text-[#586B74] text-[14px]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P3', true ), 'P3') ); ?></span>
             </label>
             ]
@@ -183,7 +183,7 @@
                 <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                     <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                 </span>
-                <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_textinput_attrset('pilar_K18_4') }}>
+                <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_textinput_attrset('noste_K18_4') }}>
                 <span class="flex-1 text-[#586B74] text-[14px]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P6', true ), 'P6') ); ?></span>
             </label>
             ]
@@ -199,7 +199,7 @@
                 <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                     <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                 </span>
-                <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_textinput_attrset('pilar_K18_5') }}>
+                <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_textinput_attrset('noste_K18_5') }}>
                 <span class="flex-1 text-[#586B74] text-[14px]">Projektipäällikkö <span class="italic text-[#00B2A9]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P1', true ), 'P1') ); ?></span></span>
             </label>
             ]
@@ -210,7 +210,7 @@
                 <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[16px] h-[16px] rounded-[4px] inline-flex items-center justify-center">
                     <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                 </span>
-                <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_textinput_attrset('pilar_K18_6') }}>
+                <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_textinput_attrset('noste_K18_6') }}>
                 <span class="flex-1 text-[#586B74] text-[14px]">Projektijohtamisen asiantuntija <span class="italic text-[#FE3B2D]"><?php echo esc_html( noste_check_empty(get_post_meta( $project_id, 'pilar_P4', true ), 'P4') ); ?></span></span>
             </label>
             ]
@@ -229,28 +229,28 @@
             <span class="text-[#586B74]">Tarjouspyyntökirje</span>
             <span class="text-[#586B74]">Partners at Noste Oy</span>
             <span class="text-[#586B74]">
-                <p type="text" {{ helpers.noste_textinput_attrset('pilar_VA_5') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] rounded-[5px] p-2">{{ pilar_VA_5 }}</p>
+                <p type="text" {{ helpers.noste_textinput_attrset('noste_VA_5') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] rounded-[5px] p-2">{{ noste_VA_5 }}</p>
             </span>
         </div>
         <div class="grid lg:grid-cols-3 items-center gap-[20px] mb-5">
             <span class="text-[#586B74]">Tarjouspyyntölomake</span>
             <span class="text-[#586B74]">Partners at Noste Oy</span>
             <span class="text-[#586B74]">
-                <p type="text" {{ helpers.noste_textinput_attrset('pilar_VA_6') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] rounded-[5px] p-2">{{ pilar_VA_6 }}</p>
+                <p type="text" {{ helpers.noste_textinput_attrset('noste_VA_6') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px] rounded-[5px] p-2">{{ noste_VA_6 }}</p>
             </span>
         </div>
         <div class="grid lg:grid-cols-3 items-center gap-[20px] mb-5">
             <span class="text-[#586B74]">Turvallisuusasiakirja</span>
             <span class="text-[#586B74]">Partners at Noste Oy</span>
             <span class="text-[#586B74]">
-                <p type="text" {{ helpers.noste_textinput_attrset('pilar_VA_7') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px]  rounded-[5px] p-2">{{ pilar_VA_7 }}</p>
+                <p type="text" {{ helpers.noste_textinput_attrset('noste_VA_7') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px]  rounded-[5px] p-2">{{ noste_VA_7 }}</p>
             </span>
         </div>
         <div class="grid lg:grid-cols-3 items-center gap-[20px] mb-5">
             <span class="text-[#586B74]">Urakkasopimusluonnos</span>
             <span class="text-[#586B74]">Partners at Noste Oy</span>
             <span class="text-[#586B74]">
-                <p type="text" {{ helpers.noste_textinput_attrset('pilar_VA_8') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px]  rounded-[5px] p-2">{{ pilar_VA_8 }}</p>
+                <p type="text" {{ helpers.noste_textinput_attrset('noste_VA_8') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px]  rounded-[5px] p-2">{{ noste_VA_8 }}</p>
             </span>
         </div>
         <div class="grid lg:grid-cols-3 items-center gap-[20px] mb-5">
@@ -260,16 +260,16 @@
                         <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                         </span>
-                        <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_textinput_attrset('pilar_TY_1') }}>
+                        <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_textinput_attrset('noste_TY_1') }}>
                     </label>
-                    <p type="text" {{ helpers.noste_textinput_attrset('pilar_filed8_6_1') }} placeholder="Muu" class="w-full rounded-[5px] p-2">{{ pilar_filed8_6_1 }}</p>
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_filed8_6_1') }} placeholder="Muu" class="w-full rounded-[5px] p-2">{{ noste_filed8_6_1 }}</p>
                 </div>
             </span>
             <span class="text-[#586B74]">
-                <p type="text" {{ helpers.noste_textinput_attrset('pilar_M_1') }} class="w-[100%] lg:w-[85%] rounded-[5px] p-2">{{ pilar_M_1 }}</p>
+                <p type="text" {{ helpers.noste_textinput_attrset('noste_M_1') }} class="w-[100%] lg:w-[85%] rounded-[5px] p-2">{{ noste_M_1 }}</p>
             </span>
             <span class="text-[#586B74]">
-                <p type="text" {{ helpers.noste_textinput_attrset('pilar_VA_9') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px]  rounded-[5px] p-2">{{ pilar_VA_9 }}</p>
+                <p type="text" {{ helpers.noste_textinput_attrset('noste_VA_9') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px]  rounded-[5px] p-2">{{ noste_VA_9 }}</p>
             </span>
         </div>
     </div>
@@ -284,7 +284,7 @@
             <span class="text-[#586B74]"><span class="flex-1 h-[1px] bg-[#94969C] inline-block w-full"></span></span>
             <span class="text-[#586B74]"><span class="flex-1 h-[1px] bg-[#94969C] inline-block w-full"></span></span>
             <span class="text-[#586B74]">
-                <p type="text" {{ helpers.noste_textinput_attrset('pilar_VA_10') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px]  rounded-[5px] p-2">{{ pilar_VA_10 }}</p>
+                <p type="text" {{ helpers.noste_textinput_attrset('noste_VA_10') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px]  rounded-[5px] p-2">{{ noste_VA_10 }}</p>
             </span>
         </div>
         <div class="grid lg:grid-cols-3 items-center gap-[20px] mb-5">
@@ -294,14 +294,14 @@
                         <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                         </span>
-                        <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_textinput_attrset('pilar_TY_2') }}>
+                        <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_textinput_attrset('noste_TY_2') }}>
                     </label>
                     <span class="text-[#586B74]">Rakennustapaselostus</span>
                 </div>
             </span>
             <span class="text-[#586B74]">Partners at Noste Oy</span>
             <span class="text-[#586B74]">
-                <p type="text" {{ helpers.noste_textinput_attrset('pilar_VA_11') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px]  rounded-[5px] p-2">{{ pilar_VA_11 }}</p>
+                <p type="text" {{ helpers.noste_textinput_attrset('noste_VA_11') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px]  rounded-[5px] p-2">{{ noste_VA_11 }}</p>
             </span>
         </div>
         <div class="grid lg:grid-cols-3 items-center gap-[20px] mb-5">
@@ -311,16 +311,16 @@
                         <span class="shadow-[0_0_4px_2px_rgb(81,244,200,44%)] w-[18px] h-[18px] rounded-[4px] inline-flex items-center justify-center">
                             <svg class="check_show hidden" width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                         </span>
-                        <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_textinput_attrset('pilar_TY_3') }}>
+                        <input type="checkbox" class="checkbox_change absolute opacity-0" {{ helpers.noste_textinput_attrset('noste_TY_3') }}>
                     </label>
-                    <p type="text" {{ helpers.noste_textinput_attrset('pilar_filed8_6_2') }} placeholder="Muu" class="w-full rounded-[5px] p-2">{{ pilar_filed8_6_2 }}</p>
+                    <p type="text" {{ helpers.noste_textinput_attrset('noste_filed8_6_2') }} placeholder="Muu" class="w-full rounded-[5px] p-2">{{ noste_filed8_6_2 }}</p>
                 </div>
             </span>
             <span class="text-[#586B74]">
-                <p type="text" {{ helpers.noste_textinput_attrset('pilar_M_2') }} class="w-[100%] lg:w-[85%] rounded-[5px] p-2">{{ pilar_M_2 }}</p>
+                <p type="text" {{ helpers.noste_textinput_attrset('noste_M_2') }} class="w-[100%] lg:w-[85%] rounded-[5px] p-2">{{ noste_M_2 }}</p>
             </span>
             <span class="text-[#586B74]">
-                <p type="text" {{ helpers.noste_textinput_attrset('pilar_VA_12') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px]  rounded-[5px] p-2">{{ pilar_VA_12 }}</p>
+                <p type="text" {{ helpers.noste_textinput_attrset('noste_VA_12') }} placeholder="XX.XX.XXXX" class="w-full lg:w-[119px]  rounded-[5px] p-2">{{ noste_VA_12 }}</p>
             </span>
         </div>
     </div>
